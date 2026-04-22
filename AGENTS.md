@@ -68,10 +68,10 @@ Frontend typical checks:
 
 ```bash
 cd frontend
-npm run type-check
-npm run build
-npm run lint
-npm test
+bun run type-check
+bun run build
+bun run lint
+bun test
 ```
 
 ## Scope Guardrails
