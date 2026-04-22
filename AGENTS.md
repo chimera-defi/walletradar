@@ -41,6 +41,16 @@ Curated from root-level guidance in the former monorepo (`.cursorrules`, `AGENTS
 - Release cadence is a stability signal (very high churn can be a risk for dev workflows).
 - Distinguish clearly: open-source vs source-available vs proprietary.
 
+## Product Knowledge Location
+
+- Keep agent behavior rules in `AGENTS.md`; keep product data/methodology in domain docs.
+- Canonical product/scoring docs:
+  - `SOFTWARE_WALLETS.md`
+  - `HARDWARE_WALLETS.md`
+  - `CRYPTO_CARDS.md`
+  - `RAMPS.md`
+  - `CONTRIBUTING.md` (scoring implementation + update workflow)
+
 ## Documentation Rules
 
 - Keep one clear source of truth per comparison type.
