@@ -25,7 +25,7 @@ Both score **73/100** on Wallet Radar.
 | **Coinbase Wallet** | 73 | Coinbase ecosystem + AA |
 | **MetaMask** | 73 | Compatibility + dApp coverage |
 
-Source: `wallets/SOFTWARE_WALLETS.md`
+Source: `SOFTWARE_WALLETS.md`
 
 ---
 

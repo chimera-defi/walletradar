@@ -15,7 +15,7 @@ tags: ["guide", "defi", "wallets"]
 - **Best for treasuries/DAOs:** **Safe (63)** — multisig control  
 - **Best for compatibility:** **MetaMask (73)** — widest dApp coverage  
 
-Sources: `wallets/SOFTWARE_WALLETS.md`, `wallets/SOFTWARE_WALLETS_DETAILS.md`
+Sources: `SOFTWARE_WALLETS.md`, `SOFTWARE_WALLETS_DETAILS.md`
 
 ---
 

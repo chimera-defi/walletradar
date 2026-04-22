@@ -50,7 +50,7 @@
 | ~~[**Kontigo**](https://kontigo.com)~~ | 51 | Debit | 🔐 Self | ⚠️ | 🌍 Global | 10% BTC | $0 | 0% | BTC | ❌ | ~~Crypto neobank~~ | 🔴 |
 | [**Nummus Wallet Card**](https://nummuswallet.com/) (@NummusWallet) | 44 | Debit | 📋 CeFi | ✅ | 🌍 Global | TBD | TBD | TBD | None | ⚠️ | Fiat + crypto banking stack (verify terms) | 🔴 |
 
-> **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `wallets/scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. The table no longer relies on hand-tuned score adjustments.
+> **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. The table no longer relies on hand-tuned score adjustments.
 
 ## Pros & Cons (Top Picks)
 
@@ -113,7 +113,7 @@
 **Methodology Update (April 2026):**
 - Scores are generated directly from the table columns, not from manual bonus / penalty overrides.
 - Status, custody model, region coverage, rewards, annual fee, and FX fee now drive the score mechanically.
-- If you want to change a score, update the data columns and rerun `wallets/scripts/sync_table_scores.js --write`.
+- If you want to change a score, update the data columns and rerun `scripts/sync_table_scores.js --write`.
 
 **Key Corrections (February 2026):**
 - **Gnosis Pay**: Region expanded from EU/UK to **🌍 Global\*** (EEA, UK, Brazil, Argentina, Mexico, Colombia, Philippines, Thailand, Japan, Singapore) - verified via gnosispay.com January 2026. **Not available in US.**

@@ -2,10 +2,10 @@
 
 > **Comprehensive guide to crypto-backed and crypto rewards credit/debit cards**
 
-> **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `wallets/scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
+> **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Non-custodial DeFi, 🟢), Amp Pay Black Card (84, Solana payments, 🟢), Crypto.com Visa (83, CRO stakers ⚠️, 🟢), and Ready Card (83, Self-custody EU/UK, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `wallets/scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, Non-custodial DeFi, 🟢), Amp Pay Black Card (84, Solana payments, 🟢), Crypto.com Visa (83, CRO stakers ⚠️, 🟢), and Ready Card (83, Self-custody EU/UK, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
@@ -38,7 +38,7 @@
 
 ## Scoring Methodology
 
-Scores are generated from visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `wallets/scripts/sync_table_scores.js`, using `computeCardScore` from `wallets/frontend/src/lib/scoring.js`.
+Scores are generated from visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js`, using `computeCardScore` from `frontend/src/lib/scoring.js`.
 
 Current scoring buckets are:
 

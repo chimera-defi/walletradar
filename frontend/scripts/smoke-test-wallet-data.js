@@ -8,7 +8,7 @@
  *
  * Notes:
  * - Dependency-free (plain Node.js).
- * - Reads markdown tables from the parent `wallets/` directory.
+ * - Reads markdown tables from the parent `` directory.
  */
 /* eslint-disable no-console */
 const fs = require('fs');

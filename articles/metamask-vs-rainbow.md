@@ -23,7 +23,7 @@ tags: ["comparison", "software-wallets", "ethereum"]
 | **Rainbow** | **77** | NFT/Ethereum UX |
 | **MetaMask** | 73 | Compatibility + ecosystem coverage |
 
-Source: `wallets/SOFTWARE_WALLETS.md`
+Source: `SOFTWARE_WALLETS.md`
 
 ---
 
@@ -86,4 +86,4 @@ Rainbow scores higher in Wallet Radar’s stability/UX checks.
 
 ---
 
-**Related:** `wallets/SOFTWARE_WALLETS_DETAILS.md` for methodology.
+**Related:** `SOFTWARE_WALLETS_DETAILS.md` for methodology.

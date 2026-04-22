@@ -39,4 +39,4 @@ Structured data format used for SEO schemas (e.g., FAQPage, Product).
 
 ---
 
-**Related:** See `wallets/SEO_IMPLEMENTATION.md` for schema usage details.
+**Related:** See `SEO_IMPLEMENTATION.md` for schema usage details.
