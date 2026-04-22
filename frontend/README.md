@@ -65,7 +65,7 @@ frontend/
 
 ## Content Management
 
-The frontend reads Markdown files from the parent `wallets/` directory:
+The frontend reads Markdown files from the repository root (`../`):
 
 | File | Page URL |
 |------|----------|
@@ -77,9 +77,9 @@ The frontend reads Markdown files from the parent `wallets/` directory:
 
 ### Wallet data tables (used by `/explore`)
 
-The interactive explorer reads **markdown tables** from the parent `wallets/` directory via `src/lib/wallet-data.ts`.
+The interactive explorer reads **markdown tables** from the repository root via `src/lib/wallet-data.ts`.
 
-Scores and recommendations are generated from the visible markdown-table columns via `wallets/scripts/sync_table_scores.js`. That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
+Scores and recommendations are generated from the visible markdown-table columns via `scripts/sync_table_scores.js`. That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 
 If you change any of these table column orders, you must update the parser + resync the tables + run tests:
 
@@ -97,7 +97,7 @@ If you change any of these table column orders, you must update the parser + res
 
 ### Adding New Documents
 
-1. Add a new Markdown file to `wallets/`
+1. Add a new Markdown file at repo root
 2. Update `DOCUMENT_CONFIG` in `src/lib/markdown.ts`:
 
 ```typescript
@@ -337,7 +337,7 @@ Then test with official validators:
 Use the `generateUtmUrl()` utility or add parameters manually:
 
 ```
-https://walletradar.org/docs/software-wallets/?utm_source=twitter&utm_medium=social&utm_campaign=software_dec2025
+https://walletradar.org/docs/software-?utm_source=twitter&utm_medium=social&utm_campaign=software_dec2025
 ```
 
 ---
@@ -354,7 +354,7 @@ We've tracked GitHub activity, release frequency, and security audits to find th
 
 Rabby scored highest (92/100).
 
-Full comparison → walletradar.org/docs/software-wallets/
+Full comparison → walletradar.org/docs/software-
 
 #DeFi #Web3 #crypto
 ```
@@ -371,7 +371,7 @@ We've scored hardware wallets on:
 
 Top pick: Trezor Safe 5 (94/100)
 
-walletradar.org/docs/hardware-wallets/
+walletradar.org/docs/hardware-
 ```
 
 ### Crypto Cards

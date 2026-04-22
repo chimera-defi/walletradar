@@ -16,7 +16,7 @@ tags: ["comparison", "ramps", "payments"]
 - **Best Coinbase integration:** **Coinbase Pay (89)**  
 - **Best fees (EU bank transfers):** **Ramp (88)**  
 
-Source: `wallets/RAMPS.md`
+Source: `RAMPS.md`
 
 ---
 

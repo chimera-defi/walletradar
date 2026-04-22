@@ -117,7 +117,7 @@ When renaming a data file or page route, check all of these:
 
 ## Scope Guardrails
 
-- Keep this repo focused on WalletRadar (wallets/hardware/cards/ramps/data + frontend).
+- Keep this repo focused on WalletRadar (hardware/cards/ramps/data + frontend).
 - Do not import unrelated monorepo practices that are not applicable here (for example mobile-app framework scaffolding rules).
 
 ## Companion Reference

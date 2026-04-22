@@ -1,11 +1,11 @@
 # Crypto On/Off-Ramp Comparison - Full Documentation
 
-> **Source of truth note:** Current `Score` values are generated from the visible columns in [RAMPS.md](./RAMPS.md) via `wallets/scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or approximate scores, trust the main comparison table.
+> **Source of truth note:** Current `Score` values are generated from the visible columns in [RAMPS.md](./RAMPS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or approximate scores, trust the main comparison table.
 
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain fee structures, geographic coverage, and integration tradeoffs.
 
 <!-- GENERATED_RAMPS_SNAPSHOT_START -->
-> **Current generated snapshot:** Coinbase Pay (91, Coinbase users, 🟢), CoinGate (90, Low fees, 🟢), BitPay (89, Bitcoin focus, 🟢), and Stripe (88, Trust, 🟢). Regenerated from [RAMPS.md](./RAMPS.md) by `wallets/scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Coinbase Pay (91, Coinbase users, 🟢), CoinGate (90, Low fees, 🟢), BitPay (89, Bitcoin focus, 🟢), and Stripe (88, Trust, 🟢). Regenerated from [RAMPS.md](./RAMPS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Provider | Score | Best For | Rec |
@@ -19,11 +19,11 @@
 
 **Data Sources:** Developer Documentation, Fee Schedules, Integration Guides (as of Feb 2026).
 
-**Verification Status:** Original 7 providers (Transak, MoonPay, Ramp, Sardine, Stripe, Banxa, Mercuryo) verified from PR 128 research. Additional 13 providers added based on industry knowledge and user request (Modern Treasury, onesafe, Reap specifically requested). All values marked with "~" are approximate and should be verified on official provider websites before integration. Automated URL verification logs live under `wallets/artifacts/ramps-url-checks.*` (gitignored).
+**Verification Status:** Original 7 providers (Transak, MoonPay, Ramp, Sardine, Stripe, Banxa, Mercuryo) verified from PR 128 research. Additional 13 providers added based on industry knowledge and user request (Modern Treasury, onesafe, Reap specifically requested). All values marked with "~" are approximate and should be verified on official provider websites before integration. Automated URL verification logs live under `artifacts/ramps-url-checks.*` (gitignored).
 
 ### Ramps URL Verification (Automated)
 
-Ran `wallets/scripts/verify-ramps.py` to check direct URL access and `r.jina.ai` proxy fallback (latest run Feb 2026).
+Ran `scripts/verify-ramps.py` to check direct URL access and `r.jina.ai` proxy fallback (latest run Feb 2026).
 
 **Direct FAIL + proxy OK:** Coinbase Pay, Banxa, Reap  
 **Bot/Access flags:** Modern Treasury (access denied), Banxa (Cloudflare), Mercuryo (access denied)  
@@ -126,7 +126,7 @@ Fees are the biggest friction point for users. They typically consist of three p
 
 ## Scoring Methodology
 
-Scores are generated from visible columns in [RAMPS.md](./RAMPS.md) by `wallets/scripts/sync_table_scores.js`, using `computeRampScore` from `wallets/frontend/src/lib/scoring.js`.
+Scores are generated from visible columns in [RAMPS.md](./RAMPS.md) by `scripts/sync_table_scores.js`, using `computeRampScore` from `frontend/src/lib/scoring.js`.
 
 Current category weights (100 total):
 

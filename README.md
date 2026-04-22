@@ -6,8 +6,8 @@
 
 **Developer-Focused Crypto Product Research Platform**
 
-[![Wallets Frontend CI](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/wallets-frontend-ci.yml)
-[![Refresh Wallet Data](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/refresh-wallet-data.yml)
+[![Wallets Frontend CI](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml)
+[![Refresh Wallet Data](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-walletradar.org-blue)](https://walletradar.org)
 
@@ -50,8 +50,8 @@ browser verification during full data audits:
 
 When direct checks are blocked, a text-only fetch via `r.jina.ai` can confirm
 the landing content is reachable. Results are logged in
-`wallets/artifacts/manual-url-checks.json`. A headless Chromium pass captures
-browser verification output in `wallets/artifacts/manual-browser-checks.json`.
+`artifacts/manual-url-checks.json`. A headless Chromium pass captures
+browser verification output in `artifacts/manual-browser-checks.json`.
 Most bot-protected URLs resolve in Chromium; defunct products should be removed
 from active verification lists once confirmed.
 
@@ -89,7 +89,7 @@ from active verification lists once confirmed.
 - Weekly GitHub Activity monitoring
 - Automated PR creation with updated data
 - Manual verification for security-critical changes
-- Merchant Center feed generation for hardware wallets (see `wallets/MERCHANT_FEED.md`)
+- Merchant Center feed generation for hardware wallets (see `MERCHANT_FEED.md`)
 
 ### 🎨 **Developer-Friendly Interface**
 - Clean, fast Next.js 14 application
@@ -135,8 +135,8 @@ from active verification lists once confirmed.
 
 ```bash
 # Clone the repository
-git clone https://github.com/chimera-defi/Etc-mono-repo.git
-cd Etc-mono-repo/wallets/frontend
+git clone https://github.com/chimera-defi/walletradar.git
+cd walletradar/frontend
 
 # Install dependencies
 npm install
@@ -175,7 +175,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-wallets/
+walletradar/
 ├── frontend/               # Next.js application
 │   ├── src/
 │   │   ├── app/           # Next.js 14 App Router pages
@@ -220,7 +220,7 @@ Wallet data is automatically refreshed every Monday via GitHub Actions:
 
 ```bash
 # Manual refresh (requires GitHub token)
-cd wallets/scripts
+cd scripts
 ./refresh-github-data.sh          # Text output
 ./refresh-github-data.sh --json   # JSON output
 ./refresh-github-data.sh --markdown  # Markdown table
@@ -266,7 +266,7 @@ Wallet Radar does NOT provide financial advice, recommend specific products, or 
 
 Contributions are welcome! Here's how you can help:
 
-1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/Etc-mono-repo/issues)
+1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/walletradar/issues)
 2. **Add Wallets** — See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
 3. **Improve Documentation** — Fix typos, clarify explanations
 4. **Enhance Features** — Submit PRs for new features or improvements
@@ -284,8 +284,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Website:** [walletradar.org](https://walletradar.org)
-- **GitHub:** [github.com/chimera-defi/Etc-mono-repo/tree/main/wallets](https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets)
-- **Issues:** [github.com/chimera-defi/Etc-mono-repo/issues](https://github.com/chimera-defi/Etc-mono-repo/issues)
+- **GitHub:** [github.com/chimera-defi/walletradar](https://github.com/chimera-defi/walletradar)
+- **Issues:** [github.com/chimera-defi/walletradar/issues](https://github.com/chimera-defi/walletradar/issues)
 
 ---
 

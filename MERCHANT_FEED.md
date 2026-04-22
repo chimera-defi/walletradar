@@ -48,10 +48,10 @@ Last updated: 2026-04-08
 
 ## Maintenance notes
 
-- Update `wallets/data/merchant_pricing.json` when vendor pricing changes.
+- Update `data/merchant_pricing.json` when vendor pricing changes.
 - Regenerate the feed with:
-  - `python3 wallets/scripts/generate_merchant_feed.py`
-- Public feed output: `wallets/frontend/public/merchant-center.xml`.
+  - `python3 scripts/generate_merchant_feed.py`
+- Public feed output: `frontend/public/merchant-center.xml`.
 - CI refresh workflow: `.github/workflows/generate-merchant-feed.yml`.
 
 ## FAQ
@@ -66,7 +66,7 @@ Ramps are fee-based services (not a fixed-price product).
 We only include items with verifiable USD pricing and a direct product page.
 
 **How do I add a new priced item?**  
-Add a USD price, source URL, and `last_checked` date in `wallets/data/merchant_pricing.json`, then rerun the feed generator.
+Add a USD price, source URL, and `last_checked` date in `data/merchant_pricing.json`, then rerun the feed generator.
 
 ## Playwright verification (crypto card checks)
 
@@ -82,7 +82,7 @@ npx playwright install-deps
 Then run:
 
 ```
-node wallets/scripts/verify-crypto-cards.js > wallets/artifacts/crypto_cards_validation.txt
+node scripts/verify-crypto-cards.js > artifacts/crypto_cards_validation.txt
 ```
 
 Artifacts are gitignored; keep validation output locally.

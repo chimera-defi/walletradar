@@ -2,7 +2,7 @@
 """Generate a Google Merchant Center feed from wallet tables.
 
 Notes:
-- Pricing is sourced from `wallets/data/merchant_pricing.json`.
+- Pricing is sourced from `data/merchant_pricing.json`.
 - Items without verified pricing are skipped to avoid placeholder values.
 """
 from __future__ import annotations
@@ -16,11 +16,12 @@ from pathlib import Path
 from typing import List, Dict, Any
 
 BASE_URL = os.environ.get("WALLET_BASE_URL", "https://walletradar.org")
+ROOT = Path(__file__).resolve().parents[1]
 
 TABLE_FILES = {
-    "hardware": "wallets/HARDWARE_WALLETS.md",
+    "hardware": ROOT / "HARDWARE_WALLETS.md",
 }
-PRICING_FILE = Path("wallets/data/merchant_pricing.json")
+PRICING_FILE = ROOT / "data" / "merchant_pricing.json"
 
 
 def slugify(value: str) -> str:
@@ -117,13 +118,13 @@ def write_feed(items: List[Dict[str, str]], output_path: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="wallets/frontend/public/merchant-center.xml")
+    parser.add_argument("--output", default=str(ROOT / "frontend" / "public" / "merchant-center.xml"))
     args = parser.parse_args()
 
     items: List[Dict[str, str]] = []
     pricing = load_pricing()
     for _, path in TABLE_FILES.items():
-        content = Path(path).read_text(encoding="utf-8").splitlines()
+        content = path.read_text(encoding="utf-8").splitlines()
         rows = parse_table(content)
         for row in rows:
             if not row.get("Wallet"):

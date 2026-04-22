@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Verify RAMPS provider URLs from wallets/RAMPS.md.
-Outputs JSON + text summary under wallets/artifacts/.
+Verify RAMPS provider URLs from RAMPS.md.
+Outputs JSON + text summary under artifacts/.
 """
 
 from __future__ import annotations

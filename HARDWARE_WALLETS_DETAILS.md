@@ -2,12 +2,12 @@
 
 > 📊 **View the comparison table:** [See all wallets at a glance →](./HARDWARE_WALLETS.md)
 
-> **Source of truth note:** Current `Score` and `Rec` values are generated from the visible columns in [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) via `wallets/scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older numeric scores, trust the main comparison table.
+> **Source of truth note:** Current `Score` and `Rec` values are generated from the visible columns in [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older numeric scores, trust the main comparison table.
 
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain security architecture, firmware transparency, and tradeoffs in more detail.
 
 <!-- GENERATED_HARDWARE_SNAPSHOT_START -->
-> **Current generated snapshot:** Keystone 3 Pro (92, ✅ Active, 🟢), ColdCard Mk4 (88, ✅ Active, 🟢), Keycard Shell (85, ✅ Active, 🟢), and Foundation Passport (84, ✅ Active, 🟢). Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `wallets/scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Keystone 3 Pro (92, ✅ Active, 🟢), ColdCard Mk4 (88, ✅ Active, 🟢), Keycard Shell (85, ✅ Active, 🟢), and Foundation Passport (84, ✅ Active, 🟢). Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Wallet | Score | Activity | Rec |
@@ -218,7 +218,7 @@ Hardware wallet scoring now uses generated values from visible columns in [HARDW
 
 ### Scoring Criteria Detail
 
-> ⚠️ This section is a legacy narrative reference. The current source of truth is the generated scoring model in `wallets/frontend/src/lib/scoring.js`, driven strictly by visible table columns.
+> ⚠️ This section is a legacy narrative reference. The current source of truth is the generated scoring model in `frontend/src/lib/scoring.js`, driven strictly by visible table columns.
 
 ```
 SECURITY ARCHITECTURE (25 pts)

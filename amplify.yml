@@ -1,17 +1,81 @@
 version: 1
 applications:
-  - appRoot: wallets/frontend
+  - appRoot: frontend
     frontend:
       phases:
         preBuild:
           commands:
-            - npm ci
+            # Skip preview builds when no frontend/content files changed.
+            - |
+              set -e
+
+              echo "=== Amplify Build Environment ==="
+              echo "AWS_BRANCH: ${AWS_BRANCH:-not set}"
+              echo "AWS_PULL_REQUEST_ID: ${AWS_PULL_REQUEST_ID:-not set}"
+              echo "Working directory: $(pwd)"
+
+              # Only check for changes on non-main branches.
+              if [ "$AWS_BRANCH" != "main" ] && [ "$AWS_BRANCH" != "master" ]; then
+                echo ""
+                echo "=== Checking for WalletRadar frontend/content changes ==="
+
+                # Move to repo root for git operations.
+                cd ..
+                echo "Repo root: $(pwd)"
+
+                echo "Fetching main branch..."
+                git fetch origin main --depth=100 2>&1 || true
+
+                CHANGED_FILES=""
+                if git rev-parse --verify origin/main >/dev/null 2>&1; then
+                  echo "Comparing with origin/main..."
+                  CHANGED_FILES=$(git diff --name-only origin/main...HEAD 2>&1) || CHANGED_FILES=""
+                else
+                  echo "origin/main not available; using local history fallback."
+                  BASE_CANDIDATE=$(git rev-list --max-count=1 --skip=30 HEAD 2>/dev/null || true)
+                  if [ -n "$BASE_CANDIDATE" ]; then
+                    CHANGED_FILES=$(git diff --name-only "$BASE_CANDIDATE"...HEAD 2>&1) || CHANGED_FILES=""
+                  else
+                    CHANGED_FILES=$(git show --pretty="" --name-only HEAD 2>&1) || CHANGED_FILES=""
+                  fi
+                fi
+
+                echo "Changed files (sample):"
+                echo "$CHANGED_FILES" | head -40
+
+                # Build if frontend, markdown/content, or deploy configs changed.
+                WALLET_CHANGES=$(echo "$CHANGED_FILES" | grep -E "^(frontend/|articles/|branding/|data/|seo/|scripts/|[^/]*\.md|amplify\.yml|customHttp\.yml)" || true)
+
+                if [ -z "$WALLET_CHANGES" ]; then
+                  echo ""
+                  echo "=============================================="
+                  echo "NO WALLET FRONTEND/CONTENT CHANGES DETECTED"
+                  echo "=============================================="
+                  echo "Skipping Amplify preview build to save resources."
+                  echo "Exiting successfully so non-wallet PRs are not marked failed."
+                  echo ""
+                  exit 0
+                fi
+
+                echo ""
+                echo "WalletRadar changes detected:"
+                echo "$WALLET_CHANGES"
+
+                # Return to app directory.
+                cd frontend
+              else
+                echo "Building main/master branch - skipping change detection"
+              fi
+
+              echo ""
+              echo "=== Running bun install ==="
+              bun install --frozen-lockfile
         build:
           commands:
-            - echo "Building Next.js application..."
-            - npm run build
+            - bun run build
       artifacts:
-        baseDirectory: .next
+        # Static export generates files in 'out' directory.
+        baseDirectory: out
         files:
           - '**/*'
       cache:
