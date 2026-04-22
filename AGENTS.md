@@ -58,21 +58,62 @@ Curated from root-level guidance in the former monorepo (`.cursorrules`, `AGENTS
 - Update dependent references when renaming files/paths.
 - Prefer explicit change notes over silent structural edits.
 
+## Frontend Development Rules
+
+- Use `bun` by default — never `npm` or `node` for script execution.
+- Development: `bun install && bun run dev`
+- Full verification pass (in order):
+  1. `bun run lint` — no warnings or errors
+  2. `bun run type-check` — TypeScript clean
+  3. `bun run build` — build succeeds
+  4. `bun test` — tests pass
+  5. Check for unused imports
+  6. Verify light **and** dark mode both look correct
+  7. Test all interactive elements
+
+### OG Image Workflow
+
+When adding or updating a page with SEO metadata:
+1. Add the generator function to `scripts/generate-og-images.js`
+2. Run `bun run generate-og`
+3. Add metadata to the page file
+4. Commit the generated PNG alongside the code change
+
+OG images must be **1200×630px**. Key SEO files: `src/lib/seo.ts`, `src/app/layout.tsx`.
+
+Run `bun run validate-cards` to verify Twitter Card metadata before shipping.
+
+### Theme-Aware Styling
+
+- **Never hardcode Tailwind colors** (`text-slate-100`, `bg-slate-800`, etc.) for themed content.
+- **Always use CSS variables:** `text-foreground`, `text-muted-foreground`, `bg-muted`, `bg-card`, `border-border`.
+- Variables are defined in `globals.css` under `:root` (light) and `.dark`.
+- Hardcoded colors silently break the light/dark toggle.
+
+### Component Conventions
+
+- Use Next.js `<Image>` instead of `<img>` — required for optimization and ESLint compliance.
+- Replace `alert()` with inline state-based notifications.
+- Remove placeholder/fake-data components before shipping.
+- Avoid showing the same nav links in multiple formats (e.g., buttons AND a grid).
+
+### File Rename Checklist
+
+When renaming a data file or page route, check all of these:
+1. Update markdown config / route mapping
+2. Update parsing functions referencing old name
+3. Update cross-references in other docs
+4. Update related document mappings
+5. Update sitemap logic
+6. Update scripts (`wallet-data.ts`, `generate-og-images.js`, etc.)
+7. `rg` for remaining references to old name
+8. Run `bun run build` and `bun run type-check`
+
 ## Git Workflow Rules
 
 - Use branch + PR workflow; do not push directly to `main`.
 - Keep one task per PR where practical.
 - Before handing off, run relevant verification commands for touched scope.
-
-Frontend typical checks:
-
-```bash
-cd frontend
-bun run type-check
-bun run build
-bun run lint
-bun test
-```
 
 ## Scope Guardrails
 

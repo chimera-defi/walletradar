@@ -1,6 +1,6 @@
 # WalletRadar Agent Meta Learnings
 
-Last curated: 2026-04-21
+Last curated: 2026-04-22
 Source set: former monorepo root `.cursorrules`, `AGENTS.md`, `CLAUDE.md`, plus WalletRadar historical guidance.
 
 ## What Was Intentionally Carried Over
@@ -56,6 +56,65 @@ Source set: former monorepo root `.cursorrules`, `AGENTS.md`, `CLAUDE.md`, plus 
 - Run relevant build/type/lint/test checks before handoff.
 - Separate migration/mechanical changes from content-methodology changes where possible.
 
+## Domain Scoring Frameworks
+
+### Software Wallet: API Openness Matrix
+
+| Symbol | Category | Meaning |
+|--------|----------|---------|
+| ✅ | Full | Backend open-source + self-hostable |
+| ⚠️ | Partial | Some APIs open, core proprietary |
+| 🌐 | Public | APIs accessible, code proprietary |
+| ❌ | Closed | Proprietary, no public access |
+
+Examples: Safe = Full (8+ open services), Rabby = Public (DeBank API, no auth required).
+
+### Hardware Wallet: 100-Point Scoring System
+
+| Category | Points | Key signals |
+|----------|--------|-------------|
+| Security Architecture | 25 | Secure Element, air-gap, tamper resistance |
+| Transparency | 20 | Open firmware, reproducible builds |
+| Privacy & Trust | 15 | No seed extraction capability |
+| Development Activity | 15 | GitHub commit cadence |
+| Company & Track Record | 15 | Funding, longevity, past incidents |
+| UX & Ecosystem | 10 | Display quality, chain count, integrations |
+
+Score thresholds: 🟢 75+ | 🟡 50–74 | 🔴 <50
+
+### Crypto Card: Custody Scoring
+
+- Self-custody: **+3 pts**
+- CeFi custody: **0 pts**
+- Exchange custody: **−3 pts**
+
+Verify custody type from official sources — look for "self-custody", "non-custodial", or "your keys" language.
+
+### Data Columns to Preserve
+
+Core columns that must not be silently dropped from comparison tables:
+
+`Chains`, `Rel/Mo`, `RPC`, `GitHub`, `Testnets`, `Audits`, `Last Commit`, `Stars`, `Issues`, `Ratio`, `Stability`
+
+### Wallet Activity & Abandonment Signals
+
+Decay heuristics (treat as time-sensitive — re-verify before publishing):
+- No commits for **4+ months** → flag as potentially inactive
+- No releases for **6+ months** → flag as potentially abandoned
+- Issue response time > 60 days → low maintenance signal
+
+Wallets with known risk factors (as of last audit):
+- **Taho** — slow activity, grant-dependent funding model
+- **Wigwam** — slow releases, unknown funding
+- **Coinbase Wallet SDK** — pace slowed significantly as of mid-2025
+
+### Merchant Feed Rules
+
+- Use provider-site pricing only — no third-party aggregators.
+- Skip free-tier categories and items without a verified price.
+- Do not publish fee ranges that cannot be traced to a source URL.
+- Research inputs go to `data/` (tracked) or local scratch (gitignored); durable notes go to `MERCHANT_FEED.md`.
+
 ## Practical Review Checklist
 
 Use this before finalizing major updates:
@@ -66,6 +125,8 @@ Use this before finalizing major updates:
 - [ ] Score math and labels are internally consistent.
 - [ ] Cross-doc references/links still resolve.
 - [ ] Touched build/test checks have been run or explicitly called out.
+- [ ] Theme verified in both light and dark mode (frontend changes).
+- [ ] OG images generated and committed (new pages only).
 
 ## Notes For Future Curations
 
