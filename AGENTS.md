@@ -123,3 +123,4 @@ When renaming a data file or page route, check all of these:
 ## Companion Reference
 
 - See `AGENT_META_LEARNINGS.md` for curated rationale and durable patterns.
+- Repo-local skill references are under `skills/` (including `token-reduce` and core design skills).
