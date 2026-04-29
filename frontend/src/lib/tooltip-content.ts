@@ -249,6 +249,7 @@ export const rampTooltips = {
     feeModel: 'Fee structure: Low, Medium, High, Variable, or Usage-Based',
     minFee: 'Minimum transaction fee (~ indicates approximate)',
     devUx: 'Developer experience quality: Excellent, Great, Good, Advanced',
+    operatorXp: 'Operational quality signal from operator experience (❌ poor applies a -20 score penalty)',
     founded: 'Company founding year signal used in score confidence',
     funding: 'Funding durability signal (🟢 sustainable, 🟡 VC-backed, 🔴 unknown/risky)',
     bestFor: 'Primary use case or audience',
@@ -278,6 +279,13 @@ export const rampTooltips = {
     Good: 'Good: Solid API with standard documentation',
     Advanced: 'Advanced: Powerful features but may require more setup',
     Basic: 'Basic: Simple widget-based integration',
+  },
+
+  operatorExperience: {
+    good: 'Good operator experience reported',
+    mixed: 'Mixed operator experience reported',
+    poor: 'Poor operator experience reported (-20 score penalty)',
+    unrated: 'No operator experience signal recorded',
   },
 
   status: {

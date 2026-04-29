@@ -106,6 +106,7 @@ export interface HardwareWallet {
  * - cefi: Funds held by centralized finance company
  */
 export type CustodyType = 'self' | 'exchange' | 'cefi';
+export type OperatorExperience = 'good' | 'mixed' | 'poor' | 'unrated';
 
 export interface CryptoCard {
   id: string;
@@ -114,7 +115,7 @@ export interface CryptoCard {
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];
   cardType: 'credit' | 'debit' | 'prepaid' | 'business';
-  operatorExperience: 'good' | 'mixed' | 'poor' | 'unrated';
+  operatorExperience: OperatorExperience;
   /** Custody model: self (non-custodial), exchange, or cefi */
   custody: CustodyType;
   businessSupport: 'yes' | 'no' | 'verify';
@@ -146,6 +147,7 @@ export interface Ramp {
   feeModel: string;
   minFee: string;
   devUx: string;
+  operatorExperience: OperatorExperience;
   status: 'active' | 'verify' | 'launching' | 'inactive';
   foundedYear: number | null;
   funding: 'sustainable' | 'vc' | 'risky';

@@ -137,6 +137,10 @@ Current category weights (100 total):
 5. **Operational Confidence (15):** Live status from `Status`.
 6. **Company Track Record (2):** Light confidence signal from `Founded` + `Funding`.
 
+Penalty modifier:
+
+- **Operator Experience:** `Operator XP = ❌ Poor` applies a direct `-20` score penalty after the base weighted total.
+
 Recommendation bands:
 
 - **🟢 Recommended:** top half of active providers
