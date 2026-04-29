@@ -1,11 +1,11 @@
 # Crypto On/Off-Ramp Comparison - Full Documentation
 
-> **Source of truth note:** Current `Score` values are generated from the visible columns in [RAMPS.md](./RAMPS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or approximate scores, trust the main comparison table.
+> **Source of truth note:** Current `Score` values are generated from the visible columns in [RAMPS.md](./RAMPS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v4`). If a long-form section below mentions older rankings or approximate scores, trust the main comparison table.
 
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain fee structures, geographic coverage, and integration tradeoffs.
 
 <!-- GENERATED_RAMPS_SNAPSHOT_START -->
-> **Current generated snapshot:** Coinbase Pay (91, Coinbase users, 🟢), CoinGate (90, Low fees, 🟢), BitPay (89, Bitcoin focus, 🟢), and Stripe (88, Trust, 🟢). Regenerated from [RAMPS.md](./RAMPS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Coinbase Pay (91, Coinbase users, 🟢), CoinGate (90, Low fees, 🟢), BitPay (89, Bitcoin focus, 🟢), and Stripe (88, Trust, 🟢). Regenerated from [RAMPS.md](./RAMPS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v4`.
 
 ### Current Top Rows (generated)
 | Rank | Provider | Score | Best For | Rec |

@@ -2,19 +2,19 @@
 
 > **Comprehensive guide to crypto-backed and crypto rewards credit/debit cards**
 
-> **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
+> **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v4`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Non-custodial DeFi, 🟢), Amp Pay Black Card (84, Solana payments, 🟢), Crypto.com Visa (83, CRO stakers ⚠️, 🟢), and Ready Card (83, Self-custody EU/UK, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, ✅, 🟢), Amp Pay Black Card (84, ✅, 🟢), Ready Card (83, ✅, 🟢), and Kast (82, ✅, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v4`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
 | ---- | ---- | ----- | -------- | --- |
 | 1 | **EtherFi Cash** | 92 | Non-custodial DeFi | 🟢 |
 | 2 | **Amp Pay Black Card** | 84 | Solana payments | 🟢 |
-| 3 | **Crypto.com Visa** | 83 | CRO stakers ⚠️ | 🟢 |
-| 4 | **Ready Card** | 83 | Self-custody EU/UK | 🟢 |
-| 5 | **Kast** | 82 | Stablecoin banking | 🟢 |
+| 3 | **Ready Card** | 83 | Self-custody EU/UK | 🟢 |
+| 4 | **Kast** | 82 | Stablecoin banking | 🟢 |
+| 5 | **Tria** | 82 | Token rewards | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
 **Last Updated:** April 23, 2026 (Third review intake: added Bleap, Deblock, Spritz, Pyra, Cypher, Rebind, Ugly Cash, Holyheld; refreshed Kraken/Krak terms)
@@ -47,6 +47,7 @@ Current scoring buckets are:
 3. **Rewards Value (25):** `Cash Back` + reward asset quality from `Rewards`.
 4. **Fee Friction (20):** `Annual Fee` + `FX Fee`.
 5. **Delivery Confidence (10):** `Status` signal.
+6. **Operator Experience Penalty (-20):** `Operator XP` applies a direct -20 deduction when marked `❌ Poor`.
 
 Raw card totals are normalized to a 0-100 score so changes in visible columns are reflected automatically without manual overrides.
 

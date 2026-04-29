@@ -44,17 +44,18 @@ const TABLE_CONFIGS = [
   {
     label: 'cards',
     file: path.join(ROOT, 'CRYPTO_CARDS.md'),
-    header: '| Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Status | Best For | Rec |',
-    separator: '| ---- | ----- | ---- | ------- | --- | ------ | --------- | ---------- | ------ | ------- | ------ | -------- | --- |',
+    header: '| Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Operator XP | Status | Best For | Rec |',
+    separator: '| ---- | ----- | ---- | ------- | --- | ------ | --------- | ---------- | ------ | ------- | ----------- | ------ | -------- | --- |',
     legacyHeaders: [
       '| Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Status | Best For |',
+      '| Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Status | Best For | Rec |',
     ],
     compute: computeCardScore,
     formatScore: (scoreInfo) => String(scoreInfo.score),
     updateCells: (cells, scoreInfo) => {
-      while (cells.length < 13) cells.push('');
+      while (cells.length < 14) cells.push('');
       cells[1] = String(scoreInfo.score);
-      cells[12] = recommendationEmoji(scoreInfo.recommendation);
+      cells[13] = recommendationEmoji(scoreInfo.recommendation);
       return cells;
     },
   },
@@ -150,7 +151,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
         '| Rank | Card | Score | Best For | Rec |',
         '| ---- | ---- | ----- | -------- | --- |',
         ...topRows.map((row, index) => (
-          `| ${index + 1} | **${extractName(row.cells[0])}** | ${row.score} | ${row.cells[11]} | ${recommendationEmoji(row.scoreInfo.recommendation)} |`
+          `| ${index + 1} | **${extractName(row.cells[0])}** | ${row.score} | ${row.cells[12]} | ${recommendationEmoji(row.scoreInfo.recommendation)} |`
         )),
         this.endMarker,
       ].join('\n');

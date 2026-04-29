@@ -78,7 +78,7 @@ What this does:
 3. Refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 4. Fails the frontend smoke test if the markdown tables drift from the generated output.
 
-Current methodology version: `2026-04-visible-columns-v3`
+Current methodology version: `2026-04-visible-columns-v4`
 
 ## Card Tier Matrix Refresh
 

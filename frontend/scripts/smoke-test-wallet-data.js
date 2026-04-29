@@ -70,6 +70,7 @@ const CARDS_CONTRACT_MUTATORS = {
   'Annual Fee': () => '$499',
   'FX Fee': () => '3%',
   Rewards: () => 'None',
+  'Operator XP': () => '❌ Poor',
   Status: () => '❌ Inactive',
 };
 
@@ -705,6 +706,7 @@ function run() {
     'HeaderTooltip label="Cashback"',
     'HeaderTooltip label="FX Fee"',
     'HeaderTooltip label="Rewards"',
+    'HeaderTooltip label="Operator XP"',
     'HeaderTooltip label="Annual Fee"',
     'HeaderTooltip label="Business"',
     'HeaderTooltip label="Status"',
@@ -732,6 +734,7 @@ function run() {
     'card.cashBack',
     'card.fxFee',
     'card.rewards',
+    'card.operatorExperience',
     'card.annualFee',
     'card.businessSupport',
     'card.status',
@@ -790,6 +793,7 @@ function run() {
     'Annual Fee',
     'FX Fee',
     'Rewards',
+    'Operator XP',
     'Status',
     'Best For',
     'Rec',
@@ -803,7 +807,7 @@ function run() {
     cardsRows,
     computeCardScore,
     1,
-    12,
+    13,
     cardsExpectedRecommendations
   );
 
@@ -815,14 +819,14 @@ function run() {
   } else {
     const card = etherfiRow[0] || '';
     const custody = etherfiRow[3] || '';
-    const status = etherfiRow[10] || '';     // Status column at index 10 after removing Provider
+    const status = etherfiRow[11] || '';
     const etherfiIndex = cardsRows.indexOf(etherfiRow);
     assertComputedScore(
       'Crypto cards table',
       etherfiRow,
       computeCardScore,
       1,
-      12,
+      13,
       cardsExpectedRecommendations[etherfiIndex]
     );
     if (!/Self/.test(custody)) fail(`EtherFi Cash custody drifted (expected Self), got: "${custody}"`);
@@ -853,7 +857,7 @@ function run() {
       readyRow,
       computeCardScore,
       1,
-      12,
+      13,
       cardsExpectedRecommendations[readyIndex]
     );
     if (!/Self/.test(custody)) fail(`Ready Card custody drifted (expected Self), got: "${custody}"`);

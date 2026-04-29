@@ -18,6 +18,7 @@ const SHORT_LABEL_MAP: Record<string, string> = {
   'Rewards Value': 'Rewards',
   'Fee Friction': 'Fees',
   'Delivery Confidence': 'Confidence',
+  'Operator Experience': 'Operator',
   'Coverage': 'Coverage',
   'Product Breadth': 'Breadth',
   'Developer UX': 'Dev UX',

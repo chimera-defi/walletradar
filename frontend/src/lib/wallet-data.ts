@@ -296,6 +296,14 @@ function parseCardStatus(cell: string): 'active' | 'verify' | 'launching' | 'ina
   return 'verify';
 }
 
+function parseOperatorExperience(cell: string): 'good' | 'mixed' | 'poor' | 'unrated' {
+  const text = String(cell || '').toLowerCase();
+  if (cell.includes('❌') || text.includes('poor') || text.includes('bad')) return 'poor';
+  if (cell.includes('⚠️') || text.includes('mixed')) return 'mixed';
+  if (cell.includes('✅') || text.includes('good')) return 'good';
+  return 'unrated';
+}
+
 // Generate slug from name
 function generateSlug(name: string): string {
   return name
@@ -499,9 +507,10 @@ export function parseCryptoCards(): CryptoCard[] {
 
   // Table columns (CRYPTO_CARDS.md) after merging Provider into Card column (Jan 2026):
   // Card(0) Score(1) Type(2) Custody(3) Biz(4) Region(5) CashBack(6)
-  // AnnualFee(7) FxFee(8) Rewards(9) Status(10) BestFor(11) Rec(12)
+  // AnnualFee(7) FxFee(8) Rewards(9) OperatorXP(10) Status(11) BestFor(12) Rec(13)
   // Card column now has format: [**Card Name**](url)
   const parsed = dataRows.map(cells => {
+    const hasOperatorXpColumn = cells.length >= 14;
     // Extract card name and URL from markdown link format: [**Card Name**](url)
     const linkMatch = cells[0]?.match(/\[(?:\*\*)?([^*\]]+)(?:\*\*)?\]\(([^)]+)\)/);
     const nameMatch = cells[0]?.match(/\*\*([^*]+)\*\*/);
@@ -530,6 +539,7 @@ export function parseCryptoCards(): CryptoCard[] {
       methodologyVersion: scoreInfo.methodologyVersion,
       scoreBreakdown: scoreInfo.breakdown,
       cardType: parseCardType(cells[2] || ''),
+      operatorExperience: parseOperatorExperience(hasOperatorXpColumn ? cells[10] : ''),
       custody: parseCustodyType(cells[3] || ''),
       businessSupport: parseBusinessSupport(cells[4] || ''),
       region: region.region,
@@ -541,8 +551,8 @@ export function parseCryptoCards(): CryptoCard[] {
       rewards: cells[9]?.trim() || 'None',
       provider: name, // Provider is now the card name itself
       providerUrl: cardUrl, // URL now comes from Card column
-      status: parseCardStatus(cells[10] || ''),
-      bestFor: cells[11]?.trim() || '',
+      status: parseCardStatus(hasOperatorXpColumn ? cells[11] : cells[10] || ''),
+      bestFor: hasOperatorXpColumn ? (cells[12]?.trim() || '') : (cells[11]?.trim() || ''),
       recommendation: scoreInfo.recommendation as 'recommended' | 'situational' | 'avoid',
       type: 'card' as const,
     };
