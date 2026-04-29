@@ -371,6 +371,28 @@ function BusinessSupportBadge({
   );
 }
 
+function OperatorExperienceBadge({
+  operatorExperience,
+  tooltipLinkHref,
+}: {
+  operatorExperience: CryptoCard['operatorExperience'];
+  tooltipLinkHref?: string;
+}) {
+  const config = {
+    good: { label: '✅ Good', variant: 'success' as const },
+    mixed: { label: '⚠️ Mixed', variant: 'warning' as const },
+    poor: { label: '❌ Poor', variant: 'error' as const },
+    unrated: { label: '⚪ Unrated', variant: 'default' as const },
+  };
+  const entry = config[operatorExperience];
+  const tooltip = cryptoCardTooltips.operatorExperience[operatorExperience];
+  return (
+    <Badge variant={entry.variant} tooltip={tooltip} tooltipLinkHref={tooltipLinkHref}>
+      {entry.label}
+    </Badge>
+  );
+}
+
 function StatusBadge({
   status,
   tooltip,
@@ -963,6 +985,9 @@ function CryptoCardItem({
             <span>{card.rewards}</span>
           </Tooltip>
         </td>
+        <td className="py-3 px-4">
+          <OperatorExperienceBadge operatorExperience={card.operatorExperience} tooltipLinkHref={detailHref} />
+        </td>
         <td className="py-3 px-4 text-sm">
           <Tooltip content={card.annualFee === '$0' ? 'No annual fee' : `Annual fee: ${card.annualFee}`} linkHref={detailHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
             <span>{card.annualFee}</span>
@@ -1028,6 +1053,7 @@ function CryptoCardItem({
           {card.region}
         </Badge>
         <Badge variant="default" tooltip={`Rewards earned: ${card.rewards}`} tooltipLinkHref={detailHref}>{card.rewards}</Badge>
+        <OperatorExperienceBadge operatorExperience={card.operatorExperience} tooltipLinkHref={detailHref} />
         <BusinessSupportBadge support={card.businessSupport} tooltipLinkHref={detailHref} />
         <StatusBadge
           status={card.status}
@@ -1342,6 +1368,9 @@ export function WalletTable<T extends WalletData>({
                   </th>
                   <th className={mobileHeaderCellClassName}>
                     <HeaderTooltip label="Rewards" tooltip={cryptoCardTooltips.headers.rewards} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />
+                  </th>
+                  <th className={mobileHeaderCellClassName}>
+                    <HeaderTooltip label="Operator XP" tooltip={cryptoCardTooltips.headers.operatorXp} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />
                   </th>
                   <th className={mobileHeaderCellClassName}>
                     <HeaderTooltip label="Annual Fee" tooltip={cryptoCardTooltips.headers.annualFee} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />

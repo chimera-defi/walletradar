@@ -185,6 +185,7 @@ export const cryptoCardTooltips = {
     cashback: 'Maximum cashback/rewards rate (may require staking or tiers)',
     fxFee: 'Foreign transaction fee (0% = no fee)',
     rewards: 'Type of rewards earned (BTC, ETH, platform tokens)',
+    operatorXp: 'Operational quality signal from operator experience (❌ poor applies a -20 score penalty)',
     annualFee: 'Yearly card fee ($0 = no annual fee)',
     status: 'Status: ✅ active, ⚠️ verify, 🔄 launching soon',
     bestFor: 'Primary use case or audience',
@@ -207,6 +208,13 @@ export const cryptoCardTooltips = {
     yes: 'Business accounts supported',
     no: 'Personal accounts only',
     verify: 'Business support status needs verification',
+  },
+
+  operatorExperience: {
+    good: 'Good operator experience reported',
+    mixed: 'Mixed operator experience reported',
+    poor: 'Poor operator experience reported (-20 score penalty)',
+    unrated: 'No operator experience signal recorded',
   },
 
   status: {

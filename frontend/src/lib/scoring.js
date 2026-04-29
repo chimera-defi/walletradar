@@ -3,7 +3,7 @@ const HARDWARE_MAX_SCORE = 100;
 const CARD_MAX_SCORE = 100;
 const RAMP_MAX_SCORE = 100;
 
-const SCORING_METHODOLOGY_VERSION = '2026-04-visible-columns-v3';
+const SCORING_METHODOLOGY_VERSION = '2026-04-visible-columns-v4';
 
 const RECOMMENDATION_BAND_RULES = {
   software: {
@@ -747,8 +747,16 @@ function parseCardStatus(cell) {
   return 'verify';
 }
 
+function parseOperatorExperiencePenalty(cell) {
+  const text = String(cell || '').toLowerCase();
+  if (text.includes('❌') || includesAny(text, ['poor', 'bad', 'negative'])) return 20;
+  return 0;
+}
+
 function computeCardScore(cells) {
-  const status = parseCardStatus(cells[10]);
+  const hasOperatorXpColumn = cells.length >= 14;
+  const operatorExperiencePenalty = parseOperatorExperiencePenalty(hasOperatorXpColumn ? cells[10] : '');
+  const status = parseCardStatus(hasOperatorXpColumn ? cells[11] : cells[10]);
 
   const productModel =
     parseCardTypeScore(cells[2]) +
@@ -773,7 +781,7 @@ function computeCardScore(cells) {
     0;
 
   const rawTotal = productModel + custodyCoverage + rewardsValue + feeFriction + deliveryConfidence - (status === 'inactive' ? 28 : 0);
-  const total = (rawTotal / 90) * CARD_MAX_SCORE;
+  const total = ((rawTotal / 90) * CARD_MAX_SCORE) - operatorExperiencePenalty;
 
   const entries = [
     {
@@ -811,6 +819,15 @@ function computeCardScore(cells) {
       max: 10,
       note: 'Current product status and verification confidence.',
     },
+    {
+      key: 'operator_experience',
+      label: 'Operator Experience',
+      score: operatorExperiencePenalty === 20 ? 0 : 20,
+      max: 20,
+      note: operatorExperiencePenalty === 20
+        ? 'Poor operator experience marker triggered a direct -20 penalty.'
+        : 'No operator experience penalty applied.',
+    },
   ];
 
   const score = roundScore(total);
@@ -824,6 +841,7 @@ function computeCardScore(cells) {
     SCORING_METHODOLOGY_VERSION,
     {
       status,
+      operatorExperiencePenalty,
     }
   );
 }

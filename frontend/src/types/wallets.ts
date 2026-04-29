@@ -114,6 +114,7 @@ export interface CryptoCard {
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];
   cardType: 'credit' | 'debit' | 'prepaid' | 'business';
+  operatorExperience: 'good' | 'mixed' | 'poor' | 'unrated';
   /** Custody model: self (non-custodial), exchange, or cefi */
   custody: CustodyType;
   businessSupport: 'yes' | 'no' | 'verify';
