@@ -45,9 +45,9 @@ This table mirrors the current generated ordering from [RAMPS.md](./RAMPS.md):
 | [**Ramp**](https://ramp.network/) | 86 | EU / Speed | ~150+ Countries | Low/Medium | Good (SDK) |
 | [**Changelly**](https://changelly.com/) | 85 | Exchange | Global | Medium | Good (API) |
 | [**Sardine**](https://www.sardine.ai/) | 84 | US / Fraud | US + Select Global | Variable (Risk based) | Advanced (API/SDK) |
+| [**SpherePay**](https://spherepay.co/) | 84 | Global stablecoin payouts | ~160+ Markets | Variable | Excellent (REST API + SDK) |
 | [**Guardarian**](https://guardarian.com/) | 83 | EU focus | ~100+ Countries | Low/Medium | Good (Widget) |
 | [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Global pay rails | ~170+ Countries | Variable | Advanced (Plugin/API) |
-| [**Mercuryo**](https://mercuryo.io/) | 82 | B2B | Global | Medium | Good |
 <!-- GENERATED_RAMPS_TOP_PROVIDERS_END -->
 
 ---
