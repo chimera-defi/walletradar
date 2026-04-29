@@ -99,8 +99,8 @@ Rabby, Trust, Rainbow, Brave, Coinbase, MetaMask, Phantom, OKX, Wigwam, Zerion, 
 
 **Wallet-specific searches:**
 ```bash
-rg -g "*.md" "scoring methodology" wallets/
-rg -g "*.md" "hardware wallet" wallets/
+rg -g "*.md" "scoring methodology" .
+rg -g "*.md" "hardware wallet" .
 ```
 
 ---
@@ -149,7 +149,7 @@ rg -g "*.md" "hardware wallet" wallets/
 **Document Maintenance:** Single table principle, changelog discipline, verify before trust
 
 **Wallet Workflow:**
-- Research inputs → `wallets/artifacts/` (gitignored), durable notes → `wallets/MERCHANT_FEED.md`
+- Research inputs → `artifacts/` (gitignored), durable notes → `MERCHANT_FEED.md`
 - Merchant feeds: provider-site pricing only; skip free categories and items without verified prices
 - Activity status decays over time
 

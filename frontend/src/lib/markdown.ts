@@ -12,6 +12,7 @@ export interface MarkdownDocument {
   description: string;
   content: string;
   lastUpdated?: string;
+  sourceCount?: number;
   category: 'comparison' | 'research' | 'guide' | 'other';
   order: number;
 }
@@ -53,6 +54,12 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     description: 'Full documentation with card reviews, scoring methodology, business support, and recommendations',
     category: 'comparison',
     order: 3,
+  },
+  'CRYPTO_CARDS_TIERS.md': {
+    title: 'Crypto Card Tier Matrix',
+    description: 'Supplemental per-tier fee and feature matrix for imported card programs.',
+    category: 'comparison',
+    order: 3.5,
   },
   'RAMPS.md': {
     title: 'Crypto On/Off-Ramp Comparison',
@@ -96,6 +103,12 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     category: 'guide',
     order: 6.7,
   },
+  'COMPETITOR_TRACKER.md': {
+    title: 'Competitor Tracker',
+    description: 'Running watchlist of wallet/card comparison competitors with refresh cadence and intake notes.',
+    category: 'research',
+    order: 6.8,
+  },
   'walletconnect-wallet-research.md': {
     title: 'WalletConnect Research',
     description: 'Original detailed research on WalletConnect-compatible wallets',
@@ -115,6 +128,29 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     order: 7,
   },
 };
+
+function countUniqueMarkdownLinks(markdown: string): number {
+  const links = Array.from(markdown.matchAll(/\[[^\]]+\]\((https?:\/\/[^)]+)\)/g))
+    .map((match) => match[1].trim());
+  return new Set(links).size;
+}
+
+function extractSourceCount(filename: string, content: string): number | undefined {
+  if (filename === 'CRYPTO_CARDS_TIERS.md') {
+    const sourceLinks = Array.from(content.matchAll(/\[source\]\((https?:\/\/[^)]+)\)/gi))
+      .map((match) => match[1].trim());
+    return sourceLinks.length > 0 ? new Set(sourceLinks).size : undefined;
+  }
+
+  if (filename === 'COMPETITOR_TRACKER.md') {
+    const watchlistSection = content.match(/## Current Watchlist([\s\S]*?)(?:\n##\s|$)/);
+    const watchlistContent = watchlistSection ? watchlistSection[1] : content;
+    const sourceCount = countUniqueMarkdownLinks(watchlistContent);
+    return sourceCount > 0 ? sourceCount : undefined;
+  }
+
+  return undefined;
+}
 
 export function getMarkdownFiles(): string[] {
   return Object.keys(DOCUMENT_CONFIG);
@@ -138,7 +174,8 @@ export function getAllDocuments(): MarkdownDocument[] {
       const slug = filename.replace('.md', '').toLowerCase().replace(/_/g, '-');
       
       // Extract last updated from content if present
-      const lastUpdatedMatch = content.match(/Last [Uu]pdated:?\s*([^\n\|]+)/);
+      const normalizedContent = content.replace(/\*\*/g, '');
+      const lastUpdatedMatch = normalizedContent.match(/Last [Uu]pdated:?\s*([^\n\|]+)/);
       const lastUpdatedRaw = lastUpdatedMatch 
         ? lastUpdatedMatch[1].replace(/^\*+\s*/, '').replace(/\*+$/, '').trim() // Strip markdown bold/italic
         : undefined;
@@ -147,11 +184,13 @@ export function getAllDocuments(): MarkdownDocument[] {
       // This handles formats like "December 16, 2025. Full validation..." or just "December 2025"
       const dateOnlyMatch = lastUpdatedRaw?.match(/^((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+(?:\d{1,2},?\s+)?\d{4})/i);
       const lastUpdated = dateOnlyMatch ? dateOnlyMatch[1] : lastUpdatedRaw;
+      const sourceCount = extractSourceCount(filename, content);
       
       return {
         slug,
         content,
         lastUpdated,
+        sourceCount,
         ...config,
       } as MarkdownDocument;
     })

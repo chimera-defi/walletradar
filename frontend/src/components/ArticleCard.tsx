@@ -34,11 +34,11 @@ export function ArticleCard({
         <span className="text-xs font-medium text-sky-400 uppercase tracking-wide mb-2 block">
           {category}
         </span>
-        <h3 className="text-lg font-semibold text-slate-100 mb-2 group-hover:text-sky-400 transition-colors line-clamp-2">
+        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-sky-400 transition-colors line-clamp-2">
           {title}
         </h3>
-        <p className="text-sm text-slate-400 line-clamp-2 mb-3">{description}</p>
-        <span className="text-xs text-slate-500">{lastUpdated}</span>
+        <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{description}</p>
+        <span className="text-xs text-muted-foreground">{lastUpdated}</span>
       </Link>
     );
   }
@@ -54,7 +54,7 @@ export function ArticleCard({
           {category}
         </span>
         {readingTime && (
-          <span className="text-xs text-slate-400 inline-flex items-center gap-1">
+          <span className="text-xs text-muted-foreground inline-flex items-center gap-1">
             <Clock className="h-3 w-3" />
             {formatReadingTime(readingTime)}
           </span>
@@ -62,17 +62,17 @@ export function ArticleCard({
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-semibold mb-2 text-slate-100 group-hover:text-sky-400 transition-colors">
+      <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-sky-400 transition-colors">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-sm text-slate-400 mb-4 line-clamp-3">
+      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
         {description}
       </p>
 
       {/* Meta */}
-      <div className="flex items-center gap-4 text-xs text-slate-500 mb-4">
+      <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
         <span className="inline-flex items-center gap-1">
           <Calendar className="h-3 w-3" />
           {new Date(lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}

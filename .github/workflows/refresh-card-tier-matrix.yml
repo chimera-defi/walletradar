@@ -1,0 +1,57 @@
+name: Refresh Card Tier Matrix
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-card-tier-matrix
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Refresh tier matrix
+        run: node scripts/refresh-card-tier-matrix.js
+
+      - name: Detect tier matrix changes
+        id: changes
+        run: |
+          if git diff --quiet -- CRYPTO_CARDS_TIERS.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open or update pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/refresh-card-tier-matrix
+          delete-branch: true
+          add-paths: |
+            CRYPTO_CARDS_TIERS.md
+          commit-message: "chore: refresh crypto card tier matrix"
+          title: "chore: refresh crypto card tier matrix"
+          body: |
+            Automated refresh of `CRYPTO_CARDS_TIERS.md` via `scripts/refresh-card-tier-matrix.js`.
+
+            Trigger:
+            - scheduled weekly run, or
+            - manual workflow dispatch

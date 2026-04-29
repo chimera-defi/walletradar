@@ -16,10 +16,10 @@ This plan moves `wallets/` into a standalone repository while keeping a minimal 
 
 ## Step 1: Split History
 
-From monorepo root:
+From a repo root where this script exists (set `PREFIX=wallets` when extracting from monorepo history):
 
 ```bash
-./wallets/scripts/extract_wallets_subtree.sh https://github.com/chimera-defi/walletradar.git
+PREFIX=wallets ./scripts/extract_wallets_subtree.sh https://github.com/chimera-defi/walletradar.git
 ```
 
 This creates a split branch from `wallets/` history and prints push commands.
@@ -45,8 +45,8 @@ git log --oneline --decorate -n 20
 After standalone repo is live, in monorepo branch:
 
 1. Remove implementation content under `wallets/`.
-2. Add a stub README based on `wallets/STUB_README_TEMPLATE.md`.
-3. Keep optional migration notes (`wallets/EXTRACT_STUB_PLAN.md`) for future contributors.
+2. Add a stub README based on `STUB_README_TEMPLATE.md`.
+3. Keep optional migration notes (`EXTRACT_STUB_PLAN.md`) for future contributors.
 
 Suggested stub commit message:
 

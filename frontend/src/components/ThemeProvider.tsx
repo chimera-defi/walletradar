@@ -1,8 +1,17 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 type Theme = 'dark' | 'light';
+const THEME_STORAGE_KEY = 'theme';
+const DARK_CLASS = 'dark';
 
 interface ThemeContextType {
   theme: Theme;
@@ -25,41 +34,50 @@ interface ThemeProviderProps {
   defaultTheme?: Theme;
 }
 
-export function ThemeProvider({ children, defaultTheme = 'dark' }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Check localStorage for saved theme preference
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    if (savedTheme) {
-      setThemeState(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else {
-      // Default to dark mode
-      setThemeState('dark');
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
-  // Prevent flash of wrong theme
-  if (!mounted) {
-    return null;
+function resolveInitialTheme(defaultTheme: Theme): Theme {
+  if (typeof window === 'undefined') {
+    return defaultTheme;
   }
 
+  try {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      return savedTheme;
+    }
+  } catch {
+    return defaultTheme;
+  }
+
+  return document.documentElement.classList.contains(DARK_CLASS) ? 'dark' : defaultTheme;
+}
+
+export function ThemeProvider({ children, defaultTheme = 'dark' }: ThemeProviderProps) {
+  const [theme, setThemeState] = useState<Theme>(() => resolveInitialTheme(defaultTheme));
+
+  useEffect(() => {
+    document.documentElement.classList.toggle(DARK_CLASS, theme === 'dark');
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch {
+      // Ignore storage write failures (private mode / storage policy).
+    }
+  }, [theme]);
+
+  const setTheme = useCallback((newTheme: Theme) => {
+    setThemeState(newTheme);
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setThemeState((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
+  }, []);
+
+  const value = useMemo(
+    () => ({ theme, setTheme, toggleTheme }),
+    [theme, setTheme, toggleTheme]
+  );
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

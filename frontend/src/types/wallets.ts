@@ -66,6 +66,7 @@ export interface SoftwareWallet {
   accountTypes: string[];
   ensNaming: 'full' | 'basic' | 'import' | 'none';
   hardwareSupport: boolean;
+  specialFeatures: string;
   /** API/backend openness - separate from client code license */
   apiOpenness: ApiOpenness;
   bestFor: string;

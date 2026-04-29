@@ -59,6 +59,7 @@ export function filterSoftwareWallets(
       const matchesSearch =
         wallet.name.toLowerCase().includes(searchLower) ||
         wallet.bestFor.toLowerCase().includes(searchLower) ||
+        wallet.specialFeatures.toLowerCase().includes(searchLower) ||
         wallet.fundingSource.toLowerCase().includes(searchLower);
       if (!matchesSearch) return false;
     }

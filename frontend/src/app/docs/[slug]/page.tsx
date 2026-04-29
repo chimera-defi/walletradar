@@ -393,7 +393,7 @@ export default function DocumentPage({ params }: PageProps) {
                         merchant-center.xml
                       </a>
                       {' — Verified USD pricing for hardware wallets. Exclusions: '}
-                      <a href="https://github.com/chimera-defi/Etc-mono-repo/blob/main/wallets/MERCHANT_FEED.md" className="text-sky-400 hover:text-sky-300 underline" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md" className="text-sky-400 hover:text-sky-300 underline" target="_blank" rel="noopener noreferrer">
                         MERCHANT_FEED.md
                       </a>
                     </p>

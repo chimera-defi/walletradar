@@ -41,14 +41,14 @@ Crypto product research is crowded with sponsored lists, opaque rankings, and co
 
 Wallet Radar is an active research project maintained by [Chimera DeFi](https://x.com/chimeradefi). We're building this in public:
 
-- [View source code on GitHub](https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets)
-- [Report issues or suggest improvements](https://github.com/chimera-defi/Etc-mono-repo/issues)
+- [View source code on GitHub](https://github.com/chimera-defi/walletradar)
+- [Report issues or suggest improvements](https://github.com/chimera-defi/walletradar/issues)
 - [Contact us](mailto:chimera_deFi@protonmail.com)
 - [Follow on Twitter/X](https://x.com/chimeradefi)
 
 ## How to Use Wallet Radar
 
-1. **Start with comparisons** - Browse [software wallets](/docs/software-wallets/), [hardware wallets](/docs/hardware-wallets/), or [crypto cards](/docs/crypto-cards/)
+1. **Start with comparisons** - Browse [software wallets](/docs/software-), [hardware wallets](/docs/hardware-), or [crypto cards](/docs/crypto-cards/)
 2. **Use the explorer** - [Filter and compare side-by-side](/explore/) across wallets, cards, and ramps
 3. **Read the research** - Understand the methodology behind our scores
 4. **Verify yourself** - All data sources are linked; check them independently
@@ -80,7 +80,7 @@ A: This is a false positive. Chrome's Safe Browsing uses heuristics that sometim
 A: We maintain high standards for accuracy and transparency. All data is sourced from official repositories and published research. However, this is educational research, not financial advice. Always verify critical information independently.
 
 **Q: How do I report an error?**
-A: Please [open an issue on GitHub](https://github.com/chimera-defi/Etc-mono-repo/issues) or [email us](mailto:chimera_deFi@protonmail.com).
+A: Please [open an issue on GitHub](https://github.com/chimera-defi/walletradar/issues) or [email us](mailto:chimera_deFi@protonmail.com).
 
 **Q: Can I contribute?**
 A: Yes! We welcome contributions. Check out the [contributing guidelines](/docs/contributing).

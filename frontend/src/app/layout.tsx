@@ -135,12 +135,12 @@ export default function RootLayout({
   };
 
   // Minified theme init - runs before hydration to prevent FOUC
-  const themeScript = '(function(){var t=localStorage.getItem("theme")||"dark";document.documentElement.classList.toggle("dark",t==="dark");})();';
+  const themeScript = '(function(){var r=document.documentElement.classList;try{var t=localStorage.getItem("theme");r.toggle("dark",t?t==="dark":true);}catch(e){r.add("dark");}})();';
 
   return (
     <html
       lang="en"
-      className={`${bodyFont.variable} ${displayFont.variable} scroll-smooth dark`}
+      className={`${bodyFont.variable} ${displayFont.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

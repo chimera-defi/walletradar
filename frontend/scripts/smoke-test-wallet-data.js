@@ -8,7 +8,7 @@
  *
  * Notes:
  * - Dependency-free (plain Node.js).
- * - Reads markdown tables from the parent `wallets/` directory.
+ * - Reads markdown tables from the repository root directory.
  */
 /* eslint-disable no-console */
 const fs = require('fs');
@@ -331,6 +331,142 @@ function assertMethodologyVersionTag(fileLabel, content) {
   }
 }
 
+function assertThemeToggleContract() {
+  const themeProviderPath = path.join(FRONTEND_DIR, 'src', 'components', 'ThemeProvider.tsx');
+  const themeProviderContent = readFileOrFail(themeProviderPath);
+
+  const themeProviderChecks = [
+    {
+      valid: themeProviderContent.includes("const THEME_STORAGE_KEY = 'theme';"),
+      message: 'ThemeProvider.tsx: expected THEME_STORAGE_KEY = "theme" for persistent toggle behavior.',
+    },
+    {
+      valid: themeProviderContent.includes("const DARK_CLASS = 'dark';"),
+      message: 'ThemeProvider.tsx: expected DARK_CLASS = "dark" to match Tailwind dark mode class strategy.',
+    },
+    {
+      valid: /localStorage\.getItem\(THEME_STORAGE_KEY\)/.test(themeProviderContent),
+      message: 'ThemeProvider.tsx: expected localStorage read (getItem(THEME_STORAGE_KEY)) in initial theme resolver.',
+    },
+    {
+      valid: /document\.documentElement\.classList\.toggle\(DARK_CLASS,\s*theme === 'dark'\)/.test(themeProviderContent),
+      message: 'ThemeProvider.tsx: expected document root class sync via classList.toggle(DARK_CLASS, theme === "dark").',
+    },
+    {
+      valid: /localStorage\.setItem\(THEME_STORAGE_KEY,\s*theme\)/.test(themeProviderContent),
+      message: 'ThemeProvider.tsx: expected localStorage write (setItem(THEME_STORAGE_KEY, theme)) when theme changes.',
+    },
+    {
+      valid: /setThemeState\(\(currentTheme\) => \(currentTheme === 'dark' \? 'light' : 'dark'\)\)/.test(themeProviderContent),
+      message: 'ThemeProvider.tsx: expected toggleTheme to flip dark <-> light deterministically.',
+    },
+  ];
+
+  let themeProviderFailures = 0;
+  for (const check of themeProviderChecks) {
+    if (!check.valid) {
+      fail(check.message);
+      themeProviderFailures += 1;
+    }
+  }
+  if (themeProviderFailures === 0) {
+    ok('ThemeProvider.tsx: theme persistence + root-class toggle contract passed');
+  }
+
+  const themeTogglePath = path.join(FRONTEND_DIR, 'src', 'components', 'ThemeToggle.tsx');
+  const themeToggleContent = readFileOrFail(themeTogglePath);
+  let themeToggleFailures = 0;
+
+  if (!themeToggleContent.includes('onClick={toggleTheme}')) {
+    fail('ThemeToggle.tsx: toggle button must call toggleTheme on click.');
+    themeToggleFailures += 1;
+  }
+  if (!themeToggleContent.includes("aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}")) {
+    fail('ThemeToggle.tsx: expected accessible aria-label that reflects the target theme mode.');
+    themeToggleFailures += 1;
+  }
+
+  if (themeToggleFailures === 0) {
+    ok('ThemeToggle.tsx: click + accessibility label contract passed');
+  }
+
+  const layoutPath = path.join(FRONTEND_DIR, 'src', 'app', 'layout.tsx');
+  const layoutContent = readFileOrFail(layoutPath);
+  let layoutFailures = 0;
+
+  const hasThemeScript = /const themeScript = .*localStorage\.getItem\("theme"\).*toggle\("dark"/s.test(layoutContent);
+  if (!hasThemeScript) {
+    fail('layout.tsx: expected pre-hydration themeScript to read localStorage("theme") and toggle the dark class.');
+    layoutFailures += 1;
+  }
+
+  if (!layoutContent.includes('<script dangerouslySetInnerHTML={{ __html: themeScript }} />')) {
+    fail('layout.tsx: expected inline <script> injection for themeScript before hydration to prevent FOUC.');
+    layoutFailures += 1;
+  }
+
+  if (/className=\{`[^`]*\bdark\b[^`]*`\}/.test(layoutContent)) {
+    fail('layout.tsx: do not hardcode "dark" on <html> className; theme must be controlled by script + ThemeProvider.');
+    layoutFailures += 1;
+  }
+
+  if (layoutFailures === 0) {
+    ok('layout.tsx: pre-hydration theme bootstrap contract passed');
+  }
+}
+
+function assertCompetitorDocsDiscoverability() {
+  let failures = 0;
+
+  const markdownPath = path.join(FRONTEND_DIR, 'src', 'lib', 'markdown.ts');
+  const markdownContent = readFileOrFail(markdownPath);
+
+  const hasCompetitorDocConfig = /'COMPETITOR_TRACKER\.md':\s*\{[\s\S]*title:\s*'Competitor Tracker'[\s\S]*category:\s*'research'/m.test(markdownContent);
+  if (!hasCompetitorDocConfig) {
+    fail('markdown.ts: missing COMPETITOR_TRACKER.md config (title/category). Add it to DOCUMENT_CONFIG so /docs/competitor-tracker is generated.');
+    failures += 1;
+  }
+
+  const hasCardTierDocConfig = /'CRYPTO_CARDS_TIERS\.md':\s*\{[\s\S]*title:\s*'Crypto Card Tier Matrix'/m.test(markdownContent);
+  if (!hasCardTierDocConfig) {
+    fail('markdown.ts: missing CRYPTO_CARDS_TIERS.md config. Add it to DOCUMENT_CONFIG so /docs/crypto-cards-tiers is discoverable.');
+    failures += 1;
+  }
+
+  const navigationPath = path.join(FRONTEND_DIR, 'src', 'components', 'Navigation.tsx');
+  const navigationContent = readFileOrFail(navigationPath);
+  if (!navigationContent.includes("{ href: '/docs/competitor-tracker', label: 'Competitors' }")) {
+    fail('Navigation.tsx: missing top-nav link to /docs/competitor-tracker. Keep competitor tracker discoverable outside generic docs index.');
+    failures += 1;
+  }
+
+  const searchDataPath = path.join(FRONTEND_DIR, 'src', 'lib', 'search-data.ts');
+  const searchDataContent = readFileOrFail(searchDataPath);
+  const hasDocsSearchIndexing =
+    searchDataContent.includes('const documents = getAllDocuments();') &&
+    searchDataContent.includes('id: `doc-${doc.slug}`') &&
+    searchDataContent.includes('url: `/docs/${doc.slug}`');
+  if (!hasDocsSearchIndexing) {
+    fail('search-data.ts: docs indexing contract drift. Expected getAllDocuments() -> doc entries with /docs/${doc.slug} URLs for site-search discoverability.');
+    failures += 1;
+  }
+
+  const cardsPath = path.join(WALLETS_DIR, 'CRYPTO_CARDS.md');
+  const cardsContent = readFileOrFail(cardsPath);
+  if (!cardsContent.includes('[COMPETITOR_TRACKER.md](./COMPETITOR_TRACKER.md)')) {
+    fail('CRYPTO_CARDS.md: missing inline link to COMPETITOR_TRACKER.md in card table notes.');
+    failures += 1;
+  }
+  if (!cardsContent.includes('[CRYPTO_CARDS_TIERS.md](./CRYPTO_CARDS_TIERS.md)')) {
+    fail('CRYPTO_CARDS.md: missing inline link to CRYPTO_CARDS_TIERS.md in card table notes.');
+    failures += 1;
+  }
+
+  if (failures === 0) {
+    ok('Competitor docs discoverability contract passed (docs config, nav, search, and card-table cross-links)');
+  }
+}
+
 function run() {
   console.log('🔎 Running wallet table smoke tests...\n');
 
@@ -362,6 +498,7 @@ function run() {
     'Account',
     'ENS/Naming',
     'HW',
+    'Special',
     'Best For',
     'Rec',
   ];
@@ -374,7 +511,7 @@ function run() {
     softwareRows,
     computeSoftwareScore,
     1,
-    20,
+    21,
     softwareExpectedRecommendations
   );
 
@@ -390,7 +527,7 @@ function run() {
       rabbyRow,
       computeSoftwareScore,
       1,
-      20,
+      21,
       softwareExpectedRecommendations[rabbyIndex]
     );
     // Chains now uses HTML img tags for chain logos
@@ -629,6 +766,9 @@ function run() {
   } else {
     ok('WalletTable.tsx: ramps status display guard passed');
   }
+
+  assertThemeToggleContract();
+  assertCompetitorDocsDiscoverability();
 
   // ---- Crypto cards table ----
   const cardsPath = path.join(WALLETS_DIR, 'CRYPTO_CARDS.md');

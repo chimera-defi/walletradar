@@ -15,7 +15,7 @@ tags: ["comparison", "crypto-cards", "spending"]
 - **Best self-custody alternative:** **Ready Card (83)**  
 - **Best EU/EEA option:** **Gnosis Pay (78)**  
 
-Source: `wallets/CRYPTO_CARDS.md`
+Source: `CRYPTO_CARDS.md`
 
 ---
 
@@ -47,7 +47,7 @@ Source: `wallets/CRYPTO_CARDS.md`
 ## FAQ
 
 **Which card is best for the US?**  
-See `wallets/CRYPTO_CARDS.md` for US-available options.
+See `CRYPTO_CARDS.md` for US-available options.
 
 **Is self-custody safer?**  
 Yes, you retain control of funds.

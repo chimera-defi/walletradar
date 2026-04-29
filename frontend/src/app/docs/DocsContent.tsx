@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { WalletCard } from '@/components/WalletCard';
 import { SearchFilter, SearchResultsCount } from '@/components/SearchFilter';
+import { CompetitorIntelligenceSection } from '@/components/CompetitorIntelligenceSection';
 import type { MarkdownDocument } from '@/lib/markdown';
 
 interface DocsContentProps {
@@ -32,6 +33,8 @@ export function DocsContent({ documents }: DocsContentProps) {
 
   return (
     <>
+      <CompetitorIntelligenceSection documents={documents} />
+
       {/* Search and Filter */}
       <div className="mb-8">
         <SearchFilter 

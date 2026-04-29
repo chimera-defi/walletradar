@@ -11,7 +11,20 @@ Track significant changes to wallet statuses, recommendations, and documentation
 
 ---
 
-## Crypto Cards (January 2026)
+## Crypto Cards (April 2026)
+
+### Third Review Intake (April 23, 2026)
+
+Third-pass review of `ccompare.cards` with source-url verification. Added missing active cards, updated Kraken/Krak terms, and introduced a persistent competitor watchlist.
+
+| Date | Card / Doc | Change | Details |
+|------|------------|--------|---------|
+| Apr 23, 2026 | **Card table expansion** | 44 → 52 active/inactive rows | Added 8 cards from competitor intake: Bleap, Deblock Card, Spritz Card, Pyra Card, Cypher Card, Rebind Card, Ugly Cash Card, Holyheld Card. |
+| Apr 23, 2026 | **Kraken Card** | Data refresh | Updated URL to Krak flow (`/krak/card`), cashback `1%*` promo, status `✅`, and `Variable spread` FX note from Krak terms. |
+| Apr 23, 2026 | **Scope guard** | Deferred placeholders | Did not import `Monet`, `Moto Card`, and `Hyperbeat` from competitor dataset due "coming soon" placeholder state and missing issuer terms pages. |
+| Apr 23, 2026 | **Tier Matrix** | NEW | Added `CRYPTO_CARDS_TIERS.md` to capture per-tier fee/limit/cashback fields from third-review competitor intake without bloating `CRYPTO_CARDS.md`. |
+| Apr 23, 2026 | **Tier Matrix Automation** | NEW | Added `scripts/refresh-card-tier-matrix.js` to regenerate `CRYPTO_CARDS_TIERS.md` from upstream `ccompare.cards` bundle data. |
+| Apr 23, 2026 | **Competitor Tracker** | NEW | Added `COMPETITOR_TRACKER.md` as running list of card-comparison competitors and refresh cadence. |
 
 ### Regional Availability Updates (January 7, 2026)
 

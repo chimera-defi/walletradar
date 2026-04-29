@@ -83,9 +83,9 @@
     isolation: isolate;
     overflow-x: hidden;
     background-image:
-      radial-gradient(circle at 12% 12%, rgba(45, 212, 191, 0.18), transparent 28%),
-      radial-gradient(circle at 88% 10%, rgba(250, 204, 21, 0.12), transparent 24%),
-      linear-gradient(180deg, rgba(7, 12, 20, 0.98), rgba(15, 23, 42, 0.96));
+      radial-gradient(circle at 12% 12%, rgba(37, 99, 235, 0.15), transparent 28%),
+      radial-gradient(circle at 88% 10%, rgba(20, 184, 166, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(248, 250, 252, 0.98), rgba(241, 245, 249, 0.98));
     background-attachment: scroll;
   }
 
@@ -95,12 +95,26 @@
     inset: 0;
     pointer-events: none;
     background-image:
-      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(51, 65, 85, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51, 65, 85, 0.06) 1px, transparent 1px);
     background-size: 72px 72px;
     mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
-    opacity: 0.28;
+    opacity: 0.2;
     z-index: -1;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at 12% 12%, rgba(45, 212, 191, 0.18), transparent 28%),
+      radial-gradient(circle at 88% 10%, rgba(250, 204, 21, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(7, 12, 20, 0.98), rgba(15, 23, 42, 0.96));
+  }
+
+  .dark body::before {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    opacity: 0.28;
   }
 
   @media (min-width: 768px) {
