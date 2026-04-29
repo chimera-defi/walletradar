@@ -104,6 +104,13 @@ function getWalletHighlights(type: WalletType, wallet: WalletData): string[] {
     ];
   }
   const ramp = wallet as Ramp;
+  const operatorXpLabel = ramp.operatorExperience === 'poor'
+    ? 'Poor (-20 penalty)'
+    : ramp.operatorExperience === 'mixed'
+      ? 'Mixed'
+      : ramp.operatorExperience === 'good'
+        ? 'Good'
+        : 'Neutral/Unrated';
   return [
     `Score: ${ramp.score}/100`,
     `Ramp type: ${ramp.rampType}`,
@@ -113,6 +120,7 @@ function getWalletHighlights(type: WalletType, wallet: WalletData): string[] {
     `Fee model: ${ramp.feeModel}`,
     `Minimum fee: ${ramp.minFee}`,
     `Developer UX: ${ramp.devUx}`,
+    `Operator XP: ${operatorXpLabel}`,
   ];
 }
 

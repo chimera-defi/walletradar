@@ -62,17 +62,18 @@ const TABLE_CONFIGS = [
   {
     label: 'ramps',
     file: path.join(ROOT, 'RAMPS.md'),
-    header: '| Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Status | Founded | Funding | Best For | Rec |',
-    separator: '| -------- | ----- | ---- | ------- | -------- | -------- | --------- | ------- | ------ | ------ | ------- | ------- | -------- | --- |',
+    header: '| Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Operator XP | Status | Founded | Funding | Best For | Rec |',
+    separator: '| -------- | ----- | ---- | ------- | -------- | -------- | --------- | ------- | ------ | ----------- | ------ | ------- | ------- | -------- | --- |',
     legacyHeaders: [
       '| Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Status | Founded | Funding | Best For |',
+      '| Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Status | Founded | Funding | Best For | Rec |',
     ],
     compute: computeRampScore,
     formatScore: (scoreInfo) => String(scoreInfo.score),
     updateCells: (cells, scoreInfo) => {
-      while (cells.length < 14) cells.push('');
+      while (cells.length < 15) cells.push('');
       cells[1] = String(scoreInfo.score);
-      cells[13] = recommendationEmoji(scoreInfo.recommendation);
+      cells[14] = recommendationEmoji(scoreInfo.recommendation);
       return cells;
     },
   },
@@ -165,7 +166,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
       const topRows = rows.slice(0, 5);
       const summary = joinSummaryItems(
         topRows.slice(0, 4).map((row) => (
-          `${extractName(row.cells[0])} (${row.score}, ${row.cells[12]}, ${recommendationEmoji(row.scoreInfo.recommendation)})`
+          `${extractName(row.cells[0])} (${row.score}, ${row.cells[13]}, ${recommendationEmoji(row.scoreInfo.recommendation)})`
         ))
       );
 
@@ -177,7 +178,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
         '| Rank | Provider | Score | Best For | Rec |',
         '| ---- | -------- | ----- | -------- | --- |',
         ...topRows.map((row, index) => (
-          `| ${index + 1} | **${extractName(row.cells[0])}** | ${row.score} | ${row.cells[12]} | ${recommendationEmoji(row.scoreInfo.recommendation)} |`
+          `| ${index + 1} | **${extractName(row.cells[0])}** | ${row.score} | ${row.cells[13]} | ${recommendationEmoji(row.scoreInfo.recommendation)} |`
         )),
         this.endMarker,
       ].join('\n');
@@ -199,7 +200,7 @@ const DETAIL_TOP_PROVIDER_CONFIGS = {
         '| Provider | Score | Best For | Global Coverage | Fee Model | Dev UX |',
         '|----------|-------|----------|-----------------|-----------|--------|',
         ...topRows.map((row) => (
-          `| ${row.cells[0]} | ${row.score} | ${row.cells[12]} | ${row.cells[5]} | ${row.cells[6]} | ${row.cells[8]} |`
+          `| ${row.cells[0]} | ${row.score} | ${row.cells[13]} | ${row.cells[5]} | ${row.cells[6]} | ${row.cells[8]} |`
         )),
         this.endMarker,
       ].join('\n');

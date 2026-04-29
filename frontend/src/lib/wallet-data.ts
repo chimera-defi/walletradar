@@ -596,8 +596,14 @@ export function parseRamps(): Ramp[] {
 
   // Table columns (RAMPS.md):
   // Provider(0) Score(1) Type(2) On-Ramp(3) Off-Ramp(4) Coverage(5) Fee Model(6)
-  // Min Fee(7) Dev UX(8) Status(9) Founded(10) Funding(11) Best For(12) Rec(13)
+  // Min Fee(7) Dev UX(8) OperatorXP(9) Status(10) Founded(11) Funding(12) Best For(13) Rec(14)
   const parsed = dataRows.map(cells => {
+    const hasOperatorXpColumn = cells.length >= 15;
+    const statusIndex = hasOperatorXpColumn ? 10 : 9;
+    const foundedIndex = hasOperatorXpColumn ? 11 : 10;
+    const fundingIndex = hasOperatorXpColumn ? 12 : 11;
+    const bestForIndex = hasOperatorXpColumn ? 13 : 12;
+
     // Extract provider name and URL from markdown link format: [**Name**](url)
     const linkMatch = cells[0]?.match(/\[(?:\*\*)?([^*]+)(?:\*\*)?\]\(([^)]+)\)/);
     const nameMatch = cells[0]?.match(/\*\*([^*]+)\*\*/);
@@ -616,8 +622,8 @@ export function parseRamps(): Ramp[] {
 
     // Parse score (may have emoji)
     const scoreInfo = computeRampScore(cells);
-    const foundedYear = parseInt(cells[10] || '', 10);
-    const funding = parseFunding(cells[11] || '');
+    const foundedYear = parseInt(cells[foundedIndex] || '', 10);
+    const funding = parseFunding(cells[fundingIndex] || '');
 
     const ramp: Ramp = {
       id: generateSlug(name),
@@ -632,11 +638,12 @@ export function parseRamps(): Ramp[] {
       feeModel: cells[6]?.trim() || 'Unknown',
       minFee: cells[7]?.trim() || 'Custom',
       devUx: cells[8]?.trim() || 'Good',
-      status: parseCardStatus(cells[9] || ''),
+      operatorExperience: parseOperatorExperience(hasOperatorXpColumn ? cells[9] : ''),
+      status: parseCardStatus(cells[statusIndex] || ''),
       foundedYear: Number.isFinite(foundedYear) ? foundedYear : null,
       funding: funding.status,
       fundingSource: funding.source,
-      bestFor: cells[12]?.trim() || '',
+      bestFor: cells[bestForIndex]?.trim() || '',
       recommendation: scoreInfo.recommendation as 'recommended' | 'situational' | 'avoid',
       url,
       type: 'ramp' as const,

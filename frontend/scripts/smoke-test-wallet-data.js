@@ -82,6 +82,7 @@ const RAMPS_CONTRACT_MUTATORS = {
   'Fee Model': () => 'High',
   'Min Fee': () => '~$50.00',
   'Dev UX': () => 'Basic',
+  'Operator XP': () => '❌ Poor',
   Status: () => '❌ Inactive',
   Founded: () => '2010',
   Funding: () => '🟢 Revenue',
@@ -763,11 +764,13 @@ function run() {
   }
 
   const hasRampStatusHeader = walletTableContent.includes('Operational status: ✅ active, ⚠️ verify, 🔄 launching, ❌ inactive.');
+  const hasRampOperatorHeader = walletTableContent.includes('HeaderTooltip label="Operator XP" tooltip={rampTooltips.headers.operatorXp}');
+  const hasRampOperatorRender = walletTableContent.includes('ramp.operatorExperience');
   const hasRampStatusRender = walletTableContent.includes('status={ramp.status}');
-  if (!hasRampStatusHeader || !hasRampStatusRender) {
-    fail('WalletTable.tsx: ramps table must surface operational status (header + rendered badge).');
+  if (!hasRampStatusHeader || !hasRampOperatorHeader || !hasRampOperatorRender || !hasRampStatusRender) {
+    fail('WalletTable.tsx: ramps table must surface operational status and operator experience (headers + rendered badges).');
   } else {
-    ok('WalletTable.tsx: ramps status display guard passed');
+    ok('WalletTable.tsx: ramps status/operator display guard passed');
   }
 
   assertThemeToggleContract();
@@ -886,6 +889,7 @@ function run() {
     'Fee Model',
     'Min Fee',
     'Dev UX',
+    'Operator XP',
     'Status',
     'Founded',
     'Funding',
@@ -896,13 +900,13 @@ function run() {
   const rampsExpectedRecommendations = assignRecommendationBands('ramps', rampsScoreInfos).recommendations;
   assertHeaders('Ramps table', rampsTable.header, rampsExpectedHeader);
   assertAllRowsColumnShape('Ramps table', rampsTable.header, rampsRows);
-  assertCompanyColumns('Ramps table', rampsRows, 10, 11);
+  assertCompanyColumns('Ramps table', rampsRows, 11, 12);
   assertAllRowsComputed(
     'Ramps table',
     rampsRows,
     computeRampScore,
     1,
-    13,
+    14,
     rampsExpectedRecommendations
   );
 
@@ -916,12 +920,12 @@ function run() {
       transakRow,
       computeRampScore,
       1,
-      13,
+      14,
       rampsExpectedRecommendations[transakIndex]
     );
     const improvedCompanySignals = [...transakRow];
-    improvedCompanySignals[10] = '2010';
-    improvedCompanySignals[11] = '🟢 Revenue';
+    improvedCompanySignals[11] = '2010';
+    improvedCompanySignals[12] = '🟢 Revenue';
     const baseScore = computeRampScore(transakRow).score;
     const improvedScore = computeRampScore(improvedCompanySignals).score;
     if (improvedScore <= baseScore) {

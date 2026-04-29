@@ -912,9 +912,11 @@ function parseRampCompanyAgeScore(cell) {
 }
 
 function computeRampScore(cells) {
-  const status = parseCardStatus(cells[9]);
-  const companyAge = parseRampCompanyAgeScore(cells[10]);
-  const funding = parseFundingLevel(cells[11]);
+  const hasOperatorXpColumn = cells.length >= 15;
+  const operatorExperiencePenalty = parseOperatorExperiencePenalty(hasOperatorXpColumn ? cells[9] : '');
+  const status = parseCardStatus(hasOperatorXpColumn ? cells[10] : cells[9]);
+  const companyAge = parseRampCompanyAgeScore(hasOperatorXpColumn ? cells[11] : cells[10]);
+  const funding = parseFundingLevel(hasOperatorXpColumn ? cells[12] : cells[11]);
 
   const coverage = parseRampCoverageScore(cells[5]);
   const typeBreadth = parseRampTypeScore(cells[2], cells[3], cells[4]);
@@ -929,7 +931,7 @@ function computeRampScore(cells) {
     status === 'launching' ? 5 :
     0;
 
-  const total = coverage + typeBreadth + devUx + price + confidence + companyTrackRecord;
+  const total = (coverage + typeBreadth + devUx + price + confidence + companyTrackRecord) - operatorExperiencePenalty;
 
   const entries = [
     {
@@ -968,6 +970,15 @@ function computeRampScore(cells) {
       note: 'Current verification and product status.',
     },
     {
+      key: 'operator_experience',
+      label: 'Operator Experience',
+      score: operatorExperiencePenalty === 20 ? 0 : 20,
+      max: 20,
+      note: operatorExperiencePenalty === 20
+        ? 'Poor operator experience marker triggered a direct -20 penalty.'
+        : 'No operator experience penalty applied.',
+    },
+    {
       key: 'company',
       label: 'Company Track Record',
       score: companyTrackRecord,
@@ -987,6 +998,7 @@ function computeRampScore(cells) {
     SCORING_METHODOLOGY_VERSION,
     {
       status,
+      operatorExperiencePenalty,
     }
   );
 }

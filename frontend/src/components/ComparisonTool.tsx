@@ -619,6 +619,7 @@ function RampComparison({
           {sections.features && (
             <>
               <ComparisonRow label="Dev UX" values={items.map(r => r.devUx)} />
+              <ComparisonRow label="Operator XP" values={items.map(r => r.operatorExperience)} />
               <ComparisonRow label="Status" values={items.map(r => r.status)} />
             </>
           )}
@@ -720,7 +721,7 @@ function generateComparisonCsv(wallets: WalletData[], type: ComparisonToolProps[
   if (type === 'ramps') {
     const typed = wallets as Ramp[];
     rows = [
-      ['Name', 'Score', 'Recommendation', 'Type', 'OnRamp', 'OffRamp', 'Coverage', 'FeeModel', 'MinFee', 'DevUX', 'Status'],
+      ['Name', 'Score', 'Recommendation', 'Type', 'OnRamp', 'OffRamp', 'Coverage', 'FeeModel', 'MinFee', 'DevUX', 'OperatorXP', 'Status'],
       ...typed.map((ramp) => [
         ramp.name,
         ramp.score,
@@ -732,6 +733,7 @@ function generateComparisonCsv(wallets: WalletData[], type: ComparisonToolProps[
         ramp.feeModel,
         ramp.minFee,
         ramp.devUx,
+        ramp.operatorExperience,
         ramp.status,
       ].map(String)),
     ];

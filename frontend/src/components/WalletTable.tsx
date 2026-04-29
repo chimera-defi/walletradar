@@ -28,7 +28,7 @@ import {
   rampTooltips,
   commonTooltips,
 } from '@/lib/tooltip-content';
-import type { CryptoCard, HardwareWallet, Ramp, SoftwareWallet, SupportedChains, WalletData } from '@/types/wallets';
+import type { CryptoCard, HardwareWallet, OperatorExperience, Ramp, SoftwareWallet, SupportedChains, WalletData } from '@/types/wallets';
 
 export type { CryptoCard, HardwareWallet, Ramp, SoftwareWallet, WalletData };
 
@@ -373,9 +373,11 @@ function BusinessSupportBadge({
 
 function OperatorExperienceBadge({
   operatorExperience,
+  kind = 'cards',
   tooltipLinkHref,
 }: {
-  operatorExperience: CryptoCard['operatorExperience'];
+  operatorExperience: OperatorExperience;
+  kind?: 'cards' | 'ramps';
   tooltipLinkHref?: string;
 }) {
   const config = {
@@ -385,7 +387,9 @@ function OperatorExperienceBadge({
     unrated: { label: '⚪ Unrated', variant: 'default' as const },
   };
   const entry = config[operatorExperience];
-  const tooltip = cryptoCardTooltips.operatorExperience[operatorExperience];
+  const tooltip = kind === 'ramps'
+    ? rampTooltips.operatorExperience[operatorExperience]
+    : cryptoCardTooltips.operatorExperience[operatorExperience];
   return (
     <Badge variant={entry.variant} tooltip={tooltip} tooltipLinkHref={tooltipLinkHref}>
       {entry.label}
@@ -1152,6 +1156,9 @@ function RampItem({
           </Tooltip>
         </td>
         <td className="py-3 px-4">
+          <OperatorExperienceBadge operatorExperience={ramp.operatorExperience} kind="ramps" tooltipLinkHref={detailHref} />
+        </td>
+        <td className="py-3 px-4">
           <StatusBadge
             status={ramp.status}
             tooltip={getRampStatusTooltip(ramp.status)}
@@ -1230,6 +1237,10 @@ function RampItem({
           <Tooltip content={rampTooltips.devUx[ramp.devUx as keyof typeof rampTooltips.devUx] || `Developer experience: ${ramp.devUx}`} linkHref={detailHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
             <span className="font-medium cursor-help">{ramp.devUx}</span>
           </Tooltip>
+        </div>
+        <div className="flex justify-between gap-2">
+          <span className="text-muted-foreground">Operator XP:</span>
+          <OperatorExperienceBadge operatorExperience={ramp.operatorExperience} kind="ramps" tooltipLinkHref={detailHref} />
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Founded:</span>
@@ -1399,6 +1410,9 @@ export function WalletTable<T extends WalletData>({
                   </th>
                   <th className={mobileHeaderCellClassName}>
                     <HeaderTooltip label="Dev UX" tooltip={rampTooltips.headers.devUx} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />
+                  </th>
+                  <th className={mobileHeaderCellClassName}>
+                    <HeaderTooltip label="Operator XP" tooltip={rampTooltips.headers.operatorXp} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />
                   </th>
                   <th className={mobileHeaderCellClassName}>
                     <HeaderTooltip
