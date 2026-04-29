@@ -11,6 +11,7 @@
 | [**Ramp**](https://ramp.network/) | 86 | Both | ✅ | ✅ | ~150+ Countries | Low/Medium | ~€2.49 | Good (SDK) | ✅ | 2017 | 🟡 VC | EU / Speed | 🟢 |
 | [**Changelly**](https://changelly.com/) | 85 | Both | ✅ | ✅ | Global | Medium | ~$5.00 | Good (API) | ✅ | 2015 | 🟢 Revenue | Exchange | 🟢 |
 | [**Sardine**](https://www.sardine.ai/) | 84 | Both | ✅ | ✅ | US + Select Global | Variable (Risk based) | Custom | Advanced (API/SDK) | ✅ | 2020 | 🟡 VC | US / Fraud | 🟢 |
+| [**SpherePay**](https://spherepay.co/) | 84 | Both | ✅ | ✅ | ~160+ Markets | Variable | Custom | Excellent (REST API + SDK) | ✅ | 2022 | 🟡 VC (TCG/Jump) | Global stablecoin payouts | 🟢 |
 | [**Guardarian**](https://guardarian.com/) | 83 | Both | ✅ | ✅ | ~100+ Countries | Low/Medium | ~€5.00 | Good (Widget) | ✅ | 2017 | 🟡 VC | EU focus | 🟢 |
 | [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Both | ✅ | ✅ | ~170+ Countries | Variable | Custom | Advanced (Plugin/API) | ✅ | 2018 | 🟡 VC | Global pay rails | 🟢 |
 | [**Mercuryo**](https://mercuryo.io/) | 82 | Both | ✅ | ✅ | Global | Medium | Custom | Good | ✅ | 2018 | 🟡 VC | B2B | 🟢 |
