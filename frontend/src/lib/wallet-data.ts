@@ -188,6 +188,14 @@ function parseEnsNaming(cell: string): 'full' | 'basic' | 'import' | 'none' {
   return 'none';
 }
 
+function parseSpecialFeatures(cell: string): string {
+  const normalized = cell.replace(/[~*]/g, '').trim();
+  if (!normalized || normalized === '—' || normalized === '-' || /^none$/i.test(normalized)) {
+    return 'None';
+  }
+  return normalized;
+}
+
 // Parse price from string
 function parsePrice(cell: string): { value: number | null; text: string } {
   // Examples:
@@ -354,10 +362,10 @@ export function parseSoftwareWallets(): SoftwareWallet[] {
     const funding = parseFunding(cells[13] || '');
     const scoreInfo = computeSoftwareScore(cells);
 
-    // Table columns after adding API column (index 11):
+    // Table columns after adding API and Special columns:
     // 0=Wallet, 1=Score, 2=Core, 3=Rel/Mo, 4=RPC, 5=GitHub, 6=Active,
     // 7=Chains, 8=Devices, 9=Testnets, 10=License, 11=API, 12=Audits,
-    // 13=Funding, 14=TxSim, 15=Scam, 16=Account, 17=ENS, 18=HW, 19=BestFor, 20=Rec
+    // 13=Funding, 14=TxSim, 15=Scam, 16=Account, 17=ENS, 18=HW, 19=Special, 20=BestFor, 21=Rec
     const wallet: SoftwareWallet = {
       id: generateSlug(name),
       name,
@@ -383,7 +391,8 @@ export function parseSoftwareWallets(): SoftwareWallet[] {
       accountTypes: parseAccountTypes(cells[16] || ''),
       ensNaming: parseEnsNaming(cells[17] || ''),
       hardwareSupport: parseBoolean(cells[18] || ''),
-      bestFor: cells[19]?.replace(/[~*]/g, '').trim() || '',
+      specialFeatures: parseSpecialFeatures(cells[19] || ''),
+      bestFor: cells[20]?.replace(/[~*]/g, '').trim() || '',
       recommendation: scoreInfo.recommendation,
       type: 'software' as const,
     };

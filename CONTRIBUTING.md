@@ -14,11 +14,50 @@ Thank you for helping keep this wallet comparison accurate and up-to-date!
 
 ### Crypto Cards
 - **Card comparison:** [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) | [Details](./CRYPTO_CARDS_DETAILS.md)
+- **Tier matrix:** [CRYPTO_CARDS_TIERS.md](./CRYPTO_CARDS_TIERS.md)
+- **Competitor watchlist:** [COMPETITOR_TRACKER.md](./COMPETITOR_TRACKER.md)
 
 ### Ramps (On/Off-Ramp Providers)
 - **Ramp comparison:** [RAMPS.md](./RAMPS.md) | [Details](./RAMPS_DETAILS.md)
 
 ---
+
+## Workflow Commandments (Required)
+
+These rules are enforced in this repository. Treat them as mandatory, not suggestions.
+
+1. Work on a branch and open a PR. Do not push directly to `main`/`master`.
+2. Use the PR template in `.github/pull_request_template.md` and fill all required sections.
+3. Use commit messages in the form `type(scope): subject [Agent: <MODEL>]`.
+4. Include a commit trailer: `Co-authored-by: Chimera <chimera_defi@protonmail.com>`.
+5. Run the multi-pass regression checklist before asking for review.
+
+Enable local hooks once per clone:
+
+```bash
+bash scripts/setup-git-hooks.sh
+```
+
+## Multi-Pass Review Checklist
+
+Run these passes in order for table/data/frontend changes:
+
+1. Data pass: verify score math and generated snapshot blocks.
+2. Product pass: verify UX behavior and content integrity on touched pages.
+3. Regression pass: run the full command set below and fix every failure.
+
+Required commands:
+
+```bash
+node scripts/sync_table_scores.js
+node scripts/refresh-card-tier-matrix.js --dry-run
+cd frontend
+bun run lint
+bun run type-check
+bun run test
+bun run build
+bun run validate-cards
+```
 
 ## Score Sync Workflow
 
@@ -27,8 +66,8 @@ Scores and recommendation cells are generated from the visible table columns. Do
 Run this after any change to the comparison tables:
 
 ```bash
-node wallets/scripts/sync_table_scores.js --write
-cd wallets/frontend
+node scripts/sync_table_scores.js --write
+cd frontend
 npm test
 ```
 
@@ -39,7 +78,22 @@ What this does:
 3. Refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 4. Fails the frontend smoke test if the markdown tables drift from the generated output.
 
-Current methodology version: `2026-04-visible-columns-v1`
+Current methodology version: `2026-04-visible-columns-v3`
+
+## Card Tier Matrix Refresh
+
+Use this when you want to refresh the supplemental per-tier card dataset sourced from competitor intake:
+
+```bash
+# Rewrite CRYPTO_CARDS_TIERS.md from ccompare.cards intake keys
+node scripts/refresh-card-tier-matrix.js
+```
+
+Optional modes:
+
+- `--dry-run` to print markdown without writing
+- `--all` to include all active upstream cards
+- `--include key1,key2` for a custom subset
 
 ## Adding a New Software Wallet
 
@@ -74,7 +128,7 @@ Before adding a wallet, verify:
 
 ### Step 2: Fill The Scoring Inputs
 
-Software wallet scores are generated from the visible columns in `wallets/frontend/src/lib/scoring.js`. The current categories are:
+Software wallet scores are generated from the visible columns in `frontend/src/lib/scoring.js`. The current categories are:
 
 ```
 Core Readiness
@@ -211,7 +265,7 @@ Add your row to `HARDWARE_WALLETS.md` in score order:
 
 Notes:
 - `Founded` and `Funding` are now required hardware scoring inputs.
-- Keep placeholder score/recommendation (`0` / `🔴`) and run `node wallets/scripts/sync_table_scores.js --write`.
+- Keep placeholder score/recommendation (`0` / `🔴`) and run `node scripts/sync_table_scores.js --write`.
 
 ### Step 3: Update Other Sections
 
@@ -387,7 +441,7 @@ When adding a new comparison type (like ramps), you must update:
 ### Step 5: Verification
 
 ```bash
-cd wallets/frontend
+cd frontend
 npm run type-check  # Verify TypeScript
 npm run lint        # Verify linting
 npm run build       # Verify build

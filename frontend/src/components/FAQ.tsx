@@ -99,7 +99,7 @@ const categoryColors: Record<FAQItem['category'], string> = {
 
 function FAQAccordion({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-slate-700/50 last:border-b-0">
+    <div className="border-b border-border/50 last:border-b-0">
       <button
         onClick={onToggle}
         className="w-full flex items-start gap-3 py-4 text-left group"
@@ -107,7 +107,7 @@ function FAQAccordion({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boole
       >
         <ChevronDown
           className={cn(
-            'h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5 transition-transform duration-200',
+            'h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5 transition-transform duration-200',
             isOpen && 'rotate-180'
           )}
         />
@@ -117,7 +117,7 @@ function FAQAccordion({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boole
               {categoryLabels[item.category]}
             </span>
           </div>
-          <span className="text-slate-100 font-medium group-hover:text-sky-400 transition-colors">
+          <span className="text-foreground font-medium group-hover:text-sky-400 transition-colors">
             {item.question}
           </span>
         </div>
@@ -128,7 +128,7 @@ function FAQAccordion({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boole
           isOpen ? 'max-h-96 pb-4' : 'max-h-0'
         )}
       >
-        <p className="text-slate-400 text-sm leading-relaxed pl-8">
+        <p className="text-muted-foreground text-sm leading-relaxed pl-8">
           {item.answer}
         </p>
       </div>
@@ -158,19 +158,19 @@ export function FAQ() {
     <section className="container mx-auto max-w-7xl px-4 md:px-6 pb-12 md:pb-16">
       <div className="flex items-center gap-3 mb-6">
         <HelpCircle className="h-6 w-6 text-sky-400" />
-        <h2 className="text-2xl font-bold text-slate-100">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
       </div>
 
       {/* Search and Filter */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             type="search"
             placeholder="Search questions..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-900/70 border border-slate-700/60 rounded-lg text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500/50"
+            className="w-full pl-10 pr-4 py-2.5 text-sm bg-background/70 border border-border/60 rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500/50"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -182,7 +182,7 @@ export function FAQ() {
                 'px-3 py-1.5 text-xs font-medium rounded-full border transition-colors',
                 activeCategory === cat
                   ? 'bg-sky-500/20 text-sky-400 border-sky-500/50'
-                  : 'bg-slate-800/50 text-slate-400 border-slate-700/60 hover:border-slate-600'
+                  : 'bg-muted/50 text-muted-foreground border-border/60 hover:border-border'
               )}
             >
               {cat === 'all' ? 'All' : categoryLabels[cat]}
@@ -203,7 +203,7 @@ export function FAQ() {
             />
           ))
         ) : (
-          <div className="py-8 text-center text-slate-400">
+          <div className="py-8 text-center text-muted-foreground">
             <p>No questions match your search.</p>
             <button
               onClick={() => {
@@ -220,7 +220,7 @@ export function FAQ() {
 
       {/* Quick Links */}
       <div className="mt-6 flex flex-wrap gap-4 text-sm">
-        <span className="text-slate-500">Still have questions?</span>
+        <span className="text-muted-foreground">Still have questions?</span>
         <a
           href={appendUtm(brand.issuesUrl, 'faq')}
           target="_blank"

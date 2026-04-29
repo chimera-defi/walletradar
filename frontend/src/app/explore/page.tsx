@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import {
   parseSoftwareWallets,
@@ -130,12 +131,20 @@ export default async function ExplorePage() {
         </div>
       </div>
 
-      <ExploreContent
-        softwareWallets={softwareWallets}
-        hardwareWallets={hardwareWallets}
-        cryptoCards={cryptoCards}
-        ramps={ramps}
-      />
+      <Suspense
+        fallback={(
+          <div className="rounded-2xl border border-slate-700/60 bg-slate-900/40 p-6 text-sm text-slate-300">
+            Loading explorer controls...
+          </div>
+        )}
+      >
+        <ExploreContent
+          softwareWallets={softwareWallets}
+          hardwareWallets={hardwareWallets}
+          cryptoCards={cryptoCards}
+          ramps={ramps}
+        />
+      </Suspense>
     </div>
   );
 }

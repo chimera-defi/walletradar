@@ -24,18 +24,18 @@ This document tracks all SEO (Search Engine Optimization), AEO (Answer Engine Op
 - Purpose: improve voice assistant read-outs for short summaries (not full tables).
 
 **Merchant Center Feed**
-- Script: `wallets/scripts/generate_merchant_feed.py`
-- Output (public): `wallets/frontend/public/merchant-center.xml`
+- Script: `scripts/generate_merchant_feed.py`
+- Output (public): `frontend/public/merchant-center.xml`
 - Uses wallet tables as a data source and generates a basic XML feed.
-- Pricing source and exclusions: `wallets/MERCHANT_FEED.md`
+- Pricing source and exclusions: `MERCHANT_FEED.md`
 
 **LLM discovery**
-- `wallets/frontend/public/llms.txt`
+- `frontend/public/llms.txt`
 - Added to sitemap for crawlability.
 
 ### 1. Enhanced Schema Generators (`lib/seo.ts`)
 
-**File:** `/home/user/Etc-mono-repo/wallets/frontend/src/lib/seo.ts`
+**File:** `frontend/src/lib/seo.ts`
 
 **New Functions:**
 
@@ -70,7 +70,7 @@ const breadcrumbs = generateBreadcrumbSchema([
 
 ### 2. Enhanced Wallet Profile Pages (`app/wallets/[type]/[id]/page.tsx`)
 
-**File:** `/home/user/Etc-mono-repo/wallets/frontend/src/app/wallets/[type]/[id]/page.tsx`
+**File:** `frontend/src/app/wallets/[type]/[id]/page.tsx`
 
 **Changes:**
 1. Added `BreadcrumbList` schema to all wallet profile pages
@@ -112,10 +112,10 @@ keywords: 'crypto wallet, blockchain wallet, Rabby Wallet, web3 wallet'
 ### 3. FAQ Sections Added to Comparison Pages
 
 **Files Modified:**
-1. `/home/user/Etc-mono-repo/wallets/HARDWARE_WALLETS.md` (+45 lines)
-2. `/home/user/Etc-mono-repo/wallets/SOFTWARE_WALLETS.md` (+43 lines)
-3. `/home/user/Etc-mono-repo/wallets/CRYPTO_CARDS.md` (+43 lines)
-4. `/home/user/Etc-mono-repo/wallets/RAMPS.md` (+43 lines)
+1. `HARDWARE_WALLETS.md` (+45 lines)
+2. `SOFTWARE_WALLETS.md` (+43 lines)
+3. `CRYPTO_CARDS.md` (+43 lines)
+4. `RAMPS.md` (+43 lines)
 
 **Total FAQs Added:** 40 questions (10 per page)
 
@@ -404,7 +404,7 @@ Home → Articles → Article Title
 **Commands:**
 ```bash
 # Build and validate
-cd /home/user/Etc-mono-repo/wallets/frontend
+cd frontend
 npm install
 npm run build
 npm run lint
@@ -518,27 +518,27 @@ Same as above. Track citation frequency.
 ## Critical Files for Future Agents
 
 **SEO Core:**
-- `/wallets/frontend/src/lib/seo.ts` - All schema generators
-- `/wallets/frontend/src/lib/articles.ts` - Article data layer (NEW)
-- `/wallets/frontend/src/app/layout.tsx` - Organization/WebSite schema
-- `/wallets/frontend/src/app/page.tsx` - Homepage FAQs + TopPicks
-- `/wallets/frontend/src/app/docs/[slug]/page.tsx` - Doc page schemas
-- `/wallets/frontend/src/app/wallets/[type]/[id]/page.tsx` - Wallet profile schemas
-- `/wallets/frontend/src/app/articles/[slug]/page.tsx` - Article page template (NEW)
-- `/wallets/frontend/src/app/articles/page.tsx` - Article listing page (NEW)
+- `/frontend/src/lib/seo.ts` - All schema generators
+- `/frontend/src/lib/articles.ts` - Article data layer (NEW)
+- `/frontend/src/app/layout.tsx` - Organization/WebSite schema
+- `/frontend/src/app/page.tsx` - Homepage FAQs + TopPicks
+- `/frontend/src/app/docs/[slug]/page.tsx` - Doc page schemas
+- `/frontend/src/app/wallets/[type]/[id]/page.tsx` - Wallet profile schemas
+- `/frontend/src/app/articles/[slug]/page.tsx` - Article page template (NEW)
+- `/frontend/src/app/articles/page.tsx` - Article listing page (NEW)
 
 **Content:**
-- `/wallets/HARDWARE_WALLETS.md` - Hardware wallet comparison + FAQs
-- `/wallets/SOFTWARE_WALLETS.md` - Software wallet comparison + FAQs
-- `/wallets/CRYPTO_CARDS.md` - Crypto card comparison + FAQs
-- `/wallets/RAMPS.md` - Ramp provider comparison + FAQs
-- `/wallets/articles/rabby-vs-metamask.md` - Comparison article (NEW)
-- `/wallets/articles/best-wallet-for-ethereum-developers.md` - Guide article (NEW)
-- `/wallets/articles/most-secure-hardware-wallet.md` - Guide article (NEW)
+- `/HARDWARE_WALLETS.md` - Hardware wallet comparison + FAQs
+- `/SOFTWARE_WALLETS.md` - Software wallet comparison + FAQs
+- `/CRYPTO_CARDS.md` - Crypto card comparison + FAQs
+- `/RAMPS.md` - Ramp provider comparison + FAQs
+- `/articles/rabby-vs-metamask.md` - Comparison article (NEW)
+- `/articles/best-wallet-for-ethereum-developers.md` - Guide article (NEW)
+- `/articles/most-secure-hardware-wallet.md` - Guide article (NEW)
 
 **Config:**
-- `/wallets/frontend/public/robots.txt` - Crawl directives
-- `/wallets/frontend/src/app/sitemap.ts` - Dynamic sitemap (includes articles)
+- `/frontend/public/robots.txt` - Crawl directives
+- `/frontend/src/app/sitemap.ts` - Dynamic sitemap (includes articles)
 
 ---
 
@@ -608,7 +608,7 @@ Same as above. Track citation frequency.
 
 1. **Before making changes:**
    - Read this file completely
-   - Review `/wallets/frontend/src/lib/seo.ts`
+   - Review `/frontend/src/lib/seo.ts`
    - Check Google Search Console for current performance
    - Run LLM citation tests to establish baseline
 
@@ -643,7 +643,7 @@ Same as above. Track citation frequency.
 
 **Strategy Documents:**
 - Primary Strategy: `.cursor/artifacts/walletradar-seo-aeo-geo-strategy.md`
-- This Implementation Doc: `wallets/SEO_IMPLEMENTATION.md`
+- This Implementation Doc: `SEO_IMPLEMENTATION.md`
 
 **Microsoft Guide:**
 - "From Discovery to Influence: A Guide to AEO and GEO"

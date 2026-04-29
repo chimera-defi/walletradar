@@ -18,17 +18,17 @@ The product scope is broader than wallet custody. It now covers software wallets
 ## Run Workflow
 
 ```bash
-python3 wallets/scripts/run_naming_workflow.py --write
+python3 scripts/run_naming_workflow.py --write
 # add --pretty-json for indented JSON output
 ```
 
 Focused shortlist validation:
 
 ```bash
-python3 wallets/scripts/run_naming_workflow.py \
-  --candidates wallets/branding/SHORTLIST_CANDIDATES.txt \
-  --markdown-output wallets/branding/NAMING_VALIDATION_SHORTLIST.md \
-  --json-output wallets/branding/naming-workflow-shortlist.json \
+python3 scripts/run_naming_workflow.py \
+  --candidates branding/SHORTLIST_CANDIDATES.txt \
+  --markdown-output branding/NAMING_VALIDATION_SHORTLIST.md \
+  --json-output branding/naming-workflow-shortlist.json \
   --write
 ```
 
@@ -38,6 +38,6 @@ If the broad pass has many `unknown` domain statuses, rerun with lower concurren
 
 ```bash
 ./ideas/scripts/export-naming-pack.sh \
-  --source wallets/branding \
+  --source branding \
   --slug wallet-radar
 ```

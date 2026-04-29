@@ -6,8 +6,8 @@
 
 **Developer-Focused Crypto Product Research Platform**
 
-[![Wallets Frontend CI](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/wallets-frontend-ci.yml)
-[![Refresh Wallet Data](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/refresh-wallet-data.yml)
+[![Wallets Frontend CI](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml)
+[![Refresh Wallet Data](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-walletradar.org-blue)](https://walletradar.org)
 
@@ -35,7 +35,7 @@ Unlike consumer-focused wallet lists, Wallet Radar provides:
 |----------|-------|-------------|
 | **Software Wallets** | 24+ | Browser extensions, mobile apps, desktop wallets |
 | **Hardware Wallets** | 23+ | Cold storage devices with security element analysis |
-| **Crypto Cards** | 27+ | Crypto-backed credit & debit cards |
+| **Crypto Cards** | 50+ | Crypto-backed credit & debit cards |
 | **On/Off-Ramps** | 20+ | Fiat-to-crypto conversion providers |
 
 ## 🔎 Manual URL Verification (Bot-Protected)
@@ -50,8 +50,8 @@ browser verification during full data audits:
 
 When direct checks are blocked, a text-only fetch via `r.jina.ai` can confirm
 the landing content is reachable. Results are logged in
-`wallets/artifacts/manual-url-checks.json`. A headless Chromium pass captures
-browser verification output in `wallets/artifacts/manual-browser-checks.json`.
+`artifacts/manual-url-checks.json`. A headless Chromium pass captures
+browser verification output in `artifacts/manual-browser-checks.json`.
 Most bot-protected URLs resolve in Chromium; defunct products should be removed
 from active verification lists once confirmed.
 
@@ -89,7 +89,7 @@ from active verification lists once confirmed.
 - Weekly GitHub Activity monitoring
 - Automated PR creation with updated data
 - Manual verification for security-critical changes
-- Merchant Center feed generation for hardware wallets (see `wallets/MERCHANT_FEED.md`)
+- Merchant Center feed generation for hardware wallets (see `MERCHANT_FEED.md`)
 
 ### 🎨 **Developer-Friendly Interface**
 - Clean, fast Next.js 14 application
@@ -129,20 +129,20 @@ from active verification lists once confirmed.
 
 ### Prerequisites
 - Node.js 20+
-- npm or yarn
+- Bun 1.3.9+ (recommended) or npm
 
 ### Local Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/chimera-defi/Etc-mono-repo.git
-cd Etc-mono-repo/wallets/frontend
+git clone https://github.com/chimera-defi/walletradar.git
+cd walletradar/frontend
 
 # Install dependencies
-npm install
+bun install
 
 # Run development server
-npm run dev
+bun run dev
 
 # Open http://localhost:3000 in your browser
 ```
@@ -151,51 +151,73 @@ npm run dev
 
 ```bash
 # Build the application
-npm run build
+bun run build
 
 # Start production server
-npm start
+bun run start
+```
+
+### Contributor Workflow (Required)
+
+```bash
+# From repository root (one-time setup per clone)
+bash scripts/setup-git-hooks.sh
+```
+
+Before opening a PR, run:
+
+```bash
+node scripts/sync_table_scores.js
+node scripts/refresh-card-tier-matrix.js --dry-run
+cd frontend
+bun run lint
+bun run type-check
+bun run test
+bun run build
+bun run validate-cards
 ```
 
 ### Available Scripts
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run type-check` | Run TypeScript type checking |
-| `npm test` | Run smoke tests |
-| `npm run generate-og` | Generate OG images |
-| `npm run validate-cards` | Validate Twitter cards |
+| `bun run dev` | Start development server |
+| `bun run build` | Build for production |
+| `bun run start` | Start production server |
+| `bun run lint` | Run ESLint |
+| `bun run type-check` | Run TypeScript type checking |
+| `bun run test` | Run smoke tests |
+| `bun run generate-og` | Generate OG images |
+| `bun run validate-cards` | Validate Twitter cards |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-wallets/
+.
 ├── frontend/               # Next.js application
 │   ├── src/
-│   │   ├── app/           # Next.js 14 App Router pages
-│   │   ├── components/    # React components
-│   │   ├── lib/           # Utilities & helpers
-│   │   └── styles/        # Global styles
-│   ├── public/            # Static assets & OG images
-│   ├── scripts/           # Build & validation scripts
+│   │   ├── app/            # Next.js 14 App Router pages
+│   │   ├── components/     # React components
+│   │   ├── lib/            # Utilities & helpers
+│   │   └── styles/         # Global styles
+│   ├── public/             # Static assets & OG images
+│   ├── scripts/            # Build & validation scripts
 │   └── package.json
-├── scripts/               # Data refresh automation
+├── scripts/                # Data refresh automation
 │   ├── refresh-github-data.sh
 │   └── run_naming_workflow.py
-├── branding/              # Naming workflow artifacts (positioning, candidates, validation)
-├── SOFTWARE_WALLETS.md    # Software wallet comparison table
-├── HARDWARE_WALLETS.md    # Hardware wallet comparison table
-├── CRYPTO_CARDS.md        # Crypto card comparison table
-├── RAMPS.md               # On/off-ramp comparison table
-├── *_DETAILS.md           # Detailed analysis documents
-├── CHANGELOG.md           # Change history
-└── README.md              # This file
+├── branding/               # Naming workflow artifacts (positioning, candidates, validation)
+├── SOFTWARE_WALLETS.md     # Software wallet comparison table
+├── HARDWARE_WALLETS.md     # Hardware wallet comparison table
+├── CRYPTO_CARDS.md         # Crypto card comparison table
+├── CRYPTO_CARDS_TIERS.md   # Supplemental per-tier card fee/feature matrix
+├── RAMPS.md                # On/off-ramp comparison table
+├── COMPETITOR_TRACKER.md   # Running watchlist of comparison competitors
+├── *_DETAILS.md            # Detailed analysis documents
+├── CHANGELOG.md            # Change history
+└── README.md               # This file
 ```
 
 ---
@@ -220,7 +242,7 @@ Wallet data is automatically refreshed every Monday via GitHub Actions:
 
 ```bash
 # Manual refresh (requires GitHub token)
-cd wallets/scripts
+cd scripts
 ./refresh-github-data.sh          # Text output
 ./refresh-github-data.sh --json   # JSON output
 ./refresh-github-data.sh --markdown  # Markdown table
@@ -266,7 +288,7 @@ Wallet Radar does NOT provide financial advice, recommend specific products, or 
 
 Contributions are welcome! Here's how you can help:
 
-1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/Etc-mono-repo/issues)
+1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/walletradar/issues)
 2. **Add Wallets** — See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
 3. **Improve Documentation** — Fix typos, clarify explanations
 4. **Enhance Features** — Submit PRs for new features or improvements
@@ -284,8 +306,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Website:** [walletradar.org](https://walletradar.org)
-- **GitHub:** [github.com/chimera-defi/Etc-mono-repo/tree/main/wallets](https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets)
-- **Issues:** [github.com/chimera-defi/Etc-mono-repo/issues](https://github.com/chimera-defi/Etc-mono-repo/issues)
+- **GitHub:** [github.com/chimera-defi/walletradar](https://github.com/chimera-defi/walletradar)
+- **Issues:** [github.com/chimera-defi/walletradar/issues](https://github.com/chimera-defi/walletradar/issues)
 
 ---
 

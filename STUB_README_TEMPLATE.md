@@ -15,7 +15,7 @@ This monorepo path is now a compatibility stub to preserve historical links and 
 ## Migration Notes
 
 - Historical extraction used `git subtree split --prefix=wallets`.
-- Original extraction runbook: `wallets/EXTRACT_STUB_PLAN.md`.
+- Original extraction runbook: `EXTRACT_STUB_PLAN.md`.
 
 ## Contributing
 

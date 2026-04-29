@@ -10,6 +10,7 @@ import {
   Monitor,
   Link as LinkIcon,
   Shield,
+  Sparkles,
   Zap,
   AlertTriangle,
   SearchX,
@@ -632,6 +633,13 @@ function SoftwareWalletItem({
           </div>
         </td>
         <td className="py-3 px-4">
+          <Tooltip content={softwareWalletTooltips.headers.special} linkHref={detailHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
+            <span className="text-sm text-muted-foreground cursor-help">
+              {wallet.specialFeatures === 'None' ? '—' : wallet.specialFeatures}
+            </span>
+          </Tooltip>
+        </td>
+        <td className="py-3 px-4">
           <Badge
             variant={wallet.license === 'open' ? 'success' : wallet.license === 'partial' ? 'warning' : 'default'}
             tooltip={softwareWalletTooltips.license[wallet.license]}
@@ -690,6 +698,12 @@ function SoftwareWalletItem({
           <Badge variant="default" tooltip={softwareWalletTooltips.features.hardwareSupport} tooltipLinkHref={detailHref}>
             <Zap className="h-3 w-3 inline mr-1" />
             HW
+          </Badge>
+        )}
+        {wallet.specialFeatures !== 'None' && (
+          <Badge variant="warning" tooltip={softwareWalletTooltips.headers.special} tooltipLinkHref={detailHref}>
+            <Sparkles className="h-3 w-3 inline mr-1" />
+            {wallet.specialFeatures}
           </Badge>
         )}
       </div>
@@ -1287,6 +1301,9 @@ export function WalletTable<T extends WalletData>({
                   </th>
                   <th className={mobileHeaderCellClassName}>
                     <HeaderTooltip label="Features" tooltip={softwareWalletTooltips.headers.features} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />
+                  </th>
+                  <th className={mobileHeaderCellClassName}>
+                    <HeaderTooltip label="Special" tooltip={softwareWalletTooltips.headers.special} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />
                   </th>
                   <th className={mobileHeaderCellClassName}>
                     <HeaderTooltip label="License" tooltip={softwareWalletTooltips.headers.license} linkHref={headerMethodLink} linkLabel={METHODOLOGY_TOOLTIP_LABEL} />

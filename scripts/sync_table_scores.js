@@ -20,12 +20,12 @@ const TABLE_CONFIGS = [
   {
     label: 'software',
     file: path.join(ROOT, 'SOFTWARE_WALLETS.md'),
-    header: '| Wallet | Score | Core | Rel/Mo | RPC | GitHub | Active | Chains | Devices | Testnets | License | API | Audits | Funding | Tx Sim | Scam | Account | ENS/Naming | HW | Best For | Rec |',
+    header: '| Wallet | Score | Core | Rel/Mo | RPC | GitHub | Active | Chains | Devices | Testnets | License | API | Audits | Funding | Tx Sim | Scam | Account | ENS/Naming | HW | Special | Best For | Rec |',
     compute: computeSoftwareScore,
     formatScore: (scoreInfo) => String(scoreInfo.score),
     updateCells: (cells, scoreInfo) => {
       cells[1] = String(scoreInfo.score);
-      cells[20] = recommendationEmoji(scoreInfo.recommendation);
+      cells[21] = recommendationEmoji(scoreInfo.recommendation);
       return cells;
     },
   },
@@ -86,19 +86,19 @@ const DETAIL_SNAPSHOT_CONFIGS = {
       const topRows = rows.slice(0, 5);
       const summary = joinSummaryItems(
         topRows.slice(0, 4).map((row) => (
-          `${extractName(row.cells[0])} (${row.score}, ${row.cells[19]}, ${recommendationEmoji(row.scoreInfo.recommendation)})`
+          `${extractName(row.cells[0])} (${row.score}, ${row.cells[20]}, ${recommendationEmoji(row.scoreInfo.recommendation)})`
         ))
       );
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Wallet | Score | Best For | Rec |',
         '| ---- | ------ | ----- | -------- | --- |',
         ...topRows.map((row, index) => (
-          `| ${index + 1} | **${extractName(row.cells[0])}** | ${row.score} | ${row.cells[19]} | ${recommendationEmoji(row.scoreInfo.recommendation)} |`
+          `| ${index + 1} | **${extractName(row.cells[0])}** | ${row.score} | ${row.cells[20]} | ${recommendationEmoji(row.scoreInfo.recommendation)} |`
         )),
         this.endMarker,
       ].join('\n');
@@ -118,7 +118,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Wallet | Score | Activity | Rec |',
@@ -144,7 +144,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Card | Score | Best For | Rec |',
@@ -170,7 +170,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [RAMPS.md](./RAMPS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [RAMPS.md](./RAMPS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Provider | Score | Best For | Rec |',
@@ -247,8 +247,8 @@ function syncMethodologyVersionMentions(content) {
     .replace(/methodology version `[^`]+`/g, `methodology version \`${SCORING_METHODOLOGY_VERSION}\``)
     .replace(/using methodology `[^`]+`/g, `using methodology \`${SCORING_METHODOLOGY_VERSION}\``)
     .replace(
-      /via `wallets\/scripts\/sync_table_scores\.js` \(`[^`]+`\)/g,
-      `via \`wallets/scripts/sync_table_scores.js\` (\`${SCORING_METHODOLOGY_VERSION}\`)`
+      /via `(wallets\/)?scripts\/sync_table_scores\.js` \(`[^`]+`\)/g,
+      `via \`scripts/sync_table_scores.js\` (\`${SCORING_METHODOLOGY_VERSION}\`)`
     );
 }
 
@@ -288,28 +288,35 @@ function processTable(config, { write = false } = {}) {
     };
   });
 
-  const { recommendations } = assignRecommendationBands(
-    config.label,
-    scoredRows.map((row) => row.scoreInfo)
+  // Recommendation bands are rank-dependent, so assign them after sorting by score.
+  const sortedByScore = sortRows(
+    scoredRows.map((row) => ({
+      ...row,
+      score: row.scoreInfo.score,
+      name: extractName(row.originalCells[0]),
+    }))
   );
 
-  const processed = sortRows(
-    scoredRows.map((row, index) => {
-      const scoreInfo = {
-        ...row.scoreInfo,
-        recommendation: recommendations[index] || row.scoreInfo.recommendation,
-      };
-      const nextCells = config.updateCells([...row.originalCells], scoreInfo);
-      return {
-        line: formatRow(nextCells),
-        score: scoreInfo.score,
-        name: extractName(nextCells[0]),
-        changed: row.sourceLine.trim() !== formatRow(nextCells).trim(),
-        cells: nextCells,
-        scoreInfo,
-      };
-    })
+  const { recommendations } = assignRecommendationBands(
+    config.label,
+    sortedByScore.map((row) => row.scoreInfo)
   );
+
+  const processed = sortedByScore.map((row, index) => {
+    const scoreInfo = {
+      ...row.scoreInfo,
+      recommendation: recommendations[index] || row.scoreInfo.recommendation,
+    };
+    const nextCells = config.updateCells([...row.originalCells], scoreInfo);
+    return {
+      line: formatRow(nextCells),
+      score: scoreInfo.score,
+      name: extractName(nextCells[0]),
+      changed: row.sourceLine.trim() !== formatRow(nextCells).trim(),
+      cells: nextCells,
+      scoreInfo,
+    };
+  });
 
   const updatedTable = [
     config.header,

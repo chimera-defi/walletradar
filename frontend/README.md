@@ -65,7 +65,7 @@ frontend/
 
 ## Content Management
 
-The frontend reads Markdown files from the parent `wallets/` directory:
+The frontend reads Markdown files from the parent repository root:
 
 | File | Page URL |
 |------|----------|
@@ -77,27 +77,27 @@ The frontend reads Markdown files from the parent `wallets/` directory:
 
 ### Wallet data tables (used by `/explore`)
 
-The interactive explorer reads **markdown tables** from the parent `wallets/` directory via `src/lib/wallet-data.ts`.
+The interactive explorer reads **markdown tables** from the parent repository root via `src/lib/wallet-data.ts`.
 
-Scores and recommendations are generated from the visible markdown-table columns via `wallets/scripts/sync_table_scores.js`. That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
+Scores and recommendations are generated from the visible markdown-table columns via `scripts/sync_table_scores.js`. That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 
 If you change any of these table column orders, you must update the parser + resync the tables + run tests:
 
 - `SOFTWARE_WALLETS.md` (software wallets)
   - Columns: Wallet, Score, Core, Rel/Mo, RPC, GitHub, Active, Chains, Devices, Testnets, License, API, Audits, Funding, Tx Sim, Scam, Account, ENS/Naming, HW, Best For, Rec
 - `HARDWARE_WALLETS.md` (hardware wallets)
-  - Columns: Wallet, Score, GitHub, Air-Gap, Open Source, Secure Elem, Display, Price, Conn, Activity, Rec
+  - Columns: Wallet, Score, GitHub, Air-Gap, Open Source, Secure Elem, Display, Price, Conn, Activity, Founded, Funding, Rec
 - `CRYPTO_CARDS.md` (cards)
-  - Columns: Card, Score, Type, Custody, Biz, Region, Cash Back, Annual Fee, FX Fee, Rewards, Status, Best For
+  - Columns: Card, Score, Type, Custody, Biz, Region, Cash Back, Annual Fee, FX Fee, Rewards, Status, Best For, Rec
   - Note: Card column contains clickable link to provider website (e.g., `[**Card Name**](url)`)
 - `RAMPS.md` (ramps)
-  - Columns: Provider, Score, Type, On-Ramp, Off-Ramp, Coverage, Fee Model, Min Fee, Dev UX, Status, Best For
+  - Columns: Provider, Score, Type, On-Ramp, Off-Ramp, Coverage, Fee Model, Min Fee, Dev UX, Status, Founded, Funding, Best For, Rec
 
 `npm test` runs a lightweight smoke test in `scripts/smoke-test-wallet-data.js` to catch table header/structure drift.
 
 ### Adding New Documents
 
-1. Add a new Markdown file to `wallets/`
+1. Add a new Markdown file to the repository root
 2. Update `DOCUMENT_CONFIG` in `src/lib/markdown.ts`:
 
 ```typescript

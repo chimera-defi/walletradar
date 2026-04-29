@@ -1,0 +1,96 @@
+name: Refresh Wallet Data
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (do not create PR)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-wallet-data
+  cancel-in-progress: false
+
+jobs:
+  refresh-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Ensure data directory exists
+        run: mkdir -p data
+
+      - name: Refresh software wallet activity (JSON)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x scripts/refresh-github-data.sh
+          scripts/refresh-github-data.sh --json > data/activity.json
+
+      - name: Refresh software wallet activity (Markdown)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          scripts/refresh-github-data.sh --markdown > data/activity.md
+
+      - name: Refresh hardware wallet activity (JSON)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x scripts/refresh-hardware-wallet-data.sh
+          scripts/refresh-hardware-wallet-data.sh --json > data/hardware-activity.json
+
+      - name: Refresh hardware wallet activity (Markdown)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          scripts/refresh-hardware-wallet-data.sh --markdown > data/hardware-activity.md
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add data/activity.json data/activity.md data/hardware-activity.json data/hardware-activity.md
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No wallet activity changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --cached --stat
+          fi
+
+      - name: Create pull request
+        if: steps.changes.outputs.changed == 'true' && github.event.inputs.dry_run != 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/refresh-wallet-data
+          delete-branch: true
+          add-paths: |
+            data/activity.json
+            data/activity.md
+            data/hardware-activity.json
+            data/hardware-activity.md
+          commit-message: "chore(data): refresh wallet activity snapshots"
+          title: "chore(data): refresh wallet activity snapshots"
+          body: |
+            Automated weekly refresh of wallet activity snapshots.
+
+            Updated files:
+            - `data/activity.json`
+            - `data/activity.md`
+            - `data/hardware-activity.json`
+            - `data/hardware-activity.md`

@@ -50,7 +50,7 @@ tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 - **Trust** (82) — multi-chain stability  
 - **Rainbow** (77) — Ethereum/NFT UX
 
-Sources: `wallets/HARDWARE_WALLETS_DETAILS.md`, `wallets/SOFTWARE_WALLETS.md`
+Sources: `HARDWARE_WALLETS_DETAILS.md`, `SOFTWARE_WALLETS.md`
 
 ---
 

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Clock, FileText } from 'lucide-react';
+import { ArrowRight, Clock, Database, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { MarkdownDocument } from '@/lib/markdown';
 
@@ -52,6 +52,12 @@ export function WalletCard({ document }: WalletCardProps) {
           <span className="flex items-center gap-1">
             <Clock className="h-3 w-3" />
             {document.lastUpdated}
+          </span>
+        )}
+        {typeof document.sourceCount === 'number' && (
+          <span className="flex items-center gap-1">
+            <Database className="h-3 w-3" />
+            {document.sourceCount} sources
           </span>
         )}
         <span className="flex items-center gap-1">

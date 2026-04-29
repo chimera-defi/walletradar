@@ -32,6 +32,7 @@ export const softwareWalletTooltips = {
     account: 'Account types: EOA, Safe, 4337, 7702 (combinations supported)',
     ensNaming: 'ENS support: full, basic, import-only, or none',
     hardwareSupport: 'Hardware wallet support: ✅ full, ⚠️ limited, ❌ none',
+    special: 'Specialized non-scoring features (e.g., private send/swap modes, messaging rails, or niche power tools).',
     bestFor: 'Primary use case or audience',
     links: 'External links to GitHub and website',
   },
