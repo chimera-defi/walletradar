@@ -1,188 +1,150 @@
-# Wallet Comparison Guidelines
+# WalletRadar Agent Rules
 
-> **Master rules:** `.cursorrules` | **Token efficiency:** `/token-reduce` skill | **Benchmarks:** `docs/BENCHMARK_MCP_VS_QMD_2026-02-07.md`
+Curated from root-level guidance in the former monorepo (`.cursorrules`, `AGENTS.md`, `CLAUDE.md`) plus WalletRadar-specific practices. This file intentionally excludes unrelated legacy/mobile-framework instructions.
 
-## Git & Workflow
+## First Move For Discovery
 
-See `.cursorrules` **Git Discipline** and **Meta Learnings** sections for shared rules (PRs, rebasing, attribution, hooks).
+- If file location is unknown, start with scoped search:
+  - `rg -n -g '*.md' 'keyword'`
+  - `rg -n -g 'frontend/src/**/*.ts*' 'keyword'`
+- If location is known, read only the needed section (`sed -n`, `head`, `tail`).
+- Do not begin exploration with broad recursive scans:
+  - `find .`, `ls -R`, `grep -R`, `rg --files .`, broad `**/*` globs.
 
-## Core Purpose
+## Token Efficiency Defaults
 
-**Goal:** Find stable MetaMask alternatives with **both desktop browser extension AND mobile apps** for **developer use**.
+- Keep responses concise and directly actionable.
+- Prefer targeted reads over full-file reads.
+- Parallelize independent reads/searches when possible.
+- If candidate files exceed 5, narrow scope before reading more.
 
-**Core Criteria (MUST HAVE):**
-1. Mobile app available
-2. Browser extension available
-3. Developer-friendly (stable, good for testing dApps)
-4. Better stability than MetaMask (~8 releases/month is too much churn)
+## Verification Before Reporting
 
-**A wallet without BOTH mobile + browser extension does NOT meet core criteria.**
+- Never report results you did not verify.
+- After running scripts, confirm artifacts exist and are populated.
+- For structured outputs (JSON/CSV/XML), validate parseability and required fields.
+- If claiming metrics, ensure they are traceable to actual output/calculation code.
 
----
+## Data Integrity Rules (WalletRadar)
 
-## Document Structure
+- No data-loss restructures: preserve existing columns/rows unless removal is explicitly approved.
+- Chains are networks, not token counts (`chains != tokens`).
+- When uncertain, use conservative labels (for example `Multi-chain` / `Unknown`) instead of invented precision.
+- Use `~` for volatile values (prices/fees) unless freshly verified.
+- Keep cross-document consistency when values appear in multiple files.
+- Run line-by-line verification for final comparison tables.
 
-**Single source of truth:**
-- `SOFTWARE_WALLETS.md` - Software wallets
-- `HARDWARE_WALLETS.md` - Hardware wallets
-- `CRYPTO_CARDS.md` - Crypto cards
+## Wallet/Product Evaluation Rules
 
-**Each category:** Main table + `*_DETAILS.md` for details view.
+- Core software-wallet criteria require both browser extension and mobile app.
+- Verify source of truth in this order: official docs/site, GitHub, trusted structured sources.
+- Release cadence is a stability signal (very high churn can be a risk for dev workflows).
+- Distinguish clearly: open-source vs source-available vs proprietary.
 
----
+## Product Knowledge Location
 
-## Wallet Categorization
+- Keep agent behavior rules in `AGENTS.md`; keep product data/methodology in domain docs.
+- Canonical product/scoring docs:
+  - `SOFTWARE_WALLETS.md`
+  - `HARDWARE_WALLETS.md`
+  - `CRYPTO_CARDS.md`
+  - `RAMPS.md`
+  - `CONTRIBUTING.md` (scoring implementation + update workflow)
 
-**Meet Core Criteria (Mobile + Browser):**
-Rabby, Trust, Rainbow, Brave, Coinbase, MetaMask, Phantom, OKX, Wigwam, Zerion, Block*
+## Documentation Rules
 
-**Don't Meet Criteria:**
-- Browser-only: Enkrypt, Ambire, Taho
-- Mobile-only: Daimo, imToken, 1inch
-- Web app only: Safe, Sequence
-- No browser ext: Ledger Live, MEW, Uniswap
+- Keep one clear source of truth per comparison type.
+- Consolidate by organizing, not by deleting useful context.
+- Update dependent references when renaming files/paths.
+- Prefer explicit change notes over silent structural edits.
 
-**Inactive/Abandoned:** Mark with ❌
+## Frontend Development Rules
 
----
+- Use `bun` by default — never `npm` or `node` for script execution.
+- Development: `bun install && bun run dev`
+- Full verification pass (in order):
+  1. `bun run lint` — no warnings or errors
+  2. `bun run type-check` — TypeScript clean
+  3. `bun run build` — build succeeds
+  4. `bun test` — tests pass
+  5. Check for unused imports
+  6. Verify light **and** dark mode both look correct
+  7. Test all interactive elements
 
-## Scoring Methodology
+### OG Image Workflow
 
-**Developer-Focused Priorities:**
-1. **Platform Coverage (CRITICAL):** No mobile+extension = significant penalty
-2. **Developer Experience:** Tx simulation, testnet support, custom RPC
-3. **Stability:** Low release frequency = GOOD
-4. **Activity:** Active dev matters, but stable > frequent releases
-5. **Open Source:** Important but not critical
-6. **API Openness:** Backend/API transparency for developers
+When adding or updating a page with SEO metadata:
+1. Add the generator function to `scripts/generate-og-images.js`
+2. Run `bun run generate-og`
+3. Add metadata to the page file
+4. Commit the generated PNG alongside the code change
 
-**Stability Metrics (Anti-MetaMask):**
-- Release frequency: Lower is better
-- Issue/star ratio: Lower is better
-- Breaking changes: Fewer is better
+OG images must be **1200×630px**. Key SEO files: `src/lib/seo.ts`, `src/app/layout.tsx`.
 
----
+Run `bun run validate-cards` to verify Twitter Card metadata before shipping.
 
-## API Openness
+### Theme-Aware Styling
 
-| Category | Symbol | Description |
-|----------|--------|-------------|
-| Full | ✅ | Backend open source + self-hostable |
-| Partial | ⚠️ | Some APIs open, core proprietary |
-| Public | 🌐 | APIs accessible, code proprietary |
-| Closed | ❌ | Proprietary, no public access |
+- **Never hardcode Tailwind colors** (`text-slate-100`, `bg-slate-800`, etc.) for themed content.
+- **Always use CSS variables:** `text-foreground`, `text-muted-foreground`, `bg-muted`, `bg-card`, `border-border`.
+- Variables are defined in `globals.css` under `:root` (light) and `.dark`.
+- Hardcoded colors silently break the light/dark toggle.
 
-**Leaders:** Safe (8+ open services, self-hostable), Rabby (DeBank API public, no auth)
+### Component Conventions
 
----
+- Use Next.js `<Image>` instead of `<img>` — required for optimization and ESLint compliance.
+- Replace `alert()` with inline state-based notifications.
+- Remove placeholder/fake-data components before shipping.
+- Avoid showing the same nav links in multiple formats (e.g., buttons AND a grid).
 
-## Data Verification
+### File Rename Checklist
 
-**Required for each wallet:**
-1. GitHub repo exists (correct main repo)
-2. Last commit date (use `scripts/refresh-github-data.sh`)
-3. License from repo
-4. Verify BOTH mobile app AND browser extension exist
-
-**Sources (priority):** GitHub → Official docs → WalletBeat → App stores
-
-**Common mistakes:**
-- Trusting mobile+extension without verifying
-- Using wrong GitHub repo (SDK vs main app)
-- Not checking if extension is main chain only
-
----
-
-## Token Reduction
-
-**Full guide:** `.cursor/TOKEN_REDUCTION.md` | **Skill:** `/token-reduce` | **MCP CLI (Cursor only):** `.cursor/MCP_CLI.md`
-
-**Wallet-specific searches:**
-```bash
-rg -g "*.md" "scoring methodology" wallets/
-rg -g "*.md" "hardware wallet" wallets/
-```
-
----
-
-## Hardware Wallet Guidelines
-
-**Core Principle:** Private keys should NEVER leave the device.
-
-**Scoring (100 pts):**
-1. Security Architecture (25) - Secure Element, air-gap, tamper resistance
-2. Transparency (20) - Open firmware, reproducible builds
-3. Privacy & Trust (15) - No seed extraction capability
-4. Development Activity (15) - GitHub activity
-5. Company & Track Record (15) - Funding, longevity, incidents
-6. UX & Ecosystem (10) - Display, chains, integrations
-
-**Thresholds:** 🟢 75+ | 🟡 50-74 | 🔴 <50
-
-**Red Flags:**
-- Ledger Recover-style features
-- Closed source firmware
-- No Secure Element
-- Abandoned development
-
----
-
-## Crypto Card Guidelines
-
-**Custody types:**
-- Self-custody: +3 pts
-- Exchange custody: -3 pts
-- CeFi custody: 0 pts
-
-**Verify custody from official sources** - look for "self-custody", "non-custodial", "your keys"
-
----
-
-## Wallet-Specific Learnings
-
-**From Third Review (Dec 2025):**
-1. Core criteria matter most - 12/24 wallets don't meet basic requirements
-2. Scoring should enforce criteria
-3. Stability is undervalued
-4. Data exists but is scattered
-
-**Document Maintenance:** Single table principle, changelog discipline, verify before trust
-
-**Wallet Workflow:**
-- Research inputs → `wallets/artifacts/` (gitignored), durable notes → `wallets/MERCHANT_FEED.md`
-- Merchant feeds: provider-site pricing only; skip free categories and items without verified prices
-- Activity status decays over time
-
-**Multi-Pass Review:** Math verification (breakdowns sum to totals), values within bounds, cross-doc consistency, no data loss on restructure
-
-**Data Columns (preserve):** Chains, Rel/Mo, RPC, GitHub, Testnets, Audits, Last Commit, Stars, Issues, Ratio, Stability
-
----
-
-## URL/File Rename Checklist
-
-When renaming files:
-1. Update markdown config
-2. Update parsing functions
-3. Update cross-references
+When renaming a data file or page route, check all of these:
+1. Update markdown config / route mapping
+2. Update parsing functions referencing old name
+3. Update cross-references in other docs
 4. Update related document mappings
 5. Update sitemap logic
-6. Update scripts (wallet-data.ts, generate-og-images.js)
-7. Grep for old references
-8. Run build/type check
+6. Update scripts (`wallet-data.ts`, `generate-og-images.js`, etc.)
+7. `rg` for remaining references to old name
+8. Run `bun run build` and `bun run type-check`
 
----
+## Git Workflow Rules
 
-## Red Flags
+- Use branch + PR workflow; do not push directly to `main`.
+- Keep one task per PR where practical.
+- Before handing off, run relevant verification commands for touched scope.
 
-**Watch:** Coinbase SDK (slowed Jul 2025), Taho (slow, grant-dependent), Wigwam (slow, unknown funding)
+## Scope Guardrails
 
-**Abandonment signs:**
-- No commits 4+ months
-- Issues piling up
-- No releases 6+ months
-- Team members leaving
+- Keep this repo focused on WalletRadar (hardware/cards/ramps/data + frontend).
+- Do not import unrelated monorepo practices that are not applicable here (for example mobile-app framework scaffolding rules).
 
----
+## Companion Reference
 
-*Last updated: February 2026*
+- See `AGENT_META_LEARNINGS.md` for curated rationale and durable patterns.
+- Repo-local skill references are under `skills/` (including `token-reduce` and core design skills).
+
+<!-- token-reduce:begin -->
+## Token-Reduce Routing
+
+- If file location is unknown, your first discovery command MUST be `./skills/token-reduce/scripts/token-reduce-paths.sh topic words`.
+- Use the user’s literal nouns from the prompt in that first query (feature name, file stem, hook name, symbol).
+- Use `./skills/token-reduce/scripts/token-reduce-snippet.sh topic words` only if one ranked excerpt is needed after the path list.
+- Do not start repo discovery with `find .`, `ls -R`, `grep -R`, `rg --files .`, or broad `Glob` patterns.
+- Use scoped `rg -g` and targeted reads only after helper output.
+<!-- token-reduce:end -->
+
+<!-- SHARED_ATTRIBUTION_RULES_START -->
+## Shared Attribution & Meta Learnings
+
+- Commit author should be the active agent model identity.
+- Commit trailer must include: `Co-authored-by: Chimera <chimera_defi@protonmail.com>`.
+- PR description must include:
+  - `**Agent:** <actual model name>`
+  - `**Co-authored-by:** Chimera <chimera_defi@protonmail.com>`
+- Never use placeholder model names; record the actual model used.
+- Never push directly to `main`/`master`; use a feature branch and PR.
+- Keep one task per PR for clear review and rollback.
+- Verify before claiming complete: run relevant tests/lint/checks or explicitly note what was not run.
+<!-- SHARED_ATTRIBUTION_RULES_END -->
