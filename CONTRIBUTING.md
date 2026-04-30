@@ -20,6 +20,12 @@ Thank you for helping keep this wallet comparison accurate and up-to-date!
 ### Ramps (On/Off-Ramp Providers)
 - **Ramp comparison:** [RAMPS.md](./RAMPS.md) | [Details](./RAMPS_DETAILS.md)
 
+### Startup Operating Docs
+- **Roadmap:** [ROADMAP_Q3_Q4.md](./ROADMAP_Q3_Q4.md)
+- **Execution epics:** [EPICS_STARTUP.md](./EPICS_STARTUP.md)
+- **KPI spec:** [KPI_DASHBOARD_SPEC.md](./KPI_DASHBOARD_SPEC.md)
+- **Experiments:** [EXPERIMENTS.md](./EXPERIMENTS.md)
+
 ---
 
 ## Workflow Commandments (Required)

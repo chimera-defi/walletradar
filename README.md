@@ -190,6 +190,13 @@ bun run validate-cards
 | `bun run generate-og` | Generate OG images |
 | `bun run validate-cards` | Validate Twitter cards |
 
+## 🧭 Startup Operating Docs
+
+- [ROADMAP_Q3_Q4.md](./ROADMAP_Q3_Q4.md) — delivery roadmap and sprint cadence
+- [EPICS_STARTUP.md](./EPICS_STARTUP.md) — engineering epics with acceptance criteria
+- [KPI_DASHBOARD_SPEC.md](./KPI_DASHBOARD_SPEC.md) — metric definitions and dashboard spec
+- [EXPERIMENTS.md](./EXPERIMENTS.md) — growth and monetization experiments playbook
+
 ---
 
 ## 📁 Project Structure
@@ -215,6 +222,10 @@ bun run validate-cards
 ├── CRYPTO_CARDS_TIERS.md   # Supplemental per-tier card fee/feature matrix
 ├── RAMPS.md                # On/off-ramp comparison table
 ├── COMPETITOR_TRACKER.md   # Running watchlist of comparison competitors
+├── ROADMAP_Q3_Q4.md        # Startup roadmap and delivery timeline
+├── EPICS_STARTUP.md        # Engineering epics for startup execution
+├── KPI_DASHBOARD_SPEC.md   # KPI definitions and dashboard requirements
+├── EXPERIMENTS.md          # Distribution/monetization experiment plans
 ├── *_DETAILS.md            # Detailed analysis documents
 ├── CHANGELOG.md            # Change history
 └── README.md               # This file
