@@ -16,6 +16,7 @@ Thank you for helping keep this wallet comparison accurate and up-to-date!
 - **Card comparison:** [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) | [Details](./CRYPTO_CARDS_DETAILS.md)
 - **Tier matrix:** [CRYPTO_CARDS_TIERS.md](./CRYPTO_CARDS_TIERS.md)
 - **Competitor watchlist:** [COMPETITOR_TRACKER.md](./COMPETITOR_TRACKER.md)
+- **Affiliate targets:** [AFFILIATE_TARGETS.md](./AFFILIATE_TARGETS.md)
 
 ### Ramps (On/Off-Ramp Providers)
 - **Ramp comparison:** [RAMPS.md](./RAMPS.md) | [Details](./RAMPS_DETAILS.md)

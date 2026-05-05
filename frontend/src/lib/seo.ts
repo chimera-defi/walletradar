@@ -466,6 +466,7 @@ interface WalletSchemaData {
   secureElement?: boolean;
   secureElementType?: string;
   connectivity?: string[];
+  areaServed?: string;
 }
 
 /**
@@ -593,6 +594,7 @@ export function generateWalletProductSchema(
         price: '0',
         priceCurrency: 'USD',
       },
+      areaServed: wallet.areaServed || 'Global',
       featureList: wallet.features || [],
     };
   }
@@ -606,7 +608,7 @@ export function generateWalletProductSchema(
       '@type': 'Organization',
       name: wallet.company,
     } : undefined,
-    areaServed: 'Global',
+    areaServed: wallet.areaServed || 'Global',
     availableChannel: {
       '@type': 'ServiceChannel',
       serviceUrl: wallet.url,

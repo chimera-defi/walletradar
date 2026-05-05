@@ -72,6 +72,28 @@ GitHub Actions workflow: `.github/workflows/refresh-card-tier-matrix.yml`
 - Runs weekly on a schedule and supports manual dispatch.
 - Opens or updates a single automation PR (`automation/refresh-card-tier-matrix`) only when `CRYPTO_CARDS_TIERS.md` changes.
 
+### `seo-geo-scan.js` (Live SEO + GEO Snapshot)
+
+Runs a quick SEO and GEO-health snapshot against the deployed site and local
+comparison datasets.
+
+Checks include:
+
+- HTTP status for key landing/docs routes
+- title, description, canonical, JSON-LD presence
+- robots.txt + sitemap reachability and sitemap URL count
+- region/coverage distributions from `CRYPTO_CARDS.md` and `RAMPS.md`
+
+#### Usage
+
+```bash
+# Scan production default (https://walletradar.org)
+node scripts/seo-geo-scan.js
+
+# Scan a custom environment
+node scripts/seo-geo-scan.js --url https://staging.walletradar.org
+```
+
 ### `generate_merchant_feed.py` (Merchant Center)
 
 Generates a Google Merchant Center feed from the hardware wallet comparison

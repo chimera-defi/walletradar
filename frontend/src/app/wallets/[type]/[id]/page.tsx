@@ -187,6 +187,7 @@ function getStructuredData(type: WalletType, wallet: WalletData, pageUrl: string
     return generateWalletProductSchema({
       ...schemaData,
       features,
+      areaServed: card.region,
     }, type, pageUrl);
   }
 
@@ -200,6 +201,7 @@ function getStructuredData(type: WalletType, wallet: WalletData, pageUrl: string
   return generateWalletProductSchema({
     ...schemaData,
     features,
+    areaServed: ramp.coverage,
   }, type, pageUrl);
 }
 

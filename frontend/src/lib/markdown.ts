@@ -45,7 +45,7 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
   },
   'CRYPTO_CARDS.md': {
     title: 'Crypto Credit Card Comparison',
-    description: 'Comparison of crypto credit cards.',
+    description: 'Developer-focused comparison of crypto cards with custody, region coverage, rewards, fee structure, and recommendation scores.',
     category: 'comparison',
     order: 3,
   },
@@ -109,6 +109,12 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     category: 'research',
     order: 6.8,
   },
+  'AFFILIATE_TARGETS.md': {
+    title: 'Affiliate Targets',
+    description: 'Running list of potential affiliate/referral targets with evidence links, status, and priority.',
+    category: 'research',
+    order: 6.9,
+  },
   'walletconnect-wallet-research.md': {
     title: 'WalletConnect Research',
     description: 'Original detailed research on WalletConnect-compatible wallets',
@@ -146,6 +152,13 @@ function extractSourceCount(filename: string, content: string): number | undefin
     const watchlistSection = content.match(/## Current Watchlist([\s\S]*?)(?:\n##\s|$)/);
     const watchlistContent = watchlistSection ? watchlistSection[1] : content;
     const sourceCount = countUniqueMarkdownLinks(watchlistContent);
+    return sourceCount > 0 ? sourceCount : undefined;
+  }
+
+  if (filename === 'AFFILIATE_TARGETS.md') {
+    const targetsSection = content.match(/## Current Targets([\s\S]*?)(?:\n##\s|$)/);
+    const targetsContent = targetsSection ? targetsSection[1] : content;
+    const sourceCount = countUniqueMarkdownLinks(targetsContent);
     return sourceCount > 0 ? sourceCount : undefined;
   }
 
