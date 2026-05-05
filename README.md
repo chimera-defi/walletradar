@@ -227,6 +227,7 @@ bun run validate-cards
 ├── KPI_DASHBOARD_SPEC.md   # KPI definitions and dashboard requirements
 ├── EXPERIMENTS.md          # Distribution/monetization experiment plans
 ├── AFFILIATE_TARGETS.md    # Running list of affiliate/referral opportunities
+├── AFFILIATE_APPLICATION_RUNBOOK.md # First-pass affiliate application workflow
 ├── *_DETAILS.md            # Detailed analysis documents
 ├── CHANGELOG.md            # Change history
 └── README.md               # This file
@@ -274,6 +275,7 @@ Comprehensive comparison tables and guides:
 - **[RAMPS.md](./RAMPS.md)** — On/off-ramp provider comparison (20 providers)
 - **[COMPETITOR_TRACKER.md](./COMPETITOR_TRACKER.md)** — Running competitor watchlist for card/ramp comparisons
 - **[AFFILIATE_TARGETS.md](./AFFILIATE_TARGETS.md)** — Potential affiliate/referral targets and status
+- **[AFFILIATE_APPLICATION_RUNBOOK.md](./AFFILIATE_APPLICATION_RUNBOOK.md)** — First-time affiliate application checklist and copy templates
 - **[CHANGELOG.md](./CHANGELOG.md)** — Complete change history
 - **[CONTRIBUTING.md](./CONTRIBUTING.md)** — How to contribute
 - **[VERIFICATION_NOTES.md](./VERIFICATION_NOTES.md)** — Data verification methods
