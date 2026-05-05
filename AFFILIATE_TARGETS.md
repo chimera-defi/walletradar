@@ -44,5 +44,6 @@ It tracks opportunities only. It does **not** change rankings, scores, or recomm
 - [#33](https://github.com/chimera-defi/walletradar/issues/33) hardware wallet affiliate rollout
 - [#34](https://github.com/chimera-defi/walletradar/issues/34) ramp affiliate rollout
 - [#35](https://github.com/chimera-defi/walletradar/issues/35) crypto card affiliate rollout
+- [AFFILIATE_APPLICATION_RUNBOOK.md](./AFFILIATE_APPLICATION_RUNBOOK.md) first-pass submission checklist and copy template
 
 **Last Updated:** May 5, 2026

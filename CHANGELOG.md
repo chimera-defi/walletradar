@@ -17,6 +17,7 @@ Track significant changes to wallet statuses, recommendations, and documentation
 |------|------|--------|---------|
 | May 5, 2026 | **Affiliate Tracking** | NEW | Added `AFFILIATE_TARGETS.md` as in-repo source of truth for potential affiliate/referral programs across cards, ramps, and hardware wallets. Includes EtherFi Cash as a tracked P0 target. |
 | May 5, 2026 | **Affiliate Tracking** | Expanded | Added verified hardware wallet affiliate targets with official program URLs (Ledger, Trezor, Tangem, OneKey, SafePal, Keystone, ELLIPAL, BitBox, Cypherock, NGRAVE). |
+| May 5, 2026 | **Affiliate Operations** | NEW | Added `AFFILIATE_APPLICATION_RUNBOOK.md` with a first-pass submission workflow, reusable application packet, prioritized queue, and follow-up cadence. |
 | May 5, 2026 | **Docs Discoverability Gate** | Expanded | Updated `frontend/scripts/smoke-test-wallet-data.js` to fail CI if affiliate target docs drop out of docs config or competitor intelligence section. |
 | May 5, 2026 | **SEO/GEO Tooling** | NEW | Added `scripts/seo-geo-scan.js` for repeatable live SEO + GEO snapshots (route status, metadata/schema checks, sitemap/robots checks, and dataset geo coverage summaries). |
 
