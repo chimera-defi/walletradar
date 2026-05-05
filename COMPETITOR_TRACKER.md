@@ -9,6 +9,7 @@ Use this file as the persistent watchlist for sites that compare crypto cards.
 - Keep competitor discovery in one place
 - Track freshness signals and reliability issues
 - Run periodic refresh passes against credible sources
+- Feed monetization intake without mixing it into ranking logic
 
 ## Current Watchlist
 
@@ -38,6 +39,7 @@ Use this file as the persistent watchlist for sites that compare crypto cards.
 2. Keep status conservative (`⚠️`) when source terms are incomplete or contradictory.
 3. Never import placeholder "coming soon" cards without issuer documentation.
 4. Log additions and major corrections in `CHANGELOG.md`.
+5. If a competitor reveals potential monetization routes, log them in `AFFILIATE_TARGETS.md`.
 
 ## Third Review Notes (ccompare.cards)
 
@@ -53,4 +55,8 @@ Use this file as the persistent watchlist for sites that compare crypto cards.
 - Each card links both to `Get Card` and `View Source`, which is good trust UX for research-heavy users.
 - Geo coverage detail is surfaced directly from the card panel (`See all countries`), reducing hidden constraints.
 
-**Last Updated:** April 23, 2026
+## Related Trackers
+
+- Affiliate opportunities and program status: [AFFILIATE_TARGETS.md](./AFFILIATE_TARGETS.md)
+
+**Last Updated:** May 5, 2026

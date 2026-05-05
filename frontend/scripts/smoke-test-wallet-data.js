@@ -435,6 +435,12 @@ function assertCompetitorDocsDiscoverability() {
     failures += 1;
   }
 
+  const hasAffiliateTargetsConfig = /'AFFILIATE_TARGETS\.md':\s*\{[\s\S]*title:\s*'Affiliate Targets'[\s\S]*category:\s*'research'/m.test(markdownContent);
+  if (!hasAffiliateTargetsConfig) {
+    fail('markdown.ts: missing AFFILIATE_TARGETS.md config. Add it to DOCUMENT_CONFIG so /docs/affiliate-targets is generated.');
+    failures += 1;
+  }
+
   const navigationPath = path.join(FRONTEND_DIR, 'src', 'components', 'Navigation.tsx');
   const navigationContent = readFileOrFail(navigationPath);
   if (!navigationContent.includes("{ href: '/docs/competitor-tracker', label: 'Competitors' }")) {
@@ -453,6 +459,13 @@ function assertCompetitorDocsDiscoverability() {
     failures += 1;
   }
 
+  const competitorSectionPath = path.join(FRONTEND_DIR, 'src', 'components', 'CompetitorIntelligenceSection.tsx');
+  const competitorSectionContent = readFileOrFail(competitorSectionPath);
+  if (!competitorSectionContent.includes("'affiliate-targets'")) {
+    fail('CompetitorIntelligenceSection.tsx: missing affiliate-targets entry in COMPETITOR_INTEL_DOCS. Keep affiliate tracker visible in Docs intelligence section.');
+    failures += 1;
+  }
+
   const cardsPath = path.join(WALLETS_DIR, 'CRYPTO_CARDS.md');
   const cardsContent = readFileOrFail(cardsPath);
   if (!cardsContent.includes('[COMPETITOR_TRACKER.md](./COMPETITOR_TRACKER.md)')) {
@@ -461,6 +474,13 @@ function assertCompetitorDocsDiscoverability() {
   }
   if (!cardsContent.includes('[CRYPTO_CARDS_TIERS.md](./CRYPTO_CARDS_TIERS.md)')) {
     fail('CRYPTO_CARDS.md: missing inline link to CRYPTO_CARDS_TIERS.md in card table notes.');
+    failures += 1;
+  }
+
+  const competitorTrackerPath = path.join(WALLETS_DIR, 'COMPETITOR_TRACKER.md');
+  const competitorTrackerContent = readFileOrFail(competitorTrackerPath);
+  if (!competitorTrackerContent.includes('[AFFILIATE_TARGETS.md](./AFFILIATE_TARGETS.md)')) {
+    fail('COMPETITOR_TRACKER.md: missing link to AFFILIATE_TARGETS.md in related trackers.');
     failures += 1;
   }
 

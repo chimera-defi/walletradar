@@ -9,6 +9,7 @@ interface CompetitorIntelligenceSectionProps {
 const COMPETITOR_INTEL_DOCS = [
   'crypto-cards-tiers',
   'competitor-tracker',
+  'affiliate-targets',
 ] as const;
 
 export function CompetitorIntelligenceSection({ documents }: CompetitorIntelligenceSectionProps) {
@@ -32,7 +33,7 @@ export function CompetitorIntelligenceSection({ documents }: CompetitorIntellige
             Competitor Intelligence
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Direct access to competitor watchlist and imported card tier data with freshness indicators.
+            Direct access to competitor watchlist, affiliate-target tracking, and imported card tier data with freshness indicators.
           </p>
         </div>
 
