@@ -1,0 +1,1 @@
+{"event": "helper_invocation", "meta": {"chars": 54, "context": "runtime", "exit_code": 0, "latency_ms": 35340, "lines": 1}, "query": "walletradar token reduce routing", "source": "helper", "status": "ok", "timestamp": "2026-04-25T13:24:01.203805+00:00", "tool": "token_reduce_paths"}
