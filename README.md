@@ -6,8 +6,8 @@
 
 **Developer-Focused Crypto Product Research Platform**
 
-[![Wallets Frontend CI](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/wallets-frontend-ci.yml)
-[![Refresh Wallet Data](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/Etc-mono-repo/actions/workflows/refresh-wallet-data.yml)
+[![Wallets Frontend CI](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml)
+[![Refresh Wallet Data](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-walletradar.org-blue)](https://walletradar.org)
 
@@ -135,8 +135,8 @@ from active verification lists once confirmed.
 
 ```bash
 # Clone the repository
-git clone https://github.com/chimera-defi/Etc-mono-repo.git
-cd Etc-mono-repo/wallets/frontend
+git clone https://github.com/chimera-defi/walletradar.git
+cd walletradar/frontend
 
 # Install dependencies
 npm install
@@ -175,27 +175,26 @@ npm start
 ## 📁 Project Structure
 
 ```
-wallets/
-├── frontend/               # Next.js application
-│   ├── src/
-│   │   ├── app/           # Next.js 14 App Router pages
-│   │   ├── components/    # React components
-│   │   ├── lib/           # Utilities & helpers
-│   │   └── styles/        # Global styles
-│   ├── public/            # Static assets & OG images
-│   ├── scripts/           # Build & validation scripts
-│   └── package.json
-├── scripts/               # Data refresh automation
-│   ├── refresh-github-data.sh
-│   └── run_naming_workflow.py
-├── branding/              # Naming workflow artifacts (positioning, candidates, validation)
-├── SOFTWARE_WALLETS.md    # Software wallet comparison table
-├── HARDWARE_WALLETS.md    # Hardware wallet comparison table
-├── CRYPTO_CARDS.md        # Crypto card comparison table
-├── RAMPS.md               # On/off-ramp comparison table
-├── *_DETAILS.md           # Detailed analysis documents
-├── CHANGELOG.md           # Change history
-└── README.md              # This file
+frontend/               # Next.js application
+├── src/
+│   ├── app/           # Next.js 14 App Router pages
+│   ├── components/    # React components
+│   ├── lib/           # Utilities & helpers
+│   └── styles/        # Global styles
+├── public/            # Static assets & OG images
+├── scripts/           # Build & validation scripts
+└── package.json
+scripts/               # Data refresh automation
+├── refresh-github-data.sh
+└── run_naming_workflow.py
+branding/              # Naming workflow artifacts (positioning, candidates, validation)
+SOFTWARE_WALLETS.md    # Software wallet comparison table
+HARDWARE_WALLETS.md    # Hardware wallet comparison table
+CRYPTO_CARDS.md        # Crypto card comparison table
+RAMPS.md               # On/off-ramp comparison table
+*_DETAILS.md           # Detailed analysis documents
+CHANGELOG.md           # Change history
+README.md              # This file
 ```
 
 ---
@@ -266,7 +265,7 @@ Wallet Radar does NOT provide financial advice, recommend specific products, or 
 
 Contributions are welcome! Here's how you can help:
 
-1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/Etc-mono-repo/issues)
+1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/walletradar/issues)
 2. **Add Wallets** — See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
 3. **Improve Documentation** — Fix typos, clarify explanations
 4. **Enhance Features** — Submit PRs for new features or improvements
@@ -284,8 +283,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Website:** [walletradar.org](https://walletradar.org)
-- **GitHub:** [github.com/chimera-defi/Etc-mono-repo/tree/main/wallets](https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets)
-- **Issues:** [github.com/chimera-defi/Etc-mono-repo/issues](https://github.com/chimera-defi/Etc-mono-repo/issues)
+- **GitHub:** [github.com/chimera-defi/walletradar](https://github.com/chimera-defi/walletradar)
+- **Issues:** [github.com/chimera-defi/walletradar/issues](https://github.com/chimera-defi/walletradar/issues)
 
 ---
 
