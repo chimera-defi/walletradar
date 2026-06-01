@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import { Tooltip } from '@/components/Tooltip';
 import { ScoreBreakdownBar } from '@/components/ScoreBreakdownBar';
-import { cryptoCardTooltips, rampTooltips, commonTooltips, softwareWalletTooltips } from '@/lib/tooltip-content';
+import { cryptoCardTooltips, commonTooltips, softwareWalletTooltips } from '@/lib/tooltip-content';
 import type { CryptoCard, WalletData, SupportedChains, SoftwareWallet } from '@/types/wallets';
 import { CHAIN_ICONS } from '@/lib/chain-icons';
 import Image from 'next/image';
