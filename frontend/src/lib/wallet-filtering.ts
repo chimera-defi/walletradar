@@ -48,6 +48,19 @@ export type SortField =
   | 'cashBackMax';
 export type SortDirection = 'asc' | 'desc';
 
+function passesScoreFilter(score: number, filters: FilterOptions): boolean {
+  if (filters.minScore !== undefined && score < filters.minScore) return false;
+  if (filters.maxScore !== undefined && score > filters.maxScore) return false;
+  return true;
+}
+
+function passesRecommendationFilter(recommendation: string, allowed: FilterOptions['recommendation'], excludeNotForDev = false): boolean {
+  if (!allowed?.length) return true;
+  const candidates = excludeNotForDev ? allowed.filter(r => r !== 'not-for-dev') : allowed;
+  if (!candidates.length) return true;
+  return candidates.includes(recommendation as never);
+}
+
 export function filterSoftwareWallets(
   wallets: SoftwareWallet[],
   filters: FilterOptions
@@ -64,13 +77,10 @@ export function filterSoftwareWallets(
     }
 
     // Score filter
-    if (filters.minScore !== undefined && wallet.score < filters.minScore) return false;
-    if (filters.maxScore !== undefined && wallet.score > filters.maxScore) return false;
+    if (!passesScoreFilter(wallet.score, filters)) return false;
 
     // Recommendation filter
-    if (filters.recommendation?.length && !filters.recommendation.includes(wallet.recommendation)) {
-      return false;
-    }
+    if (!passesRecommendationFilter(wallet.recommendation, filters.recommendation)) return false;
 
     // Platform filter
     if (filters.platforms?.length) {
@@ -144,16 +154,10 @@ export function filterHardwareWallets(
     }
 
     // Score filter
-    if (filters.minScore !== undefined && wallet.score < filters.minScore) return false;
-    if (filters.maxScore !== undefined && wallet.score > filters.maxScore) return false;
+    if (!passesScoreFilter(wallet.score, filters)) return false;
 
     // Recommendation filter
-    if (filters.recommendation?.length) {
-      const matchingRecs = filters.recommendation.filter(r => r !== 'not-for-dev');
-      if (matchingRecs.length && !matchingRecs.includes(wallet.recommendation)) {
-        return false;
-      }
-    }
+    if (!passesRecommendationFilter(wallet.recommendation, filters.recommendation, true)) return false;
 
     // Air gap filter
     if (filters.airGap !== undefined && wallet.airGap !== filters.airGap) {
@@ -210,8 +214,7 @@ export function filterCryptoCards(
     }
 
     // Score filter
-    if (filters.minScore !== undefined && card.score < filters.minScore) return false;
-    if (filters.maxScore !== undefined && card.score > filters.maxScore) return false;
+    if (!passesScoreFilter(card.score, filters)) return false;
 
     // Card type filter
     if (filters.cardType?.length && !filters.cardType.includes(card.cardType)) {
@@ -272,13 +275,10 @@ export function filterRamps(ramps: Ramp[], filters: FilterOptions): Ramp[] {
     }
 
     // Score filter
-    if (filters.minScore !== undefined && ramp.score < filters.minScore) return false;
-    if (filters.maxScore !== undefined && ramp.score > filters.maxScore) return false;
+    if (!passesScoreFilter(ramp.score, filters)) return false;
 
     // Recommendation filter
-    if (filters.recommendation?.length && !filters.recommendation.includes(ramp.recommendation)) {
-      return false;
-    }
+    if (!passesRecommendationFilter(ramp.recommendation, filters.recommendation)) return false;
 
     // Status filter - map ramp status to filter active values
     // Ramp status: 'active' | 'verify' | 'launching' | 'inactive'
