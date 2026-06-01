@@ -50,8 +50,8 @@ browser verification during full data audits:
 
 When direct checks are blocked, a text-only fetch via `r.jina.ai` can confirm
 the landing content is reachable. Results are logged in
-`wallets/artifacts/manual-url-checks.json`. A headless Chromium pass captures
-browser verification output in `wallets/artifacts/manual-browser-checks.json`.
+`artifacts/manual-url-checks.json`. A headless Chromium pass captures
+browser verification output in `artifacts/manual-browser-checks.json`.
 Most bot-protected URLs resolve in Chromium; defunct products should be removed
 from active verification lists once confirmed.
 
@@ -89,7 +89,7 @@ from active verification lists once confirmed.
 - Weekly GitHub Activity monitoring
 - Automated PR creation with updated data
 - Manual verification for security-critical changes
-- Merchant Center feed generation for hardware wallets (see `wallets/MERCHANT_FEED.md`)
+- Merchant Center feed generation for hardware wallets (see `MERCHANT_FEED.md`)
 
 ### 🎨 **Developer-Friendly Interface**
 - Clean, fast Next.js 14 application
@@ -129,7 +129,7 @@ from active verification lists once confirmed.
 
 ### Prerequisites
 - Node.js 20+
-- npm or yarn
+- Bun 1.3+
 
 ### Local Development
 
@@ -139,10 +139,10 @@ git clone https://github.com/chimera-defi/walletradar.git
 cd walletradar/frontend
 
 # Install dependencies
-npm install
+bun install
 
 # Run development server
-npm run dev
+bun run dev
 
 # Open http://localhost:3000 in your browser
 ```
@@ -151,24 +151,24 @@ npm run dev
 
 ```bash
 # Build the application
-npm run build
+bun run build
 
 # Start production server
-npm start
+bun run start
 ```
 
 ### Available Scripts
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run type-check` | Run TypeScript type checking |
-| `npm test` | Run smoke tests |
-| `npm run generate-og` | Generate OG images |
-| `npm run validate-cards` | Validate Twitter cards |
+| `bun run dev` | Start development server |
+| `bun run build` | Build for production |
+| `bun run start` | Start production server |
+| `bun run lint` | Run ESLint |
+| `bun run type-check` | Run TypeScript type checking |
+| `bun test` | Run smoke tests |
+| `bun run generate-og` | Generate OG images |
+| `bun run validate-cards` | Validate Twitter cards |
 
 ---
 
@@ -219,7 +219,7 @@ Wallet data is automatically refreshed every Monday via GitHub Actions:
 
 ```bash
 # Manual refresh (requires GitHub token)
-cd wallets/scripts
+cd scripts
 ./refresh-github-data.sh          # Text output
 ./refresh-github-data.sh --json   # JSON output
 ./refresh-github-data.sh --markdown  # Markdown table
