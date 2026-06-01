@@ -543,9 +543,11 @@ function run() {
 
   const walletTablePath = path.join(FRONTEND_DIR, 'src', 'components', 'WalletTable.tsx');
   const walletTableContent = readFileOrFail(walletTablePath);
-  const hasRecommendationErrorVariant = /if \(recommendation === 'avoid' \|\| recommendation === 'not-for-dev'\) variant = 'error';/.test(walletTableContent);
-  const hasRecommendationSuccessVariant = /else if \(recommendation === 'recommended'\) variant = 'success';/.test(walletTableContent);
-  const hasBandingTooltipCopy = /Banding: 🟢 top half, 🟡 middle quartile, 🔴 bottom quartile or inactive\./.test(walletTableContent);
+  const walletBadgesPath = path.join(FRONTEND_DIR, 'src', 'components', 'WalletBadges.tsx');
+  const walletBadgesContent = readFileOrFail(walletBadgesPath);
+  const hasRecommendationErrorVariant = /if \(recommendation === 'avoid' \|\| recommendation === 'not-for-dev'\) variant = 'error';/.test(walletBadgesContent);
+  const hasRecommendationSuccessVariant = /else if \(recommendation === 'recommended'\) variant = 'success';/.test(walletBadgesContent);
+  const hasBandingTooltipCopy = /Banding: 🟢 top half, 🟡 middle quartile, 🔴 bottom quartile or inactive\./.test(walletBadgesContent);
   const hasBelowMedianCopy = /Below median/.test(walletTableContent);
   const hasMedianPropWiring = /scoreMedian=\{scoreMedian\}/.test(walletTableContent);
   const hasExplicitScoreHeader = /HeaderTooltip label="Score"/.test(walletTableContent);
