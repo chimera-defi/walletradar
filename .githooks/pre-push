@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+branch="$(git symbolic-ref --quiet --short HEAD || true)"
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  echo "ERROR: Direct pushes to $branch are blocked. Use a PR branch." >&2
+  exit 1
+fi
