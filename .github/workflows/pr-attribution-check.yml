@@ -1,0 +1,123 @@
+name: PR Attribution Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: pr-attribution-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-pr-attribution:
+    name: Check PR Attribution
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Check PR Description
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const title = pr.title || '';
+            const body = pr.body || '';
+
+            const errors = [];
+            const warnings = [];
+
+            const requiredSections = [
+              /##\s*Summary/i,
+              /##\s*Original\s*Request/i,
+              /##\s*Changes\s*Made/i,
+              /##\s*Testing\s*&\s*Verification/i,
+            ];
+
+            const hasAgentAttribution = /^\*\*Agent:\*\*\s+.+/im.test(body);
+            if (!hasAgentAttribution) {
+              errors.push('PR description missing agent attribution. Add `**Agent:** [Model Name]` near the top.');
+            }
+
+            const hasHumanCoauthor = /^\*\*Co-authored-by:\*\*\s+(Chimera|ChimeraDeFi)\s+<chimera_defi@protonmail\.com>/im.test(body);
+            if (!hasHumanCoauthor) {
+              errors.push('PR description missing canonical human co-author. Add `**Co-authored-by:** Chimera <chimera_defi@protonmail.com>`.');
+            }
+
+            for (const section of requiredSections) {
+              if (!section.test(body)) {
+                errors.push(`PR description missing required section matching: \`${section}\`.`);
+              }
+            }
+
+            const badTitlePatterns = [
+              /user\s+asked/i,
+              /as\s+requested/i,
+              /implement\s+.*\s+as\s+requested/i,
+              /add\s+.*\s+as\s+requested/i,
+            ];
+
+            for (const pattern of badTitlePatterns) {
+              if (pattern.test(title)) {
+                warnings.push('PR title appears to describe the prompt instead of the change. Prefer a result-focused title.');
+                break;
+              }
+            }
+
+            if (errors.length > 0 || warnings.length > 0) {
+              let comment = '## PR Attribution Check\n\n';
+
+              if (errors.length > 0) {
+                comment += '### Required Fixes\n';
+                for (const err of errors) comment += `- ${err}\n`;
+                comment += '\n';
+              }
+
+              if (warnings.length > 0) {
+                comment += '### Suggestions\n';
+                for (const warn of warnings) comment += `- ${warn}\n`;
+                comment += '\n';
+              }
+
+              comment += 'Reference: `.cursorrules` Git Discipline and PR Attribution sections.\n';
+              if (errors.length > 0) {
+                comment += '\nThis check fails until required fixes are addressed.';
+              }
+
+              const issue_number = pr.number;
+              const { owner, repo } = context.repo;
+              const { data: comments } = await github.rest.issues.listComments({
+                issue_number,
+                owner,
+                repo,
+                per_page: 100,
+              });
+
+              const existing = comments.find((c) =>
+                c.user && c.user.type === 'Bot' && typeof c.body === 'string' && c.body.startsWith('## PR Attribution Check')
+              );
+
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner,
+                  repo,
+                  comment_id: existing.id,
+                  body: comment,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number,
+                  body: comment,
+                });
+              }
+
+              if (errors.length > 0) {
+                core.setFailed('PR attribution check failed. See PR comment for details.');
+              }
+            } else {
+              core.info('PR attribution check passed.');
+            }
