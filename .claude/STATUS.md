@@ -14,3 +14,6 @@
 - Human to re-scan on VirusTotal with new hash
 - Human to reply to Porkbun with appeal
 - npm audit: 4 high vulns (Next.js DoS, glob) — assess static-export mitigation
+
+## Codex P2 Review Response
+- MALWARE_ALERT_HANDOFF.md: restored VirusTotal URL and appeal template — operator needs these while appeal is pending
