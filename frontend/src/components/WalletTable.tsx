@@ -25,7 +25,6 @@ import {
   buildScoreTooltip,
   calculateMedianScore,
   Badge,
-  ScoreBreakdownPreview,
   ScoreBadge,
   CustodyBadge,
   BusinessSupportBadge,
