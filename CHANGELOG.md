@@ -11,7 +11,22 @@ Track significant changes to wallet statuses, recommendations, and documentation
 
 ---
 
-## Crypto Cards (January 2026)
+## Crypto Cards
+
+### Custody Recheck (June 14, 2026)
+
+Verified crypto-card custody labels against official provider sources with delegate-agent research plus local source checks.
+
+| Date | Card | Change | Details |
+|------|------|--------|---------|
+| Jun 14, 2026 | **KAST** | Custody 🔐→📋, Score 82→76 | **MAJOR FIX:** Official KAST terms say transferred virtual assets are sold to KAST and managed through a custodian for KAST, not held self-custodially for the user. |
+| Jun 14, 2026 | **CryptoSpend / Wayex** | Custody 🔐→📋, Score 79→72 | Wayex materials describe the default app wallet as custodial; optional self-custody does not make the card/app spending model self-custodial. |
+| Jun 14, 2026 | **Spendly** | Custody 🔐→📋, Score 78→71 | Official Spendly terms describe crypto top-ups and prepaid card loading without self-custody or user-key control. Conservative label changed to CeFi/prepaid custody. |
+| Jun 14, 2026 | **Jupiter Card** | Custody 🔐→📋, Score 80→73 | Official Jupiter docs say wallet funds remain non-custodial, but Spend/card balances are managed by regulated financial partners. |
+| Jun 14, 2026 | **Bitget Wallet Card** | Custody 🔐→📋, Score 62→56 | Official card terms authorize program access/liquidation of wallet assets for card transactions; DCS prepayment terms are not user-custody. |
+| Jun 14, 2026 | **OKX Card** | Custody 🏦→🔐, Score 56→64 | Official OKX Card / OKX Pay docs say stablecoins remain in the user's wallet until purchase. |
+| Jun 14, 2026 | **Nummus Wallet Card** | Kept 📋, Score 44 | Second-pass review found non-custodial wallet integration, but card issuance and spend are governed by external financial service providers. |
+| Jun 14, 2026 | **Wirex Card** | No change | Self-custody evidence maps to Wirex One / Wirex BaaS rather than the existing legacy Wirex Card row, so the table keeps Wirex as CeFi pending a product split/migration. |
 
 ### Regional Availability Updates (January 7, 2026)
 
@@ -55,7 +70,7 @@ Comprehensive recalculation of all 27 crypto card scores using verified website 
 | Jan 2026 | **Revolut Crypto** | Score 72→76 | Global availability, established fintech |
 | Jan 2026 | **OKX Card** | Score 68→50 | TBD data incomplete, launching status penalty |
 | Jan 2026 | **Uphold Card** | Score 67→73 | Multi-region availability bonus |
-| Jan 2026 | **CryptoSpend** | Score 62→71, Custody 📋→🔐 | **CORRECTION:** Offers optional self-custody, +3 bonus |
+| Jan 2026 | **CryptoSpend** | Score 62→71, Custody 📋→🔐 | **Historical correction, superseded Jun 14, 2026:** Optional self-custody was noted, but June recheck restored CeFi for the default card/app spending model. |
 | Jan 2026 | **CoinJar Card** | Score 60→65 | Established exchange |
 | Jan 2026 | **Crypto.com Visa** | Score 57→41, Rec 🟡→🔴 | **MAJOR FIX:** Base tier has 0% cashback! Requires $400+ CRO stake (12-month lock) for any rewards. Combined with -20 UX penalty = 🔴 Avoid. |
 | Jan 2026 | **Swissborg Card** | Score 56→60 | Reassessed with current data |

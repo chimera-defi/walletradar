@@ -14,10 +14,10 @@
 | 2 | **Amp Pay Black Card** | 84 | Solana payments | 🟢 |
 | 3 | **Crypto.com Visa** | 83 | CRO stakers ⚠️ | 🟢 |
 | 4 | **Ready Card** | 83 | Self-custody EU/UK | 🟢 |
-| 5 | **Kast** | 82 | Stablecoin banking | 🟢 |
+| 5 | **Tria** | 82 | Token rewards | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
-**Last Updated:** January 12, 2026 (Added 11 new crypto cards: MetaMask, Tria, Solflare, Kast, ThorWallet, Fuse, Payy, Spendly, Tuyo, Avici, Amp Pay; marked Kontigo as discontinued)
+**Last Updated:** June 14, 2026 (Custody recheck: KAST, Jupiter, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, and Nummus Wallet Card are treated as CeFi for card spend; OKX Card remains self-custody based on OKX Card docs)
 
 ---
 
@@ -78,7 +78,7 @@ Why this model:
 #### Debit Cards
 - **MetaMask Card** - Self-custodial Mastercard debit card
 - **Solflare Card** - Self-custody Solana debit card (UK/EEA)
-- **Kast Card** - Stablecoin Visa debit card (tiered rewards)
+- **Kast Card** - Stablecoin Visa debit card (partner-custody, tiered rewards)
 - **ThorWallet Card** - Non-custodial Mastercard with Swiss IBAN
 - **Amp Pay Black Card** - Solana-powered debit card
 - **Payy Card** - Privacy-preserving Visa debit card
@@ -91,13 +91,13 @@ Why this model:
 - **Swissborg Card** - EU debit card
 - **Fold Card** - Bitcoin rewards debit card
 - **CoinJar Card** - Australia Bitcoin rewards card
-- **CryptoSpend Card** - Australia multi-crypto rewards card
+- **CryptoSpend Card** - Australia multi-crypto rewards card (Wayex custodial app/card)
 - ~~**Kontigo Card**~~ - USDC neobank card (Discontinued Jan 2026)
 
 #### Prepaid Cards
 - **Tuyo Card** - Self-custodial Visa prepaid (USDC on Base)
 - **Fuse Wallet Card** - Virtual Visa prepaid (Solana smart wallet)
-- **Spendly Card** - No-KYC virtual prepaid cards
+- **Spendly Card** - Privacy-focused virtual prepaid cards
 - **BitPay Card** - Bitcoin prepaid card
 - **Shakepay Card** - Canada Bitcoin rewards prepaid card
 
@@ -730,6 +730,8 @@ The CryptoSpend Card is a multi-crypto rewards debit card available in Australia
 - Requires CryptoSpend account
 - Debit card (no credit building)
 
+**Custody Model:** 📋 CeFi / custodial app wallet. June 2026 recheck moved this from self-custody because official Wayex materials describe Wayex as a custodial wallet where the user does not see the private key; Wayex also advertises optional self-custody for advanced users, but the card row tracks the default card/app spending model.
+
 ---
 
 ### EtherFi Cash
@@ -1043,10 +1045,11 @@ Kast is a stablecoin banking platform offering Visa debit cards that let users s
 - Annual fees for higher tiers
 - Rewards in Kast Points (not USD)
 - Some tiers very expensive ($10K/year)
+- Card funding uses partner custody / KAST treasury handling rather than user-controlled keys
 
-**Custody Model:** 🔐 Self-custody
+**Custody Model:** 📋 CeFi / partner custody. June 2026 recheck moved this from self-custody because official KAST terms say user-transferred virtual assets are sold to KAST and then managed by a custodian for KAST, not held for the user.
 
-**Score: 71**
+**Score: 76**
 
 ---
 
@@ -1356,9 +1359,9 @@ Spendly provides instant no-KYC virtual prepaid cards funded with cryptocurrency
 - Per-card fees
 - Virtual only (no physical)
 
-**Custody Model:** 🔐 Self-custody (crypto conversion to prepaid)
+**Custody Model:** 📋 CeFi / prepaid top-up conversion. June 2026 recheck found official Spendly terms describing crypto top-ups and card loading, but no official statement that users retain keys or self-custody through card spend.
 
-**Score: 62**
+**Score: 71**
 
 ---
 
@@ -1840,10 +1843,10 @@ Score adjustments based on real-world user experiences and company reputation:
 **Penalties:**
 - **Crypto.com Visa: -20 points** - Poor UX, customer service issues, 12-month staking lock-ups, 0% base tier
 - **TBD/Unverified data: -3 to -5 points** - OKX Card, Kraken Card, Uphold Card, Swissborg Card
-- **Exchange custody risk: -3 points** - Coinbase, Binance, Gemini, KuCoin, OKX, CoinJar, Kraken, Crypto.com, Bybit
+- **Exchange custody risk: -3 points** - Coinbase, Binance, Gemini, KuCoin, CoinJar, Kraken, Crypto.com, Bybit
 
 **Bonuses:**
-- **Non-custodial: +3 points** - Ready Card, EtherFi Cash, Gnosis Pay, 1inch Card, CryptoSpend (self-custody = lower risk)
+- **Non-custodial custody signal:** Self-custody rows score higher mechanically through the `Custody & Coverage` bucket. After the June 2026 recheck, CryptoSpend/Wayex, Jupiter, Bitget Wallet Card, and Nummus Wallet Card are not treated as self-custodial for the card spend path; OKX Card remains self-custody based on official OKX Card docs.
 - **Verified cards: +2 points** - Plutus, Shakepay, EtherFi Cash
 - **Credit card type bonus** - EtherFi Cash, Gemini, Nexo (credit cards score higher)
 
