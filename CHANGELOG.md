@@ -27,6 +27,7 @@ Verified crypto-card custody labels against official provider sources with deleg
 | Jun 14, 2026 | **OKX Card** | Custody 🏦→🔐, Score 56→64 | Official OKX Card / OKX Pay docs say stablecoins remain in the user's wallet until purchase. |
 | Jun 14, 2026 | **Nummus Wallet Card** | Kept 📋, Score 44 | Second-pass review found non-custodial wallet integration, but card issuance and spend are governed by external financial service providers. |
 | Jun 14, 2026 | **Wirex Card** | No change | Self-custody evidence maps to Wirex One / Wirex BaaS rather than the existing legacy Wirex Card row, so the table keeps Wirex as CeFi pending a product split/migration. |
+| Jun 16, 2026 | **Custody taxonomy** | Terminology refinement | Kept the three existing custody buckets but clarified that they classify the card spend path: self-custody until authorization, exchange account custody, or CeFi/card-platform custody. |
 
 ### Regional Availability Updates (January 7, 2026)
 
@@ -208,4 +209,4 @@ Comprehensive recalculation of all 27 crypto card scores using verified website 
 
 ---
 
-*For the latest wallet status updates, see [WALLET_COMPARISON_UNIFIED.md](./WALLET_COMPARISON_UNIFIED.md) (Software), [HARDWARE_WALLET_COMPARISON.md](./HARDWARE_WALLET_COMPARISON.md) (Hardware), and [CRYPTO_CREDIT_CARD_COMPARISON.md](./CRYPTO_CREDIT_CARD_COMPARISON.md) (Credit Cards).*
+*For the latest wallet status updates, see [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) (Software), [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) (Hardware), and [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) (Credit Cards).*

@@ -5,34 +5,35 @@
 > **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `wallets/scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Non-custodial DeFi, 🟢), Amp Pay Black Card (84, Solana payments, 🟢), Crypto.com Visa (83, CRO stakers ⚠️, 🟢), and Ready Card (83, Self-custody EU/UK, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `wallets/scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Amp Pay Black Card (84, Solana payments, 🟢), Crypto.com Visa (83, CRO stakers ⚠️, 🟢), and Ready Card (83, Self-custody EU/UK, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `wallets/scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
 | ---- | ---- | ----- | -------- | --- |
-| 1 | **EtherFi Cash** | 92 | Non-custodial DeFi | 🟢 |
+| 1 | **EtherFi Cash** | 92 | Self-custody DeFi | 🟢 |
 | 2 | **Amp Pay Black Card** | 84 | Solana payments | 🟢 |
 | 3 | **Crypto.com Visa** | 83 | CRO stakers ⚠️ | 🟢 |
 | 4 | **Ready Card** | 83 | Self-custody EU/UK | 🟢 |
 | 5 | **Tria** | 82 | Token rewards | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
-**Last Updated:** June 14, 2026 (Custody recheck: KAST, Jupiter, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, and Nummus Wallet Card are treated as CeFi for card spend; OKX Card remains self-custody based on OKX Card docs)
+**Last Updated:** June 16, 2026 (Custody taxonomy clarified as card spend-path custody: KAST, Jupiter, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, and Nummus Wallet Card are treated as CeFi/card-platform for card spend; OKX Card remains self-custody based on OKX Card docs)
 
 ---
 
 ## Table of Contents
 
 1. [Scoring Methodology](#scoring-methodology)
-2. [Card Categories](#card-categories)
-3. [Detailed Card Reviews](#detailed-card-reviews)
-4. [Rewards Comparison](#rewards-comparison)
-5. [Fee Analysis](#fee-analysis)
-6. [Eligibility & Requirements](#eligibility--requirements)
-7. [Geographic Availability](#geographic-availability)
-8. [Security & Trust](#security--trust)
-9. [Tax Considerations](#tax-considerations)
-10. [Recommendations by Use Case](#recommendations-by-use-case)
+2. [Custody Model Taxonomy](#custody-model-taxonomy)
+3. [Card Categories](#card-categories)
+4. [Detailed Card Reviews](#detailed-card-reviews)
+5. [Rewards Comparison](#rewards-comparison)
+6. [Fee Analysis](#fee-analysis)
+7. [Eligibility & Requirements](#eligibility--requirements)
+8. [Geographic Availability](#geographic-availability)
+9. [Security & Trust](#security--trust)
+10. [Tax Considerations](#tax-considerations)
+11. [Recommendations by Use Case](#recommendations-by-use-case)
 
 ---
 
@@ -43,7 +44,7 @@ Scores are generated from visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md
 Current scoring buckets are:
 
 1. **Product Model (10):** `Type` + `Biz` support.
-2. **Custody & Coverage (25):** `Custody` model + `Region` reach.
+2. **Custody & Coverage (25):** card spend-path `Custody` model + `Region` reach.
 3. **Rewards Value (25):** `Cash Back` + reward asset quality from `Rewards`.
 4. **Fee Friction (20):** `Annual Fee` + `FX Fee`.
 5. **Delivery Confidence (10):** `Status` signal.
@@ -61,6 +62,18 @@ Why this model:
 - Uses only table-visible inputs to prevent hidden-variable drift.
 - Keeps recommendations reproducible and auditable via one sync script.
 - Avoids hand-tuned score edits; update the row data, then rerun sync.
+
+### Custody Model Taxonomy
+
+WalletRadar intentionally keeps three primary custody labels for crypto cards, but the labels classify the **card spend path**, not the provider's broader wallet marketing.
+
+| Label | WalletRadar Meaning | Use When |
+|-------|---------------------|----------|
+| 🔐 Self | Self-custody spend path | Official card docs say funds remain user-controlled until card authorization or purchase. |
+| 🏦 Exch | Exchange custody | The card draws from a centralized exchange account, spot wallet, card funding wallet, or assets-on-platform balance. |
+| 📋 CeFi | CeFi / card-platform custody | Card spend uses prepaid balances, fintech ledgers, partner banks, card issuers, custodians, or other non-exchange centralized rails. |
+
+Hybrid products should be classified by the actual card spend path. If a product includes a non-custodial wallet but requires users to deposit, convert, preload, or transfer assets into a card balance before spending, the primary label is **📋 CeFi**. The non-custodial wallet integration can be documented in notes, but it should not earn the self-custody custody signal unless official card docs say assets remain user-controlled until authorization or purchase.
 
 ---
 
@@ -805,7 +818,7 @@ EtherFi Cash is a DeFi-native, non-custodial crypto credit card. It allows users
 - No credit check required (crypto-backed)
 
 **Best For:**
-- DeFi users who want non-custodial card solutions
+- DeFi users who want a self-custody spend path
 - Users who want to spend without selling crypto
 - Businesses needing corporate crypto cards
 - Users seeking full control over their funds
@@ -815,11 +828,11 @@ EtherFi Cash is a DeFi-native, non-custodial crypto credit card. It allows users
 - 1% FX fee (not 0% like some competitors)
 - Some features marked as "coming soon" (family cards, event passes)
 
-**Custody Model:** 🔐 Self-custody / Non-custodial
+**Custody Model:** 🔐 Self-custody spend path
 - Your crypto stays in your control
 - Card is issued separately from ether.fi protocol
 
-**Score Breakdown (85 points):**
+**Historical Score Breakdown (legacy manual 85 points):**
 
 | Category | Points | Calculation |
 |----------|--------|-------------|
@@ -829,8 +842,8 @@ EtherFi Cash is a DeFi-native, non-custodial crypto credit card. It allows users
 | **Availability** | 10/10 | Global (100M+ locations) = 10 pts |
 | **Staking Requirements** | 10/10 | None required = 10 pts |
 | **Card Type** | 10/10 | Credit card = 10 pts |
-| **Trust & Security** | 5/5 | Established DeFi protocol + non-custodial = 5 pts |
-| **Human Suggestions** | +3 | Non-custodial bonus |
+| **Trust & Security** | 5/5 | Established DeFi protocol + self-custody spend path = 5 pts |
+| **Human Suggestions** | +3 | Legacy manual custody signal |
 | **TOTAL** | **86** | Rounded to **85** |
 
 **Note:** Ether.Fi Cash card is not affiliated with the ether.fi protocol and issued subject to separate terms provided by Issuer.
@@ -1105,7 +1118,7 @@ ThorWallet offers Mastercard debit cards directly from your non-custodial DeFi w
 - Upgrade fees for Gold/Platinum
 - Some features "coming soon"
 
-**Custody Model:** 🔐 Self-custody / Non-custodial
+**Custody Model:** 🔐 Self-custody spend path
 
 **Score: 70**
 
@@ -1843,13 +1856,13 @@ Score adjustments based on real-world user experiences and company reputation:
 **Penalties:**
 - **Crypto.com Visa: -20 points** - Poor UX, customer service issues, 12-month staking lock-ups, 0% base tier
 - **TBD/Unverified data: -3 to -5 points** - OKX Card, Kraken Card, Uphold Card, Swissborg Card
-- **Exchange custody risk: -3 points** - Coinbase, Binance, Gemini, KuCoin, CoinJar, Kraken, Crypto.com, Bybit
+- **Custody score:** 🔐 self-custody spend path = 14, 📋 CeFi/card-platform = 8, 🏦 exchange = 6 through the `Custody & Coverage` bucket.
 
 **Bonuses:**
-- **Non-custodial custody signal:** Self-custody rows score higher mechanically through the `Custody & Coverage` bucket. After the June 2026 recheck, CryptoSpend/Wayex, Jupiter, Bitget Wallet Card, and Nummus Wallet Card are not treated as self-custodial for the card spend path; OKX Card remains self-custody based on official OKX Card docs.
+- **Self-custody spend-path signal:** Self-custody rows score higher mechanically through the `Custody & Coverage` bucket. After the June 2026 recheck, CryptoSpend/Wayex, Jupiter, Bitget Wallet Card, and Nummus Wallet Card are not treated as self-custodial for the card spend path; OKX Card remains self-custody based on official OKX Card docs.
 - **Verified cards: +2 points** - Plutus, Shakepay, EtherFi Cash
 - **Credit card type bonus** - EtherFi Cash, Gemini, Nexo (credit cards score higher)
 
 ---
 
-*Last updated: January 2026 - Comprehensive score recalculation with verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Added custody scoring adjustments.*
+*Last updated: June 2026 - Comprehensive score recalculation with verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Clarified card spend-path custody scoring.*

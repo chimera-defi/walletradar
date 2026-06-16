@@ -100,9 +100,10 @@ export interface HardwareWallet {
 
 /**
  * Custody type for crypto cards
- * - self: Non-custodial, you control your keys
- * - exchange: Funds held on centralized exchange
- * - cefi: Funds held by centralized finance company
+ * - self: card-spend funds remain user-controlled until authorization/purchase
+ * - exchange: card draws from a centralized exchange account or funding wallet
+ * - cefi: card-spend funds are controlled by a fintech/card platform, partner bank,
+ *   issuer, prepaid balance, or non-exchange custodian
  */
 export type CustodyType = 'self' | 'exchange' | 'cefi';
 
@@ -113,7 +114,7 @@ export interface CryptoCard {
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];
   cardType: 'credit' | 'debit' | 'prepaid' | 'business';
-  /** Custody model: self (non-custodial), exchange, or cefi */
+  /** Card spend-path custody model: self, exchange, or cefi */
   custody: CustodyType;
   businessSupport: 'yes' | 'no' | 'verify';
   region: string;

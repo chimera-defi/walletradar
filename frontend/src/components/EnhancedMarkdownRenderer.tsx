@@ -196,7 +196,7 @@ const HEADER_LINK_MAP: Record<TableType, Record<string, string>> = {
     status: TABLE_METHODOLOGY_LINK.cards,
     type: '/docs/crypto-cards-details#card-categories',
     cardtype: '/docs/crypto-cards-details#card-categories',
-    custody: '/docs/crypto-cards-details#card-categories',
+    custody: '/docs/crypto-cards-details#custody-model-taxonomy',
     cashback: '/docs/crypto-cards-details#rewards-comparison',
     rewards: '/docs/crypto-cards-details#rewards-comparison',
     annualfee: '/docs/crypto-cards-details#fee-analysis',
