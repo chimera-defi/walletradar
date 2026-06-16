@@ -76,9 +76,9 @@ export const QUICK_PRESETS: Record<ExploreTab, PresetConfig[]> = {
   cards: [
     {
       id: 'self-custody',
-      label: 'Self-Custody',
+      label: 'Self-Custody Spend',
       icon: '🔐',
-      description: 'Keep spending control outside exchanges.',
+      description: 'Funds stay user-controlled until card authorization.',
       filters: { custody: ['self'], minScore: 70 },
     },
     {

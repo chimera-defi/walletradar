@@ -4,7 +4,7 @@
 
 | Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Status | Best For | Rec |
 | ---- | ----- | ---- | ------- | --- | ------ | --------- | ---------- | ------ | ------- | ------ | -------- | --- |
-| [**EtherFi Cash**](https://ether.fi/cash) | 92 | Credit | 🔐 Self | ✅ | 🌍 Global | 2-3% | $0 | 1% | ETH, BTC, Stables | ✅ | Non-custodial DeFi | 🟢 |
+| [**EtherFi Cash**](https://ether.fi/cash) | 92 | Credit | 🔐 Self | ✅ | 🌍 Global | 2-3% | $0 | 1% | ETH, BTC, Stables | ✅ | Self-custody DeFi | 🟢 |
 | [**Amp Pay Black Card**](https://ampay.com) (@GetAmpPay) | 84 | Debit | 🔐 Self | ❌ | 🌍 Global | Up to 4% | $0 | 1% | USDC/SOL | ✅ | Solana payments | 🟢 |
 | [**Crypto.com Visa**](https://crypto.com/us/cards) | 83 | Debit | 🏦 Exch | ✅ | 🌍 Global | 0-8% | $0 | 0% | CRO | ✅ | CRO stakers ⚠️ | 🟢 |
 | [**Ready Card**](https://www.ready.co/card) | 83 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 3% | $0 | 0% | Crypto | ✅ | Self-custody EU/UK | 🟢 |
@@ -87,9 +87,9 @@
 |--------|--------|
 | **Card** | Card name with link to provider website |
 | **Type** | Credit, Debit, Prepaid, Business |
-| **Custody** | 🔐 Self = Self-custody/Non-custodial (you control keys) |
-| | 🏦 Exch = Exchange custody (funds on exchange) |
-| | 📋 CeFi = Centralized finance custody (company holds funds) |
+| **Custody** | 🔐 Self = Self-custody spend path (funds remain user-controlled until card authorization / purchase) |
+| | 🏦 Exch = Exchange custody (card draws from a centralized exchange account or funding wallet) |
+| | 📋 CeFi = CeFi / card-platform custody (prepaid balances, fintech ledgers, partner banks, issuers, or non-exchange custodians control card-spend funds) |
 | **Biz** | ✅ Business accounts supported | ❌ Personal only | ⚠️ Verify |
 | **Status** | ✅ Active | ⚠️ Verify | 🔄 Launching soon |
 | **Cash Back** | Max % reward rate (may require staking/tiers) |
@@ -114,6 +114,7 @@
 - Scores are generated directly from the table columns, not from manual bonus / penalty overrides.
 - Status, custody model, region coverage, rewards, annual fee, and FX fee now drive the score mechanically.
 - If you want to change a score, update the data columns and rerun `wallets/scripts/sync_table_scores.js --write`.
+- Custody labels classify the **card spend path**, not the provider's broader wallet marketing. If a product offers a non-custodial wallet but requires loading, converting, or transferring funds into a card/issuer/partner balance before spend, it belongs in **📋 CeFi** unless official card docs say funds remain user-controlled until authorization or purchase.
 
 **Key Corrections (February 2026):**
 - **Custody recheck (June 2026):** KAST changed from **🔐 Self** to **📋 CeFi** because official KAST terms say transferred virtual assets are sold to KAST and managed through a custodian for KAST. CryptoSpend/Wayex and Spendly also moved from **🔐 Self** to **📋 CeFi** because official materials describe custodial/prepaid top-up models rather than user-controlled keys through card spend.
@@ -153,9 +154,9 @@
 
 > **TL;DR:** Use **EtherFi Cash** (92) as the strongest overall self-custodial option, **Ready Card** (83) for EU/UK self-custody, or **MetaMask Card** (81) / **Tria** (82) for newer self-custody programs. Use **Crypto.com Visa** (83), **Fold** (80), **Kast** (76), or **Gemini Card** (76) only if you accept custodial tradeoffs for rewards or familiarity.
 >
-> **🔐 Non-Custodial Cards:** EtherFi Cash, Amp Pay Black Card, Ready Card, Tria, MetaMask Card, Gnosis Pay, ThorWallet, Payy, 1inch Card, Avici Money, Plasma One, Fuse Wallet, Tuyo, Solflare, and OKX Card.
+> **🔐 Self-Custody Spend-Path Cards:** EtherFi Cash, Amp Pay Black Card, Ready Card, Tria, MetaMask Card, Gnosis Pay, ThorWallet, Payy, 1inch Card, Avici Money, Plasma One, Fuse Wallet, Tuyo, Solflare, and OKX Card.
 
-**Last Updated:** June 14, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
+**Last Updated:** June 16, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Custody Model Taxonomy](./CRYPTO_CARDS_DETAILS.md#custody-model-taxonomy) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) and [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for wallet recommendations.
 
@@ -169,7 +170,7 @@
 
 **EtherFi Cash** (92/100) is the current top card in this table because it combines self-custody, global reach, zero annual fee, and a strong rewards profile. For EU/UK users who want a simpler regional option, **Ready Card** (83) remains a strong alternative.
 
-### Which crypto cards are non-custodial?
+### Which crypto cards have a self-custody spend path?
 
 Current self-custodial options in this table include **EtherFi Cash** (92), **Amp Pay Black Card** (84), **Ready Card** (83), **Tria** (82), **MetaMask Card** (81), **Gnosis Pay** (79), **ThorWallet** (78), **Payy** (77), **1inch Card** (76), **Avici Money** (76), **Plasma One** (74), **Fuse Wallet Card** (71), **Tuyo** (69), **Solflare Card** (66), and **OKX Card** (64). KAST, Jupiter, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, and Nummus Wallet Card are not treated as self-custodial after the June 2026 custody recheck.
 
@@ -181,9 +182,9 @@ For US users, **EtherFi Cash** is the strongest current option. If you are comfo
 
 **EtherFi Cash** is still the cleanest business-ready option in the table. **Reap** is the more explicitly business-focused spending product, while **Revolut Crypto** and **Crypto.com** are practical if you already operate inside those ecosystems.
 
-### Should I use a custodial or non-custodial crypto card?
+### Should I use a custodial or self-custody crypto card?
 
-If you can get the same economics, non-custodial is the safer default because it reduces exchange and account-freeze risk. Custodial cards can still be worth it when the rewards, credit underwriting, or local availability are meaningfully better for your use case.
+If you can get the same economics, a self-custody spend path is the safer default because it reduces exchange and account-freeze risk. Custodial cards can still be worth it when the rewards, credit underwriting, or local availability are meaningfully better for your use case.
 
 ### What happened to Crypto.com Card?
 

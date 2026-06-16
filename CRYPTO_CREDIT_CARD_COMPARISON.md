@@ -1,5 +1,7 @@
 # Crypto-Backed Credit Card Comparison
 
+> **Legacy snapshot:** This file is retained for historical context. The current WalletRadar card source of truth is [CRYPTO_CARDS.md](./CRYPTO_CARDS.md), with methodology in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md). Current custody labels classify the **card spend path** (`🔐 Self`, `🏦 Exch`, `📋 CeFi/card-platform`) and supersede the older provider-bonus language below.
+
 > **TL;DR:** Comprehensive comparison with scoring system (**27 cards**, **22 active**). Updated February 2026. Cards are grouped by provider/exchange for consistent scoring handicaps. Unverified/blocked cards are flagged. Scores include Human Suggestions adjustments for UX and verification status.
 
 **Data Sources:** Official card websites, terms of service, public announcements (as of February 2026)
@@ -8,13 +10,13 @@
 
 ---
 
-> 📖 **Want more details?** See the [detailed comparison table](./CRYPTO_CREDIT_CARD_COMPARISON_TABLE.md) and [detailed features](./CRYPTO_CREDIT_CARD_COMPARISON_DETAILS.md).
+> 📖 **Want current details?** See the canonical [crypto card table](./CRYPTO_CARDS.md) and [methodology](./CRYPTO_CARDS_DETAILS.md).
 
 ## Quick Reference: Crypto Credit Cards
 
 | Card | Score | Cash Back | Annual Fee | Crypto Rewards | Business | Provider | Website | Status | Best For |
 |------|-------|-----------|------------|----------------|----------|----------|---------|--------|----------|
-| **EtherFi Cash** | 85 🟢 | 2-3% | $0 | ETH, BTC, Stables | ✅ | EtherFi | [ether.fi/cash](https://ether.fi/cash) | ✅ Active | Non-custodial DeFi |
+| **EtherFi Cash** | 85 🟢 | 2-3% | $0 | ETH, BTC, Stables | ✅ | EtherFi | [ether.fi/cash](https://ether.fi/cash) | ✅ Active | Self-custody DeFi |
 | **Ready Card** | 83 🟢 | 3% | $0 | Crypto | ❌ | Ready (Argent) | [ready.co/card](https://www.ready.co/card) | ✅ Active | Self-custody (EU/UK) |
 | **Hi Card** | 79 🟢 | Up to 10% | $0 | HI | ❌ | hi.com | [hi.com](https://hi.com) | ⚠️ Verify | High cashback (Global) |
 | **Gnosis Pay** | 78 🟢 | Up to 5% | €0 | GNO/SAFE | ❌ | Gnosis DAO | [gnosispay.com](https://gnosispay.com) | ✅ Active | DeFi-native (Global) |
@@ -52,9 +54,9 @@
 - **Website:** Official card website link
 - **Status:** ✅ Active | ⚠️ Verify | 🔄 Launching | ❌ Discontinued
 
-**Note:** See [detailed comparison table](./CRYPTO_CREDIT_CARD_COMPARISON_TABLE.md) for complete metrics and [detailed reviews](./CRYPTO_CREDIT_CARD_COMPARISON_DETAILS.md) for scoring methodology.
+**Note:** This legacy page predates the current [crypto card table](./CRYPTO_CARDS.md) and [scoring methodology](./CRYPTO_CARDS_DETAILS.md).
 
-**⚠️ Scoring Note:** Scores include provider-based handicaps. **Exchange-based cards receive -3 points** due to custody risk and platform dependency. **Crypto.com receives additional -20 points** for poor user experiences and staking lock-ups.
+**⚠️ Historical Scoring Note:** This old snapshot used provider-based handicaps. Current scores are generated mechanically from visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md), including the current card spend-path custody labels.
 
 **⚠️ Verification Status:** Some cards have been verified through website scraping (December 2025), while others require manual verification. See [VERIFICATION_NOTES.md](./VERIFICATION_NOTES.md) for details.
 
@@ -64,7 +66,7 @@
 
 Cards from the same provider share infrastructure and should be evaluated with consistent scoring handicaps.
 
-### Exchange-Based Cards (Custody Risk: -3 pts)
+### Exchange-Based Cards (Historical Grouping)
 
 These cards require keeping funds on a centralized exchange. Risk of exchange issues affecting card access.
 
@@ -80,7 +82,7 @@ These cards require keeping funds on a centralized exchange. Risk of exchange is
 | **OKX** | OKX Card | 50 🟡 | TBD | 🔄 Launching |
 | **Crypto.com** | Crypto.com Visa | 41 🔴 | 0-8% | ✅ Active ⚠️ -20 UX |
 
-### DeFi-Native Cards (Non-Custodial, +3 pts bonus)
+### DeFi-Native Cards (Historical Self-Custody Grouping)
 
 Self-custody or smart-contract based cards. Higher technical barrier but no custody risk.
 
@@ -288,11 +290,11 @@ To ensure consistent scoring, cards from the same category receive identical han
 | Category | Handicap | Rationale |
 |----------|----------|-----------|
 | **Exchange-Based Cards** | -3 pts | Custody risk, platform dependency, potential for exchange issues |
-| **DeFi-Native Cards** | +0 pts | Non-custodial, but higher technical complexity |
+| **DeFi-Native Cards** | +0 pts | Historical self-custody grouping, but higher technical complexity |
 | **Fintech/Standalone** | +0 pts | Independent providers, varies by company |
 | **Crypto.com Specific** | -20 pts | Poor UX, customer service issues, staking lock-ups, company reputation |
 | **404/Verification Issues** | -5 pts | Unclear card status, potential discontinuation |
 
 ---
 
-*Last updated: January 2026 - Comprehensive score recalculation using verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Added custody type scoring (+3 self-custody, -3 exchange). 27 cards total.*
+*Last updated: January 2026 - Historical snapshot retained for context. Current card scores and custody taxonomy live in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md).*
