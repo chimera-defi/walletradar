@@ -57,22 +57,6 @@ function parseClosedPartialFull(cell: string): 'full' | 'partial' | 'closed' {
   return 'closed';
 }
 
-// Parse recommendation symbol
-function parseRecommendation(cell: string): 'recommended' | 'situational' | 'avoid' | 'not-for-dev' {
-  if (cell.includes('🟢')) return 'recommended';
-  if (cell.includes('🟡')) return 'situational';
-  if (cell.includes('🔴')) return 'avoid';
-  if (cell.includes('⚪')) return 'not-for-dev';
-  return 'situational';
-}
-
-// Parse hardware recommendation (no not-for-dev)
-function parseHardwareRecommendation(cell: string): 'recommended' | 'situational' | 'avoid' {
-  if (cell.includes('🟢')) return 'recommended';
-  if (cell.includes('🟡')) return 'situational';
-  return 'avoid';
-}
-
 // Parse devices from device string
 function parseDevices(cell: string): { mobile: boolean; browser: boolean; desktop: boolean; web: boolean } {
   return {
