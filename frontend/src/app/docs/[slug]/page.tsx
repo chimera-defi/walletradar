@@ -113,10 +113,6 @@ export default function DocumentPage({ params }: PageProps) {
     ? getRelatedDocument(document.slug, 'table')
     : null;
 
-  // Get related comparison docs for internal linking
-  const allDocs = getAllDocuments();
-  const comparisonDocs = allDocs.filter(doc => doc.category === 'comparison');
-
   // Parse lastUpdated to ISO format
   const parseDate = (dateStr?: string): string => {
     if (!dateStr) return new Date().toISOString();

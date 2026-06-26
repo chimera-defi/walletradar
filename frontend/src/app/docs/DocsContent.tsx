@@ -11,7 +11,7 @@ interface DocsContentProps {
 
 export function DocsContent({ documents }: DocsContentProps) {
   const [filteredDocs, setFilteredDocs] = useState<MarkdownDocument[]>(documents);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
 
   const handleFilter = (filtered: MarkdownDocument[]) => {
     setFilteredDocs(filtered);
