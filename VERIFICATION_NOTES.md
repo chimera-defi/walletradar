@@ -73,6 +73,80 @@ The following cards' websites exist but initial scraping didn't find specific ra
 
 ---
 
+## Custody Verification (June 2026 Recheck)
+
+This recheck supersedes older custody notes for KAST, Jupiter Card, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, OKX Card, and Nummus Wallet Card.
+
+### Custody Changes Verified
+
+| Card | Old | New | Evidence | Source |
+|------|-----|-----|----------|--------|
+| **KAST** | 🔐 Self | 📋 CeFi | Official terms say virtual assets transferred into KAST are sold to KAST and managed through a custodian for KAST rather than held for the user. | https://www.kast.xyz/legal/terms-and-conditions-of-service |
+| **CryptoSpend / Wayex** | 🔐 Self | 📋 CeFi | Official Wayex academy says Wayex is a custodial wallet and holds the private key on the user's behalf; optional self-custody exists but is not the default card/app spending model. | https://www.wayex.com/au/academy/module-3-wallets-and-security/ |
+| **Spendly** | 🔐 Self | 📋 CeFi | Official terms describe crypto top-up and prepaid card loading, but do not state that users retain keys or self-custody through card spend. Conservative label is CeFi/prepaid custody. | https://www.usespendly.com/tos |
+| **Jupiter Card** | 🔐 Self | 📋 CeFi | Official Jupiter docs say Jupiter does not custody wallet funds, but Spend/card balances are managed by regulated financial partners. | https://docs.jup.ag/user-docs/global/spend |
+| **Bitget Wallet Card** | 🔐 Self | 📋 CeFi | Official Bitget/DCS card terms authorize liquidation/access to wallet assets for card transactions, and DCS DeCard prepayments become DCS property rather than user-custodied funds. | https://www.bitget.com/support/articles/12560603881449 |
+| **OKX Card** | 🏦 Exch | 🔐 Self | Official OKX Card docs say stablecoins stay in the user's wallet until purchase through OKX Pay. | https://www.okx.com/en-eu/learn/okx-card-europe-explained |
+
+### Deferred / Not Changed
+
+| Card | Current | Decision | Rationale |
+|------|---------|----------|-----------|
+| **Wirex Card** | 📋 CeFi | Keep CeFi pending product split | Official self-custody evidence found in June 2026 maps to Wirex One / Wirex BaaS and co-branded card infrastructure. The existing WalletRadar row still tracks legacy Wirex Card / WXT rewards, so it remains CeFi until the row is split or migrated. |
+| **Nummus Wallet Card** | 📋 CeFi | Keep CeFi for card spend | Official terms describe non-custodial wallet integration, but payment cards are issued and governed by external financial service providers, so the card spend path is partner-managed. |
+
+### All-Card Second-Pass Coverage
+
+Every current `CRYPTO_CARDS.md` row was reviewed in the June 2026 second pass. `CLEAN` means the current custody label was kept; `CHANGED` means the table label was updated in this pass; `INACTIVE` means the row is retained historically and not treated as an active card recommendation.
+
+| # | Card | Current Custody | Outcome | Primary Source / Rationale |
+|---|------|-----------------|---------|----------------------------|
+| 1 | EtherFi Cash | 🔐 Self | CLEAN | Official EtherFi Cash docs/terms describe a non-custodial card/vault model. |
+| 2 | Amp Pay Black Card | 🔐 Self | CLEAN | Official Amp Pay materials describe self-custody until purchase. |
+| 3 | Crypto.com Visa | 🏦 Exch | CLEAN | Crypto.com card is tied to a Crypto.com exchange account and CRO tiers. |
+| 4 | Ready Card | 🔐 Self | CLEAN | Ready card FAQ says funds stay in the user's self-custodial wallet until payment. |
+| 5 | Tria | 🔐 Self | CLEAN | Tria whitepaper/membership materials describe a self-custodial wallet and card model. |
+| 6 | KuCard | 🏦 Exch | CLEAN | KuCard is tied to KuCoin account balances. |
+| 7 | MetaMask Card | 🔐 Self | CLEAN | MetaMask Card help states MetaMask does not custody tokens and access remains until transaction completion. |
+| 8 | Fold Card | 📋 CeFi | CLEAN | Fold is a centralized rewards/card platform with bank/BitGo partners, not user-key card spend. |
+| 9 | Jupiter Card | 📋 CeFi | CHANGED | Jupiter docs say wallet funds are not custodied by Jupiter, but Spend/card balances are managed by regulated financial partners. |
+| 10 | Revolut Crypto | 📋 CeFi | CLEAN | Revolut is a centralized fintech/crypto platform, not user-key card spend. |
+| 11 | Bybit Card | 🏦 Exch | CLEAN | Bybit Card spends from Bybit exchange account balances. |
+| 12 | Gnosis Pay | 🔐 Self | CLEAN | Gnosis Pay terms/docs say Gnosis Pay does not take custody of crypto assets. |
+| 13 | Hi Card | 📋 CeFi | CLEAN | Hi is a centralized crypto banking/card app; product status still verify. |
+| 14 | ThorWallet | 🔐 Self | CLEAN | THORWallet FAQ describes a non-custodial wallet model. |
+| 15 | Payy | 🔐 Self | CLEAN | Payy card/wallet materials describe user-controlled wallet funds and non-custodial software. |
+| 16 | Wirex Card | 📋 CeFi | CLEAN | Kept CeFi because self-custody evidence maps to newer Wirex One/BaaS, not the legacy Wirex Card row. |
+| 17 | 1inch Card | 🔐 Self | CLEAN | 1inch terms describe products as non-custodial. |
+| 18 | Avici Money | 🔐 Self | CLEAN | Avici terms say Avici does not custody funds, keys, or collateral. |
+| 19 | Gemini Card | 🏦 Exch | CLEAN | Gemini card rewards and balances are tied to Gemini exchange custody. |
+| 20 | KAST | 📋 CeFi | CHANGED | KAST terms say user-transferred virtual assets are sold to KAST and managed through a custodian for KAST. |
+| 21 | Coinbase Card | 🏦 Exch | CLEAN | Coinbase Card is tied to Coinbase exchange account custody. |
+| 22 | Plasma One | 🔐 Self | CLEAN | Plasma One materials say users custody the assets backing the card. |
+| 23 | Plutus Card | 📋 CeFi | CLEAN | Plutus card spend uses banking/card partners and centralized card balances. |
+| 24 | RedotPay | 📋 CeFi | CLEAN | RedotPay terms use custodian-account/platform custody language. |
+| 25 | Nexo Card | 📋 CeFi | CLEAN | Nexo Card is tied to Nexo platform credit/debit balances. |
+| 26 | CryptoSpend / Wayex | 📋 CeFi | CHANGED | Wayex materials describe Wayex as a custodial wallet for the default app/card flow. |
+| 27 | ToonPay Card | 📋 CeFi | CLEAN | ToonPay uses a centralized prepaid card/top-up model. |
+| 28 | Fuse Wallet Card | 🔐 Self | CLEAN | Fuse Card materials describe USDC staying in the user's Fuse wallet until purchase. |
+| 29 | Reap | 📋 CeFi | CLEAN | Reap is a centralized business card/payment platform. |
+| 30 | Spendly | 📋 CeFi | CHANGED | Spendly terms describe crypto top-up/card loading without user-key custody through card spend. |
+| 31 | Shakepay Card | 📋 CeFi | CLEAN | Shakepay card spend uses Shakepay account balances. |
+| 32 | Tuyo | 🔐 Self | CLEAN | Tuyo card page describes funds staying under user control until spend. |
+| 33 | Uphold Card | 📋 CeFi | CLEAN | Uphold is a centralized multi-asset platform; row remains verify. |
+| 34 | Meow Card | 📋 CeFi | CLEAN | Meow corporate cards use banking/card partners and centralized business finance rails. |
+| 35 | Solflare Card | 🔐 Self | CLEAN | Solflare help describes direct USDC spend from a connected Solflare wallet. |
+| 36 | OKX Card | 🔐 Self | CHANGED | OKX Card docs say stablecoins remain in the user's wallet until purchase through OKX Pay. |
+| 37 | BitPay Card | 📋 CeFi | CLEAN | BitPay card loads funds to a prepaid/card balance, even when paired with self-custody wallets. |
+| 38 | Slash Platinum Card | 📋 CeFi | CLEAN | Slash corporate cards are issued through banking/card partners. |
+| 39 | Bitget Wallet Card | 📋 CeFi | CHANGED | Bitget/DCS card terms authorize program access/liquidation for transactions and DCS prepayments are not user-custodied. |
+| 40 | Binance Card | 🏦 Exch | CLEAN | Binance Card is tied to Binance exchange balances. |
+| 41 | CoinJar Card | 🏦 Exch | CLEAN | CoinJar Card spends from CoinJar exchange/account balances. |
+| 42 | Kraken Card | 🏦 Exch | CLEAN | Kraken Card is tied to Kraken exchange account custody; launch state remains verify. |
+| 43 | Swissborg Card | 📋 CeFi | CLEAN | Swissborg card custody is through the Swissborg platform, not user-key card spend. |
+| 44 | Kontigo | 🔐 Self | INACTIVE | Historical row retained with discontinued status after Rain shut down the card program. |
+| 45 | Nummus Wallet Card | 📋 CeFi | CLEAN | Nummus terms support non-custodial wallet integration, but cards/accounts are issued and governed by external financial providers. |
+
 ## Custody Verification (January 2026)
 
 Custody classifications were verified via browser automation (Playwright) by searching for self-custody keywords on official websites.
@@ -84,17 +158,17 @@ Custody classifications were verified via browser automation (Playwright) by sea
 | **Ready Card** | "100% self-custody", "stay in control with self-custody", "Pioneering self-custody since 2017" | ready.co/card |
 | **EtherFi Cash** | "non-custodial, cashback credit card", "Non-custodial & secure", "Your crypto remains in your control" | ether.fi/cash |
 | **Gnosis Pay** | "SELF-CUSTODIAL", "Self-Custody: Users maintain full control", "Take control of your money through your SAFE account" | gnosispay.com |
-| **CryptoSpend** | "Optional self-custody for advanced users", "Transparent custody infrastructure" | cryptospend.com.au |
+| **OKX Card** | Stablecoins remain in the user's wallet until card purchase through OKX Pay | okx.com |
 
 ### 🏦 Exchange Custody Cards
 
 Exchange-based cards where funds are held on the exchange platform:
-- Coinbase Card, Gemini Card, Binance Card, KuCoin Card, OKX Card, CoinJar Card, Kraken Card, Crypto.com Visa, Bybit Card
+- Coinbase Card, Gemini Card, Binance Card, KuCoin Card, CoinJar Card, Kraken Card, Crypto.com Visa, Bybit Card
 
 ### 📋 CeFi Custody Cards
 
 Cards issued by centralized finance companies where the company holds funds:
-- Hi Card, Wirex Card, Fold Card, Plutus Card, Revolut Crypto, Shakepay Card, RedotPay, Nexo Card, Swissborg Card, BitPay Card, Reap, Uphold Card
+- KAST, Jupiter Card, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, Nummus Wallet Card, Hi Card, Wirex Card, Fold Card, Plutus Card, Revolut Crypto, Shakepay Card, RedotPay, Nexo Card, Swissborg Card, BitPay Card, Reap, Uphold Card
 
 ### ⚠️ Notes on 1inch Card
 
