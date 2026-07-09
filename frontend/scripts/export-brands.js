@@ -61,6 +61,15 @@ function replaceAll(content, replacements) {
   return replacements.reduce((next, [from, to]) => next.split(from).join(to), content);
 }
 
+function getBuildCommand() {
+  const userAgent = process.env.npm_config_user_agent || '';
+  const execPath = process.env.npm_execpath || '';
+  if (userAgent.startsWith('bun/') || execPath.includes('bun')) {
+    return 'bun run build';
+  }
+  return 'npm run build';
+}
+
 function patchStaticAssets(outDir, profile) {
   const host = new URL(profile.baseUrl).host;
   const replacements = [
@@ -104,7 +113,7 @@ function buildProfile(profile) {
   if (profile.contactEmail) env.NEXT_PUBLIC_CONTACT_EMAIL = profile.contactEmail;
 
   console.log(`\n=== Building brand: ${profile.id} (${profile.displayName}) ===`);
-  execSync('npm run build', {
+  execSync(getBuildCommand(), {
     cwd: APP_DIR,
     stdio: 'inherit',
     env,

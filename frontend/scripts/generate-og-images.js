@@ -5,7 +5,7 @@
  * Generates page-specific Open Graph images for social sharing.
  * Images are 1200x630 pixels (Twitter/OG standard).
  * 
- * Usage: node scripts/generate-og-images.js
+ * Usage: bun run generate-og
  */
 
 const { createCanvas, registerFont } = require('canvas');

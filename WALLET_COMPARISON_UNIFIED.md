@@ -1027,7 +1027,7 @@ WalletBeat tracks detailed technical information not found elsewhere:
 ### Use Wallet Abstraction
 
 ```bash
-npm install wagmi viem
+bun add wagmi viem
 ```
 
 Abstract wallet dependencies so you're not locked to any single wallet. See [Integration Best Practices](#integration-best-practices) for detailed guidance.

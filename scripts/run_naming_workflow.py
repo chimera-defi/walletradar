@@ -350,7 +350,7 @@ def main() -> int:
         "--candidates",
         type=Path,
         default=DEFAULT_CANDIDATES,
-        help="Path to candidate list (default: wallets/branding/CANDIDATES.txt).",
+        help="Path to candidate list (default: branding/CANDIDATES.txt).",
     )
     parser.add_argument(
         "--markdown-output",

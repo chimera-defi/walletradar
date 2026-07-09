@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "export:brands": "node scripts/export-brands.js",
-    "start": "next start",
+    "start": "sh -c 'test -d out || { echo \"Run bun run build before bun run start.\" >&2; exit 1; }; python3 -m http.server 3000 --directory out'",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "test": "node scripts/smoke-test-wallet-data.js",

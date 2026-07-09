@@ -15,7 +15,7 @@ tags: ["guide", "nft", "ethereum"]
 - **Best safety tooling:** **Rabby (92)**  
 - **Best compatibility:** **MetaMask (73)**  
 
-Source: `wallets/SOFTWARE_WALLETS.md`
+Source: `SOFTWARE_WALLETS.md`
 
 ---
 

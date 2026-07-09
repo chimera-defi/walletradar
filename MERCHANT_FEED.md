@@ -52,7 +52,7 @@ Last updated: 2026-04-08
 - Regenerate the feed with:
   - `./scripts/generate_merchant_feed.py`
 - Public feed output: `frontend/public/merchant-center.xml`.
-- CI refresh workflow: `.github/workflows/generate-merchant-feed.yml`.
+- No scheduled feed workflow is currently checked into `.github/workflows/`; regenerate and review the feed in the same PR as pricing updates.
 
 ## FAQ
 
@@ -76,7 +76,7 @@ On Ubuntu 25.10, Playwright required the Ubuntu 24.04 `libicu74` package:
 sudo wget -O /tmp/libicu74_74.2-1ubuntu3_amd64.deb \
   http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu74_74.2-1ubuntu3_amd64.deb
 sudo dpkg -i /tmp/libicu74_74.2-1ubuntu3_amd64.deb
-npx playwright install-deps
+bunx playwright install-deps
 ```
 
 Then run:

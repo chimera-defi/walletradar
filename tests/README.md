@@ -5,14 +5,11 @@ Automated tests for verifying dApp compatibility with EVM wallets.
 ## Quick Start
 
 ```bash
-# Install dependencies
-npm install --save-dev vitest ethers @wagmi/core viem
-
 # Run tests
-npx vitest run wallet-integration.test.ts
+bunx vitest run tests/wallet-integration.test.ts
 
 # Run tests with browser (for full wallet testing)
-npx vitest --browser
+bunx vitest --browser tests/wallet-integration.test.ts
 ```
 
 ## Test Categories

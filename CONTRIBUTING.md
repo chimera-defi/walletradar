@@ -377,7 +377,7 @@ When adding a new comparison type (like ramps), you must update:
 - [ ] Create generator function for table image
 - [ ] Create generator function for details image
 - [ ] Add to `main()` function
-- [ ] Run `npm run generate-og` and commit PNGs
+- [ ] Run `bun run generate-og` and commit PNGs
 - [ ] Update CI workflow to check for new images
 
 #### 4i. Markdown Config (`frontend/src/lib/markdown.ts`)
@@ -564,9 +564,9 @@ When renaming files or changing URL patterns, you MUST update:
 - [ ] Run verification script to check file existence
 - [ ] Verify slug generation produces expected URLs
 - [ ] Test related document mapping (table ↔ details)
-- [ ] Check for any remaining old references: `grep -r "old-name" frontend/`
+- [ ] Check for any remaining old references: `rg -n "old-name" frontend/`
 - [ ] Verify no broken internal links in markdown files
-- [ ] Run `npm run type-check`, `npm run lint`, `npm run build`
+- [ ] Run `bun run type-check`, `bun run lint`, `bun run build`
 
 ### SEO Considerations
 
@@ -603,17 +603,17 @@ mv WALLET_COMPARISON_UNIFIED_DETAILS.md SOFTWARE_WALLETS_DETAILS.md
 
 # 4. Verify
 cd frontend
-npm run type-check
-npm run lint
-npm run build
+bun run type-check
+bun run lint
+bun run build
 ```
 
 ### Testing After Rename
 
-1. **Build check:** `cd frontend && npm run build` (may fail on missing deps, but should compile)
-2. **Type check:** `cd frontend && npm run type-check`
-3. **Lint check:** `cd frontend && npm run lint`
-4. **Smoke test:** `cd frontend && npm test` (if available)
+1. **Build check:** `cd frontend && bun run build`
+2. **Type check:** `cd frontend && bun run type-check`
+3. **Lint check:** `cd frontend && bun run lint`
+4. **Smoke test:** `cd frontend && bun run test`
 5. **Manual verification:** Check that all URLs load correctly
 
 ---
@@ -673,7 +673,7 @@ When adding a completely new comparison category (e.g., ramps, exchanges, etc.),
 - [ ] **docs/[slug]/page.tsx:** Update ItemList schema for new type
 - [ ] **generate-og-images.js:** Add generator functions
 - [ ] **CI workflow:** Add image check
-- [ ] Run `npm run generate-og` and commit PNGs
+- [ ] Run `bun run generate-og` and commit PNGs
 
 ### 9. Markdown Config (`frontend/src/lib/markdown.ts`)
 - [ ] Add files to `DOCUMENT_CONFIG`
@@ -685,9 +685,9 @@ When adding a completely new comparison category (e.g., ramps, exchanges, etc.),
 - [ ] Add to changelog
 
 ### 11. Verification
-- [ ] `npm run type-check` passes
-- [ ] `npm run lint` passes
-- [ ] `npm run build` passes
+- [ ] `bun run type-check` passes
+- [ ] `bun run lint` passes
+- [ ] `bun run build` passes
 - [ ] OG images generated and committed
 - [ ] All navigation locations updated
 - [ ] Social sharing works
