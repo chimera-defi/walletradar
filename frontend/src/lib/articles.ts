@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { brand } from './brand';
 
-// Path to articles markdown files (wallets/articles directory)
+// Path to repo-root article markdown files.
 const ARTICLES_DIR = path.join(process.cwd(), '..', 'articles');
 
 export interface Article {

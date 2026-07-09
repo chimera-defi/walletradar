@@ -102,7 +102,7 @@ If a link ever carries a commercial relationship, it should be disclosed clearly
 
 ### How We Verify Information
 
-1. **GitHub Activity** - Accessed directly via GitHub API (automated)
+1. **GitHub Activity** - Checked with repository scripts against the GitHub API
 2. **Official Websites** - Manual verification on official domains
 3. **Security Audits** - Retrieved from published audit reports
 4. **Feature Claims** - Cross-referenced with official documentation
@@ -110,7 +110,7 @@ If a link ever carries a commercial relationship, it should be disclosed clearly
 
 ### Update Frequency
 
-- **Comparison tables:** Updated weekly (for active projects)
+- **Comparison tables:** Updated during reviewed data-refresh passes
 - **Detailed reviews:** Updated monthly
 - **Security information:** Updated immediately when discovered
 

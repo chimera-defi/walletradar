@@ -34,10 +34,7 @@ python3 scripts/run_naming_workflow.py \
 
 If the broad pass has many `unknown` domain statuses, rerun with lower concurrency (for example `--workers 3 --retries 3`) and use the shortlist report as decision-grade output.
 
-## Export for Ideas Creation Pack
+## Reuse
 
-```bash
-./ideas/scripts/export-naming-pack.sh \
-  --source wallets/branding \
-  --slug wallet-radar
-```
+Use the files in this directory directly when preparing naming or positioning
+materials. No separate export-pack script is currently checked into this repo.
