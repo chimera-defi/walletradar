@@ -215,10 +215,10 @@ function parseCardType(cell: string): 'credit' | 'debit' | 'prepaid' | 'business
   return 'debit';
 }
 
-// Parse custody type
-// 🔐 Self = self-custody/non-custodial
-// 🏦 Exch = exchange custody
-// 📋 CeFi = centralized finance custody
+// Parse card spend-path custody type.
+// 🔐 Self = funds remain user-controlled until authorization/purchase
+// 🏦 Exch = card draws from centralized exchange account/funding wallet
+// 📋 CeFi = card-platform, prepaid, partner-bank, issuer, or non-exchange custody
 function parseCustodyType(cell: string): import('@/types/wallets').CustodyType {
   if (cell.includes('🔐') || cell.toLowerCase().includes('self')) return 'self';
   if (cell.includes('🏦') || cell.toLowerCase().includes('exch')) return 'exchange';
