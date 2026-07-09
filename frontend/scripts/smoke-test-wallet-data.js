@@ -335,6 +335,7 @@ function assertMethodologyVersionTag(fileLabel, content) {
 function assertNoStaleStandaloneLinks() {
   const filesToCheck = [
     'ABOUT.md',
+    'amplify.yml',
     'DATA_SOURCES.md',
     'MALWARE_ALERT_HANDOFF.md',
     'MERCHANT_FEED.md',
@@ -343,6 +344,7 @@ function assertNoStaleStandaloneLinks() {
     'SEO_IMPLEMENTATION.md',
     'GLOSSARY.md',
     'scripts/README.md',
+    'frontend/.env.example',
     'frontend/README.md',
     'frontend/public/llms.txt',
     'frontend/src/lib/brand.ts',
@@ -361,6 +363,7 @@ function assertNoStaleStandaloneLinks() {
     /\bnode wallets\/scripts\//i,
     /\bpython3 wallets\/scripts\//i,
     /\bcd wallets\/frontend/i,
+    /\bappRoot:\s*wallets\/frontend\b/i,
     /\/home\/user\/Etc-mono-repo\/wallets/i,
   ];
 

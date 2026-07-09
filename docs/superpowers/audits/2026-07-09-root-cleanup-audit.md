@@ -57,3 +57,9 @@
 - Final expanded stale scan - only remaining matches are `CHANGELOG.md` historical removed-file note and `EXTRACT_STUB_PLAN.md` historical migration runbook.
 - Final `git diff --check` - clean.
 - Final protected row identity check - software 27/27, hardware 34/34, cards 45/45, ramps 22/22, no missing rows.
+
+## Self-Adversarial Follow-Up
+- After merge, a separate human-prompted self-review found two missed standalone leftovers not covered by the original guard:
+  - `amplify.yml` still used `appRoot: wallets/frontend` and `.next` artifacts despite the standalone static export living in `frontend/out`.
+  - `frontend/.env.example` still showed old `chimera-defi/Etc-mono-repo` GitHub defaults.
+- Follow-up fix: update those files and extend `frontend/scripts/smoke-test-wallet-data.js` so future stale-path checks include `amplify.yml` and `frontend/.env.example`.
