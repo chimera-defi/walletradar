@@ -27,6 +27,7 @@
 - `frontend/public/llms.txt` - LLM discovery file still links to the old monorepo pricing/exclusions path.
 - `ABOUT.md`, `DATA_SOURCES.md`, `MALWARE_ALERT_HANDOFF.md` - still include old monorepo GitHub/issue URLs.
 - `scripts/README.md`, `MERCHANT_FEED.md`, `CONTRIBUTING.md`, `SEO_IMPLEMENTATION.md`, `GLOSSARY.md` - contain standalone-repo-stale `wallets/` path examples.
+- `frontend/README.md`, `branding/README.md`, `branding/NAMING_WORKFLOW.md`, `branding/naming-workflow-output.json`, `branding/naming-workflow-shortlist.json` - contain standalone-repo-stale script paths or generated source paths.
 - `scripts/generate_merchant_feed.py` - currently fails in the standalone repo because it reads `wallets/HARDWARE_WALLETS.md`.
 - `scripts/sync_table_scores.js` - generated detail snapshots still say `wallets/scripts/...`, which is stale in the standalone repo.
 - `frontend/src/lib/markdown.ts` - document config still includes removed docs `walletconnect-wallet-research.md` and `HARDWARE_WALLET_RESEARCH_TASKS.md`.
@@ -168,14 +169,20 @@ function assertNoStaleStandaloneLinks() {
     'SEO_IMPLEMENTATION.md',
     'GLOSSARY.md',
     'scripts/README.md',
+    'frontend/README.md',
     'frontend/public/llms.txt',
     'frontend/src/lib/brand.ts',
     'frontend/src/app/page.tsx',
     'frontend/src/app/docs/[slug]/page.tsx',
+    'branding/README.md',
+    'branding/NAMING_WORKFLOW.md',
+    'branding/naming-workflow-output.json',
+    'branding/naming-workflow-shortlist.json',
   ];
   const stalePatterns = [
     /github\.com\/chimera-defi\/Etc-mono-repo\/(?:tree|blob)\/main\/wallets/i,
     /github\.com\/chimera-defi\/Etc-mono-repo\/issues/i,
+    /Etc-mono-repo[^`"'\n]*wallets/i,
     /`wallets\/(?!` module)/i,
     /node wallets\/scripts\//i,
     /cd wallets\/frontend/i,
@@ -750,7 +757,7 @@ Expected:
 Run:
 
 ```bash
-rg -n 'Etc-mono-repo|wallets/scripts|wallets/frontend|wallets/data|wallets/artifacts|/home/user/Etc-mono-repo|walletconnect-wallet-research|HARDWARE_WALLET_RESEARCH_TASKS|TODO|FIXME|HACK|TBD' README.md ABOUT.md DATA_SOURCES.md MERCHANT_FEED.md CONTRIBUTING.md SEO_IMPLEMENTATION.md GLOSSARY.md scripts frontend/src frontend/public *.md
+rg -n 'Etc-mono-repo|wallets/scripts|wallets/frontend|wallets/data|wallets/artifacts|/home/user/Etc-mono-repo|walletconnect-wallet-research|HARDWARE_WALLET_RESEARCH_TASKS|TODO|FIXME|HACK|TBD' README.md ABOUT.md DATA_SOURCES.md MERCHANT_FEED.md CONTRIBUTING.md SEO_IMPLEMENTATION.md GLOSSARY.md scripts frontend/README.md frontend/src frontend/public branding *.md
 ```
 
 Expected:

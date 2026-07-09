@@ -537,7 +537,7 @@ function CryptoCardComparison({
               <ComparisonRow label="Score Delta (vs next)" values={buildScoreDeltaVsNext(items)} />
               <ComparisonRow label="Score" values={items.map(c => c.score)} highlight />
               <ComparisonRow label="Card Type" values={items.map(c => c.cardType)} />
-              <ComparisonRow label="Provider" values={items.map(c => c.provider)} />
+              <ComparisonRow label="Custody" values={items.map(c => c.custody)} />
               <ComparisonRow label="Region" values={items.map(c => c.region)} />
               <ComparisonRow label="Business Support" values={items.map(c => c.businessSupport === 'yes')} isBoolean />
               <ComparisonRow label="Status" values={items.map(c => c.status)} />
@@ -701,12 +701,12 @@ function generateComparisonCsv(wallets: WalletData[], type: ComparisonToolProps[
   if (type === 'cards') {
     const typed = wallets as CryptoCard[];
     rows = [
-      ['Name', 'Score', 'CardType', 'Provider', 'Region', 'Cashback', 'AnnualFee', 'FXFee', 'Status', 'BusinessSupport'],
+      ['Name', 'Score', 'CardType', 'Custody', 'Region', 'Cashback', 'AnnualFee', 'FXFee', 'Status', 'BusinessSupport'],
       ...typed.map((card) => [
         card.name,
         card.score,
         card.cardType,
-        card.provider,
+        card.custody,
         card.region,
         card.cashBack,
         card.annualFee,

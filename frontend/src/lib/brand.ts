@@ -18,8 +18,8 @@ const BRAND_PRESETS: Record<string, BrandPreset> = {
     baseUrl: 'https://walletradar.org',
     defaultDescription:
       'Independent research and comparison of crypto wallets, hardware wallets, and payment solutions. Scoring, security audits, GitHub activity analysis, and developer experience benchmarks.',
-    githubUrl: 'https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets',
-    issuesUrl: 'https://github.com/chimera-defi/Etc-mono-repo/issues',
+    githubUrl: 'https://github.com/chimera-defi/walletradar',
+    issuesUrl: 'https://github.com/chimera-defi/walletradar/issues',
     twitterUrl: 'https://x.com/chimeradefi',
     twitterHandle: '@chimeradefi',
     contactEmail: 'chimera_deFi@protonmail.com',

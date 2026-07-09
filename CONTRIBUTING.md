@@ -27,9 +27,9 @@ Scores and recommendation cells are generated from the visible table columns. Do
 Run this after any change to the comparison tables:
 
 ```bash
-node wallets/scripts/sync_table_scores.js --write
-cd wallets/frontend
-npm test
+bun scripts/sync_table_scores.js --write
+cd frontend
+bun test
 ```
 
 What this does:
@@ -74,7 +74,7 @@ Before adding a wallet, verify:
 
 ### Step 2: Fill The Scoring Inputs
 
-Software wallet scores are generated from the visible columns in `wallets/frontend/src/lib/scoring.js`. The current categories are:
+Software wallet scores are generated from the visible columns in `frontend/src/lib/scoring.js`. The current categories are:
 
 ```
 Core Readiness
@@ -211,7 +211,7 @@ Add your row to `HARDWARE_WALLETS.md` in score order:
 
 Notes:
 - `Founded` and `Funding` are now required hardware scoring inputs.
-- Keep placeholder score/recommendation (`0` / `🔴`) and run `node wallets/scripts/sync_table_scores.js --write`.
+- Keep placeholder score/recommendation (`0` / `🔴`) and run `bun scripts/sync_table_scores.js --write`.
 
 ### Step 3: Update Other Sections
 
@@ -387,11 +387,11 @@ When adding a new comparison type (like ramps), you must update:
 ### Step 5: Verification
 
 ```bash
-cd wallets/frontend
-npm run type-check  # Verify TypeScript
-npm run lint        # Verify linting
-npm run build       # Verify build
-npm run generate-og # Regenerate OG images
+cd frontend
+bun run type-check  # Verify TypeScript
+bun run lint        # Verify linting
+bun run build       # Verify build
+bun run generate-og # Regenerate OG images
 ```
 
 ---
