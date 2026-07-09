@@ -178,7 +178,7 @@ export const cryptoCardTooltips = {
     compare: 'Select cards to compare side-by-side',
     card: 'Card name and quick context',
     cardType: 'Card type: Credit, Debit, Prepaid, or Business',
-    custody: 'Custody model: 🔐 self-custody, 🏦 exchange, 📋 CeFi',
+    custody: 'Card spend-path custody: 🔐 self-custody, 🏦 exchange, 📋 CeFi/card platform',
     business: 'Business accounts: ✅ supported, ❌ personal only, ⚠️ verify',
     region: 'Geographic availability',
     cashback: 'Maximum cashback/rewards rate (may require staking or tiers)',
@@ -197,9 +197,9 @@ export const cryptoCardTooltips = {
   },
 
   custody: {
-    self: 'Self-custody: You control your private keys (non-custodial)',
-    exchange: 'Exchange custody: Funds held on centralized exchange',
-    cefi: 'CeFi custody: Funds held by centralized finance company',
+    self: 'Self-custody spend: funds remain user-controlled until card authorization or purchase',
+    exchange: 'Exchange custody: card draws from a centralized exchange account or funding wallet',
+    cefi: 'CeFi/card-platform custody: prepaid balances, partner banks, issuers, fintech ledgers, or non-exchange custodians control card-spend funds',
   },
 
   businessSupport: {
