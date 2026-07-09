@@ -2,12 +2,15 @@
 last_run: 2026-06-12
 focus: dead-code
 status: completed
-completed: [dead code scan — repo is clean; Tuesday TS cleanup (PR #47) already removed all dead code]
+completed:
+  - tsc --noUnusedLocals pass — 6 errors fixed: setSearchQuery, comparisonDocs, useMemo, ScoreBreakdownPreview, parseRecommendation, parseHardwareRecommendation
+  - dead code scan — repo is clean; Tuesday TS cleanup (PR #47) already removed all dead code
 in_progress:
 pending: []
 known_failures:
   - no CI configured for walletradar — PRs cannot show green checks
 skip_next_run: []
+attempt_counts:
 
 ## Dead Code Scan Notes (2026-06-12)
 - rg TODO/FIXME/HACK: no results
