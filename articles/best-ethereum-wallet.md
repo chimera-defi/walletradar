@@ -16,7 +16,7 @@ tags: ["guide", "ethereum", "wallets"]
 - **Best Ethereum UX:** **Rainbow (77)**
 - **Best compatibility:** **MetaMask (73)**
 
-Source: `wallets/SOFTWARE_WALLETS.md`
+Source: `SOFTWARE_WALLETS.md`
 
 ---
 
@@ -50,7 +50,7 @@ Source: `wallets/SOFTWARE_WALLETS.md`
 ## How We Score
 
 Wallet Radar scores are based on stability, security signals, audits, and developer experience.  
-See `wallets/SOFTWARE_WALLETS_DETAILS.md` for full methodology.
+See `SOFTWARE_WALLETS_DETAILS.md` for full methodology.
 
 ---
 

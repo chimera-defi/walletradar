@@ -20,4 +20,4 @@ Key routing rules:
 ## Meta Learnings
 
 - As of 2026-06-08, all `frontend/` packages have major version jumps (Next 14→16, React 18→19, tailwind 3→4, lucide 0.x→1.x, typescript 5→6, @types/node 20→25) — Monday deps pass is a no-op until explicit upgrade planning.
-- `frontend/` uses npm (has `package-lock.json`, no bun.lock or pnpm-lock.yaml).
+- `frontend/` uses Bun for local agent workflows (`bun.lock` is tracked). `package-lock.json` remains for the current Amplify `npm ci` deployment path until deployment is explicitly migrated.

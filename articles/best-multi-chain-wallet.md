@@ -14,7 +14,7 @@ tags: ["guide", "multi-chain", "wallets"]
 - **Best multi-chain coverage:** **Trust (82)**  
 - **Best EVM safety:** **Rabby (92)**  
 
-Source: `wallets/SOFTWARE_WALLETS.md`
+Source: `SOFTWARE_WALLETS.md`
 
 ---
 

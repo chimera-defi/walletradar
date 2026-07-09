@@ -5,8 +5,7 @@
  * Uses ethers.js and wagmi patterns common in production dApps.
  * 
  * Usage:
- *   npm install --save-dev vitest ethers @wagmi/core viem
- *   npx vitest run wallet-integration.test.ts
+ *   bunx vitest run tests/wallet-integration.test.ts
  * 
  * Note: These tests require a wallet extension installed in browser.
  * For CI, use a mock provider or headless wallet like Anvil.

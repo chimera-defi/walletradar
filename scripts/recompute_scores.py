@@ -2,18 +2,18 @@
 """Recompute score totals in wallet scoring breakdown tables.
 
 This updates totals in:
-- wallets/SOFTWARE_WALLETS_DETAILS.md
-- wallets/HARDWARE_WALLETS_DETAILS.md
+- SOFTWARE_WALLETS_DETAILS.md
+- HARDWARE_WALLETS_DETAILS.md
 """
 from __future__ import annotations
 
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 
-SOFTWARE_FILE = ROOT / "wallets" / "SOFTWARE_WALLETS_DETAILS.md"
-HARDWARE_FILE = ROOT / "wallets" / "HARDWARE_WALLETS_DETAILS.md"
+SOFTWARE_FILE = ROOT / "SOFTWARE_WALLETS_DETAILS.md"
+HARDWARE_FILE = ROOT / "HARDWARE_WALLETS_DETAILS.md"
 
 SOFTWARE_HEADER = "| Wallet | Score | Core | Stability | DevExp | Activity | FOSS | Security | Notes |"
 HARDWARE_HEADER = "| Wallet | Security (25) | Transparency (20) | Privacy (15) | Activity (15) | Company (15) | UX (10) | Total |"

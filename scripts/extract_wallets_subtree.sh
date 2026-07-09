@@ -57,4 +57,4 @@ echo
  echo "  git clone $TARGET_REPO_URL /tmp/wallets-standalone-check"
  echo "  cd /tmp/wallets-standalone-check && git log --oneline -n 20"
  echo
- echo "Then apply monorepo stub using wallets/STUB_README_TEMPLATE.md"
+ echo "Then apply monorepo stub using STUB_README_TEMPLATE.md"

@@ -9,8 +9,8 @@ const nextConfig = {
   // Enable trailing slashes for clean URLs
   trailingSlash: true,
 
-  // Security headers are applied through the repo-root customHttp.yml because
-  // this app is deployed as a static Amplify export.
+  // Static-export response headers must be configured at the hosting layer.
+  // Next.js runtime headers are not applied to files emitted in out/.
 
   // Webpack configuration for node modules used at build time
   webpack: (config) => {

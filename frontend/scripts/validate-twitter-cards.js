@@ -5,7 +5,7 @@
  * Validates that all pages have proper Twitter Card meta tags.
  * Run after build to ensure OG images and meta tags are correct.
  * 
- * Usage: node scripts/validate-twitter-cards.js
+ * Usage: bun run validate-cards
  */
 
 const fs = require('fs');
@@ -211,9 +211,9 @@ function main() {
   const htmlFiles = findHtmlFiles(OUT_DIR);
   
   if (htmlFiles.length === 0) {
-    console.log('⚠️  No HTML files found. Run `npm run build` first.\n');
+    console.log('⚠️  No HTML files found. Run `bun run build` first.\n');
     console.log('To validate after build, run:');
-    console.log('  npm run build && node scripts/validate-twitter-cards.js\n');
+    console.log('  bun run build && bun run validate-cards\n');
     return;
   }
   

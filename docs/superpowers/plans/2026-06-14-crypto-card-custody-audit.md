@@ -1,6 +1,8 @@
 # Crypto Card Custody Audit Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **Status (2026-07-09):** Historical/superseded execution plan. The June 2026 custody recheck landed in `CRYPTO_CARDS.md`, `CRYPTO_CARDS_DETAILS.md`, `VERIFICATION_NOTES.md`, and `CHANGELOG.md`; `VERIFICATION_NOTES.md` records all 45 rows as reviewed. The remaining unresolved custody/product-split follow-up is Wirex, tracked in issue #58. The unchecked boxes below are retained as the original checklist, not active work.
+
+> **Original execution note (archived):** This plan originally required superpowers:subagent-driven-development (recommended) or superpowers:executing-plans for task-by-task implementation. Do not re-run this archived checklist as active work without first creating a new current plan.
 
 **Goal:** Verify every crypto-card custody classification in WalletRadar against official sources, correct confirmed errors, and keep generated scores and dependent copy consistent.
 

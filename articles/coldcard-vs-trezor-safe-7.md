@@ -24,7 +24,7 @@ tags: ["comparison", "hardware-wallets", "bitcoin"]
 | **Trezor Safe 7** | **96** | Best overall |
 | **ColdCard Mk4** | 91 | Bitcoin-only security |
 
-Source: `wallets/HARDWARE_WALLETS_DETAILS.md`
+Source: `HARDWARE_WALLETS_DETAILS.md`
 
 ---
 
