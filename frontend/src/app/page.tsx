@@ -735,7 +735,7 @@ export default function HomePage() {
           <SourceTile
             name="GitHub API"
             description="Stars, issues, activity status"
-            href="https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets"
+            href="https://github.com/chimera-defi/walletradar"
             icon={<Github className="h-5 w-5" />}
           />
           <SourceTile

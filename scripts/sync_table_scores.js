@@ -92,7 +92,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Wallet | Score | Best For | Rec |',
@@ -118,7 +118,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Wallet | Score | Activity | Rec |',
@@ -144,7 +144,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Card | Score | Best For | Rec |',
@@ -170,7 +170,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
 
       return [
         this.startMarker,
-        `> **Current generated snapshot:** ${summary}. Regenerated from [RAMPS.md](./RAMPS.md) by \`wallets/scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
+        `> **Current generated snapshot:** ${summary}. Regenerated from [RAMPS.md](./RAMPS.md) by \`scripts/sync_table_scores.js\` using methodology \`${SCORING_METHODOLOGY_VERSION}\`.`,
         '',
         '### Current Top Rows (generated)',
         '| Rank | Provider | Score | Best For | Rec |',
@@ -247,8 +247,8 @@ function syncMethodologyVersionMentions(content) {
     .replace(/methodology version `[^`]+`/g, `methodology version \`${SCORING_METHODOLOGY_VERSION}\``)
     .replace(/using methodology `[^`]+`/g, `using methodology \`${SCORING_METHODOLOGY_VERSION}\``)
     .replace(
-      /via `wallets\/scripts\/sync_table_scores\.js` \(`[^`]+`\)/g,
-      `via \`wallets/scripts/sync_table_scores.js\` (\`${SCORING_METHODOLOGY_VERSION}\`)`
+      /via `(?:wallets\/)?scripts\/sync_table_scores\.js` \(`[^`]+`\)/g,
+      `via \`scripts/sync_table_scores.js\` (\`${SCORING_METHODOLOGY_VERSION}\`)`
     );
 }
 

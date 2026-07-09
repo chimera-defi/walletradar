@@ -26,7 +26,7 @@ Reject names with:
 
 ## 4. Scoring + Validation
 
-`wallets/scripts/run_naming_workflow.py` computes weighted scores and runs domain checks on:
+`scripts/run_naming_workflow.py` computes weighted scores and runs domain checks on:
 
 - `.com`
 - `.org`

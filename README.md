@@ -233,10 +233,10 @@ See [scripts/README.md](./scripts/README.md) for full documentation.
 
 Comprehensive comparison tables and guides:
 
-- **[SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md)** — Software wallet comparison (24 EVM wallets)
-- **[HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md)** — Hardware wallet comparison (23 devices)
-- **[CRYPTO_CARDS.md](./CRYPTO_CARDS.md)** — Crypto credit card comparison (27 cards)
-- **[RAMPS.md](./RAMPS.md)** — On/off-ramp provider comparison (20 providers)
+- **[SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md)** — Software wallet comparison (27 wallets)
+- **[HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md)** — Hardware wallet comparison (34 devices)
+- **[CRYPTO_CARDS.md](./CRYPTO_CARDS.md)** — Crypto credit card comparison (45 cards)
+- **[RAMPS.md](./RAMPS.md)** — On/off-ramp provider comparison (22 providers)
 - **[CHANGELOG.md](./CHANGELOG.md)** — Complete change history
 - **[CONTRIBUTING.md](./CONTRIBUTING.md)** — How to contribute
 - **[VERIFICATION_NOTES.md](./VERIFICATION_NOTES.md)** — Data verification methods

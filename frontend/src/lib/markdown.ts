@@ -96,18 +96,6 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     category: 'guide',
     order: 6.7,
   },
-  'walletconnect-wallet-research.md': {
-    title: 'WalletConnect Research',
-    description: 'Original detailed research on WalletConnect-compatible wallets',
-    category: 'research',
-    order: 4,
-  },
-  'HARDWARE_WALLET_RESEARCH_TASKS.md': {
-    title: 'Hardware Wallet Research Tasks',
-    description: 'Ongoing research tasks for hardware wallet analysis',
-    category: 'research',
-    order: 4,
-  },
   'CHANGELOG.md': {
     title: 'Changelog',
     description: 'Track significant changes to wallet statuses, recommendations, and documentation structure',
