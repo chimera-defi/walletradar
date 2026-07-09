@@ -1,10 +1,12 @@
 # Crypto Wallet Comparison for Developers
 
+> **Legacy snapshot:** This document is retained for historical context. The current software wallet source of truth is [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md), with details and methodology in [SOFTWARE_WALLETS_DETAILS.md](./SOFTWARE_WALLETS_DETAILS.md).
+
 > **TL;DR:** Use **Rabby** (92) for development (tx simulation + stability), **Trust** (85) or **Rainbow** (82) for production. Use **MetaMask** (73) last for compatibility only — it has ~8 releases/month which is too much churn. Only wallets with ✅ in the "Core" column have both mobile + browser extension.
 
 **Data Sources:** GitHub REST API (Nov 2024, activity Nov 2025), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
-**Related:** See [Hardware Wallet Comparison](./HARDWARE_WALLET_COMPARISON.md) for cold storage recommendations.
+**Related:** See [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for current cold storage recommendations.
 
 ---
 
@@ -541,7 +543,7 @@ Comprehensive feature comparison across account types, hardware wallet support, 
 
 #### Hardware Wallet Support
 
-See [Hardware Wallet Comparison](./HARDWARE_WALLET_COMPARISON.md) for detailed hardware wallet analysis and recommendations.
+See [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for current hardware wallet analysis and recommendations.
 
 | Wallet | Ledger | Trezor | Keystone | GridPlus | Other | Notes |
 |--------|--------|--------|----------|----------|-------|-------|
@@ -570,7 +572,7 @@ See [Hardware Wallet Comparison](./HARDWARE_WALLET_COMPARISON.md) for detailed h
 | **imToken** | ❌ | ❌ | ✅ QR | ❌ | imKey (BT) | Mobile-only, limited HW support |
 | **Block** | ✅ WebUSB | ✅ WebUSB | ✅ QR | ✅ WebUSB | ✅ Others | Good HW wallet support |
 
-**Connection Types:** WebUSB, Bluetooth (BT), QR code, WalletConnect (WC). See [Hardware Wallet Comparison](./HARDWARE_WALLET_COMPARISON.md) for hardware wallet recommendations.
+**Connection Types:** WebUSB, Bluetooth (BT), QR code, WalletConnect (WC). See [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for current hardware wallet recommendations.
 
 ### ENS & Address Resolution
 

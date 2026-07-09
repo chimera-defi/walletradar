@@ -27,7 +27,7 @@
 | [**Robinhood Connect**](https://robinhood.com/us/en/on-ramp/) | 66 | On-Ramp | ✅ | ❌ | US (ex-NY) | Low | 0.0-1.5% | Good (Widget) | ✅ | 2013 | 🟢 PublicCo | US dapps | 🔴 |
 | [**Coinmama**](https://www.coinmama.com/) | 59 | On-Ramp | ✅ | ❌ | ~100+ Countries | High | ~$30.00 | Basic (Widget) | ✅ | 2013 | 🟢 Revenue | Simple on-ramp | 🔴 |
 
-> **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `wallets/scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. Update the table inputs first, then resync the scores.
+> **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. Update the table inputs first, then resync the scores.
 
 ## Pros & Cons (Top Picks)
 
