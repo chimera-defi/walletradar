@@ -860,7 +860,7 @@ Create a tracking spreadsheet with these columns:
 
 ## Questions for Future Agents
 
-1. **Is the build passing?** `npm run build && npm run lint && npm run type-check`
+1. **Is the build passing?** `bun run build && bun run lint && bun run type-check`
 2. **Are schemas validating?** Test on Google Rich Results Test
 3. **Are LLMs citing WalletRadar?** Run manual ChatGPT queries
 4. **Is AI traffic increasing?** Check Google Analytics 4

@@ -6,8 +6,8 @@
 
 **Developer-Focused Crypto Product Research Platform**
 
-[![Wallets Frontend CI](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/wallets-frontend-ci.yml)
-[![Refresh Wallet Data](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/refresh-wallet-data.yml)
+[![Commit Message Check](https://github.com/chimera-defi/walletradar/actions/workflows/commit-message-check.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/commit-message-check.yml)
+[![PR Attribution Check](https://github.com/chimera-defi/walletradar/actions/workflows/pr-attribution-check.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/pr-attribution-check.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-walletradar.org-blue)](https://walletradar.org)
 
@@ -19,24 +19,24 @@
 
 ## 🎯 What is Wallet Radar?
 
-Wallet Radar is a comprehensive comparison platform designed for developers who need reliable data to choose the right crypto access products. We track **100+ products** across software wallets, hardware wallets, crypto cards, and on/off-ramps with transparent scoring based on security, GitHub activity, developer experience, and real-world usage metrics.
+Wallet Radar is a comprehensive comparison platform designed for developers who need reliable data to choose the right crypto access products. We track **128 products** across software wallets, hardware wallets, crypto cards, and on/off-ramps with transparent scoring based on security, GitHub activity, developer experience, and real-world usage metrics.
 
 Unlike consumer-focused wallet lists, Wallet Radar provides:
 - **📊 Transparent Scoring** — Weighted methodology based on security, activity, and developer experience
-- **🔍 GitHub Activity Tracking** — Real-time monitoring of development activity, release frequency, and maintenance status
+- **🔍 GitHub Activity Tracking** — Repeatable checks for development activity, release frequency, and maintenance status
 - **🛡️ Security Audits** — Comprehensive audit history with links to reports
 - **👨‍💻 Developer Experience** — Documentation quality, SDK availability, error messages, and integration ease
 - **🔗 Multi-Chain Support** — Track which wallets support your target chains
-- **⚡ Live Data** — Automated weekly updates via GitHub API
+- **⚡ Repeatable Refreshes** — Scripted GitHub and product-data checks for audits
 
 ### 📈 What We Compare
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| **Software Wallets** | 24+ | Browser extensions, mobile apps, desktop wallets |
-| **Hardware Wallets** | 23+ | Cold storage devices with security element analysis |
-| **Crypto Cards** | 27+ | Crypto-backed credit & debit cards |
-| **On/Off-Ramps** | 20+ | Fiat-to-crypto conversion providers |
+| **Software Wallets** | 27 | Browser extensions, mobile apps, desktop wallets |
+| **Hardware Wallets** | 34 | Cold storage devices with security element analysis |
+| **Crypto Cards** | 45 | Crypto-backed credit & debit cards |
+| **On/Off-Ramps** | 22 | Fiat-to-crypto conversion providers |
 
 ## 🔎 Manual URL Verification (Bot-Protected)
 
@@ -85,9 +85,9 @@ from active verification lists once confirmed.
 - Developer experience (docs, SDKs, support)
 - Platform coverage (mobile, browser, desktop)
 
-### 🔄 **Automated Data Updates**
-- Weekly GitHub Activity monitoring
-- Automated PR creation with updated data
+### 🔄 **Repeatable Data Updates**
+- GitHub activity refresh scripts for software and hardware wallets
+- Manual review and PR workflow for updated data
 - Manual verification for security-critical changes
 - Merchant Center feed generation for hardware wallets (see `MERCHANT_FEED.md`)
 
@@ -115,7 +115,7 @@ from active verification lists once confirmed.
 
 ### Data Pipeline
 - **Data Source:** GitHub REST API, WalletBeat, Rabby API, Trust Registry
-- **Automation:** GitHub Actions (weekly refresh)
+- **Automation:** Bun/Python refresh scripts plus GitHub Actions PR guardrails
 - **Storage:** Markdown files with frontmatter metadata
 
 ### Infrastructure
@@ -153,7 +153,7 @@ bun run dev
 # Build the application
 bun run build
 
-# Start production server
+# Preview the static export
 bun run start
 ```
 
@@ -163,7 +163,7 @@ bun run start
 |--------|-------------|
 | `bun run dev` | Start development server |
 | `bun run build` | Build for production |
-| `bun run start` | Start production server |
+| `bun run start` | Preview the static export locally |
 | `bun run lint` | Run ESLint |
 | `bun run type-check` | Run TypeScript type checking |
 | `bun test` | Run smoke tests |
@@ -213,9 +213,9 @@ All data is sourced from publicly available, verified sources:
 
 ---
 
-## 🔄 Automated Updates
+## 🔄 Data Refresh Scripts
 
-Wallet data is automatically refreshed every Monday via GitHub Actions:
+Wallet data refreshes are script-driven and should be committed through a PR after review:
 
 ```bash
 # Manual refresh (requires GitHub token)

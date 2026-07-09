@@ -1,6 +1,8 @@
 # WalletRadar Adversarial Cleanup Review Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **Status (2026-07-09):** Historical execution plan. The cleanup work landed in PR #59 and the follow-up self-review fix landed in PR #60; see `docs/superpowers/audits/2026-07-09-root-cleanup-audit.md` for the verified completion record. The unchecked boxes below are retained as the original implementation checklist, not active work.
+
+> **Original execution note (archived):** This plan originally required superpowers:subagent-driven-development (recommended) or superpowers:executing-plans for task-by-task implementation. Do not re-run this archived checklist as active work without first creating a new current plan.
 
 **Goal:** Perform a repo-root-to-frontend adversarial cleanup pass that removes stale standalone-migration residue, prevents data loss, verifies no regressions, and lands the cleaned result through a reviewed PR.
 
