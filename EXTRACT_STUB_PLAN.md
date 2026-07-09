@@ -1,5 +1,7 @@
 # Wallets Standalone Extraction + Monorepo Stub Plan
 
+> **Status:** Historical runbook. WalletRadar now lives in the standalone `chimera-defi/walletradar` repository, which is the repo you are reading. Keep this document for migration context; do not treat it as active work for this standalone repo. Any remaining monorepo stub cleanup belongs in the old monorepo, not here.
+
 This plan moves `wallets/` into a standalone repository while keeping a minimal monorepo stub so existing links do not break.
 
 ## Scope

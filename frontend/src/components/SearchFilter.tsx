@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Search, X, Filter } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { MarkdownDocument } from '@/lib/markdown';

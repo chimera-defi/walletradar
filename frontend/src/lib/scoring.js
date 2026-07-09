@@ -788,7 +788,7 @@ function computeCardScore(cells) {
       label: 'Custody & Coverage',
       score: custodyCoverage,
       max: 25,
-      note: 'Custody model plus regional reach.',
+      note: 'Card spend-path custody model plus regional reach.',
     },
     {
       key: 'rewards',

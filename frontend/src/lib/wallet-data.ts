@@ -57,22 +57,6 @@ function parseClosedPartialFull(cell: string): 'full' | 'partial' | 'closed' {
   return 'closed';
 }
 
-// Parse recommendation symbol
-function parseRecommendation(cell: string): 'recommended' | 'situational' | 'avoid' | 'not-for-dev' {
-  if (cell.includes('🟢')) return 'recommended';
-  if (cell.includes('🟡')) return 'situational';
-  if (cell.includes('🔴')) return 'avoid';
-  if (cell.includes('⚪')) return 'not-for-dev';
-  return 'situational';
-}
-
-// Parse hardware recommendation (no not-for-dev)
-function parseHardwareRecommendation(cell: string): 'recommended' | 'situational' | 'avoid' {
-  if (cell.includes('🟢')) return 'recommended';
-  if (cell.includes('🟡')) return 'situational';
-  return 'avoid';
-}
-
 // Parse devices from device string
 function parseDevices(cell: string): { mobile: boolean; browser: boolean; desktop: boolean; web: boolean } {
   return {
@@ -231,10 +215,10 @@ function parseCardType(cell: string): 'credit' | 'debit' | 'prepaid' | 'business
   return 'debit';
 }
 
-// Parse custody type
-// 🔐 Self = self-custody/non-custodial
-// 🏦 Exch = exchange custody
-// 📋 CeFi = centralized finance custody
+// Parse card spend-path custody type.
+// 🔐 Self = funds remain user-controlled until authorization/purchase
+// 🏦 Exch = card draws from centralized exchange account/funding wallet
+// 📋 CeFi = card-platform, prepaid, partner-bank, issuer, or non-exchange custody
 function parseCustodyType(cell: string): import('@/types/wallets').CustodyType {
   if (cell.includes('🔐') || cell.toLowerCase().includes('self')) return 'self';
   if (cell.includes('🏦') || cell.toLowerCase().includes('exch')) return 'exchange';
