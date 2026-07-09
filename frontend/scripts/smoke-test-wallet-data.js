@@ -8,7 +8,7 @@
  *
  * Notes:
  * - Dependency-free (plain Node.js).
- * - Reads markdown tables from the parent `wallets/` directory.
+ * - Reads markdown tables from the repository root.
  */
 /* eslint-disable no-console */
 const fs = require('fs');
@@ -26,6 +26,7 @@ const { processAllTables } = require(path.join(__dirname, '..', '..', 'scripts',
 
 const FRONTEND_DIR = path.resolve(__dirname, '..');
 const WALLETS_DIR = path.resolve(FRONTEND_DIR, '..');
+const REPO_ROOT = WALLETS_DIR;
 const CURRENT_YEAR = new Date().getUTCFullYear();
 
 const SOFTWARE_CONTRACT_MUTATORS = {
@@ -331,6 +332,68 @@ function assertMethodologyVersionTag(fileLabel, content) {
   }
 }
 
+function assertNoStaleStandaloneLinks() {
+  const filesToCheck = [
+    'ABOUT.md',
+    'DATA_SOURCES.md',
+    'MALWARE_ALERT_HANDOFF.md',
+    'MERCHANT_FEED.md',
+    'README.md',
+    'CONTRIBUTING.md',
+    'SEO_IMPLEMENTATION.md',
+    'GLOSSARY.md',
+    'scripts/README.md',
+    'frontend/README.md',
+    'frontend/public/llms.txt',
+    'frontend/src/lib/brand.ts',
+    'frontend/src/app/page.tsx',
+    'frontend/src/app/docs/[slug]/page.tsx',
+    'branding/README.md',
+    'branding/NAMING_WORKFLOW.md',
+    'branding/naming-workflow-output.json',
+    'branding/naming-workflow-shortlist.json',
+  ];
+  const stalePatterns = [
+    /github\.com\/chimera-defi\/Etc-mono-repo\/(?:tree|blob)\/main\/wallets/i,
+    /github\.com\/chimera-defi\/Etc-mono-repo\/issues/i,
+    /Etc-mono-repo[^`"'\n]*wallets/i,
+    /`wallets\/(?!` module)/i,
+    /\bnode wallets\/scripts\//i,
+    /\bpython3 wallets\/scripts\//i,
+    /\bcd wallets\/frontend/i,
+    /\/home\/user\/Etc-mono-repo\/wallets/i,
+  ];
+
+  const failures = [];
+  for (const relativePath of filesToCheck) {
+    const content = readFileOrFail(path.join(REPO_ROOT, relativePath));
+    for (const pattern of stalePatterns) {
+      if (pattern.test(content)) {
+        failures.push(`${relativePath}: ${pattern}`);
+      }
+    }
+  }
+
+  if (failures.length) {
+    fail(`stale standalone links/paths found:\n${failures.join('\n')}`);
+  } else {
+    ok('standalone repo links and command paths are current');
+  }
+}
+
+function assertMarkdownConfigFilesExist() {
+  const markdownSource = readFileOrFail(path.join(FRONTEND_DIR, 'src', 'lib', 'markdown.ts'));
+  const configuredFiles = Array.from(markdownSource.matchAll(/^\s+'([^']+\.md)':\s*\{/gm))
+    .map((match) => match[1]);
+  const missing = configuredFiles.filter((filename) => !fs.existsSync(path.join(REPO_ROOT, filename)));
+
+  if (missing.length) {
+    fail(`markdown config references missing files: ${missing.join(', ')}`);
+  } else {
+    ok(`markdown config files exist (${configuredFiles.length} files)`);
+  }
+}
+
 function run() {
   console.log('🔎 Running wallet table smoke tests...\n');
 
@@ -608,6 +671,17 @@ function run() {
     ok('WalletTable.tsx: cards display render contract passed');
   }
 
+  const comparisonToolPath = path.join(FRONTEND_DIR, 'src', 'components', 'ComparisonTool.tsx');
+  const comparisonToolContent = readFileOrFail(comparisonToolPath);
+  const hasComparisonCustodyRow = comparisonToolContent.includes('ComparisonRow label="Custody"');
+  const hasLegacyComparisonProviderRow = comparisonToolContent.includes('ComparisonRow label="Provider"');
+  const hasComparisonCsvCustodyHeader = comparisonToolContent.includes("'Name', 'Score', 'CardType', 'Custody'");
+  if (!hasComparisonCustodyRow || hasLegacyComparisonProviderRow || !hasComparisonCsvCustodyHeader) {
+    fail('ComparisonTool.tsx: card comparison/export must use Custody instead of the legacy Provider duplicate.');
+  } else {
+    ok('ComparisonTool.tsx: card custody comparison/export guard passed');
+  }
+
   const walletFiltersPath = path.join(FRONTEND_DIR, 'src', 'components', 'WalletFilters.tsx');
   const walletFiltersContent = readFileOrFail(walletFiltersPath);
   const cardsFilterToHeaderParity = [
@@ -812,6 +886,9 @@ function run() {
   } else {
     ok('sync_table_scores.js: recommendation assignment is centralized');
   }
+
+  assertNoStaleStandaloneLinks();
+  assertMarkdownConfigFilesExist();
 
   console.log('\nDone.');
   if (process.exitCode) {

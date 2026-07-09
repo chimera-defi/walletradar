@@ -1,10 +1,12 @@
 # Hardware Wallet Comparison (Cold Storage Alternatives to Ledger)
 
+> **Legacy snapshot:** This document is retained for historical context. The current hardware wallet source of truth is [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md), with details and methodology in [HARDWARE_WALLETS_DETAILS.md](./HARDWARE_WALLETS_DETAILS.md).
+
 > **TL;DR:** Use **Trezor Safe 5** (94) for best security + UX, **ColdCard Mk4** (91) for Bitcoin maximalists, **Keystone 3 Pro** (91) for air-gapped security, or **Trezor Safe 3** (91) for best value at $79. **Blockstream Jade** (81) is a great budget option. For DIY enthusiasts: **Specter DIY** (72) or **SeedSigner** (65). **Ledger** (55-57) is penalized for Ledger Recover. See [Why Look Beyond Ledger?](#-why-look-beyond-ledger) for details.
 
 **Last Updated:** February 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](./HARDWARE_WALLET_COMPANIES.md)
 
-**Related:** See [Software Wallet Comparison](./WALLET_COMPARISON_UNIFIED.md) for EVM wallet recommendations and integration details.
+**Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for current EVM wallet recommendations and integration details.
 **Companies:** See [Hardware Wallet Companies](./HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
 
 ---
@@ -242,7 +244,7 @@ For technically-inclined users who want maximum transparency and control:
 
 **Quick Reference:** Score = Security (25) + Transparency (20) + Privacy (15) + Activity (15) + Company (15) + UX (10) = 100 total
 
-Hardware wallet scoring uses a comprehensive methodology consistent with our [Software Wallet Comparison](./WALLET_COMPARISON_UNIFIED.md), adapted for cold storage priorities:
+Hardware wallet scoring uses a comprehensive methodology consistent with our [current software wallet comparison](./SOFTWARE_WALLETS_DETAILS.md), adapted for cold storage priorities:
 
 | Category | Weight | Description | Data Sources |
 |----------|--------|-------------|--------------|

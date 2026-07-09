@@ -182,9 +182,9 @@ Before clicking any external link:
 
 If you have concerns about any links or data on Wallet Radar:
 
-1. **Report an issue:** [GitHub Issues](https://github.com/chimera-defi/Etc-mono-repo/issues)
+1. **Report an issue:** [GitHub Issues](https://github.com/chimera-defi/walletradar/issues)
 2. **Email us:** chimera_deFi@protonmail.com
-3. **Check our source:** [GitHub Repository](https://github.com/chimera-defi/Etc-mono-repo/tree/main/wallets)
+3. **Check our source:** [GitHub Repository](https://github.com/chimera-defi/walletradar)
 
 ---
 

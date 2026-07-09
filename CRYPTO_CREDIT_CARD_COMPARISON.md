@@ -6,7 +6,7 @@
 
 **Data Sources:** Official card websites, terms of service, public announcements (as of February 2026)
 
-**Related:** See [Software Wallet Comparison](./WALLET_COMPARISON_UNIFIED.md) and [Hardware Wallet Comparison](./HARDWARE_WALLET_COMPARISON.md) for crypto wallet recommendations.
+**Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) and [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for current crypto wallet recommendations.
 
 ---
 
