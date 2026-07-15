@@ -1,23 +1,24 @@
 # Maintenance State
-last_run: 2026-06-23
-focus: ts-cleanup
+last_run: 2026-07-15
+focus: security
 status: completed
 completed:
-  - tsc --noUnusedLocals pass — 6 errors fixed: setSearchQuery, comparisonDocs, useMemo, ScoreBreakdownPreview, parseRecommendation, parseHardwareRecommendation
-  - dead code scan — repo is clean; Tuesday TS cleanup (PR #47) already removed all dead code
-  - removed 6 unused symbols — useMemo from SearchFilter.tsx, ScoreBreakdownPreview from WalletTable.tsx, parseRecommendation + parseHardwareRecommendation from wallet-data.ts, setSearchQuery setter from DocsContent.tsx, allDocs + comparisonDocs from docs/[slug]/page.tsx; tsc --noEmit and lint pass clean
+  - fix(.gitignore): add .env / .env.* / .env.local entries — missing from project root
+  - fix(frontend/package-lock.json): npm audit fix --ignore-scripts resolves 6 of 11 vulns
+    - GHSA-3ppc-4f35-3m26 + GHSA-7r86-cg39-jmmj: minimatch ReDoS (High)
+    - GHSA-c2c7-rcm5-vvqj: picomatch ReDoS (High)
+    - GHSA-rf6f-7fwh-wjgh: flatted Prototype Pollution (High)
+    - GHSA-h67p-54hq-rp68: js-yaml quadratic DoS (Moderate)
+    - GHSA-5j98-mcp5-4vw2: glob CLI command injection (High)
 in_progress:
-pending: []
+pending:
+  - 5 remaining vulns require Next.js major version bump (next@16) — deferred per CLAUDE.md upgrade planning
+    - GHSA-9g9p-9gw9-jx7f: Next.js DoS via Image Optimizer
+    - GHSA-vfv6-92ff-j949: Next.js cache poisoning
+    - GHSA-qx2v-qp2m-jg93: PostCSS XSS
+    - GHSA-q4gf-8mx6-v5v3, GHSA-h25m-26qc-wcjf: additional Next.js DoS
 known_failures:
-  - no CI configured for walletradar — historical June 12 note; later PR attribution/commit-message checks are configured
   - canvas postinstall script fails in sandbox — use --ignore-scripts
-  - PR #47 (chore/maintenance-2026-06-09) superseded by this branch (same fixes on rebased main)
-skip_next_run: []
+  - PR #47 (chore/maintenance-2026-06-09) superseded
+  - PR #63 (chore/maintenance-2026-07-15) open — current security pass
 attempt_counts:
-
-## Dead Code Scan Notes (2026-06-12)
-- rg TODO/FIXME/HACK: no results
-- rg dead console.log (non-test): no results
-- rg @ts-ignore/@ts-nocheck: no results
-- Dead functions already removed in PR #47 (parseRecommendation, parseHardwareRecommendation)
-- Repo is clean — no actionable dead code found
