@@ -1,0 +1,11 @@
+{
+  "name": "walletradar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:utils": "vitest run tests/"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.10"
+  }
+}
