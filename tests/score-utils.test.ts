@@ -1,18 +1,9 @@
 /**
- * Tests for getScoreColorClasses() in frontend/src/lib/utils.ts.
+ * Tests for getScoreColorClasses() in frontend/src/lib/score-utils.ts.
  * Runs via: bunx vitest run tests/score-utils.test.ts
- *
- * The function is inlined here to avoid the Next.js/clsx module graph.
- * Any divergence from the source will be caught by the structural assertions.
  */
 import { describe, expect, it } from 'vitest';
-
-// Mirrors frontend/src/lib/utils.ts::getScoreColorClasses exactly.
-function getScoreColorClasses(score: number): string {
-  if (score >= 75) return 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400';
-  if (score >= 50) return 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400';
-  return 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400';
-}
+import { getScoreColorClasses } from '../frontend/src/lib/score-utils';
 
 describe('getScoreColorClasses', () => {
   describe('green band (score >= 75)', () => {
