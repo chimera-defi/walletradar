@@ -654,7 +654,7 @@ function countFirstTableColumns(fileName: string): number {
     return line
       .split('|')
       .slice(1, -1)
-      .map(cell => cell.trim())
+      .map((cell: string) => cell.trim())
       .filter(Boolean)
       .length;
   }

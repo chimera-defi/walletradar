@@ -29,8 +29,8 @@ export function getArticleSlugs(): string[] {
 
     const files = fs.readdirSync(ARTICLES_DIR);
     return files
-      .filter(file => file.endsWith('.md'))
-      .map(file => file.replace(/\.md$/, ''));
+      .filter((file: string) => file.endsWith('.md'))
+      .map((file: string) => file.replace(/\.md$/, ''));
   } catch (error) {
     console.error('Error reading articles directory:', error);
     return [];

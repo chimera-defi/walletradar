@@ -105,7 +105,7 @@ export async function fetchChainsTVL(): Promise<ChainData[]> {
     const response = await fetch('https://api.llama.fi/v2/chains', {
       next: { revalidate: 3600 }, // Cache for 1 hour in Next.js
       signal: AbortSignal.timeout(10_000),
-    });
+    } as RequestInit & { next?: { revalidate?: number } });
 
     if (!response.ok) {
       throw new Error(`DeFiLlama API error: ${response.status}`);
