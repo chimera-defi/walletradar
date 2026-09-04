@@ -1,9 +1,11 @@
 # Maintenance State
-last_run: 2026-09-03
-focus: tests
+last_run: 2026-09-04
+focus: dead-code
 status: completed
 completed:
-  - test(explore-url-state): add 48 unit tests for parseSortState, serializeSortState, parseSearchParam, normalizeFilterState, parseFilterState, serializeFilterState, clearControlledQueryParams — previously zero coverage (PR #72)
+  - refactor(analytics): remove dead export `GA_MEASUREMENT_ID` — only used internally, no external import
+  - refactor(search-data): delete unused `WalletCategory` type export — never referenced outside module
+  - refactor(search-data): remove export from `generateSearchData` — called only internally by `getSearchData`
 in_progress:
 pending: []
 known_failures:
