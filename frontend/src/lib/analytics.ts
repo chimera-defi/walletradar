@@ -3,7 +3,7 @@
  * Use from client components only (checks typeof window)
  */
 
-export const GA_MEASUREMENT_ID = 'G-L6ZV569CMN';
+const GA_MEASUREMENT_ID = 'G-L6ZV569CMN';
 
 declare global {
   interface Window {
