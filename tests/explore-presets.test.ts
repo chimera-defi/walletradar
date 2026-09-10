@@ -7,6 +7,14 @@ import { QUICK_PRESETS, type PresetConfig } from '../frontend/src/lib/explore-pr
 
 const EXPECTED_TABS = ['software', 'hardware', 'cards', 'ramps'] as const;
 
+// Mirrors SORT_FIELDS_BY_TAB in explore-url-state.ts — keeps the test self-contained.
+const SORT_FIELDS_BY_TAB: Readonly<Record<string, ReadonlySet<string>>> = {
+  software: new Set(['score', 'name', 'chains', 'releasesPerMonth']),
+  hardware: new Set(['score', 'name', 'price']),
+  cards: new Set(['score', 'name', 'cashBackMax']),
+  ramps: new Set(['score', 'name']),
+};
+
 // ── tab presence ─────────────────────────────────────────────────────────────
 
 describe('QUICK_PRESETS tab presence', () => {
@@ -42,10 +50,10 @@ describe('QUICK_PRESETS preset shape', () => {
     }
   });
 
-  it.each(EXPECTED_TABS)('optional sort field in "%s" is valid when present', (tab) => {
+  it.each(EXPECTED_TABS)('optional sort field in "%s" is a valid per-tab sort field when present', (tab) => {
     for (const preset of QUICK_PRESETS[tab]) {
       if (preset.sort !== undefined) {
-        expect(typeof preset.sort.field).toBe('string');
+        expect(SORT_FIELDS_BY_TAB[tab].has(preset.sort.field)).toBe(true);
         expect(['asc', 'desc']).toContain(preset.sort.direction);
       }
     }
