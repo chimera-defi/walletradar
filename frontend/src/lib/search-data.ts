@@ -4,7 +4,6 @@ import { getAllArticles } from './articles';
 import { brandFaqAnswer, brandFaqQuestion } from './brand';
 
 export type SearchResultType = 'wallet' | 'doc' | 'article' | 'faq';
-export type WalletCategory = 'software' | 'hardware' | 'cards' | 'ramps';
 
 export interface SearchItem {
   id: string;
@@ -91,7 +90,7 @@ const faqItems = [
  * Generate search data from all content sources
  * This runs at build time via the component's data loading
  */
-export function generateSearchData(): SearchItem[] {
+function generateSearchData(): SearchItem[] {
   const items: SearchItem[] = [];
 
   // Add wallet data
