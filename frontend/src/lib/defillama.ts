@@ -3,7 +3,7 @@
  * Fetches chain TVL data for wallet chain support context
  */
 
-export interface ChainTVL {
+interface ChainTVL {
   name: string;
   tvl: number;
   chainId: string | null;
@@ -95,7 +95,7 @@ const EVM_CHAINS = new Set([
 /**
  * Fetch all chains with TVL from DeFiLlama
  */
-export async function fetchChainsTVL(): Promise<ChainData[]> {
+async function fetchChainsTVL(): Promise<ChainData[]> {
   // Return cached data if fresh
   if (cachedChainData && Date.now() - cacheTimestamp < CACHE_DURATION) {
     return cachedChainData;
@@ -139,76 +139,6 @@ export async function fetchChainsTVL(): Promise<ChainData[]> {
     }
     return [];
   }
-}
-
-/**
- * Get top N EVM chains by TVL
- * @future Available for wallet chain coverage analysis
- */
-export async function getTopEVMChains(limit: number = 20): Promise<ChainData[]> {
-  const chains = await fetchChainsTVL();
-  return chains.filter(chain => chain.isEVM).slice(0, limit);
-}
-
-/**
- * Get total EVM TVL
- * @future Available for dashboard statistics
- */
-export async function getEVMTotalTVL(): Promise<{ total: number; formatted: string }> {
-  const chains = await fetchChainsTVL();
-  const evmChains = chains.filter(chain => chain.isEVM);
-  const total = evmChains.reduce((sum, chain) => sum + chain.tvl, 0);
-  return {
-    total,
-    formatted: formatTVL(total),
-  };
-}
-
-/**
- * Get chain data by name
- * @future Available for chain-specific wallet analysis
- */
-export async function getChainByName(name: string): Promise<ChainData | null> {
-  const chains = await fetchChainsTVL();
-  return chains.find(chain => chain.name.toLowerCase() === name.toLowerCase()) || null;
-}
-
-/**
- * Calculate wallet chain coverage
- * Returns what percentage of total EVM TVL a wallet's supported chains cover
- * @future Available for wallet comparison metrics
- */
-export async function calculateChainCoverage(
-  supportedChainCount: number | string
-): Promise<{
-  coverage: number;
-  coverageFormatted: string;
-  supportedTVL: string;
-}> {
-  if (typeof supportedChainCount === 'string') {
-    // 'any' or 'evm' means full coverage
-    return {
-      coverage: 100,
-      coverageFormatted: '100%',
-      supportedTVL: 'All EVM chains',
-    };
-  }
-
-  const chains = await fetchChainsTVL();
-  const evmChains = chains.filter(chain => chain.isEVM);
-  const totalEVMTVL = evmChains.reduce((sum, chain) => sum + chain.tvl, 0);
-
-  // Assume wallets support the top chains by TVL
-  const supportedChains = evmChains.slice(0, Math.min(supportedChainCount, evmChains.length));
-  const supportedTVL = supportedChains.reduce((sum, chain) => sum + chain.tvl, 0);
-
-  const coverage = totalEVMTVL > 0 ? (supportedTVL / totalEVMTVL) * 100 : 0;
-
-  return {
-    coverage: Math.round(coverage * 100) / 100,
-    coverageFormatted: `${coverage.toFixed(1)}%`,
-    supportedTVL: formatTVL(supportedTVL),
-  };
 }
 
 /**
