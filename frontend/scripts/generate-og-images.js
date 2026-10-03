@@ -991,4 +991,7 @@ async function main() {
   console.log('3. Test with Twitter Card Validator: https://cards-dev.twitter.com/validator');
 }
 
-main().catch(console.error);
+main().catch(err => {
+  console.error(err);
+  process.exitCode = 1;
+});
