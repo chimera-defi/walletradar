@@ -86,7 +86,7 @@ This recheck supersedes older custody notes for KAST, Jupiter Card, CryptoSpend/
 | **Spendly** | 🔐 Self | 📋 CeFi | Official terms describe crypto top-up and prepaid card loading, but do not state that users retain keys or self-custody through card spend. Conservative label is CeFi/prepaid custody. | https://www.usespendly.com/tos |
 | **Jupiter Card** | 🔐 Self | 📋 CeFi | Official Jupiter docs say Jupiter does not custody wallet funds, but Spend/card balances are managed by regulated financial partners. | https://docs.jup.ag/user-docs/global/spend |
 | **Bitget Wallet Card** | 🔐 Self | 📋 CeFi | Official Bitget/DCS card terms authorize liquidation/access to wallet assets for card transactions, and DCS DeCard prepayments become DCS property rather than user-custodied funds. | https://www.bitget.com/support/articles/12560603881449 |
-| **OKX Card** | 🏦 Exch | 🔐 Self | Official OKX Card docs say stablecoins stay in the user's wallet until purchase through OKX Pay. | https://www.okx.com/en-eu/learn/okx-card-europe-explained |
+| **OKX Card** | 🏦 Exch | 🔐 Self → 🏦 Exch (Oct 2026) | Reverted: "OKX Pay holds the USDC or USDG balance" (OKX explainer, 2026-10-10). | https://www.okx.com/en-eu/learn/okx-card-europe-explained |
 
 ### Deferred / Not Changed
 
@@ -117,7 +117,7 @@ Every current `CRYPTO_CARDS.md` row was reviewed in the June 2026 second pass. `
 | 14 | ThorWallet | 🔐 Self | CLEAN | THORWallet FAQ describes a non-custodial wallet model. |
 | 15 | Payy | 🔐 Self | CLEAN | Payy card/wallet materials describe user-controlled wallet funds and non-custodial software. |
 | 16 | Wirex Card | 📋 CeFi | CLEAN | Kept CeFi because self-custody evidence maps to newer Wirex One/BaaS, not the legacy Wirex Card row. |
-| 17 | 1inch Card | 🔐 Self | CLEAN | 1inch terms describe products as non-custodial. |
+| 17 | 1inch Card | 📋 CeFi | CHANGED (Oct 2026) | 1inch.com/card: prepaid Mastercard issued by Monavate, developed with Baanx, managed by Crypto Life. |
 | 18 | Avici Money | 🔐 Self | CLEAN | Avici terms say Avici does not custody funds, keys, or collateral. |
 | 19 | Gemini Card | 🏦 Exch | CLEAN | Gemini card rewards and balances are tied to Gemini exchange custody. |
 | 20 | KAST | 📋 CeFi | CHANGED | KAST terms say user-transferred virtual assets are sold to KAST and managed through a custodian for KAST. |
@@ -128,7 +128,7 @@ Every current `CRYPTO_CARDS.md` row was reviewed in the June 2026 second pass. `
 | 25 | Nexo Card | 📋 CeFi | CLEAN | Nexo Card is tied to Nexo platform credit/debit balances. |
 | 26 | CryptoSpend / Wayex | 📋 CeFi | CHANGED | Wayex materials describe Wayex as a custodial wallet for the default app/card flow. |
 | 27 | ToonPay Card | 📋 CeFi | CLEAN | ToonPay uses a centralized prepaid card/top-up model. |
-| 28 | Fuse Wallet Card | 🔐 Self | CLEAN | Fuse Card materials describe USDC staying in the user's Fuse wallet until purchase. |
+| 28 | Fuse Wallet Card | 📋 CeFi | CHANGED (Oct 2026) | Official card terms (Lead Bank issuer, Bridge) not retrieved; self-custody unconfirmed, conservative label. |
 | 29 | Reap | 📋 CeFi | CLEAN | Reap is a centralized business card/payment platform. |
 | 30 | Spendly | 📋 CeFi | CHANGED | Spendly terms describe crypto top-up/card loading without user-key custody through card spend. |
 | 31 | Shakepay Card | 📋 CeFi | CLEAN | Shakepay card spend uses Shakepay account balances. |
@@ -136,12 +136,12 @@ Every current `CRYPTO_CARDS.md` row was reviewed in the June 2026 second pass. `
 | 33 | Uphold Card | 📋 CeFi | CLEAN | Uphold is a centralized multi-asset platform; row remains verify. |
 | 34 | Meow Card | 📋 CeFi | CLEAN | Meow corporate cards use banking/card partners and centralized business finance rails. |
 | 35 | Solflare Card | 🔐 Self | CLEAN | Solflare help describes direct USDC spend from a connected Solflare wallet. |
-| 36 | OKX Card | 🔐 Self | CHANGED | OKX Card docs say stablecoins remain in the user's wallet until purchase through OKX Pay. |
+| 36 | OKX Card | 🏦 Exch | CHANGED (Oct 2026) | OKX explainer: stablecoins stay in the wallet until purchase, but "OKX Pay holds the USDC or USDG balance". Operator ruling: Exch. |
 | 37 | BitPay Card | 📋 CeFi | CLEAN | BitPay card loads funds to a prepaid/card balance, even when paired with self-custody wallets. |
 | 38 | Slash Platinum Card | 📋 CeFi | CLEAN | Slash corporate cards are issued through banking/card partners. |
 | 39 | Bitget Wallet Card | 📋 CeFi | CHANGED | Bitget/DCS card terms authorize program access/liquidation for transactions and DCS prepayments are not user-custodied. |
 | 40 | Binance Card | 🏦 Exch | CLEAN | Binance Card is tied to Binance exchange balances. |
-| 41 | CoinJar Card | 🏦 Exch | CLEAN | CoinJar Card spends from CoinJar exchange/account balances. |
+| 41 | CoinJar Card | 📋 CeFi | CHANGED (Oct 2026) | Prepaid Mastercard issued via EML Payment Solutions. |
 | 42 | Kraken Card | 🏦 Exch | CLEAN | Kraken Card is tied to Kraken exchange account custody; launch state remains verify. |
 | 43 | Swissborg Card | 📋 CeFi | CLEAN | Swissborg card custody is through the Swissborg platform, not user-key card spend. |
 | 44 | Kontigo | 🔐 Self | INACTIVE | Historical row retained with discontinued status after Rain shut down the card program. |
@@ -158,7 +158,6 @@ Custody classifications were verified via browser automation (Playwright) by sea
 | **Ready Card** | "100% self-custody", "stay in control with self-custody", "Pioneering self-custody since 2017" | ready.co/card |
 | **EtherFi Cash** | "non-custodial, cashback credit card", "Non-custodial & secure", "Your crypto remains in your control" | ether.fi/cash |
 | **Gnosis Pay** | "SELF-CUSTODIAL", "Self-Custody: Users maintain full control", "Take control of your money through your SAFE account" | gnosispay.com |
-| **OKX Card** | Stablecoins remain in the user's wallet until card purchase through OKX Pay | okx.com |
 
 ### 🏦 Exchange Custody Cards
 
@@ -172,7 +171,7 @@ Cards issued by centralized finance companies where the company holds funds:
 
 ### ⚠️ Notes on 1inch Card
 
-The 1inch Card is classified as self-custody based on marketing ("tied to your crypto wallet"), but it's a "prepaid Mastercard powered by Crypto Life (CL), developed in partnership with Baanx". For prepaid cards, funds typically leave user control when loaded. Classification kept as self-custody per marketing, but users should verify actual custody model.
+The 1inch Card is classified as self-custody based on marketing ("tied to your crypto wallet"), but it's a "prepaid Mastercard powered by Crypto Life (CL), developed in partnership with Baanx". For prepaid cards, funds typically leave user control when loaded. Reclassified to CeFi in October 2026 (see CRYPTO_CARDS_DETAILS.md Verification Log).
 
 ---
 
