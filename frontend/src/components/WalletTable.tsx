@@ -1,12 +1,7 @@
 'use client';
 
-import {
-  ExternalLink,
-  Github,
-  Shield,
-  Zap,
-  AlertTriangle,
-} from 'lucide-react';
+import { ExternalLink, Shield, Zap, AlertTriangle } from 'lucide-react';
+import { Github } from './BrandIcons';
 import Link from 'next/link';
 import { Tooltip, HeaderTooltip } from '@/components/Tooltip';
 import {

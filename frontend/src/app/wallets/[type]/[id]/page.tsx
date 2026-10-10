@@ -35,7 +35,7 @@ const methodologyDocs: Record<WalletType, string> = {
   'qr-payments': '/docs/qr-payments-details#scoring-methodology',
 };
 
-const typeIcons: Record<WalletType, JSX.Element> = {
+const typeIcons: Record<WalletType, React.JSX.Element> = {
   software: <Wallet className="h-5 w-5" />,
   hardware: <Cpu className="h-5 w-5" />,
   cards: <CreditCard className="h-5 w-5" />,

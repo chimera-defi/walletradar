@@ -10,7 +10,6 @@
  * - Dependency-free (plain Node.js).
  * - Reads markdown tables from the repository root.
  */
-/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const {

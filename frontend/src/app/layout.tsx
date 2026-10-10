@@ -6,7 +6,7 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
-import { getSearchData } from '@/lib/search-data';
+import { getSearchData } from '@/lib/search-data.server';
 import { brand } from '@/lib/brand';
 
 // Google Analytics Measurement ID - hardcoded for static export reliability
