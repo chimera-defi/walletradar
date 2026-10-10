@@ -1,6 +1,7 @@
 'use client';
 
-import { Twitter, Facebook, Linkedin, Mail, Link2, Check } from 'lucide-react';
+import { Mail, Link2, Check } from 'lucide-react';
+import { Twitter, Facebook, Linkedin } from './BrandIcons';
 import { useState } from 'react';
 import { getSocialShareUrls } from '@/lib/seo';
 import { trackShare, trackCopyLink } from '@/lib/analytics';
@@ -36,7 +37,7 @@ export function SocialShare({ url, title, description, className = '', size = 'd
     trackShare(platform, 'page', url);
     const shareUrl = shareUrls[platform];
     if (platform === 'email') {
-      window.location.href = shareUrl;
+      window.location.assign(shareUrl);
     } else {
       window.open(shareUrl, '_blank', 'width=600,height=400,noopener,noreferrer');
     }

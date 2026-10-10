@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Wallet, Github, ExternalLink, Mail, Twitter } from 'lucide-react';
+import { Wallet, ExternalLink, Mail } from 'lucide-react';
+import { Github, Twitter } from './BrandIcons';
 import { trackOutboundLink } from '@/lib/analytics';
 import { aboutBrandLabel, appendUtm, brand } from '@/lib/brand';
 

@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X, Wallet, Github, Twitter } from 'lucide-react';
+import { Menu, X, Wallet } from 'lucide-react';
+import { Github, Twitter } from './BrandIcons';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
 import { SiteSearch } from './SiteSearch';
