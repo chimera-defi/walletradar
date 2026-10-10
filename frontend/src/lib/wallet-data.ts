@@ -800,22 +800,6 @@ export function getWalletById(type: WalletType, id: string): WalletData | null {
   return wallets.find(wallet => wallet.id === id) ?? null;
 }
 
-/**
- * Programmatic filtering/sorting utilities.
- *
- * Kept as exports from this module for backward compatibility, but implemented
- * in `wallet-filtering.ts` to avoid duplicated logic and to support client-safe reuse.
- */
-export type { FilterOptions, SortDirection, SortField } from './wallet-filtering';
-export {
-  filterCryptoCards,
-  filterHardwareWallets,
-  filterQRPayments,
-  filterRamps,
-  filterSoftwareWallets,
-  sortWallets,
-} from './wallet-filtering';
-
 export interface WalletCompany {
   name: string;
   aggregatedScore: number;

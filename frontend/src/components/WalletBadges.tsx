@@ -82,7 +82,7 @@ export function calculateMedianScore<T extends { score: number }>(items: T[]): n
   return sortedScores[middleIndex];
 }
 
-export function ScoreBreakdownPreview({
+function ScoreBreakdownPreview({
   breakdown,
   tooltipLinkHref,
 }: {
@@ -346,7 +346,7 @@ export function SelectionButton({
   );
 }
 
-export function getChainTooltip(chains: SupportedChains): string {
+function getChainTooltip(chains: SupportedChains): string {
   const supported: string[] = [];
   if (chains.evm) supported.push('EVM (Ethereum, Polygon, Arbitrum, etc.)');
   if (chains.bitcoin) supported.push('Bitcoin');
@@ -557,5 +557,3 @@ export function WalletItemCard({
   );
 }
 
-// Re-export ExternalLink icon for use in WalletTable item renderers
-export { ExternalLink, AlertTriangle };
