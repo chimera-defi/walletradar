@@ -2,6 +2,7 @@
 
 import { ExternalLink, Shield, Zap, AlertTriangle } from 'lucide-react';
 import { Github } from './BrandIcons';
+import { AttributeChips, cardAttributeViews, walletAttributeViews } from '@/components/AttributeBadges';
 import Link from 'next/link';
 import { Tooltip, HeaderTooltip } from '@/components/Tooltip';
 import {
@@ -94,6 +95,7 @@ function SoftwareWalletItem({
             </span>
           )}
           <div className="text-sm text-muted-foreground">{wallet.bestFor}</div>
+          <AttributeChips views={walletAttributeViews(wallet.attributes)} />
         </td>
         <td className="py-3 px-4">
           <DeviceIcons devices={wallet.devices} tooltipLinkHref={detailHref} />
@@ -144,6 +146,12 @@ function SoftwareWalletItem({
       scoreMedian={scoreMedian}
     >
       <p className="text-sm text-muted-foreground mb-3">{wallet.bestFor}</p>
+      {wallet.partialData && (
+        <p className="mb-2 text-xs text-muted-foreground" title="Only sourced fields are filled; unknown fields are TBD, so the score is a lower bound.">
+          <span className="rounded border border-border px-1.5 py-0.5">partial data</span>
+        </p>
+      )}
+      <div className="mb-3"><AttributeChips views={walletAttributeViews(wallet.attributes)} /></div>
 
       <div className="flex items-center gap-4 mb-3">
         <DeviceIcons devices={wallet.devices} tooltipLinkHref={detailHref} />
@@ -309,6 +317,11 @@ function HardwareWalletItem({
       detailHref={detailHref}
       scoreMedian={scoreMedian}
     >
+      {wallet.partialData && (
+        <p className="mb-2 text-xs text-muted-foreground" title="Only sourced fields are filled; unknown fields are TBD, so the score is a lower bound.">
+          <span className="rounded border border-border px-1.5 py-0.5">partial data</span>
+        </p>
+      )}
       <p className="text-lg font-semibold text-primary mb-1">{wallet.priceText}</p>
       {wallet.priceLastChecked && (
         <p className="text-xs text-muted-foreground mb-2">Price checked {wallet.priceLastChecked}</p>
@@ -409,6 +422,7 @@ function CryptoCardItem({
             )}
           </div>
           <div className="text-sm text-muted-foreground">{card.bestFor}</div>
+          <AttributeChips views={cardAttributeViews(card.attributes)} />
         </td>
         <td className="py-3 px-4">
           <Badge variant="info" tooltip={cryptoCardTooltips.cardType[card.cardType]} tooltipLinkHref={detailHref}>{card.cardType}</Badge>
@@ -493,6 +507,7 @@ function CryptoCardItem({
       </Tooltip>
 
       <p className="text-sm text-muted-foreground mb-3">{card.bestFor}</p>
+      <div className="mb-3"><AttributeChips views={cardAttributeViews(card.attributes)} /></div>
 
       <div className="flex flex-wrap gap-2 mb-3">
         <Badge variant="default" tooltip={cryptoCardTooltips.region[card.regionCode as keyof typeof cryptoCardTooltips.region] || `Available in ${card.region}`} tooltipLinkHref={detailHref}>

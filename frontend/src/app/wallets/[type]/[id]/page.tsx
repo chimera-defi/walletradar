@@ -6,6 +6,7 @@ import { ArrowLeft, ExternalLink, ShieldCheck, Star, Wallet, Cpu, CreditCard, Ar
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SocialShare } from '@/components/SocialShare';
 import { ScoreBreakdownBar } from '@/components/ScoreBreakdownBar';
+import { AttributeList, cardAttributeViews, walletAttributeViews } from '@/components/AttributeBadges';
 import { getAllWalletData, getWalletById, getWalletsByType, isWalletType, type WalletType } from '@/lib/wallet-data';
 import { generateWalletKeywords, optimizeMetaDescription, generateBreadcrumbSchema, generateWalletProductSchema } from '@/lib/seo';
 import { aboutBrandLabel, brand, withBrand } from '@/lib/brand';
@@ -456,6 +457,22 @@ export default async function WalletDetailPage({ params: paramsPromise }: { para
               </div>
             </details>
           </div>
+
+          {(params.type === 'software' || params.type === 'cards') && (
+            <div className="rounded-xl border border-border p-4 sm:p-6 mb-6">
+              <h2 className="text-xl font-semibold mb-2">Sourced attributes</h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                Not part of the score. &quot;Not evaluated&quot; means we have no primary source for it yet, not that the answer is no.
+              </p>
+              <AttributeList
+                views={
+                  params.type === 'software'
+                    ? walletAttributeViews((wallet as SoftwareWallet).attributes)
+                    : cardAttributeViews((wallet as CryptoCard).attributes)
+                }
+              />
+            </div>
+          )}
 
           <div className="rounded-xl border border-border p-4 sm:p-6">
             <h2 className="text-xl font-semibold mb-4">Source & References</h2>
