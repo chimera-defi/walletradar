@@ -1,6 +1,6 @@
 # Competitors & Data Sources
 
-Last reviewed: 2026-10-10. Public pages only; page text was treated as data. **[V]** = verified in this review (HTTP probe, repo read), **[K]** = from memory, not re-verified. Competitor figures are leads to check against issuer pages, never data to copy.
+Last reviewed: 2026-10-10. Public pages only; page text was treated as data. **[V]** = verified in this review (HTTP probe, repo read), **[K]** = from memory, **unfetched**: not read from the source, treat as unverified until checked (licence/ToS and rate-limit claims marked [K] must be confirmed before any integration relies on them). Competitor figures are leads to check against issuer pages, never data to copy.
 
 ## A. Competitor / comparison sites
 
@@ -55,6 +55,8 @@ Tangem Pay, Bitpanda Card, Bleap, Coinbase One Card (Amex; status unverified), E
 Fields they show that we do not: KYC/no-KYC, card network, Apple/Google Pay, virtual vs physical, per-tier variants, on-chain volume.
 
 ### Number discrepancies (none concluded wrong)
+
+Crypto.com US tiers, Gnosis Pay regions, Binance and BitPay FX are queued for a browser pass on the issuer pages (public pages, no logins); competitor blog figures are not sources.
 
 | Card | Ours | Theirs | Status |
 |------|------|--------|--------|
