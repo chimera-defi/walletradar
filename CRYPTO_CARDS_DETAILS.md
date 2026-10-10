@@ -17,7 +17,7 @@
 | 5 | **CryptoSpend** | 76 | Australia (Wayex) | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
-**Last Updated:** June 16, 2026 (Custody taxonomy clarified as card spend-path custody: KAST, Jupiter, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, and Nummus Wallet Card are treated as CeFi/card-platform for card spend; OKX Card remains self-custody based on OKX Card docs)
+**Last Updated:** October 10, 2026 (Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, Fuse, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
 
 ---
 
@@ -136,7 +136,7 @@ Hybrid products should be classified by the actual card spend path. If a product
 - CryptoSpend Card (BTC, ETH, others)
 
 #### Stablecoin-Focused (No Traditional Rewards)
-- Kast Card (Kast Points - 2-12%)
+- Kast Card (Kast Points - 1.5-3%, promo to 12%)
 - Solflare Card (No cashback, raffle rewards until Feb 2026)
 - Fuse Wallet Card (No rewards)
 - Payy Card (No rewards - privacy-focused)
@@ -1032,11 +1032,9 @@ Kast is a stablecoin banking platform offering Visa debit cards that let users s
 **Rewards Structure:**
 | Tier | Annual Fee | Cashback | Notes |
 |------|------------|----------|-------|
-| K Card | $20/year | 2-6% | Kast Points |
-| X Card | $1,000/year | 5-12% | Kast Points |
-| Solana Card | Free | Variable | Virtual only |
-| Solana Illuma | 10 SOL | Variable | Light-up metal |
-| Founders Card | $10,000/year | Premium | Exclusive |
+| Standard | $0 | 1.5% | Kast Points (Oct 2026 site) |
+| Premium | $1,000/year | 2% | Promo up to 10% to mid-2027 |
+| Private | $10,000/year | 3% | Promo up to 12% to mid-2027 |
 
 **Fees:**
 - Annual Fee: $20-$10,000 (tier dependent)
@@ -1836,33 +1834,7 @@ Please visit [reap.global](https://reap.global) directly in a web browser to ver
 
 ## Score Summary
 
-| Score Range | Count | Cards |
-|-------------|-------|-------|
-| 🟢 Recommended (top half) | 10 | EtherFi Cash (85), Ready (83), Hi (79 ⚠️), Gnosis Pay (78), Wirex (78 ⚠️), Fold (77), Gemini (76), KuCard (76), Revolut (76), Coinbase (75) |
-| 🟡 Situational (middle quartile) | 14 | Bybit (74 ⚠️), Plutus (73), Uphold (73 ⚠️), CryptoSpend (71), Shakepay (70), 1inch (70), Binance (67), RedotPay (74), CoinJar (65), Nexo (63), Kraken (60 ⚠️), Swissborg (60 ⚠️), BitPay (56), OKX (50 ⚠️) |
-| 🔴 Avoid (bottom quartile/inactive) | 2 | Reap (47), Crypto.com (41) |
-
-**Key Corrections (January 2026):**
-- Ready Card: **3% cashback** (was incorrectly listed as "Up to 10%")
-- Binance Card: **Up to 3% max** (was incorrectly listed as "Up to 8%")
-- Crypto.com Visa: **0% base tier** (requires $400+ CRO stake for any rewards, 12-month lock)
-- Nexo Card: Has **FX fees on weekdays** (was listed as 0% FX)
-
-**⚠️ Note:** Cards marked with ⚠️ have unverified data (website unreachable or incomplete info). Mode is discontinued/unreachable.
-
-### Human Suggestions Scoring
-
-Score adjustments based on real-world user experiences and company reputation:
-
-**Penalties:**
-- **Crypto.com Visa: -20 points** - Poor UX, customer service issues, 12-month staking lock-ups, 0% base tier
-- **TBD/Unverified data: -3 to -5 points** - OKX Card, Kraken Card, Uphold Card, Swissborg Card
-- **Custody score:** 🔐 self-custody spend path = 14, 📋 CeFi/card-platform = 8, 🏦 exchange = 6 through the `Custody & Coverage` bucket.
-
-**Bonuses:**
-- **Self-custody spend-path signal:** Self-custody rows score higher mechanically through the `Custody & Coverage` bucket. After the June 2026 recheck, CryptoSpend/Wayex, Jupiter, Bitget Wallet Card, and Nummus Wallet Card are not treated as self-custodial for the card spend path; OKX Card remains self-custody based on official OKX Card docs.
-- **Verified cards: +2 points** - Plutus, Shakepay, EtherFi Cash
-- **Credit card type bonus** - EtherFi Cash, Gemini, Nexo (credit cards score higher)
+Current scores and recommendation bands are generated in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) (see the Verification Log below for the October 2026 changes).
 
 ---
 
