@@ -5,16 +5,16 @@
 > **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Amp Pay Black Card (84, Solana payments, 🟢), Crypto.com Visa (83, CRO stakers ⚠️, 🟢), and Ready Card (83, Self-custody EU/UK, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Plasma One (81, USDT spend card, 🟢), MetaMask Card (77, Self-custodial spending (US/UK signups paused), 🟢), and Avici Money (76, Collateral-backed, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
 | ---- | ---- | ----- | -------- | --- |
 | 1 | **EtherFi Cash** | 92 | Self-custody DeFi | 🟢 |
-| 2 | **Amp Pay Black Card** | 84 | Solana payments | 🟢 |
-| 3 | **Crypto.com Visa** | 83 | CRO stakers ⚠️ | 🟢 |
-| 4 | **Ready Card** | 83 | Self-custody EU/UK | 🟢 |
-| 5 | **Tria** | 82 | Token rewards | 🟢 |
+| 2 | **Plasma One** | 81 | USDT spend card | 🟢 |
+| 3 | **MetaMask Card** | 77 | Self-custodial spending (US/UK signups paused) | 🟢 |
+| 4 | **Avici Money** | 76 | Collateral-backed | 🟢 |
+| 5 | **CryptoSpend** | 76 | Australia (Wayex) | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
 **Last Updated:** June 16, 2026 (Custody taxonomy clarified as card spend-path custody: KAST, Jupiter, CryptoSpend/Wayex, Spendly, Bitget Wallet Card, and Nummus Wallet Card are treated as CeFi/card-platform for card spend; OKX Card remains self-custody based on OKX Card docs)
@@ -34,6 +34,7 @@
 9. [Security & Trust](#security--trust)
 10. [Tax Considerations](#tax-considerations)
 11. [Recommendations by Use Case](#recommendations-by-use-case)
+12. [Verification Log (October 2026)](#verification-log-october-2026)
 
 ---
 
@@ -1862,6 +1863,69 @@ Score adjustments based on real-world user experiences and company reputation:
 - **Self-custody spend-path signal:** Self-custody rows score higher mechanically through the `Custody & Coverage` bucket. After the June 2026 recheck, CryptoSpend/Wayex, Jupiter, Bitget Wallet Card, and Nummus Wallet Card are not treated as self-custodial for the card spend path; OKX Card remains self-custody based on official OKX Card docs.
 - **Verified cards: +2 points** - Plutus, Shakepay, EtherFi Cash
 - **Credit card type bonus** - EtherFi Cash, Gemini, Nexo (credit cards score higher)
+
+---
+
+## Verification Log (October 2026)
+
+Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text was treated as data. Many issuer sites blocked fetches (403/404/429); fields that could not be confirmed were set to `TBD` or left as previously published and are listed under **Unverified**. Sources per card: EtherFi (ether.fi/cash, etherfi.gitbook.io legal docs), Plasma One (plasma.org/personal), KAST (kast.xyz, Terms of Service effective 2026-07-07), Ethena Pay (pay.ethena.fi), Crypto.com ([US fees](https://help.crypto.com/en/articles/5966563-crypto-com-visa-card-fees-and-limits-united-states)), Ready ([terms](https://www.ready.co/legal/ready-rewards-terms-and-conditions), [The Defiant](https://thedefiant.io/news/cefi/ready-shuts-card-program-after-issuer-winds-down)), KuCard ([terms](https://www.kucoin.com/announcement/KuCard-Terms-of-Use)), MetaMask ([FAQ](https://support.metamask.io/trade/metamask-card/card-faq/)), 1inch (1inch.com/card), ThorWallet (thorwallet.org/cards), Gnosis Pay (gnosispay.com), Gemini, Plutus ([fees](https://www.plutus.it/fees), [terms](https://www.plutus.it/legal/terms-and-conditions/gbp)), RedotPay ([help](https://helpcenter.redotpay.com/en/articles/10566200)), Jupiter ([docs](https://docs.jup.ag/user-docs/global/spend/jupiter-card)), Avici ([docs](https://docs.avici.money/getting-started/secured-credit-cards.md)), Wayex, Shakepay ([agreement](https://legal.shakepay.com/master/shakepay-visa-card-cardholder-agreement)), Meow ([terms](https://meow.com/card-reward-terms)), Solflare (solflare.com/crypto-card), Tuyo ([card](https://tuyo.com/card)), Slash ([terms](https://www.slash.com/legal/cashback-terms)), Binance ([Brazil FAQ](https://www.binance.com/en/support/faq/an-overview-of-the-binance-brazil-card-53e464e091ba40d39f88f5f62882166c)), Kraken ([FAQ](https://support.krak.app/articles/krak-card-faqs)), Swissborg ([FAQ](https://help.swissborg.com/hc/en-gb/articles/42850564502545-SwissBorg-Crypto-Debit-Card-FAQs)), CoinJar, OKX ([explainer](https://www.okx.com/learn/okx-card-europe-explained)), Uphold ([The Block](https://www.theblock.co/post/376864), *secondary*).
+
+### Changes
+
+| Card | Field | Old | New | Note |
+|------|-------|-----|-----|------|
+| Plasma One | Status / URL | ⚠️, plasma.to/one | ✅, plasma.org/personal | Live in apps; Lite 2% / Core 3% / Platinum 4% in XPL |
+| Plasma One | FX | 0-1.5% | 0-1% | +1% Lite, +0.5% Core, 0% Platinum (Visa adds ~1% on Lite/Core); membership prices in-app only |
+| KAST | Cashback | 2-12% | 1.5-3% (promo to 12%) | Standard/Premium/Private tiers; promo ends 2027 |
+| KAST | Biz / Annual | ❌, $20-$1,000 | ✅, $0-$10,000 | KAST Business launched 2026-09-01; tiers renamed |
+| Amp Pay Black | Status | ✅ | ❌ | Wind-down announced 2026-05 *(secondary)* |
+| Ready Card | Status | ✅ | ❌ | Issuer Kulipa wound down, program shut 2026-07 *(press)* |
+| Crypto.com Visa | FX / Cashback | 0% / 0-8% | 0-3% / 0-4.5% | US FX 3% on mid tiers; caps and stake lock apply |
+| Tria | Type / Annual / FX / Rewards | Credit / $0 / 1% / TRIA | Prepaid / $25-$250 / up to 3% / Stables | Status ⚠️ (terms not retrievable) |
+| KuCard | Region / Cashback / Annual | Global / up to 4% / $0 | EEA / up to 1% / €9.99 issuance | Issuer Wallester AS |
+| MetaMask Card | Status | ✅ | ⚠️ | US/UK signups paused; 1% virtual, 3% on first $10k Metal |
+| ThorWallet | Cashback / Annual / FX | 0% / $0+ / 0.25-1% | 0.5% / $0-$124 one-off / 1.5% | Premium capped $25/mo |
+| 1inch Card | Custody | 🔐 Self | 📋 CeFi | Prepaid Mastercard, Monavate/Baanx |
+| Plutus | Region / FX | EU/UK / 0% | UK / 2.5% | ATM 2.5%, card £9.99 |
+| RedotPay | FX / Annual | 1-2% / $0 | 1.2% / $0 ($10-$100 issuance) | Cashback TBD |
+| Jupiter | Cashback / Rewards | 4-10% / Points | 2-4% / USDC | Issuers Rain and DCS |
+| Nexo | Cashback / FX | up to 2% / "FX fees" | 0.5-2% / 0.2-2.5% | Issuer DiPocket UAB |
+| ToonPay | FX | 2% | 2% + 2% processing | Cashback 1% base |
+| Fuse | Custody | 🔐 Self | 📋 CeFi | Not confirmed in official card terms |
+| Shakepay | Cashback / FX | 1.5% / 0% | 1-1.5% / 0-3% | Base tier 3%, Blue 0% |
+| Meow | Cashback | up to 2% | up to 1.5% | Issuer is Lead Bank (not CFSB) |
+| Solflare | Status | ✅ | ⚠️ | Cards paused pending new issuer |
+| OKX Card | Custody / Cashback | 🔐 Self / TBD | 🏦 Exch / 2-10% | OKX Pay holds the balance; USDG-funded only |
+| Slash | Cashback | up to 2% | 1.5-2% | Free 1.5%, Pro 2% |
+| CoinJar | Custody / Rewards | 🏦 Exch / BTC | 📋 CeFi / Points | Prepaid Mastercard via EML |
+| Kraken | Status / Cashback / FX | ⚠️ TBD / TBD | ✅ / 0.5-2% / 0-1% | Tiered by balance; Lead Bank (US) |
+| Swissborg | Rewards / Status | CHSB, ⚠️ | BORG, ⚠️ | Card exists; only /card 404s |
+| Spendly | Status | ✅ | ❌ | Domain parked *(secondary)* |
+| Hi Card, Bybit | Cashback | up to 10% / 2-10% | TBD | Official pages show no figures |
+| Fold, Revolut, Gnosis Pay, Coinbase | Cashback | various | TBD | Not stated on retrievable official pages |
+| Ethena Pay | New row | - | Self, up to 5% in AVAX, non-US | Launching/beta; issuer not named officially |
+
+### Custody
+
+| Card | Class | Keys / funds | Issuer / program manager |
+|------|-------|--------------|--------------------------|
+| EtherFi Cash | Self | "Issuer does not have custody or control over the contents of your wallet"; borrow-against-collateral | Third National (Visa); Rain *(secondary)* |
+| Plasma One | Self | "does not custody your assets" (marketing only) | Rain; Bridge for accounts |
+| KAST | CeFi | ToS 2026-07-07: remitted assets are a transfer of ownership, "sold to KAST", held by a custodian on KAST's behalf; redemption right added | Third National per non-US agreement |
+| Ethena Pay | Self | Site: "never hold your money" (terms not read) | Not named officially |
+| Gnosis Pay | Self | Safe smart account | Monavate (Visa Europe) |
+| MetaMask | Self | User wallet | Monavate / Crypto Life |
+| Tuyo | Self | "We never take custody" | Rain/Signify; Bridge |
+| Avici | Self | Contracts "self-custodial", Avici can withdraw funds linked to charges | n/a |
+| OKX Card | Exch | "OKX Pay holds the USDC or USDG balance" | n/a |
+| 1inch, Jupiter, Fuse, Wayex, Nexo, Plutus, Shakepay, Reap, CoinJar | CeFi | Prepaid/partner-held balances | Monavate; Rain+DCS; Lead Bank/Bridge; Lead Bank; DiPocket; Modulr; Peoples Trust; Reap (Visa principal); EML |
+
+### Unverified
+Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership prices and issuer name; Tria, Fold, Revolut, Bybit, Hi Card, ThorWallet issuer details; Payy card terms; BitPay status (reportedly US program ended 2023, *secondary*); Kontigo "discontinued" (homepage still promotes the card); Uphold and Coinbase terms (403, snippets only); Nummus issuer.
+
+### New candidates (not added; no official fee/issuer data to fill a row)
+COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added.
+
 
 ---
 
