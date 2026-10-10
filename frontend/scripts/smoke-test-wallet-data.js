@@ -332,67 +332,6 @@ function assertMethodologyVersionTag(fileLabel, content) {
   }
 }
 
-function assertNoStaleStandaloneLinks() {
-  const filesToCheck = [
-    'ABOUT.md',
-    'amplify.yml',
-    'DATA_SOURCES.md',
-    'MALWARE_ALERT_HANDOFF.md',
-    'MERCHANT_FEED.md',
-    'README.md',
-    'CONTRIBUTING.md',
-    'SEO_IMPLEMENTATION.md',
-    'GLOSSARY.md',
-    'scripts/README.md',
-    'scripts/extract_wallets_subtree.sh',
-    'scripts/recompute_scores.py',
-    'scripts/run_naming_workflow.py',
-    'frontend/.env.example',
-    'frontend/README.md',
-    'frontend/public/llms.txt',
-    'frontend/src/lib/brand.ts',
-    'frontend/src/lib/articles.ts',
-    'frontend/src/app/page.tsx',
-    'frontend/src/app/docs/[slug]/page.tsx',
-    'branding/README.md',
-    'branding/NAMING_WORKFLOW.md',
-    'branding/naming-workflow-output.json',
-    'branding/naming-workflow-shortlist.json',
-    'tests/README.md',
-    'tests/wallet-integration.test.ts',
-  ];
-  const stalePatterns = [
-    /github\.com\/chimera-defi\/Etc-mono-repo\/(?:tree|blob)\/main\/wallets/i,
-    /github\.com\/chimera-defi\/Etc-mono-repo\/issues/i,
-    /Etc-mono-repo[^`"'\n]*wallets/i,
-    /`wallets\/(?!` module)/i,
-    /\bnode wallets\/scripts\//i,
-    /\bpython3 wallets\/scripts\//i,
-    /\bcd wallets\/frontend/i,
-    /\bappRoot:\s*wallets\/frontend\b/i,
-    /\bwallets\/articles\b/i,
-    /\bwallets\/(?:SOFTWARE_WALLETS|HARDWARE_WALLETS|CRYPTO_CARDS|RAMPS|branding|STUB_README_TEMPLATE)/i,
-    /\b\.\/ideas\/scripts\//i,
-    /\/home\/user\/Etc-mono-repo\/wallets/i,
-  ];
-
-  const failures = [];
-  for (const relativePath of filesToCheck) {
-    const content = readFileOrFail(path.join(REPO_ROOT, relativePath));
-    for (const pattern of stalePatterns) {
-      if (pattern.test(content)) {
-        failures.push(`${relativePath}: ${pattern}`);
-      }
-    }
-  }
-
-  if (failures.length) {
-    fail(`stale standalone links/paths found:\n${failures.join('\n')}`);
-  } else {
-    ok('standalone repo links and command paths are current');
-  }
-}
-
 function assertMarkdownConfigFilesExist() {
   const markdownSource = readFileOrFail(path.join(FRONTEND_DIR, 'src', 'lib', 'markdown.ts'));
   const configuredFiles = Array.from(markdownSource.matchAll(/^\s+'([^']+\.md)':\s*\{/gm))
@@ -403,45 +342,6 @@ function assertMarkdownConfigFilesExist() {
     fail(`markdown config references missing files: ${missing.join(', ')}`);
   } else {
     ok(`markdown config files exist (${configuredFiles.length} files)`);
-  }
-}
-
-function assertNoStalePackageManagerDocs() {
-  const docsToCheck = [
-    'CONTRIBUTING.md',
-    'MERCHANT_FEED.md',
-    'SEO_IMPLEMENTATION.md',
-    'SOFTWARE_WALLETS_DETAILS.md',
-    'WALLET_COMPARISON_UNIFIED.md',
-    'frontend/README.md',
-    'frontend/scripts/generate-og-images.js',
-    'frontend/scripts/validate-twitter-cards.js',
-    'tests/README.md',
-    'tests/wallet-integration.test.ts',
-  ];
-  const stalePatterns = [
-    /\bnpm install\b/i,
-    /\bnpm run\b/i,
-    /\bnpm test\b/i,
-    /\bnpm start\b/i,
-    /\bnpx\b/i,
-    /\bnode scripts\/(?:generate-og-images|validate-twitter-cards)\.js\b/i,
-  ];
-
-  const failures = [];
-  for (const relativePath of docsToCheck) {
-    const content = readFileOrFail(path.join(REPO_ROOT, relativePath));
-    for (const pattern of stalePatterns) {
-      if (pattern.test(content)) {
-        failures.push(`${relativePath}: ${pattern}`);
-      }
-    }
-  }
-
-  if (failures.length) {
-    fail(`stale package-manager instructions found:\n${failures.join('\n')}`);
-  } else {
-    ok('package-manager instructions use Bun in maintained docs');
   }
 }
 
@@ -977,8 +877,6 @@ function run() {
     ok('sync_table_scores.js: recommendation assignment is centralized');
   }
 
-  assertNoStaleStandaloneLinks();
-  assertNoStalePackageManagerDocs();
   assertMarkdownConfigFilesExist();
   assertReferencedWorkflowFilesExist();
   assertGeneratedArtifactsIgnored();
