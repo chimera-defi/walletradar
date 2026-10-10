@@ -126,7 +126,7 @@ export function ScoreBadge({
     <div className="flex flex-col items-center gap-1">
       <div
         className={cn(
-          'relative w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-sm ring-1',
+          'relative w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-xs ring-1',
           variant === 'success' && 'bg-green-100 text-green-700 ring-green-200 dark:bg-green-900/30 dark:text-green-400 dark:ring-green-800/50 dark:drop-shadow-[0_0_6px_rgba(74,222,128,0.4)]',
           variant === 'warning' && 'bg-yellow-100 text-yellow-700 ring-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-400 dark:ring-yellow-800/50 dark:drop-shadow-[0_0_6px_rgba(250,204,21,0.4)]',
           variant === 'error' && 'bg-red-100 text-red-700 ring-red-200 dark:bg-red-900/30 dark:text-red-400 dark:ring-red-800/50 dark:drop-shadow-[0_0_6px_rgba(248,113,113,0.4)]'
@@ -331,7 +331,7 @@ export function SelectionButton({
       title={isSelected ? 'Remove from comparison' : disabled ? 'Max 4 selected' : 'Add to comparison'}
       className={cn(
         'border transition-colors',
-        size === 'sm' ? 'p-1 rounded' : 'p-2 rounded-lg',
+        size === 'sm' ? 'p-1 rounded-sm' : 'p-2 rounded-lg',
         isSelected
           ? 'bg-primary text-primary-foreground border-primary'
           : disabled
