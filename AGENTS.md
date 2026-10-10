@@ -1,173 +1,32 @@
-# WalletRadar Agent Rules
+# WalletRadar Agent Guide
 
-Curated from root-level guidance in the former monorepo (`.cursorrules`, `AGENTS.md`, `CLAUDE.md`) plus WalletRadar-specific practices. This file intentionally excludes unrelated legacy/mobile-framework instructions.
+Static Next.js site (`frontend/`) generated from the markdown comparison tables at the repo root. Product data and scoring live in the docs; code only parses and renders them.
 
-## First Move For Discovery
+## Layout
+- Root `*.md`: data tables (`SOFTWARE_WALLETS`, `HARDWARE_WALLETS`, `CRYPTO_CARDS`, `RAMPS`, `QR_PAYMENTS` + `*_DETAILS`) and site pages (`README`, `ABOUT`, `CONTRIBUTING`, `GLOSSARY`, `DATA_SOURCES`, `CHANGELOG`). Which files the site renders: `frontend/src/lib/markdown.ts`.
+- `frontend/`: the app (static export to `out/`). `scripts/`: data tooling, see `scripts/README.md`. `tests/`: vitest unit tests. `data/`, `articles/`, `branding/`, `seo/`: inputs.
+- Scoring methodology and the update workflow: `CONTRIBUTING.md`. Do not restate it elsewhere.
 
-- If file location is unknown, start with scoped search:
-  - `rg -n -g '*.md' 'keyword'`
-  - `rg -n -g 'frontend/src/**/*.ts*' 'keyword'`
-- If location is known, read only the needed section (`sed -n`, `head`, `tail`).
-- Do not begin exploration with broad recursive scans:
-  - `find .`, `ls -R`, `grep -R`, `rg --files .`, broad `**/*` globs.
+## Commands (Bun only)
+- Setup/dev: `cd frontend && bun install && bun run dev`
+- Verify, in order: `bun run lint`, `bun run type-check`, `bun run test` (data smoke test), `bun run build`; from the repo root `bunx vitest run tests/`.
+- After editing a score table: `bun scripts/sync_table_scores.js --write`, then re-run the smoke test.
+- Weekly data refresh and merchant feed run from `.github/workflows/`; scripts are in `scripts/`.
 
-## Token Efficiency Defaults
+## Invariants
+- No data-loss restructures: keep existing rows/columns unless removal is approved.
+- Chains are networks, not token counts. Use conservative labels (`Multi-chain`, `Unknown`) over invented precision; `~` for volatile values.
+- Source order: official docs/site, then GitHub, then trusted structured sources. Distinguish open-source / source-available / proprietary.
+- A value that appears in several docs must stay consistent; the smoke test enforces table shape and score math.
+- Never report results you did not verify; confirm generated artifacts exist and parse.
 
-- Keep responses concise and directly actionable.
-- Prefer targeted reads over full-file reads.
-- Parallelize independent reads/searches when possible.
-- If candidate files exceed 5, narrow scope before reading more.
+## Gotchas
+- Static export: Next runtime headers do not apply; security headers live in `customHttp.yml`. Amplify builds with `npm ci` (`frontend/package-lock.json`); local work uses Bun (`bun.lock`).
+- Theme: use CSS-variable classes (`text-foreground`, `bg-card`, `border-border`), never hardcoded Tailwind colors; they break the light/dark toggle.
+- Use `next/image`, not `<img>`. OG images are 1200x630; new pages need a generator in `frontend/scripts/generate-og-images.js` (`bun run generate-og`) and the PNG committed.
+- Renaming a data file or route: update `markdown.ts`, `wallet-data.ts`, `seo.ts`, sitemap, nav/footer, OG script, then `rg` for the old name.
 
-## Verification Before Reporting
-
-- Never report results you did not verify.
-- After running scripts, confirm artifacts exist and are populated.
-- For structured outputs (JSON/CSV/XML), validate parseability and required fields.
-- If claiming metrics, ensure they are traceable to actual output/calculation code.
-
-## Data Integrity Rules (WalletRadar)
-
-- No data-loss restructures: preserve existing columns/rows unless removal is explicitly approved.
-- Chains are networks, not token counts (`chains != tokens`).
-- When uncertain, use conservative labels (for example `Multi-chain` / `Unknown`) instead of invented precision.
-- Use `~` for volatile values (prices/fees) unless freshly verified.
-- Keep cross-document consistency when values appear in multiple files.
-- Run line-by-line verification for final comparison tables.
-
-## Wallet/Product Evaluation Rules
-
-- Core software-wallet criteria require both browser extension and mobile app.
-- Verify source of truth in this order: official docs/site, GitHub, trusted structured sources.
-- Release cadence is a stability signal (very high churn can be a risk for dev workflows).
-- Distinguish clearly: open-source vs source-available vs proprietary.
-
-## Product Knowledge Location
-
-- Keep agent behavior rules in `AGENTS.md`; keep product data/methodology in domain docs.
-- Canonical product/scoring docs:
-  - `SOFTWARE_WALLETS.md`
-  - `HARDWARE_WALLETS.md`
-  - `CRYPTO_CARDS.md`
-  - `RAMPS.md`
-  - `CONTRIBUTING.md` (scoring implementation + update workflow)
-
-## Documentation Rules
-
-- Keep one clear source of truth per comparison type.
-- Consolidate by organizing, not by deleting useful context.
-- Update dependent references when renaming files/paths.
-- Prefer explicit change notes over silent structural edits.
-
-## Frontend Development Rules
-
-- Use `bun` by default — never `npm` or `node` for script execution.
-- Development: `bun install && bun run dev`
-- Full verification pass (in order):
-  1. `bun run lint` — no warnings or errors
-  2. `bun run type-check` — TypeScript clean
-  3. `bun run build` — build succeeds
-  4. `bun test` — tests pass
-  5. Check for unused imports
-  6. Verify light **and** dark mode both look correct
-  7. Test all interactive elements
-
-### OG Image Workflow
-
-When adding or updating a page with SEO metadata:
-1. Add the generator function to `scripts/generate-og-images.js`
-2. Run `bun run generate-og`
-3. Add metadata to the page file
-4. Commit the generated PNG alongside the code change
-
-OG images must be **1200×630px**. Key SEO files: `src/lib/seo.ts`, `src/app/layout.tsx`.
-
-Run `bun run validate-cards` to verify Twitter Card metadata before shipping.
-
-### Theme-Aware Styling
-
-- **Never hardcode Tailwind colors** (`text-slate-100`, `bg-slate-800`, etc.) for themed content.
-- **Always use CSS variables:** `text-foreground`, `text-muted-foreground`, `bg-muted`, `bg-card`, `border-border`.
-- Variables are defined in `globals.css` under `:root` (light) and `.dark`.
-- Hardcoded colors silently break the light/dark toggle.
-
-### Component Conventions
-
-- Use Next.js `<Image>` instead of `<img>` — required for optimization and ESLint compliance.
-- Replace `alert()` with inline state-based notifications.
-- Remove placeholder/fake-data components before shipping.
-- Avoid showing the same nav links in multiple formats (e.g., buttons AND a grid).
-
-### File Rename Checklist
-
-When renaming a data file or page route, check all of these:
-1. Update markdown config / route mapping
-2. Update parsing functions referencing old name
-3. Update cross-references in other docs
-4. Update related document mappings
-5. Update sitemap logic
-6. Update scripts (`wallet-data.ts`, `generate-og-images.js`, etc.)
-7. `rg` for remaining references to old name
-8. Run `bun run build` and `bun run type-check`
-
-## Git Workflow Rules
-
-- Use branch + PR workflow; do not push directly to `main`.
-- Keep one task per PR where practical.
-- Before handing off, run relevant verification commands for touched scope.
-
-## Scope Guardrails
-
-- Keep this repo focused on WalletRadar (hardware/cards/ramps/data + frontend).
-- Do not import unrelated monorepo practices that are not applicable here (for example mobile-app framework scaffolding rules).
-
-## Companion Reference
-
-- See `AGENT_META_LEARNINGS.md` for curated rationale and durable patterns.
-- Repo-local skill references are under `skills/` (including `token-reduce` and core design skills).
-
-<!-- token-reduce:begin -->
-## Token-Reduce Routing
-
-- If file location is unknown, your first discovery command MUST be `./skills/token-reduce/scripts/token-reduce-paths.sh topic words`.
-- Use the user’s literal nouns from the prompt in that first query (feature name, file stem, hook name, symbol).
-- Use `./skills/token-reduce/scripts/token-reduce-snippet.sh topic words` only if one ranked excerpt is needed after the path list.
-- Do not start repo discovery with `find .`, `ls -R`, `grep -R`, `rg --files .`, or broad `Glob` patterns.
-- Use scoped `rg -g` and targeted reads only after helper output.
-<!-- token-reduce:end -->
-
-<!-- SHARED_ATTRIBUTION_RULES_START -->
-## Shared Attribution & Meta Learnings
-
-- Commit author should be the active agent model identity.
-- Commit trailer must include: `Co-authored-by: Chimera <chimera_defi@protonmail.com>`.
-- PR description must include:
-  - `**Agent:** <actual model name>`
-  - `**Co-authored-by:** Chimera <chimera_defi@protonmail.com>`
-- Never use placeholder model names; record the actual model used.
-- Never push directly to `main`/`master`; use a feature branch and PR.
-- Keep one task per PR for clear review and rollback.
-- Verify before claiming complete: run relevant tests/lint/checks or explicitly note what was not run.
-<!-- SHARED_ATTRIBUTION_RULES_END -->
-
-<!-- kimi-delegate:begin -->
-## Kimi Delegate Routing — MANDATORY
-
-All Kimi subagent calls MUST route through the skill wrapper. Direct `pi --provider kimi-coding` calls are **prohibited** — they bypass telemetry, fallback, auth detection, and timeout scaling.
-
-- **One-liner:** `kimi-delegate --task "..."`
-- **Interactive:** `kimi-delegate --interactive`
-- **Long path (fallback):** `./skills/kimi-delegate/scripts/delegate.py --task "..."`
-
-**Why this matters:**
-- Structured envelopes prevent vague handoffs
-- Auto-scaling timeouts prevent hangs on large repos
-- Auth error detection gives explicit resume steps instead of silent failures
-- Codex fallback ensures tasks always complete
-- Telemetry enables continuous improvement
-
-**Bypassing the wrapper will be detected and reported.**
-
-- Always produce an envelope first with `./skills/kimi-delegate/scripts/plan_prompt.py --task "..."`.
-- Keep delegation scoped and include acceptance criteria.
-- If Kimi fails, keep fallback enabled and inspect telemetry (`./skills/kimi-delegate/scripts/kimi_delegate_telemetry.py summary --days 14`).
-<!-- kimi-delegate:end -->
+## Git and attribution (enforced by CI)
+- Branch + PR only; never push to `main`. One task per PR.
+- Commit header `type(scope): subject` and trailer `Co-authored-by: Chimera <chimera_defi@protonmail.com>`.
+- PR body follows `.github/pull_request_template.md`: `**Agent:** <actual model>`, `**Co-authored-by:** Chimera <chimera_defi@protonmail.com>`, and the Summary / Original Request / Changes Made / Testing & Verification sections.
