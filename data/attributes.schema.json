@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "walletradar/data/attributes.schema.json",
+  "title": "WalletRadar sidecar attributes",
+  "description": "Sourced, unscored attributes kept outside the scored markdown tables. Omit an entry (or use value 'unknown') when no primary source was read. Never affects Score/Rec.",
+  "type": "object",
+  "required": ["schema_version", "software_wallets", "crypto_cards"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "generated_note": { "type": "string" },
+    "software_wallets": { "$ref": "#/$defs/section" },
+    "crypto_cards": { "$ref": "#/$defs/section" }
+  },
+  "$defs": {
+    "section": {
+      "description": "Keyed by the row name in the first cell of the root markdown table (text inside [**Name**]).",
+      "type": "object",
+      "additionalProperties": { "type": "object", "additionalProperties": { "$ref": "#/$defs/entry" } }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["value", "source_url", "retrieved", "source_kind"],
+      "additionalProperties": false,
+      "properties": {
+        "value": { "type": "string" },
+        "source_url": { "type": "string", "pattern": "^https://" },
+        "evidence_url": { "type": "string", "pattern": "^https://", "description": "Optional primary page (e.g. the bounty program) that the pinned source_url data points to." },
+        "retrieved": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "source_kind": { "enum": ["walletbeat", "walletscrutiny", "issuer_page", "official_page"] },
+        "note": { "type": "string" }
+      }
+    }
+  },
+  "x-attributes": [
+    {
+      "id": "bug_bounty",
+      "label": "Bug bounty",
+      "applies_to": "software_wallets",
+      "values": ["active", "inactive", "none", "unknown"],
+      "allowed_source_kinds": ["walletbeat", "official_page"],
+      "source_rule": "WalletBeat data pinned at commit 82e3036aba53d8dd13a55f42089ba09c44afa8c5 (MIT), or the wallet's official security/bounty page. 'none' = WalletBeat records no program; WalletBeat null (not evaluated) is left out.",
+      "required_source_fields": ["source_url", "retrieved", "source_kind"]
+    },
+    {
+      "id": "reproducible_build",
+      "label": "Reproducible build",
+      "applies_to": "software_wallets",
+      "values": ["reproducible", "ftbfs", "nonverifiable", "sourceavailable", "nosource", "wip", "unknown"],
+      "allowed_source_kinds": ["walletscrutiny"],
+      "source_rule": "WalletScrutiny verdict string only (store verdict + link, no review text; per-review licence caveat). Verdict of the Android/primary build, read from the review markdown.",
+      "required_source_fields": ["source_url", "retrieved", "source_kind"]
+    },
+    {
+      "id": "chain_verification",
+      "label": "Chain verification (L1 light client)",
+      "applies_to": "software_wallets",
+      "values": ["supported", "none", "unknown"],
+      "allowed_source_kinds": ["walletbeat"],
+      "source_rule": "WalletBeat lightClient.ethereumL1 only. 'none' = notSupported; null (not evaluated) is left out.",
+      "required_source_fields": ["source_url", "retrieved", "source_kind"]
+    },
+    {
+      "id": "kyc_requirement",
+      "label": "KYC requirement",
+      "applies_to": "crypto_cards",
+      "values": ["required", "not_required", "unknown"],
+      "allowed_source_kinds": ["issuer_page"],
+      "source_rule": "Issuer page that states identity verification/KYC for the card. No entry when only generic security wording is available.",
+      "required_source_fields": ["source_url", "retrieved", "source_kind"]
+    },
+    {
+      "id": "card_network",
+      "label": "Card network",
+      "applies_to": "crypto_cards",
+      "values": ["Visa", "Mastercard", "Amex", "unknown"],
+      "allowed_source_kinds": ["issuer_page"],
+      "source_rule": "Issuer page naming the network of the card (issuer legal text or product page). Secondary articles and snippets are not sources.",
+      "required_source_fields": ["source_url", "retrieved", "source_kind"]
+    }
+  ]
+}
