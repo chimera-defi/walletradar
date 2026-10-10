@@ -2,18 +2,8 @@
 
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import Image from 'next/image';
-import {
-  X,
-  Download,
-  Share2,
-  Check,
-  Minus,
-  AlertTriangle,
-  ExternalLink,
-  Github,
-  ChevronDown,
-  ChevronUp,
-} from 'lucide-react';
+import { X, Download, Share2, Check, Minus, AlertTriangle, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github } from './BrandIcons';
 import { cn, getScoreColorClasses } from '@/lib/utils';
 import { copyTextToClipboard } from '@/lib/clipboard';
 import { ScoreBreakdownBar, getScoreBreakdownShortLabel } from '@/components/ScoreBreakdownBar';

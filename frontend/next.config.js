@@ -12,15 +12,6 @@ const nextConfig = {
   // Static-export response headers must be configured at the hosting layer.
   // Next.js runtime headers are not applied to files emitted in out/.
 
-  // Webpack configuration for node modules used at build time
-  webpack: (config) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      path: false,
-    };
-    return config;
-  },
 };
 
 module.exports = nextConfig;

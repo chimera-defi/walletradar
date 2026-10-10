@@ -846,10 +846,10 @@ function MarkdownContent({ content, className, enableTableSearch = false }: { co
 // Shared markdown components
 function getMarkdownComponents() {
   return {
-    img: ({ src, alt, ...props }: { src?: string; alt?: string }) => {
+    img: ({ src, alt, ...props }: { src?: string | Blob; alt?: string }) => {
       // Restrict to same-origin: only / or relative paths (blocks external URLs from markdown)
       const safeSrc =
-        src && (src.startsWith('/') || src.startsWith('./') || !/^https?:/i.test(src))
+        typeof src === 'string' && (src.startsWith('/') || src.startsWith('./') || !/^https?:/i.test(src))
           ? src
           : undefined;
       return (

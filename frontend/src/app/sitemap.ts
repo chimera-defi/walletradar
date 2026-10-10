@@ -6,6 +6,8 @@ import { brand } from '@/lib/brand';
 
 const baseUrl = brand.baseUrl;
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const documents = getAllDocuments();
   const articles = getAllArticles();
