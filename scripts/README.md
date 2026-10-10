@@ -82,37 +82,6 @@ comparison-table score cells from the visible columns.
 ./scripts/recompute_scores.py
 ```
 
-### `run_naming_workflow.py` (Naming + Domain Validation)
-
-Runs a strict naming workflow from `branding/CANDIDATES.txt`:
-
-- applies hard filters (word count, blocked tokens, collision controls)
-- scores surviving names with weighted criteria
-- checks domain availability across `.com`, `.org`, `.net`, `.xyz`, `.finance`
-- writes `branding/NAMING_VALIDATION.md`
-- writes `branding/naming-workflow-output.json`
-
-#### Usage
-
-```bash
-# Print report to stdout
-python3 scripts/run_naming_workflow.py
-
-# Write report files
-python3 scripts/run_naming_workflow.py --write
-
-# Write pretty-printed JSON (default output is compact JSON to keep diffs small)
-python3 scripts/run_naming_workflow.py --write --pretty-json
-
-# Validate only shortlist candidates
-python3 scripts/run_naming_workflow.py \
-  --candidates branding/SHORTLIST_CANDIDATES.txt \
-  --markdown-output branding/NAMING_VALIDATION_SHORTLIST.md \
-  --json-output branding/naming-workflow-shortlist.json \
-  --write
-```
-
-Use `--workers`, `--timeout`, and `--retries` to tune RDAP reliability vs speed when domain checks return many `unknown` statuses.
 
 ### `verify-ramps.py` (Ramps)
 

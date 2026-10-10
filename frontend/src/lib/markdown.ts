@@ -116,7 +116,7 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
   },
 };
 
-export function getMarkdownFiles(): string[] {
+function getMarkdownFiles(): string[] {
   return Object.keys(DOCUMENT_CONFIG);
 }
 

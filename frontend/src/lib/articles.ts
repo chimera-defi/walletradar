@@ -86,13 +86,6 @@ export function getAllArticles(): Article[] {
 }
 
 /**
- * Get articles by category
- */
-export function getArticlesByCategory(category: Article['category']): Article[] {
-  return getAllArticles().filter(article => article.category === category);
-}
-
-/**
  * Get related articles based on shared wallets or tags
  */
 export function getRelatedArticles(currentSlug: string, limit = 3): Article[] {

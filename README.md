@@ -186,8 +186,6 @@ frontend/               # Next.js application
 └── package.json
 scripts/               # Data refresh automation
 ├── refresh-github-data.sh
-└── run_naming_workflow.py
-branding/              # Naming workflow artifacts (positioning, candidates, validation)
 SOFTWARE_WALLETS.md    # Software wallet comparison table
 HARDWARE_WALLETS.md    # Hardware wallet comparison table
 CRYPTO_CARDS.md        # Crypto card comparison table
