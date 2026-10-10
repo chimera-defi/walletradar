@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "generated_note": "Sidecar attributes; not scored. See DATA_SOURCES.md.",
+  "software_wallets": {
+    "Ambire": {
+      "bug_bounty": {
+        "value": "inactive",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/ambire.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://blog.ambire.com/ambire-x-immunefy-bug-bounty-audit-our-code-and-earn-rewards/"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/ambire.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "Bitget Wallet": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/bitget.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://bugrap.io/bounties/Bitget%20Wallet%20(Formerly%20BitKeep)"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/bitget.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/com.bitkeep.wallet.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Gem Wallet": {
+      "bug_bounty": {
+        "value": "inactive",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/gemwallet.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://gemwallet.com/security/bug-bounty/"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/gemwallet.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "reproducible_build": {
+        "value": "sourceavailable",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/com.gemwallet.android.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "imToken": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/imtoken.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://bugrap.io/bounties/imToken%20Wallet"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/imtoken.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "MetaMask": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/metamask.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://metamask.io/security/metamask-security-program"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/metamask.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "reproducible_build": {
+        "value": "sourceavailable",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/io.metamask.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Mt Pelerin (Bridge Wallet)": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/mtpelerin.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://immunefi.com/bug-bounty/mtpelerin/information/"
+      },
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/com.mtpelerin.bridge.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "OKX": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/okx.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://hackerone.com/okg?type=team"
+      },
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/com.okx.wallet.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Phantom": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/phantom.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://cantina.xyz/bounties/5314819f-b0b2-4d39-b953-d02ec74cac1a?overviewTab=1&assetGroup=3"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/phantom.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/app.phantom.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Rabby": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/rabby.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://bugrap.io/bounties/Rabby%20Wallet"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/rabby.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "Rainbow": {
+      "bug_bounty": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/rainbow.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/rainbow.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "Zeus": {
+      "bug_bounty": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/zeus.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/zeus.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      },
+      "reproducible_build": {
+        "value": "sourceavailable",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/app.zeusln.zeus.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Uniswap": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/uniswap-wallet.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://cantina.xyz/bounties/f9df94db-c7b1-434b-bb06-d1360abdd1be"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/uniswap-wallet.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "Zerion": {
+      "bug_bounty": {
+        "value": "active",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/zerion.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat",
+        "evidence_url": "https://immunefi.com/bug-bounty/zerion"
+      },
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/zerion.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "Daimo": {
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/daimo.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "NuFi": {
+      "chain_verification": {
+        "value": "none",
+        "source_url": "https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/software-wallets/nufi.ts",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletbeat"
+      }
+    },
+    "Trust": {
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/com.wallet.crypto.trustapp.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Coinbase": {
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_mobile/org.toshi.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    },
+    "Exodus": {
+      "reproducible_build": {
+        "value": "nosource",
+        "source_url": "https://github.com/walletscrutiny/walletScrutinyCom/blob/2e3cbaf83a2911fa4d47666af05c0c1b20ec9927/_desktop/exodus.md",
+        "retrieved": "2026-10-10",
+        "source_kind": "walletscrutiny"
+      }
+    }
+  },
+  "crypto_cards": {
+    "Gnosis Pay": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://gnosispay.com",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      },
+      "kyc_requirement": {
+        "value": "required",
+        "source_url": "https://gnosispay.com",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Ethena Pay": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://pay.ethena.fi/card-terms",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "MetaMask Card": {
+      "card_network": {
+        "value": "Mastercard",
+        "source_url": "https://metamask.io/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Kast": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://kast.xyz",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Plasma One": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://www.plasma.org/personal",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Bitpanda Card": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://www.bitpanda.com/en/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "CoinJar Card": {
+      "card_network": {
+        "value": "Mastercard",
+        "source_url": "https://www.coinjar.com/au/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Fold Card": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://foldapp.com",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Shakepay Card": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://shakepay.com/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "ThorWallet": {
+      "card_network": {
+        "value": "Mastercard",
+        "source_url": "https://thorwallet.org",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "1inch Card": {
+      "card_network": {
+        "value": "Mastercard",
+        "source_url": "https://1inch.com/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Nexo Card": {
+      "card_network": {
+        "value": "Mastercard",
+        "source_url": "https://nexo.com/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      },
+      "kyc_requirement": {
+        "value": "required",
+        "source_url": "https://nexo.com/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Slash Platinum Card": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://www.slash.com/products/corporate-cards",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "EtherFi Cash": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://etherfi.gitbook.io/etherfi/cash",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Tuyo": {
+      "kyc_requirement": {
+        "value": "required",
+        "source_url": "https://tuyo.com/card",
+        "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    }
+  }
+}

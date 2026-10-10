@@ -194,6 +194,10 @@ If you have concerns about any links or data on Wallet Radar:
 2. **Email us:** chimera_deFi@protonmail.com
 3. **Check our source:** [GitHub Repository](https://github.com/chimera-defi/walletradar)
 
+#### Sidecar attributes (`data/attributes.json`)
+
+Unscored, per-value-sourced attributes live outside the scored tables so the score columns and `sync_table_scores.js` are untouched: wallets get `bug_bounty`, `reproducible_build`, `chain_verification`; cards get `card_network`, `kyc_requirement`. `data/attributes.schema.json` defines each attribute (applies-to, allowed values including `unknown`, required source fields). Every value carries `source_url`, `retrieved` and `source_kind`; unsourced values are omitted. Sources: WalletBeat data pinned at the commit above (MIT attribution already given), WalletScrutiny verdict string and link only (its per-review text has a separate licence, so no review text is copied), and issuer pages for cards. Competitor and blog sites are not sources. `tests/attributes.test.ts` validates the data and that every key matches a table row. Not yet rendered on the site.
+
 ---
 
 ## See Also
