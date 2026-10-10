@@ -10,6 +10,7 @@
 | [**Avici Money**](https://avici.money) (@AviciMoney) | 76 | Credit | 🔐 Self | ⚠️ | 🌍 Global | 0% | $0 | 1-3% | Multi | ✅ | Collateral-backed | 🟢 |
 | [**CryptoSpend**](https://www.wayex.com/en-US/) | 76 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 1% | $0 | 0% | BTC, ETH | ✅ | Australia (Wayex) | 🟢 |
 | [**Gemini Card**](https://www.gemini.com/credit-card) | 76 | Credit | 🏦 Exch | ❌ | 🇺🇸 US | Up to 4% | $0 | 0% | BTC, ETH | ✅ | Credit building | 🟢 |
+| [**Ethena Pay**](https://pay.ethena.fi) | 74 | Debit | 🔐 Self | ❌ | 🌍 Global* | 4-5% | TBD | ~1% | AVAX | ✅ | Non-US/EU AVAX-cashback spend card (beta) | 🟢 |
 | [**Kast**](https://kast.xyz) (@kastxyz) | 74 | Debit | 📋 CeFi | ✅ | 🌍 Global | 1.5-3% (promo to 12%) | $0-$10,000/yr | Up to 2-3% | Kast Points | ✅ | Stablecoin banking (custodial terms) | 🟢 |
 | [**Kraken Card**](https://www.kraken.com/kraken-card) | 74 | Debit | 🏦 Exch | ⚠️ | 🇺🇸🇪🇺 US/EU | 0.5-2% | $0 | 0-1% | Multi | ✅ | Cloudflare-protected | 🟢 |
 | [**Payy**](https://payy.network) (@payy_link) | 72 | Debit | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | 0% | USDC | ⚠️ | Privacy-focused | 🟢 |
@@ -18,7 +19,6 @@
 | [**Crypto.com Visa**](https://crypto.com/us/cards) | 71 | Debit | 🏦 Exch | ✅ | 🌍 Global | 0-4.5% | $0 | 0-3% | CRO | ✅ | CRO stakers ⚠️ | 🟢 |
 | [**Jupiter Card**](https://jup.ag/rewards) | 71 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 2-4% | $0 | 1-1.8% | USDC | ⚠️ | Solana/Jupiter users | 🟢 |
 | [**OKX Card**](https://www.okx.com) | 71 | Debit | 🏦 Exch | ⚠️ | 🇪🇺 EU | 2-10% | $0 | TBD | Stables | 🔄 | OKX Pay EU users | 🟡 |
-| [**Ethena Pay**](https://pay.ethena.fi) | 70 | Debit | 🔐 Self | ❌ | 🌍 Global* | Up to 5% | $0 | TBD | AVAX | 🔄 | USDe spend card (non-US) | 🟡 |
 | [**Gnosis Pay**](https://gnosispay.com) | 70 | Debit | 🔐 Self | ⚠️ | 🌍 Global* | TBD | €0 | 0% | GNO/SAFE | ✅ | DeFi-native | 🟢 |
 | [**1inch Card**](https://1inch.com/card) | 69 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU/UK | Up to 2% | $0 | 0% | 1INCH | ✅ | DeFi users | 🟢 |
 | [**Tuyo**](https://tuyo.com/card) (@itstuyo) | 69 | Prepaid | 🔐 Self | ❌ | 🌍 Global* | 0% | $0 | ~1% | TUYO | ✅ | USDC on Base | 🟢 |
@@ -155,7 +155,7 @@
 
 > **TL;DR:** Use **EtherFi Cash** (92) as the strongest overall self-custodial option, **Ready Card** (83) for EU/UK self-custody, or **MetaMask Card** (81) / **Tria** (82) for newer self-custody programs. Use **Crypto.com Visa** (83), **Fold** (80), **Kast** (76), or **Gemini Card** (76) only if you accept custodial tradeoffs for rewards or familiarity.
 >
-> **🔐 Self-Custody Spend-Path Cards:** EtherFi Cash, Tria*, MetaMask Card, Gnosis Pay, ThorWallet*, Payy*, Avici Money, Plasma One, Ethena Pay (launching), Tuyo, and Solflare (paused). *Official card terms not fully retrievable; see the Oct 2026 verification log in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#verification-log-october-2026). OKX Card is Exch (OKX Pay holds the balance); 1inch Card is CeFi (prepaid Mastercard, Monavate/Baanx).
+> **🔐 Self-Custody Spend-Path Cards:** EtherFi Cash, Tria*, MetaMask Card, Gnosis Pay, ThorWallet*, Payy*, Avici Money, Plasma One, Ethena Pay (beta; collateral can be liquidated), Tuyo, and Solflare (paused). *Official card terms not fully retrievable; see the Oct 2026 verification log in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#verification-log-october-2026). OKX Card is Exch (OKX Pay holds the balance); 1inch Card is CeFi (prepaid Mastercard, Monavate/Baanx).
 
 **Last Updated:** October 10, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Custody Model Taxonomy](./CRYPTO_CARDS_DETAILS.md#custody-model-taxonomy) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
 
