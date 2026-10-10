@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { brand } from '@/lib/brand';
 
+export const dynamic = 'force-static';
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: brand.defaultTitle,
