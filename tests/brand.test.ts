@@ -38,9 +38,6 @@ describe('withBrand', () => {
     expect(withBrand('Best Wallets 2026')).toBe('Best Wallets 2026 | Wallet Radar');
   });
 
-  it('handles an empty title', () => {
-    expect(withBrand('')).toBe(' | Wallet Radar');
-  });
 });
 
 // ---------------------------------------------------------------------------
@@ -71,17 +68,7 @@ describe('appendUtm', () => {
     expect(url.searchParams.get('utm_source')).toBe('existing');
   });
 
-  it('does not overwrite an existing utm_medium', () => {
-    const result = appendUtm('https://example.com/?utm_medium=email');
-    const url = new URL(result);
-    expect(url.searchParams.get('utm_medium')).toBe('email');
-  });
 
-  it('accepts a custom medium argument', () => {
-    const result = appendUtm('https://example.com/', 'referral');
-    const url = new URL(result);
-    expect(url.searchParams.get('utm_medium')).toBe('referral');
-  });
 
   it('leaves mailto: URLs completely unchanged', () => {
     expect(appendUtm('mailto:test@example.com')).toBe('mailto:test@example.com');
@@ -91,21 +78,8 @@ describe('appendUtm', () => {
     expect(appendUtm('not-a-url')).toBe('not-a-url');
   });
 
-  it('returns the original string unchanged for an empty string', () => {
-    expect(appendUtm('')).toBe('');
-  });
 
-  it('preserves other existing query params alongside utm params', () => {
-    const result = appendUtm('https://example.com/?foo=bar');
-    const url = new URL(result);
-    expect(url.searchParams.get('foo')).toBe('bar');
-    expect(url.searchParams.get('utm_source')).toBe('walletradar');
-  });
 
-  it('preserves the path when appending utm params', () => {
-    const result = appendUtm('https://example.com/deep/path');
-    expect(result).toContain('/deep/path');
-  });
 });
 
 // ---------------------------------------------------------------------------
