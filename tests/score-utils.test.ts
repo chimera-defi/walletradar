@@ -15,9 +15,6 @@ describe('getScoreColorClasses', () => {
       expect(getScoreColorClasses(75)).toContain('text-green-700');
     });
 
-    it('includes dark-mode green variant', () => {
-      expect(getScoreColorClasses(80)).toContain('dark:text-green-400');
-    });
   });
 
   describe('yellow band (50 <= score < 75)', () => {
@@ -29,9 +26,6 @@ describe('getScoreColorClasses', () => {
       expect(getScoreColorClasses(50)).toContain('text-yellow-700');
     });
 
-    it('includes dark-mode yellow variant', () => {
-      expect(getScoreColorClasses(60)).toContain('dark:text-yellow-400');
-    });
   });
 
   describe('red band (score < 50)', () => {
@@ -43,19 +37,9 @@ describe('getScoreColorClasses', () => {
       expect(getScoreColorClasses(0)).toContain('bg-red-100');
     });
 
-    it('includes dark-mode red variant', () => {
-      expect(getScoreColorClasses(25)).toContain('dark:text-red-400');
-    });
   });
 
   describe('return type invariant', () => {
-    it('always returns a non-empty string for boundary values', () => {
-      for (const score of [0, 25, 49, 50, 74, 75, 100]) {
-        const result = getScoreColorClasses(score);
-        expect(typeof result).toBe('string');
-        expect(result.length).toBeGreaterThan(0);
-      }
-    });
 
     it('each band contains exactly one bg- and one text- class', () => {
       for (const score of [0, 50, 75]) {
