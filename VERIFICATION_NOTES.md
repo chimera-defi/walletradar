@@ -15,6 +15,25 @@ This document tracks verification status and potential inaccuracies in the crypt
 | Tangem Pay, Ledger CL, Oobit, SafePal, Exa, Holyheld | Not added: custody/region unconfirmed | See candidates list in CRYPTO_CARDS_DETAILS.md |
 | Coinbase One Card | Unverified: coinbase.com returned 403 | n/a |
 
+## Wallets added from WalletBeat (retrieved 2026-10-10)
+
+WalletBeat snapshot: https://github.com/walletbeat/walletbeat/tree/82e3036aba53d8dd13a55f42089ba09c44afa8c5 (MIT, see DATA_SOURCES.md). Rows are tagged `*(partial data)*`: only sourced fields are filled; everything else is `TBD`/`?`. Generated scores treat `TBD` as the lowest-signal value (software: no tx-sim/scam/testnet/RPC points, API closed, `Active` unknown parses as inactive), so they are lower bounds, not rankings. `EVM` in Chains means only that WalletBeat evaluates the wallet on EVM; other chains are not claimed. Funding `🟢 Self` = WalletBeat `selfFunded: true`; `🔴 Unknown` = no funding flag.
+
+WB = `https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/`. GH = GitHub REST API repo metadata fetched 2026-10-10.
+
+| Wallet | Filled fields and sources |
+|---|---|
+| Bitget Wallet | Devices mobile+browser, account EOA, licence closed (`fullyClosedSource`), bug bounty Bugrap (active), scam warnings not supported: WB `software-wallets/bitget.ts`. Bounty: https://bugrap.io/bounties/Bitget%20Wallet%20(Formerly%20BitKeep). Site 200: https://web3.bitget.com/ |
+| Gem Wallet | Mobile only, EOA, GPL-3.0, CertiK audit 2026-04-08, self-funded, ENS resolution supported, simulation-engine warnings: WB `software-wallets/gemwallet.ts`; audit https://static.gemwallet.com/audits/Gem-Wallet-CertiK-Security-Audit-April-2026.pdf; repo https://github.com/gemwalletcom/wallet (GH: GPL-3.0, pushed 2026-10-10). Standing bounty ended 2026-06-02 per WB refs, so not counted as bounty. |
+| Mt Pelerin (Bridge Wallet) | Mobile+browser, EOA, closed source, Immunefi bounty (active), self-funded: WB `software-wallets/mtpelerin.ts` (WB displayName "Bridge Wallet"); https://immunefi.com/bug-bounty/mtpelerin/information/ ; site 200 https://www.mtpelerin.com/ |
+| NuFi | Browser only, EOA + EIP-7702 (MetaMask delegator), closed source per WB, HW support Ledger/Trezor/Keystone/GridPlus/OneKey/BitBox, self-funded: WB `software-wallets/nufi.ts`; repo https://github.com/nufi-official/nufi (GH: no licence, pushed 2026-04-27, so Active `⚠️`). nu.fi returned 403 to curl (bot protection), not independently confirmed. |
+| PillarX | Mobile+browser, EOA + EIP-7702, MIT: WB `software-wallets/pillarx.ts`; repo https://github.com/pillarwallet/x (GH: MIT, pushed 2026-09-22); site 200 https://pillarx.app/. Funding left unknown (WB flags both selfFunded and publicOffering). |
+| Zeus | Desktop only, EOA, MIT, local EVM simulation, send confirmation but no scam alerts, self-funded, no audits listed: WB `software-wallets/zeus.ts`; repo https://github.com/greekfetacheese/zeus (GH: MIT, pushed 2026-10-10). |
+| Firefly | Air-gapped, open source, DIY ~$5 parts, 128x64 OLED, Arduino Nano (no secure element in parts list): https://firefly.city/ ; repo https://github.com/firefly/wallet (GH: MIT, created 2017-10-21 used as Founded year since the table requires YYYY, last push 2018-08-12 so Activity Inactive). WB `hardware-wallets/firefly.ts` has no feature data. |
+| imKey Pro | Core Apache-2.0 + partially proprietary firmware, EAL6+ secure element, USB + Bluetooth, self-funded, "Founded in 2018" (https://imkey.im/pages/about-us): WB `hardware-wallets/imkey.ts`; ~$109.99 https://imkey.im/products/imkey-pro-crypto-hardware-wallet ; repo https://github.com/consenlabs/imkey-core (GH: Apache-2.0, pushed 2023-11-23, so Activity Slow). |
+
+Not added: **Family** (WalletBeat gives only devices and account type; every scored field would be TBD, giving a misleading 10 — revisit when more fields can be sourced), **Base App** (WB `base-app.ts`): App Store listing is "Base (formerly Coinbase Wallet)" and base.app serves Coinbase Wallet pages, so it duplicates the existing Coinbase row. **Elytro** (WB `elytro.ts`): https://elytro.com returned HTTP 402 `DEPLOYMENT_DISABLED` on 2026-10-10, so liveness could not be confirmed; revisit when the site is back.
+
 ## Verification Summary (January 7, 2026)
 
 ### ✅ Successfully Verified Cards (January 2026 Update)

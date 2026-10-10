@@ -103,6 +103,7 @@ Comprehensive recalculation of all 27 crypto card scores using verified website 
 
 | Date | Wallet | Change | Details |
 |------|--------|--------|---------|
+| Oct 10, 2026 | **Bitget Wallet, Gem Wallet, Mt Pelerin (Bridge Wallet), NuFi, PillarX, Zeus** | ADDED (partial data) | Listed in WalletBeat but missing here. Only fields sourced from WalletBeat (pinned commit in DATA_SOURCES.md), official repos or official sites are filled; the rest is `TBD`/`?`. Scores are computed by `sync_table_scores.js` and treat `TBD` as the lowest-signal value, so they are lower bounds. Skipped: Base App (same product as the Coinbase row, formerly Coinbase Wallet), Elytro (official site returns 402 DEPLOYMENT_DISABLED on 2026-10-10). Sources: VERIFICATION_NOTES.md. |
 | Dec 2025 | **API Column** | NEW | Added "API" column to track backend/API openness (separate from client code license). Categories: ✅ Open (self-hostable, e.g., Safe has 8+ open services), 🌐 Public (no auth, e.g., Rabby/DeBank API), ⚠️ Partial (uses providers like Infura/Alchemy), ❌ Closed (proprietary). Safe leads with fully open backend; Rabby has public API but proprietary code. Updated types, parser, and all tables. |
 | Dec 2025 | **Devices** | Verified & corrected | Added ⚡ emoji for browser proxy (Frame-style). Fixed Wigwam (📱🌐→🌐, no mobile app), Block Wallet (📱🌐→🌐, no mobile app), Safe (🔗→📱🔗, has mobile). Updated Core column accordingly: Wigwam ✅→❌ (score 62→58), Block ✅→❌ (score 25→10). Added "Desktop App Wallets (Frame-like Architecture)" section |
 | Dec 2025 | **Ambire** | Status ⚠️→✅, Score 55→62 | Activity verified Dec 10, 2025 (v5.32.2 release); GitHub metrics: 60 stars, 1 issue, 1.7% ratio. Still browser-only (Core: ❌) - mobile apps planned but not released |
@@ -151,6 +152,7 @@ Comprehensive recalculation of all 27 crypto card scores using verified website 
 
 | Date | Wallet | Change | Details |
 |------|--------|--------|---------|
+| Oct 10, 2026 | **Firefly, imKey Pro** | ADDED (partial data) | Listed in WalletBeat but missing here. Only sourced fields filled (official sites, official repos, WalletBeat pinned commit); unknown fields are `TBD`. Scores are generated and are lower bounds. Sources: VERIFICATION_NOTES.md. |
 | Dec 2025 | **Keycard Shell** | Added | Modular air-gapped hardware wallet with secure element, duress PIN, water/dust resistant, fully open source (score 91 🟢) |
 | Dec 2025 | **Documentation** | Structure cleanup | Consolidated hardware wallet comparison into single unified document |
 | Dec 2025 | **Blockstream Jade** | Added | Open source Bitcoin hardware wallet (score 81) |
