@@ -608,7 +608,7 @@ function SearchableTable({ tableContent, title }: { tableContent: string; title?
             placeholder={`Search ${title || 'wallets'}... (name, score, features)`}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-10 py-2 text-sm border border-border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="w-full pl-10 pr-10 py-2 text-sm border border-border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent"
             aria-label="Search table"
           />
           {searchQuery && (
