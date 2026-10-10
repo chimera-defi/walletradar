@@ -21,6 +21,7 @@ applications:
             - nvm use 22
             - echo "Building Next.js application..."
             - npm run build
+            - node scripts/verify-build-output.js
       artifacts:
         baseDirectory: out
         files:
