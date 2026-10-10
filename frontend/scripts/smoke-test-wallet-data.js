@@ -764,29 +764,28 @@ function run() {
     ok('Crypto cards table: EtherFi Cash spot-check passed');
   }
 
-  // Spot-check Ready Card (self-custody, 3% cashback - major correction Jan 2026)
-  const readyRow = findRowByFirstCellSubstring(cardsRows, 'ready card');
-  if (!readyRow) {
-    fail('Crypto cards table: could not find Ready Card row.');
+  // Spot-check Plasma One (self-custody spend path, Oct 2026 verification)
+  const plasmaRow = findRowByFirstCellSubstring(cardsRows, 'plasma one');
+  if (!plasmaRow) {
+    fail('Crypto cards table: could not find Plasma One row.');
   } else {
-    const card = readyRow[0] || '';
-    const custody = readyRow[3] || '';
-    const cashback = readyRow[6] || '';  // Cash Back column
-    const readyIndex = cardsRows.indexOf(readyRow);
+    const card = plasmaRow[0] || '';
+    const custody = plasmaRow[3] || '';
+    const cashback = plasmaRow[6] || '';  // Cash Back column
+    const plasmaIndex = cardsRows.indexOf(plasmaRow);
     assertComputedScore(
       'Crypto cards table',
-      readyRow,
+      plasmaRow,
       computeCardScore,
       1,
       12,
-      cardsExpectedRecommendations[readyIndex]
+      cardsExpectedRecommendations[plasmaIndex]
     );
-    if (!/Self/.test(custody)) fail(`Ready Card custody drifted (expected Self), got: "${custody}"`);
+    if (!/Self/.test(custody)) fail(`Plasma One custody drifted (expected Self), got: "${custody}"`);
     // Card column should now have URL embedded
-    if (!/ready\.co/i.test(card)) fail(`Ready Card card column should contain ready.co URL, got: "${card}"`);
-    // Cash back should be 3% (not "Up to 10%" - major correction)
-    if (!/3%/.test(cashback)) fail(`Ready Card cash back should be 3% (verified), got: "${cashback}"`);
-    ok('Crypto cards table: Ready Card spot-check passed');
+    if (!/plasma\.org/i.test(card)) fail(`Plasma One card column should contain plasma.org URL, got: "${card}"`);
+    if (!/4%/.test(cashback)) fail(`Plasma One cash back should be up to 4%, got: "${cashback}"`);
+    ok('Crypto cards table: Plasma One spot-check passed');
   }
 
   // ---- Ramps table ----
