@@ -1,0 +1,89 @@
+name: Generate Merchant Center Feed
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (do not create PR)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-feed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Merchant Center feed
+        run: |
+          chmod +x scripts/generate_merchant_feed.py
+          scripts/generate_merchant_feed.py
+
+      - name: Validate Merchant Center feed
+        run: |
+          chmod +x scripts/validate_merchant_feed.py
+          scripts/validate_merchant_feed.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add frontend/public/merchant-center.xml
+          if git diff --cached --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected:"
+            git diff --cached --stat
+          fi
+
+      - name: Upload feed artifact
+        if: steps.check_changes.outputs.changes == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: merchant-center-feed
+          path: frontend/public/merchant-center.xml
+
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.changes == 'true' && github.event.inputs.dry_run != 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(data): refresh merchant feed\n\nCo-authored-by: Chimera <chimera_defi@protonmail.com>"
+          title: "[Auto] Refresh Merchant Center Feed"
+          body: |
+            **Agent:** GitHub Actions (automated, no model)
+
+            **Co-authored-by:** Chimera <chimera_defi@protonmail.com>
+
+            ## Summary
+            Automated Merchant Center feed refresh.
+
+            ## Original Request
+            > Scheduled weekly feed generation (generate-merchant-feed.yml).
+
+            ## Changes Made
+            This PR updates the hardware-wallet Merchant Center feed published at
+            `frontend/public/merchant-center.xml`.
+
+            ## Testing & Verification
+            - [ ] Validate feed XML structure
+            - [ ] Confirm item counts match hardware wallet rows
+            - [ ] Confirm pricing matches `data/merchant_pricing.json`
+
+            ---
+            *Generated automatically by GitHub Actions.*
+          branch: auto/refresh-merchant-feed
+          delete-branch: true
+          labels: |
+            automated
+            data-refresh
