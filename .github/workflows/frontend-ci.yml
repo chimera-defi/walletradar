@@ -1,0 +1,58 @@
+name: Frontend CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: frontend-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build & Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Type check
+        run: bun run type-check
+
+      - name: Data smoke test
+        run: bun run test
+
+      - name: Verify OG images exist
+        run: |
+          missing=0
+          for img in og-image og-software-wallets-table og-hardware-wallets-table og-crypto-cards-table og-ramps-table og-software-wallets-details og-hardware-wallets-details og-crypto-cards-details og-ramps-details og-explore; do
+            if [ ! -f "public/$img.png" ]; then
+              echo "Missing: public/$img.png"
+              missing=$((missing + 1))
+            fi
+          done
+          if [ "$missing" -gt 0 ]; then
+            echo "Run 'cd frontend && bun run generate-og' and commit the new images."
+            exit 1
+          fi
+
+      - name: Build
+        run: bun run build
