@@ -11,9 +11,9 @@ import { SocialShare } from '@/components/SocialShare';
 import { brand, withBrand } from '@/lib/brand';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all articles
@@ -23,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each article
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: PageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const article = getArticleBySlug(params.slug);
 
   if (!article) {
@@ -78,7 +79,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function ArticlePage({ params }: PageProps) {
+export default async function ArticlePage({ params: paramsPromise }: PageProps) {
+  const params = await paramsPromise;
   const article = getArticleBySlug(params.slug);
 
   if (!article) {

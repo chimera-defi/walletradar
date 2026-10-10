@@ -204,7 +204,8 @@ function getStructuredData(type: WalletType, wallet: WalletData, pageUrl: string
   return generateWalletProductSchema({ ...schemaData }, type, pageUrl);
 }
 
-export async function generateMetadata({ params }: { params: { type: WalletType; id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ type: WalletType; id: string }> }): Promise<Metadata> {
+  const params = await paramsPromise;
   if (!isWalletType(params.type)) {
     return {
       title: withBrand('Wallet Not Found'),
@@ -263,7 +264,8 @@ export async function generateMetadata({ params }: { params: { type: WalletType;
   };
 }
 
-export default function WalletDetailPage({ params }: { params: { type: WalletType; id: string } }) {
+export default async function WalletDetailPage({ params: paramsPromise }: { params: Promise<{ type: WalletType; id: string }> }) {
+  const params = await paramsPromise;
   if (!isWalletType(params.type)) {
     notFound();
   }
