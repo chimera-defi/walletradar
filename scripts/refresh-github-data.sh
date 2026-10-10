@@ -78,20 +78,82 @@ for row in "${TABLE_REPO_ROWS[@]}"; do
     REPOS+=("$repo")
 done
 
+# Optional: REPO_FILTER="owner/a,owner/b" restricts the run to those repos (dry runs).
+if [ -n "${REPO_FILTER:-}" ]; then
+    FILTERED_REPOS=(); FILTERED_NAMES=()
+    for i in "${!REPOS[@]}"; do
+        case ",$REPO_FILTER," in
+            *",${REPOS[$i]},"*) FILTERED_REPOS+=("${REPOS[$i]}"); FILTERED_NAMES+=("${WALLET_NAMES[$i]}") ;;
+        esac
+    done
+    REPOS=("${FILTERED_REPOS[@]}"); WALLET_NAMES=("${FILTERED_NAMES[@]}")
+fi
+
 if [ "${#REPOS[@]}" -eq 0 ]; then
     echo "Error: no software repositories found in $SOFTWARE_TABLE" >&2
     exit 1
 fi
 
-# Set up authentication header if token is available
-if [ -n "$GITHUB_TOKEN" ]; then
+# Set up authentication: GITHUB_TOKEN, else GH_TOKEN. The token is passed to
+# curl via a config on stdin so it never appears in argv or output.
+AUTH_TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
+if [ -n "$AUTH_TOKEN" ]; then
     echo "Using GitHub token for API requests" >&2
 else
-    echo "Warning: No GITHUB_TOKEN set. Rate limited to 60 requests/hour." >&2
+    echo "Warning: No GITHUB_TOKEN/GH_TOKEN set. Rate limited to 60 requests/hour." >&2
     echo "Set GITHUB_TOKEN environment variable for higher limits." >&2
     echo "Falling back to GitHub Atom feeds for last-commit timestamps." >&2
     echo "Attempting HTML scrape fallback for stars/issues (best effort)." >&2
 fi
+
+# gh_curl [curl args...]: silent curl, authenticated when a token is set.
+gh_curl() {
+    if [ -n "$AUTH_TOKEN" ]; then
+        printf 'header = "Authorization: Bearer %s"\n' "$AUTH_TOKEN" | curl -s -K - "$@"
+    else
+        curl -s "$@"
+    fi
+}
+
+# get_release REPO: print "<tag-or-name>|<date YYYY-MM-DD>" for the latest
+# release; if /releases/latest is 404 (no GitHub Releases, e.g. trezor-firmware)
+# fall back to the newest tag (and its commit date). Prints "?|?" on failure.
+get_release() {
+    local repo="$1" body code tag date
+    body=$(gh_curl -w '\n%{http_code}' "https://api.github.com/repos/$repo/releases/latest" 2>/dev/null)
+    code=${body##*$'\n'}
+    body=${body%$'\n'*}
+    if [ "$code" = "200" ]; then
+        tag=$(echo "$body" | jq -r '.tag_name // .name // empty' 2>/dev/null)
+        date=$(echo "$body" | jq -r '(.published_at // .created_at // empty) | .[0:10]' 2>/dev/null)
+        echo "${tag:-?}|${date:-?}"
+        return
+    fi
+    if [ "$code" = "404" ]; then
+        # /tags is returned in reverse-lexical ref order (not by date), so
+        # per_page=1 can yield junk like "v0-working3". Read one page of tags and
+        # pick the highest version-looking tag; fall back to the first tag.
+        body=$(gh_curl "https://api.github.com/repos/$repo/tags?per_page=100" 2>/dev/null)
+        tag=$(echo "$body" | jq -r 'if type=="array" then .[].name else empty end' 2>/dev/null \
+            | grep -E '(^|/)v?[0-9]+(\.[0-9]+)+$' \
+            | awk '{ n=$0; sub(/^.*\//, "", n); sub(/^v/, "", n); print n "\t" $0 }' \
+            | sort -t$'\t' -k1,1V | tail -1 | cut -f2)
+        if [ -z "$tag" ]; then
+            tag=$(echo "$body" | jq -r 'if type=="array" then (.[0].name // empty) else empty end' 2>/dev/null)
+        fi
+        if [ -n "$tag" ]; then
+            local commit_url
+            commit_url=$(echo "$body" | jq -r --arg t "$tag" '(if type=="array" then .[] else empty end) | select(.name==$t) | .commit.url // empty' 2>/dev/null | head -1)
+            date=""
+            if [ -n "$commit_url" ]; then
+                date=$(gh_curl "$commit_url" 2>/dev/null | jq -r '(.commit.committer.date // empty) | .[0:10]' 2>/dev/null)
+            fi
+            echo "${tag}|${date:-?}"
+            return
+        fi
+    fi
+    echo "?|?"
+}
 
 # Function to get activity status based on days since last commit
 get_status() {
@@ -153,8 +215,8 @@ if [ "$OUTPUT_FORMAT" == "json" ]; then
 elif [ "$OUTPUT_FORMAT" == "markdown" ]; then
     echo "## GitHub Activity Status (Generated: $TODAY)"
     echo ""
-    echo "| Wallet | Repository | Last Commit | Days Ago | Stars | Issues | Status |"
-    echo "|--------|------------|-------------|----------|-------|--------|--------|"
+    echo "| Wallet | Repository | Last Commit | Days Ago | Stars | Issues | Status | License | Archived | Pushed | Last Release |"
+    echo "|--------|------------|-------------|----------|-------|--------|--------|---------|----------|--------|--------------|"
 else
     echo "=== Wallet GitHub Activity Check ==="
     echo "Generated: $TODAY"
@@ -167,36 +229,43 @@ for i in "${!REPOS[@]}"; do
     REPO="${REPOS[$i]}"
     WALLET="${WALLET_NAMES[$i]}"
     
-    # Get repository stats (stars/issues)
-    if [ -n "$GITHUB_TOKEN" ]; then
-        REPO_URL="https://api.github.com/repos/$REPO"
-        REPO_RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$REPO_URL" 2>/dev/null)
-        if echo "$REPO_RESPONSE" | grep -q "API rate limit exceeded"; then
+    # Get repository stats (stars/issues/licence/archived/pushed_at)
+    LICENSE="?"; ARCHIVED="?"; PUSHED_AT="?"; RELEASE="?|?"
+    API_OK=true
+    REPO_URL="https://api.github.com/repos/$REPO"
+    REPO_RESPONSE=$(gh_curl "$REPO_URL" 2>/dev/null)
+    if echo "$REPO_RESPONSE" | grep -q "API rate limit exceeded"; then
+        API_OK=false
+        if [ -n "$AUTH_TOKEN" ]; then
             echo "Error: GitHub API rate limit exceeded. Set GITHUB_TOKEN." >&2
             exit 1
         fi
+        STAR_RAW=$(curl -s "https://r.jina.ai/http://github.com/$REPO" 2>/dev/null | grep -m1 "Star " | sed -n 's/.*Star[[:space:]]\{1,\}\([0-9][0-9.,kKmM]*\).*/\1/p')
+        ISSUE_RAW=$(curl -s "https://r.jina.ai/http://github.com/$REPO/issues?q=is%3Aissue+is%3Aopen" 2>/dev/null | grep -m1 "Open[[:space:]]\{1,\}[0-9]" | sed -n 's/.*Open[[:space:]]\{1,\}\([0-9][0-9.,kKmM]*\).*/\1/p')
+        STARS=$(normalize_count "$STAR_RAW")
+        ISSUES=$(normalize_count "$ISSUE_RAW")
+    elif [ -n "$AUTH_TOKEN" ]; then
         STARS=$(echo "$REPO_RESPONSE" | jq -r '.stargazers_count // 0' 2>/dev/null)
         ISSUES=$(echo "$REPO_RESPONSE" | jq -r '.open_issues_count // 0' 2>/dev/null)
     else
-        REPO_URL="https://api.github.com/repos/$REPO"
-        REPO_RESPONSE=$(curl -s "$REPO_URL" 2>/dev/null)
-        if echo "$REPO_RESPONSE" | grep -q "API rate limit exceeded"; then
-            STAR_RAW=$(curl -s "https://r.jina.ai/http://github.com/$REPO" 2>/dev/null | grep -m1 "Star " | sed -n 's/.*Star[[:space:]]\\{1,\\}\\([0-9][0-9.,kKmM]*\\).*/\\1/p')
-            ISSUE_RAW=$(curl -s "https://r.jina.ai/http://github.com/$REPO/issues?q=is%3Aissue+is%3Aopen" 2>/dev/null | grep -m1 "Open[[:space:]]\\{1,\\}[0-9]" | sed -n 's/.*Open[[:space:]]\\{1,\\}\\([0-9][0-9.,kKmM]*\\).*/\\1/p')
-            STARS=$(normalize_count "$STAR_RAW")
-            ISSUES=$(normalize_count "$ISSUE_RAW")
-        else
-            STARS=$(echo "$REPO_RESPONSE" | jq -r '.stargazers_count // "?"' 2>/dev/null)
-            ISSUES=$(echo "$REPO_RESPONSE" | jq -r '.open_issues_count // "?"' 2>/dev/null)
-        fi
-        if [ -z "$STARS" ]; then STARS="?"; fi
-        if [ -z "$ISSUES" ]; then ISSUES="?"; fi
+        STARS=$(echo "$REPO_RESPONSE" | jq -r '.stargazers_count // "?"' 2>/dev/null)
+        ISSUES=$(echo "$REPO_RESPONSE" | jq -r '.open_issues_count // "?"' 2>/dev/null)
     fi
+    if [ -z "$STARS" ]; then STARS="?"; fi
+    if [ -z "$ISSUES" ]; then ISSUES="?"; fi
+    if [ "$API_OK" = "true" ]; then
+        LICENSE=$(echo "$REPO_RESPONSE" | jq -r '.license.spdx_id // "NONE"' 2>/dev/null || echo "?")
+        ARCHIVED=$(echo "$REPO_RESPONSE" | jq -r '(.archived | if . == null then "?" else tostring end)' 2>/dev/null || echo "?")
+        PUSHED_AT=$(echo "$REPO_RESPONSE" | jq -r '(.pushed_at // "?") | .[0:10]' 2>/dev/null || echo "?")
+        RELEASE=$(get_release "$REPO")
+    fi
+    RELEASE_TAG="${RELEASE%%|*}"
+    RELEASE_DATE="${RELEASE##*|}"
 
     # Get the default branch commits
-    if [ -n "$GITHUB_TOKEN" ]; then
+    if [ -n "$AUTH_TOKEN" ]; then
         API_URL="https://api.github.com/repos/$REPO/commits?per_page=1"
-        RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$API_URL" 2>/dev/null)
+        RESPONSE=$(gh_curl "$API_URL" 2>/dev/null)
         if echo "$RESPONSE" | grep -q "API rate limit exceeded"; then
             echo "Error: GitHub API rate limit exceeded. Set GITHUB_TOKEN." >&2
             exit 1
@@ -232,11 +301,11 @@ for i in "${!REPOS[@]}"; do
             echo ","
         fi
         FIRST=false
-        echo -n "    {\"wallet\": \"$WALLET\", \"repo\": \"$REPO\", \"lastCommit\": \"$LAST_COMMIT_DATE\", \"daysAgo\": $DAYS_AGO, \"stars\": \"$STARS\", \"issues\": \"$ISSUES\", \"status\": \"$STATUS_EMOJI\"}"
+        echo -n "    {\"wallet\": \"$WALLET\", \"repo\": \"$REPO\", \"lastCommit\": \"$LAST_COMMIT_DATE\", \"daysAgo\": $DAYS_AGO, \"stars\": \"$STARS\", \"issues\": \"$ISSUES\", \"status\": \"$STATUS_EMOJI\", \"license\": \"$LICENSE\", \"archived\": \"$ARCHIVED\", \"pushedAt\": \"$PUSHED_AT\", \"lastRelease\": \"$RELEASE_TAG\", \"lastReleaseDate\": \"$RELEASE_DATE\"}"
     elif [ "$OUTPUT_FORMAT" == "markdown" ]; then
-        echo "| **$WALLET** | [$REPO](https://github.com/$REPO) | $LAST_COMMIT_DATE | $DAYS_AGO | $STARS | $ISSUES | $STATUS |"
+        echo "| **$WALLET** | [$REPO](https://github.com/$REPO) | $LAST_COMMIT_DATE | $DAYS_AGO | $STARS | $ISSUES | $STATUS | $LICENSE | $ARCHIVED | $PUSHED_AT | $RELEASE_TAG ($RELEASE_DATE) |"
     else
-        printf "%-15s %-40s %-12s %4s days  %7s %7s  %s\n" "$WALLET" "$REPO" "$LAST_COMMIT_DATE" "$DAYS_AGO" "$STARS" "$ISSUES" "$STATUS"
+        printf "%-15s %-40s %-12s %4s days  %7s %7s  %s  [%s archived=%s pushed=%s release=%s %s]\n" "$WALLET" "$REPO" "$LAST_COMMIT_DATE" "$DAYS_AGO" "$STARS" "$ISSUES" "$STATUS" "$LICENSE" "$ARCHIVED" "$PUSHED_AT" "$RELEASE_TAG" "$RELEASE_DATE"
     fi
     
     # Sleep to avoid rate limiting (be nice to GitHub)
