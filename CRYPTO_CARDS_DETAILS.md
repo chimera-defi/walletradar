@@ -17,7 +17,7 @@
 | 5 | **CryptoSpend** | 76 | Australia (Wayex) | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
-**Last Updated:** October 10, 2026 (Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, Fuse, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
+**Last Updated:** October 10, 2026 (Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
 
 ---
 
@@ -136,7 +136,7 @@ Hybrid products should be classified by the actual card spend path. If a product
 - CryptoSpend Card (BTC, ETH, others)
 
 #### Stablecoin-Focused (No Traditional Rewards)
-- Kast Card (Kast Points - 1.5-3%, promo to 12%)
+- Kast Card (Kast Points - 1.5-3% cashback by tier)
 - Solflare Card (No cashback, raffle rewards until Feb 2026)
 - Fuse Wallet Card (No rewards)
 - Payy Card (No rewards - privacy-focused)
@@ -1034,7 +1034,7 @@ Kast is a stablecoin banking platform offering Visa debit cards that let users s
 |------|------------|----------|-------|
 | Standard | $0 | 1.5% | Kast Points (Oct 2026 site) |
 | Premium | $1,000/year | 2% | Promo up to 10% to mid-2027 |
-| Private | $10,000/year | 3% | Promo up to 12% to mid-2027 |
+| Private | $10,000/year | 3% | Cashback 3%; separate Reserve rate on balances up to 12% (not cashback) |
 
 **Fees:**
 - Annual Fee: $20-$10,000 (tier dependent)
@@ -1848,26 +1848,26 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 |------|-------|-----|-----|------|
 | Plasma One | Status / URL | ⚠️, plasma.to/one | ✅, plasma.org/personal | Live in apps; Lite 2% / Core 3% / Platinum 4% in XPL |
 | Plasma One | FX | 0-1.5% | 0-1% | +1% Lite, +0.5% Core, 0% Platinum (Visa adds ~1% on Lite/Core); membership prices in-app only |
-| KAST | Cashback | 2-12% | 1.5-3% (promo to 12%) | Standard/Premium/Private tiers; promo ends 2027 |
+| KAST | Cashback | 2-12% | 1.5-3% | Standard 1.5% / Premium 2% / Private 3% cashback (kast.xyz). The 8/10/12% figures are the Reserve balance rate, not cashback, and are excluded from scoring |
 | KAST | Biz / Annual | ❌, $20-$1,000 | ✅, $0-$10,000 | KAST Business launched 2026-09-01; tiers renamed |
-| Amp Pay Black | Status | ✅ | ❌ | Wind-down announced 2026-05 *(secondary)* |
-| Ready Card | Status | ✅ | ❌ | Issuer Kulipa wound down, program shut 2026-07 *(press)* |
+| Amp Pay Black | Status / Cashback / FX | ✅ / up to 4% / 1% | ⚠️ / TBD / TBD | Status unverified: no issuer or dated source for a shutdown was found (only an expired certificate); earlier "wind-down" claim withdrawn |
+| Ready Card | Status | ✅ | ❌ | Shutdown (2026-07) is reported by a secondary blog and an undated press article; ready.co/card shows no shutdown wording; unconfirmed by issuer |
 | Crypto.com Visa | FX / Cashback | 0% / 0-8% | 0-3% / 0-4.5% | US FX 3% on mid tiers; caps and stake lock apply |
-| Tria | Type / Annual / FX / Rewards | Credit / $0 / 1% / TRIA | Prepaid / $25-$250 / up to 3% / Stables | Status ⚠️ (terms not retrievable) |
+| Tria | Type / Annual / FX / Rewards | Credit / $0 / 1% / TRIA | Prepaid / TBD / TBD / Stables | Prepaid type and $25-$250 / 3% figures are not stated on tria.so and terms are unretrievable; annual and FX set to TBD |
 | KuCard | Region / Cashback / Annual | Global / up to 4% / $0 | EEA / up to 1% / €9.99 issuance | Issuer Wallester AS |
 | MetaMask Card | Status | ✅ | ⚠️ | US/UK signups paused; 1% virtual, 3% on first $10k Metal |
 | ThorWallet | Cashback / Annual / FX | 0% / $0+ / 0.25-1% | 0.5% / $0-$124 one-off / 1.5% | Premium capped $25/mo |
 | 1inch Card | Custody | 🔐 Self | 📋 CeFi | Prepaid Mastercard, Monavate/Baanx |
-| Plutus | Region / FX | EU/UK / 0% | UK / 2.5% | ATM 2.5%, card £9.99 |
+| Plutus | Region / FX | EU/UK / 0% | UK / 2.5% | ATM 2.5%, card £9.99; fees page is EUR-denominated, so region remains ambiguous |
 | RedotPay | FX / Annual | 1-2% / $0 | 1.2% / $0 ($10-$100 issuance) | Cashback TBD |
-| Jupiter | Cashback / Rewards | 4-10% / Points | 2-4% / USDC | Issuers Rain and DCS |
+| Jupiter | Cashback / Rewards | 4-10% / Points | 2% / USDC | Docs state base 2%; Rain cards keep tokens on-chain as collateral; no USDC-payout statement found; issuers Rain and DCS |
 | Nexo | Cashback / FX | up to 2% / "FX fees" | 0.5-2% / 0.2-2.5% | Issuer DiPocket UAB |
 | ToonPay | FX | 2% | 2% + 2% processing | Cashback 1% base |
-| Fuse | Custody | 🔐 Self | 📋 CeFi | Not confirmed in official card terms |
+| Fuse | Custody | 🔐 Self | 🔐 Self (unverified) | fuse.io describes a "non-custodial Visa card"; official card terms not confirmed, so the earlier CeFi reclassification was reverted |
 | Shakepay | Cashback / FX | 1.5% / 0% | 1-1.5% / 0-3% | Base tier 3%, Blue 0% |
 | Meow | Cashback | up to 2% | up to 1.5% | Issuer is Lead Bank (not CFSB) |
 | Solflare | Status | ✅ | ⚠️ | Cards paused pending new issuer |
-| OKX Card | Custody / Cashback | 🔐 Self / TBD | 🏦 Exch / 2-10% | OKX Pay holds the balance; USDG-funded only |
+| OKX Card | Custody / Cashback | 🔐 Self / TBD | 🏦 Exch / 2-10% | OKX Pay holds the balance per the card page; OKX's explainer is ambiguous (also says funds stay in wallet), operator ruling: Exch |
 | Slash | Cashback | up to 2% | 1.5-2% | Free 1.5%, Pro 2% |
 | CoinJar | Custody / Rewards | 🏦 Exch / BTC | 📋 CeFi / Points | Prepaid Mastercard via EML |
 | Kraken | Status / Cashback / FX | ⚠️ TBD / TBD | ✅ / 0.5-2% / 0-1% | Tiered by balance; Lead Bank (US) |
@@ -1875,7 +1875,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Spendly | Status | ✅ | ❌ | Domain parked *(secondary)* |
 | Hi Card, Bybit | Cashback | up to 10% / 2-10% | TBD | Official pages show no figures |
 | Fold, Revolut, Gnosis Pay, Coinbase | Cashback | various | TBD | Not stated on retrievable official pages |
-| Ethena Pay | New row | - | Self, up to 5% in AVAX, non-US | Launching/beta; issuer not named officially |
+| Ethena Pay | Status / Cashback / FX / Issuer | 🔄 / up to 5% / TBD / unnamed | ✅ beta (2026-09-01) / 4-5% AVAX (Standard/Pro/VIP) / ~1% Visa FX / Visa via Third National, program manager Rain | Sources: pay.ethena.fi/card-terms (terms dated 2026-06-01), The Block 2026-09-01, CoinMarketCap *(secondary)*; 48 countries, US persons and EU excluded; ATM $1 + 0.65%; annual fee TBD; DefiLlama snippet suggests monthly caps (unverified) |
 
 ### Custody
 
@@ -1884,19 +1884,19 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | EtherFi Cash | Self | "Issuer does not have custody or control over the contents of your wallet"; borrow-against-collateral | Third National (Visa); Rain *(secondary)* |
 | Plasma One | Self | "does not custody your assets" (marketing only) | Rain; Bridge for accounts |
 | KAST | CeFi | ToS 2026-07-07: remitted assets are a transfer of ownership, "sold to KAST", held by a custodian on KAST's behalf; redemption right added | Third National per non-US agreement |
-| Ethena Pay | Self | Site: "never hold your money" (terms not read) | Not named officially |
+| Ethena Pay | Self (caveat) | Collateral stays in user wallet, but issuer holds a security interest and may liquidate if payment is >1 day overdue | Third National / Rain (card terms) |
 | Gnosis Pay | Self | Safe smart account | Monavate (Visa Europe) |
 | MetaMask | Self | User wallet | Monavate / Crypto Life |
 | Tuyo | Self | "We never take custody" | Rain/Signify; Bridge |
 | Avici | Self | Contracts "self-custodial", Avici can withdraw funds linked to charges | n/a |
 | OKX Card | Exch | "OKX Pay holds the USDC or USDG balance" | n/a |
-| 1inch, Jupiter, Fuse, Wayex, Nexo, Plutus, Shakepay, Reap, CoinJar | CeFi | Prepaid/partner-held balances | Monavate; Rain+DCS; Lead Bank/Bridge; Lead Bank; DiPocket; Modulr; Peoples Trust; Reap (Visa principal); EML |
+| 1inch, Jupiter, Wayex, Nexo, Plutus, Shakepay, Reap, CoinJar | CeFi | Prepaid/partner-held balances | Monavate; Rain+DCS; Lead Bank/Bridge; Lead Bank; DiPocket; Modulr; Peoples Trust; Reap (Visa principal); EML |
 
 ### Unverified
-Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership prices and issuer name; Tria, Fold, Revolut, Bybit, Hi Card, ThorWallet issuer details; Payy card terms; BitPay status (reportedly US program ended 2023, *secondary*); Kontigo "discontinued" (homepage still promotes the card); Uphold and Coinbase terms (403, snippets only); Nummus issuer.
+Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership prices (page names Rain as issuer); Tria, Fold, Revolut, Bybit, Hi Card, ThorWallet issuer details; Payy card terms; BitPay status (reportedly US program ended 2023, *secondary*); Kontigo "discontinued" (homepage still promotes the card); Uphold and Coinbase terms (403, snippets only); Nummus issuer.
 
 ### New candidates (not added; no official fee/issuer data to fill a row)
-COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added.
+COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added and updated to live beta.
 
 
 ---

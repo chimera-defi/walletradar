@@ -62,16 +62,16 @@ const WALLET_DATA = {
   ],
   cards: [
     // Data from CRYPTO_CARDS.md - Top 5 by score
-    // Last verified: January 2026
+    // Last verified: October 2026
     { name: 'EtherFi Cash', cashback: '2-3%', type: 'Credit', region: 'Global', status: '🟢' },
-    { name: 'Ready Card', cashback: '3%', type: 'Debit', region: 'EU/UK', status: '🟢' },
-    { name: 'Hi Card', cashback: '10%', type: 'Debit', region: 'Global', status: '🟢' },
-    { name: 'Gnosis Pay', cashback: '5%', type: 'Debit', region: 'Global', status: '🟢' },
-    { name: 'Wirex Card', cashback: '8%', type: 'Debit', region: 'Global', status: '🟢' },
+    { name: 'Plasma One', cashback: 'Up to 4%', type: 'Debit', region: 'Global', status: '🟢' },
+    { name: 'MetaMask Card', cashback: '1-3%', type: 'Debit', region: 'Global', status: '🟡' },
+    { name: 'Avici Money', cashback: 'TBD', type: 'Debit', region: 'Global', status: '🟢' },
+    { name: 'Gemini Card', cashback: 'TBD', type: 'Credit', region: 'US', status: '🟢' },
   ],
   ramps: [
     // Data from RAMPS.md - Top 5 by score
-    // Last verified: January 2026
+    // Last verified: October 2026
     { name: 'Transak', score: 92, type: 'Both', coverage: '160+', devUx: 'React SDK', status: '🟢' },
     { name: 'MoonPay', score: 90, type: 'Both', coverage: '160+', devUx: 'Widget', status: '🟢' },
     { name: 'Coinbase Pay', score: 89, type: 'Both', coverage: '100+', devUx: 'SDK', status: '🟢' },
@@ -80,7 +80,7 @@ const WALLET_DATA = {
   ],
   qrPayments: [
     // Data from QR_PAYMENTS.md - Top 5 by score
-    // Last verified: January 2026
+    // Last verified: October 2026
     { name: 'Flexa', score: 88, type: 'In-Store', feeModel: '~0.5%', devUx: 'SDK/API', status: '🟢' },
     { name: 'NOWPayments', score: 85, type: 'Both', feeModel: '0.5%', devUx: 'API', status: '🟢' },
     { name: 'Coinbase Commerce', score: 83, type: 'Both', feeModel: '1%', devUx: 'SDK', status: '🟢' },
@@ -636,8 +636,8 @@ function generateCryptoCardsDetailsImage() {
   // Top picks
   const picks = [
     { rank: '🥇', name: 'EtherFi Cash', cashback: '2-3%', for: 'Global - Non-custodial DeFi credit' },
-    { rank: '🥈', name: 'Ready Card', cashback: '3%', for: 'EU/UK - Self-custody debit' },
-    { rank: '🥉', name: 'Hi Card', cashback: '10%', for: 'Global - High cashback' },
+    { rank: '🥈', name: 'Plasma One', cashback: 'Up to 4%', for: 'Global - Self-custody debit' },
+    { rank: '🥉', name: 'MetaMask Card', cashback: '1-3%', for: 'Self-custody (US/UK signups paused)' },
   ];
 
   let y = startY + 50;
@@ -671,8 +671,8 @@ function generateCryptoCardsDetailsImage() {
 
   const regions = [
     '• US: Coinbase Card (1-4%), Fold Card (3-5%)',
-    '• EU/UK: Gnosis Pay (5%), Ready Card (3%)',
-    '• Global: EtherFi Cash (2-3%), Hi Card (10%)',
+    '• EU/UK: Gnosis Pay, Plasma One (up to 4%)',
+    '• Global: EtherFi Cash (2-3%), Plasma One (up to 4%)',
   ];
 
   y += 40;
