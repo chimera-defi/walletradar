@@ -18,6 +18,7 @@
 | [**Crypto.com Visa**](https://crypto.com/us/cards) | 71 | Debit | 🏦 Exch | ✅ | 🌍 Global | 0-4.5% | $0 | 0-3% | CRO | ✅ | CRO stakers ⚠️ | 🟢 |
 | [**Kast**](https://kast.xyz) (@kastxyz) | 71 | Debit | 📋 CeFi | ✅ | 🌍 Global | 1.5-3% | $0-$10,000/yr | Up to 2-3% | Kast Points | ✅ | Stablecoin banking (custodial terms) | 🟢 |
 | [**OKX Card**](https://www.okx.com) | 71 | Debit | 🏦 Exch | ⚠️ | 🇪🇺 EU | 2-10% | $0 | TBD | Stables | 🔄 | OKX Pay EU users | 🟡 |
+| [**Bitpanda Card**](https://www.bitpanda.com/en/card) | 70 | Debit | 🏦 Exch | ❌ | 🇪🇺 Euro area | 1% | $0 | 0% | Crypto | ✅ | Bitpanda users (euro-area residents) | 🟢 |
 | [**Fuse Wallet Card**](https://fusewallet.com) (@fusewallet) | 70 | Prepaid | 🔐 Self | ❌ | 🌍 Global* | 0% | $0 | 0% | USDC | ⚠️ | Solana stablecoins | 🟢 |
 | [**Gnosis Pay**](https://gnosispay.com) | 70 | Debit | 🔐 Self | ⚠️ | 🌍 Global* | TBD | €0 | 0% | GNO/SAFE | ✅ | DeFi-native | 🟢 |
 | [**1inch Card**](https://1inch.com/card) | 69 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU/UK | Up to 2% | $0 | 0% | 1INCH | ✅ | DeFi users | 🟢 |
@@ -28,11 +29,11 @@
 | [**Jupiter Card**](https://jup.ag/rewards) | 67 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 2% | $0 | 1-1.8% | USDC | ⚠️ | Solana/Jupiter users | 🟡 |
 | [**Nexo Card**](https://nexo.com/card) | 67 | Credit | 📋 CeFi | ✅ | 🇪🇺 EU/UK | 0.5-2% | $0 | 0.2-2.5% | NEXO | ✅ | Crypto credit | 🟡 |
 | [**ThorWallet**](https://thorwallet.org) (@THORWalletORG) | 67 | Debit | 🔐 Self | ❌ | 🌍 Global | 0.5% | $0-$124 one-off | 1.5% | Multi | ✅ | Cross-chain DeFi | 🟡 |
-| [**Tria**](https://tria.so) (@useTria) | 67 | Prepaid | 🔐 Self | ❌ | 🌍 Global | Up to 6% | TBD | TBD | Stables | ⚠️ | Token rewards | 🟢 |
+| [**Tria**](https://tria.so) (@useTria) | 67 | Prepaid | 🔐 Self | ❌ | 🌍 Global | Up to 6% | TBD | TBD | Stables | ⚠️ | Token rewards | 🟡 |
 | [**Bitget Wallet Card**](https://web3.bitget.com/en/card) | 66 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 2-3% | $0 ($10 activation) | 0-1.7% | Campaign | ⚠️ | Bitget Wallet users | 🟡 |
 | [**Coinbase Card**](https://www.coinbase.com/card) | 64 | Debit | 🏦 Exch | ❌ | 🇺🇸 US | TBD | $0 | 0% | BTC, ETH | ✅ | Coinbase users | 🟡 |
 | [**Reap**](https://reap.global) | 64 | Business | 📋 CeFi | ✅ | HK/MX | 0% | $0 | 2% | Stables | ✅ | Business | 🟡 |
-| [**Bybit Card**](https://www.bybit.com/en/cards/) | 63 | Debit | 🏦 Exch | ✅ | 🌍 Non-EEA | TBD | $0 | TBD | Multi | ⚠️ | $100 ATM free then 2% | 🟡 |
+| [**Bybit Card**](https://www.bybit.com/en/cards/) | 63 | Debit | 🏦 Exch | ✅ | 🌍 Non-EEA | TBD | $0 | TBD | Multi | ⚠️ | $100 ATM free then 2% | 🔴 |
 | [**RedotPay**](https://redotpay.com) | 63 | Debit | 📋 CeFi | ✅ | 🌍 Global* | TBD | $0 ($10-$100 issuance) | 1.2% | USDT, USDC | ✅ | Multi-region (ex US/SG) | 🟡 |
 | [**Shakepay Card**](https://shakepay.com/card) | 63 | Prepaid | 📋 CeFi | ❌ | 🇨🇦 CA | 1-1.5% | $0 | 0-3% | BTC | ✅ | Canada | 🟡 |
 | [**Slash Platinum Card**](https://www.slash.com/products/corporate-cards) (@slashapp) | 63 | Business | 📋 CeFi | ✅ | 🇺🇸 US | 1.5-2% | $0-$25/mo | 1% (min $0.4) | USD cash | ✅ | US internet businesses | 🟡 |
@@ -50,6 +51,7 @@
 | [**Nummus Wallet Card**](https://nummuswallet.com/) (@NummusWallet) | 43 | Debit | 📋 CeFi | ✅ | 🌍 Global | 0% | TBD | 2.5-4% top-up | None | ⚠️ | Partner-issued banking/card rails | 🔴 |
 | ~~[**Ready Card**](https://www.ready.co/card)~~ | 41 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 3% | $0 | 0% | Crypto | ❌ | ~~Self-custody EU/UK~~ (reported shutdown, 2026-07; unconfirmed by issuer) | 🔴 |
 | ~~[**Spendly**](https://www.usespendly.com)~~ (@SpendlyCC) | 29 | Prepaid | 📋 CeFi | ❌ | 🌍 Global | 0% | $0 | 0% | Multi | ❌ | ~~Privacy prepaid spending~~ (domain parked) | 🔴 |
+| ~~[**Cypher Card**](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher)~~ | 14 | Debit | 🔐 Self | ❌ | 🌍 Global | TBD | TBD | TBD | TBD | ❌ | ~~Self-custody card~~ (acquired by Nium; cards closed 2026-08-08) | 🔴 |
 
 > **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. The table no longer relies on hand-tuned score adjustments.
 
