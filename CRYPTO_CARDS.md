@@ -157,7 +157,7 @@
 >
 > **🔐 Self-Custody Spend-Path Cards:** EtherFi Cash, Tria*, MetaMask Card, Gnosis Pay, ThorWallet*, Payy*, Avici Money, Plasma One, Ethena Pay (launching), Tuyo, and Solflare (paused). *Official card terms not fully retrievable; see the Oct 2026 verification log in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#verification-log-october-2026). OKX Card is Exch (OKX Pay holds the balance); 1inch Card is CeFi (prepaid Mastercard, Monavate/Baanx).
 
-**Last Updated:** June 16, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Custody Model Taxonomy](./CRYPTO_CARDS_DETAILS.md#custody-model-taxonomy) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
+**Last Updated:** October 10, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Custody Model Taxonomy](./CRYPTO_CARDS_DETAILS.md#custody-model-taxonomy) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) and [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for wallet recommendations.
 
