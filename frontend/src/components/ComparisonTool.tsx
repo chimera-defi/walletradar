@@ -309,14 +309,14 @@ function ComparisonTableScaffold<T extends BaseItem, S extends string>({
               key={item.id}
               data-compare-column
               tabIndex={0}
-              className="sticky top-0 z-10 bg-background py-4 px-4 text-center min-w-[140px] outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="sticky top-0 z-10 bg-background py-4 px-4 text-center min-w-[140px] outline-hidden focus-visible:ring-2 focus-visible:ring-primary"
             >
               <div className="flex flex-col items-center gap-2">
                 <div className="flex items-center gap-2">
                   {renderItemName ? renderItemName(item) : <span className="font-bold">{item.name}</span>}
                   <button
                     onClick={() => onRemove(item.id)}
-                    className="p-1 hover:bg-muted rounded"
+                    className="p-1 hover:bg-muted rounded-sm"
                     title="Remove from comparison"
                     aria-label={`Remove ${item.name} from comparison`}
                   >
@@ -816,7 +816,7 @@ export function ComparisonTool({
   }
 
   return (
-    <div ref={comparisonContainerRef} tabIndex={0} onKeyDown={handleKeyDown} className="space-y-4 outline-none">
+    <div ref={comparisonContainerRef} tabIndex={0} onKeyDown={handleKeyDown} className="space-y-4 outline-hidden">
       {/* Toolbar */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-2">
@@ -909,7 +909,7 @@ export function ComparisonTool({
               <h3 className="font-bold text-lg">Add to Comparison</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 hover:bg-muted rounded"
+                className="p-1 hover:bg-muted rounded-sm"
               >
                 <X className="h-5 w-5" />
               </button>

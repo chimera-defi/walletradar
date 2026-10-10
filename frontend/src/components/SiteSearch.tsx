@@ -191,7 +191,7 @@ export function SiteSearch({ searchData }: SiteSearchProps) {
       >
         <Search className="h-4 w-4" />
         <span className="hidden sm:inline">Search</span>
-        <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium bg-slate-700/50 rounded border border-slate-600/50">
+        <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium bg-slate-700/50 rounded-sm border border-slate-600/50">
           <Command className="h-2.5 w-2.5" />K
         </kbd>
       </button>
@@ -218,7 +218,7 @@ export function SiteSearch({ searchData }: SiteSearchProps) {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Search wallets, docs, articles..."
-                className="flex-1 bg-transparent text-slate-100 placeholder:text-slate-500 focus:outline-none text-base"
+                className="flex-1 bg-transparent text-slate-100 placeholder:text-slate-500 focus:outline-hidden text-base"
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
@@ -340,7 +340,7 @@ export function SiteSearch({ searchData }: SiteSearchProps) {
                         <div className="flex items-center gap-2">
                           <span className="font-medium text-slate-100 truncate">{item.title}</span>
                           {item.score && (
-                            <span className="text-xs px-1.5 py-0.5 rounded bg-slate-700/50 text-slate-400">
+                            <span className="text-xs px-1.5 py-0.5 rounded-sm bg-slate-700/50 text-slate-400">
                               {item.score}
                             </span>
                           )}
@@ -386,23 +386,23 @@ export function SiteSearch({ searchData }: SiteSearchProps) {
             <div className="flex items-center justify-between px-4 py-2 border-t border-slate-700/60 text-xs text-slate-500">
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700">
+                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded-sm border border-slate-700">
                     &uarr;
                   </kbd>
-                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700">
+                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded-sm border border-slate-700">
                     &darr;
                   </kbd>
                   Navigate
                 </span>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700">
+                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded-sm border border-slate-700">
                     Enter
                   </kbd>
                   Select
                 </span>
               </div>
               <span className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700">
+                <kbd className="px-1.5 py-0.5 bg-slate-800 rounded-sm border border-slate-700">
                   Esc
                 </kbd>
                 Close

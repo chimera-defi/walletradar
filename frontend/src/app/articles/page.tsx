@@ -61,7 +61,7 @@ export default function ArticlesPage() {
       {comparisonArticles.length > 0 && (
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-100">
-            <span className="inline-block w-1 h-6 bg-sky-400 rounded"></span>
+            <span className="inline-block w-1 h-6 bg-sky-400 rounded-sm"></span>
             Wallet Comparisons
           </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -86,7 +86,7 @@ export default function ArticlesPage() {
       {guideArticles.length > 0 && (
         <section>
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-100">
-            <span className="inline-block w-1 h-6 bg-sky-400 rounded"></span>
+            <span className="inline-block w-1 h-6 bg-sky-400 rounded-sm"></span>
             Wallet Guides
           </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

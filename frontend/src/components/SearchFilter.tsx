@@ -73,7 +73,7 @@ export function SearchFilter({ documents, onFilter, className }: SearchFilterPro
           placeholder="Search documentation..."
           value={searchQuery}
           onChange={handleSearchChange}
-          className="w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          className="w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent"
           aria-label="Search documentation"
         />
         {searchQuery && (
@@ -96,7 +96,7 @@ export function SearchFilter({ documents, onFilter, className }: SearchFilterPro
         <select
           value={selectedCategory}
           onChange={handleCategoryChange}
-          className="pl-10 pr-8 py-2 border border-border rounded-lg bg-background text-foreground appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-w-[160px]"
+          className="pl-10 pr-8 py-2 border border-border rounded-lg bg-background text-foreground appearance-none cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent min-w-[160px]"
           aria-label="Filter by category"
         >
           {CATEGORY_OPTIONS.map(option => (

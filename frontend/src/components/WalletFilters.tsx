@@ -230,7 +230,7 @@ function MultiSelect({
           <Filter className="h-4 w-4 text-muted-foreground" />
           {label}
           {selected.length > 0 && (
-            <span className="bg-primary text-primary-foreground text-xs px-1.5 py-0.5 rounded">
+            <span className="bg-primary text-primary-foreground text-xs px-1.5 py-0.5 rounded-sm">
               {selected.length}
             </span>
           )}
@@ -419,7 +419,7 @@ export function WalletFilters({
             placeholder="Search wallets..."
             value={filters.search}
             onChange={e => updateFilter('search', e.target.value)}
-            className="w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent"
           />
           {filters.search && (
             <button
@@ -471,7 +471,7 @@ export function WalletFilters({
           <SlidersHorizontal className="h-4 w-4" />
           <span className="text-sm">Filters</span>
           {activeFilterCount > 0 && (
-            <span className="bg-primary text-primary-foreground text-xs px-1.5 py-0.5 rounded">
+            <span className="bg-primary text-primary-foreground text-xs px-1.5 py-0.5 rounded-sm">
               {activeFilterCount}
             </span>
           )}

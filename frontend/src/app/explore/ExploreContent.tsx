@@ -708,7 +708,7 @@ export function ExploreContent({
             <span className="sr-only sm:hidden">Software ({softwareTabCount})</span>
             <span className="hidden sm:inline">Software ({softwareTabCount})</span>
             {selectedSoftware.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-indigo-400/20 text-xs px-1.5 py-0.5 rounded">
+              <span className="hidden sm:inline-flex animate-fade-in bg-indigo-400/20 text-xs px-1.5 py-0.5 rounded-sm">
                 {selectedSoftware.length}
               </span>
             )}
@@ -729,7 +729,7 @@ export function ExploreContent({
             <span className="sr-only sm:hidden">Hardware ({hardwareTabCount})</span>
             <span className="hidden sm:inline">Hardware ({hardwareTabCount})</span>
             {selectedHardware.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-amber-400/20 text-xs px-1.5 py-0.5 rounded">
+              <span className="hidden sm:inline-flex animate-fade-in bg-amber-400/20 text-xs px-1.5 py-0.5 rounded-sm">
                 {selectedHardware.length}
               </span>
             )}
@@ -750,7 +750,7 @@ export function ExploreContent({
             <span className="sr-only sm:hidden">Cards ({cardsTabCount})</span>
             <span className="hidden sm:inline">Cards ({cardsTabCount})</span>
             {selectedCards.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-emerald-400/20 text-xs px-1.5 py-0.5 rounded">
+              <span className="hidden sm:inline-flex animate-fade-in bg-emerald-400/20 text-xs px-1.5 py-0.5 rounded-sm">
                 {selectedCards.length}
               </span>
             )}
@@ -771,7 +771,7 @@ export function ExploreContent({
             <span className="sr-only sm:hidden">Ramps ({rampsTabCount})</span>
             <span className="hidden sm:inline">Ramps ({rampsTabCount})</span>
             {selectedRamps.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-violet-400/20 text-xs px-1.5 py-0.5 rounded">
+              <span className="hidden sm:inline-flex animate-fade-in bg-violet-400/20 text-xs px-1.5 py-0.5 rounded-sm">
                 {selectedRamps.length}
               </span>
             )}
