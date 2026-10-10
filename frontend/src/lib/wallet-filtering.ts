@@ -12,7 +12,7 @@ export interface FilterOptions {
   recommendation?: ('recommended' | 'situational' | 'avoid' | 'not-for-dev')[];
   platforms?: ('mobile' | 'browser' | 'desktop' | 'web')[];
   license?: ('open' | 'partial' | 'closed')[];
-  features?: ('txSimulation' | 'scamAlerts' | 'hardwareSupport' | 'testnets')[];
+  features?: ('txSimulation' | 'scamAlerts' | 'hardwareSupport' | 'testnets' | 'bugBounty')[];
   accountTypes?: string[];
   active?: ('active' | 'slow' | 'inactive' | 'private')[];
   funding?: ('sustainable' | 'vc' | 'risky')[];
@@ -109,6 +109,8 @@ export function filterSoftwareWallets(
           case 'scamAlerts': return wallet.scamAlerts !== 'none';
           case 'hardwareSupport': return wallet.hardwareSupport;
           case 'testnets': return wallet.testnets;
+          // Positive-only: wallets with no or unevaluated bounty data are excluded, not judged.
+          case 'bugBounty': return wallet.attributes?.bugBounty?.value === 'active';
           default: return true;
         }
       });

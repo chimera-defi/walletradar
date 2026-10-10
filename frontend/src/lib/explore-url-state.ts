@@ -35,7 +35,7 @@ const FILTER_ARRAY_ALLOWLIST: Partial<Record<keyof FilterState, ReadonlySet<stri
   recommendation: new Set(['recommended', 'situational', 'avoid', 'not-for-dev']),
   platforms: new Set(['mobile', 'browser', 'desktop', 'web']),
   license: new Set(['open', 'partial', 'closed']),
-  features: new Set(['txSimulation', 'scamAlerts', 'hardwareSupport', 'testnets']),
+  features: new Set(['txSimulation', 'scamAlerts', 'hardwareSupport', 'testnets', 'bugBounty']),
   accountTypes: new Set(['EOA', 'Safe', 'EIP-4337', 'EIP-7702']),
   active: new Set(['active', 'slow', 'inactive', 'private']),
   funding: new Set(['sustainable', 'vc', 'risky']),

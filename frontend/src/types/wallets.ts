@@ -37,11 +37,32 @@ export interface ScoreBreakdownEntry {
   note: string;
 }
 
+/** One sourced, unscored attribute from data/attributes.json. Missing or "unknown" means "not evaluated". */
+export interface SourcedAttribute {
+  value: string;
+  sourceUrl: string;
+  evidenceUrl?: string;
+  retrieved: string;
+  sourceKind: string;
+}
+
+export interface WalletAttributes {
+  bugBounty?: SourcedAttribute;
+  reproducibleBuild?: SourcedAttribute;
+  chainVerification?: SourcedAttribute;
+}
+
+export interface CardAttributes {
+  cardNetwork?: SourcedAttribute;
+  kycRequirement?: SourcedAttribute;
+}
+
 export interface SoftwareWallet {
   id: string;
   name: string;
   /** Row tagged "(partial data)": only sourced fields filled, score is a lower bound. */
   partialData?: boolean;
+  attributes?: WalletAttributes;
   score: number;
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];
@@ -114,6 +135,7 @@ export type CustodyType = 'self' | 'exchange' | 'cefi';
 export interface CryptoCard {
   id: string;
   name: string;
+  attributes?: CardAttributes;
   score: number;
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];
