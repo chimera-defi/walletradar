@@ -1,7 +1,6 @@
 {
   "name": "walletradar",
   "private": true,
-  "type": "module",
   "scripts": {
     "test:utils": "vitest run tests/"
   },
