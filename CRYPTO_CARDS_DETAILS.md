@@ -1875,7 +1875,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Spendly | Status | ✅ | ❌ | Domain parked *(secondary)* |
 | Hi Card, Bybit | Cashback | up to 10% / 2-10% | TBD | Official pages show no figures |
 | Fold, Revolut, Gnosis Pay, Coinbase | Cashback | various | TBD | Not stated on retrievable official pages |
-| Ethena Pay | New row | - | Self, up to 5% in AVAX, non-US | Launching/beta; issuer not named officially |
+| Ethena Pay | Status / Cashback / FX / Issuer | 🔄 / up to 5% / TBD / unnamed | ✅ beta (2026-09-01) / 4-5% AVAX (Standard/Pro/VIP) / ~1% Visa FX / Visa via Third National, program manager Rain | Sources: pay.ethena.fi/card-terms (terms dated 2026-06-01), The Block 2026-09-01, CoinMarketCap *(secondary)*; 48 countries, US persons and EU excluded; ATM $1 + 0.65%; annual fee TBD; DefiLlama snippet suggests monthly caps (unverified) |
 
 ### Custody
 
@@ -1884,7 +1884,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | EtherFi Cash | Self | "Issuer does not have custody or control over the contents of your wallet"; borrow-against-collateral | Third National (Visa); Rain *(secondary)* |
 | Plasma One | Self | "does not custody your assets" (marketing only) | Rain; Bridge for accounts |
 | KAST | CeFi | ToS 2026-07-07: remitted assets are a transfer of ownership, "sold to KAST", held by a custodian on KAST's behalf; redemption right added | Third National per non-US agreement |
-| Ethena Pay | Self | Site: "never hold your money" (terms not read) | Not named officially |
+| Ethena Pay | Self (caveat) | Collateral stays in user wallet, but issuer holds a security interest and may liquidate if payment is >1 day overdue | Third National / Rain (card terms) |
 | Gnosis Pay | Self | Safe smart account | Monavate (Visa Europe) |
 | MetaMask | Self | User wallet | Monavate / Crypto Life |
 | Tuyo | Self | "We never take custody" | Rain/Signify; Bridge |
@@ -1896,7 +1896,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership prices and issuer name; Tria, Fold, Revolut, Bybit, Hi Card, ThorWallet issuer details; Payy card terms; BitPay status (reportedly US program ended 2023, *secondary*); Kontigo "discontinued" (homepage still promotes the card); Uphold and Coinbase terms (403, snippets only); Nummus issuer.
 
 ### New candidates (not added; no official fee/issuer data to fill a row)
-COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added.
+COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added and updated to live beta.
 
 
 ---
