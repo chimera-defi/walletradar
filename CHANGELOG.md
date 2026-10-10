@@ -15,6 +15,7 @@ Track significant changes to wallet statuses, recommendations, and documentation
 
 | Date | Area | Change | Details |
 |------|------|--------|---------|
+| Oct 10, 2026 | **data** | Sidecar attributes (schema + sourced values) | `data/attributes.schema.json` and `data/attributes.json` add bug bounty, reproducible build, chain verification (wallets) and card network, KYC requirement (cards) as unscored, per-value-sourced data; no table columns or scores changed. `tests/attributes.test.ts` validates them. |
 | Oct 10, 2026 | **scripts** | MiCA CASP check; GitHub token/tag/licence support | `verify-ramps.py` reports ESMA MiCA CASP register status per ramp (report-only, degrades gracefully offline). `refresh-github-data.sh` uses `GITHUB_TOKEN`/`GH_TOKEN`, falls back to `/tags` when `/releases/latest` is 404, and adds licence/archived/pushed/last-release fields. |
 
 ---
