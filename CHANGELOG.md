@@ -19,6 +19,7 @@ Verified crypto-card custody labels against official provider sources with deleg
 
 | Date | Card | Change | Details |
 |------|------|--------|---------|
+| Oct 10, 2026 | **Cards (46 rows)** | Issuer-source verification | See Verification Log in CRYPTO_CARDS_DETAILS.md. Custody: 1inch, Fuse, CoinJar → 📋 CeFi; OKX → 🏦 Exch; KAST CeFi re-confirmed (ToS 2026-07-07). Ethena Pay added; Ready, Amp Pay, Spendly marked inactive. |
 | Jun 14, 2026 | **KAST** | Custody 🔐→📋, Score 82→76 | **MAJOR FIX:** Official KAST terms say transferred virtual assets are sold to KAST and managed through a custodian for KAST, not held self-custodially for the user. |
 | Jun 14, 2026 | **CryptoSpend / Wayex** | Custody 🔐→📋, Score 79→72 | Wayex materials describe the default app wallet as custodial; optional self-custody does not make the card/app spending model self-custodial. |
 | Jun 14, 2026 | **Spendly** | Custody 🔐→📋, Score 78→71 | Official Spendly terms describe crypto top-ups and prepaid card loading without self-custody or user-key control. Conservative label changed to CeFi/prepaid custody. |
