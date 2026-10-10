@@ -99,7 +99,7 @@ It also downloads the ESMA MiCA CASP register
 UTF-8 BOM / latin-1 tolerant), matches each RAMPS row by website host
 (case, `www.` and trailing slash normalised; a register host that is a parent
 domain of the ramp host also matches) and records `mica_status`
-(`authorised`, `authorisation_ended`, `not_in_register`) plus `mica_detail`
+(`authorised`, `authorisation_ended`, `no_host_match` (no register host matched; not proof of non-registration)) plus `mica_detail`
 (entity, home state, authorisation date, services). This is report-only:
 `RAMPS.md` is never edited. If the download fails, a warning is printed, the
 URL checks run as before, the MiCA fields stay `not_checked` and the exit code
@@ -165,12 +165,12 @@ Rabby           RabbyHub/Rabby                        2025-11-21   10 days  ✅ 
 
 - `GITHUB_TOKEN` (or `GH_TOKEN`) is sent as a Bearer header via curl config on stdin, so it never appears in argv or output. Unauthenticated fallbacks (Atom feed, HTML scrape) are unchanged.
 - Extra fields are appended after the existing ones: JSON `license` (SPDX id, `NONE` if absent), `archived`, `pushedAt`, `lastRelease`, `lastReleaseDate`; Markdown adds `License | Archived | Pushed | Last Release` columns at the end; text adds a trailing bracket. They are `?` when the API is rate limited.
-- `lastRelease` uses `/releases/latest`; on 404 (e.g. `trezor/trezor-firmware`) it falls back to `/tags` (one page of 100) and takes the highest version-looking tag with its commit date. Tag order from GitHub is not chronological, so treat this fallback as a heuristic.
+- `lastRelease` uses `/releases/latest`; on 404 (e.g. `trezor/trezor-firmware`) it falls back to `/tags` (one page of 100) and takes the highest version-looking tag with its commit date, but only when the repo has fewer than 100 tags and one tag prefix. Otherwise (e.g. `trezor/trezor-firmware`: 100+ tags, `core/` and `secmon/` prefixes) it reports `?` rather than a possibly wrong tag. Tag order from GitHub is not chronological, so treat even this fallback as best-effort.
 - `REPO_FILTER="owner/a,owner/b"` limits a run to those repos (useful for dry runs).
 
 #### GitHub API Rate Limits
 
-- **Without token:** 60 requests/hour (enough for ~17 repos)
+- **Without token:** 60 requests/hour. Each repo costs up to 5 calls (repo, commits, releases/latest, plus /tags and one commit lookup on the fallback), so roughly 12–20 repos per hour; use a token for full runs
 - **With token:** 5,000 requests/hour
 
 Set the `GITHUB_TOKEN` environment variable for higher rate limits:

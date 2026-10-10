@@ -51,7 +51,7 @@
 | [**Nummus Wallet Card**](https://nummuswallet.com/) (@NummusWallet) | 43 | Debit | 📋 CeFi | ✅ | 🌍 Global | 0% | TBD | 2.5-4% top-up | None | ⚠️ | Partner-issued banking/card rails | 🔴 |
 | ~~[**Ready Card**](https://www.ready.co/card)~~ | 41 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 3% | $0 | 0% | Crypto | ❌ | ~~Self-custody EU/UK~~ (reported shutdown, 2026-07; unconfirmed by issuer) | 🔴 |
 | ~~[**Spendly**](https://www.usespendly.com)~~ (@SpendlyCC) | 29 | Prepaid | 📋 CeFi | ❌ | 🌍 Global | 0% | $0 | 0% | Multi | ❌ | ~~Privacy prepaid spending~~ (domain parked) | 🔴 |
-| ~~[**Cypher Card**](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher)~~ | 14 | Debit | 🔐 Self | ❌ | 🌍 Global | TBD | TBD | TBD | TBD | ❌ | ~~Self-custody card~~ (acquired by Nium; cards closed 2026-08-08) | 🔴 |
+| ~~[**Cypher Card**](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher)~~ | 1 | Debit | TBD | ❌ | TBD | TBD | TBD | TBD | TBD | ❌ | ~~Card~~ (acquired by Nium; own notice: deactivated by 2026-09-06) | 🔴 |
 
 > **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. The table no longer relies on hand-tuned score adjustments.
 

@@ -301,8 +301,8 @@ function assertCompanyColumns(fileLabel, rows, foundedIndex, fundingIndex) {
   for (const row of rows) {
     const founded = String(row[foundedIndex] || '').trim();
     const funding = String(row[fundingIndex] || '').trim();
-    if (!/^\d{4}$/.test(founded)) {
-      fail(`${fileLabel}: founded year must be YYYY in row ${row[0]}, got "${founded}"`);
+    if (!/^(\d{4}|TBD)$/.test(founded)) {
+      fail(`${fileLabel}: founded year must be YYYY or TBD in row ${row[0]}, got "${founded}"`);
       failures += 1;
     } else {
       const year = parseInt(founded, 10);
