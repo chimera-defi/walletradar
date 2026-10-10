@@ -1876,6 +1876,9 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Hi Card, Bybit | Cashback | up to 10% / 2-10% | TBD | Official pages show no figures |
 | Fold, Revolut, Gnosis Pay, Coinbase | Cashback | various | TBD | Not stated on retrievable official pages |
 | Ethena Pay | Status / Cashback / FX / Issuer | 🔄 / up to 5% / TBD / unnamed | ✅ live beta / 4-5% AVAX (Standard/Pro/VIP) / ~1% Visa FX / Visa via Third National, program manager Rain | Sources: pay.ethena.fi/card-terms (effective 2026-06-01), pay.ethena.fi/pricing (checked 2026-10-10: no cap on cashback; rate falls by monthly-spend band, e.g. Standard 4% to $2,500, 1% to $4,000, 0% above; free account, ATM $1 + 0.65%), pay.ethena.fi/terms Appendix 1 (47 jurisdictions; EU "coming soon"; US persons excluded). Launch date 2026-09-01 and ~400 early users are from secondary press only (The Defiant, CoinMarketCap) |
+| Bitpanda Card | New row | n/a | Debit, 🏦 Exch, euro area, 1% crypto cashback, $0 annual, 0% FX, ✅ | [bitpanda.com/en/card](https://www.bitpanda.com/en/card) (2026-10-10): spends from the Bitpanda account, asset converted to EUR in the EUR wallet; euro-area residents; "0% FX fees" (Visa mark-up applies); 1% on crypto spending only (meta description says "up to 2%", body says 1%) |
+| Cypher Card | New row (inactive) | n/a | ❌, ~~strikethrough~~ | Primary: [cypherhq.io wind-down page](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher) ("Cypher has been acquired by Nium"; cards cancelled 2026-08-08 00:00 UTC; app/dApp/business platform offline 2026-09-06) and [Nium announcement, 2026-07-08](https://www.nium.com/newsroom/nium-acquires-cypher). Fees and cashback TBD |
+| Coinbase Card (One Card, Amex) | No change | n/a | n/a | coinbase.com/creditcard, help.coinbase.com and the launch blog returned 403; only search snippets of coinbase.com pages (US only, Coinbase One members, issuer First Electronic Bank, Amex network) seen. Not a primary-page confirmation, so no row added or edited |
 
 ### Custody
 
@@ -1890,13 +1893,28 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Tuyo | Self | "We never take custody" | Rain/Signify; Bridge |
 | Avici | Self | Contracts "self-custodial", Avici can withdraw funds linked to charges | n/a |
 | OKX Card | Exch | "OKX Pay holds the USDC or USDG balance" | n/a |
+| Bitpanda Card | Exch | Spend path is the Bitpanda account: crypto sold to EUR in the user EUR wallet | Bitpanda (page names no issuer) |
+| Cypher Card | Self (non-custodial wallet, per Nium) | Discontinued; users told to withdraw by 2026-09-06 | Nium (acquirer) |
 | 1inch, Jupiter, Wayex, Nexo, Plutus, Shakepay, Reap, CoinJar | CeFi | Prepaid/partner-held balances | Monavate; Rain+DCS; Lead Bank/Bridge; Lead Bank; DiPocket; Modulr; Peoples Trust; Reap (Visa principal); EML |
+
+**Not added:** Bleap (custody is an issuer claim only; funding path, issuer and terms not retrieved). **Added 2026-10-10 from primary pages:** Bitpanda Card and Cypher Card (inactive). **Fetch results:** tangem.com/en/pay 404, tangem.com/en/tangem-pay/ fetched; exa.fi redirects to a domain-sale page; ledger.com/ledger-cl-card 404 (shop.ledger.com/pages/cl-card-crypto-card fetched); safepal.com/en/crypto-card 404; Coinbase pages 403; holyheld.com/card 404.
+
+**Cypher:** primary pages (cypherhq.io, nium.com newsroom) confirm the acquisition and shutdown dates; the cryptoslate article is secondary and notes cypherhq.io/notice-of-termination states a conflicting 2026-09-06 card deactivation date. We use 2026-08-08 (cards closed, per the wind-down page).
 
 ### Unverified
 Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership prices (page names Rain as issuer); Tria, Fold, Revolut, Bybit, Hi Card, ThorWallet issuer details; Payy card terms; BitPay status (reportedly US program ended 2023, *secondary*); Kontigo "discontinued" (homepage still promotes the card); Uphold and Coinbase terms (403, snippets only); Nummus issuer.
 
 ### New candidates (not added; no official fee/issuer data to fill a row)
 COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added and updated to live beta.
+
+Not added after primary-page check (2026-10-10), reason:
+- Tangem Pay ([tangem.com/en/tangem-pay/](https://tangem.com/en/tangem-pay/)): live (Basic available), Rain issuer, 1/2/4% cashback, Plus $29.99/mo; custody described as main assets in non-custodial wallet with a separate loaded card balance, and countries that can open cards are not listed; FX fee in a tariffs PDF not read. Region unconfirmed.
+- Ledger CL Card ([shop.ledger.com](https://shop.ledger.com/pages/cl-card-crypto-card), [withcl.com/legal](https://www.withcl.com/legal)): live in EEA, UK, US, CA, CH, CO, MX, BR; 1% BTC/USDC/USDT; fees not on retrieved pages; custody conflicting (shop page: account operated by Monavate; withcl.com: "Spend crypto from self-custody"). Custody unresolved.
+- Oobit ([oobit.com](https://oobit.com)): live-looking, "up to 10%", card free; custody, region and FX not stated (US via Bakkt).
+- SafePal Card ([safepal.com/en/bank](https://www.safepal.com/en/bank)): Fiat24-based Mastercard; custody, regions, cashback and card fees not stated.
+- Exa Card: exa.fi is a domain-sale redirect; exact.ly covers the protocol only and does not mention the card.
+- Holyheld: holyheld.com mentions no card (a CHF business membership product); /card 404.
+- Coinbase One Card (Amex): see changes table; official pages returned 403.
 
 
 ---
