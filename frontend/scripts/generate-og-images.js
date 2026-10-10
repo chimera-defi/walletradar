@@ -66,8 +66,8 @@ const WALLET_DATA = {
     { name: 'EtherFi Cash', cashback: '2-3%', type: 'Credit', region: 'Global', status: '🟢' },
     { name: 'Plasma One', cashback: 'Up to 4%', type: 'Debit', region: 'Global', status: '🟢' },
     { name: 'MetaMask Card', cashback: '1-3%', type: 'Debit', region: 'Global', status: '🟡' },
-    { name: 'Avici Money', cashback: 'TBD', type: 'Debit', region: 'Global', status: '🟢' },
-    { name: 'Gemini Card', cashback: 'TBD', type: 'Credit', region: 'US', status: '🟢' },
+    { name: 'Avici Money', cashback: '0%', type: 'Credit', region: 'Global', status: '🟢' },
+    { name: 'Gemini Card', cashback: 'Up to 4%', type: 'Credit', region: 'US', status: '🟢' },
   ],
   ramps: [
     // Data from RAMPS.md - Top 5 by score
@@ -345,7 +345,7 @@ function generateCryptoCardsImage() {
   // Footer
   drawFooter(ctx, [
     { value: 'Compared', label: 'Cards' },
-    { value: '10%', label: 'Max Cashback' },
+    { value: '5%', label: 'Top Verified Cashback' },
     { value: 'Global', label: 'Availability' },
   ]);
   
@@ -670,7 +670,7 @@ function generateCryptoCardsDetailsImage() {
   ctx.fillText('🌍 Regional Options', 50, y);
 
   const regions = [
-    '• US: Coinbase Card (1-4%), Fold Card (3-5%)',
+    '• US: Gemini Card (up to 4%), Coinbase Card, Fold Card',
     '• EU/UK: Gnosis Pay, Plasma One (up to 4%)',
     '• Global: EtherFi Cash (2-3%), Plasma One (up to 4%)',
   ];
@@ -686,7 +686,7 @@ function generateCryptoCardsDetailsImage() {
   // Footer
   drawFooter(ctx, [
     { value: 'Compared', label: 'Cards' },
-    { value: '10%', label: 'Max Cashback' },
+    { value: '5%', label: 'Top Verified Cashback' },
     { value: 'Global', label: 'Coverage' },
   ]);
 
