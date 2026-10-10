@@ -6,6 +6,15 @@
 
 This document tracks verification status and potential inaccuracies in the crypto credit card comparison. All information should be verified on official card websites before making decisions.
 
+## October 10, 2026 Addendum: New Cards
+
+| Card | Result | Primary source (retrieved 2026-10-10) |
+|------|--------|----------------------------------------|
+| Bitpanda Card | Added (Exch, euro area, 1%, $0, 0% FX) | https://www.bitpanda.com/en/card |
+| Cypher Card | Added as discontinued | https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher ; https://www.nium.com/newsroom/nium-acquires-cypher |
+| Tangem Pay, Ledger CL, Oobit, SafePal, Exa, Holyheld | Not added: custody/region unconfirmed | See candidates list in CRYPTO_CARDS_DETAILS.md |
+| Coinbase One Card | Unverified: coinbase.com returned 403 | n/a |
+
 ## Verification Summary (January 7, 2026)
 
 ### ✅ Successfully Verified Cards (January 2026 Update)

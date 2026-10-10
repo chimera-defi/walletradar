@@ -48,7 +48,9 @@ DefiLlama `/cards` returned 403 and a cards dashboard could not be confirmed. No
 
 ### Cards they list that we lack (all to verify against issuer pages before adding)
 
-Tangem Pay, Bitpanda Card, Bleap, Coinbase One Card (Amex; status unverified), Exa Card, Holyheld, SafePal Card, Oobit, Ledger CL Card, MEXC/Gate/Pionex cards, Kolo, Hyperbeat Pay, COCA, Mercuryo, Xapo Bank Card, and about 20 smaller ones. **Cypher** is reported as acquired by Nium with spending ended 2026-08-07: add only as a discontinued row once confirmed. SpendNode and cryptocards.so list **Krak Card** where we have Kraken Card; probably the same product, to verify.
+Update 2026-10-10: Bitpanda Card and Cypher (inactive) were added. Not added: Bleap (issuer claims MPC key-split self-custody, but the card funding path, issuer and terms are unconfirmed, so no row yet; live at bleap.finance, Europe/Mexico/Brazil, $0 fees, 1-3% cashback per its own page), Tangem Pay (card-opening countries and FX not stated), Ledger CL Card (custody conflicting, fees not on retrieved pages), Oobit (custody, region, FX not stated), SafePal Card (custody, region, cashback not stated), Exa Card (no issuer page found; exa.fi is a domain-sale redirect), Holyheld (no card on its site), Coinbase One Card (coinbase.com returned 403; search snippets only). Details in CRYPTO_CARDS_DETAILS.md Verification Log.
+
+Tangem Pay, Bitpanda Card, Bleap, Coinbase One Card (Amex; status unverified), Exa Card, Holyheld, SafePal Card, Oobit, Ledger CL Card, MEXC/Gate/Pionex cards, Kolo, Hyperbeat Pay, COCA, Mercuryo, Xapo Bank Card, and about 20 smaller ones. **Cypher**: acquisition by Nium and wind-down confirmed on primary pages (cypherhq.io, nium.com, 2026-10-10); added as a discontinued row (cards closed 2026-08-08 00:00 UTC per Cypher; secondary reports said 08-07). SpendNode and cryptocards.so list **Krak Card** where we have Kraken Card; probably the same product, to verify.
 
 Fields they show that we do not: KYC/no-KYC, card network, Apple/Google Pay, virtual vs physical, per-tier variants, on-chain volume.
 
