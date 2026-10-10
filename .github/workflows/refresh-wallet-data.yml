@@ -114,8 +114,6 @@ jobs:
             ## Testing & Verification
             - [ ] Verify activity statuses are accurate
             - [ ] Check for any newly inactive wallets
-            - [ ] Update WALLET_COMPARISON_UNIFIED.md if needed
-            - [ ] Update HARDWARE_WALLET_COMPARISON.md if needed
             
             ---
             *Generated automatically by GitHub Actions on ${{ github.event.repository.updated_at }}*
