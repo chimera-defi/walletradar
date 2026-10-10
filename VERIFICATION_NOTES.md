@@ -128,7 +128,7 @@ Every current `CRYPTO_CARDS.md` row was reviewed in the June 2026 second pass. `
 | 25 | Nexo Card | 📋 CeFi | CLEAN | Nexo Card is tied to Nexo platform credit/debit balances. |
 | 26 | CryptoSpend / Wayex | 📋 CeFi | CHANGED | Wayex materials describe Wayex as a custodial wallet for the default app/card flow. |
 | 27 | ToonPay Card | 📋 CeFi | CLEAN | ToonPay uses a centralized prepaid card/top-up model. |
-| 28 | Fuse Wallet Card | 🔐 Self | UNVERIFIED | fuse.io says "non-custodial Visa card"; official card terms (Lead Bank issuer, Bridge) not retrieved. |
+| 28 | Fuse Wallet Card | 🔐 Self | UNVERIFIED | fusewallet.com: "self-custodial smart accounts"; issued by Lead Bank, program manager Bridge Ventures, 18+ countries, NY/AK excluded (card terms not read). fuse.io is a different entity. |
 | 29 | Reap | 📋 CeFi | CLEAN | Reap is a centralized business card/payment platform. |
 | 30 | Spendly | 📋 CeFi | CHANGED | Spendly terms describe crypto top-up/card loading without user-key custody through card spend. |
 | 31 | Shakepay Card | 📋 CeFi | CLEAN | Shakepay card spend uses Shakepay account balances. |
