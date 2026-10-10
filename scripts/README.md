@@ -94,10 +94,21 @@ Verifies ramp provider URLs from `RAMPS.md` using a direct fetch plus
 ./scripts/verify-ramps.py
 ```
 
+It also downloads the ESMA MiCA CASP register
+(`https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv`, 30s timeout,
+UTF-8 BOM / latin-1 tolerant), matches each RAMPS row by website host
+(case, `www.` and trailing slash normalised; a register host that is a parent
+domain of the ramp host also matches) and records `mica_status`
+(`authorised`, `authorisation_ended`, `not_in_register`) plus `mica_detail`
+(entity, home state, authorisation date, services). This is report-only:
+`RAMPS.md` is never edited. If the download fails, a warning is printed, the
+URL checks run as before, the MiCA fields stay `not_checked` and the exit code
+is unchanged. Offline test: `tests/verify-ramps-mica.test.ts` (runs under vitest).
+
 #### Output
 
-- `artifacts/ramps-url-checks.json`
-- `artifacts/ramps-url-checks.txt`
+- `artifacts/ramps-url-checks.json` (includes `mica_status` / `mica_detail`)
+- `artifacts/ramps-url-checks.txt` (each line ends with `mica=<status>`)
 
 ### `refresh-github-data.sh` (Software Wallets)
 
@@ -149,6 +160,13 @@ Rabby           RabbyHub/Rabby                        2025-11-21   10 days  ✅ 
 | **MetaMask** | [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | 2025-11-27 | 4 | 12345 | 321 | ✅ Active |
 ...
 ```
+
+#### Token, release and licence fields
+
+- `GITHUB_TOKEN` (or `GH_TOKEN`) is sent as a Bearer header via curl config on stdin, so it never appears in argv or output. Unauthenticated fallbacks (Atom feed, HTML scrape) are unchanged.
+- Extra fields are appended after the existing ones: JSON `license` (SPDX id, `NONE` if absent), `archived`, `pushedAt`, `lastRelease`, `lastReleaseDate`; Markdown adds `License | Archived | Pushed | Last Release` columns at the end; text adds a trailing bracket. They are `?` when the API is rate limited.
+- `lastRelease` uses `/releases/latest`; on 404 (e.g. `trezor/trezor-firmware`) it falls back to `/tags` (one page of 100) and takes the highest version-looking tag with its commit date. Tag order from GitHub is not chronological, so treat this fallback as a heuristic.
+- `REPO_FILTER="owner/a,owner/b"` limits a run to those repos (useful for dry runs).
 
 #### GitHub API Rate Limits
 
