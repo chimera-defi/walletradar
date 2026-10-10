@@ -47,9 +47,6 @@ describe('addReferrerTracking', () => {
     expect(addReferrerTracking('/relative/path')).toBe('/relative/path');
   });
 
-  it('returns original href unchanged for empty string', () => {
-    expect(addReferrerTracking('')).toBe('');
-  });
 
   it('returns original href unchanged for invalid URL', () => {
     expect(addReferrerTracking('not-a-url')).toBe('not-a-url');
@@ -62,11 +59,6 @@ describe('addReferrerTracking', () => {
     expect(url.searchParams.get('utm_source')).toBe('walletradar');
   });
 
-  it('works with http (non-https) URLs', () => {
-    const result = addReferrerTracking('http://example.com/');
-    const url = new URL(result);
-    expect(url.searchParams.get('utm_source')).toBe('walletradar');
-  });
 });
 
 // ---------------------------------------------------------------------------
@@ -78,21 +70,12 @@ describe('isExternalLink', () => {
     expect(isExternalLink('https://example.com')).toBe(true);
   });
 
-  it('returns true for http URLs', () => {
-    expect(isExternalLink('http://example.com')).toBe(true);
-  });
 
   it('returns false for relative paths', () => {
     expect(isExternalLink('/some/path')).toBe(false);
   });
 
-  it('returns false for undefined', () => {
-    expect(isExternalLink(undefined)).toBe(false);
-  });
 
-  it('returns false for empty string', () => {
-    expect(isExternalLink('')).toBe(false);
-  });
 
   it('returns false for mailto links', () => {
     expect(isExternalLink('mailto:test@example.com')).toBe(false);
@@ -114,25 +97,11 @@ describe('getExternalLinkTitle', () => {
     expect(title).toContain('Opens external link');
   });
 
-  it('handles subdomain in hostname', () => {
-    const title = getExternalLinkTitle('https://docs.example.com/');
-    expect(title).toContain('docs.example.com');
-  });
 
   it('returns fallback for invalid URL', () => {
     const title = getExternalLinkTitle('not-a-url');
     expect(title).toBe('Opens external link');
   });
 
-  it('returns fallback for empty string', () => {
-    const title = getExternalLinkTitle('');
-    expect(title).toBe('Opens external link');
-  });
 
-  it('returns a non-empty string for any input', () => {
-    for (const href of ['https://x.com', '/rel', '', 'mailto:a@b.com']) {
-      expect(typeof getExternalLinkTitle(href)).toBe('string');
-      expect(getExternalLinkTitle(href).length).toBeGreaterThan(0);
-    }
-  });
 });

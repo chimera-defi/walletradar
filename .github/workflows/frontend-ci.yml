@@ -56,3 +56,6 @@ jobs:
 
       - name: Build
         run: bun run build
+
+      - name: Verify static export output
+        run: node scripts/verify-build-output.js
