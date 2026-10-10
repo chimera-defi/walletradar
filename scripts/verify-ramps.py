@@ -48,6 +48,8 @@ def normalise_host(url: str) -> str:
     url = (url or "").strip()
     if not url:
         return ""
+    # The register has typos such as "https.//coinbase.com"; repair the scheme separator.
+    url = re.sub(r"^(https?)[.:;]/{1,2}", r"\1://", url, flags=re.I)
     if "://" not in url:
         url = "https://" + url
     host = (urlparse(url).hostname or "").lower().rstrip(".")
@@ -75,7 +77,7 @@ def parse_casp_csv(text: str) -> dict[str, list[dict]]:
     """Index CASP register rows by normalised website host."""
     index: dict[str, list[dict]] = {}
     for row in csv.DictReader(io.StringIO(text)):
-        sites = row.get("ae_website") or ""
+        sites = f'{row.get("ae_website") or ""} {row.get("ae_website_platform") or ""}'
         for token in re.split(r"[\s,;|]+", sites):
             host = normalise_host(token)
             if host and "." in host:
@@ -86,7 +88,11 @@ def parse_casp_csv(text: str) -> dict[str, list[dict]]:
 def mica_lookup(url: str, index: dict[str, list[dict]], today: date | None = None) -> tuple[str, dict | None]:
     """Return (status, detail) for a RAMPS URL against the CASP index.
 
-    Status: authorised | authorisation_ended | not_in_register.
+    Status: authorised | authorisation_ended | no_host_match.
+    no_host_match means no register website/platform host matched; it does NOT
+    prove the provider is unregistered (it may use another domain or entity).
+    Matches are entity-level: the product scope (e.g. a US-only product of an EU
+    group) is not checked.
     Matches exact host, or a CASP host that is a parent domain of the ramp host.
     """
     today = today or date.today()
@@ -102,7 +108,7 @@ def mica_lookup(url: str, index: dict[str, list[dict]], today: date | None = Non
                 match = "parent_domain"
                 break
     if not rows:
-        return "not_in_register", None
+        return "no_host_match", None
     active = False
     for r in rows:
         end = _parse_date(r.get("ac_authorisationEndDate") or "")
@@ -117,6 +123,7 @@ def mica_lookup(url: str, index: dict[str, list[dict]], today: date | None = Non
         "authorisation_date": first.get("ac_authorisationNotificationDate", ""),
         "services": sorted({(r.get("ac_serviceCode") or "").strip() for r in rows if r.get("ac_serviceCode")}),
         "last_update": first.get("ac_lastupdate", ""),
+        "note": "entity-level host match; product/region scope not checked",
     }
     return ("authorised" if active else "authorisation_ended"), detail
 

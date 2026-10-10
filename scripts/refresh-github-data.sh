@@ -130,16 +130,21 @@ get_release() {
         return
     fi
     if [ "$code" = "404" ]; then
-        # /tags is returned in reverse-lexical ref order (not by date), so
-        # per_page=1 can yield junk like "v0-working3". Read one page of tags and
-        # pick the highest version-looking tag; fall back to the first tag.
+        # /tags is returned in reverse-lexical ref order (not by date). Only trust
+        # the fallback when the list is complete (fewer than 100 tags, one page)
+        # and every version-looking tag shares one prefix; otherwise (e.g.
+        # trezor-firmware: 100+ tags, core/ and secmon/ prefixes) a "highest tag"
+        # would be wrong, so report unknown ("?|?") instead of a misleading tag.
         body=$(gh_curl "https://api.github.com/repos/$repo/tags?per_page=100" 2>/dev/null)
-        tag=$(echo "$body" | jq -r 'if type=="array" then .[].name else empty end' 2>/dev/null \
-            | grep -E '(^|/)v?[0-9]+(\.[0-9]+)+$' \
-            | awk '{ n=$0; sub(/^.*\//, "", n); sub(/^v/, "", n); print n "\t" $0 }' \
-            | sort -t$'\t' -k1,1V | tail -1 | cut -f2)
-        if [ -z "$tag" ]; then
-            tag=$(echo "$body" | jq -r 'if type=="array" then (.[0].name // empty) else empty end' 2>/dev/null)
+        tag=""
+        if [ "$(echo "$body" | jq -r 'if type=="array" then length else 100 end' 2>/dev/null)" -lt 100 ] 2>/dev/null; then
+            local vtags
+            vtags=$(echo "$body" | jq -r '.[].name' 2>/dev/null | grep -E '(^|/)v?[0-9]+(\.[0-9]+)+$')
+            if [ "$(echo "$vtags" | sed -n 's#[^/]*$##p' | sort -u | grep -c .)" -le 1 ] 2>/dev/null; then
+                tag=$(echo "$vtags" \
+                    | awk '{ n=$0; sub(/^.*\//, "", n); sub(/^v/, "", n); print n "\t" $0 }' \
+                    | sort -t$'\t' -k1,1V | tail -1 | cut -f2)
+            fi
         fi
         if [ -n "$tag" ]; then
             local commit_url

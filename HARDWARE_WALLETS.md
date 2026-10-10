@@ -32,7 +32,7 @@
 | [**Ledger Nano X**](https://www.ledger.com/) | 59 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ SE | Mono OLED | ~$150 | USB/BT | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**imKey Pro**](https://imkey.im/) *(partial data)* | 58 | [imkey-core](https://github.com/consenlabs/imkey-core) | TBD | ⚠️ Partial | ✅ SE EAL6+ | TBD | ~$110 | USB/BT | ⚠️ Slow | 2018 | 🟢 Self | 🔴 |
 | [**Ledger Stax**](https://www.ledger.com/) | 58 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ SE | E-Ink Touch | ~$280 | USB/BT | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
-| [**Firefly**](https://firefly.city/) *(partial data)* | 57 | [wallet](https://github.com/firefly/wallet) | ✅ Full | ✅ Full | ❌ None | OLED | ~$5* | TBD | ❌ Inactive | 2017 | 🔴 Unknown | 🔴 |
+| [**Firefly**](https://firefly.city/) *(partial data)* | 55 | [wallet](https://github.com/firefly/wallet) | ✅ Full | ✅ Full | ❌ None | OLED | ~$5* | TBD | ❌ Inactive | TBD | 🔴 Unknown | 🔴 |
 | [**Bitkey**](https://bitkey.world/products/bitkey) | 51 | [bitkey](https://github.com/proto-at-block/bitkey) | ❌ | ✅ Full† | ❌ Not documented | None | ~$150 | NFC/USB-C | ✅ Active | 2009 | 🟢 Block | 🔴 |
 | [**Ellipal Titan 2.0**](https://www.ellipal.com/) | 48 | Private | ✅ Full | ❌ Closed | ❌ None | Touch Color | ~$170 | QR | 🔒 Private | 2018 | 🔴 Unknown | 🔴 |
 | [**SecuX V20**](https://secuxtech.com/) | 46 | Private | ❌ | ❌ Closed | ✅ SE | Touch Color | ~$140 | USB/BT | 🔒 Private | 2018 | 🔴 Unknown | 🔴 |

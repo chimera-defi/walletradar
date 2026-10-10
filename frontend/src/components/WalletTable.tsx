@@ -85,6 +85,14 @@ function SoftwareWalletItem({
           <Link href={detailHref} className="font-semibold hover:underline">
             {wallet.name}
           </Link>
+          {wallet.partialData && (
+            <span
+              className="ml-2 rounded border border-border px-1.5 py-0.5 text-xs font-normal text-muted-foreground"
+              title="Only sourced fields are filled; unknown fields are TBD, so the score is a lower bound."
+            >
+              partial data
+            </span>
+          )}
           <div className="text-sm text-muted-foreground">{wallet.bestFor}</div>
         </td>
         <td className="py-3 px-4">
@@ -218,6 +226,14 @@ function HardwareWalletItem({
           <Link href={detailHref} className="font-semibold hover:underline">
             {wallet.name}
           </Link>
+          {wallet.partialData && (
+            <span
+              className="ml-2 rounded border border-border px-1.5 py-0.5 text-xs font-normal text-muted-foreground"
+              title="Only sourced fields are filled; unknown fields are TBD, so the score is a lower bound."
+            >
+              partial data
+            </span>
+          )}
           <div className="text-sm text-muted-foreground">{wallet.priceText}</div>
           {wallet.priceLastChecked && (
             <div className="text-xs text-muted-foreground">
