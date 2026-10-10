@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import type { ApiOpenness, CryptoCard, HardwareWallet, QRPayment, Ramp, SoftwareWallet, WalletData } from '@/types/wallets';
+import type { ApiOpenness, CardAttributes, CryptoCard, HardwareWallet, QRPayment, Ramp, SoftwareWallet, SourcedAttribute, WalletAttributes, WalletData } from '@/types/wallets';
 import scoring from '@/lib/scoring';
 
 export type { ApiOpenness, CryptoCard, HardwareWallet, QRPayment, Ramp, SoftwareWallet, WalletData };
@@ -314,6 +314,75 @@ function parseMarkdownTable(content: string): string[][] {
   return rows;
 }
 
+interface RawAttributeEntry {
+  value: string;
+  source_url: string;
+  evidence_url?: string;
+  retrieved: string;
+  source_kind: string;
+}
+type RawAttributeSection = Record<string, Record<string, RawAttributeEntry>>;
+
+let attributesCache: { software_wallets: RawAttributeSection; crypto_cards: RawAttributeSection } | null = null;
+
+// Sidecar attributes (data/attributes.json): sourced, unscored. Joined by table row name.
+function loadAttributes() {
+  if (attributesCache) return attributesCache;
+  attributesCache = { software_wallets: {}, crypto_cards: {} };
+  const filePath = path.join(CONTENT_DIR, 'data', 'attributes.json');
+  try {
+    const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    attributesCache = {
+      software_wallets: raw.software_wallets || {},
+      crypto_cards: raw.crypto_cards || {},
+    };
+  } catch {
+    // Missing sidecar is fine: every attribute renders as "not evaluated".
+  }
+  return attributesCache;
+}
+
+function toSourced(entry: RawAttributeEntry | undefined): SourcedAttribute | undefined {
+  if (!entry) return undefined;
+  return {
+    value: entry.value,
+    sourceUrl: entry.source_url,
+    evidenceUrl: entry.evidence_url,
+    retrieved: entry.retrieved,
+    sourceKind: entry.source_kind,
+  };
+}
+
+function walletAttributesFor(name: string): WalletAttributes | undefined {
+  const row = loadAttributes().software_wallets[name];
+  if (!row) return undefined;
+  return {
+    bugBounty: toSourced(row.bug_bounty),
+    reproducibleBuild: toSourced(row.reproducible_build),
+    chainVerification: toSourced(row.chain_verification),
+  };
+}
+
+function cardAttributesFor(name: string): CardAttributes | undefined {
+  const row = loadAttributes().crypto_cards[name];
+  if (!row) return undefined;
+  return {
+    cardNetwork: toSourced(row.card_network),
+    kycRequirement: toSourced(row.kyc_requirement),
+  };
+}
+
+/** Attribute keys that do not match any table row name (used by the smoke test). */
+export function getUnmatchedAttributeKeys(): string[] {
+  const attrs = loadAttributes();
+  const softwareNames = new Set(parseSoftwareWallets().map((w) => w.name));
+  const cardNames = new Set(parseCryptoCards().map((c) => c.name));
+  return [
+    ...Object.keys(attrs.software_wallets).filter((k) => !softwareNames.has(k)).map((k) => `software_wallets/${k}`),
+    ...Object.keys(attrs.crypto_cards).filter((k) => !cardNames.has(k)).map((k) => `crypto_cards/${k}`),
+  ];
+}
+
 // Parse software wallets from markdown
 export function parseSoftwareWallets(): SoftwareWallet[] {
   const filePath = path.join(CONTENT_DIR, 'SOFTWARE_WALLETS.md');
@@ -346,6 +415,7 @@ export function parseSoftwareWallets(): SoftwareWallet[] {
       id: generateSlug(name),
       name,
       partialData: /\(partial data\)/i.test(cells[0] || '') || undefined,
+      attributes: walletAttributesFor(name),
       score: scoreInfo.score,
       methodologyVersion: scoreInfo.methodologyVersion,
       scoreBreakdown: scoreInfo.breakdown,
@@ -503,6 +573,7 @@ export function parseCryptoCards(): CryptoCard[] {
     const card: CryptoCard = {
       id: generateSlug(name),
       name,
+      attributes: cardAttributesFor(name),
       score: scoreInfo.score,
       methodologyVersion: scoreInfo.methodologyVersion,
       scoreBreakdown: scoreInfo.breakdown,

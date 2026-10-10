@@ -83,6 +83,7 @@ const FEATURE_OPTIONS = [
   { value: 'scamAlerts', label: 'Scam Alerts' },
   { value: 'hardwareSupport', label: 'Hardware Wallet Support' },
   { value: 'testnets', label: 'Testnet Support' },
+  { value: 'bugBounty', label: 'Active Bug Bounty (where evaluated)' },
 ];
 
 const ACCOUNT_TYPE_OPTIONS = [
