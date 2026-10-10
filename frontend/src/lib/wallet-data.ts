@@ -345,6 +345,7 @@ export function parseSoftwareWallets(): SoftwareWallet[] {
     const wallet: SoftwareWallet = {
       id: generateSlug(name),
       name,
+      partialData: /\(partial data\)/i.test(cells[0] || '') || undefined,
       score: scoreInfo.score,
       methodologyVersion: scoreInfo.methodologyVersion,
       scoreBreakdown: scoreInfo.breakdown,
@@ -421,6 +422,7 @@ export function parseHardwareWallets(): HardwareWallet[] {
     const wallet: HardwareWallet = {
       id: generateSlug(name),
       name,
+      partialData: /\(partial data\)/i.test(cells[0] || '') || undefined,
       score: scoreInfo.score,
       methodologyVersion: scoreInfo.methodologyVersion,
       scoreBreakdown: scoreInfo.breakdown,

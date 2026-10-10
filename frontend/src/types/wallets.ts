@@ -40,6 +40,8 @@ export interface ScoreBreakdownEntry {
 export interface SoftwareWallet {
   id: string;
   name: string;
+  /** Row tagged "(partial data)": only sourced fields filled, score is a lower bound. */
+  partialData?: boolean;
   score: number;
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];
@@ -76,6 +78,8 @@ export interface SoftwareWallet {
 export interface HardwareWallet {
   id: string;
   name: string;
+  /** Row tagged "(partial data)": only sourced fields filled, score is a lower bound. */
+  partialData?: boolean;
   score: number;
   methodologyVersion: string;
   scoreBreakdown: ScoreBreakdownEntry[];

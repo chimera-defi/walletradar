@@ -1893,13 +1893,13 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Tuyo | Self | "We never take custody" | Rain/Signify; Bridge |
 | Avici | Self | Contracts "self-custodial", Avici can withdraw funds linked to charges | n/a |
 | OKX Card | Exch | "OKX Pay holds the USDC or USDG balance" | n/a |
-| Bitpanda Card | Exch | Spend path is the Bitpanda account: crypto sold to EUR in the user EUR wallet | Bitpanda (page names no issuer) |
-| Cypher Card | Self (non-custodial wallet, per Nium) | Discontinued; users told to withdraw by 2026-09-06 | Nium (acquirer) |
+| Bitpanda Card | Exch | Spend path is the Bitpanda account: crypto sold to EUR in the user EUR wallet | Transact Payments Malta Limited (named on the card page, 2026-10-10) |
+| Cypher Card | TBD (not verified from a primary page) | Discontinued; own notice: Service End Date 2026-09-06, card deactivated then | Nium (acquirer) |
 | 1inch, Jupiter, Wayex, Nexo, Plutus, Shakepay, Reap, CoinJar | CeFi | Prepaid/partner-held balances | Monavate; Rain+DCS; Lead Bank/Bridge; Lead Bank; DiPocket; Modulr; Peoples Trust; Reap (Visa principal); EML |
 
 **Not added:** Bleap (custody is an issuer claim only; funding path, issuer and terms not retrieved). **Added 2026-10-10 from primary pages:** Bitpanda Card and Cypher Card (inactive). **Fetch results:** tangem.com/en/pay 404, tangem.com/en/tangem-pay/ fetched; exa.fi redirects to a domain-sale page; ledger.com/ledger-cl-card 404 (shop.ledger.com/pages/cl-card-crypto-card fetched); safepal.com/en/crypto-card 404; Coinbase pages 403; holyheld.com/card 404.
 
-**Cypher:** primary pages (cypherhq.io, nium.com newsroom) confirm the acquisition and shutdown dates; the cryptoslate article is secondary and notes cypherhq.io/notice-of-termination states a conflicting 2026-09-06 card deactivation date. We use 2026-08-08 (cards closed, per the wind-down page).
+**Cypher:** primary pages confirm the acquisition by Nium and the shutdown. Cypher's own [notice of termination](https://www.cypherhq.io/notice-of-termination) (Notice Date 2026-07-08) states a Service End Date of 2026-09-06 on which "the Cypher Card will be deactivated"; the [wind-down page](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher) gives 2026-08-08 for card cancellation. Both are Cypher primary sources and differ; the row is inactive either way. Custody and region are not verified from a primary page and are TBD.
 
 ### Unverified
 Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership prices (page names Rain as issuer); Tria, Fold, Revolut, Bybit, Hi Card, ThorWallet issuer details; Payy card terms; BitPay status (reportedly US program ended 2023, *secondary*); Kontigo "discontinued" (homepage still promotes the card); Uphold and Coinbase terms (403, snippets only); Nummus issuer.
