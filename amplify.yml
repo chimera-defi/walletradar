@@ -1,3 +1,10 @@
+# Build-time env vars (set in the Amplify console; all optional, all NEXT_PUBLIC_*):
+#   NEXT_PUBLIC_BASE_URL, NEXT_PUBLIC_BRAND_PROFILE, NEXT_PUBLIC_BRAND_NAME,
+#   NEXT_PUBLIC_BRAND_SHORT_NAME, NEXT_PUBLIC_DEFAULT_TITLE, NEXT_PUBLIC_DEFAULT_DESCRIPTION,
+#   NEXT_PUBLIC_CONTACT_EMAIL, NEXT_PUBLIC_GITHUB_URL, NEXT_PUBLIC_ISSUES_URL,
+#   NEXT_PUBLIC_TWITTER_HANDLE, NEXT_PUBLIC_TWITTER_URL, NEXT_PUBLIC_UTM_SOURCE,
+#   NEXT_PUBLIC_OG_IMAGE_VERSION
+# Security headers live in customHttp.yml. Node version: frontend/.nvmrc (22).
 version: 1
 applications:
   - appRoot: frontend
@@ -5,9 +12,13 @@ applications:
       phases:
         preBuild:
           commands:
+            - nvm install 22
+            - nvm use 22
+            - node -v
             - npm ci
         build:
           commands:
+            - nvm use 22
             - echo "Building Next.js application..."
             - npm run build
       artifacts:
