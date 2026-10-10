@@ -12,9 +12,9 @@ import { SocialShare } from '@/components/SocialShare';
 import { brand } from '@/lib/brand';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all documents
@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: PageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const document = getDocumentBySlug(params.slug);
   
   if (!document) {
@@ -86,7 +87,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function DocumentPage({ params }: PageProps) {
+export default async function DocumentPage({ params: paramsPromise }: PageProps) {
+  const params = await paramsPromise;
   const document = getDocumentBySlug(params.slug);
   
   if (!document) {
