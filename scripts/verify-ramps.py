@@ -6,10 +6,14 @@ Outputs JSON + text summary under artifacts/.
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import re
 import sys
 import time
+from datetime import date, datetime
+from urllib.parse import urlparse
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -32,6 +36,104 @@ class CheckResult:
     proxy_error: str | None
     proxy_len: int
     notes: list[str]
+    mica_status: str = "not_checked"
+    mica_detail: dict | None = None
+
+
+ESMA_CASP_URL = "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv"
+
+
+def normalise_host(url: str) -> str:
+    """Lowercase host without www., port, path or trailing slash."""
+    url = (url or "").strip()
+    if not url:
+        return ""
+    if "://" not in url:
+        url = "https://" + url
+    host = (urlparse(url).hostname or "").lower().rstrip(".")
+    return host[4:] if host.startswith("www.") else host
+
+
+def decode_casp_csv(raw: bytes) -> str:
+    """ESMA CSV has a UTF-8 BOM; fall back to latin-1 if not valid UTF-8."""
+    try:
+        return raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        return raw.decode("latin-1").lstrip("\ufeff")
+
+
+def _parse_date(value: str) -> date | None:
+    for fmt in ("%d/%m/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(value.strip(), fmt).date()
+        except ValueError:
+            continue
+    return None
+
+
+def parse_casp_csv(text: str) -> dict[str, list[dict]]:
+    """Index CASP register rows by normalised website host."""
+    index: dict[str, list[dict]] = {}
+    for row in csv.DictReader(io.StringIO(text)):
+        sites = row.get("ae_website") or ""
+        for token in re.split(r"[\s,;|]+", sites):
+            host = normalise_host(token)
+            if host and "." in host:
+                index.setdefault(host, []).append(row)
+    return index
+
+
+def mica_lookup(url: str, index: dict[str, list[dict]], today: date | None = None) -> tuple[str, dict | None]:
+    """Return (status, detail) for a RAMPS URL against the CASP index.
+
+    Status: authorised | authorisation_ended | not_in_register.
+    Matches exact host, or a CASP host that is a parent domain of the ramp host.
+    """
+    today = today or date.today()
+    host = normalise_host(url)
+    rows: list[dict] = []
+    match = "host"
+    if host in index:
+        rows = index[host]
+    else:
+        for chost, crows in index.items():
+            if host.endswith("." + chost):
+                rows = crows
+                match = "parent_domain"
+                break
+    if not rows:
+        return "not_in_register", None
+    active = False
+    for r in rows:
+        end = _parse_date(r.get("ac_authorisationEndDate") or "")
+        if end is None or end >= today:
+            active = True
+    first = rows[0]
+    detail = {
+        "match": match,
+        "entity": first.get("ae_lei_name", ""),
+        "commercial_name": first.get("ae_commercial_name", ""),
+        "home_member_state": first.get("ae_homeMemberState", ""),
+        "authorisation_date": first.get("ac_authorisationNotificationDate", ""),
+        "services": sorted({(r.get("ac_serviceCode") or "").strip() for r in rows if r.get("ac_serviceCode")}),
+        "last_update": first.get("ac_lastupdate", ""),
+    }
+    return ("authorised" if active else "authorisation_ended"), detail
+
+
+def load_casp_index(url: str = ESMA_CASP_URL, timeout: int = 30) -> dict[str, list[dict]] | None:
+    """Download the ESMA CASP register. Returns None (with a warning) on failure."""
+    try:
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(req, timeout=timeout) as resp:
+            raw = resp.read()
+        index = parse_casp_csv(decode_casp_csv(raw))
+        if not index:
+            raise ValueError("no rows with websites parsed")
+        return index
+    except Exception as exc:  # degrade gracefully: keep URL checks
+        print(f"WARNING: MiCA CASP check skipped ({exc})", file=sys.stderr)
+        return None
 
 
 def parse_ramps_table(md_text: str) -> list[tuple[str, str]]:
@@ -103,6 +205,7 @@ def main() -> int:
         print("No ramps found in RAMPS.md", file=sys.stderr)
         return 1
 
+    casp_index = load_casp_index()
     results: list[CheckResult] = []
     for name, url in rows:
         direct_ok, direct_len, direct_err, direct_text = fetch_url(url)
@@ -129,6 +232,11 @@ def main() -> int:
                 proxy_error=proxy_err,
                 proxy_len=proxy_len,
                 notes=sorted(set(notes)),
+                **(
+                    dict(zip(("mica_status", "mica_detail"), mica_lookup(url, casp_index)))
+                    if casp_index is not None
+                    else {}
+                ),
             )
         )
         time.sleep(1)
@@ -143,7 +251,7 @@ def main() -> int:
         status = "OK" if r.direct_ok else "FAIL"
         proxy = "OK" if r.proxy_ok else "FAIL"
         notes = ", ".join(r.notes) if r.notes else "-"
-        lines.append(f"- {r.name}: direct={status} proxy={proxy} notes={notes}")
+        lines.append(f"- {r.name}: direct={status} proxy={proxy} notes={notes} mica={r.mica_status}")
     out_txt.write_text("\n".join(lines) + "\n")
 
     print(out_json)
