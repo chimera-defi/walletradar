@@ -68,21 +68,6 @@ Validates that:
 
 Pricing sources and exclusions are documented in `MERCHANT_FEED.md`.
 
-### `extract_wallets_subtree.sh` (Standalone Extraction Helper)
-
-Historical helper for the old monorepo extraction. It creates a split branch
-from the former wallets subtree, suitable for pushing to a standalone repository.
-
-#### Usage
-
-```bash
-./scripts/extract_wallets_subtree.sh https://github.com/chimera-defi/walletradar.git
-```
-
-It prints the push command and verification steps. Pair this with
-`EXTRACT_STUB_PLAN.md` and `STUB_README_TEMPLATE.md` when
-performing the monorepo-to-standalone migration.
-
 ### `recompute_scores.py` (Score Totals)
 
 Recalculates totals in scoring breakdown tables for software and hardware

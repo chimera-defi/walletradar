@@ -592,8 +592,8 @@ When renaming files or changing URL patterns, you MUST update:
 
 ```bash
 # 1. Rename files
-mv WALLET_COMPARISON_UNIFIED_TABLE.md SOFTWARE_WALLETS.md
-mv WALLET_COMPARISON_UNIFIED_DETAILS.md SOFTWARE_WALLETS_DETAILS.md
+mv OLD_NAME.md NEW_NAME.md
+mv OLD_NAME_DETAILS.md NEW_NAME_DETAILS.md
 
 # 2. Update frontend config
 # Edit frontend/src/lib/markdown.ts: DOCUMENT_CONFIG

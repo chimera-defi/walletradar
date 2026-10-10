@@ -81,7 +81,7 @@ jobs:
                 comment += '\n';
               }
 
-              comment += 'Reference: `.cursorrules` Git Discipline and PR Attribution sections.\n';
+              comment += 'Reference: `AGENTS.md` attribution rules and `.github/pull_request_template.md`.\n';
               if (errors.length > 0) {
                 comment += '\nThis check fails until required fixes are addressed.';
               }
