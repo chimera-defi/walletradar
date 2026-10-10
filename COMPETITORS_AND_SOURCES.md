@@ -56,7 +56,7 @@ Fields they show that we do not: KYC/no-KYC, card network, Apple/Google Pay, vir
 
 | Card | Ours | Theirs | Status |
 |------|------|--------|--------|
-| Crypto.com | 0-3% cashback US-mid tier (verified issuer, Oct 2026) | Basic 1.5% / Plus 3.5% / Pro 4.5% / Private 5-6% (Eco) | Check issuer US page |
+| Crypto.com | 0-4.5% cashback, FX 0-3% (issuer, Oct 2026) | Basic 1.5% / Plus 3.5% / Pro 4.5% / Private 5-6% (Eco) | Check issuer US page |
 | KAST | 1.5-3% | 1.5/2/3% | Agrees after #93 |
 | Gnosis Pay | Global* | EEA+UK only (QuickNode, Eco) | Check issuer page |
 | Binance | Brazil, up to 3% | Europe/UK, up to 8% BNB (KoinX) | Check issuer page |
