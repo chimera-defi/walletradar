@@ -5,16 +5,16 @@
 > **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Plasma One (81, USDT spend card, 🟢), MetaMask Card (77, Self-custodial spending (US/UK signups paused), 🟢), and Avici Money (76, Collateral-backed, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Ethena Pay (84, Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon), 🟢), Plasma One (81, USDT spend card, 🟢), and MetaMask Card (77, Self-custodial spending (US/UK signups paused), 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
 | ---- | ---- | ----- | -------- | --- |
 | 1 | **EtherFi Cash** | 92 | Self-custody DeFi | 🟢 |
-| 2 | **Plasma One** | 81 | USDT spend card | 🟢 |
-| 3 | **MetaMask Card** | 77 | Self-custodial spending (US/UK signups paused) | 🟢 |
-| 4 | **Avici Money** | 76 | Collateral-backed | 🟢 |
-| 5 | **CryptoSpend** | 76 | Australia (Wayex) | 🟢 |
+| 2 | **Ethena Pay** | 84 | Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon) | 🟢 |
+| 3 | **Plasma One** | 81 | USDT spend card | 🟢 |
+| 4 | **MetaMask Card** | 77 | Self-custodial spending (US/UK signups paused) | 🟢 |
+| 5 | **Avici Money** | 76 | Collateral-backed | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
 **Last Updated:** October 10, 2026 (Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
@@ -1022,22 +1022,21 @@ Kast is a stablecoin banking platform offering Visa debit cards that let users s
 **Business Support:** ❌ Personal only (virtual USD bank accounts available)
 
 **Key Features:**
-- **Multiple card tiers:** K Card, X Card, Solana series, Founders Card
+- **Card tiers:** Standard, Premium, Private
 - **Stablecoin-native:** USDT, USDC, USDe support
 - **Virtual USD accounts:** ACH and Fedwire support
 - **24/7 support:** Available across all tiers
 - **Instant virtual cards:** Available in <2 minutes post-KYC
-- **Special editions:** Solana Illuma (light-up metal), Gold, Solid Gold
 
 **Rewards Structure:**
 | Tier | Annual Fee | Cashback | Notes |
 |------|------------|----------|-------|
 | Standard | $0 | 1.5% | Kast Points (Oct 2026 site) |
-| Premium | $1,000/year | 2% | Promo up to 10% to mid-2027 |
+| Premium | $1,000/year | 2% | Cashback 2%; separate Reserve rate on balances up to 10% (not cashback) |
 | Private | $10,000/year | 3% | Cashback 3%; separate Reserve rate on balances up to 12% (not cashback) |
 
 **Fees:**
-- Annual Fee: $20-$10,000 (tier dependent)
+- Annual Fee: $0 (Standard) to $10,000/year (Private)
 - Foreign Transaction Fee: 2% (on non-USD transactions)
 - Standard Physical Card: Free (pay shipping $40)
 - ATM Withdrawal: $3 + 2% (USD), additional 2% FX fee (non-USD)
@@ -1276,9 +1275,9 @@ Tuyo Card is a self-custodial Visa prepaid card enabling USDC spending on Base b
 
 ### Fuse Wallet Card
 
-**Website:** [fuse.io/wallet](https://fuse.io/wallet)
+**Website:** [fusewallet.com](https://fusewallet.com)
 
-**Status:** ✅ Active (US launch via Bridge partnership)
+**Status:** ⚠️ Verify (fusewallet.com advertises the card; card terms not read)
 
 **Overview:**
 Fuse Pay is a virtual Visa prepaid card integrated into the Fuse Solana smart wallet, enabling stablecoin spending directly from your wallet. Partnership with Bridge for payment processing.
@@ -1585,15 +1584,17 @@ Please visit [reap.global](https://reap.global) directly in a web browser to ver
 
 ### Highest Cash Back Rates
 
-1. **Crypto.com Obsidian** - 8% (with $400k+ CRO stake)
-2. **Binance Card** - Up to 8% (with BNB holdings)
-3. **Wirex Card** - Up to 8% (WXT rewards)
-4. **Crypto.com Icy White/Frosted Rose Gold** - 5% (with $40k CRO stake)
-5. **Fold Card** - Up to 5% (Bitcoin, rotating categories)
-6. **Coinbase Card (with Coinbase One)** - Up to 4% (crypto rewards)
+Headline maximums; many require staking or tiers, and several are unverified (see [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) for current figures).
+
+1. **Wirex Card** - Up to 8% (WXT rewards; unverified)
+2. **Plasma One** - Up to 4% in XPL (Platinum tier)
+3. **Gemini Card** - Up to 4%
+4. **Crypto.com Visa** - 0-4.5% by tier (issuer page, Oct 2026)
+5. **Ethena Pay** - 4-5% in AVAX, falling by monthly-spend band
+6. **Kast** - 1.5-3% by tier
 7. **Crypto.com Royal Indigo/Jade Green** - 3% (with $4k CRO stake)
 8. **Plutus Card** - 3% (PLU rewards)
-9. **Gemini Card** - Up to 3% (category bonuses)
+9. **Gemini Card** - Up to 4% (category bonuses)
 
 ### Base Cash Back Rates (No Staking)
 
@@ -1668,7 +1669,6 @@ Please visit [reap.global](https://reap.global) directly in a web browser to ver
 - Plutus Card (EU, UK)
 - Swissborg Card (EU)
 - 1inch Card (EU, UK)
-- Ready Card (EU, UK)
 
 ### Canada
 - Shakepay Card
@@ -1863,7 +1863,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Jupiter | Cashback / Rewards | 4-10% / Points | 2% / USDC | Docs state base 2%; Rain cards keep tokens on-chain as collateral; no USDC-payout statement found; issuers Rain and DCS |
 | Nexo | Cashback / FX | up to 2% / "FX fees" | 0.5-2% / 0.2-2.5% | Issuer DiPocket UAB |
 | ToonPay | FX | 2% | 2% + 2% processing | Cashback 1% base |
-| Fuse | Custody | 🔐 Self | 🔐 Self (unverified) | fuse.io describes a "non-custodial Visa card"; official card terms not confirmed, so the earlier CeFi reclassification was reverted |
+| Fuse | Custody | 🔐 Self | 🔐 Self | fusewallet.com (checked 2026-10-10): "self-custodial smart accounts" (marketing); card issued by Lead Bank, program manager Bridge Ventures, platform provider Squads Labs. fuse.io is a different entity (Fuse Network) and was cited in error earlier. Card terms not read |
 | Shakepay | Cashback / FX | 1.5% / 0% | 1-1.5% / 0-3% | Base tier 3%, Blue 0% |
 | Meow | Cashback | up to 2% | up to 1.5% | Issuer is Lead Bank (not CFSB) |
 | Solflare | Status | ✅ | ⚠️ | Cards paused pending new issuer |
@@ -1875,7 +1875,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Spendly | Status | ✅ | ❌ | Domain parked *(secondary)* |
 | Hi Card, Bybit | Cashback | up to 10% / 2-10% | TBD | Official pages show no figures |
 | Fold, Revolut, Gnosis Pay, Coinbase | Cashback | various | TBD | Not stated on retrievable official pages |
-| Ethena Pay | Status / Cashback / FX / Issuer | 🔄 / up to 5% / TBD / unnamed | ✅ beta (2026-09-01) / 4-5% AVAX (Standard/Pro/VIP) / ~1% Visa FX / Visa via Third National, program manager Rain | Sources: pay.ethena.fi/card-terms (terms dated 2026-06-01), The Block 2026-09-01, CoinMarketCap *(secondary)*; 48 countries, US persons and EU excluded; ATM $1 + 0.65%; annual fee TBD; DefiLlama snippet suggests monthly caps (unverified) |
+| Ethena Pay | Status / Cashback / FX / Issuer | 🔄 / up to 5% / TBD / unnamed | ✅ live beta / 4-5% AVAX (Standard/Pro/VIP) / ~1% Visa FX / Visa via Third National, program manager Rain | Sources: pay.ethena.fi/card-terms (effective 2026-06-01), pay.ethena.fi/pricing (checked 2026-10-10: no cap on cashback; rate falls by monthly-spend band, e.g. Standard 4% to $2,500, 1% to $4,000, 0% above; free account, ATM $1 + 0.65%), pay.ethena.fi/terms Appendix 1 (47 jurisdictions; EU "coming soon"; US persons excluded). Launch date 2026-09-01 and ~400 early users are from secondary press only (The Defiant, CoinMarketCap) |
 
 ### Custody
 
@@ -1901,4 +1901,4 @@ COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex
 
 ---
 
-*Last updated: June 2026 - Comprehensive score recalculation with verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Clarified card spend-path custody scoring.*
+*Last updated: October 2026 - Comprehensive score recalculation with verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Clarified card spend-path custody scoring.*

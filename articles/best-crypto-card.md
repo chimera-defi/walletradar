@@ -2,7 +2,7 @@
 title: "Best Crypto Card in 2026"
 description: "Wallet Radar picks for crypto cards: EtherFi Cash (92), Plasma One (81), and MetaMask Card (77) lead the list."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-10"
 author: "Wallet Radar"
 tags: ["comparison", "crypto-cards", "spending"]
 ---

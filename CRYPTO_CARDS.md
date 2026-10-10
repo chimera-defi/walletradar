@@ -5,12 +5,12 @@
 | Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Status | Best For | Rec |
 | ---- | ----- | ---- | ------- | --- | ------ | --------- | ---------- | ------ | ------- | ------ | -------- | --- |
 | [**EtherFi Cash**](https://ether.fi/cash) | 92 | Credit | 🔐 Self | ✅ | 🌍 Global | 2-3% | $0 | 1% | Multi | ✅ | Self-custody DeFi | 🟢 |
+| [**Ethena Pay**](https://pay.ethena.fi) | 84 | Debit | 🔐 Self | ❌ | 🌍 Global* | 4-5% | $0 | ~1% | AVAX | ✅ | Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon) | 🟢 |
 | [**Plasma One**](https://www.plasma.org/personal) | 81 | Debit | 🔐 Self | ❌ | 🌍 Global* | Up to 4% | $0 (Lite) | 0-1% | XPL | ✅ | USDT spend card | 🟢 |
 | [**MetaMask Card**](https://metamask.io/card) (@MetaMask) | 77 | Debit | 🔐 Self | ❌ | 🌍 Global* | 1-3% | $0-$199/yr | 0% | Multi | ⚠️ | Self-custodial spending (US/UK signups paused) | 🟢 |
 | [**Avici Money**](https://avici.money) (@AviciMoney) | 76 | Credit | 🔐 Self | ⚠️ | 🌍 Global | 0% | $0 | 1-3% | Multi | ✅ | Collateral-backed | 🟢 |
 | [**CryptoSpend**](https://www.wayex.com/en-US/) | 76 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 1% | $0 | 0% | BTC, ETH | ✅ | Australia (Wayex) | 🟢 |
 | [**Gemini Card**](https://www.gemini.com/credit-card) | 76 | Credit | 🏦 Exch | ❌ | 🇺🇸 US | Up to 4% | $0 | 0% | BTC, ETH | ✅ | Credit building | 🟢 |
-| [**Ethena Pay**](https://pay.ethena.fi) | 74 | Debit | 🔐 Self | ❌ | 🌍 Global* | 4-5% | TBD | ~1% | AVAX | ✅ | Non-US/EU AVAX-cashback spend card (beta) | 🟢 |
 | [**Kraken Card**](https://www.kraken.com/kraken-card) | 74 | Debit | 🏦 Exch | ⚠️ | 🇺🇸🇪🇺 US/EU | 0.5-2% | $0 | 0-1% | Multi | ✅ | Cloudflare-protected | 🟢 |
 | [**Payy**](https://payy.network) (@payy_link) | 72 | Debit | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | 0% | USDC | ⚠️ | Privacy-focused | 🟢 |
 | [**ToonPay Card**](https://www.toonpay.io/) (@ToonPayOfficial) | 72 | Debit | 📋 CeFi | ❌ | 🌍 Global | 1-15%* | $0 annual ($12 KYC, $80 card) | 2% + 2% processing | $TOON | ✅ | High-cashback community spend | 🟢 |
@@ -18,16 +18,16 @@
 | [**Crypto.com Visa**](https://crypto.com/us/cards) | 71 | Debit | 🏦 Exch | ✅ | 🌍 Global | 0-4.5% | $0 | 0-3% | CRO | ✅ | CRO stakers ⚠️ | 🟢 |
 | [**Kast**](https://kast.xyz) (@kastxyz) | 71 | Debit | 📋 CeFi | ✅ | 🌍 Global | 1.5-3% | $0-$10,000/yr | Up to 2-3% | Kast Points | ✅ | Stablecoin banking (custodial terms) | 🟢 |
 | [**OKX Card**](https://www.okx.com) | 71 | Debit | 🏦 Exch | ⚠️ | 🇪🇺 EU | 2-10% | $0 | TBD | Stables | 🔄 | OKX Pay EU users | 🟡 |
+| [**Fuse Wallet Card**](https://fusewallet.com) (@fusewallet) | 70 | Prepaid | 🔐 Self | ❌ | 🌍 Global* | 0% | $0 | 0% | USDC | ⚠️ | Solana stablecoins | 🟢 |
 | [**Gnosis Pay**](https://gnosispay.com) | 70 | Debit | 🔐 Self | ⚠️ | 🌍 Global* | TBD | €0 | 0% | GNO/SAFE | ✅ | DeFi-native | 🟢 |
 | [**1inch Card**](https://1inch.com/card) | 69 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU/UK | Up to 2% | $0 | 0% | 1INCH | ✅ | DeFi users | 🟢 |
 | [**Tuyo**](https://tuyo.com/card) (@itstuyo) | 69 | Prepaid | 🔐 Self | ❌ | 🌍 Global* | 0% | $0 | ~1% | TUYO | ✅ | USDC on Base | 🟢 |
 | [**Meow Card**](https://www.meow.com/cards) (@meow) | 68 | Business | 📋 CeFi | ✅ | 🌍 Global | Up to 1.5% | $0 | TBD (avg ~2% savings) | USD cash | ✅ | Global startup finance ops | 🟢 |
 | [**Plutus Card**](https://plutus.it) | 68 | Debit | 📋 CeFi | ❌ | 🇬🇧 UK | 3-9% | £0 | 2.5% | PLU | ✅ | EU/UK perks | 🟢 |
 | [**Revolut Crypto**](https://www.revolut.com/crypto/crypto-card/) | 68 | Debit | 📋 CeFi | ⚠️ | 🌍 Global | TBD | $0-$17/mo | 0-2% | Multi | ✅ | Fiat+Crypto | 🟢 |
-| [**Fuse Wallet Card**](https://www.fuse.io/) (@fusewallet) | 67 | Prepaid | 🔐 Self | ❌ | 🇺🇸 US* | 0% | $0 | 0% | USDC | ⚠️ | Solana stablecoins | 🟡 |
 | [**Jupiter Card**](https://jup.ag/rewards) | 67 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 2% | $0 | 1-1.8% | USDC | ⚠️ | Solana/Jupiter users | 🟡 |
 | [**Nexo Card**](https://nexo.com/card) | 67 | Credit | 📋 CeFi | ✅ | 🇪🇺 EU/UK | 0.5-2% | $0 | 0.2-2.5% | NEXO | ✅ | Crypto credit | 🟡 |
-| [**ThorWallet**](https://thorwallet.org) (@THORWalletORG) | 67 | Debit | 🔐 Self | ❌ | 🌍 Global | 0.5% | $0-$124 one-off | 1.5% | Multi | ✅ | Cross-chain DeFi | 🟢 |
+| [**ThorWallet**](https://thorwallet.org) (@THORWalletORG) | 67 | Debit | 🔐 Self | ❌ | 🌍 Global | 0.5% | $0-$124 one-off | 1.5% | Multi | ✅ | Cross-chain DeFi | 🟡 |
 | [**Tria**](https://tria.so) (@useTria) | 67 | Prepaid | 🔐 Self | ❌ | 🌍 Global | Up to 6% | TBD | TBD | Stables | ⚠️ | Token rewards | 🟢 |
 | [**Bitget Wallet Card**](https://web3.bitget.com/en/card) | 66 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 2-3% | $0 ($10 activation) | 0-1.7% | Campaign | ⚠️ | Bitget Wallet users | 🟡 |
 | [**Coinbase Card**](https://www.coinbase.com/card) | 64 | Debit | 🏦 Exch | ❌ | 🇺🇸 US | TBD | $0 | 0% | BTC, ETH | ✅ | Coinbase users | 🟡 |
@@ -115,7 +115,7 @@
 **Key Corrections (February 2026):**
 - **Custody recheck (June 2026):** KAST changed from **🔐 Self** to **📋 CeFi** because official KAST terms say transferred virtual assets are sold to KAST and managed through a custodian for KAST. CryptoSpend/Wayex and Spendly also moved from **🔐 Self** to **📋 CeFi** because official materials describe custodial/prepaid top-up models rather than user-controlled keys through card spend.
 - **Second-pass custody review (June 2026):** Jupiter Card changed from **🔐 Self** to **📋 CeFi** because official Jupiter docs say Spend/card balances are managed by regulated financial partners. Bitget Wallet Card changed from **🔐 Self** to **📋 CeFi** because card terms authorize program access/liquidation of wallet assets and DCS card prepayments are not held for the user. Nummus Wallet Card returned to **📋 CeFi** because the card is issued/managed by external financial providers even though Nummus can integrate a non-custodial crypto wallet.
-- **OKX custody upgrade (June 2026):** OKX Card changed from **🏦 Exch** to **🔐 Self** based on official OKX Card/OKX Pay docs stating stablecoins remain in the user's wallet until purchase.
+- **OKX custody (superseded, Oct 2026):** a June 2026 note moved OKX Card to Self; the Oct 2026 review (operator ruling) returned it to **🏦 Exch** because OKX Pay holds the balance. OKX's own explainer is ambiguous.
 - **Wirex custody note (June 2026):** Wirex remains **📋 CeFi** in this table because self-custody evidence found during review maps to Wirex One / Wirex BaaS, not clearly to the existing legacy Wirex Card row.
 - **Gnosis Pay**: Region expanded from EU/UK to **🌍 Global\*** (EEA, UK, Brazil, Argentina, Mexico, Colombia, Philippines, Thailand, Japan, Singapore) - verified via gnosispay.com January 2026. **Not available in US.**
 - **MetaMask Card**: Available in EU, UK, Switzerland, Canada, select LATAM. **US on waitlist only** (not yet available). Metal card ($199/yr) offers 3% cashback, virtual card is 1%.
@@ -128,7 +128,7 @@
 - **Hi Card**: Website shows 2021-2022 copyright, card product status uncertain ⚠️
 - **Kontigo**: ❌ Card program shut down by Rain in January 2026; company experienced $340K USDC hack affecting 1,005 users
 - **Tuyo**: Available in 41 countries (US, Spain, EU, LATAM) but NOT Australia; correct URL is tuyo.com/card
-- **Fuse Wallet Card**: US-only (except NY, LA, FL, AK); virtual Visa prepaid on Solana
+- **Fuse Wallet Card**: "available in over 18 countries" (excluded US states: NY, AK); virtual prepaid Visa issued by Lead Bank, program manager Bridge Ventures (fusewallet.com)
 - **Solflare Card**: UK/EEA only (not global); no cashback, raffle rewards until Feb 2026
 - **Bybit Card**: Bybit card page lists 2-10% cashback, free issuance, $100 ATM withdrawals free then 2% fee; product is not available to EEA customers and supports USD fiat + BTC/ETH/XRP/TON/USDT/USDC/MNT/BNB.
 - **Swissborg Card**: Card page (swissborg.com/card) returns 404 in headless Chromium
