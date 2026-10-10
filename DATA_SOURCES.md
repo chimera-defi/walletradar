@@ -55,6 +55,14 @@ Wallet Radar contains references to external websites. This page explains why we
 
 **Trust Signal:** All references are to established, well-known sources.
 
+#### WalletBeat data attribution
+
+Some wallet rows (added 2026-10-10: Bitget Wallet, Gem Wallet, Mt Pelerin / Bridge Wallet, NuFi, PillarX, Zeus, imKey Pro) use facts read from [WalletBeat](https://github.com/walletbeat/walletbeat) `data/` files (account types, platform variants, licence, audits, bug-bounty platform, funding strategy flags, hardware-wallet support). WalletBeat is MIT licensed:
+
+> MIT License. Copyright (c) 2023 Fluidkey. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, subject to the inclusion of this copyright notice and the MIT permission notice in all copies or substantial portions of the Software. The Software is provided "as is", without warranty of any kind.
+
+Snapshot used: commit `82e3036aba53d8dd13a55f42089ba09c44afa8c5` (2026-10-10). Full licence text: https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/LICENSE. WalletBeat's bundled `data/coinspect/` is CC BY 4.0 and is not used here. Per-wallet source URLs are in VERIFICATION_NOTES.md.
+
 ### 5. Social & Community
 
 **Examples:** Twitter/X, GitHub profiles, community forums
