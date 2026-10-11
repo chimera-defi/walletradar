@@ -59,7 +59,10 @@ def validate_pricing(pricing: dict[str, dict[str, str]], names: set[str]) -> lis
 
 def validate_feed(pricing: dict[str, dict[str, str]]) -> list[str]:
     errors: list[str] = []
-    tree = ET.parse(FEED_FILE)
+    try:
+        tree = ET.parse(FEED_FILE)
+    except ET.ParseError as exc:
+        return [f"feed: malformed XML -- {exc}"]
     root = tree.getroot()
     ns = {"g": "http://base.google.com/ns/1.0"}
     for item in root.findall("./channel/item"):
@@ -79,7 +82,11 @@ def main() -> None:
     if not PRICING_FILE.exists():
         print("Missing merchant_pricing.json", file=sys.stderr)
         sys.exit(1)
-    pricing = json.loads(PRICING_FILE.read_text(encoding="utf-8"))
+    try:
+        pricing = json.loads(PRICING_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        print(f"Invalid JSON in {PRICING_FILE}: {exc}", file=sys.stderr)
+        sys.exit(1)
     names = parse_hardware_wallet_names()
     errors = []
     errors.extend(validate_pricing(pricing, names))
