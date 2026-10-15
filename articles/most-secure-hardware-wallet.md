@@ -30,7 +30,7 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
 **Security Features:**
 - ✈️ **Full Air-Gap** - QR code signing only
 - 📱 **Large Touchscreen** - 4" display for verification
-- 🔒 **Secure Element** - EAL6+ certified
+- 🔒 **Triple Secure Element** - Microchip ATECC608B, Maxim DS28S60, Maxim MAX32520
 - 📖 **Fully Open Source** - Complete firmware transparency
 - ⛓️ **Multi-Chain** - Bitcoin, Ethereum, Solana, Cosmos
 - 🔋 **Removable Battery** - Extra security layer
@@ -49,9 +49,9 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
    - Verify addresses visually
    - Harder to be tricked by phishing
 
-3. **EAL6+ Secure Element**
-   - Military-grade chip security
-   - Highest security certification
+3. **Triple Secure Element**
+   - Three SE chips: Microchip ATECC608B, Maxim DS28S60, Maxim MAX32520 (per Keystone's blog, 2025-09-25)
+   - Keystone does not state an EAL level for them
    - Tamper-resistant and tamper-evident
    - Keys never leave secure element
 
@@ -129,12 +129,12 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
 
 ---
 
-## #3: Trezor Safe 7 (78/100) - Quantum-Ready Security
+## #3: Trezor Safe 7 (78/100) - Newest Secure Element Design
 
 ### 🏆 Why Trezor Safe 7 is Most Secure
 
 **Security Features:**
-- 🔐 **Tropic01 Secure Element** - Quantum-resistant cryptography
+- 🔐 **Tropic01 + Optiga Secure Elements** - Auditable Tropic01 plus an EAL6+ Optiga chip
 - 📖 **Fully Open Source** - Complete firmware transparency
 - 🖥️ **Touch Color Display** - Verify transactions visually
 - 🔄 **Active Development** - Regular security updates
@@ -143,10 +143,9 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
 
 **Why It's the Most Secure:**
 
-1. **Quantum-Ready Cryptography**
-   - Tropic01 Secure Element designed for post-quantum era
-   - Protects against future quantum computing attacks
-   - Only hardware wallet with quantum-resistant chip
+1. **Post-Quantum Boot and Updates**
+   - Trezor says Safe 7 uses post-quantum cryptography for firmware updates, device authentication and the boot process (trezor.io/trezor-safe-7)
+   - This does not protect coins on existing addresses against a future quantum computer; that depends on the blockchain, not the wallet
 
 2. **Full Open Source Firmware**
    - 100% code transparency
@@ -165,7 +164,7 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
    - 13 years of security research (Trezor founded 2013)
 
 **Price:** ~$249
-**Best For:** Long-term storage, quantum-proof security, multi-chain holdings
+**Best For:** Long-term storage, multi-chain holdings
 
 **Limitations:**
 - Higher price point
@@ -182,7 +181,7 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
 
 | Feature | Trezor Safe 7 (78) | ColdCard Mk4 (88) | Keystone 3 Pro (92) |
 |---------|-------------------|-------------------|---------------------|
-| **Secure Element** | ✅ Tropic01 (Quantum) | ✅ Dual (ATECC608A + SAM) | ✅ EAL6+ Certified |
+| **Secure Element** | ✅ Tropic01 + Optiga | ✅ Dual (ATECC608A + SAM) | ✅ 3× SE (ATECC608B, DS28S60, MAX32520) |
 | **Open Source** | ✅ Fully | ✅ Fully | ✅ Fully |
 | **Air-Gap** | ❌ USB/Bluetooth | ✅ MicroSD | ✅ QR Code |
 | **Multi-Chain** | ✅ 8000+ coins | ❌ Bitcoin only | ✅ BTC, ETH, SOL, etc. |
@@ -199,16 +198,16 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
 
 **Different Security Models:**
 
-- **Trezor Safe 7:** Best *future-proof* security (quantum-ready)
+- **Trezor Safe 7:** Newest secure element design (post-quantum boot and updates)
 - **ColdCard Mk4:** Best *current* security (air-gap + Bitcoin-only)
 - **Keystone 3 Pro:** Best *balanced* security (air-gap + multi-chain)
 
 **Choose Based on Threat Model:**
 
-### Threat: Quantum Computers (Future)
+### Threat: Compromised Firmware or Boot Chain (Future-Proofing)
 **Winner:** 🏆 Trezor Safe 7
-- Only quantum-resistant Secure Element
-- Protects against future attacks
+- Post-quantum signatures for boot, updates and device authentication, per Trezor
+- Does not make coins on existing addresses quantum-safe
 
 ### Threat: Computer/Phone Malware (Now)
 **Winner:** 🏆 ColdCard Mk4 / Keystone 3 Pro (Tie)
@@ -251,9 +250,9 @@ Yes, critical. Open source allows independent security audits and community veri
 
 Ledger scores lower (59-67/100) due to: (1) Partial closed-source firmware, (2) Ledger Recover controversy (optional key backup service), (3) Previous data breaches. Trezor, ColdCard, and Keystone are significantly more secure.
 
-### What is quantum-ready cryptography?
+### What does quantum-ready mean on the Trezor Safe 7?
 
-Quantum computers (expected in 10-20 years) could break current encryption. Trezor Safe 7's Tropic01 Secure Element uses quantum-resistant algorithms to protect against future quantum attacks. Other wallets will need firmware updates when quantum threat becomes real.
+Trezor says Safe 7 uses post-quantum cryptography to secure firmware updates, device authentication and the boot process. That is not the same as making your coins quantum-safe: assets on existing addresses depend on the blockchain's signature scheme, which a hardware wallet cannot change.
 
 ### Can hardware wallets be hacked?
 
@@ -287,14 +286,14 @@ Seed Storage: Steel plates (fireproof, waterproof)
 
 ```
 Primary: Keystone 3 Pro (air-gap, multi-chain)
-Backup: Trezor Safe 7 (quantum-ready)
+Backup: Trezor Safe 7 (post-quantum boot and updates)
 Seed Storage: Steel plates
 ```
 
 ### 🚀 Future-Proof Security
 
 ```
-Primary: Trezor Safe 7 (quantum-ready)
+Primary: Trezor Safe 7 (post-quantum boot and updates)
 Backup: Trezor Safe 5 (same ecosystem)
 Seed Storage: Steel plates
 ```
@@ -324,7 +323,7 @@ Storage: Geographic distribution + fireproof safes
 
 **Most Secure (Multi-chain):** Keystone 3 Pro (92/100)
 - Air-gap QR code signing
-- EAL6+ Secure Element
+- Triple Secure Element
 - Large verification display
 
 **Lower scores:** Ledger wallets (59-67/100) due to closed-source firmware and Ledger Recover controversy.

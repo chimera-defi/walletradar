@@ -16,7 +16,7 @@
 | 2 | **ColdCard Mk4** | 88 | ✅ Active | 🟢 |
 | 3 | **ColdCard Mk5** | 86 | ✅ Active | 🟢 |
 | 4 | **ColdCard Q** | 84 | ✅ Active | 🟢 |
-| 5 | **Keycard Shell** | 81 | ✅ Active | 🟢 |
+| 5 | **Keycard Shell** | 83 | ✅ Active | 🟢 |
 <!-- GENERATED_HARDWARE_SNAPSHOT_END -->
 
 **Last Updated:** October 15, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](./HARDWARE_WALLET_COMPANIES.md)
@@ -155,7 +155,7 @@ For technically-inclined users who want maximum transparency and control:
 | **SecuX V20** | 48 | Closed source, unknown funding |
 | **Arculus** | 39 | Closed source, NFC-only, no passphrase |
 | **KeepKey** | 61 | No secure element (MCU only). Firmware is maintained (v7.14.1 released Jun 2026), so it is no longer listed as abandoned |
-| **BC Vault** | 28 | Closed source, no SE, unconventional backup |
+| **BC Vault** | 30 | Closed source, no SE, unconventional backup |
 | **ColdCard (seeds made on affected firmware)** | see main table | Weak seed-generation RNG, funds stolen, seeds must be migrated (see Security Incidents) |
 
 **See also:** [Why Look Beyond Ledger?](#-why-look-beyond-ledger) for details on Ledger Recover concerns.
@@ -169,7 +169,7 @@ For technically-inclined users who want maximum transparency and control:
 | Wallet | Secure Element | Air-Gap | Open Firmware | Reproducible | Passphrase | Multisig | Duress PIN | Anti-Tamper |
 |--------|---------------|---------|---------------|--------------|------------|----------|------------|-------------|
 | **Trezor Safe 5** | ✅ Optiga Trust M (EAL6+) | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Keystone 3 Pro** | ✅ 3× SE (EAL5+) | ✅ QR | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| **Keystone 3 Pro** | ✅ 3× SE (ATECC608B, DS28S60, MAX32520) | ✅ QR | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | **BitBox02** | ✅ ATECC608 | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | **ColdCard Mk4** | ✅ Dual SE | ✅ MicroSD | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Blockstream Jade** | ❌ Virtual SE (blind oracle, no physical chip) | ✅ QR | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |

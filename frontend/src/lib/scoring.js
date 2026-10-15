@@ -514,7 +514,8 @@ function parseHardwareDisplayScore(cell) {
 }
 
 function parseHardwarePriceScore(cell) {
-  const amounts = extractCurrencyAmounts(cell);
+  // Hardware prices may be listed in EUR when the store has no USD price; tiers use the face value.
+  const amounts = Array.from(String(cell || '').matchAll(/[$€] ?(\d+(?:\.\d+)?)/g)).map((match) => parseFloat(match[1]));
   if (!amounts.length) return { score: 4, note: 'Price not clear from table.' };
   const average = amounts.reduce((sum, value) => sum + value, 0) / amounts.length;
   if (average <= 80) return { score: 10, note: 'Strong value tier.' };
