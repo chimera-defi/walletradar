@@ -1,8 +1,8 @@
 ---
 title: "Trezor vs Ledger: Which Hardware Wallet is Safer in 2026?"
-description: "Compare Trezor Safe 7 (96) vs Ledger models (55-57). Security model, transparency, and recovery risks based on Wallet Radar scores."
+description: "Compare Trezor Safe 7 (78) vs Ledger models (59-67). Security model, transparency, and recovery risks based on Wallet Radar scores."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 wallets: ["Trezor", "Ledger"]
 tags: ["comparison", "hardware-wallets", "security"]
@@ -12,7 +12,7 @@ tags: ["comparison", "hardware-wallets", "security"]
 
 ## Quick Answer
 
-**Trezor Safe 7 (96/100)** is the safer choice for most users. **Ledger models score 55–57** due to the Ledger Recover controversy and closed-source firmware concerns. If you must use Ledger, use a passphrase and keep firmware updated.
+**Trezor Safe 7 (78/100)** is the safer choice for most users. **Ledger models score 59–67** (Nano S+ 67, Gen5 64, Flex 62, Nano X 61, Stax 59) due to the Ledger Recover controversy and closed-source firmware concerns. If you must use Ledger, use a passphrase and keep firmware updated.
 
 ---
 
@@ -20,10 +20,10 @@ tags: ["comparison", "hardware-wallets", "security"]
 
 | Wallet | Score | Notes |
 |--------|-------|------|
-| **Trezor Safe 7** | **96** | Highest overall score (open source + strong security model) |
-| **Ledger Stax** | 57 | Ledger Recover capability penalized |
-| **Ledger Nano X** | 56 | Same Recover risk |
-| **Ledger Nano S+** | 55 | Same Recover risk |
+| **Trezor Safe 7** | **78** | Open-source firmware, Tropic01 + Optiga secure elements |
+| **Ledger Nano S+** | 67 | Ledger Recover capability penalized |
+| **Ledger Nano X** | 61 | Same Recover risk |
+| **Ledger Stax** | 59 | Same Recover risk |
 
 Source: `HARDWARE_WALLETS_DETAILS.md`
 
@@ -35,7 +35,7 @@ Source: `HARDWARE_WALLETS_DETAILS.md`
 |---------|---------------|-------------------------|
 | Open-source firmware | ✅ Full | ⚠️ Partial |
 | Recover capability | ❌ None | ⚠️ Optional (penalty) |
-| Secure element | ✅ Tropic01 | ✅ SE |
+| Secure element | ✅ Tropic01 + Optiga | ✅ ST33 (EAL5+/EAL6+) |
 | Air-gap | ❌ | ❌ |
 | Transparency | ✅ High | ⚠️ Limited |
 
