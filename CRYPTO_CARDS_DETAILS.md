@@ -130,8 +130,8 @@ Hybrid products should be classified by the actual card spend path. If a product
 - ThorWallet Card (Multi-currency support, no cashback currently)
 - Amp Pay (Multi-crypto, no cashback)
 - Coinbase Card (BTC, ETH, others)
-- Gemini Card (BTC or ETH choice)
-- Wirex Card (WXT)
+- Gemini Card (BTC or 50+ cryptos)
+- Wirex Card (USD cashback)
 - Uphold Card (XRP, BTC, ETH, others)
 - CryptoSpend Card (BTC, ETH, others)
 
@@ -258,14 +258,14 @@ The Gemini Credit Card is a traditional credit card that earns crypto rewards. I
 
 **Key Features:**
 - Traditional credit card (builds credit)
-- Choice of BTC or ETH rewards
+- Choice of BTC or 50+ cryptos as rewards
 - No annual fee
 - US-only availability
 
 **Rewards Structure:**
 - Base: 1% cash back
-- Category bonuses: Up to 3% in specific categories
-- Rewards paid in BTC or ETH (user choice)
+- Category bonuses: Up to 4% in specific categories
+- Rewards paid in BTC or another supported crypto (user choice)
 
 **Fees:**
 - Annual Fee: $0
@@ -406,7 +406,7 @@ The Wirex Card is a multi-crypto debit card. As of 2026-10-15 the issuer's page 
 **Best For:**
 - Multi-crypto users
 - Global users (where available)
-- Those interested in WXT token
+- Those wanting USD-denominated cashback
 
 **Limitations:**
 - Availability varies by region
@@ -1504,6 +1504,8 @@ Mastercard debit card on an MPC wallet. Issuer entity: Bleap SIA (Latvia), MiCA 
 
 **Custody Model:** Main assets stay in the non-custodial Tangem Wallet, but only the balance loaded onto the card can be spent, so the table labels the spend path 📋 CeFi.
 
+**Availability:** table shows "Select countries (list unverified)". The fetched page lists no issuing countries ("150+ countries" refers to merchant acceptance). The coordinator's review cites an issuer FAQ saying some US states are excluded; that text was not visible on the fetched (truncated) page, so it is unconfirmed here. The table lists the available tiers only (Basic 1%, Plus 2%); Prestige 4% / $999 per year is waitlisted.
+
 **Unverified:** FX fee, countries where cards can be opened, KYC wording.
 
 ---
@@ -1644,7 +1646,7 @@ Please visit [reap.global](https://reap.global) directly in a web browser to ver
 
 Headline maximums; many require staking or tiers, and several are unverified (see [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) for current figures).
 
-1. **Wirex Card** - Up to 8% (WXT rewards; unverified)
+1. **Wirex Card** - Up to 8% (USD cashback; per wirex.one)
 2. **Plasma One** - Up to 4% in XPL (Platinum tier)
 3. **Gemini Card** - Up to 4%
 4. **Crypto.com Visa** - 0-4.5% by tier (issuer page, Oct 2026)
@@ -1659,7 +1661,7 @@ Headline maximums; many require staking or tiers, and several are unverified (se
 1. **Plutus Card** - 3%
 2. **Coinbase Card** - 1% (up to 4% with subscription)
 3. **Uphold Card** - 1% (up to 4% with higher tiers)
-4. **Gemini Card** - 1% (up to 3% categories)
+4. **Gemini Card** - 1% (up to 4% categories)
 5. **Crypto.com Midnight Blue** - 0.5%
 6. **Fold Card** - 1% base (up to 5% categories)
 7. **Shakepay Card** - Up to 1.5%
@@ -1861,12 +1863,12 @@ Headline maximums; many require staking or tiers, and several are unverified (se
 
 ### Best for Multi-Crypto Rewards
 - **Coinbase Card** - BTC, ETH, others (US)
-- **Gemini Card** - BTC or ETH choice (US)
+- **Gemini Card** - BTC or 50+ cryptos (US)
 - **Wirex Card** - Multi-crypto (Global)
 
 ### Best for No Staking Required
 - **Coinbase Card** - 1-4% (US)
-- **Gemini Card** - 1-3% (US)
+- **Gemini Card** - 1-4% (US)
 - **Plutus Card** - 3% (EU/UK)
 - **Fold Card** - Up to 5% (US)
 
@@ -1948,7 +1950,7 @@ Second pass on 2026-10-15 using WebFetch/WebSearch and `scripts/verify-crypto-ca
 | Gnosis Pay | Status / Best For | ✅, DeFi-native | ⚠️, consumer card winding down | Issuer blog [gnosispay.com/blog/gnosis-pay-the-next-era](https://gnosispay.com/blog/gnosis-pay-the-next-era): "Over the coming months the Gnosis Pay card will be wound up in favour of partner cards" and the web app will close. The date 2026-12-20 23:59 UTC (card and web app stop; GNO cashback ended 2026-09-30) is from [Crypto Briefing](https://cryptobriefing.com/gnosis-pay-shutdown-consumer-cards-b2b/) and The Defiant (secondary; help.gnosispay.com FAQ returned 404 to fetch) |
 | Kraken | Link / Best For | kraken.com/kraken-card (404), "Cloudflare-protected" | kraken.com/features/crypto-card, network and issuer by region | See Kraken Card (Krak) section; FX "no FX fees" confirmed for UK/EEA only |
 | OKX Card | FX | TBD | 0% | [my.okx.com/pay](https://my.okx.com/pay): "We charge no transaction fees or FX fees. Worldwide." (0.1% market spread when converting to fiat) |
-| Wirex Card | Annual / Rewards | €0-€29.99/mo, WXT | TBD, USD cash | [wirex.one](https://wirex.one): "up to 8% cashback in USD", zero-fee FX and ATM; old subscription not stated |
+| Wirex Card | Annual / Rewards | €0-€29.99/mo, WXT (old) | TBD, USD cash | [wirex.one](https://wirex.one): "up to 8% cashback in USD", zero-fee FX and ATM; old subscription not stated |
 | Nummus Wallet Card | Annual | TBD | $0-$14.99/mo ($300-$750 one-time setup tiers) | [nummuswallet.com](https://nummuswallet.com/): Free (physical card $30), Plus $14.99/mo or $149/yr, Pro $300 one-time, Premium $750 one-time |
 | Tuyo | Region | Global* | Global | [tuyo.com/card](https://tuyo.com/card) links a US cardholder agreement; the 10-Oct text also listed the US among 41 countries |
 | Fuse Wallet Card | Region | Global* | Global | [fusewallet.com](https://fusewallet.com): issued by Lead Bank under Visa U.S.A.; only NY and AK excluded in the US |
@@ -1993,7 +1995,7 @@ Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership pric
 COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added and updated to live beta.
 
 Not added after primary-page check (2026-10-10), reason:
-- Tangem Pay (added as a row on 2026-10-15 with region marked unconfirmed; [tangem.com/en/tangem-pay/](https://tangem.com/en/tangem-pay/)): live (Basic available), Rain issuer, 1/2/4% cashback, Plus $29.99/mo; custody described as main assets in non-custodial wallet with a separate loaded card balance, and countries that can open cards are not listed; FX fee in a tariffs PDF not read. Region unconfirmed.
+- Tangem Pay (added as a row on 2026-10-15 with region marked unconfirmed; [tangem.com/en/tangem-pay/](https://tangem.com/en/tangem-pay/)): live (Basic available), Rain issuer, 1/2% cashback on available tiers (Prestige 4% waitlisted), Plus $29.99/mo; custody described as main assets in non-custodial wallet with a separate loaded card balance, and countries that can open cards are not listed; FX fee in a tariffs PDF not read. Region unconfirmed.
 - Ledger CL Card ([shop.ledger.com](https://shop.ledger.com/pages/cl-card-crypto-card), [withcl.com/legal](https://www.withcl.com/legal)): live in EEA, UK, US, CA, CH, CO, MX, BR; 1% BTC/USDC/USDT; fees not on retrieved pages; custody conflicting (shop page: account operated by Monavate; withcl.com: "Spend crypto from self-custody"). Custody unresolved.
 - Oobit ([oobit.com](https://oobit.com)): live-looking, "up to 10%", card free; custody, region and FX not stated (US via Bakkt).
 - SafePal Card ([safepal.com/en/bank](https://www.safepal.com/en/bank)): Fiat24-based Mastercard; custody, regions, cashback and card fees not stated.
