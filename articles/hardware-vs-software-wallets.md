@@ -2,7 +2,7 @@
 title: "Hardware vs Software Wallets: Which Should You Use?"
 description: "Understand tradeoffs between hardware and software wallets, with Wallet Radar recommendations for each use case."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 ---
@@ -41,9 +41,9 @@ tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 ## Recommended Picks (Wallet Radar)
 
 **Hardware (cold storage):**
-- **Trezor Safe 7** (96)
-- **ColdCard Mk4** (91)
-- **Keystone 3 Pro** (91)
+- **Keystone 3 Pro** (92)
+- **ColdCard Mk4** (88)
+- **Trezor Safe 7** (78)
 
 **Software (daily use):**
 - **Rabby** (92) — dev + safety features  
