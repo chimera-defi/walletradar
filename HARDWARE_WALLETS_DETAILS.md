@@ -7,19 +7,19 @@
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain security architecture, firmware transparency, and tradeoffs in more detail.
 
 <!-- GENERATED_HARDWARE_SNAPSHOT_START -->
-> **Current generated snapshot:** Keystone 3 Pro (92, ✅ Active, 🟢), ColdCard Mk4 (88, ✅ Active, 🟢), Keycard Shell (85, ✅ Active, 🟢), and Foundation Passport (84, ✅ Active, 🟢). Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Keystone 3 Pro (92, ✅ Active, 🟢), ColdCard Mk4 (88, ✅ Active, 🟢), ColdCard Mk5 (86, ✅ Active, 🟢), and ColdCard Q (84, ✅ Active, 🟢). Regenerated from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Wallet | Score | Activity | Rec |
 | ---- | ------ | ----- | -------- | --- |
 | 1 | **Keystone 3 Pro** | 92 | ✅ Active | 🟢 |
 | 2 | **ColdCard Mk4** | 88 | ✅ Active | 🟢 |
-| 3 | **Keycard Shell** | 85 | ✅ Active | 🟢 |
-| 4 | **Foundation Passport** | 84 | ✅ Active | 🟢 |
-| 5 | **Trezor Safe 7** | 80 | ✅ Active | 🟢 |
+| 3 | **ColdCard Mk5** | 86 | ✅ Active | 🟢 |
+| 4 | **ColdCard Q** | 84 | ✅ Active | 🟢 |
+| 5 | **Keycard Shell** | 81 | ✅ Active | 🟢 |
 <!-- GENERATED_HARDWARE_SNAPSHOT_END -->
 
-**Last Updated:** February 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](./HARDWARE_WALLET_COMPANIES.md)
+**Last Updated:** October 15, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](./HARDWARE_WALLET_COMPANIES.md)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for EVM wallet recommendations and integration details.
 **Companies:** See [Hardware Wallet Companies](./HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
@@ -66,57 +66,58 @@ Complete explanations for all table columns:
 
 ### GitHub Metrics (Firmware Repositories)
 
-**Generated:** February 5, 2026 via `scripts/refresh-hardware-wallet-data.sh`
+**Generated:** October 15, 2026 from the GitHub API (default-branch last commit, stars, open issues plus pull requests)
 
 | Wallet | Repository | Last Commit | Stars | Issues | Ratio | Status |
 |--------|------------|-------------|-------|--------|-------|--------|
-| **Trezor** | [trezor/trezor-firmware](https://github.com/trezor/trezor-firmware) | Feb 5, 2026 | 1,663 | 556 | 33.4% | ✅ Active |
-| **Blockstream Jade** | [Blockstream/Jade](https://github.com/Blockstream/Jade) | Feb 2, 2026 | 442 | 93 | 21.0% | ✅ Active |
-| **SeedSigner** | [SeedSigner/seedsigner](https://github.com/SeedSigner/seedsigner) | Jan 27, 2026 | 1,024 | 227 | 22.2% | ✅ Active |
-| **Specter DIY** | [cryptoadvance/specter-diy](https://github.com/cryptoadvance/specter-diy) | Jan 29, 2026 | 542 | 77 | 14.2% | ✅ Active |
-| **Krux** | [selfcustody/krux](https://github.com/selfcustody/krux) | Jan 13, 2026 | 308 | 59 | 19.2% | ✅ Active |
-| **Keystone** | [KeystoneHQ/keystone3-firmware](https://github.com/KeystoneHQ/keystone3-firmware) | Feb 5, 2026 | 197 | 92 | 46.7% | ✅ Active |
-| **BitBox02** | [BitBoxSwiss/bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | Feb 5, 2026 | 341 | 50 | 14.7% | ✅ Active |
-| **ColdCard** | [Coldcard/firmware](https://github.com/Coldcard/firmware) | Feb 2, 2026 | 692 | 8 | 1.2% | ✅ Active |
-| **Foundation Passport** | [Foundation-Devices/passport2](https://github.com/Foundation-Devices/passport2) | Dec 9, 2025 | 77 | 7 | 9.1% | ⚠️ Slow |
-| **OneKey** | [OneKeyHQ/firmware-pro](https://github.com/OneKeyHQ/firmware-pro) | Feb 3, 2026 | 19 | 15 | 78.9% | ✅ Active |
-| **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Feb 11, 2025 | 163 | 17 | 10.4% | ❌ Inactive |
+| **Trezor** | [trezor/trezor-firmware](https://github.com/trezor/trezor-firmware) | Oct 15, 2026 | 1,846 | 740 | 40.1% | ✅ Active |
+| **Blockstream Jade** | [Blockstream/Jade](https://github.com/Blockstream/Jade) | Oct 14, 2026 | 509 | 107 | 21.0% | ✅ Active |
+| **SeedSigner** | [SeedSigner/seedsigner](https://github.com/SeedSigner/seedsigner) | Oct 3, 2026 | 1,308 | 297 | 22.7% | ✅ Active |
+| **Specter DIY** | [cryptoadvance/specter-diy](https://github.com/cryptoadvance/specter-diy) | Oct 7, 2026 | 589 | 126 | 21.4% | ✅ Active |
+| **Krux** | [selfcustody/krux](https://github.com/selfcustody/krux) | Oct 7, 2026 | 376 | 80 | 21.3% | ✅ Active |
+| **Keystone** | [KeystoneHQ/keystone3-firmware](https://github.com/KeystoneHQ/keystone3-firmware) | Oct 10, 2026 | 228 | 126 | 55.3% | ✅ Active |
+| **BitBox02** | [BitBoxSwiss/bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | Oct 15, 2026 | 388 | 81 | 20.9% | ✅ Active |
+| **ColdCard** | [Coldcard/firmware](https://github.com/Coldcard/firmware) | Oct 9, 2026 | 778 | 6 | 0.8% | ✅ Active |
+| **Foundation Passport (Core)** | [Foundation-Devices/passport2](https://github.com/Foundation-Devices/passport2) | Oct 15, 2026 | 88 | 6 | 6.8% | ✅ Active repo, device discontinued |
+| **Foundation Passport Prime** | [Foundation-Devices/KeyOS](https://github.com/Foundation-Devices/KeyOS) | Sep 4, 2026 | 31 | 17 | 54.8% | ⚠️ Slow |
+| **OneKey Pro** | [OneKeyHQ/firmware-pro](https://github.com/OneKeyHQ/firmware-pro) | Jun 26, 2026 | 32 | 22 | 68.8% | ⚠️ Slow |
+| **OneKey Classic 1S** | [OneKeyHQ/firmware](https://github.com/OneKeyHQ/firmware) | May 12, 2026 | 89 | 37 | 41.6% | ❌ Inactive |
+| **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Apr 5, 2026 (default branch); Oct 5, 2026 (develop) | 164 | 31 | 18.9% | ✅ Active (develop branch) |
 
 **Code Quality Notes:**
-- ✅ **ColdCard (1.2%):** Excellent code quality — minimal issues relative to community size
-- ✅ **BitBox02 (14.7%):** Good code quality
-- ✅ **Specter DIY (14.2%):** Good code quality for DIY project
-- ✅ **Krux (19.2%):** Good code quality
-- ✅ **Blockstream Jade (21.0%):** Good code quality, active development
-- ⚠️ **SeedSigner (22.2%):** Moderate — large community, many feature requests
-- ⚠️ **Trezor (33.4%):** Higher ratio reflects large feature set and user base
-- ⚠️ **Keystone (46.7%):** Moderate — newer project with active development
-- 🔴 **OneKey (78.9%):** High ratio — many open issues relative to stars
-- 🔴 **KeepKey:** No commits for 358 days — effectively abandoned
+- ✅ **ColdCard (0.8%):** Very few open issues relative to community size. This does not offset the July 2026 seed-generation advisory (see Security Incidents below).
+- ✅ **BitBox02 (20.9%), Blockstream Jade (21.0%), Krux (21.3%), Specter DIY (21.4%):** Moderate ratios.
+- ⚠️ **SeedSigner (22.7%):** Moderate; large community with many feature requests.
+- ⚠️ **Trezor (40.1%):** Higher ratio reflects a large feature set and user base.
+- ⚠️ **Keystone (55.3%):** High; many open issues relative to stars.
+- 🔴 **OneKey Pro (68.8%):** High ratio and the last commit on the default branch is more than three months old.
+- ⚠️ **KeepKey:** The default branch (`master`) was last committed on Apr 5, 2026, but the `develop` branch was committed on Oct 5, 2026 and firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
 
-**Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus
+**Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus (checked for a firmware repo on GitHub, 2026-10-15; Bitkey and Cypherock repos are public and listed in the main table)
 
 **Firmware Release Patterns:**
 Unlike software wallets where frequent updates can indicate instability, hardware wallet firmware updates are intentionally infrequent for security. Most manufacturers release 2-4 firmware updates per year. This is by design — each update requires extensive security review and user action to install.
 
-| Wallet | Recent Releases (2025) | Pattern |
+| Wallet | GitHub releases, Oct 15 2025 to Oct 15 2026 | Pattern |
 |--------|------------------------|---------|
-| Keystone | 5 releases | ~1/month (active development) |
-| Krux | 4 releases | ~1/quarter (active) |
-| BitBox02 | 3-4 releases | ~1/quarter (stable) |
-| Foundation Passport | 2 releases | ~1/quarter (stable) |
-| SeedSigner | 2 releases | ~2/year (stable) |
-| Specter DIY | 1 release | ~1/year (stable mature project) |
-| OneKey | 3 releases | ~1/quarter (stable) |
-| Blockstream Jade | Via tags | Continuous development |
-| Trezor | Via Trezor Suite | App-managed updates |
-| ColdCard | Via tags | Manual firmware downloads |
+| Keystone | 21 releases | Frequent (active development) |
+| Keycard Shell | 13 releases | Frequent |
+| BitBox02 | 11 releases | About monthly |
+| OneKey Pro (firmware-pro) | 10 releases | About monthly to bimonthly |
+| Foundation Passport Prime (KeyOS) | 8 releases | Regular |
+| Krux | 6 releases | About every two months |
+| KeepKey | 3 releases | A few per year |
+| Specter DIY | 2 releases | Infrequent |
+| Foundation Passport (Core) | 2 releases | Infrequent (device discontinued) |
+| OneKey Classic 1S (firmware) | 2 releases | Infrequent |
+| SeedSigner | 1 release | Infrequent |
+| Blockstream Jade, Trezor, ColdCard | 0 GitHub releases in this window | No GitHub Releases published in the window |
 
 ---
 
 ## 🏆 Quick Recommendations
 
-**Quick Answers:** Best overall? **Trezor Safe 7** (96) - quantum-ready security. Air-gapped? **Keystone 3 Pro** (91). Bitcoin-only? **ColdCard Mk4** (91). Best value? **Trezor Safe 3** (91) at $79. Budget option? **Blockstream Jade** (81) at ~$65. See [full comparison table](#complete-hardware-wallet-comparison) for all hardware wallets.
+**Quick Answers (current scores from the main table):** Highest score? **Keystone 3 Pro** (92) at ~$149. Bitcoin-only? **ColdCard Mk5** (86) at ~$219 or **Mk4** (88, no longer listed in the Coinkite store), after reading the July 2026 advisory below. Best value? **Trezor Safe 3** (77) at ~$59. Budget QR-capable option? **Blockstream Jade** (74) at ~$67. See [full comparison table](#complete-hardware-wallet-comparison) for all hardware wallets.
 
 **Jump to:** [Comparison Table](#complete-hardware-wallet-comparison) | [Scoring Methodology](#-scoring-methodology) | [Security Deep Dive](#-security-deep-dive) | [Why Look Beyond Ledger?](#-why-look-beyond-ledger)
 
@@ -124,12 +125,12 @@ Unlike software wallets where frequent updates can indicate instability, hardwar
 
 | Use Case | Top Pick | Score | Runner-Up | Budget Option |
 |----------|----------|-------|-----------|---------------|
-| **Best Overall** | Trezor Safe 5 | 92 | Keystone 3 Pro (91) | Trezor Safe 3 (~$79) |
-| **Bitcoin Only** | ColdCard Mk4 | 91 | Foundation Passport (81) | Blockstream Jade (~$65) |
-| **Air-Gapped** | Keystone 3 Pro | 91 | Keycard Shell (91) | SafePal S1 (~$50) |
-| **Best Value** | Trezor Safe 3 | 91 | Blockstream Jade (81) | Tangem (~$55) |
-| **Beginners** | Trezor Safe 5 | 92 | BitBox02 (88) | Blockstream Jade (~$65) |
-| **DIY/Self-Build** | Specter DIY | 72 | SeedSigner (65) | Krux (~$30-100) |
+| **Highest Score** | Keystone 3 Pro | 92 | ColdCard Mk4 (88) | Trezor Safe 3 (~$59) |
+| **Bitcoin Only** | ColdCard Mk5 | 86 | Blockstream Jade Plus (70) | Blockstream Jade (~$67) |
+| **Air-Gapped** | Keystone 3 Pro | 92 | ColdCard Q (84) | SafePal S1 (~$50) |
+| **Best Value** | Trezor Safe 3 | 77 | Blockstream Jade (74) | Tangem (~$55) |
+| **Beginners** | Trezor Safe 5 | 78 | BitBox02 (73, price UNVERIFIED) | Blockstream Jade (~$67) |
+| **DIY/Self-Build** | Specter DIY | 70 | SeedSigner (70) | Krux (~$30-100, UNVERIFIED) |
 
 ### DIY Signing Devices
 
@@ -149,12 +150,13 @@ For technically-inclined users who want maximum transparency and control:
 
 | Wallet | Score | Issue |
 |--------|-------|-------|
-| **Ledger** (all models) | 55-57 | ⚠️ Ledger Recover capability — use with passphrase only |
+| **Ledger** (all models) | 59-67 | ⚠️ Ledger Recover capability — use with passphrase only |
 | **Ellipal Titan** | 48 | Closed source, no Secure Element |
-| **SecuX V20** | 47 | Closed source, unknown funding |
-| **Arculus** | 42 | Closed source, NFC-only, no passphrase |
-| **KeepKey** | 39 | ❌ ABANDONED (10 months no updates) |
-| **BC Vault** | 33 | Closed source, no SE, unconventional backup |
+| **SecuX V20** | 48 | Closed source, unknown funding |
+| **Arculus** | 39 | Closed source, NFC-only, no passphrase |
+| **KeepKey** | 61 | No secure element (MCU only). Firmware is maintained (v7.14.1 released Jun 2026), so it is no longer listed as abandoned |
+| **BC Vault** | 28 | Closed source, no SE, unconventional backup |
+| **ColdCard (seeds made on affected firmware)** | see main table | Weak seed-generation RNG, funds stolen, seeds must be migrated (see Security Incidents) |
 
 **See also:** [Why Look Beyond Ledger?](#-why-look-beyond-ledger) for details on Ledger Recover concerns.
 
@@ -170,8 +172,8 @@ For technically-inclined users who want maximum transparency and control:
 | **Keystone 3 Pro** | ✅ 3× SE (EAL5+) | ✅ QR | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | **BitBox02** | ✅ ATECC608 | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | **ColdCard Mk4** | ✅ Dual SE | ✅ MicroSD | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Blockstream Jade** | ✅ SE | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| **Foundation Passport** | ✅ SE | ✅ MicroSD/QR | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Blockstream Jade** | ❌ Virtual SE (blind oracle, no physical chip) | ✅ QR | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Foundation Passport (Core, discontinued)** | ✅ SE | ✅ MicroSD/QR | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Trezor Safe 3** | ✅ Optiga Trust M (EAL6+) | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | **NGRAVE ZERO** | ✅ STM32 + SE (EAL7) | ✅ QR | ⚠️ | ❌ | ✅ | ❌ | ❌ | ✅ |
 | **Specter DIY** | ❌ MCU only | ✅ QR | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ DIY |
@@ -184,9 +186,9 @@ For technically-inclined users who want maximum transparency and control:
 | **SecuX V20** | ✅ SE (Infineon) | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ⚠️ |
 | **Tangem** | ✅ EAL6+ NFC | ❌ NFC | ⚠️ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **Ledger Nano X** | ✅ CC EAL5+ | ❌ | ⚠️ | ❌ | ✅ | ⚠️ | ❌ | ✅ |
-| **Ledger Nano S+** | ✅ CC EAL5+ | ❌ | ⚠️ | ❌ | ✅ | ⚠️ | ❌ | ✅ |
+| **Ledger Nano S+** | ✅ ST33K1M5 CC EAL6+ | ❌ | ⚠️ | ❌ | ✅ | ⚠️ | ❌ | ✅ |
 | ~~**Ledger Nano S**~~ | ✅ CC EAL5+ | ❌ | ⚠️ | ❌ | ✅ | ⚠️ | ❌ | ✅ |
-| **Ledger Stax** | ✅ CC EAL5+ | ❌ | ⚠️ | ❌ | ✅ | ⚠️ | ❌ | ✅ |
+| **Ledger Stax** | ✅ ST33K1M5 CC EAL6+ | ❌ | ⚠️ | ❌ | ✅ | ⚠️ | ❌ | ✅ |
 | **KeepKey** | ❌ MCU only | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | **Arculus** | ✅ CC EAL6+ | ❌ NFC | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **BC Vault** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
@@ -279,6 +281,8 @@ UX & ECOSYSTEM (10 pts)
 
 ### Detailed Scoring Breakdown
 
+> **Not re-verified on 2026-10-15.** This breakdown uses the older scoring scale and is superseded by the generated table in HARDWARE_WALLETS.md. Do not quote these totals.
+
 | Wallet | Security (25) | Transparency (20) | Privacy (15) | Activity (15) | Company (15) | UX (10) | Total |
 |--------|---------------|-------------------|--------------|---------------|--------------|---------|-------|
 | **Trezor Safe 7** | 22/25 | 20/20 | 15/15 | 15/15 | 14/15 | 10/10 | **96** |
@@ -312,6 +316,21 @@ UX & ECOSYSTEM (10 pts)
 
 ---
 
+## 2026 Security Incidents
+
+Checked 2026-10-15. Primary sources are named; anything only reported by news sites is marked.
+
+| Date | Vendor | What happened | Source |
+|------|--------|---------------|--------|
+| 2026-07-30 | Coinkite ColdCard | A build error in the 2021 library migration made seed generation use a software PRNG instead of the hardware TRNG. Attackers regenerated seeds offline and stole funds. Affected: Mk2/Mk3 firmware 4.0.1-4.1.9, Mk4/Mk5 before 5.6.0 (Edge before 6.6.0X), Q before 1.5.0Q (Edge before 6.6.0QX). Updating does not repair an existing seed; it must be migrated. Losses: Bitcoin Optech states above 1,000 BTC; TRM Labs (secondary) reports about 1,816 BTC. | [Coinkite advisory](https://coinkite.com/historical-disclosures), [Bitcoin Optech](https://bitcoinops.org/en/newsletters/2026/07/31/) |
+| 2026-06-03 | Trezor Safe 7 (Tropic Square TROPIC01 chip) | Ledger Donjon found a laser fault-injection attack in late January 2026; Tropic Square then extracted one more secret tied to PIN protection. Trezor says funds, PIN and backups are not exposed, no user action is needed, and the issue cannot be fixed by firmware. | [Trezor blog](https://trezor.io/blog/news/Trezor-response-TROPIC01-chip-disclosure-no-impact-to-your-funds) |
+| 2026-08-13 and 2026-09-04 | Trezor | Shipping provider ShipMonk was breached. 13,689 customers affected in the first notice, about 67,000 more US customers added on Sep 4 (80,689 total per Trezor). Names, emails, phone numbers and addresses exposed. Devices, keys and backups not affected. | [Trezor blog](https://trezor.io/blog/news/recent-customer-data-exposed-in-shipping-provider-incident) |
+| 2026-08-17 | BitBox | Dixence update (firmware 9.26.5) fixed two severe firmware flaws found in internal audits; no exploitation reported. The BitBox site returned HTTP 403, so this comes from news reports only (UNVERIFIED against BitBox). | [Cointelegraph](https://cointelegraph.com/news/bitbox-patches-severe-wallet-firmware-flaws) |
+
+No 2026 vulnerability reports for Keystone, OneKey, Tangem, Jade or SafePal turned up in searches run on 2026-10-15; this is an absence of search results, not an audit.
+
+---
+
 ## ❓ Why Look Beyond Ledger?
 
 **Ledger Recover (May 2023):** Firmware can extract and transmit seed phrase fragments to third-party custodians. Even if "optional," this capability violates the core principle that **private keys should NEVER leave the device**.
@@ -328,9 +347,9 @@ UX & ECOSYSTEM (10 pts)
 
 | From | To | Why |
 |------|-----|-----|
-| Nano S/S+ | Trezor Safe 3 | Same price, fully open source |
+| Nano S/S+ | Trezor Safe 3 | Lower price (~$59 vs ~$69 for the S+), fully open source |
 | Nano X | Trezor Safe 5 or Keystone 3 Pro | Better transparency or air-gapped |
-| BTC holdings | ColdCard Mk4 | Maximum BTC security |
+| BTC holdings | ColdCard Mk5 or Q | Bitcoin-only focus. Generate the seed on firmware 5.6.0 or later (Q: 1.5.0Q or later) |
 
 **Best practice:** Generate fresh seed on new device, then transfer assets (don't import Ledger seed).
 
@@ -344,7 +363,7 @@ UX & ECOSYSTEM (10 pts)
 - [BitBox02](https://bitbox.swiss/) — [GitHub](https://github.com/BitBoxSwiss)
 - [Blockstream Jade](https://blockstream.com/jade/) — [GitHub](https://github.com/Blockstream/Jade)
 - [ColdCard](https://coldcard.com/) — [GitHub](https://github.com/Coldcard)
-- [Foundation Passport](https://foundationdevices.com/) — [GitHub](https://github.com/Foundation-Devices)
+- [Foundation Passport](https://foundation.xyz/) — [GitHub](https://github.com/Foundation-Devices)
 
 ### DIY Signing Devices
 - [SeedSigner](https://seedsigner.com/) — [GitHub](https://github.com/SeedSigner/seedsigner) — Raspberry Pi-based
@@ -363,4 +382,4 @@ See [CHANGELOG.md](./CHANGELOG.md) for a complete history of changes to hardware
 
 ---
 
-*Last updated: December 8, 2025. Always verify current specifications on official sites before purchase.*
+*Last updated: October 15, 2026. Always verify current specifications on official sites before purchase.*

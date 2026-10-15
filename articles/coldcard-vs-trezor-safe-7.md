@@ -1,8 +1,8 @@
 ---
-title: "ColdCard Mk4 vs Trezor Safe 7: Bitcoin Maximalist vs Best Overall"
-description: "Compare ColdCard Mk4 (91) and Trezor Safe 7 (96) for security, transparency, and use case fit."
+title: "ColdCard Mk4 vs Trezor Safe 7: Bitcoin Air-Gap vs Multi-Chain"
+description: "Compare ColdCard Mk4 (88) and Trezor Safe 7 (78) for security, transparency, and use case fit. Includes the July 2026 ColdCard seed-generation advisory."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 wallets: ["ColdCard", "Trezor"]
 tags: ["comparison", "hardware-wallets", "bitcoin"]
@@ -12,8 +12,9 @@ tags: ["comparison", "hardware-wallets", "bitcoin"]
 
 ## Quick Answer
 
-**Trezor Safe 7 (96/100)** is the best overall choice for most users.  
-**ColdCard Mk4 (91/100)** is ideal for Bitcoin-only users who want maximum BTC security.
+**ColdCard Mk4 (88/100)** scores higher in the table and suits Bitcoin-only users who want an air-gapped device. **Trezor Safe 7 (78/100)** suits users who want multi-chain support over USB-C/Bluetooth.
+
+**Security notice (2026-07-30):** ColdCard published an advisory that firmware before 5.6.0 on Mk4/Mk5 (and before 1.5.0Q on the Q) used a software PRNG instead of the hardware TRNG for seed generation. Update firmware and check whether your seed was generated on an affected version. Source: coinkite.com/historical-disclosures. The Mk4 is no longer listed at the Coinkite store; the Mk5 and Q replaced it.
 
 ---
 
@@ -21,8 +22,8 @@ tags: ["comparison", "hardware-wallets", "bitcoin"]
 
 | Wallet | Score | Best For |
 |--------|-------|----------|
-| **Trezor Safe 7** | **96** | Best overall |
-| **ColdCard Mk4** | 91 | Bitcoin-only security |
+| **Trezor Safe 7** | 78 | Multi-chain, secure element |
+| **ColdCard Mk4** | **88** | Bitcoin-only, air-gap |
 
 Source: `HARDWARE_WALLETS_DETAILS.md`
 
@@ -59,7 +60,7 @@ Source: `HARDWARE_WALLETS_DETAILS.md`
 ## Pros & Cons
 
 **Trezor Safe 7**
-- ✅ Best overall score
+- ✅ Highest-scoring multi-chain Trezor model (Safe 5 also 78)
 - ✅ Multi-asset support
 - ⚠️ Not Bitcoin-only
 
