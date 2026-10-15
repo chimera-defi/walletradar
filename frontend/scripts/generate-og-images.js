@@ -62,11 +62,11 @@ const WALLET_DATA = {
   ],
   cards: [
     // Data from CRYPTO_CARDS.md - Top 5 by score
-    // Last verified: October 2026
+    // Last verified: October 15, 2026
     { name: 'EtherFi Cash', cashback: '2-3%', type: 'Credit', region: 'Global', status: '🟢' },
+    { name: 'Ethena Pay', cashback: '4-5%', type: 'Debit', region: 'Global*', status: '🟢' },
+    { name: 'Bleap', cashback: 'Up to 20%', type: 'Debit', region: 'EU/MX/BR', status: '🟢' },
     { name: 'Plasma One', cashback: 'Up to 4%', type: 'Debit', region: 'Global', status: '🟢' },
-    { name: 'MetaMask Card', cashback: '1-3%', type: 'Debit', region: 'Global', status: '🟡' },
-    { name: 'Avici Money', cashback: '0%', type: 'Credit', region: 'Global', status: '🟢' },
     { name: 'Gemini Card', cashback: 'Up to 4%', type: 'Credit', region: 'US', status: '🟢' },
   ],
   ramps: [
@@ -671,7 +671,7 @@ function generateCryptoCardsDetailsImage() {
 
   const regions = [
     '• US: Gemini Card (up to 4%), Coinbase Card, Fold Card',
-    '• EU/UK: Gnosis Pay, Plasma One (up to 4%)',
+    '• EU/UK: Kraken Card (up to 2%), Plasma One (up to 4%)',
     '• Global: EtherFi Cash (2-3%), Plasma One (up to 4%)',
   ];
 
