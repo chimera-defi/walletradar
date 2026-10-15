@@ -6,7 +6,6 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
-import { getSearchData } from '@/lib/search-data.server';
 import { brand } from '@/lib/brand';
 
 // Google Analytics Measurement ID - hardcoded for static export reliability
@@ -105,8 +104,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Generate search data at build time
-  const searchData = getSearchData();
   // Structured data for Organization and Website
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -176,9 +173,15 @@ export default function RootLayout({
         </Script>
         <ThemeProvider defaultTheme="dark">
           <GoogleAnalytics />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+          >
+            Skip to main content
+          </a>
           <div className="min-h-screen flex flex-col">
-            <Navigation searchData={searchData} />
-            <main className="flex-1">
+            <Navigation />
+            <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-hidden">
               {children}
             </main>
             <Footer />

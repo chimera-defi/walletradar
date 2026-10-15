@@ -1,3 +1,4 @@
+import { headingToId } from './markdown-links';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -195,25 +196,26 @@ export function getDocumentSlugs(): string[] {
   return getAllDocuments().map((doc) => doc.slug);
 }
 
-// Extract table of contents from markdown
+// Extract table of contents from markdown. Ids must match what rehype-slug
+// (github-slugger) puts on the rendered headings, or the "On this page" links break.
 export function extractTableOfContents(content: string): { id: string; title: string; level: number }[] {
-  const headingRegex = /^(#{1,3})\s+(.+)$/gm;
+  const headingRegex = /^(#{1,6})\s+(.+?)\s*#*\s*$/gm;
   const toc: { id: string; title: string; level: number }[] = [];
-  
+  const seen = new Map<string, number>();
+
+  // Ignore "# comment" lines inside code fences.
+  const body = content.replace(/^(```|~~~)[\s\S]*?^\1/gm, (block) => block.replace(/[^\n]/g, ' '));
+
   let match;
-  while ((match = headingRegex.exec(content)) !== null) {
+  while ((match = headingRegex.exec(body)) !== null) {
     const level = match[1].length;
     const title = match[2].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // Remove links
-    const id = title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-    
-    toc.push({ id, title, level });
+    const base = headingToId(match[2]);
+    const count = seen.get(base) ?? 0;
+    seen.set(base, count + 1);
+    if (level <= 3) toc.push({ id: count === 0 ? base : `${base}-${count}`, title, level });
   }
-  
+
   return toc;
 }
 
