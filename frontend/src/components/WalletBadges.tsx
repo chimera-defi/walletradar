@@ -267,25 +267,25 @@ export function EmptyState({
     software: {
       title: 'No software wallets match your filters',
       description: 'Try widening platform, safety, or score filters.',
-      iconColor: 'text-indigo-400',
+      iconColor: 'text-indigo-700 dark:text-indigo-400',
       borderColor: 'border-indigo-500/40',
     },
     hardware: {
       title: 'No hardware wallets match your filters',
       description: 'Try widening price, connectivity, or transparency filters.',
-      iconColor: 'text-amber-400',
+      iconColor: 'text-amber-700 dark:text-amber-400',
       borderColor: 'border-amber-500/40',
     },
     cards: {
       title: 'No crypto cards match your filters',
       description: 'Try widening region, custody, or cashback filters.',
-      iconColor: 'text-emerald-400',
+      iconColor: 'text-emerald-700 dark:text-emerald-400',
       borderColor: 'border-emerald-500/40',
     },
     ramps: {
       title: 'No ramps match your filters',
       description: 'Try widening coverage, fee, or status filters.',
-      iconColor: 'text-violet-400',
+      iconColor: 'text-violet-700 dark:text-violet-400',
       borderColor: 'border-violet-500/40',
     },
   } as const;
@@ -411,28 +411,28 @@ export function DeviceIcons({
   return (
     <div className="flex items-center gap-1">
       {devices.mobile && (
-        <Tooltip content={softwareWalletTooltips.devices.mobile} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
+        <Tooltip ariaLabel="Mobile supported" content={softwareWalletTooltips.devices.mobile} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
           <span>
             <Smartphone className="h-4 w-4 text-muted-foreground" />
           </span>
         </Tooltip>
       )}
       {devices.browser && (
-        <Tooltip content={softwareWalletTooltips.devices.browser} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
+        <Tooltip ariaLabel="Browser supported" content={softwareWalletTooltips.devices.browser} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
           <span>
             <Globe className="h-4 w-4 text-muted-foreground" />
           </span>
         </Tooltip>
       )}
       {devices.desktop && (
-        <Tooltip content={softwareWalletTooltips.devices.desktop} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
+        <Tooltip ariaLabel="Desktop supported" content={softwareWalletTooltips.devices.desktop} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
           <span>
             <Monitor className="h-4 w-4 text-muted-foreground" />
           </span>
         </Tooltip>
       )}
       {devices.web && (
-        <Tooltip content={softwareWalletTooltips.devices.web} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
+        <Tooltip ariaLabel="Web supported" content={softwareWalletTooltips.devices.web} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
           <span>
             <LinkIcon className="h-4 w-4 text-muted-foreground" />
           </span>
@@ -463,7 +463,7 @@ export function FeatureIndicator({
 
   if (typeof value === 'boolean') {
     return (
-      <Tooltip content={getTooltipContent()} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
+      <Tooltip ariaLabel={getTooltipContent()} content={getTooltipContent()} linkHref={tooltipLinkHref} linkLabel={DETAILS_TOOLTIP_LABEL}>
         <span
           className={cn(
             'inline-flex items-center justify-center w-5 h-5 rounded-full',

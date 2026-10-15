@@ -29,7 +29,7 @@
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 215.4 16.3% 38%;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
@@ -82,10 +82,16 @@
     isolation: isolate;
     overflow-x: hidden;
     background-image:
+      radial-gradient(circle at 12% 12%, rgba(45, 212, 191, 0.10), transparent 28%),
+      radial-gradient(circle at 88% 10%, rgba(250, 204, 21, 0.08), transparent 24%);
+    background-attachment: scroll;
+  }
+
+  .dark body {
+    background-image:
       radial-gradient(circle at 12% 12%, rgba(45, 212, 191, 0.18), transparent 28%),
       radial-gradient(circle at 88% 10%, rgba(250, 204, 21, 0.12), transparent 24%),
       linear-gradient(180deg, rgba(7, 12, 20, 0.98), rgba(15, 23, 42, 0.96));
-    background-attachment: scroll;
   }
 
   body::before {
@@ -264,11 +270,11 @@
 }
 
 .glass-card {
-  @apply bg-slate-950/65 border border-slate-700/40 backdrop-blur-md rounded-2xl shadow-[0_18px_60px_rgba(2,6,23,0.45)];
+  @apply bg-card/65 border border-border backdrop-blur-md rounded-2xl shadow-[0_18px_60px_rgba(2,6,23,0.45)];
 }
 
 .glass-card-hover {
-  @apply bg-slate-950/65 border border-slate-700/40 backdrop-blur-md rounded-2xl shadow-[0_18px_60px_rgba(2,6,23,0.45)] hover:border-sky-500/40 hover:-translate-y-0.5 transition-all;
+  @apply bg-card/65 border border-border backdrop-blur-md rounded-2xl shadow-[0_18px_60px_rgba(2,6,23,0.45)] hover:border-sky-500/40 hover:-translate-y-0.5 transition-all;
 }
 
 /* Target highlight */

@@ -21,6 +21,8 @@ interface TooltipProps {
   linkHref?: string;
   /** Optional label for the tooltip link */
   linkLabel?: string;
+  /** Accessible name for icon-only triggers */
+  ariaLabel?: string;
 }
 
 export function Tooltip({
@@ -32,6 +34,7 @@ export function Tooltip({
   maxWidth = 280,
   linkHref,
   linkLabel = 'Learn more',
+  ariaLabel,
 }: TooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isClickOpen, setIsClickOpen] = useState(false);
@@ -217,7 +220,7 @@ export function Tooltip({
         role="button"
         aria-expanded={isVisible}
         aria-describedby={isVisible ? tooltipId : undefined}
-        aria-label={showIcon ? 'Show more information' : undefined}
+        aria-label={ariaLabel ?? (showIcon ? 'Show more information' : undefined)}
       >
         {children}
         {showIcon && (
@@ -273,7 +276,7 @@ export function Tooltip({
               <div className="mt-2 pt-2 border-t border-white/15 dark:border-gray-700">
                 <Link
                   href={linkHref}
-                  className="text-[11px] font-semibold text-blue-300 hover:text-blue-200 dark:text-blue-700 dark:hover:text-blue-800 underline underline-offset-2"
+                  className="text-[11px] font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-200 dark:text-blue-700 dark:hover:text-blue-800 underline underline-offset-2"
                   onClick={() => {
                     setIsVisible(false);
                     setIsClickOpen(false);

@@ -50,8 +50,8 @@ export default function ArticlesPage() {
 
       {/* Header */}
       <div className="mt-6 mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">Wallet Comparison Articles</h1>
-        <p className="text-lg text-slate-400 max-w-3xl">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Wallet Comparison Articles</h1>
+        <p className="text-lg text-muted-foreground max-w-3xl">
           Expert guides, detailed comparisons, and practical advice for choosing the right crypto wallet.
           Compare features, security, and developer experience across hardware and software wallets.
         </p>
@@ -60,7 +60,7 @@ export default function ArticlesPage() {
       {/* Comparison Articles */}
       {comparisonArticles.length > 0 && (
         <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-100">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-foreground">
             <span className="inline-block w-1 h-6 bg-sky-400 rounded-sm"></span>
             Wallet Comparisons
           </h2>
@@ -85,7 +85,7 @@ export default function ArticlesPage() {
       {/* Guide Articles */}
       {guideArticles.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-100">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-foreground">
             <span className="inline-block w-1 h-6 bg-sky-400 rounded-sm"></span>
             Wallet Guides
           </h2>
@@ -110,7 +110,7 @@ export default function ArticlesPage() {
       {/* No articles fallback */}
       {articles.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-slate-400">No articles available yet. Check back soon!</p>
+          <p className="text-muted-foreground">No articles available yet. Check back soon!</p>
         </div>
       )}
     </div>

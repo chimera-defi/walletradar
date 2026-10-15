@@ -99,7 +99,7 @@ interface ResourceCardProps {
 function ResourceCard({ title, description, href, icon }: ResourceCardProps) {
   return (
     <Link href={href} className="group glass-card-hover p-5">
-      <div className="text-sky-400 mb-3">{icon}</div>
+      <div className="text-sky-700 dark:text-sky-400 mb-3">{icon}</div>
       <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-sky-400 transition-colors">
         {title}
       </h3>
@@ -147,7 +147,7 @@ function MiniTableRow({ category, wallet, score, summary, strongest, categoryCol
         <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${categoryColor || 'text-muted-foreground'}`}>{category}</span>
       </td>
       <td className="py-3 px-4 text-foreground">{wallet}</td>
-      <td className={`py-3 px-4 font-semibold ${scoreColor || 'text-sky-300'}`}>{score}</td>
+      <td className={`py-3 px-4 font-semibold ${scoreColor || 'text-sky-700 dark:text-sky-300'}`}>{score}</td>
       <td className="py-3 px-4 text-muted-foreground">{summary}</td>
       <td className="py-3 px-4 text-muted-foreground">{strongest}</td>
     </tr>
@@ -176,8 +176,8 @@ export default function HomePage() {
       badges: strongestSignals(topSoftware),
       href: '/docs/software-wallets',
       icon: <GitCompare className="h-5 w-5" />,
-      categoryColor: 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30',
-      scoreColor: 'text-indigo-300',
+      categoryColor: 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30',
+      scoreColor: 'text-indigo-700 dark:text-indigo-300',
       breakdown: topSoftware.scoreBreakdown,
     },
     {
@@ -188,8 +188,8 @@ export default function HomePage() {
       badges: strongestSignals(topHardware),
       href: '/docs/hardware-wallets',
       icon: <Shield className="h-5 w-5" />,
-      categoryColor: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
-      scoreColor: 'text-amber-300',
+      categoryColor: 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30',
+      scoreColor: 'text-amber-700 dark:text-amber-300',
       breakdown: topHardware.scoreBreakdown,
     },
     {
@@ -200,8 +200,8 @@ export default function HomePage() {
       badges: strongestSignals(topCard),
       href: '/docs/crypto-cards',
       icon: <CreditCard className="h-5 w-5" />,
-      categoryColor: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
-      scoreColor: 'text-emerald-300',
+      categoryColor: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30',
+      scoreColor: 'text-emerald-700 dark:text-emerald-300',
       breakdown: topCard.scoreBreakdown,
     },
     {
@@ -212,8 +212,8 @@ export default function HomePage() {
       badges: strongestSignals(topRamp),
       href: '/docs/ramps',
       icon: <ArrowLeftRight className="h-5 w-5" />,
-      categoryColor: 'bg-violet-500/20 text-violet-300 border border-violet-500/30',
-      scoreColor: 'text-violet-300',
+      categoryColor: 'bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30',
+      scoreColor: 'text-violet-700 dark:text-violet-300',
       breakdown: topRamp.scoreBreakdown,
     },
   ];
@@ -338,7 +338,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Hero Left - Text Content */}
           <div>
-            <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-sky-400 border border-sky-500/50 rounded-full mb-6">
+            <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-sky-700 dark:text-sky-400 border border-sky-500/50 rounded-full mb-6">
               Evidence-led UI
             </span>
 
@@ -368,28 +368,28 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
               <Link
                 href="/docs/software-wallets"
-                className="inline-flex w-full items-center justify-center gap-2 border border-indigo-500/40 bg-indigo-500/10 hover:border-indigo-400 hover:bg-indigo-500/20 text-indigo-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
+                className="inline-flex w-full items-center justify-center gap-2 border border-indigo-500/40 bg-indigo-500/10 hover:border-indigo-400 hover:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
               >
                 <Smartphone className="h-4 w-4" />
                 Software
               </Link>
               <Link
                 href="/docs/hardware-wallets"
-                className="inline-flex w-full items-center justify-center gap-2 border border-amber-500/40 bg-amber-500/10 hover:border-amber-400 hover:bg-amber-500/20 text-amber-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
+                className="inline-flex w-full items-center justify-center gap-2 border border-amber-500/40 bg-amber-500/10 hover:border-amber-400 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
               >
                 <HardDrive className="h-4 w-4" />
                 Hardware
               </Link>
               <Link
                 href="/docs/crypto-cards"
-                className="inline-flex w-full items-center justify-center gap-2 border border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-400 hover:bg-emerald-500/20 text-emerald-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
+                className="inline-flex w-full items-center justify-center gap-2 border border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-400 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
               >
                 <CreditCard className="h-4 w-4" />
                 Cards
               </Link>
               <Link
                 href="/docs/ramps"
-                className="inline-flex w-full items-center justify-center gap-2 border border-violet-500/40 bg-violet-500/10 hover:border-violet-400 hover:bg-violet-500/20 text-violet-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
+                className="inline-flex w-full items-center justify-center gap-2 border border-violet-500/40 bg-violet-500/10 hover:border-violet-400 hover:bg-violet-500/20 text-violet-700 dark:text-violet-300 font-medium px-4 py-2 rounded-lg transition-colors sm:w-auto sm:justify-start"
               >
                 <ArrowUpDown className="h-4 w-4" />
                 Ramps
@@ -404,25 +404,25 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-sky-500/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-sky-400">{allTracked.length}</span>
+                    <span className="text-2xl font-bold text-sky-700 dark:text-sky-400">{allTracked.length}</span>
                   </div>
                   <div className="text-sm text-muted-foreground">Products Tracked</div>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-emerald-400">{recommendedCount}</span>
+                    <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{recommendedCount}</span>
                   </div>
                   <div className="text-sm text-muted-foreground">Recommended Now</div>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-amber-400">{totalVisibleColumns}</span>
+                    <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">{totalVisibleColumns}</span>
                   </div>
                   <div className="text-sm text-muted-foreground">Visible Columns</div>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                    <span className="text-sm font-bold text-cyan-300">v1</span>
+                    <span className="text-sm font-bold text-cyan-700 dark:text-cyan-300">v1</span>
                   </div>
                   <div className="text-sm text-muted-foreground">Score Engine</div>
                 </div>
@@ -500,7 +500,7 @@ export default function HomePage() {
             href="/docs/software-wallets"
             className="glass-card-hover p-4 text-center group"
           >
-            <GitCompare className="h-8 w-8 mx-auto mb-2 text-indigo-400" />
+            <GitCompare className="h-8 w-8 mx-auto mb-2 text-indigo-700 dark:text-indigo-400" />
             <h3 className="font-semibold text-foreground group-hover:text-indigo-400 transition-colors">Software Wallets</h3>
             <p className="text-xs text-muted-foreground mt-1">Browser & mobile</p>
           </Link>
@@ -508,7 +508,7 @@ export default function HomePage() {
             href="/docs/hardware-wallets"
             className="glass-card-hover p-4 text-center group"
           >
-            <Shield className="h-8 w-8 mx-auto mb-2 text-amber-400" />
+            <Shield className="h-8 w-8 mx-auto mb-2 text-amber-700 dark:text-amber-400" />
             <h3 className="font-semibold text-foreground group-hover:text-amber-400 transition-colors">Hardware Wallets</h3>
             <p className="text-xs text-muted-foreground mt-1">Cold storage</p>
           </Link>
@@ -516,7 +516,7 @@ export default function HomePage() {
             href="/docs/crypto-cards"
             className="glass-card-hover p-4 text-center group"
           >
-            <CreditCard className="h-8 w-8 mx-auto mb-2 text-emerald-400" />
+            <CreditCard className="h-8 w-8 mx-auto mb-2 text-emerald-700 dark:text-emerald-400" />
             <h3 className="font-semibold text-foreground group-hover:text-emerald-400 transition-colors">Crypto Cards</h3>
             <p className="text-xs text-muted-foreground mt-1">Spend crypto</p>
           </Link>
@@ -524,7 +524,7 @@ export default function HomePage() {
             href="/docs/ramps"
             className="glass-card-hover p-4 text-center group"
           >
-            <ArrowLeftRight className="h-8 w-8 mx-auto mb-2 text-violet-400" />
+            <ArrowLeftRight className="h-8 w-8 mx-auto mb-2 text-violet-700 dark:text-violet-400" />
             <h3 className="font-semibold text-foreground group-hover:text-violet-400 transition-colors">On/Off Ramps</h3>
             <p className="text-xs text-muted-foreground mt-1">Fiat ↔ Crypto</p>
           </Link>
@@ -553,7 +553,7 @@ export default function HomePage() {
           <p className="px-4 pt-3 text-xs text-muted-foreground sm:hidden">
             Swipe horizontally to read all columns.
           </p>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto" role="region" aria-label="Score comparison table" tabIndex={0}>
             <table className="w-full">
               <thead className="bg-muted/50 border-b border-border">
                 <tr>
@@ -589,7 +589,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-foreground">Latest Articles</h2>
           <Link
             href="/articles"
-            className="inline-flex items-center gap-1 text-sm text-sky-400 hover:text-sky-300 transition-colors"
+            className="inline-flex items-center gap-1 text-sm text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors"
           >
             View all
             <ArrowRight className="h-4 w-4" />
@@ -617,7 +617,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-foreground">Resources &amp; Guides</h2>
           <Link
             href="/docs"
-            className="inline-flex items-center gap-1 text-sm text-sky-400 hover:text-sky-300 transition-colors"
+            className="inline-flex items-center gap-1 text-sm text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors"
           >
             View all
             <ArrowRight className="h-4 w-4" />
@@ -668,8 +668,8 @@ export default function HomePage() {
 
           <div className="relative">
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="h-5 w-5 text-sky-400" />
-              <span className="text-sm font-medium text-sky-400">Quick Start</span>
+              <Sparkles className="h-5 w-5 text-sky-700 dark:text-sky-400" />
+              <span className="text-sm font-medium text-sky-700 dark:text-sky-400">Quick Start</span>
             </div>
 
             <h2 className="text-2xl font-bold text-foreground mb-3">New to Crypto Wallets?</h2>
@@ -679,21 +679,21 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-sm">1</div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-700 dark:text-sky-400 font-bold text-sm">1</div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Choose a Wallet</h3>
                   <p className="text-sm text-muted-foreground">Pick based on your job to be done: development, long-term storage, spending, or fiat on/off-ramping.</p>
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-sm">2</div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-700 dark:text-sky-400 font-bold text-sm">2</div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Secure Your Seed</h3>
                   <p className="text-sm text-muted-foreground">Write down your 12-24 word phrase. Store it offline. Never share it.</p>
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-sm">3</div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-700 dark:text-sky-400 font-bold text-sm">3</div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Connect to dApps</h3>
                   <p className="text-sm text-muted-foreground">Click &quot;Connect Wallet&quot; on any dApp and approve the connection.</p>
@@ -704,7 +704,7 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/docs/software-wallets"
-                className="inline-flex items-center gap-2 text-sm font-medium text-sky-400 hover:text-sky-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-medium text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors"
               >
                 Compare wallets
                 <ArrowRight className="h-4 w-4" />

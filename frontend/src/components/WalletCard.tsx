@@ -8,10 +8,10 @@ interface WalletCardProps {
 }
 
 const categoryColors: Record<string, string> = {
-  comparison: 'bg-sky-500/20 text-sky-400 border border-sky-500/30',
-  research: 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30',
-  guide: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30',
-  other: 'bg-slate-500/20 text-slate-400 border border-slate-500/30',
+  comparison: 'bg-sky-500/20 text-sky-700 dark:text-sky-400 border border-sky-500/30',
+  research: 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-400 border border-indigo-500/30',
+  guide: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30',
+  other: 'bg-muted text-muted-foreground border border-border',
 };
 
 const categoryLabels: Record<string, string> = {
@@ -36,18 +36,18 @@ export function WalletCard({ document }: WalletCardProps) {
         >
           {categoryLabels[document.category]}
         </span>
-        <ArrowRight className="h-4 w-4 text-slate-500 group-hover:text-sky-400 group-hover:translate-x-1 transition-all" />
+        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-sky-400 group-hover:translate-x-1 transition-all" />
       </div>
 
-      <h3 className="font-semibold text-lg mb-2 text-slate-100 group-hover:text-sky-400 transition-colors">
+      <h3 className="font-semibold text-lg mb-2 text-foreground group-hover:text-sky-400 transition-colors">
         {document.title}
       </h3>
 
-      <p className="text-sm text-slate-400 mb-4 line-clamp-2">
+      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
         {document.description}
       </p>
 
-      <div className="flex items-center gap-4 text-xs text-slate-500">
+      <div className="flex items-center gap-4 text-xs text-muted-foreground">
         {document.lastUpdated && (
           <span className="flex items-center gap-1">
             <Clock className="h-3 w-3" />

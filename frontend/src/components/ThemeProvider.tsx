@@ -27,10 +27,8 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children, defaultTheme = 'dark' }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     // Check localStorage for saved theme preference
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     if (savedTheme) {
@@ -53,11 +51,8 @@ export function ThemeProvider({ children, defaultTheme = 'dark' }: ThemeProvider
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  // Prevent flash of wrong theme
-  if (!mounted) {
-    return null;
-  }
-
+  // Children render on the server too, so the static HTML has real content.
+  // The inline theme script in layout.tsx sets the class before first paint.
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}
