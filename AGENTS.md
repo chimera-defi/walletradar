@@ -1,5 +1,7 @@
 # WalletRadar Agent Guide
 
+Mission: independent, source-linked comparison of wallets, cards and ramps for developers and crypto users. No pay-to-rank.
+
 Static Next.js site (`frontend/`) generated from the markdown comparison tables at the repo root. Product data and scoring live in the docs; code only parses and renders them.
 
 ## Layout

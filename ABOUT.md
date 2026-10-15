@@ -2,7 +2,7 @@
 
 ## Our Mission
 
-Wallet Radar is an **independent, educational research platform** dedicated to providing objective, comprehensive analysis of crypto access products, payment rails, and blockchain tools.
+Wallet Radar is an **independent, educational research platform** dedicated to providing objective analysis of crypto access products, payment rails, and blockchain tools.
 
 We are not owned or controlled by any product provider, exchange, or financial institution. We exist to help developers and crypto users make informed decisions through transparent, source-linked research.
 

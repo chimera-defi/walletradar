@@ -46,9 +46,9 @@ tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 - **Trezor Safe 7** (78)
 
 **Software (daily use):**
-- **Rabby** (92) — dev + safety features  
-- **Trust** (82) — multi-chain stability  
-- **Rainbow** (77) — Ethereum/NFT UX
+- **Rabby** (86) — dev + safety features  
+- **Trust** (75) — multi-chain stability  
+- **Rainbow** (64) — Ethereum/NFT UX
 
 Sources: `HARDWARE_WALLETS_DETAILS.md`, `SOFTWARE_WALLETS.md`
 

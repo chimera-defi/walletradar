@@ -4,291 +4,170 @@
 
 # Wallet Radar
 
-**Developer-Focused Crypto Product Research Platform**
+**Independent research on wallets, cards and ramps, for developers**
 
 [![Commit Message Check](https://github.com/chimera-defi/walletradar/actions/workflows/commit-message-check.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/commit-message-check.yml)
 [![PR Attribution Check](https://github.com/chimera-defi/walletradar/actions/workflows/pr-attribution-check.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/pr-attribution-check.yml)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/chimera-defi/walletradar)
 [![Website](https://img.shields.io/badge/Website-walletradar.org-blue)](https://walletradar.org)
 
-[🌐 Visit Website](https://walletradar.org) • [📊 Compare Wallets](https://walletradar.org/explore) • [📚 Documentation](https://walletradar.org/docs)
+[Visit the website](https://walletradar.org) | [Compare products](https://walletradar.org/explore) | [Documentation](https://walletradar.org/docs)
 
 </div>
 
 ---
 
-## 🎯 What is Wallet Radar?
+## What is Wallet Radar?
 
-Wallet Radar is a comprehensive comparison platform designed for developers who need reliable data to choose the right crypto access products. We track **128 products** across software wallets, hardware wallets, crypto cards, and on/off-ramps with transparent scoring based on security, GitHub activity, developer experience, and real-world usage metrics.
+Wallet Radar compares crypto access products so a developer can pick one fast. It tracks **147 products** (software wallets, hardware wallets, crypto cards, on/off-ramps) and scores each from columns you can see in the tables.
 
-Unlike consumer-focused wallet lists, Wallet Radar provides:
-- **📊 Transparent Scoring** — Weighted methodology based on security, activity, and developer experience
-- **🔍 GitHub Activity Tracking** — Repeatable checks for development activity, release frequency, and maintenance status
-- **🛡️ Security Audits** — Comprehensive audit history with links to reports
-- **👨‍💻 Developer Experience** — Documentation quality, SDK availability, error messages, and integration ease
-- **🔗 Multi-Chain Support** — Track which wallets support your target chains
-- **⚡ Repeatable Refreshes** — Scripted GitHub and product-data checks for audits
+The goal: find a MetaMask alternative with a mobile app and a browser extension, stable enough for daily development. Fewer releases per month means fewer surprise breaking changes.
 
-### 📈 What We Compare
+What you get:
+- **Scores you can reproduce.** The method is in [CONTRIBUTING.md](./CONTRIBUTING.md) and the tables are scored by `scripts/sync_table_scores.js`.
+- **GitHub activity.** Last commit, release rate and maintenance status, from the GitHub API.
+- **Audit history,** with links to the reports.
+- **Developer experience.** Docs, SDKs, simulation, error quality.
+- **Chain support** per wallet.
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| **Software Wallets** | 27 | Browser extensions, mobile apps, desktop wallets |
-| **Hardware Wallets** | 34 | Cold storage devices with security element analysis |
-| **Crypto Cards** | 45 | Crypto-backed credit & debit cards |
-| **On/Off-Ramps** | 22 | Fiat-to-crypto conversion providers |
+## What we compare
 
-## 🔎 Manual URL Verification (Bot-Protected)
+| Category | Count | What it covers |
+|----------|-------|----------------|
+| Software wallets | 33 | Browser extensions, mobile apps, desktop wallets |
+| Hardware wallets | 41 | Cold storage devices and secure element details |
+| Crypto cards | 51 | Crypto-backed credit and debit cards |
+| On/off-ramps | 22 | Fiat-to-crypto providers |
 
-Some provider sites block automated checks (403/timeout). These require manual
-browser verification during full data audits:
+Counts are table rows, including discontinued and partial-data rows. QR payment providers are in [QR_PAYMENTS.md](./QR_PAYMENTS.md).
 
-- Software: Trust, Coinbase Wallet, MEW, imToken, Argent
-- Hardware: Arculus
-- Cards: Coinbase Card, Kraken Card, Reap, RedotPay, Revolut Crypto
-- Ramps: Coinbase Pay, Banxa, Reap
+## Bot-protected sites
 
-When direct checks are blocked, a text-only fetch via `r.jina.ai` can confirm
-the landing content is reachable. Results are logged in
-`artifacts/manual-url-checks.json`. A headless Chromium pass captures
-browser verification output in `artifacts/manual-browser-checks.json`.
-Most bot-protected URLs resolve in Chromium; defunct products should be removed
-from active verification lists once confirmed.
+Some provider sites block automated checks (403, 429, timeout). A headless Chromium pass (`scripts/verify-crypto-cards.js`) clears some of them. The rest need a person in a browser. Anything unconfirmed is marked UNVERIFIED in the data, with the reason in the [verification log](https://github.com/chimera-defi/walletradar/blob/main/docs/VERIFICATION.md).
 
----
-
-## 🖼️ Product Screenshots
+## Screenshots
 
 <div align="center">
 
-### Software Wallet Comparison
 ![Software Wallets](./frontend/public/og-software-wallets-table.png)
 
-### Interactive Explorer & Comparison Tool
 ![Explore & Compare](./frontend/public/og-explore.png)
 
 </div>
 
----
+## Features
 
-## ✨ Key Features
+- **Filter and compare.** Filter by platform, features (transaction simulation, scam alerts, testnets) and licence (open source, source-available, proprietary). Compare up to 4 wallets side by side.
+- **Scoring.** Security (audits, open source, simulation), GitHub activity, developer experience, platform coverage.
+- **Data updates.** A weekly GitHub Action refreshes GitHub activity data and opens a PR. Prices, licences, audits and custody are checked by hand against primary sources and shipped through reviewed PRs. A second weekly Action regenerates the hardware wallet Merchant Center feed ([MERCHANT_FEED.md](https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md)).
+- **Live chain data.** TVL from DeFiLlama.
+- **UI.** Next.js static site, dark mode, responsive, structured data for SEO.
 
-### 🔍 **Advanced Filtering & Comparison**
-- Filter by platforms (Mobile, Browser, Desktop)
-- Filter by features (Transaction Simulation, Scam Alerts, Testnets)
-- Filter by license type (Open Source, Source Available, Proprietary)
-- Compare up to 4 wallets side-by-side
+## Tech stack
 
-### 📊 **Comprehensive Scoring System**
-- Security features (audits, open source, tx simulation)
-- GitHub metrics (stars, issues, release frequency)
-- Developer experience (docs, SDKs, support)
-- Platform coverage (mobile, browser, desktop)
+- **Frontend:** Next.js 16, React 19, Tailwind CSS 4, TypeScript 6, Lucide icons, react-markdown with GFM.
+- **Data:** Markdown tables parsed at build time. Sources: GitHub REST API, WalletBeat, Rabby API, Trust Wallet registry, DeFiLlama.
+- **Hosting and CI:** AWS Amplify, GitHub Actions. OG images are generated with Canvas and Sharp.
 
-### 🔄 **Repeatable Data Updates**
-- GitHub activity refresh scripts for software and hardware wallets
-- Manual review and PR workflow for updated data
-- Manual verification for security-critical changes
-- Merchant Center feed generation for hardware wallets (see `MERCHANT_FEED.md`)
+## Get started
 
-### 🎨 **Developer-Friendly Interface**
-- Clean, fast Next.js 14 application
-- Dark mode support
-- Responsive design for all devices
-- SEO optimized with structured data
-
-### 🔗 **Live Chain Data Integration**
-- Real-time TVL data from DeFiLlama
-- Chain support verification
-- Network status tracking
-
----
-
-## 🏗️ Tech Stack
-
-### Frontend
-- **Framework:** Next.js 14 (React 18)
-- **Styling:** Tailwind CSS 3
-- **Icons:** Lucide React
-- **Markdown:** react-markdown with GitHub Flavored Markdown
-- **Type Safety:** TypeScript 5
-
-### Data Pipeline
-- **Data Source:** GitHub REST API, WalletBeat, Rabby API, Trust Registry
-- **Automation:** Bun/Python refresh scripts plus GitHub Actions PR guardrails
-- **Storage:** Markdown files with frontmatter metadata
-
-### Infrastructure
-- **Hosting:** AWS Amplify
-- **CI/CD:** GitHub Actions
-- **OG Images:** Canvas-based generation with Sharp
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 20+
-- Bun 1.3+
-
-### Local Development
+Needs Node.js 22 and Bun 1.3+.
 
 ```bash
-# Clone the repository
 git clone https://github.com/chimera-defi/walletradar.git
 cd walletradar/frontend
-
-# Install dependencies
 bun install
-
-# Run development server
-bun run dev
-
-# Open http://localhost:3000 in your browser
+bun run dev        # http://localhost:3000
 ```
 
-### Build for Production
+Build and preview the static export:
 
 ```bash
-# Build the application
 bun run build
-
-# Preview the static export
 bun run start
 ```
 
-### Available Scripts
-
-| Script | Description |
-|--------|-------------|
-| `bun run dev` | Start development server |
-| `bun run build` | Build for production |
-| `bun run start` | Preview the static export locally |
-| `bun run lint` | Run ESLint |
-| `bun run type-check` | Run TypeScript type checking |
-| `bun test` | Run smoke tests |
+| Script | What it does |
+|--------|--------------|
+| `bun run dev` | Dev server |
+| `bun run build` | Production build (static export to `out/`) |
+| `bun run start` | Serve `out/` locally |
+| `bun run lint` | ESLint |
+| `bun run type-check` | TypeScript check |
+| `bun run test` | Data smoke test |
 | `bun run generate-og` | Generate OG images |
 | `bun run validate-cards` | Validate Twitter cards |
 
----
+From the repo root, run `bunx vitest run tests/` for the unit tests.
 
-## 📁 Project Structure
+## Project structure
 
 ```
-frontend/               # Next.js application
-├── src/
-│   ├── app/           # Next.js 14 App Router pages
-│   ├── components/    # React components
-│   ├── lib/           # Utilities & helpers
-│   └── styles/        # Global styles
-├── public/            # Static assets & OG images
-├── scripts/           # Build & validation scripts
-└── package.json
-scripts/               # Data refresh automation
-├── refresh-github-data.sh
-SOFTWARE_WALLETS.md    # Software wallet comparison table
-HARDWARE_WALLETS.md    # Hardware wallet comparison table
-CRYPTO_CARDS.md        # Crypto card comparison table
-RAMPS.md               # On/off-ramp comparison table
-*_DETAILS.md           # Detailed analysis documents
-CHANGELOG.md           # Change history
-README.md              # This file
+frontend/          Next.js app (src/, public/, scripts/)
+scripts/           Data tooling (see scripts/README.md)
+tests/             Vitest unit tests
+data/              Sidecar attributes, merchant pricing
+articles/          SEO articles
+docs/              Maintainer docs (verification log, SEO notes, incident record)
+*.md (root)        Data tables, *_DETAILS.md, and site pages
 ```
 
----
+## Data sources
 
-## 📊 Data Sources
+| Source | Used for | Link |
+|--------|----------|------|
+| GitHub API | Stars, issues, release rate, activity | [docs](https://docs.github.com/en/rest) |
+| WalletBeat | Licence, device support, audits | [walletbeat.fyi](https://walletbeat.fyi) |
+| Rabby API | Chain counts | [api.rabby.io](https://api.rabby.io/v1/chain/list) |
+| Trust Wallet registry | Network support | [GitHub](https://github.com/trustwallet/wallet-core) |
+| DeFiLlama | Chain TVL | [defillama.com](https://defillama.com) |
 
-All data is sourced from publicly available, verified sources:
+Details and attribution: [DATA_SOURCES.md](./DATA_SOURCES.md).
 
-| Source | Usage | Links |
-|--------|-------|-------|
-| **GitHub API** | Stars, issues, release frequency, activity status | [API Docs](https://docs.github.com/en/rest) |
-| **WalletBeat** | License info, device support, security audits | [walletbeat.fyi](https://walletbeat.fyi) |
-| **Rabby API** | Chain counts for software wallets | [api.rabby.io](https://api.rabby.io/v1/chain/list) |
-| **Trust Registry** | Network support data | [GitHub](https://github.com/trustwallet/wallet-core) |
-| **DeFiLlama** | Real-time TVL data for chains | [defillama.com](https://defillama.com) |
-
----
-
-## 🔄 Data Refresh Scripts
-
-Wallet data refreshes are script-driven and should be committed through a PR after review:
+## Refresh data
 
 ```bash
-# Manual refresh (requires GitHub token)
 cd scripts
-./refresh-github-data.sh          # Text output
-./refresh-github-data.sh --json   # JSON output
-./refresh-github-data.sh --markdown  # Markdown table
+./refresh-github-data.sh --markdown   # also --json; set GITHUB_TOKEN for full runs
 ```
 
-See [scripts/README.md](./scripts/README.md) for full documentation.
+Commit refreshed data through a PR after review. Full script docs: [scripts/README.md](https://github.com/chimera-defi/walletradar/blob/main/scripts/README.md).
 
----
+## Documentation
 
-## 📚 Documentation
+- [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md): software wallets (33 rows)
+- [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md): hardware wallets (41 rows)
+- [CRYPTO_CARDS.md](./CRYPTO_CARDS.md): crypto cards (51 rows)
+- [RAMPS.md](./RAMPS.md): on/off-ramps (22 rows)
+- [QR_PAYMENTS.md](./QR_PAYMENTS.md): QR payment providers
+- [ABOUT.md](./ABOUT.md), [GLOSSARY.md](./GLOSSARY.md), [DATA_SOURCES.md](./DATA_SOURCES.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md): how to contribute and how scores work
+- [CHANGELOG.md](./CHANGELOG.md): change history
+- [Verification log](https://github.com/chimera-defi/walletradar/blob/main/docs/VERIFICATION.md): what was verified, what is not, and why
 
-Comprehensive comparison tables and guides:
+## Trust and transparency
 
-- **[SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md)** — Software wallet comparison (27 wallets)
-- **[HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md)** — Hardware wallet comparison (34 devices)
-- **[CRYPTO_CARDS.md](./CRYPTO_CARDS.md)** — Crypto credit card comparison (45 cards)
-- **[RAMPS.md](./RAMPS.md)** — On/off-ramp provider comparison (22 providers)
-- **[CHANGELOG.md](./CHANGELOG.md)** — Complete change history
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** — How to contribute
-- **[VERIFICATION_NOTES.md](./VERIFICATION_NOTES.md)** — Data verification methods
+- No logins, no wallet connections, no key requests.
+- No personal data collection or tracking beyond standard analytics.
+- Every data source is linked.
+- The code is open on GitHub.
+- The scoring method is published and reproducible.
+- Commercial links, if any, are disclosed and never affect rankings.
 
----
+Wallet Radar is educational research. It is not financial advice and does not tell you what to buy. Verify on official sites before you move funds.
 
-## 🛡️ Trust & Transparency
+## Contributing
 
-### Why We're Not Phishing
+1. **Report wrong data:** [open an issue](https://github.com/chimera-defi/walletradar/issues).
+2. **Add a product:** see [CONTRIBUTING.md](./CONTRIBUTING.md).
+3. **Fix docs or code:** open a PR.
 
-✅ **Never ask for passwords** — No login page, no wallet connection, no key requests
-✅ **No personal data collection** — No registration, no email required, no user tracking
-✅ **Transparent data sources** — All links and data sources verified and documented
-✅ **Open source code** — View and audit our code on GitHub
-✅ **Published methodology** — All scoring formulas documented and reproducible
-✅ **No hidden promotions** — Commercial links, if any, should be disclosed and never affect rankings
+## License
 
-### Educational Purpose Only
+MIT.
 
-Wallet Radar does NOT provide financial advice, recommend specific products, or collect personal information. All data is sourced publicly and linked for independent verification. Editorial decisions and scoring stay separate from any commercial relationship.
+## Links
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Report Issues** — Found incorrect data? [Open an issue](https://github.com/chimera-defi/walletradar/issues)
-2. **Add Wallets** — See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
-3. **Improve Documentation** — Fix typos, clarify explanations
-4. **Enhance Features** — Submit PRs for new features or improvements
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🔗 Links
-
-- **Website:** [walletradar.org](https://walletradar.org)
-- **GitHub:** [github.com/chimera-defi/walletradar](https://github.com/chimera-defi/walletradar)
-- **Issues:** [github.com/chimera-defi/walletradar/issues](https://github.com/chimera-defi/walletradar/issues)
-
----
-
-<div align="center">
-
-**Built with ❤️ for the developer community**
-
-[⬆ Back to Top](#wallet-radar)
-
-</div>
+- Website: [walletradar.org](https://walletradar.org)
+- GitHub: [github.com/chimera-defi/walletradar](https://github.com/chimera-defi/walletradar)
+- Issues: [github.com/chimera-defi/walletradar/issues](https://github.com/chimera-defi/walletradar/issues)

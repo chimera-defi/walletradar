@@ -1,8 +1,8 @@
 ---
 title: "Coinbase Wallet vs MetaMask: Which Should You Use?"
-description: "Compare Coinbase Wallet (73) vs MetaMask (73) for compatibility, account abstraction, and ecosystem support."
+description: "Compare Coinbase Wallet (67) vs MetaMask (80) for compatibility, account abstraction, and ecosystem support."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 wallets: ["Coinbase", "MetaMask"]
 tags: ["comparison", "software-wallets", "account-abstraction"]
@@ -12,7 +12,7 @@ tags: ["comparison", "software-wallets", "account-abstraction"]
 
 ## Quick Answer
 
-Both score **73/100** on Wallet Radar.  
+**MetaMask** scores 80/100 and **Coinbase Wallet** scores 67/100 on Wallet Radar.  
 **MetaMask** wins on compatibility.  
 **Coinbase Wallet** wins on Coinbase ecosystem integration and AA support.
 
@@ -22,8 +22,8 @@ Both score **73/100** on Wallet Radar.
 
 | Wallet | Score | Best For |
 |--------|-------|----------|
-| **Coinbase Wallet** | 73 | Coinbase ecosystem + AA |
-| **MetaMask** | 73 | Compatibility + dApp coverage |
+| **Coinbase Wallet** | 67 | Coinbase ecosystem + AA |
+| **MetaMask** | 80 | Compatibility + dApp coverage |
 
 Source: `SOFTWARE_WALLETS.md`
 
