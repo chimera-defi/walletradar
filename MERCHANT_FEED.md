@@ -1,6 +1,6 @@
 # Merchant Center Feed (Hardware Wallets)
 
-Last updated: 2026-04-08
+Last updated: 2026-10-15
 
 ## Scope
 
@@ -22,6 +22,12 @@ Last updated: 2026-04-08
 | OneKey Classic 1S | 99 | https://onekey.so/products/onekey-classic-1s-hardware-wallet/ |
 | OneKey Classic 1S Pure | 79 | https://onekey.so/products/onekey-classic-1s-hardware-wallet/#pure |
 | Blockstream Jade | 79 | https://store.blockstream.com/product/blockstream-jade/ |
+
+## Price checks on 2026-10-15
+
+- Re-fetched and unchanged: Ledger Flex 249 (shop.ledger.com via r.jina.ai), Trezor Safe 3 59, OneKey Classic 1S 99, OneKey Classic 1S Pure 79, OneKey Pro 278.
+- Blockstream Jade: page shows regular price 79 and a sale price 67 with all colours listed as sold out or unavailable; the feed keeps the regular price 79.
+- Not re-verified this run (price did not render or page unavailable; `last_checked` left unchanged): Ledger Nano X, Ledger Nano S+, Ledger Nano Gen5 (price shown as "Loading" or absent), Bitkey (product URL returned 404; bitkey.world/products/bitkey needs a new URL).
 
 ## Excluded from feed (no verified USD price or out of scope)
 
