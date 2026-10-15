@@ -1,10 +1,10 @@
 # QR Payment Crypto Providers - Full Documentation
 
-> **TL;DR:** **Flexa** is the leader for retail POS with guaranteed settlement and widest asset support. **NOWPayments** offers the lowest fees at 0.5% with 300+ cryptos. **Coinbase Commerce** provides brand trust and easy integration. **YODL Pay** enables QR payments in emerging markets where merchants receive local fiat.
+> **TL;DR:** **Flexa** is the leader for retail POS with guaranteed settlement and widest asset support. **NOWPayments** offers payments from 1% (0.5% on some third-party reports, UNVERIFIED) with 300+ cryptos. **Coinbase Commerce** provides brand trust and easy integration. **YODL Pay** enables QR payments in emerging markets where merchants receive local fiat.
 
-**Data Sources:** Developer Documentation, Fee Schedules, Integration Guides (as of January 2026).
+**Data Sources:** Developer Documentation, Fee Schedules, Integration Guides (re-checked 2026-10-15).
 
-**Verification Status:** All providers verified from official websites and documentation. Values marked with "~" are approximate and should be verified on official provider websites before integration.
+**Verification Status:** Re-checked 2026-10-15. Items that could not be confirmed from a primary page are marked UNVERIFIED. Scores below are older estimates; no script computes QR scores, so they were not recomputed. Values marked with "~" are approximate and should be verified on official provider websites before integration.
 
 ---
 
@@ -12,13 +12,13 @@
 
 | Provider | Score | Best For | Coverage | Fee Model | Dev UX |
 |----------|-------|----------|----------|-----------|--------|
-| [**Flexa**](https://flexa.co/) | 88 | 🏪 Retail POS | Global | Low (~0.5%) | Excellent (SDK/API) |
-| [**NOWPayments**](https://nowpayments.io/) | 85 | 🪙 Multi-Crypto | Global | Low (0.5%) | Excellent (API) |
-| [**Coinbase Commerce**](https://commerce.coinbase.com/) | 83 | 🤝 Brand Trust | Global | Low (1%) | Great (SDK) |
-| [**BitPay**](https://bitpay.com/) | 82 | ₿ Bitcoin Focus | Global | Low (1%) | Good (API) |
+| [**Flexa**](https://flexa.co/) | 88 | 🏪 Retail POS | Global | Low (~0.5%, UNVERIFIED) | Excellent (SDK/API) |
+| [**NOWPayments**](https://nowpayments.io/) | 85 | 🪙 Multi-Crypto | Global | Low (from 1%) | Excellent (API) |
+| [**Coinbase Commerce**](https://commerce.coinbase.com/) | 83 | 🤝 Brand Trust | Global | Low (1%, UNVERIFIED) | Great (SDK) |
+| [**BitPay**](https://bitpay.com/) | 82 | ₿ Bitcoin Focus | Global | Medium (2% + 25¢, tiered) | Good (API) |
 | [**CoinGate**](https://coingate.com/) | 80 | 🇪🇺 EU Merchants | Global | Low (1%) | Good (API) |
 | [**YODL Pay**](https://yodl.me/) | 78 | 🌍 Emerging Markets | Select Global | Variable | Good (App) |
-| [**Binance Pay**](https://pay.binance.com/) | 77 | 🔶 Binance Users | Global | Zero | Good (API) |
+| [**Binance Pay**](https://pay.binance.com/) | 77 | 🔶 Binance Users | Global | Zero (P2P); merchant fee UNVERIFIED | Good (API) |
 | [**Alchemy Pay**](https://alchemypay.org/) | 75 | 💱 Hybrid Fiat+Crypto | Global | Variable | Good (SDK) |
 
 ---
@@ -29,16 +29,16 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
 
 | Provider | Est. Processing Fee | Spread | Settlement | Notes |
 |----------|---------------------|--------|------------|-------|
-| **Flexa** | ~0.5% | Low | Guaranteed | No chargebacks. Verify on flexa.co |
-| **NOWPayments** | 0.5% | Low | Same crypto | Non-custodial option. Verify on nowpayments.io |
-| **Coinbase Commerce** | 1% | Low | Fiat or Crypto | Full custody control. Verify on coinbase.com |
-| **BitPay** | 1% | Low | Fiat | No chargebacks. Verify on bitpay.com |
+| **Flexa** | ~0.5% UNVERIFIED | Low | Guaranteed | No chargebacks. Verify on flexa.co |
+| **NOWPayments** | 1% starting fee, "even smaller" at higher volume (nowpayments.io, 2026-10-15). Third-party reviews cite 0.5% for same-coin payments; not on the official pages fetched | Low | Same crypto | Non-custodial option |
+| **Coinbase Commerce** | 1% UNVERIFIED (third-party only) | Low | Fiat or Crypto | Being replaced by Coinbase Business (US and Singapore businesses only); see below |
+| **BitPay** | 2% + 25¢ under $500k/month; 1.5% + 25¢ to $1M; 1% + 25¢ above (bitpay.com/pricing, 2026-10-15) | Low | Fiat, daily | Higher rates for high-risk industries |
 | **CoinGate** | 1% | Low | Fiat or Crypto | EU compliant. Verify on coingate.com |
-| **YODL Pay** | Variable | Variable | Local Fiat | Emerging markets focus. Verify on yodl.me |
-| **Binance Pay** | 0% | Variable | Crypto | Binance ecosystem only. Verify on binance.com |
+| **YODL Pay** | None ("no Yodl payment fee") | FX spread plus gas | Local Fiat via licensed local partner | yodl.me, 2026-10-15; Yodl does not custody or settle |
+| **Binance Pay** | UNVERIFIED for merchants (page says no gas fees on P2P transfers) | Variable | Crypto | Binance ecosystem only |
 | **Alchemy Pay** | Variable | Variable | Fiat | ACH token rewards. Verify on alchemypay.org |
 
-> **Key Insight:** Flexa and NOWPayments offer the lowest fees at ~0.5%, while Binance Pay is zero fee but settles in crypto only.
+> **Key Insight:** CoinGate lists 1% and NOWPayments from 1%; BitPay is tiered from 1% to 2% plus 25¢. Flexa's ~0.5% is UNVERIFIED (flexa.co lists no fee). Binance Pay settles in crypto only.
 
 ---
 
@@ -78,7 +78,7 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
 
 ### 2. Wallet Compatibility
 
-- **Flexa:** Works with 13+ blockchain networks and most major wallets
+- **Flexa:** Works with most major wallets (13+ networks claimed earlier, UNVERIFIED)
 - **NOWPayments:** Compatible with all standard crypto wallets
 - **Coinbase Commerce:** Optimized for Coinbase Wallet, supports all
 - **BitPay:** BitPay Wallet optimized, supports all Bitcoin wallets
@@ -94,7 +94,7 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
 | **Flexa** | ✅ 100% Guaranteed | Instant | Fiat (USD, EUR, etc.) |
 | **NOWPayments** | ❌ | 10-60 min | Crypto or Fiat |
 | **Coinbase Commerce** | ✅ Crypto finality | Varies | Crypto or Fiat |
-| **BitPay** | ✅ Guaranteed | Next day | Fiat |
+| **BitPay** | ✅ Guaranteed | Daily (bitpay.com/pricing) | Fiat |
 | **CoinGate** | ✅ | Same day | Crypto or Fiat |
 | **YODL Pay** | ⚠️ | Instant | Local Fiat |
 | **Binance Pay** | ✅ Crypto finality | Instant | Crypto |
@@ -110,22 +110,22 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
     * 👉 **Flexa**. Integrates with existing POS systems, guaranteed settlement, no chargebacks.
 
 * **...the lowest fees and widest crypto support:**
-    * 👉 **NOWPayments**. 0.5% fees, 300+ cryptocurrencies, non-custodial option.
+    * 👉 **NOWPayments**. from 1%, 300+ cryptocurrencies, non-custodial option.
 
 * **...brand recognition and easy integration:**
-    * 👉 **Coinbase Commerce**. Trusted brand, good documentation, Shopify/WooCommerce plugins.
+    * 👉 **Coinbase Commerce**. Trusted brand, good documentation, Shopify/WooCommerce plugins. Warning: Coinbase says Commerce is being replaced by Coinbase Business (US and Singapore businesses only) and the portal becomes inaccessible after 2026-03-31; current state UNVERIFIED, see notes at the end.
 
 * **...Bitcoin-focused payments:**
-    * 👉 **BitPay**. Established Bitcoin payment processor, next-day fiat settlement.
+    * 👉 **BitPay**. Established Bitcoin payment processor, daily fiat settlement.
 
 * **...EU compliance and local payment methods:**
-    * 👉 **CoinGate**. Strong EU focus, 70+ cryptos, compliant infrastructure.
+    * 👉 **CoinGate**. Strong EU focus, 10+ accepted crypto assets, MiCA-authorised (Bank of Lithuania, per coingate.com).
 
 * **...to accept crypto in emerging markets:**
     * 👉 **YODL Pay**. Local QR code scanning, merchants receive local currency, no bank account needed.
 
 * **...zero fees for Binance ecosystem:**
-    * 👉 **Binance Pay**. Zero transaction fees, 70+ cryptos, instant settlement.
+    * 👉 **Binance Pay**. P2P transfers without gas fees, 100+ cryptos for merchant payments. Merchant fee UNVERIFIED.
 
 * **...hybrid fiat and crypto payments:**
     * 👉 **Alchemy Pay**. Bridges fiat and crypto, ACH token rewards, global coverage.
@@ -233,15 +233,15 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 ### Flexa
 - **Website:** [flexa.co](https://flexa.co/)
 - Leader in retail crypto payments
-- 99+ digital assets across 13+ networks
+- 99+ digital assets (flexa.co, 2026-10-15); 13+ networks UNVERIFIED
 - Guaranteed settlement - no chargebacks
 - Works with existing POS systems (Square, Clover, etc.)
-- Powers payments at major retailers (Home Depot, Whole Foods via Spedn app)
+- The SPEDN consumer app shut down on 2026-03-31 (support.flexa.co); Flexa continues with Flexa Payments and the Flexa SDK for merchants. The earlier retailer examples (Home Depot, Whole Foods) ran through SPEDN and are no longer shown as current
 
 ### NOWPayments
 - **Website:** [nowpayments.io](https://nowpayments.io/)
 - 300+ cryptocurrencies supported
-- 0.5% transaction fee (lowest in market)
+- 1% starting fee (nowpayments.io pricing page, 2026-10-15)
 - Non-custodial option available
 - No KYC required for basic usage
 - Plugins for major e-commerce platforms
@@ -258,30 +258,31 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 - **Website:** [bitpay.com](https://bitpay.com/)
 - Oldest and most established (since 2011)
 - Bitcoin-focused with altcoin support
-- Next-day fiat settlement
+- Daily fiat settlement
 - Strong compliance and fraud prevention
-- Tiered pricing with 1% standard fee
+- Tiered pricing: 2% + 25¢ under $500k/month, down to 1% + 25¢ at $1M+
 
 ### CoinGate
 - **Website:** [coingate.com](https://coingate.com/)
 - Strong EU compliance focus
-- 70+ cryptocurrencies
+- 10+ crypto assets (home page)
 - Web-based POS for physical stores
-- 1% transaction fee
+- 1% payment processing fee (coingate.com/pricing)
 - Good for EU-based merchants
 
 ### YODL Pay
 - **Website:** [yodl.me](https://yodl.me/)
 - Designed for emerging markets
-- Scan local QR codes (Pix in Brazil, etc.)
+- Live in Argentina, Bolivia, Brazil, Colombia, Peru, the Philippines and Vietnam; India, Switzerland and Thailand "coming soon" (yodl.me, 2026-10-15)
+- Scan local QR codes (Pix in Brazil, Mercado Pago, VietQR, QR Ph, Yape/Plin, etc.)
 - Pay with USDT/crypto, merchant receives local fiat
 - Works without bank accounts or ATMs
 - "Spend crypto like cash" approach
 
 ### Binance Pay
 - **Website:** [pay.binance.com](https://pay.binance.com/)
-- Zero transaction fees
-- 70+ cryptocurrencies
+- No gas fees on peer-to-peer transfers; merchant fee UNVERIFIED
+- 100+ cryptocurrencies for merchant payments, 400+ for P2P
 - Binance ecosystem integration
 - QR code and customized checkout
 - FATF compliant with Proof of Reserves
@@ -333,10 +334,15 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 
 ---
 
-**Last Updated:** January 2026
+**Last Updated:** October 15, 2026
 
 **Verification Notes:**
-- All providers verified from official websites and documentation
+- Re-checked 2026-10-15 from provider pages; UNVERIFIED items listed in QR_PAYMENTS.md and below
 - Fee structures and coverage should be verified directly with providers before integration
 - Values marked with "~" are approximate estimates
 - Emerging providers (YODL Pay) may have limited documentation
+
+### Notes from the 2026-10-15 check
+
+- **Coinbase Commerce:** Coinbase's help centre (help.coinbase.com, "Transitioning from Coinbase Commerce to Coinbase Business", seen through a search result because the page returned 403 to fetches) says Commerce is being unified with Coinbase Business, the Commerce portal becomes inaccessible after 2026-03-31, and Coinbase Business is open to US or Singapore businesses only. commerce.coinbase.com returned 502. Treat as discontinued for most merchants, but the current state is UNVERIFIED. The table status is set to Verify.
+- **Not re-checked (no primary figure found):** Flexa fee and network count; Binance Pay merchant fee and regions (Binance's own post lists seven LATAM and Asia QR countries for tourist payments: Argentina, Bolivia, Brazil, Colombia, Peru, Philippines, Vietnam); Alchemy Pay QR fees and rewards; CoinGate settlement time.
