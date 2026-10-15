@@ -56,7 +56,7 @@ tags: ["comparison", "ethereum", "developer-tools", "web3"]
    - **Result:** Fewer emergency revokes, less lost funds during testing
 
 3. **Stable Release Cycle**
-   - ~6 releases per month (vs MetaMask's ~8)
+   - ~4 releases per month (vs MetaMask's ~5)
    - Fewer breaking changes
    - More predictable development environment
    - **Impact:** Less time debugging wallet-related issues
@@ -249,7 +249,7 @@ Yes, extremely important. Transaction simulation prevents costly mistakes by sho
 
 ### How often does Rabby break dApp compatibility?
 
-Rarely. Rabby has ~6 releases per month with fewer breaking changes than MetaMask's ~8 releases per month. Most Rabby updates are additive features or bug fixes, not breaking API changes.
+Rarely. Rabby has ~4 releases per month with fewer breaking changes than MetaMask's ~5 releases per month. Most Rabby updates are additive features or bug fixes, not breaking API changes.
 
 ### Should beginners use Rabby or MetaMask?
 
