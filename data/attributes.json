@@ -271,7 +271,7 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://gnosispay.com",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       },
       "kyc_requirement": {
@@ -301,7 +301,7 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://kast.xyz",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -309,7 +309,7 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://www.plasma.org/personal",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -317,7 +317,7 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://www.bitpanda.com/en/card",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -325,7 +325,7 @@
       "card_network": {
         "value": "Mastercard",
         "source_url": "https://www.coinjar.com/au/card",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -333,7 +333,7 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://foldapp.com",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -341,15 +341,15 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://shakepay.com/card",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
     "ThorWallet": {
       "card_network": {
         "value": "Mastercard",
-        "source_url": "https://thorwallet.org",
-        "retrieved": "2026-10-10",
+        "source_url": "https://thorwallet.org/cards",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -357,7 +357,7 @@
       "card_network": {
         "value": "Mastercard",
         "source_url": "https://1inch.com/card",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -371,7 +371,7 @@
       "kyc_requirement": {
         "value": "required",
         "source_url": "https://nexo.com/card",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -379,15 +379,15 @@
       "card_network": {
         "value": "Visa",
         "source_url": "https://www.slash.com/products/corporate-cards",
-        "retrieved": "2026-10-10",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
     "EtherFi Cash": {
       "card_network": {
         "value": "Visa",
-        "source_url": "https://etherfi.gitbook.io/etherfi/cash",
-        "retrieved": "2026-10-10",
+        "source_url": "https://etherfi.gitbook.io/etherfi/products/cash.md",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     },
@@ -396,6 +396,42 @@
         "value": "required",
         "source_url": "https://tuyo.com/card",
         "retrieved": "2026-10-10",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Bleap": {
+      "card_network": {
+        "value": "Mastercard",
+        "source_url": "https://bleap.finance",
+        "retrieved": "2026-10-15",
+        "source_kind": "issuer_page"
+      },
+      "kyc_requirement": {
+        "value": "required",
+        "source_url": "https://bleap.finance",
+        "retrieved": "2026-10-15",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Tangem Pay": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://tangem.com/en/tangem-pay/",
+        "retrieved": "2026-10-15",
+        "source_kind": "issuer_page"
+      }
+    },
+    "Phantom Cash Card": {
+      "card_network": {
+        "value": "Visa",
+        "source_url": "https://phantom.com/cash",
+        "retrieved": "2026-10-15",
+        "source_kind": "issuer_page"
+      },
+      "kyc_requirement": {
+        "value": "required",
+        "source_url": "https://phantom.com/cash",
+        "retrieved": "2026-10-15",
         "source_kind": "issuer_page"
       }
     }

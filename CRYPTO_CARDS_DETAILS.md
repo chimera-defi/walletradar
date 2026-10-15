@@ -5,19 +5,19 @@
 > **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Ethena Pay (84, Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon), 🟢), Plasma One (81, USDT spend card, 🟢), and MetaMask Card (77, Self-custodial spending (US/UK signups paused), 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Ethena Pay (84, Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon), 🟢), Bleap (83, MPC self-custodial wallet, Mastercard (custody labelled CeFi: issuing bank and card funding path not stated), 🟢), and Plasma One (81, USDT spend card, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
 | ---- | ---- | ----- | -------- | --- |
 | 1 | **EtherFi Cash** | 92 | Self-custody DeFi | 🟢 |
 | 2 | **Ethena Pay** | 84 | Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon) | 🟢 |
-| 3 | **Plasma One** | 81 | USDT spend card | 🟢 |
-| 4 | **MetaMask Card** | 77 | Self-custodial spending (US/UK signups paused) | 🟢 |
-| 5 | **Avici Money** | 76 | Collateral-backed | 🟢 |
+| 3 | **Bleap** | 83 | MPC self-custodial wallet, Mastercard (custody labelled CeFi: issuing bank and card funding path not stated) | 🟢 |
+| 4 | **Plasma One** | 81 | USDT spend card | 🟢 |
+| 5 | **Gemini Card** | 79 | Credit building | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
-**Last Updated:** October 10, 2026 (Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
+**Last Updated:** October 15, 2026 (re-check of issuer pages on 2026-10-15, see [Recheck log](#recheck-2026-10-15); earlier Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
 
 ---
 
@@ -379,7 +379,7 @@ The Binance Card is a debit card linked to your Binance account, offering BNB re
 **Website:** [wirexapp.com/card](https://wirexapp.com/card)
 
 **Overview:**
-The Wirex Card is a multi-crypto debit card with Cryptoback™ rewards program, supporting multiple cryptocurrencies.
+The Wirex Card is a multi-crypto debit card. As of 2026-10-15 the issuer's page (wirex.one) advertises Wirex One: "up to 8% cashback in USD on every purchase", "Zero-fee FX and ATM worldwide" and availability in "130+ countries". Secondary reports (SpendNode, June 2026) say the older WXT rewards and paid subscription tiers were replaced by a WPAY-based membership; wirex.one did not state this, so the annual/monthly fee is shown as TBD.
 
 **Business Support:** ✅ Yes (Wirex Business accounts available)
 
@@ -390,13 +390,13 @@ The Wirex Card is a multi-crypto debit card with Cryptoback™ rewards program, 
 - Debit card
 
 **Rewards Structure:**
-- Up to 8% Cryptoback™ rewards
-- Rewards paid in WXT token
+- Up to 8% cashback, paid in USD (wirex.one, 2026-10-15). Older "Cryptoback" in WXT: superseded per secondary reports.
 
 **Fees:**
-- Annual Fee: $0
-- Foreign Transaction Fee: 0%
-- Conversion fees may apply
+- Annual / monthly fee: TBD (older table said €0-€29.99/mo; not stated on wirex.one)
+- Foreign Transaction Fee: 0% ("Zero-fee FX", wirex.one)
+- ATM: "fee-free ATM withdrawals worldwide" (wirex.one; limits not stated)
+- Cardano Card (issued by Wirex): ends 2026-10-31 as Wirex drops custody, per Altcoin Buzz 2026-10-13 quoting the card's official X account (secondary; X post not fetched)
 
 **Requirements:**
 - Wirex account
@@ -960,7 +960,7 @@ Tria Card is a self-custodial Visa credit card that enables spending from 1,000+
 
 **Website:** [solflare.com/card](https://solflare.com/card)
 
-**Status:** ✅ Active (UK/EEA launch 2024, partnership with Mastercard)
+**Status:** ⚠️ Paused. solflare.com/crypto-card (2026-10-15): "Solflare Cards are paused today while we move to a new issuing partner", cards "expected to return in August" (not met). SpendNode (secondary, 2026-07-29): paused 2026-07-28 after issuer Kulipa wound down. Funds stay in the self-custodial wallet.
 
 **Overview:**
 Solflare Card is the first self-custody crypto debit card on Solana, enabling instant USDC spending worldwide without top-ups, custodians, or hidden fees. Developed in partnership with Mastercard and Bridge.
@@ -1473,6 +1473,64 @@ Kontigo was a USDC-focused neobank offering stablecoin cards with Bitcoin cashba
 
 ---
 
+### Bleap
+
+**Website:** [bleap.finance](https://bleap.finance) (fetched 2026-10-15)
+
+**Status:** ✅ Live in Europe, Mexico and Brazil ("more countries planned").
+
+**Overview:**
+Mastercard debit card on an MPC wallet. Issuer entity: Bleap SIA (Latvia), MiCA CASP licence No. 27-55/2026/14 from Latvijas Banka; parent Bleap Ltd (UK). The page does not name the card-issuing bank.
+
+**Rewards (USDC):** 20% on streaming, gaming and AI subscriptions; 3% on rides and food delivery; 2% at restaurants and supermarkets; 1% on everything else.
+
+**Fees:** card issuance free; no monthly or annual fee; no markup on crypto-to-fiat conversion; no FX fee on non-EUR payments; ATM free up to EUR 400 per month.
+
+**Custody Model:** Page says wallets are self-custodial MPC ("No single party, including Bleap, ever holds your complete key"). The table labels the spend path 📋 CeFi because the page does not say funds stay user-controlled until authorization, and the issuing bank is not named.
+
+**Unverified:** spending limits, business support, card-issuing bank.
+
+---
+
+### Tangem Pay
+
+**Website:** [tangem.com/en/tangem-pay](https://tangem.com/en/tangem-pay/) (fetched 2026-10-15)
+
+**Status:** ✅ Basic and Plus available; Prestige on waitlist; welcome bonus and boosted rates "coming soon".
+
+**Overview:** Visa card issued by Rain (Visa Principal Member). Basic is Visa Platinum, Plus is Signature, Prestige is Infinite.
+
+**Rewards:** Basic 1%, Plus 2%, Prestige 4%; monthly caps $100 / $300 / $1,000. Basic is free; Plus is $29.99/month (waived at $4,500 monthly spend or $65,000 in Yield Mode); Prestige is $999/year (coming soon). ATM fee 4% / 2% / 1%. Daily spend limits $10,000 / $50,000 / $100,000. Bank top-up Basic: $1 ACH or $10 FedWire.
+
+**Custody Model:** Main assets stay in the non-custodial Tangem Wallet, but only the balance loaded onto the card can be spent, so the table labels the spend path 📋 CeFi.
+
+**Unverified:** FX fee, countries where cards can be opened, KYC wording.
+
+---
+
+### Phantom Cash Card
+
+**Website:** [phantom.com/cash](https://phantom.com/cash) (fetched 2026-10-15)
+
+**Status:** ⚠️ Early rollout. The page says the card is "launching first in the U.S., except in New York". SpendNode (secondary) dates the US launch 2026-03-31.
+
+**Overview:** Visa card issued by Lead Bank; Bridge Ventures LLC is program manager; Phantom is platform provider. Spends the CASH stablecoin balance. Identity verification is required for the card (handled by Stripe).
+
+**Rewards / fees:** no cashback stated. "Fees may apply"; amounts, FX and annual fee not listed (TBD).
+
+**Custody Model:** 📋 CeFi (prepaid card balance held with issuer and program manager).
+
+---
+
+### Kraken Card (Krak)
+
+**Website:** [kraken.com/features/crypto-card](https://www.kraken.com/features/crypto-card); US launch post [blog.kraken.com/product/krak/us-launch](https://blog.kraken.com/product/krak/us-launch) (fetched 2026-10-15)
+
+- **UK/EEA:** virtual Mastercard debit card issued by Monavate; up to 2% back in BTC or EUR (0.5% from EUR 200, 1% from EUR 1,000, 1.5% from EUR 10,000, 2% from EUR 50,000 average balance); "no transaction, FX or ATM withdrawal fees" (a variable spread applies when spending across assets).
+- **US:** Visa debit card issued by Lead Bank (Stripe technology), launched 2026-08-18; up to 2% in USD or BTC; "No hidden fees, monthly fees, or annual fees"; FX fee not stated. Support page (support.krak.app/articles/us-krak-card-cashback-overview) lists 0.5% / 1% / 1.5% / 2% at USD 200 / 1,000 / 10,000 / 50,000, but the US cashback terms (krak.app/legal/us-card-cashback-terms) list 1% / 1.5% / 1.75% / 2% at USD 1,000 / 10,000 / 75,000 / 150,000 and say tiers may change. The two Kraken pages conflict; only "up to 2%" is consistent.
+
+---
+
 ### Reap
 
 **Website:** [reap.global](https://reap.global)
@@ -1677,9 +1735,10 @@ Headline maximums; many require staking or tiers, and several are unverified (se
 - Binance Card (**January 2026 Update:** Now Brazil-only, not global)
 
 ### Global (Multi-Region)
-- **Gnosis Pay** (**January 2026 Update:** Now global - EEA, UK, Brazil, Argentina, Mexico, Colombia, Philippines, Thailand, Japan, Singapore)
+- **Gnosis Pay** (January 2026: EEA, UK, Brazil, Argentina, Mexico, Colombia, Philippines, Thailand, Japan, Singapore; **October 2026: consumer card being wound down**, see Recheck log)
 - Crypto.com Visa Card
 - Wirex Card
+- Bleap (EU, Mexico, Brazil only; listed for completeness)
 - EtherFi Cash (100M+ merchants worldwide)
 - Hi Card
 - KuCard (excludes US)
@@ -1880,6 +1939,32 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Cypher Card | New row (inactive) | n/a | ❌, ~~strikethrough~~ | Primary: [cypherhq.io wind-down page](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher) ("Cypher has been acquired by Nium"; cards cancelled 2026-08-08 00:00 UTC; app/dApp/business platform offline 2026-09-06) and [Nium announcement, 2026-07-08](https://www.nium.com/newsroom/nium-acquires-cypher). Fees and cashback TBD |
 | Coinbase Card (One Card, Amex) | No change | n/a | n/a | coinbase.com/creditcard, help.coinbase.com and the launch blog returned 403; only search snippets of coinbase.com pages (US only, Coinbase One members, issuer First Electronic Bank, Amex network) seen. Not a primary-page confirmation, so no row added or edited |
 
+### Recheck (2026-10-15)
+
+Second pass on 2026-10-15 using WebFetch/WebSearch and `scripts/verify-crypto-cards.js` (Playwright). Many issuer pages state no numbers or blocked the fetch; those fields are listed under **Unverified (2026-10-15)**.
+
+| Card | Field | Old | New | Source |
+|------|-------|-----|-----|--------|
+| Gnosis Pay | Status / Best For | ✅, DeFi-native | ⚠️, consumer card winding down | Issuer blog [gnosispay.com/blog/gnosis-pay-the-next-era](https://gnosispay.com/blog/gnosis-pay-the-next-era): "Over the coming months the Gnosis Pay card will be wound up in favour of partner cards" and the web app will close. The date 2026-12-20 23:59 UTC (card and web app stop; GNO cashback ended 2026-09-30) is from [Crypto Briefing](https://cryptobriefing.com/gnosis-pay-shutdown-consumer-cards-b2b/) and The Defiant (secondary; help.gnosispay.com FAQ returned 404 to fetch) |
+| Kraken | Link / Best For | kraken.com/kraken-card (404), "Cloudflare-protected" | kraken.com/features/crypto-card, network and issuer by region | See Kraken Card (Krak) section; FX "no FX fees" confirmed for UK/EEA only |
+| OKX Card | FX | TBD | 0% | [my.okx.com/pay](https://my.okx.com/pay): "We charge no transaction fees or FX fees. Worldwide." (0.1% market spread when converting to fiat) |
+| Wirex Card | Annual / Rewards | €0-€29.99/mo, WXT | TBD, USD cash | [wirex.one](https://wirex.one): "up to 8% cashback in USD", zero-fee FX and ATM; old subscription not stated |
+| Nummus Wallet Card | Annual | TBD | $0-$14.99/mo ($300-$750 one-time setup tiers) | [nummuswallet.com](https://nummuswallet.com/): Free (physical card $30), Plus $14.99/mo or $149/yr, Pro $300 one-time, Premium $750 one-time |
+| Tuyo | Region | Global* | Global | [tuyo.com/card](https://tuyo.com/card) links a US cardholder agreement; the 10-Oct text also listed the US among 41 countries |
+| Fuse Wallet Card | Region | Global* | Global | [fusewallet.com](https://fusewallet.com): issued by Lead Bank under Visa U.S.A.; only NY and AK excluded in the US |
+| Jupiter Card | Region | Global* | Global | [docs.jup.ag](https://docs.jup.ag/user-docs/global/spend/jupiter-card): lists many countries and 31 US states |
+| Gemini Card | Rewards | BTC, ETH | Multi (BTC, 50+ cryptos) | [gemini.com/credit-card](https://www.gemini.com/credit-card): "bitcoin or 50+ cryptos"; 4% capped at $300/mo; Mastercard World Elite, WebBank |
+| Bitget Wallet Card | Rewards | Campaign | Multi (BTC, gold, stocks, USDC) | [web3.bitget.com/en/card](https://web3.bitget.com/en/card): 2% base assetback, 3% upgrade; user picks one reward asset |
+| Solflare Card | Best For | Cards paused (new issuer) | paused since 2026-07-28, Kulipa wound down; return "expected August" not met | [solflare.com/crypto-card](https://solflare.com/crypto-card) (still paused 2026-10-15); date and issuer from SpendNode (secondary) |
+| Ready Card | Best For | reported shutdown, unconfirmed | Discontinued (late July 2026, issuer Kulipa wound down) | [The Defiant](https://thedefiant.io/news/cefi/ready-shuts-card-program-after-issuer-winds-down) headline and search snippet (article body not retrievable, secondary); ready.co/card shows no notice |
+| Cypher Card | Best For | deactivated by 2026-09-06 | cards cancelled 2026-08-08, service ended 2026-09-06 | [cypherhq.io wind-down page](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher) |
+| Swissborg Card | Best For | Card page 404 | card advertised on swissborg.com | swissborg.com: "Pay worldwide wherever Mastercard is accepted", BORG cashback; fee schedule not on page |
+| Bleap, Tangem Pay, Phantom Cash Card | New rows | n/a | see sections above | bleap.finance, tangem.com/en/tangem-pay, phantom.com/cash |
+
+**Checked and unchanged (primary page matched the table):** EtherFi network Visa (gitbook), Ethena Pay (4-5% AVAX, ~1% FX, $0 fees, ATM $1 + 0.65%), Plasma One (2/3/4% tiers, Visa/Rain), MetaMask (1% virtual, 3% on first $10,000 Metal, $199/yr, US/UK signups closed), Kast (1.5/2/3%, $0/$1,000/$10,000 per year, Visa), Nexo (0.5-2%, FX 0.2-2.5%, issuer DiPocket), Bitpanda (1% crypto spend, FX 0%), Shakepay (up to 1.5%, no annual fee, Visa), CoinJar (1% points, 2.99% FX, Mastercard/EML), Meow (1.5% base rate, no annual fee), Slash (Free 1.5% / Pro 2%, 1% FX min $0.40, Visa/Column), ThorWallet (0.5% Premium, $124 one-off, 1.5% FX, Mastercard), ToonPay (Starter 1%, 2% FX, $12 KYC, $80 card), Plutus (FX 2.5%, ATM 2.5%, card EUR/GBP 9.99), KuCard terms (EEA, Visa, Wallester), Binance Brazil (Pomelo, Mastercard, no physical issuance fee), Reap (Visa principal, live HK and Mexico), RedotPay (issuance $10 virtual / $100 physical), Fold (Visa, Sutton Bank), Gnosis Pay network (Visa Europe, Monavate).
+
+**Unverified (2026-10-15):** EtherFi cashback/fees (ether.fi/cash HTTP 429; Playwright got a Vercel security checkpoint; gitbook page gives no rates). Coinbase (HTTP 403; the Coinbase One Card, Amex, is described only by search snippets), Revolut (403), Uphold (403), Bybit (fetch timeout; a January 2026 press release says Bybit EU added BTC cashback at 2-10%, which conflicts with the "Non-EEA" row, secondary), 1inch cashback/regions (page states neither), Wayex/CryptoSpend 1% cashback and BTC/ETH rewards (page states neither), Reap 0% cashback and 2% FX (page lists no amounts), Hi Card (hi.com mentions no card), BitPay (page has no status; reports conflict), Amp Pay (TLS certificate expired), Payy and Tria card terms, Kontigo, Spendly, Bitget activation fee and FX range, Plutus annual fee and region, Kraken US FX fee and US cashback tiers (two Kraken pages disagree), Binance CIS relaunch (Mastercard/Immersve, February 2026, secondary only), Crypto.com US Visa Signature credit card (1.5-6% CRO per Crypto.com event page via search snippet, not fetched), Fold Bitcoin Credit Card ("up to 5% back in bitcoin" on foldapp.com, no terms), Moonwell Card (shut 2026-08 with Cypher, secondary).
+
 ### Custody
 
 | Card | Class | Keys / funds | Issuer / program manager |
@@ -1897,7 +1982,7 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Cypher Card | TBD (not verified from a primary page) | Discontinued; own notice: Service End Date 2026-09-06, card deactivated then | Nium (acquirer) |
 | 1inch, Jupiter, Wayex, Nexo, Plutus, Shakepay, Reap, CoinJar | CeFi | Prepaid/partner-held balances | Monavate; Rain+DCS; Lead Bank/Bridge; Lead Bank; DiPocket; Modulr; Peoples Trust; Reap (Visa principal); EML |
 
-**Not added:** Bleap (custody is an issuer claim only; funding path, issuer and terms not retrieved). **Added 2026-10-10 from primary pages:** Bitpanda Card and Cypher Card (inactive). **Fetch results:** tangem.com/en/pay 404, tangem.com/en/tangem-pay/ fetched; exa.fi redirects to a domain-sale page; ledger.com/ledger-cl-card 404 (shop.ledger.com/pages/cl-card-crypto-card fetched); safepal.com/en/crypto-card 404; Coinbase pages 403; holyheld.com/card 404.
+**Not added on 2026-10-10:** Bleap (added 2026-10-15 from bleap.finance with custody labelled CeFi). **Added 2026-10-10 from primary pages:** Bitpanda Card and Cypher Card (inactive). **Fetch results:** tangem.com/en/pay 404, tangem.com/en/tangem-pay/ fetched; exa.fi redirects to a domain-sale page; ledger.com/ledger-cl-card 404 (shop.ledger.com/pages/cl-card-crypto-card fetched); safepal.com/en/crypto-card 404; Coinbase pages 403; holyheld.com/card 404.
 
 **Cypher:** primary pages confirm the acquisition by Nium and the shutdown. Cypher's own [notice of termination](https://www.cypherhq.io/notice-of-termination) (Notice Date 2026-07-08) states a Service End Date of 2026-09-06 on which "the Cypher Card will be deactivated"; the [wind-down page](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher) gives 2026-08-08 for card cancellation. Both are Cypher primary sources and differ; the row is inactive either way. Custody and region are not verified from a primary page and are TBD.
 
@@ -1908,7 +1993,7 @@ Cashback rates for EtherFi (2-3%) and its ATM/annual fee; Plasma membership pric
 COCA Visa (coca.xyz; "non-custodial", up to 8%, issuer Wirex *secondary*), Wirex One / SecondFi self-custodial relaunch, Mercuryo x Mastercard, Sana onchain (Rain), Western Union Stablecard (custody unclear). Ethena Pay was added and updated to live beta.
 
 Not added after primary-page check (2026-10-10), reason:
-- Tangem Pay ([tangem.com/en/tangem-pay/](https://tangem.com/en/tangem-pay/)): live (Basic available), Rain issuer, 1/2/4% cashback, Plus $29.99/mo; custody described as main assets in non-custodial wallet with a separate loaded card balance, and countries that can open cards are not listed; FX fee in a tariffs PDF not read. Region unconfirmed.
+- Tangem Pay (added as a row on 2026-10-15 with region marked unconfirmed; [tangem.com/en/tangem-pay/](https://tangem.com/en/tangem-pay/)): live (Basic available), Rain issuer, 1/2/4% cashback, Plus $29.99/mo; custody described as main assets in non-custodial wallet with a separate loaded card balance, and countries that can open cards are not listed; FX fee in a tariffs PDF not read. Region unconfirmed.
 - Ledger CL Card ([shop.ledger.com](https://shop.ledger.com/pages/cl-card-crypto-card), [withcl.com/legal](https://www.withcl.com/legal)): live in EEA, UK, US, CA, CH, CO, MX, BR; 1% BTC/USDC/USDT; fees not on retrieved pages; custody conflicting (shop page: account operated by Monavate; withcl.com: "Spend crypto from self-custody"). Custody unresolved.
 - Oobit ([oobit.com](https://oobit.com)): live-looking, "up to 10%", card free; custody, region and FX not stated (US via Bakkt).
 - SafePal Card ([safepal.com/en/bank](https://www.safepal.com/en/bank)): Fiat24-based Mastercard; custody, regions, cashback and card fees not stated.
@@ -1919,4 +2004,4 @@ Not added after primary-page check (2026-10-10), reason:
 
 ---
 
-*Last updated: October 2026 - Comprehensive score recalculation with verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Clarified card spend-path custody scoring.*
+*Last updated: October 15, 2026 - Comprehensive score recalculation with verified data. Key corrections: Ready Card 3% (not 10%), Binance 3% (not 8%), Crypto.com base 0%. Clarified card spend-path custody scoring.*
