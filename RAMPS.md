@@ -4,44 +4,45 @@
 
 | Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Status | Founded | Funding | Best For | Rec |
 | -------- | ----- | ---- | ------- | -------- | -------- | --------- | ------- | ------ | ------ | ------- | ------- | -------- | --- |
-| [**Coinbase Pay**](https://www.coinbase.com/developers/pay-sdk) | 91 | Both | ✅ | ✅ | ~100+ Countries | Medium | ~$1.00 | Excellent (SDK) | ✅ | 2012 | 🟢 Coinbase | Coinbase users | 🟢 |
 | [**CoinGate**](https://coingate.com/) | 90 | Both | ✅ | ✅ | Global | Low | ~€0.01 | Good (API) | ✅ | 2014 | 🟢 Self | Low fees | 🟢 |
 | [**BitPay**](https://bitpay.com/) | 89 | Both | ✅ | ✅ | Global | Medium | ~$1.00 | Good (API) | ✅ | 2011 | 🟢 Revenue | Bitcoin focus | 🟢 |
 | [**Stripe**](https://stripe.com/docs/crypto) | 88 | Both | ✅ | ✅ | Global | Usage Based | Custom | Excellent (Stripe style) | ✅ | 2010 | 🟢 PublicCo | Trust | 🟢 |
-| [**Ramp**](https://ramp.network/) | 86 | Both | ✅ | ✅ | ~150+ Countries | Low/Medium | ~€2.49 | Good (SDK) | ✅ | 2017 | 🟡 VC | EU / Speed | 🟢 |
+| [**Guardarian**](https://guardarian.com/) | 86 | Both | ✅ | ✅ | ~170+ Countries | Low/Medium | ~€5.00 | Good (Widget) | ✅ | 2017 | 🟡 VC | EU focus | 🟢 |
+| [**Ramp**](https://rampnetwork.com/) | 86 | Both | ✅ | ✅ | ~150+ Countries | Low/Medium | ~€2.49 | Good (SDK) | ✅ | 2017 | 🟡 VC | EU / Speed | 🟢 |
 | [**Changelly**](https://changelly.com/) | 85 | Both | ✅ | ✅ | Global | Medium | ~$5.00 | Good (API) | ✅ | 2015 | 🟢 Revenue | Exchange | 🟢 |
+| [**Coinbase Pay**](https://www.coinbase.com/developers/pay-sdk) | 84 | Both | ✅ | ✅ | ~90+ Countries | Medium | Not published | Excellent (SDK) | ✅ | 2012 | 🟢 Coinbase | Coinbase users | 🟢 |
+| [**Coinify**](https://www.coinify.com/) | 84 | Both | ✅ | ✅ | ~170+ Countries | Medium | ~€5.00 | Good (API) | ✅ | 2014 | 🟢 Revenue | EU | 🟢 |
 | [**Sardine**](https://www.sardine.ai/) | 84 | Both | ✅ | ✅ | US + Select Global | Variable (Risk based) | Custom | Advanced (API/SDK) | ✅ | 2020 | 🟡 VC | US / Fraud | 🟢 |
-| [**Guardarian**](https://guardarian.com/) | 83 | Both | ✅ | ✅ | ~100+ Countries | Low/Medium | ~€5.00 | Good (Widget) | ✅ | 2017 | 🟡 VC | EU focus | 🟢 |
 | [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Both | ✅ | ✅ | ~170+ Countries | Variable | Custom | Advanced (Plugin/API) | ✅ | 2018 | 🟡 VC | Global pay rails | 🟢 |
 | [**Mercuryo**](https://mercuryo.io/) | 82 | Both | ✅ | ✅ | Global | Medium | Custom | Good | ✅ | 2018 | 🟡 VC | B2B | 🟢 |
-| [**Banxa**](https://banxa.com/) | 81 | Both | ✅ | ✅ | Global | Variable | Custom | Good | ✅ | 2014 | 🟢 PublicCo | Local Pay | 🟡 |
+| [**Banxa**](https://banxa.com/) | 81 | Both | ✅ | ✅ | Global | Variable | Custom | Good | ✅ | 2014 | 🟢 OSL Group | Local Pay | 🟡 |
 | [**Simplex**](https://www.simplex.com/) | 81 | Both | ✅ | ✅ | ~190+ Countries | Medium/High | ~$10.00 | Good (Widget) | ✅ | 2014 | 🟢 Nuvei | High limits | 🟡 |
-| [**Transak**](https://transak.com/) | 81 | Both | ✅ | ✅ | ~64 Countries | Medium (Spread + Fee) | ~$5.00 | Excellent (React SDK) | ✅ | 2020 | 🟡 VC | Developers | 🟢 |
+| [**Transak**](https://transak.com/) | 81 | Both | ✅ | ✅ | ~64 Countries | Medium (Spread + Fee) | ~$5.00 | Excellent (React SDK) | ✅ | 2020 | 🟡 VC | Developers | 🟡 |
 | [**CoinSwitch**](https://coinswitch.co/) | 79 | Both | ✅ | ✅ | ~100+ Countries | Medium | ~₹100 | Good (API) | ✅ | 2017 | 🟡 VC | India / APAC | 🟡 |
 | [**MoonPay**](https://www.moonpay.com/) | 79 | Both | ✅ | ✅ | ~160+ Countries | High (Spread + Fee) | ~$3.99 | Great (Widget) | ✅ | 2019 | 🟡 VC | Coverage | 🟡 |
 | [**onesafe**](https://onesafe.io/) | 79 | Both | ✅ | ✅ | Select Global | Variable | Custom | Good (API) | ✅ | 2022 | 🔴 Unknown | Enterprise | 🟡 |
-| [**Utorg**](https://utorg.pro/) | 78 | Both | ✅ | ✅ | ~100+ Countries | Medium | ~$5.00 | Good (Widget) | ✅ | 2020 | 🔴 Unknown | Multi-chain | 🟡 |
-| [**Coinify**](https://www.coinify.com/) | 77 | Both | ✅ | ✅ | ~50+ Countries | Medium | ~€5.00 | Good (API) | ✅ | 2014 | 🟢 Revenue | EU | 🔴 |
+| [**Utorg**](https://utorg.com/) | 78 | Both | ✅ | ✅ | ~130+ Countries | Medium | ~$5.00 | Good (Widget) | ✅ | 2020 | 🔴 Unknown | Multi-chain | 🔴 |
 | [**Modern Treasury**](https://www.moderntreasury.com/) | 73 | Both | ✅ | ✅ | US + Select | Usage Based | Custom | Excellent (API) | ✅ | 2018 | 🟡 VC | Enterprise | 🔴 |
 | [**Reap**](https://reap.global/) | 72 | Off-Ramp | ❌ | ✅ | Global | Variable | Custom | Good (API) | ✅ | 2018 | 🟡 VC | Business off-ramp | 🔴 |
 | [**Robinhood Connect**](https://robinhood.com/us/en/on-ramp/) | 66 | On-Ramp | ✅ | ❌ | US (ex-NY) | Low | 0.0-1.5% | Good (Widget) | ✅ | 2013 | 🟢 PublicCo | US dapps | 🔴 |
-| [**Coinmama**](https://www.coinmama.com/) | 59 | On-Ramp | ✅ | ❌ | ~100+ Countries | High | ~$30.00 | Basic (Widget) | ✅ | 2013 | 🟢 Revenue | Simple on-ramp | 🔴 |
+| [**Coinmama**](https://www.coinmama.com/) | 62 | On-Ramp | ✅ | ❌ | ~190+ Countries | High | ~$30.00 | Basic (Widget) | ✅ | 2013 | 🟢 Revenue | Simple on-ramp | 🔴 |
 
 > **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. Update the table inputs first, then resync the scores.
 
 ## Pros & Cons (Top Picks)
 
-**Coinbase Pay (89)**
-- ✅ Strongest current overall score
+**Coinbase Pay (84)**
+- ✅ Documented fees: 2.5% credit card, 0.5% ACH (Coinbase Onramp FAQ, checked 2026-10-15)
 - ✅ Excellent fit when users already hold Coinbase accounts
-- ⚠️ Ecosystem reach still depends on Coinbase availability
+- ⚠️ Product is now called Coinbase Onramp. Guest checkout (debit card, Apple Pay) in the hosted widget was deprecated on 2026-06-30; the Headless Onramp API replaces it
+- ⚠️ Ecosystem reach still depends on Coinbase availability (all Coinbase countries except Japan)
 
-**CoinGate (88)**
+**CoinGate (90)**
 - ✅ Strong both-way coverage with low visible fee friction
 - ✅ Merchant/API friendly profile
 - ⚠️ More utilitarian than consumer-polished
 
-**BitPay (87)**
+**BitPay (89)**
 - ✅ Mature both-way stack with clear crypto payments positioning
 - ✅ Strong fit for Bitcoin-heavy flows
 - ⚠️ Less appealing if you need the widest long-tail token reach
@@ -109,9 +110,9 @@
 
 ## Quick Summary
 
-> **TL;DR:** Use **Coinbase Pay** (89) when your users already live inside Coinbase, **CoinGate** (88) or **BitPay** (87) for low-friction two-way coverage, **Ramp** (86) for EU/L2-heavy consumer flows, **Stripe** (86) for enterprise trust, and **Sardine** (84) when US fraud controls matter more than the widest coverage.
+> **TL;DR:** Use **Coinbase Pay** (84) when your users already live inside Coinbase, **CoinGate** (90) or **BitPay** (89) for low-friction two-way coverage, **Ramp** (86) for EU/L2-heavy consumer flows, **Stripe** (88) for enterprise trust, and **Sardine** (84) when US fraud controls matter more than the widest coverage.
 
-**Last Updated:** April 8, 2026 | [Scoring Methodology](./RAMPS_DETAILS.md#scoring-methodology) | [Integration Guides](./RAMPS_DETAILS.md#integration-guides)
+**Last Updated:** October 15, 2026 | [Scoring Methodology](./RAMPS_DETAILS.md#scoring-methodology) | [Integration Guides](./RAMPS_DETAILS.md#integration-guides)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md), [Hardware Wallet Comparison](./HARDWARE_WALLETS.md), and [Crypto Credit Card Comparison](./CRYPTO_CARDS.md) for wallet recommendations.
 
