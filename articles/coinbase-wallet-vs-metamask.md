@@ -35,7 +35,7 @@ Source: `SOFTWARE_WALLETS.md`
 |---------|-----------------|----------|
 | Ecosystem coverage | ⚠️ Medium | ✅ Highest |
 | Account abstraction | ✅ (4337) | ⚠️ Limited |
-| Release cadence | ~2/mo | ~8/mo |
+| Release cadence | ~2/mo | ~5/mo |
 | Hardware wallet support | ✅ | ✅ |
 | Compatibility | ⚠️ | ✅ |
 
@@ -52,7 +52,7 @@ Source: `SOFTWARE_WALLETS.md`
 - **MetaMask:** EOA-first, with newer features rolling out.
 
 ### 3) Release Cadence
-- **MetaMask:** Higher churn (~8 rel/mo).
+- **MetaMask:** Higher churn (~5 rel/mo).
 - **Coinbase:** Lower churn (~2 rel/mo).
 
 ---
