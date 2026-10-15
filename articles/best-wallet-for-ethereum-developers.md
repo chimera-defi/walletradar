@@ -32,7 +32,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 - ⚠️ **Scam Detection** - Comprehensive scam database
 - 📱 **Mobile + Desktop** - iOS, Android, and browser extension
 - ⛓️ **120+ EVM Chains** - Automatic chain detection
-- 🔄 **Stable Releases** - ~6 releases/month (low breaking changes)
+- 🔄 **Stable Releases** - ~4 releases/month (low breaking changes)
 - 🔗 **Hardware Wallet Support** - Ledger, Trezor integration
 
 **Perfect For:**

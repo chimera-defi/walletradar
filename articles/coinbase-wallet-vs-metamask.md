@@ -52,7 +52,7 @@ Source: `SOFTWARE_WALLETS.md`
 - **MetaMask:** EOA-first, with newer features rolling out.
 
 ### 3) Release Cadence
-- **MetaMask:** Higher churn (~8 rel/mo).
+- **MetaMask:** Higher churn (~5 rel/mo).
 - **Coinbase:** Lower churn (~2 rel/mo).
 
 ---
