@@ -1,8 +1,8 @@
 ---
 title: "MetaMask vs Rainbow: Which Wallet is Better for Everyday Ethereum Use?"
-description: "Compare MetaMask (73) vs Rainbow (77) with Wallet Radar scores, stability, and UX focus."
+description: "Compare MetaMask (80) vs Rainbow (64) with Wallet Radar scores, stability, and UX focus."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 wallets: ["MetaMask", "Rainbow"]
 tags: ["comparison", "software-wallets", "ethereum"]
@@ -12,7 +12,7 @@ tags: ["comparison", "software-wallets", "ethereum"]
 
 ## Quick Answer
 
-**Rainbow (77/100)** is better for everyday Ethereum use due to stronger UX and stability. **MetaMask (73/100)** remains essential for compatibility testing because of its dominant ecosystem.
+**MetaMask (80/100)** scores higher in the Wallet Radar table and is essential for compatibility testing. **Rainbow (64/100)** is the pick for everyday Ethereum and NFT use because of its UX and lower release churn (~4/mo vs ~5/mo).
 
 ---
 
@@ -20,8 +20,8 @@ tags: ["comparison", "software-wallets", "ethereum"]
 
 | Wallet | Score | Best For |
 |--------|-------|----------|
-| **Rainbow** | **77** | NFT/Ethereum UX |
-| **MetaMask** | 73 | Compatibility + ecosystem coverage |
+| **Rainbow** | 64 | NFT/Ethereum UX |
+| **MetaMask** | **80** | Compatibility + ecosystem coverage |
 
 Source: `SOFTWARE_WALLETS.md`
 
@@ -71,7 +71,7 @@ Source: `SOFTWARE_WALLETS.md`
 
 ## Recommendations
 
-- **Primary wallet:** Rainbow (better UX)
+- **Everyday use:** Rainbow (better UX)
 - **Compatibility testing:** MetaMask (required for broad coverage)
 
 ---
@@ -82,7 +82,7 @@ Source: `SOFTWARE_WALLETS.md`
 Yes, for compatibility testing across most dApps.
 
 **Is Rainbow safe?**  
-Rainbow scores higher in Wallet Radar’s stability/UX checks.
+Rainbow scores 64 in the table. Check its [row](https://github.com/chimera-defi/walletradar/blob/main/SOFTWARE_WALLETS.md) for audit and licence details.
 
 ---
 

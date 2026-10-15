@@ -2,7 +2,7 @@
 title: "Best Wallet for NFT Collectors in 2026"
 description: "Wallet Radar picks for NFTs: Rainbow for UX, Rabby for safety, MetaMask for compatibility."
 category: guide
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 tags: ["guide", "nft", "ethereum"]
 ---
@@ -11,9 +11,9 @@ tags: ["guide", "nft", "ethereum"]
 
 ## Quick Answer
 
-- **Best NFT UX:** **Rainbow (77)**  
-- **Best safety tooling:** **Rabby (92)**  
-- **Best compatibility:** **MetaMask (73)**  
+- **Best NFT UX:** **Rainbow (64)**  
+- **Best safety tooling:** **Rabby (86)**  
+- **Best compatibility:** **MetaMask (80)**  
 
 Source: `SOFTWARE_WALLETS.md`
 

@@ -52,72 +52,40 @@
 ---
 ## 🎯 Quick Recommendations
 
-**Quick Answers:** Best for development? **Rabby** (86). Most stable? **Trust** (75). Why not MetaMask? **MetaMask** (80) has ~5 rel/mo, the highest churn in the table. Scores here are the generated table scores; the older per-section scores below (Rabby 92, Trust 85, Rainbow 82, MetaMask 73, Wigwam 67) are a superseded 2025 set kept for the breakdown only. See [full comparison table](#complete-wallet-comparison) for all wallets.
+Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md). Best for development: **Rabby** (86). Most stable: **Brave** (~2 releases/month). Compatibility testing: **MetaMask** (80, ~5 releases/month, test last). See the [full comparison table](#complete-wallet-comparison).
 
-**Jump to:** [Comparison Table](#complete-wallet-comparison) | [Scoring Methodology](#-wallet-scores-weighted-methodology) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
+**Jump to:** [Comparison Table](#complete-wallet-comparison) | [Scoring Methodology](#-wallet-scores-developer-focused-methodology) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
 
-### ✅ Top Picks (Meet Core Criteria: Mobile + Browser Extension)
+### ✅ Top Picks (mobile + browser extension)
 
-| Rank | Wallet | Score | Best For |
-|------|--------|-------|----------|
-| 🥇 | **Rabby** | 92 | Development — tx simulation, catches bugs before mainnet |
-| 🥈 | **Trust** | 85 | Production — most stable (~3 rel/mo), 163 chains, wide adoption |
-| 🥉 | **Rainbow** | 82 | Production — best code quality (1.0% issue ratio), curated chains |
-| 4 | **Brave** | 81 | Maximum stability — ~2 rel/mo, built into browser, bug bounty |
-| 5 | **Coinbase** | 75 | Account Abstraction — EIP-4337 support ⚠️ SDK dev slowed |
+| Wallet | Score | Rel/Mo | Rec | Best For |
+|--------|-------|--------|-----|----------|
+| **Rabby** | 86 | ~4 | 🟢 | Development: tx simulation catches bugs before mainnet |
+| **MetaMask** | 80 | ~5 | 🟢 | Compatibility testing: widest support, highest churn |
+| **Brave** | 75 | ~2 | 🟢 | Stability: built into the browser |
+| **Trust** | 75 | ~3 | 🟢 | Multi-chain production use |
+| **Coinbase** | 67 | ~2 | 🔴 | Account abstraction (EIP-4337) |
+| **Rainbow** | 64 | ~4 | ⚪ | NFT and Ethereum use |
 
-### Use Case Recommendations
+### Good wallets that miss the core criteria
 
-**For Development (Daily Driver):**
-- **Rabby** (92) — Best tx simulation, both platforms, active
-- **Trust** (85) — Most stable (~3 rel/mo), wide adoption
-- **Rainbow** (82) — Excellent code quality (1.0% issue ratio)
+- **Safe** (77): treasury and DAO multisig. No browser extension.
+- **Ambire** (71): smart wallet, EIP-7702 + 4337. No mobile app.
+- **Ledger Live** (61): for hardware wallet users.
+- **Enkrypt** (53): multi-chain testing, extension only.
 
-**For Production Testing:**
-- **Trust** (85) — Wide user adoption, 163 chains
-- **Rainbow** (82) — Great mobile UX, curated chains
-- **Coinbase** (75) — AA support, enterprise backing ⚠️ SDK dev slowed
+### Avoid (inactive or abandoned)
 
-**For Maximum Stability:**
-- **Brave** (81) — ~2 rel/mo, built into browser, bug bounty
-- **Trust** (85) — ~3 rel/mo, very stable
-- **Coinbase** (75) — ~2 rel/mo, stable API
+- **Block**: abandoned; source-available, non-commercial licence.
+- **Frame**: inactive since Feb 2025.
+- **Argent** (now Ready): inactive repo, Starknet-only desktop.
+- **imToken**: inactive (last commit May 20, 2026).
 
-**For Account Abstraction / EIP-7702:**
-- **Trust** (85) — EIP-7702 support, most chains (163)
-- **Coinbase** (75) — EIP-4337 in browser extension
-- **Ambire** (65) — EIP-7702 + 4337, 11+ audits
-- **MetaMask** (73) — EIP-7702 support, but high churn
+### MetaMask: why it sits below Rabby
 
-**For Compatibility Testing (Use Last):**
-- **MetaMask** (73) — Most widely supported, but ~5 rel/mo = test last
-
-### ⚠️ Good Wallets That DON'T Meet Core Criteria
-
-**Browser Extension Only (No Mobile):**
-- **Ambire** (65) — Smart wallet with tx simulation, EIP-7702 support, 11+ audits
-- **Enkrypt** (55) — 75+ chains, great for multi-chain testing
-- **Taho** (45) — Community-owned, open source; slow (last commit Aug 20, 2026, no GitHub release in 90 days)
-
-**Mobile/Web Only (No Browser Extension):**
-- **Safe** (63) — Enterprise multi-sig, requires WalletConnect
-- **Ledger Live** (50) — Hardware wallet users
-- **MEW** (50) — Classic Ethereum, web + mobile
-
-**Avoid ❌ (Inactive/Abandoned):**
-- **Block Wallet** — Abandoned (no commits since Nov 2024); source-available, non-commercial licence
-- **Frame** — Inactive (no commits since Feb 2025; GPL-3.0)
-- **Argent** (now branded Ready; extension "Ready X") — Inactive repo (argent-x last commit Mar 14, 2025), Starknet-only desktop
-- **imToken** — Inactive (last commit May 20, 2026; 148 days as of Oct 15, 2026)
-
-### ⚠️ MetaMask: Why It's Ranked Lower
-
-MetaMask scores 73 (🟡 Situational) despite being the industry standard:
-- **~5 releases/month (GitHub releases, last 90 days: 15)** — highest churn of any wallet
-- **21.6% issue/star ratio** — indicates maintenance challenges
-- **Frequent breaking changes** — requires constant testing
-- **Positive:** Well-audited (Apr 2025 audit by Diligence, Cure53, Cyfrin)
-- **Use for:** Compatibility testing only (test with MetaMask last)
+- ~5 releases/month (15 GitHub releases in the last 90 days): the highest churn in the table.
+- Frequent breaking changes need constant retesting.
+- Positive: audited in Apr 2025 (Diligence, Cure53, Cyfrin).
 
 ---
 
@@ -162,89 +130,17 @@ MetaMask scores 73 (🟡 Situational) despite being the industry standard:
 
 ## 📊 Wallet Scores (Developer-Focused Methodology)
 
-**Original Goal:** Find stable MetaMask alternatives with BOTH mobile + browser extension for developer use.
+**Goal:** find stable MetaMask alternatives with both mobile and browser extension for developer use.
 
-> **Superseded:** the per-wallet scores in this section come from the 2025 legacy methodology and differ from the generated table in [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md). Use the table for current scores.
+Scores are generated from the visible table columns by `frontend/src/lib/scoring.js` (methodology `2026-04-visible-columns-v3`). Run `bun scripts/sync_table_scores.js --write` to regenerate. Per-wallet scores live in the [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) table; the formula is in [CONTRIBUTING.md](./CONTRIBUTING.md). The 2025 per-category breakdown that used to sit here was removed because it no longer matched the generated scores.
 
-**Quick Reference:** Score = Core (25) + Stability (20) + DevExp (25) + Activity (15) + FOSS (10) + Security (5) = 100 total
-
-Scores prioritize what matters for developers: platform coverage, stability, and developer experience.
-
-| Wallet | Score | Core | Stability | DevExp | Activity | FOSS | Security | Notes |
-|--------|-------|------|-----------|--------|----------|------|----------|-------|
-| **Rabby** | 🥇 92 | 25/25 | 14/20 | 23/25 | 15/15 | 10/10 | 5/5 | Best dev wallet — tx sim + stable |
-| **Trust** | 🥈 82 | 25/25 | 17/20 | 15/25 | 15/15 | 5/10 | 5/5 | Stable, Apache-2.0 core (partial FOSS) |
-| **Rainbow** | 🥉 77 | 25/25 | 16/20 | 11/25 | 15/15 | 10/10 | 0/5 | Great code quality, no audit |
-| **Brave** | 81 | 25/25 | 18/20 | 10/25 | 15/15 | 10/10 | 3/5 | Built into browser, bug bounty |
-| **Coinbase** | 73 | 25/25 | 18/20 | 17/25 | 8/15 | 5/10 | 0/5 | AA support, SDK dev slowed, private audits |
-| **MetaMask** | 73 | 25/25 | 8/20 | 15/25 | 15/15 | 5/10 | 5/5 | ⚠️ ~5 rel/mo = high churn, audited 2025 |
-| **Phantom** | 60 | 25/25 | 15/20 | 15/25 | 5/15 | 0/10 | 0/5 | No testnets, proprietary, no audit |
-| **Wigwam** | 67 (legacy; table 47) | 25/25 | 12/20 | 5/25 | 15/15 | 10/10 | 0/5 | MPL-2.0 license, no audit |
-| **Ambire** | 65 | 0/25 | 18/20 | 17/25 | 15/15 | 10/10 | 5/5 | ❌ No mobile app, 11+ audits |
-| **Safe** | 63 | 0/25 | 15/20 | 18/25 | 15/15 | 10/10 | 5/5 | ❌ No browser ext — web only, GPL-3 |
-| **OKX** | 57 | 25/25 | 12/20 | 15/25 | 5/15 | 0/10 | 0/5 | Proprietary, no audit |
-| **Enkrypt** | 55 | 0/25 | 18/20 | 12/25 | 15/15 | 10/10 | 0/5 | ❌ No mobile app |
-| **Daimo** | 50 | 0/25 | 18/20 | 2/25 | 15/15 | 10/10 | 5/5 | ❌ Mobile only, no testnets, audited 2023 |
-| **Ledger Live** | 50 | 0/25 | 16/20 | 9/25 | 15/15 | 10/10 | 0/5 | ❌ No browser extension |
-| **MEW** | 50 | 0/25 | 17/20 | 8/25 | 15/15 | 10/10 | 0/5 | ❌ No browser extension |
-| **Sequence** | 53 | 0/25 | 15/20 | 8/25 | 15/15 | 10/10 | 5/5 | ❌ Web SDK only, Apache license |
-| **Taho** | 45 | 0/25 | 17/20 | 3/25 | 15/15 | 10/10 | 0/5 | ❌ No mobile, risky funding, no audit |
-| **Zerion** | 45 | 25/25 | 12/20 | 3/25 | 5/15 | 0/10 | 0/5 | Proprietary, not for dev |
-| **Uniswap** | 42 | 0/25 | 15/20 | 2/25 | 15/15 | 10/10 | 0/5 | ❌ No browser extension |
-| **imToken** | 35 | 0/25 | 19/20 | 9/25 | 0/15 | 5/10 | 2/5 | ❌ Inactive, mobile only, partial Apache |
-| **Frame** | 32 | 0/25 | 12/20 | 10/25 | 0/15 | 10/10 | 0/5 | ❌ Inactive, desktop only |
-| **1inch** | 30 | 0/25 | 15/20 | 10/25 | 5/15 | 0/10 | 0/5 | ❌ Mobile only, proprietary, no audit |
-| **Argent** | 25 | 0/25 | 15/20 | 0/25 | 0/15 | 10/10 | 0/5 | ❌ Inactive, Starknet desktop, no audit |
-| **Block** | 0 (legacy 10) | 0/25 | 0/20 | 0/25 | 0/15 | 0/10 | 0/5 | ❌ Abandoned, browser ext only, non-commercial source-available licence |
-| **Kohaku**∆ | 45 | 0/25 | 20/20 | 15/25 | 0/15 | 10/10 | 0/5 | ⚠️ Slow Ambire fork (last commit Jul 3, 2026) |
-
-**Scoring Methodology (100 points total):**
-
-```
-CORE CRITERIA (25 pts) — Does wallet have BOTH mobile + browser extension?
-  ✅ Both mobile + browser extension = 25
-  ⚠️ Partial (e.g., Starknet-only desktop) = 12
-  ❌ Missing mobile OR extension = 0
-  
-STABILITY (20 pts) — Lower release frequency = more stable
-  <3 releases/month = 20 (ideal for stability)
-  3-5 releases/month = 15
-  6-8 releases/month = 10
-  >8 releases/month = 5 (MetaMask territory)
-  Unknown (private) = 12
-  Inactive = 20 (no churn, but no updates either)
-
-DEVELOPER EXPERIENCE (25 pts)
-  Transaction simulation: ✅=10, ⚠️=5, ❌=0
-  Testnet support: ✅=5, ❌=0
-  Custom RPC support: ✅=5, ⚠️=3, ❌=0
-  Multi-chain: ✅=5, ❌=0
-
-ACTIVITY (15 pts)
-  ✅ Active (≤30 days) = 15
-  ⚠️ Slow (1-4 months) = 8
-  🔒 Private repo = 5
-  ❌ Inactive (>4 months) = 0
-
-OPEN SOURCE (10 pts)
-  ✅ FOSS (MIT, GPL, MPL, Apache) = 10
-  ⚠️ Source-available/partial = 5
-  ❌ Proprietary = 0
-
-SECURITY (5 pts)
-  ✅ Recent audit (2023+) = 5
-  🐛 Bug bounty = 3
-  ⚠️ Old audit = 2
-  ❓ None/Private = 0
-```
-
-**Score Interpretation (auto-generated bands):**
+**Score interpretation (auto-generated bands):**
 - 🟢 **Recommended:** top half of active, developer-fit rows
 - 🟡 **Situational:** middle quartile of active, developer-fit rows
 - 🔴 **Avoid:** bottom quartile or inactive
-- ⚪ **Not for dev:** fails core developer-fit requirements (for example missing mobile+extension)
+- ⚪ **Not for dev:** fails core developer-fit requirements (for example, no mobile + extension)
 
-**Key Insight:** MetaMask scores 73 despite being the industry standard because of its ~5 releases/month (GitHub releases, last 90 days: 15) (high churn). Though well-audited (2025), wallets like Trust (85), Rainbow (82), and Brave (81) offer better stability while meeting all core criteria.
+**Key insight:** MetaMask scores 80 despite being the industry standard because of ~5 releases/month (high churn). Rabby (86) leads on tx simulation and stability.
 
 ---
 
@@ -415,7 +311,7 @@ Complete explanations for all table columns:
 
 | Column | Values | Meaning |
 |--------|--------|---------|
-| **Score** | 0-100 | Weighted score prioritizing core criteria, stability, and developer experience. See [Scoring Methodology](#-wallet-scores-weighted-methodology) |
+| **Score** | 0-100 | Weighted score prioritizing core criteria, stability, and developer experience. See [Scoring Methodology](#-wallet-scores-developer-focused-methodology) |
 | **Core** | ✅ / ⚠️ / ❌ | ✅ = Has BOTH mobile + browser extension (core criteria) | ⚠️ = Partial (e.g., Starknet-only desktop) | ❌ = Missing one or both |
 | **Rel/Mo** | Number or ? | Releases per month (lower = more stable; MetaMask ~8/mo is high churn) | ? = Unknown (private repo) |
 | **RPC** | ✅ / ⚠️ / ❌ | ✅ = Custom RPC support | ⚠️ = Limited | ❌ = No custom RPC |
@@ -446,7 +342,7 @@ Complete explanations for all table columns:
 
 ## Wallet Features Matrix
 
-Comprehensive feature comparison across account types, hardware wallet support, ENS, and browser integration.
+Feature comparison across account types, hardware wallet support, ENS, and browser integration.
 
 ### Account Type Support
 
@@ -716,7 +612,7 @@ How accurately do wallets estimate gas and preview transaction effects?
 
 ## 📱 Mobile Deep-linking & Integration
 
-For dApps with mobile support, deep-linking is critical for seamless UX:
+For dApps with mobile support, deep-linking is critical for good UX:
 
 | Wallet | Universal Links | Custom Scheme | WC Mobile Link | App Links (Android) |
 |--------|-----------------|---------------|----------------|---------------------|
