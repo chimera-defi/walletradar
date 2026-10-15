@@ -14,7 +14,7 @@ tags: ["comparison", "ramps", "payments"]
 - **Highest score:** **Stripe (88)**, but the hosted onramp is in public preview and needs an application
 - **Best documented EU bank-transfer fees:** **Ramp (86)**, up to 1.40% for manual bank transfer, minimum 2.49 EUR
 - **Best Coinbase integration:** **Coinbase Pay (84)**, now branded Coinbase Onramp, 2.5% credit card and 0.5% ACH
-- **Most expensive card fee we could confirm:** **MoonPay (79)**, up to 4.5%
+- **Card fees to compare:** **MoonPay (79)** up to 4.5%; **Ramp (86)** up to 3.9% for USD/EUR/GBP cards and up to 5.45% for other currencies
 
 Source: `RAMPS.md`, checked 2026-10-15. Scores are generated from the table columns, so a fee or coverage change can move them.
 

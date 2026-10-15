@@ -14,11 +14,11 @@
 |----------|-------|----------|----------|-----------|--------|
 | [**Flexa**](https://flexa.co/) | 88 | 🏪 Retail POS | Global | Low (~0.5%, UNVERIFIED) | Excellent (SDK/API) |
 | [**NOWPayments**](https://nowpayments.io/) | 85 | 🪙 Multi-Crypto | Global | Low (from 1%) | Excellent (API) |
-| [**Coinbase Commerce**](https://commerce.coinbase.com/) | 83 | 🤝 Brand Trust | Global | Low (1%) | Great (SDK) |
+| [**Coinbase Commerce**](https://commerce.coinbase.com/) | 83 | 🤝 Brand Trust | Global | Low (1%, UNVERIFIED) | Great (SDK) |
 | [**BitPay**](https://bitpay.com/) | 82 | ₿ Bitcoin Focus | Global | Medium (2% + 25¢, tiered) | Good (API) |
 | [**CoinGate**](https://coingate.com/) | 80 | 🇪🇺 EU Merchants | Global | Low (1%) | Good (API) |
 | [**YODL Pay**](https://yodl.me/) | 78 | 🌍 Emerging Markets | Select Global | Variable | Good (App) |
-| [**Binance Pay**](https://pay.binance.com/) | 77 | 🔶 Binance Users | Global | Zero | Good (API) |
+| [**Binance Pay**](https://pay.binance.com/) | 77 | 🔶 Binance Users | Global | Zero (P2P); merchant fee UNVERIFIED | Good (API) |
 | [**Alchemy Pay**](https://alchemypay.org/) | 75 | 💱 Hybrid Fiat+Crypto | Global | Variable | Good (SDK) |
 
 ---
@@ -78,7 +78,7 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
 
 ### 2. Wallet Compatibility
 
-- **Flexa:** Works with 13+ blockchain networks and most major wallets
+- **Flexa:** Works with most major wallets (13+ networks claimed earlier, UNVERIFIED)
 - **NOWPayments:** Compatible with all standard crypto wallets
 - **Coinbase Commerce:** Optimized for Coinbase Wallet, supports all
 - **BitPay:** BitPay Wallet optimized, supports all Bitcoin wallets
@@ -113,7 +113,7 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
     * 👉 **NOWPayments**. from 1%, 300+ cryptocurrencies, non-custodial option.
 
 * **...brand recognition and easy integration:**
-    * 👉 **Coinbase Commerce**. Trusted brand, good documentation, Shopify/WooCommerce plugins.
+    * 👉 **Coinbase Commerce**. Trusted brand, good documentation, Shopify/WooCommerce plugins. Warning: Coinbase says Commerce is being replaced by Coinbase Business (US and Singapore businesses only) and the portal becomes inaccessible after 2026-03-31; current state UNVERIFIED, see notes at the end.
 
 * **...Bitcoin-focused payments:**
     * 👉 **BitPay**. Established Bitcoin payment processor, daily fiat settlement.
@@ -233,7 +233,7 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 ### Flexa
 - **Website:** [flexa.co](https://flexa.co/)
 - Leader in retail crypto payments
-- 99+ digital assets across 13+ networks
+- 99+ digital assets (flexa.co, 2026-10-15); 13+ networks UNVERIFIED
 - Guaranteed settlement - no chargebacks
 - Works with existing POS systems (Square, Clover, etc.)
 - The SPEDN consumer app shut down on 2026-03-31 (support.flexa.co); Flexa continues with Flexa Payments and the Flexa SDK for merchants. The earlier retailer examples (Home Depot, Whole Foods) ran through SPEDN and are no longer shown as current

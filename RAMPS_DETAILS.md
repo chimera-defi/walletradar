@@ -47,7 +47,7 @@ This table mirrors the current generated ordering from [RAMPS.md](./RAMPS.md):
 | [**Coinbase Pay**](https://www.coinbase.com/developers/pay-sdk) | 84 | Coinbase users | ~90+ Countries | Medium | Excellent (SDK) |
 | [**Coinify**](https://www.coinify.com/) | 84 | EU | ~170+ Countries | Medium | Good (API) |
 | [**Sardine**](https://www.sardine.ai/) | 84 | US / Fraud | US + Select Global | Variable (Risk based) | Advanced (API/SDK) |
-| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Global pay rails | ~170+ Countries | Variable | Advanced (Plugin/API) |
+| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Global pay rails | ~170+ Countries ‡ | Variable | Advanced (Plugin/API) |
 <!-- GENERATED_RAMPS_TOP_PROVIDERS_END -->
 
 ---
@@ -65,7 +65,7 @@ Fees are the biggest friction point for users. They typically consist of three p
 | **Transak** | UNVERIFIED (~3.5% cards, ~$5.00 minimum are older figures; transak.com returned 403 on 2026-10-15) | UNVERIFIED | UNVERIFIED | Transak docs say fees depend on region, payment method and volume; use the quote endpoint for live fees |
 | **MoonPay** | Up to 4.5% (card) | UNVERIFIED | Up to $3.99 direct, up to $4.50 for partner referrals | Source: moonpay.com/legal/pricing_disclosure, 2026-10-15. Non-USD orders add 0.25% to 10% to the minimum. Virtual accounts typically about 1%. Cash App Pay 2.9% + $0.30 |
 | **Stripe** | Custom | Custom | Custom | Usage-based pricing for businesses. Stripe docs (2026-10-15) publish no fee figures; hosted onramp is in public preview and needs an application |
-| **Coinbase Pay (Onramp)** | 2.5% credit card, 0.5% ACH, plus spread | UNVERIFIED | Apple Pay / Google Pay minimum amount about $5 | Source: docs.cdp.coinbase.com FAQ, 2026-10-15. Free for developers. Guest checkout in the hosted widget deprecated 2026-06-30 |
+| **Coinbase Pay (Onramp)** | 2.5% credit card, 0.5% ACH, plus spread | UNVERIFIED | n/a (not a fee; Apple Pay / Google Pay minimum purchase about $5) | Source: docs.cdp.coinbase.com FAQ, 2026-10-15. Free for developers. Guest checkout in the hosted widget deprecated 2026-06-30 |
 | **CoinGate** (merchant) | 1% payment processing | n/a | Crypto payouts €0.50 + 0.5% | Source: coingate.com/pricing, 2026-10-15 |
 | **BitPay** (merchant) | 2% + $0.25 under $500k/month; 1.5% + $0.25 to $1M; 1% + $0.25 above | n/a | n/a | Source: bitpay.com/pricing, 2026-10-15 |
 

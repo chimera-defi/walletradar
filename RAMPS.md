@@ -4,28 +4,30 @@
 
 | Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Status | Founded | Funding | Best For | Rec |
 | -------- | ----- | ---- | ------- | -------- | -------- | --------- | ------- | ------ | ------ | ------- | ------- | -------- | --- |
-| [**CoinGate**](https://coingate.com/) | 90 | Both | ✅ | ✅ | Global | Low | ~€0.01 | Good (API) | ✅ | 2014 | 🟢 Self | Low fees | 🟢 |
-| [**BitPay**](https://bitpay.com/) | 89 | Both | ✅ | ✅ | Global | Medium | ~$1.00 | Good (API) | ✅ | 2011 | 🟢 Revenue | Bitcoin focus | 🟢 |
+| [**CoinGate**](https://coingate.com/) | 90 | Both | ✅ | ✅ | Global | Low | ~€0.01 ‡ | Good (API) | ✅ | 2014 | 🟢 Self | Low fees | 🟢 |
+| [**BitPay**](https://bitpay.com/) | 89 | Both | ✅ | ✅ | Global | Medium | ~$1.00 ‡ | Good (API) | ✅ | 2011 | 🟢 Revenue | Bitcoin focus | 🟢 |
 | [**Stripe**](https://stripe.com/docs/crypto) | 88 | Both | ✅ | ✅ | Global | Usage Based | Custom | Excellent (Stripe style) | ✅ | 2010 | 🟢 PublicCo | Trust | 🟢 |
-| [**Guardarian**](https://guardarian.com/) | 86 | Both | ✅ | ✅ | ~170+ Countries | Low/Medium | ~€5.00 | Good (Widget) | ✅ | 2017 | 🟡 VC | EU focus | 🟢 |
+| [**Guardarian**](https://guardarian.com/) | 86 | Both | ✅ | ✅ | ~170+ Countries | Low/Medium | ~€5.00 ‡ | Good (Widget) | ✅ | 2017 | 🟡 VC | EU focus | 🟢 |
 | [**Ramp**](https://rampnetwork.com/) | 86 | Both | ✅ | ✅ | ~150+ Countries | Low/Medium | ~€2.49 | Good (SDK) | ✅ | 2017 | 🟡 VC | EU / Speed | 🟢 |
-| [**Changelly**](https://changelly.com/) | 85 | Both | ✅ | ✅ | Global | Medium | ~$5.00 | Good (API) | ✅ | 2015 | 🟢 Revenue | Exchange | 🟢 |
+| [**Changelly**](https://changelly.com/) | 85 | Both | ✅ | ✅ | Global | Medium | ~$5.00 ‡ | Good (API) | ✅ | 2015 | 🟢 Revenue | Exchange | 🟢 |
 | [**Coinbase Pay**](https://www.coinbase.com/developers/pay-sdk) | 84 | Both | ✅ | ✅ | ~90+ Countries | Medium | Not published | Excellent (SDK) | ✅ | 2012 | 🟢 Coinbase | Coinbase users | 🟢 |
-| [**Coinify**](https://www.coinify.com/) | 84 | Both | ✅ | ✅ | ~170+ Countries | Medium | ~€5.00 | Good (API) | ✅ | 2014 | 🟢 Revenue | EU | 🟢 |
+| [**Coinify**](https://www.coinify.com/) | 84 | Both | ✅ | ✅ | ~170+ Countries | Medium | ~€5.00 ‡ | Good (API) | ✅ | 2014 | 🟢 Revenue | EU | 🟢 |
 | [**Sardine**](https://www.sardine.ai/) | 84 | Both | ✅ | ✅ | US + Select Global | Variable (Risk based) | Custom | Advanced (API/SDK) | ✅ | 2020 | 🟡 VC | US / Fraud | 🟢 |
-| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Both | ✅ | ✅ | ~170+ Countries | Variable | Custom | Advanced (Plugin/API) | ✅ | 2018 | 🟡 VC | Global pay rails | 🟢 |
+| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Both | ✅ | ✅ | ~170+ Countries ‡ | Variable | Custom | Advanced (Plugin/API) | ✅ | 2018 | 🟡 VC | Global pay rails | 🟢 |
 | [**Mercuryo**](https://mercuryo.io/) | 82 | Both | ✅ | ✅ | Global | Medium | Custom | Good | ✅ | 2018 | 🟡 VC | B2B | 🟢 |
 | [**Banxa**](https://banxa.com/) | 81 | Both | ✅ | ✅ | Global | Variable | Custom | Good | ✅ | 2014 | 🟢 OSL Group | Local Pay | 🟡 |
-| [**Simplex**](https://www.simplex.com/) | 81 | Both | ✅ | ✅ | ~190+ Countries | Medium/High | ~$10.00 | Good (Widget) | ✅ | 2014 | 🟢 Nuvei | High limits | 🟡 |
-| [**Transak**](https://transak.com/) | 81 | Both | ✅ | ✅ | ~64 Countries | Medium (Spread + Fee) | ~$5.00 | Excellent (React SDK) | ✅ | 2020 | 🟡 VC | Developers | 🟡 |
-| [**CoinSwitch**](https://coinswitch.co/) | 79 | Both | ✅ | ✅ | ~100+ Countries | Medium | ~₹100 | Good (API) | ✅ | 2017 | 🟡 VC | India / APAC | 🟡 |
+| [**Simplex**](https://www.simplex.com/) | 81 | Both | ✅ | ✅ | ~190+ Countries | Medium/High | ~$10.00 ‡ | Good (Widget) | ✅ | 2014 | 🟢 Nuvei | High limits | 🟡 |
+| [**Transak**](https://transak.com/) | 81 | Both | ✅ | ✅ | ~64 Countries ‡ | Medium (Spread + Fee) | ~$5.00 ‡ | Excellent (React SDK) | ✅ | 2020 | 🟡 VC | Developers | 🟡 |
+| [**CoinSwitch**](https://coinswitch.co/) | 79 | Both | ✅ | ✅ | ~100+ Countries ‡ | Medium | ~₹100 ‡ | Good (API) | ✅ | 2017 | 🟡 VC | India / APAC | 🟡 |
 | [**MoonPay**](https://www.moonpay.com/) | 79 | Both | ✅ | ✅ | ~160+ Countries | High (Spread + Fee) | ~$3.99 | Great (Widget) | ✅ | 2019 | 🟡 VC | Coverage | 🟡 |
 | [**onesafe**](https://onesafe.io/) | 79 | Both | ✅ | ✅ | Select Global | Variable | Custom | Good (API) | ✅ | 2022 | 🔴 Unknown | Enterprise | 🟡 |
-| [**Utorg**](https://utorg.com/) | 78 | Both | ✅ | ✅ | ~130+ Countries | Medium | ~$5.00 | Good (Widget) | ✅ | 2020 | 🔴 Unknown | Multi-chain | 🔴 |
+| [**Utorg**](https://utorg.com/) | 78 | Both | ✅ | ✅ | ~130+ Countries | Medium | ~$5.00 ‡ | Good (Widget) | ✅ | 2020 | 🔴 Unknown | Multi-chain | 🔴 |
 | [**Modern Treasury**](https://www.moderntreasury.com/) | 73 | Both | ✅ | ✅ | US + Select | Usage Based | Custom | Excellent (API) | ✅ | 2018 | 🟡 VC | Enterprise | 🔴 |
 | [**Reap**](https://reap.global/) | 72 | Off-Ramp | ❌ | ✅ | Global | Variable | Custom | Good (API) | ✅ | 2018 | 🟡 VC | Business off-ramp | 🔴 |
-| [**Robinhood Connect**](https://robinhood.com/us/en/on-ramp/) | 66 | On-Ramp | ✅ | ❌ | US (ex-NY) | Low | 0.0-1.5% | Good (Widget) | ✅ | 2013 | 🟢 PublicCo | US dapps | 🔴 |
-| [**Coinmama**](https://www.coinmama.com/) | 62 | On-Ramp | ✅ | ❌ | ~190+ Countries | High | ~$30.00 | Basic (Widget) | ✅ | 2013 | 🟢 Revenue | Simple on-ramp | 🔴 |
+| [**Robinhood Connect**](https://robinhood.com/us/en/on-ramp/) | 66 | On-Ramp | ✅ | ❌ | US (ex-NY) | Low | 0.0-1.5% ‡ | Good (Widget) | ✅ | 2013 | 🟢 PublicCo | US dapps | 🔴 |
+| [**Coinmama**](https://www.coinmama.com/) | 62 | On-Ramp | ✅ | ❌ | ~190+ Countries | High | ~$30.00 ‡ | Basic (Widget) | ✅ | 2013 | 🟢 Revenue | Simple on-ramp | 🔴 |
+
+> **‡ UNVERIFIED:** the cell was not confirmed from a primary source on 2026-10-15 (see [RAMPS_DETAILS.md](./RAMPS_DETAILS.md#verification-status-by-provider-2026-10-15)). It still feeds the generated score.
 
 > **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. Update the table inputs first, then resync the scores.
 
@@ -124,7 +126,7 @@
 
 ### What is the best crypto on-ramp for developers?
 
-It depends on your user base. **Coinbase Pay** currently tops the table, but it is strongest when users already have Coinbase accounts. For a more neutral developer-facing ramp stack, **Ramp**, **Stripe**, **Transak**, and **Sardine** are still the higher-signal integration targets.
+It depends on your user base. **CoinGate** (90) tops the table and **Stripe** (88) is the highest-scoring developer-facing ramp. **Coinbase Pay** (84) is strongest when users already have Coinbase accounts. For a neutral developer stack, **Ramp**, **Stripe**, **Transak**, and **Sardine** are still the higher-signal integration targets.
 
 ### What is the difference between on-ramp and off-ramp?
 
