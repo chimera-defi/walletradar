@@ -47,12 +47,12 @@
 | [**BitPay Card**](https://bitpay.com/card) | 59 | Prepaid | 📋 CeFi | ⚠️ | 🇺🇸 US | 1%* | $0 | 0% | None | ⚠️ | US program reportedly ended (unconfirmed) | 🔴 |
 | [**CoinJar Card**](https://www.coinjar.com/au/card) | 58 | Debit | 📋 CeFi | ❌ | 🇦🇺 AU | 1% rewards pts | $0 | 2.99% | Points | ⚠️ | 1% fee returned | 🔴 |
 | [**Swissborg Card**](https://swissborg.com) | 58 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU | 1-2% | $0 | TBD | BORG | ⚠️ | Card advertised on swissborg.com (Mastercard, BORG cashback); /card page 404 | 🔴 |
-| [**Tangem Pay**](https://tangem.com/en/tangem-pay/) | 58 | Debit | 📋 CeFi | ❌ | 🌍 Global | 1-4% | $0-$999/yr | TBD | TBD | ✅ | Tangem wallet users (Visa via Rain; spends a loaded card balance; Prestige waitlist; issuing countries not listed) | 🔴 |
 | [**Amp Pay Black Card**](https://ampay.com) (@GetAmpPay) | 56 | Debit | 🔐 Self | ❌ | 🌍 Global | TBD | TBD | TBD | USDC/SOL | ⚠️ | Solana payments (status unverified) | 🔴 |
+| [**Tangem Pay**](https://tangem.com/en/tangem-pay/) | 53 | Debit | 📋 CeFi | ❌ | Select countries (list unverified) | 1-2% | $0-$29.99/mo | TBD | TBD | ✅ | Tangem wallet users (Visa via Rain; spends a loaded card balance; Basic 1% free, Plus 2% at $29.99/mo; Prestige 4% at $999/yr is waitlisted; availability limited, some US states excluded per issuer FAQ, not confirmed on fetched page) | 🔴 |
 | ~~[**Kontigo**](https://kontigo.com)~~ | 51 | Debit | 🔐 Self | ⚠️ | 🌍 Global | 10% BTC | $0 | 0% | BTC | ❌ | ~~Crypto neobank~~ | 🔴 |
 | [**Nummus Wallet Card**](https://nummuswallet.com/) (@NummusWallet) | 41 | Debit | 📋 CeFi | ✅ | 🌍 Global | 0% | $0-$14.99/mo ($300-$750 one-time setup tiers) | 2.5-4% top-up | None | ⚠️ | Partner-issued banking/card rails | 🔴 |
 | ~~[**Ready Card**](https://www.ready.co/card)~~ | 41 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 3% | $0 | 0% | Crypto | ❌ | ~~Self-custody EU/UK~~ Discontinued (late July 2026, issuer Kulipa wound down; The Defiant, secondary; ready.co/card shows no notice) | 🔴 |
-| [**Phantom Cash Card**](https://phantom.com/cash) | 40 | Prepaid | 📋 CeFi | ❌ | 🇺🇸 US | 0% | TBD | TBD | CASH | ⚠️ | Phantom users in US (not New York); Visa via Lead Bank/Bridge | 🔴 |
+| [**Phantom Cash Card**](https://phantom.com/cash) | 40 | Prepaid | 📋 CeFi | ❌ | 🇺🇸 US | TBD | TBD | TBD | TBD | ⚠️ | Phantom users in US (not New York); Visa via Lead Bank/Bridge | 🔴 |
 | ~~[**Spendly**](https://www.usespendly.com)~~ (@SpendlyCC) | 29 | Prepaid | 📋 CeFi | ❌ | 🌍 Global | 0% | $0 | 0% | Multi | ❌ | ~~Privacy prepaid spending~~ (domain parked) | 🔴 |
 | ~~[**Cypher Card**](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher)~~ | 1 | Debit | TBD | ❌ | TBD | TBD | TBD | TBD | TBD | ❌ | ~~Card~~ Discontinued (acquired by Nium; cards cancelled 2026-08-08, service ended 2026-09-06; cypherhq.io) | 🔴 |
 
