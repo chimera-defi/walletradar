@@ -35,7 +35,7 @@ Source: `SOFTWARE_WALLETS.md`
 | Tx simulation | ✅ | ❌ |
 | Scam detection | ✅ | ⚠️ Basic |
 | Chain coverage | EVM-focused | Multi-chain |
-| Release cadence | ~6/mo | ~3/mo |
+| Release cadence | ~4/mo | ~3/mo |
 | ENS support | ⚠️ Import only | ✅ Basic |
 
 ---

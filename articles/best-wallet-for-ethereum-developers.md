@@ -12,7 +12,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 
 ## Quick Answer
 
-**Rabby Wallet (92/100)** is the best wallet for Ethereum developers in 2026. It offers transaction simulation, scam detection, stable releases (~6/month), and excellent multi-chain support (120+ EVM chains).
+**Rabby Wallet (92/100)** is the best wallet for Ethereum developers in 2026. It offers transaction simulation, scam detection, stable releases (~4/month), and excellent multi-chain support (120+ EVM chains).
 
 **Top 5 for Developers:**
 1. **Rabby** (92) - Best overall for daily development
@@ -131,7 +131,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 
 **Limitations:**
 - ❌ No transaction simulation
-- ⚠️ High release churn (~8/month)
+- ⚠️ High release churn (~5/month)
 - Frequent breaking changes
 - Weaker scam detection
 
