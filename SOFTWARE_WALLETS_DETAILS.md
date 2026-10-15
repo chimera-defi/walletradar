@@ -7,19 +7,19 @@
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain audits, integration tradeoffs, and developer workflow details.
 
 <!-- GENERATED_SOFTWARE_SNAPSHOT_START -->
-> **Current generated snapshot:** Rabby (84, Development, 🟢), MetaMask (77, Compatibility, 🟢), Safe (77, Treasury/DAO, ⚪), and Brave (75, Brave users, 🟢). Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Rabby (86, Development, 🟢), MetaMask (80, Compatibility, 🟢), Safe (77, Treasury/DAO, ⚪), and Brave (75, Brave users, 🟢). Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Wallet | Score | Best For | Rec |
 | ---- | ------ | ----- | -------- | --- |
-| 1 | **Rabby** | 84 | Development | 🟢 |
-| 2 | **MetaMask** | 77 | Compatibility | 🟢 |
+| 1 | **Rabby** | 86 | Development | 🟢 |
+| 2 | **MetaMask** | 80 | Compatibility | 🟢 |
 | 3 | **Safe** | 77 | Treasury/DAO | ⚪ |
 | 4 | **Brave** | 75 | Brave users | 🟢 |
 | 5 | **Trust** | 75 | Multi-chain | 🟢 |
 <!-- GENERATED_SOFTWARE_SNAPSHOT_END -->
 
-**Data Sources:** GitHub REST API (Feb 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
+**Data Sources:** GitHub REST API (stars, issues, last commit: re-fetched Oct 15, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
 **Related:** See [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for cold storage recommendations.
 
@@ -52,7 +52,7 @@
 ---
 ## 🎯 Quick Recommendations
 
-**Quick Answers:** Best for development? **Rabby** (92). Most stable? **Trust** (85). Best code quality? **Rainbow** (82). Why not MetaMask? **MetaMask** (73) has ~8 rel/mo = too much churn. See [full comparison table](#complete-wallet-comparison) for all wallets.
+**Quick Answers:** Best for development? **Rabby** (92). Most stable? **Trust** (85). Best code quality? **Rainbow** (82). Why not MetaMask? **MetaMask** (73) has ~5 rel/mo = too much churn. See [full comparison table](#complete-wallet-comparison) for all wallets.
 
 **Jump to:** [Comparison Table](#complete-wallet-comparison) | [Scoring Methodology](#-wallet-scores-weighted-methodology) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
 
@@ -90,14 +90,14 @@
 - **MetaMask** (73) — EIP-7702 support, but high churn
 
 **For Compatibility Testing (Use Last):**
-- **MetaMask** (73) — Most widely supported, but ~8 rel/mo = test last
+- **MetaMask** (73) — Most widely supported, but ~5 rel/mo = test last
 
 ### ⚠️ Good Wallets That DON'T Meet Core Criteria
 
 **Browser Extension Only (No Mobile):**
 - **Ambire** (65) — Smart wallet with tx simulation, EIP-7702 support, 11+ audits
 - **Enkrypt** (55) — 75+ chains, great for multi-chain testing
-- **Taho** (45) — Community-owned, open source, resumed active dev
+- **Taho** (45) — Community-owned, open source; slow (last commit Aug 20, 2026, no GitHub release in 90 days)
 
 **Mobile/Web Only (No Browser Extension):**
 - **Safe** (63) — Enterprise multi-sig, requires WalletConnect
@@ -105,15 +105,15 @@
 - **MEW** (50) — Classic Ethereum, web + mobile
 
 **Avoid ❌ (Inactive/Abandoned):**
-- **Block Wallet** — Abandoned (no commits since Nov 2024)
-- **Frame** — Inactive (no commits since Feb 2025)
-- **Argent** — Inactive, Starknet-only desktop
-- **imToken** — Inactive (180+ days)
+- **Block Wallet** — Abandoned (no commits since Nov 2024); source-available, non-commercial licence
+- **Frame** — Inactive (no commits since Feb 2025; GPL-3.0)
+- **Argent** (now branded Ready; extension "Ready X") — Inactive repo (argent-x last commit Mar 14, 2025), Starknet-only desktop
+- **imToken** — Inactive (last commit May 20, 2026; 148 days as of Oct 15, 2026)
 
 ### ⚠️ MetaMask: Why It's Ranked Lower
 
 MetaMask scores 73 (🟡 Situational) despite being the industry standard:
-- **~8 releases/month** — highest churn of any wallet
+- **~5 releases/month (GitHub releases, last 90 days: 15)** — highest churn of any wallet
 - **18.9% issue/star ratio** — indicates maintenance challenges
 - **Frequent breaking changes** — requires constant testing
 - **Positive:** Well-audited (Apr 2025 audit by Diligence, Cure53, Cyfrin)
@@ -125,38 +125,38 @@ MetaMask scores 73 (🟡 Situational) despite being the industry standard:
 
 | Wallet | Last Commit | Stars | Issues | Ratio | Stability |
 |--------|-------------|-------|--------|-------|-----------|
-| **Rabby** | Feb 3, 2026 | 1,787 | 129 | 7.2% | ⭐⭐⭐⭐ |
-| **Trust** | Feb 4, 2026 | 3,462 | 83 | 2.4% | ⭐⭐⭐ |
-| **Rainbow** | Feb 5, 2026 | 4,308 | 38 | 0.9% | ⭐⭐⭐ |
-| **Brave** | Feb 5, 2026 | 21,298 | 10,362 | 48.7% | ⭐⭐⭐⭐ |
-| **Coinbase** | Jul 11, 2025 | 1,722 | 70 | 4.1% | ⭐⭐⭐⭐ |
-| **MetaMask** | Feb 5, 2026 | 13,082 | 2,479 | 18.9% | ⭐⭐ |
+| **Rabby** | Oct 15, 2026 | 1,913 | 139 | 7.3% | ⭐⭐⭐⭐ |
+| **Trust** | Oct 14, 2026 | 3,572 | 192 | 5.4% | ⭐⭐⭐ |
+| **Rainbow** | Oct 15, 2026 | 4,397 | 44 | 1.0% | ⭐⭐⭐ |
+| **Brave** | Oct 15, 2026 | 23,897 | 11,068 | 46.3% | ⭐⭐⭐⭐ |
+| **Coinbase** | Oct 13, 2026 | 1,765 | 91 | 5.2% | ⭐⭐⭐⭐ |
+| **MetaMask** | Oct 15, 2026 | 13,232 | 2,858 | 21.6% | ⭐⭐ |
 | **Phantom** | Private | - | - | - | ⭐⭐⭐ |
 | **OKX** | Private | - | - | - | ⭐⭐⭐⭐ |
-| **Safe** | Feb 4, 2026 | 542 | 122 | 22.5% | ⭐⭐⭐⭐ |
-| **Enkrypt** | Dec 18, 2025 | 427 | 29 | 6.8% | ⭐⭐⭐⭐ |
-| **Ambire** | Feb 4, 2026 | 60 | 1 | 1.7% | ⭐⭐⭐⭐ |
-| **Wigwam** | Jan 19, 2026 | 84 | 7 | 8.3% | ⭐⭐⭐⭐ |
-| **Ledger Live** | Feb 5, 2026 | 567 | 108 | 19.0% | ⭐⭐⭐⭐ |
-| **MEW** | Nov 27, 2025 | 1,574 | 35 | 2.2% | ⭐⭐⭐⭐ |
-| **Sequence** | Jan 30, 2026 | 313 | 27 | 8.6% | ⭐⭐⭐⭐ |
-| **Daimo** | Dec 1, 2025 | 410 | 227 | 55.4% | ⭐⭐⭐ |
+| **Safe** | Oct 15, 2026 | 595 | 92 | 15.5% | ⭐⭐⭐⭐ |
+| **Enkrypt** | Sep 1, 2026 | 436 | 19 | 4.4% | ⭐⭐⭐⭐ |
+| **Ambire** | Oct 15, 2026 | 72 | 7 | 9.7% | ⭐⭐⭐⭐ |
+| **Wigwam** | Sep 20, 2026 | 86 | 0 | 0.0% | ⭐⭐⭐⭐ |
+| **Ledger Live** | Oct 15, 2026 | 622 | 153 | 24.6% | ⭐⭐⭐⭐ |
+| **MEW** | Aug 3, 2026 | 1,587 | 56 | 3.5% | ⭐⭐⭐⭐ |
+| **Sequence** | Oct 14, 2026 | 318 | 34 | 10.7% | ⭐⭐⭐⭐ |
+| **Daimo** | Feb 18, 2026 | 408 | 227 | 55.6% | ⭐⭐⭐ |
 | **Zerion** | Private | - | - | - | ⭐⭐⭐ |
-| **Uniswap** | Dec 20, 2025 | 5,469 | 806 | 14.7% | ⭐⭐⭐ |
-| **Taho** | Jan 19, 2026 | 3,197 | 336 | 10.5% | ⭐⭐⭐ |
-| **imToken** | Dec 23, 2025 | 22 | 16 | 72.7% | ⭐⭐⭐ |
+| **Uniswap** | Oct 14, 2026 | 5,538 | 830 | 15.0% | ⭐⭐⭐ |
+| **Taho** | Aug 20, 2026 | 3,207 | 336 | 10.5% | ⭐⭐⭐ |
+| **imToken** | May 20, 2026 | 34 | 24 | 70.6% | ⭐⭐⭐ |
 | **1inch** | Private | - | - | - | ⭐⭐⭐ |
-| **Frame** | Feb 1, 2025 | 1,180 | 96 | 8.1% | ⭐⭐⭐⭐ |
-| **Argent** | Mar 14, 2025 | 644 | 95 | 14.8% | ⭐⭐⭐⭐ |
-| **Block** | Nov 27, 2024 | 96 | 45 | 46.9% | ⭐⭐⭐⭐ |
-| **Kohaku**∆ | Aug 12, 2025 | 62 | 14 | 22.6% | ⭐⭐ |
+| **Frame** | Feb 1, 2025 | 1,209 | 99 | 8.2% | ⭐⭐⭐⭐ |
+| **Argent** | Mar 14, 2025 | 640 | 95 | 14.8% | ⭐⭐⭐⭐ |
+| **Block** | Nov 27, 2024 | 93 | 45 | 48.4% | ⭐⭐⭐⭐ |
+| **Kohaku**∆ | Jul 3, 2026 | 98 | 10 | 10.2% | ⭐⭐ |
 
 **GitHub Legend:**
 - **Ratio:** Issues ÷ Stars (lower = better code quality). Rainbow 0.3% is excellent, MetaMask 19.4% indicates maintenance burden.
 - **Stability:** ⭐⭐ = High churn (>6 rel/mo) | ⭐⭐⭐ = Medium | ⭐⭐⭐⭐ = Stable (<3 rel/mo)
 - **Private:** Closed-source repos have no public metrics
 
-**Data Sources:** GitHub REST API (verified Feb 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
+**Data Sources:** GitHub REST API (re-fetched Oct 15, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
 ---
 
@@ -175,9 +175,9 @@ Scores prioritize what matters for developers: platform coverage, stability, and
 | **Rainbow** | 🥉 77 | 25/25 | 16/20 | 11/25 | 15/15 | 10/10 | 0/5 | Great code quality, no audit |
 | **Brave** | 81 | 25/25 | 18/20 | 10/25 | 15/15 | 10/10 | 3/5 | Built into browser, bug bounty |
 | **Coinbase** | 73 | 25/25 | 18/20 | 17/25 | 8/15 | 5/10 | 0/5 | AA support, SDK dev slowed, private audits |
-| **MetaMask** | 73 | 25/25 | 8/20 | 15/25 | 15/15 | 5/10 | 5/5 | ⚠️ ~8 rel/mo = high churn, audited 2025 |
+| **MetaMask** | 73 | 25/25 | 8/20 | 15/25 | 15/15 | 5/10 | 5/5 | ⚠️ ~5 rel/mo = high churn, audited 2025 |
 | **Phantom** | 60 | 25/25 | 15/20 | 15/25 | 5/15 | 0/10 | 0/5 | No testnets, proprietary, no audit |
-| **Wigwam** | 67 | 25/25 | 12/20 | 5/25 | 15/15 | 10/10 | 0/5 | MIT license, no audit |
+| **Wigwam** | 67 | 25/25 | 12/20 | 5/25 | 15/15 | 10/10 | 0/5 | MPL-2.0 license, no audit |
 | **Ambire** | 65 | 0/25 | 18/20 | 17/25 | 15/15 | 10/10 | 5/5 | ❌ No mobile app, 11+ audits |
 | **Safe** | 63 | 0/25 | 15/20 | 18/25 | 15/15 | 10/10 | 5/5 | ❌ No browser ext — web only, GPL-3 |
 | **OKX** | 57 | 25/25 | 12/20 | 15/25 | 5/15 | 0/10 | 0/5 | Proprietary, no audit |
@@ -193,7 +193,7 @@ Scores prioritize what matters for developers: platform coverage, stability, and
 | **Frame** | 32 | 0/25 | 12/20 | 10/25 | 0/15 | 10/10 | 0/5 | ❌ Inactive, desktop only |
 | **1inch** | 30 | 0/25 | 15/20 | 10/25 | 5/15 | 0/10 | 0/5 | ❌ Mobile only, proprietary, no audit |
 | **Argent** | 25 | 0/25 | 15/20 | 0/25 | 0/15 | 10/10 | 0/5 | ❌ Inactive, Starknet desktop, no audit |
-| **Block** | 10 | 0/25 | 0/20 | 0/25 | 0/15 | 10/10 | 0/5 | ❌ Abandoned, browser ext only, MIT |
+| **Block** | 10 | 0/25 | 0/20 | 0/25 | 0/15 | 10/10 | 0/5 | ❌ Abandoned, browser ext only, non-commercial source-available licence |
 | **Kohaku**∆ | 45 | 0/25 | 20/20 | 15/25 | 0/15 | 10/10 | 0/5 | ❌ Stale Ambire fork (Aug 2025) |
 
 **Scoring Methodology (100 points total):**
@@ -242,7 +242,7 @@ SECURITY (5 pts)
 - 🔴 **Avoid:** bottom quartile or inactive
 - ⚪ **Not for dev:** fails core developer-fit requirements (for example missing mobile+extension)
 
-**Key Insight:** MetaMask scores 73 despite being the industry standard because of its ~8 releases/month (high churn). Though well-audited (2025), wallets like Trust (85), Rainbow (82), and Brave (81) offer better stability while meeting all core criteria.
+**Key Insight:** MetaMask scores 73 despite being the industry standard because of its ~5 releases/month (GitHub releases, last 90 days: 15) (high churn). Though well-audited (2025), wallets like Trust (85), Rainbow (82), and Brave (81) offer better stability while meeting all core criteria.
 
 ---
 
@@ -354,7 +354,7 @@ Every wallet has quirks that can cause developer headaches. Know them before you
 
 | Wallet | Quirk | Impact | Workaround |
 |--------|-------|--------|------------|
-| **MetaMask** | ~8 releases/month, frequent breaking changes | High maintenance burden | Pin versions, test after updates |
+| **MetaMask** | ~5 releases/month (GitHub releases, last 90 days: 15), frequent breaking changes | High maintenance burden | Pin versions, test after updates |
 | **MetaMask** | 19.4% issue/star ratio (highest) | Many open bugs | Check GitHub issues before debugging |
 | **Rabby** | ENS only works for importing addresses, not sending | Can't send to .eth directly | Use resolved address |
 | **Rabby** | Mobile app has unpatched security issues | Security risk on mobile | Use browser extension instead |
@@ -903,7 +903,7 @@ What data each wallet collects affects user privacy and regulatory compliance:
 | **Phantom** | Proprietary | Proprietary | - | ❌ Closed | WalletBeat |
 | **Frame** | GPL-3.0 | N/A | - | ✅ FOSS | WalletBeat |
 | **Ambire** | GPL-3.0 | - | - | ✅ FOSS | WalletBeat |
-| **Argent** | GPL-3.0 | GPL-3.0 | - | ✅ FOSS | WalletBeat |
+| **Argent** | Custom non-commercial (License.md) | - | - | ⚠️ Source-available | ✅ GitHub |
 | **Brave** | MPL-2.0 | MPL-2.0 | - | ✅ FOSS | ✅ GitHub |
 | **Enkrypt** | MIT | N/A | - | ✅ FOSS | ✅ GitHub |
 | **MEW** | MIT | MIT | - | ✅ FOSS | WalletBeat |
@@ -911,7 +911,7 @@ What data each wallet collects affects user privacy and regulatory compliance:
 | **OKX** | Proprietary | Proprietary | - | ❌ Closed | WalletBeat |
 | **Zerion** | Proprietary | Proprietary | - | ❌ Closed | WalletBeat |
 | **imToken** | N/A | Proprietary | Apache-2.0 | ⚠️ Partial | WalletBeat |
-| **Daimo** | N/A | GPL-3.0 | - | ✅ FOSS | WalletBeat |
+| **Daimo** | N/A | GPL-3.0 | - | ✅ FOSS (repo archived Feb 18, 2026; app discontinued) | ✅ GitHub |
 
 **License Types:**
 - **FOSS:** MIT, GPL-3.0, Apache-2.0, MPL-2.0, BSD-3-Clause (OSI approved)
@@ -1005,41 +1005,41 @@ Each wallet has quirks. Test your dApp with at least 3 wallets before production
 
 | Repository | Last Commit | Status |
 |------------|-------------|--------|
-| [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | Dec 15, 2025 | ✅ Active |
-| [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) | Dec 16, 2025 | ✅ Active |
-| [coinbase/coinbase-wallet-sdk](https://github.com/coinbase/coinbase-wallet-sdk) | Jul 11, 2025 | ⚠️ Slow |
-| [trustwallet/wallet-core](https://github.com/trustwallet/wallet-core) | Dec 5, 2025 | ✅ Active |
-| [rainbow-me/rainbow](https://github.com/rainbow-me/rainbow) | Dec 2, 2025 | ✅ Active |
-| [tahowallet/extension](https://github.com/tahowallet/extension) | Dec 5, 2025 | ✅ Active |
-| [MyEtherWallet/MyEtherWallet](https://github.com/MyEtherWallet/MyEtherWallet) | Nov 27, 2025 | ✅ Active |
-| [AmbireTech/extension](https://github.com/AmbireTech/extension) | Dec 10, 2025 | ✅ Active |
+| [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | Oct 15, 2026 | ✅ Active |
+| [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) | Oct 15, 2026 | ✅ Active |
+| [coinbase/coinbase-wallet-sdk](https://github.com/coinbase/coinbase-wallet-sdk) | Oct 13, 2026 (docs/rebrand notes; last release Jun 25, 2025, superseded by Base Account SDK) | ⚠️ Slow |
+| [trustwallet/wallet-core](https://github.com/trustwallet/wallet-core) | Oct 14, 2026 | ✅ Active |
+| [rainbow-me/rainbow](https://github.com/rainbow-me/rainbow) | Oct 15, 2026 | ✅ Active |
+| [tahowallet/extension](https://github.com/tahowallet/extension) | Aug 20, 2026 | ⚠️ Slow |
+| [MyEtherWallet/MyEtherWallet](https://github.com/MyEtherWallet/MyEtherWallet) | Aug 3, 2026 | ⚠️ Slow |
+| [AmbireTech/extension](https://github.com/AmbireTech/extension) | Oct 15, 2026 | ✅ Active |
 | [block-wallet/extension](https://github.com/block-wallet/extension) | Nov 27, 2024 | ❌ Inactive |
-| [wigwamapp/wigwam](https://github.com/wigwamapp/wigwam) | Dec 11, 2025 | ✅ Active |
-| [safe-global/safe-wallet-monorepo](https://github.com/safe-global/safe-wallet-monorepo) | Dec 15, 2025 | ✅ Active |
+| [wigwamapp/wigwam](https://github.com/wigwamapp/wigwam) | Sep 20, 2026 | ✅ Active |
+| [safe-global/safe-wallet-monorepo](https://github.com/safe-global/safe-wallet-monorepo) | Oct 15, 2026 | ✅ Active |
 | [argentlabs/argent-x](https://github.com/argentlabs/argent-x) | Mar 14, 2025 | ❌ Inactive |
-| [floating/frame](https://github.com/floating/frame) | Feb 01, 2025 | ❌ Inactive |
-| [brave/brave-browser](https://github.com/brave/brave-browser) | Dec 15, 2025 | ✅ Active |
-| [enkryptcom/enKrypt](https://github.com/enkryptcom/enKrypt) | Nov 27, 2025 | ✅ Active |
-| [ethereum/kohaku-extension](https://github.com/ethereum/kohaku-extension) | Aug 12, 2025 | ❌ Stale Fork |
+| [floating/frame](https://github.com/floating/frame) | Feb 1, 2025 | ❌ Inactive |
+| [brave/brave-browser](https://github.com/brave/brave-browser) | Oct 15, 2026 | ✅ Active |
+| [enkryptcom/enKrypt](https://github.com/enkryptcom/enKrypt) | Sep 1, 2026 | ⚠️ Slow |
+| [ethereum/kohaku-extension](https://github.com/ethereum/kohaku-extension) | Jul 3, 2026 | ⚠️ Slow |
 
 **Not Verified (private repos):** OKX, 1inch, Zerion, Phantom
 
 ---
 
-## ⚠️ Activity Status Details (November 2025)
+## ⚠️ Activity Status Details (re-checked October 15, 2026)
 
 Several previously recommended wallets have **stopped active development**. See the "Alt" column in the main table for recommended alternatives.
 
 | Wallet | Last Commit | Status | Note |
 |--------|-------------|--------|------|
-| **Block Wallet** | Nov 2024 | ❌ INACTIVE | 1 year without commits |
-| **Frame** | Feb 2025 | ❌ INACTIVE | 10 months without commits |
-| **Argent-X** | Mar 2025 | ❌ INACTIVE | 8 months without commits |
-| **Kohaku**∆ | Aug 2025 | ❌ STALE FORK | Ethereum Foundation fork of Ambire v5.18.0 — use Ambire instead |
-| **Coinbase SDK** | Jul 2025 | ⚠️ SLOW | 5 months without commits |
-| **Ambire** | Dec 2025 | ✅ ACTIVE | Active development, v5.32.2 released Dec 10, 2025 |
-| **Wigwam** | Dec 2025 | ✅ ACTIVE | Resumed development Dec 11, 2025 |
-| **Taho** | Dec 2025 | ✅ ACTIVE | Resumed development Dec 5, 2025 |
+| **Block Wallet** | Nov 2024 | ❌ INACTIVE | 11+ months without commits (as of Oct 15, 2026) |
+| **Frame** | Feb 2025 | ❌ INACTIVE | 20 months without commits (as of Oct 15, 2026) |
+| **Argent-X** | Mar 2025 | ❌ INACTIVE | 19 months without commits (as of Oct 15, 2026). Product now branded Ready; extension "Ready X" |
+| **Kohaku**∆ | Jul 2026 | ⚠️ SLOW FORK | Ethereum Foundation fork of Ambire v5.18.0 — use Ambire instead |
+| **Coinbase SDK** | Oct 2026 | ⚠️ SLOW | Last release Jun 25, 2025; recent commits are docs. Base App renamed back to Coinbase Wallet on Sep 10, 2026 |
+| **Ambire** | Oct 2026 | ✅ ACTIVE | Active development, v6.22.5 released Oct 14, 2026 |
+| **Wigwam** | Sep 2026 | ✅ ACTIVE | Last commit Sep 20, 2026 |
+| **Taho** | Aug 2026 | ⚠️ SLOW | Last commit Aug 20, 2026 |
 
 ---
 
@@ -1082,4 +1082,4 @@ Prefer in this order:
 
 ---
 
-*Last updated: December 16, 2025. Full wallet validation: Wigwam and Taho resumed active development; GitHub metrics refreshed for all 25 wallets. Kohaku (ethereum/kohaku-extension) added as an Ethereum-maintained Ambire-derived experimental wallet marked with ∆. Data from [WalletBeat](https://walletbeat.fyi), [awesome-eip-7702](https://github.com/fireblocks-labs/awesome-eip-7702), [7702 Beat](https://swiss-knife.xyz/7702beat), and GitHub API.*
+*Last updated: October 15, 2026 (GitHub metrics, licences, activity and Rel/Mo re-checked against the GitHub API; Daimo archived Feb 18, 2026; Status moved to status-im/status-app, legacy repo archived Jul 22, 2026). Earlier note, December 16, 2025. Full wallet validation: Wigwam and Taho resumed active development; GitHub metrics refreshed for all 25 wallets. Kohaku (ethereum/kohaku-extension) added as an Ethereum-maintained Ambire-derived experimental wallet marked with ∆. Data from [WalletBeat](https://walletbeat.fyi), [awesome-eip-7702](https://github.com/fireblocks-labs/awesome-eip-7702), [7702 Beat](https://swiss-knife.xyz/7702beat), and GitHub API.*
