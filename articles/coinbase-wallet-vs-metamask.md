@@ -35,7 +35,7 @@ Source: `SOFTWARE_WALLETS.md`
 |---------|-----------------|----------|
 | Ecosystem coverage | ⚠️ Medium | ✅ Highest |
 | Account abstraction | ✅ (4337) | ⚠️ Limited |
-| Release cadence | ~2/mo | ~8/mo |
+| Release cadence | ~2/mo | ~5/mo |
 | Hardware wallet support | ✅ | ✅ |
 | Compatibility | ⚠️ | ✅ |
 
