@@ -7,10 +7,10 @@ Aggregated scores and wallet counts for hardware wallet manufacturers. The aggre
 | **Keystone** | 92.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (Keystone 3 Pro) |
 | **ColdCard** | 86.0 | 3 | [View Wallets](./HARDWARE_WALLETS.md) (ColdCard Mk4, ColdCard Mk5, ColdCard Q) |
 | **Trezor** | 77.7 | 3 | [View Wallets](./HARDWARE_WALLETS.md) (Trezor Safe 5, Trezor Safe 7, Trezor Safe 3) |
-| **Foundation** | 73.0 | 2 | [View Wallets](./HARDWARE_WALLETS.md) (Foundation Passport (Core), Foundation Passport Prime) |
+| **Foundation** | 71.5 | 2 | [View Wallets](./HARDWARE_WALLETS.md) (Foundation Passport (Core), Foundation Passport Prime) |
 | **BitBox** | 73.0 | 2 | [View Wallets](./HARDWARE_WALLETS.md) (BitBox02, BitBox02 Nova) |
 | **Blockstream** | 72.0 | 2 | [View Wallets](./HARDWARE_WALLETS.md) (Blockstream Jade, Blockstream Jade Plus) |
-| **Keycard** | 70.0 | 2 | [View Wallets](./HARDWARE_WALLETS.md) (Keycard Shell, Keycard) |
+| **Keycard** | 74.0 | 2 | [View Wallets](./HARDWARE_WALLETS.md) (Keycard Shell, Keycard) |
 | **Krux** | 70.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (Krux) |
 | **SeedSigner** | 70.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (SeedSigner) |
 | **Specter** | 70.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (Specter DIY) |
@@ -28,4 +28,4 @@ Aggregated scores and wallet counts for hardware wallet manufacturers. The aggre
 | **Tangem** | 46.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (Tangem Wallet) |
 | **GridPlus** | 40.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (GridPlus Lattice1) |
 | **Arculus** | 39.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (Arculus) |
-| **BC Vault** | 28.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (BC Vault) |
+| **BC Vault** | 30.0 | 1 | [View Wallets](./HARDWARE_WALLETS.md) (BC Vault) |

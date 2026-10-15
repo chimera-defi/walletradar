@@ -14,7 +14,7 @@ tags: ["comparison", "hardware-wallets", "bitcoin"]
 
 **ColdCard Mk4 (88/100)** scores higher in the table and suits Bitcoin-only users who want an air-gapped device. **Trezor Safe 7 (78/100)** suits users who want multi-chain support over USB-C/Bluetooth.
 
-**Security notice (2026-07-30):** ColdCard published an advisory that firmware before 5.6.0 on Mk4/Mk5 (and before 1.5.0Q on the Q) used a software PRNG instead of the hardware TRNG for seed generation. Update firmware and check whether your seed was generated on an affected version. Source: coinkite.com/historical-disclosures. The Mk4 is no longer listed at the Coinkite store; the Mk5 and Q replaced it.
+**Security notice (2026-07-30):** ColdCard published an advisory that firmware before 5.6.0 on Mk4/Mk5 (and before 1.5.0Q on the Q) used a software PRNG instead of the hardware TRNG for seed generation. Updating firmware does not repair a weak seed: check whether your seed was generated on an affected version, and if it was, create a new seed on updated firmware and migrate your funds to it. Source: coinkite.com/historical-disclosures. The Mk4 is no longer listed at the Coinkite store; the Mk5 and Q replaced it.
 
 ---
 
