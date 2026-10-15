@@ -33,7 +33,7 @@ Source: `SOFTWARE_WALLETS.md`
 |---------|---------|----------|
 | NFT/Ethereum UX | ✅ Strong | ⚠️ Basic |
 | Ecosystem compatibility | ⚠️ Medium | ✅ Highest |
-| Release cadence | ~4/mo | ~8/mo |
+| Release cadence | ~4/mo | ~5/mo |
 | Tx simulation | ❌ | ⚠️ Limited |
 | Custom RPC | ⚠️ Limited | ✅ |
 
@@ -50,7 +50,7 @@ Source: `SOFTWARE_WALLETS.md`
 - **Rainbow:** Strong Ethereum-first focus.
 
 ### 3) Stability
-- **MetaMask:** Higher release churn (~8/mo per Wallet Radar notes).
+- **MetaMask:** Higher release churn (~5/mo per Wallet Radar notes).
 - **Rainbow:** Lower churn and better code quality signals.
 
 ---
