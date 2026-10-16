@@ -347,7 +347,7 @@ function parseInlineCollapsibleSections(content: string): ContentSegment[] {
 
       if (collapsibleMatch && !isPrimary) {
         // Save previous segment if it has content
-        if (currentSegment.content.trim()) {
+        if (currentSegment.content.trim() || (currentSegment.type === 'collapsible' && currentSegment.heading)) {
           segments.push(currentSegment);
         }
 
