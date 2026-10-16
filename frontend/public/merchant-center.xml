@@ -25,7 +25,7 @@
       <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
-      <g:price>79 USD</g:price>
+      <g:price>67 USD</g:price>
       <g:brand>Blockstream</g:brand>
       <g:google_product_category>Electronics</g:google_product_category>
       <g:product_type>Hardware Wallet</g:product_type>
@@ -38,7 +38,7 @@
       <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
-      <g:price>59 USD</g:price>
+      <g:price>69 USD</g:price>
       <g:brand>Ledger</g:brand>
       <g:google_product_category>Electronics</g:google_product_category>
       <g:product_type>Hardware Wallet</g:product_type>
@@ -118,19 +118,6 @@
       <g:condition>new</g:condition>
       <g:price>99 USD</g:price>
       <g:brand>Ledger</g:brand>
-      <g:google_product_category>Electronics</g:google_product_category>
-      <g:product_type>Hardware Wallet</g:product_type>
-    </item>
-    <item>
-      <g:id>hardware-bitkey</g:id>
-      <g:title>Bitkey</g:title>
-      <g:description>Bitkey - Hardware Wallet listed on Wallet Radar.</g:description>
-      <g:link>https://walletradar.org/docs/hardware-wallets#bitkey</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
-      <g:availability>in stock</g:availability>
-      <g:condition>new</g:condition>
-      <g:price>150 USD</g:price>
-      <g:brand>Bitkey</g:brand>
       <g:google_product_category>Electronics</g:google_product_category>
       <g:product_type>Hardware Wallet</g:product_type>
     </item>
