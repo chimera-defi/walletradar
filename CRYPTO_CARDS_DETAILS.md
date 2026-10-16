@@ -1633,7 +1633,7 @@ Please visit [reap.global](https://reap.global) directly in a web browser to ver
 **Notes:**
 - Website protected by Cloudflare - manual verification required
 - All information marked with ⚠️ needs verification from official website
-- See [VERIFICATION_NOTES.md](./VERIFICATION_NOTES.md) for verification checklist
+- See [docs/VERIFICATION.md](https://github.com/chimera-defi/walletradar/blob/main/docs/VERIFICATION.md) for verification checklist
 
 ---
 

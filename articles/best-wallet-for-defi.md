@@ -2,7 +2,7 @@
 title: "Best Wallet for DeFi in 2026"
 description: "Wallet Radar picks for DeFi: Rabby for tx simulation, Safe for treasury, MetaMask for compatibility."
 category: guide
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 tags: ["guide", "defi", "wallets"]
 ---
@@ -11,9 +11,9 @@ tags: ["guide", "defi", "wallets"]
 
 ## Quick Answer
 
-- **Best for DeFi safety:** **Rabby (92)** — transaction simulation + scam detection  
-- **Best for treasuries/DAOs:** **Safe (63)** — multisig control  
-- **Best for compatibility:** **MetaMask (73)** — widest dApp coverage  
+- **Best for DeFi safety:** **Rabby (86)** — transaction simulation + scam detection  
+- **Best for treasuries/DAOs:** **Safe (77)** — multisig control  
+- **Best for compatibility:** **MetaMask (80)** — widest dApp coverage  
 
 Sources: `SOFTWARE_WALLETS.md`, `SOFTWARE_WALLETS_DETAILS.md`
 

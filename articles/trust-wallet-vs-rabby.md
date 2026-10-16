@@ -1,8 +1,8 @@
 ---
 title: "Trust Wallet vs Rabby: Multi-Chain vs Developer-First"
-description: "Compare Trust Wallet (82) and Rabby (92) using Wallet Radar scores for stability, chains, and developer tooling."
+description: "Compare Trust Wallet (75) and Rabby (86) using Wallet Radar scores for stability, chains, and developer tooling."
 category: comparison
-lastUpdated: "2026-02-03"
+lastUpdated: "2026-10-15"
 author: "Wallet Radar"
 wallets: ["Trust", "Rabby"]
 tags: ["comparison", "software-wallets", "multi-chain"]
@@ -12,8 +12,8 @@ tags: ["comparison", "software-wallets", "multi-chain"]
 
 ## Quick Answer
 
-**Rabby (92/100)** is best for developers due to transaction simulation and stability.  
-**Trust Wallet (82/100)** is better for multi-chain coverage and mainstream users.
+**Rabby (86/100)** is best for developers due to transaction simulation and stability.  
+**Trust Wallet (75/100)** is better for multi-chain coverage and mainstream users.
 
 ---
 
@@ -21,8 +21,8 @@ tags: ["comparison", "software-wallets", "multi-chain"]
 
 | Wallet | Score | Best For |
 |--------|-------|----------|
-| **Rabby** | **92** | Development + security |
-| **Trust** | 82 | Multi-chain + mainstream |
+| **Rabby** | **86** | Development + security |
+| **Trust** | 75 | Multi-chain + mainstream |
 
 Source: `SOFTWARE_WALLETS.md`
 

@@ -1,63 +1,32 @@
-# Data Sources & External Links
+# Data sources and external links
 
-## Transparency About Our External Links
+Wallet Radar links to outside sites. This page says why, how links are tagged, and how we check data.
 
-Wallet Radar contains references to external websites. This page explains why we link to these sites, how we attribute this traffic, and how we think about link transparency.
+## Types of external links
 
-## Types of External Links
+### Official product sites
 
-### 1. Official Wallet Websites
+Examples: trezor.io, ledger.com, coldcard.com, keyst.one, bitbox.swiss.
 
-**Examples:** trezor.io, ledger.com, coldcard.com, keyst.one, bitbox.swiss, etc.
+We link them so you can verify features, download from the real source and tell real sites from fakes. We avoid redirect URLs, shortened links, look-alike domains and unofficial mirrors.
 
-**Why we link:**
-- Provide official sources for users to verify features and download wallets
-- Link to official GitHub repositories to verify open source status
-- Help users distinguish official sites from fakes/scams
+### GitHub repositories
 
-**Trust Signal:** All wallet links are to official domains. We explicitly avoid:
-- Redirect URLs
-- Shortened links
-- Phishing-like domain variations
-- Unofficial mirrors or forks
+Examples: trezor-firmware, ledger-live, rainbow, metamask-extension.
 
-### 2. GitHub Repositories
+We link them to check open-source claims, track commits and releases, and show community activity (stars, issues, forks). GitHub is the canonical source for open-source code.
 
-**Examples:** trezor-firmware, ledger-live, rainbow, metamask-extension, etc.
+### Security audits and certifications
 
-**Why we link:**
-- Verify open source claims
-- Track development activity (commits, releases)
-- Evaluate community engagement (stars, issues, forks)
-- Provide source code transparency for security audits
+We cite specific published audit reports, not a bare "audited" claim. The link is the evidence, not our opinion.
 
-**Trust Signal:** GitHub is the canonical source for open source software. By linking to official repos, we help users verify legitimacy.
+### Research and reference sites
 
-### 3. Security Audits & Certifications
-
-**Examples:** Published audit reports, security certifications, Certora reports
-
-**Why we link:**
-- Back up security claims with evidence
-- Link to third-party verification (not our own claims)
-- Help users understand security architecture
-
-**Trust Signal:** We cite specific, published audit reports - not generic "audited" claims.
-
-### 4. Research & Reference Sites
-
-**Examples:** Etherscan, WalletBeat, chainlist.org, ethereum.org, walletconnect.com
-
-**Why we link:**
-- Provide independent data verification
-- Reference community standards (EIP specifications, etc.)
-- Link to other trusted research
-
-**Trust Signal:** All references are to established, well-known sources.
+Examples: Etherscan, WalletBeat, chainlist.org, ethereum.org, walletconnect.com. We use them for independent data checks and standards (EIPs).
 
 #### WalletBeat data attribution
 
-Some wallet rows (added 2026-10-10: Bitget Wallet, Gem Wallet, Mt Pelerin / Bridge Wallet, NuFi, PillarX, Zeus, imKey Pro) use facts read from [WalletBeat](https://github.com/walletbeat/walletbeat) `data/` files (account types, platform variants, licence, audits, bug-bounty platform, funding strategy flags, hardware-wallet support). WalletBeat is MIT licensed:
+Some wallet rows (added 2026-10-10: Bitget Wallet, Gem Wallet, Mt Pelerin / Bridge Wallet, NuFi, PillarX, Zeus, imKey Pro) use facts from [WalletBeat](https://github.com/walletbeat/walletbeat) `data/` files: account types, platform variants, licence, audits, bug-bounty platform, funding flags and hardware-wallet support. WalletBeat is MIT licensed:
 
 > MIT License
 >
@@ -81,147 +50,93 @@ Some wallet rows (added 2026-10-10: Bitget Wallet, Gem Wallet, Mt Pelerin / Brid
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 > SOFTWARE.
 
-Snapshot used: commit `82e3036aba53d8dd13a55f42089ba09c44afa8c5` (2026-10-10). Full licence text: https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/LICENSE. WalletBeat's bundled `data/coinspect/` is CC BY 4.0 and is not used here. Per-wallet source URLs are in VERIFICATION_NOTES.md.
+Snapshot used: commit `82e3036aba53d8dd13a55f42089ba09c44afa8c5` (2026-10-10). Licence text: https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/LICENSE. WalletBeat's bundled `data/coinspect/` is CC BY 4.0 and is not used here. Per-wallet source URLs are in the [verification log](https://github.com/chimera-defi/walletradar/blob/main/docs/VERIFICATION.md).
 
-### 5. Social & Community
+### Social and community
 
-**Examples:** Twitter/X, GitHub profiles, community forums
+Official accounts, GitHub profiles and forums. We link them as alternative ways to check a project is real.
 
-**Why we link:**
-- Provide alternative contact/verification methods
-- Show active community engagement
-- Enable users to verify project legitimacy
+## Link attribution: utm_source
 
-**Trust Signal:** Official accounts verified through badges and consistency.
+External links may carry `utm_source=walletradar&utm_medium=comparison`.
 
----
+- You see `https://trezor.io/`.
+- Your browser opens `https://trezor.io/?utm_source=walletradar&utm_medium=comparison`.
 
-## Link Attribution: utm_source Parameter
+Why: the site you visit can see the traffic came from Wallet Radar, and we do not hide that we are the referrer. The parameters are visible in the address bar, collect no personal data, and you can delete them without breaking the page.
 
-External links from Wallet Radar may include the `utm_source=walletradar` query parameter for transparent attribution.
+If a link ever has a commercial relationship, we disclose it on the page. It never affects method, ranking or inclusion.
 
-### What This Means
+## Data accuracy
 
-When you click an attributed external link, your browser adds: `?utm_source=walletradar&utm_medium=comparison`
+### How we check
 
-Example:
-- **You see:** `https://trezor.io/`
-- **Your browser navigates to:** `https://trezor.io/?utm_source=walletradar&utm_medium=comparison`
+1. **GitHub activity:** repository scripts against the GitHub API. A weekly GitHub Action opens a PR with fresh activity data.
+2. **Official sites:** prices, fees, licences and features are checked by hand against the vendor's own pages.
+3. **Audits:** taken from published reports.
+4. **Feature claims:** cross-checked with official docs.
 
-### Why We Do This
+### How often
 
-1. **Transparency** - Websites we link to can see traffic originated from Wallet Radar
-2. **Attribution** - We identify ourselves as the source, not hiding it
-3. **Analytics** - Helps sites understand which research platforms drive traffic
-4. **Respect** - Similar to how ChatGPT and other platforms identify their traffic
+- **Comparison tables:** rechecked in reviewed passes. The last full pass was 2026-10-15. Each table shows its own "Last Updated" date.
+- **Activity data:** weekly (Action PR, reviewed before merge).
+- **Security information:** updated when we learn of it.
 
-If a link ever carries a commercial relationship, it should be disclosed clearly on-page and should not affect methodology, ranking, or inclusion decisions.
+What we could not confirm is marked UNVERIFIED in the data. The reasons are in the [verification log](https://github.com/chimera-defi/walletradar/blob/main/docs/VERIFICATION.md).
 
-### Privacy Consideration
+### Status icons
 
-- utm parameters are **publicly visible** in your browser URL
-- They don't collect personal data about you
-- They simply identify the source website (walletradar.org)
-- You can remove them manually without affecting functionality
+- ✅ Active or verified
+- ⚠️ Verify: needs manual confirmation, or activity is slow
+- 🔄 Launching: not released yet
+- ❌ Inactive, defunct or not available
 
----
+Always confirm on the official site before you decide.
 
-## Data Accuracy & Verification
+## Phishing sites vs. Wallet Radar
 
-### How We Verify Information
-
-1. **GitHub Activity** - Checked with repository scripts against the GitHub API
-2. **Official Websites** - Manual verification on official domains
-3. **Security Audits** - Retrieved from published audit reports
-4. **Feature Claims** - Cross-referenced with official documentation
-5. **Community Input** - Verified through multiple sources
-
-### Update Frequency
-
-- **Comparison tables:** Updated during reviewed data-refresh passes
-- **Detailed reviews:** Updated monthly
-- **Security information:** Updated immediately when discovered
-
-### Data Limitations
-
-We mark items with status icons:
-- ✅ **Active/Verified** - Recently verified as working
-- ⚠️ **Verify** - Needs manual confirmation (website unclear/changing)
-- 🔄 **Launching** - In development, not yet released
-- ❌ **Defunct** - No longer available or maintained
-
-**Important:** Always verify current information on official websites before making decisions.
-
----
-
-## How This Builds Trust
-
-By being transparent about our external linking:
-
-1. **We're not hiding anything** - This is the opposite of phishing
-2. **We identify ourselves** - utm_source shows we're proud to be the referrer
-3. **We link to official sources** - Not redirects or intermediaries
-4. **We cite our data** - You can verify everything independently
-5. **We acknowledge limitations** - Status indicators show verification gaps
-
-### Phishing vs. Legitimate Sites
-
-| Characteristic | Wallet Radar | Phishing Site |
+| | Wallet Radar | Phishing site |
 |---|---|---|
-| **External links** | Official sites only | Fake/spoofed domains |
-| **Link tracking** | Transparent (utm_source) | Hidden redirects |
-| **Source disclosure** | Open, visible, documented | Concealed |
-| **Data sources** | Cited and verifiable | Unverified claims |
-| **Disclaimers** | Multiple, prominent | None |
-| **Code transparency** | GitHub visible | Proprietary/hidden |
+| External links | Official sites | Spoofed domains |
+| Link tracking | Visible `utm_source` | Hidden redirects |
+| Sources | Cited and checkable | Concealed |
+| Disclaimers | Prominent | None |
+| Code | Public on GitHub | Hidden |
 
----
+## Safe link checklist
 
-## Security Considerations
+Before you click any external link:
 
-### Safe Link Clicking
+1. Read the URL in the address bar, not the link text.
+2. Check the domain is the official one.
+3. Look for HTTPS.
+4. Be wary of any URL that does not match its link text.
 
-Before clicking any external link:
+Warning signs: "click here" links to unrelated sites, requests for passwords or seed phrases, shortened URLs, look-alike domains (`trezor-official.com` instead of `trezor.io`), sites that copy a wallet's setup screen.
 
-1. ✅ Check the URL in your browser's address bar (not just the link text)
-2. ✅ Verify the domain matches the expected official domain
-3. ✅ Look for HTTPS and a security lock icon
-4. ✅ Be wary of URLs that don't match their link text
+Our practice: official domains only, no shortened URLs or redirects, no credential collection, no copies of wallet login or setup pages, open-source code you can audit.
 
-### Common Phishing Tactics (Avoid)
+## Sidecar attributes (`data/attributes.json`)
 
-❌ Links that say "click here" but go to unrelated sites
-❌ Links asking you to enter passwords or private keys
-❌ Shortened URLs hiding the real destination
-❌ Brand-spoofing domains (e.g., "trezor-official.com" instead of "trezor.io")
-❌ Sites that look like official wallets but ask for seed phrases
+Unscored, per-value-sourced attributes live outside the scored tables, so score columns and `sync_table_scores.js` are untouched. Wallets get `bug_bounty`, `reproducible_build` and `chain_verification`. Cards get `card_network` and `kyc_requirement`. `data/attributes.schema.json` defines each attribute: what it applies to, allowed values (including `unknown`) and the required source fields.
 
-### Our Practice
+Every value carries `source_url`, `retrieved` and `source_kind`. Unsourced values are left out. Sources:
 
-✅ All links go to official domains we've verified
-✅ No shortened URLs or redirects
-✅ No credential collection anywhere on our site
-✅ No mimicry of wallet login/setup pages
-✅ Open source code you can audit
+- WalletBeat data, pinned at the commit above.
+- WalletScrutiny verdict string and link only. Its review text has a separate licence, so none is copied.
+- Issuer pages, for cards.
 
----
+Competitor and blog sites are not sources. `tests/attributes.test.ts` validates the data and that every key matches a table row. The site shows these values as badges.
 
-## Questions?
+## Questions
 
-If you have concerns about any links or data on Wallet Radar:
+Report a problem with a link or a number:
 
-1. **Report an issue:** [GitHub Issues](https://github.com/chimera-defi/walletradar/issues)
-2. **Email us:** chimera_deFi@protonmail.com
-3. **Check our source:** [GitHub Repository](https://github.com/chimera-defi/walletradar)
+- [GitHub Issues](https://github.com/chimera-defi/walletradar/issues)
+- chimera_deFi@protonmail.com
 
-#### Sidecar attributes (`data/attributes.json`)
+## See also
 
-Unscored, per-value-sourced attributes live outside the scored tables so the score columns and `sync_table_scores.js` are untouched: wallets get `bug_bounty`, `reproducible_build`, `chain_verification`; cards get `card_network`, `kyc_requirement`. `data/attributes.schema.json` defines each attribute (applies-to, allowed values including `unknown`, required source fields). Every value carries `source_url`, `retrieved` and `source_kind`; unsourced values are omitted. Sources: WalletBeat data pinned at the commit above (MIT attribution already given), WalletScrutiny verdict string and link only (its per-review text has a separate licence, so no review text is copied), and issuer pages for cards. Competitor and blog sites are not sources. `tests/attributes.test.ts` validates the data and that every key matches a table row. Not yet rendered on the site.
-
----
-
-## See Also
-
-- [About Wallet Radar](/docs/about) - Our mission and independence
-- [Contributing](/docs/contributing) - How to suggest corrections
-- [Security Information](/.well-known/security.txt) - IETF RFC 9116 compliance
+- [About Wallet Radar](/docs/about)
+- [Contributing](/docs/contributing)
+- [Security information](/.well-known/security.txt) (RFC 9116)
