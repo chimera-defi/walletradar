@@ -220,6 +220,8 @@ function MultiSelect({
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
         className={cn(
           'w-full flex items-center justify-between px-3 py-2 text-sm border rounded-lg',
           'bg-background text-foreground border-border',
@@ -286,6 +288,8 @@ function ToggleButton({
       <div className="flex border border-border rounded-lg overflow-hidden">
         <button
           onClick={() => onChange(value === true ? null : true)}
+          aria-pressed={value === true}
+          aria-label={`${label}: yes`}
           className={cn(
             'px-3 py-1 text-xs transition-colors',
             value === true
@@ -297,6 +301,8 @@ function ToggleButton({
         </button>
         <button
           onClick={() => onChange(value === false ? null : false)}
+          aria-pressed={value === false}
+          aria-label={`${label}: no`}
           className={cn(
             'px-3 py-1 text-xs transition-colors',
             value === false
@@ -338,6 +344,7 @@ function RangeSlider({
       <div className="flex gap-2">
         <input
           type="range"
+          aria-label={`${label} minimum`}
           min={min}
           max={max}
           value={value[0]}
@@ -346,6 +353,7 @@ function RangeSlider({
         />
         <input
           type="range"
+          aria-label={`${label} maximum`}
           min={min}
           max={max}
           value={value[1]}
@@ -417,7 +425,8 @@ export function WalletFilters({
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             type="search"
-            placeholder="Search wallets..."
+            placeholder={`Search ${type === 'cards' ? 'cards' : type === 'ramps' ? 'ramps' : 'wallets'}...`}
+            aria-label={`Search ${type === 'cards' ? 'cards' : type === 'ramps' ? 'ramps' : 'wallets'}`}
             value={filters.search}
             onChange={e => updateFilter('search', e.target.value)}
             className="w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -425,6 +434,7 @@ export function WalletFilters({
           {filters.search && (
             <button
               onClick={() => updateFilter('search', '')}
+              aria-label="Clear search"
               className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             >
               <X className="h-4 w-4" />
@@ -436,6 +446,7 @@ export function WalletFilters({
         <div className="flex items-center gap-2">
           <select
             value={sort.field}
+            aria-label="Sort by"
             onChange={e => onSortChange({ ...sort, field: e.target.value })}
             className="px-3 py-2 border border-border rounded-lg bg-background text-foreground text-sm"
           >
@@ -454,6 +465,7 @@ export function WalletFilters({
             }
             className="p-2 border border-border rounded-lg hover:bg-muted transition-colors"
             title={sort.direction === 'asc' ? 'Ascending' : 'Descending'}
+            aria-label={`Sort direction: ${sort.direction === 'asc' ? 'ascending' : 'descending'}. Activate to reverse.`}
           >
             <ArrowUpDown className="h-4 w-4" />
           </button>
@@ -462,6 +474,7 @@ export function WalletFilters({
         {/* Advanced filters toggle */}
         <button
           onClick={() => setShowAdvanced(!showAdvanced)}
+          aria-expanded={showAdvanced}
           className={cn(
             'flex items-center gap-2 px-4 py-2 border rounded-lg transition-colors',
             showAdvanced || activeFilterCount > 0
@@ -645,10 +658,11 @@ export function WalletFilters({
                 onChange={value => updateFilter('noAnnualFee', value)}
               />
               <div className="space-y-2">
-                <label className="text-sm text-muted-foreground">
+                <label htmlFor="filter-cashback-min" className="text-sm text-muted-foreground">
                   Min Cashback: {filters.cashBackMin}%
                 </label>
                 <input
+                  id="filter-cashback-min"
                   type="range"
                   min={0}
                   max={10}

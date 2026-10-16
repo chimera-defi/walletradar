@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -8,6 +8,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import { cn } from '@/lib/utils';
 import { addReferrerTracking, isExternalLink, getExternalLinkTitle } from '@/lib/link-utils';
+import { buildAnchorMap, headingToId, resolveMarkdownLink } from '@/lib/markdown-links';
 import { OutboundLink } from '@/components/OutboundLink';
 import { Search, X, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
 import { HeaderTooltip } from '@/components/Tooltip';
@@ -355,7 +356,7 @@ function parseInlineCollapsibleSections(content: string): ContentSegment[] {
           heading: headingText,
           headingLevel: level,
           icon: collapsibleMatch.icon,
-          id: headingText.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          id: headingToId(headingText),
         };
 
         // Mark if this is a container section
@@ -640,7 +641,7 @@ function SearchableTable({ tableContent, title }: { tableContent: string; title?
         </p>
       )}
 
-      <div className="table-wrapper overflow-x-auto -mx-4 px-4">
+      <div className="table-wrapper overflow-x-auto -mx-4 px-4" role="region" aria-label="Comparison table, scrollable" tabIndex={0}>
         <table className="w-full border-collapse text-sm">
           <thead className="bg-muted">
             <tr>
@@ -710,7 +711,7 @@ function SearchableTable({ tableContent, title }: { tableContent: string; title?
                       : row.scoreTone === 'red'
                       ? 'bg-red-500'
                       : row.scoreTone === 'neutral'
-                      ? 'bg-slate-400'
+                      ? 'bg-muted-foreground'
                       : '';
                     const scoreTextClass = row.scoreTone === 'green'
                       ? 'text-green-600 dark:text-green-400 font-semibold'
@@ -719,7 +720,7 @@ function SearchableTable({ tableContent, title }: { tableContent: string; title?
                       : row.scoreTone === 'red'
                       ? 'text-red-600 dark:text-red-400 font-semibold'
                       : row.scoreTone === 'neutral'
-                      ? 'text-slate-600 dark:text-slate-300 font-semibold'
+                      ? 'text-muted-foreground font-semibold'
                       : '';
 
                     return (
@@ -739,23 +740,7 @@ function SearchableTable({ tableContent, title }: { tableContent: string; title?
                             rehypePlugins={[rehypeRaw]}
                             components={{
                               p: ({ children }) => <>{children}</>,
-                              a: ({ href, children }) => {
-                                const external = isExternalLink(href);
-                                let transformedHref = href;
-                                if (external && transformedHref) {
-                                  transformedHref = addReferrerTracking(transformedHref);
-                                }
-                                return (
-                                  <a
-                                    href={transformedHref}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary hover:underline"
-                                  >
-                                    {children}
-                                  </a>
-                                );
-                              },
+                              a: MarkdownAnchor,
                             }}
                           >
                             {cell}
@@ -843,14 +828,43 @@ function MarkdownContent({ content, className, enableTableSearch = false }: { co
   );
 }
 
+const AnchorMapContext = createContext<Map<string, string> | undefined>(undefined);
+
+function MarkdownAnchor({ href, children }: { href?: string; children?: React.ReactNode }) {
+  const anchors = useContext(AnchorMapContext);
+  if (!href) return <span>{children}</span>;
+  const link = resolveMarkdownLink(href, anchors);
+
+  if (link.kind === 'hash') {
+    return <a href={link.href}>{children}</a>;
+  }
+  if (link.kind === 'internal') {
+    return <Link href={link.href}>{children}</Link>;
+  }
+  const isHttp = isExternalLink(link.href);
+  const finalHref = isHttp ? addReferrerTracking(link.href) : link.href;
+  return (
+    <OutboundLink
+      href={finalHref}
+      trackLabel={typeof children === 'string' ? children : undefined}
+      target={isHttp ? '_blank' : undefined}
+      rel={isHttp ? 'noopener noreferrer' : undefined}
+      title={isHttp ? getExternalLinkTitle(link.href) : undefined}
+      className="text-primary hover:underline"
+    >
+      {children}
+    </OutboundLink>
+  );
+}
+
 // Shared markdown components
 function getMarkdownComponents() {
   return {
-    img: ({ src, alt, ...props }: { src?: string | Blob; alt?: string }) => {
+    img: ({ src, alt }: { src?: string | Blob; alt?: string }) => {
       // Restrict to same-origin: only / or relative paths (blocks external URLs from markdown)
       const safeSrc =
-        typeof src === 'string' && (src.startsWith('/') || src.startsWith('./') || !/^https?:/i.test(src))
-          ? src
+        typeof src === 'string' && !/^(https?:)?\/\//i.test(src)
+          ? src.replace(/^(\.\.?\/)*frontend\/public\//, '/')
           : undefined;
       return (
         // eslint-disable-next-line @next/next/no-img-element
@@ -860,55 +874,15 @@ function getMarkdownComponents() {
           loading="lazy"
           decoding="async"
           className="max-w-full h-auto rounded-lg"
-          {...props}
         />
       );
     },
     table: ({ children }: { children?: React.ReactNode }) => (
-      <div className="table-wrapper">
+      <div className="table-wrapper" role="region" aria-label="Table, scrollable" tabIndex={0}>
         <table>{children}</table>
       </div>
     ),
-    a: ({ href, children }: { href?: string; children?: React.ReactNode }) => {
-      const external = isExternalLink(href);
-
-      let transformedHref = href;
-      if (href && !external && href.includes('.md')) {
-        const [pathPart, hashPart] = href.split('#');
-        const filename = pathPart.replace(/^\.\//, '').replace(/^.*\//, '');
-
-        if (filename && filename.endsWith('.md')) {
-          const slug = filename.replace('.md', '').toLowerCase().replace(/_/g, '-');
-          transformedHref = `/docs/${slug}${hashPart ? `#${hashPart}` : ''}`;
-        }
-      }
-
-      // Add referrer tracking for external links
-      if (external && transformedHref) {
-        transformedHref = addReferrerTracking(transformedHref);
-      }
-
-      if (transformedHref && !external && transformedHref.startsWith('/')) {
-        return (
-          <Link href={transformedHref}>
-            {children}
-          </Link>
-        );
-      }
-
-      return (
-        <OutboundLink
-          href={transformedHref || href || '#'}
-          trackLabel={typeof children === 'string' ? children : undefined}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={getExternalLinkTitle(href || '')}
-          className="text-primary hover:underline"
-        >
-          {children}
-        </OutboundLink>
-      );
-    },
+    a: MarkdownAnchor,
     pre: ({ children }: { children?: React.ReactNode }) => (
       <pre className="relative group">
         {children}
@@ -937,14 +911,21 @@ export function EnhancedMarkdownRenderer({
   const isComparisonPage = processedContent.includes('Complete') &&
     (processedContent.includes('Comparison') || processedContent.includes('Hardware Wallet'));
 
+  const anchorMap = buildAnchorMap(content);
+
   if (!showExpandableSections) {
-    return <MarkdownContent content={processedContent} className={className} enableTableSearch={isComparisonPage} />;
+    return (
+      <AnchorMapContext.Provider value={anchorMap}>
+        <MarkdownContent content={processedContent} className={className} enableTableSearch={isComparisonPage} />
+      </AnchorMapContext.Provider>
+    );
   }
 
   // Parse content into inline collapsible segments
   const segments = parseInlineCollapsibleSections(processedContent);
 
   return (
+    <AnchorMapContext.Provider value={anchorMap}>
     <div className={className}>
       {segments.map((segment, index) => {
         if (segment.type === 'collapsible') {
@@ -974,5 +955,6 @@ export function EnhancedMarkdownRenderer({
         );
       })}
     </div>
+    </AnchorMapContext.Provider>
   );
 }

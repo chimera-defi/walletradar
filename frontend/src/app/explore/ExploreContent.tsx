@@ -151,6 +151,7 @@ export function ExploreContent({
   const router = useRouter();
   const searchParams = useSearchParams();
   const topAnchorRef = useRef<HTMLDivElement | null>(null);
+  const firstUrlSyncSkippedRef = useRef(false);
   const hydratedFromUrlRef = useRef(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
@@ -315,6 +316,12 @@ export function ExploreContent({
 
   useEffect(() => {
     if (!hydratedFromUrlRef.current) return;
+    // The hydrate effect above runs in the same commit with state that is still default.
+    // Writing the URL now would erase the filters/sort the visitor arrived with, so skip the first pass.
+    if (!firstUrlSyncSkippedRef.current) {
+      firstUrlSyncSkippedRef.current = true;
+      return;
+    }
 
     const canonicalSoftwareFilters = normalizeFilterState(softwareFilters);
     const canonicalHardwareFilters = normalizeFilterState(hardwareFilters);
@@ -683,6 +690,48 @@ export function ExploreContent({
     }
   }, [activeTab, pushTabState]);
 
+  const tabDefs = [
+    {
+      id: 'software' as const, label: 'Software', count: softwareTabCount, selected: selectedSoftware.length, Icon: Shield,
+      active: 'bg-indigo-500/15 text-indigo-800 border-indigo-500/60 dark:bg-indigo-500/25 dark:text-indigo-100 dark:border-indigo-400/60',
+      idle: 'bg-muted text-muted-foreground border-transparent hover:text-foreground hover:border-indigo-500/40',
+      badge: 'bg-indigo-500/20',
+    },
+    {
+      id: 'hardware' as const, label: 'Hardware', count: hardwareTabCount, selected: selectedHardware.length, Icon: Cpu,
+      active: 'bg-amber-500/15 text-amber-900 border-amber-500/60 dark:bg-amber-500/25 dark:text-amber-100 dark:border-amber-400/60',
+      idle: 'bg-muted text-muted-foreground border-transparent hover:text-foreground hover:border-amber-500/40',
+      badge: 'bg-amber-500/20',
+    },
+    {
+      id: 'cards' as const, label: 'Cards', count: cardsTabCount, selected: selectedCards.length, Icon: CreditCard,
+      active: 'bg-emerald-500/15 text-emerald-900 border-emerald-500/60 dark:bg-emerald-500/25 dark:text-emerald-100 dark:border-emerald-400/60',
+      idle: 'bg-muted text-muted-foreground border-transparent hover:text-foreground hover:border-emerald-500/40',
+      badge: 'bg-emerald-500/20',
+    },
+    {
+      id: 'ramps' as const, label: 'Ramps', count: rampsTabCount, selected: selectedRamps.length, Icon: ArrowLeftRight,
+      active: 'bg-violet-500/15 text-violet-900 border-violet-500/60 dark:bg-violet-500/25 dark:text-violet-100 dark:border-violet-400/60',
+      idle: 'bg-muted text-muted-foreground border-transparent hover:text-foreground hover:border-violet-500/40',
+      badge: 'bg-violet-500/20',
+    },
+  ];
+
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    const ids = tabDefs.map((t) => t.id);
+    const i = ids.indexOf(activeTab);
+    const next =
+      event.key === 'Home' ? 0
+      : event.key === 'End' ? ids.length - 1
+      : event.key === 'ArrowRight' ? (i + 1) % ids.length
+      : (i - 1 + ids.length) % ids.length;
+    setActiveTab(ids[next]);
+    document.getElementById(`tab-${ids[next]}`)?.focus();
+  };
+
   const scrollToTopAnchor = useCallback(() => {
     topAnchorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
@@ -691,91 +740,31 @@ export function ExploreContent({
     <div ref={topAnchorRef} className="space-y-6">
       {/* Tabs */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
-        <div role="tablist" aria-label="Wallet categories" className="grid w-full grid-cols-2 gap-2 sm:w-auto sm:flex sm:flex-wrap">
-          <button
-            role="tab"
-            aria-selected={activeTab === 'software'}
-            aria-controls="tabpanel-wallets"
-            onClick={() => setActiveTab('software')}
-            className={cn(
-              'inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all sm:justify-start',
-              activeTab === 'software'
-                ? 'bg-indigo-500/25 text-indigo-100 border border-indigo-400/60 shadow-[0_0_10px_rgba(99,102,241,0.3)]'
-                : 'bg-indigo-900/20 text-indigo-300 border border-transparent hover:bg-indigo-500/15 hover:border-indigo-500/30'
-            )}
-          >
-            <Shield className="h-4 w-4" />
-            <span className="sr-only sm:hidden">Software ({softwareTabCount})</span>
-            <span className="hidden sm:inline">Software ({softwareTabCount})</span>
-            {selectedSoftware.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-indigo-400/20 text-xs px-1.5 py-0.5 rounded-sm">
-                {selectedSoftware.length}
-              </span>
-            )}
-          </button>
-          <button
-            role="tab"
-            aria-selected={activeTab === 'hardware'}
-            aria-controls="tabpanel-wallets"
-            onClick={() => setActiveTab('hardware')}
-            className={cn(
-              'inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all sm:justify-start',
-              activeTab === 'hardware'
-                ? 'bg-amber-500/25 text-amber-100 border border-amber-400/60 shadow-[0_0_10px_rgba(245,158,11,0.3)]'
-                : 'bg-amber-900/20 text-amber-300 border border-transparent hover:bg-amber-500/15 hover:border-amber-500/30'
-            )}
-          >
-            <Cpu className="h-4 w-4" />
-            <span className="sr-only sm:hidden">Hardware ({hardwareTabCount})</span>
-            <span className="hidden sm:inline">Hardware ({hardwareTabCount})</span>
-            {selectedHardware.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-amber-400/20 text-xs px-1.5 py-0.5 rounded-sm">
-                {selectedHardware.length}
-              </span>
-            )}
-          </button>
-          <button
-            role="tab"
-            aria-selected={activeTab === 'cards'}
-            aria-controls="tabpanel-wallets"
-            onClick={() => setActiveTab('cards')}
-            className={cn(
-              'inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all sm:justify-start',
-              activeTab === 'cards'
-                ? 'bg-emerald-500/25 text-emerald-100 border border-emerald-400/60 shadow-[0_0_10px_rgba(16,185,129,0.3)]'
-                : 'bg-emerald-900/20 text-emerald-300 border border-transparent hover:bg-emerald-500/15 hover:border-emerald-500/30'
-            )}
-          >
-            <CreditCard className="h-4 w-4" />
-            <span className="sr-only sm:hidden">Cards ({cardsTabCount})</span>
-            <span className="hidden sm:inline">Cards ({cardsTabCount})</span>
-            {selectedCards.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-emerald-400/20 text-xs px-1.5 py-0.5 rounded-sm">
-                {selectedCards.length}
-              </span>
-            )}
-          </button>
-          <button
-            role="tab"
-            aria-selected={activeTab === 'ramps'}
-            aria-controls="tabpanel-wallets"
-            onClick={() => setActiveTab('ramps')}
-            className={cn(
-              'inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all sm:justify-start',
-              activeTab === 'ramps'
-                ? 'bg-violet-500/25 text-violet-100 border border-violet-400/60 shadow-[0_0_10px_rgba(139,92,246,0.3)]'
-                : 'bg-violet-900/20 text-violet-300 border border-transparent hover:bg-violet-500/15 hover:border-violet-500/30'
-            )}
-          >
-            <ArrowLeftRight className="h-4 w-4" />
-            <span className="sr-only sm:hidden">Ramps ({rampsTabCount})</span>
-            <span className="hidden sm:inline">Ramps ({rampsTabCount})</span>
-            {selectedRamps.length > 0 && (
-              <span className="hidden sm:inline-flex animate-fade-in bg-violet-400/20 text-xs px-1.5 py-0.5 rounded-sm">
-                {selectedRamps.length}
-              </span>
-            )}
-          </button>
+        <div role="tablist" aria-label="Wallet categories" className="grid w-full grid-cols-2 gap-2 sm:w-auto sm:flex sm:flex-wrap" onKeyDown={handleTabKeyDown}>
+          {tabDefs.map(({ id, label, count, selected, Icon, active, idle, badge }) => (
+            <button
+              key={id}
+              id={`tab-${id}`}
+              role="tab"
+              type="button"
+              aria-selected={activeTab === id}
+              aria-controls="tabpanel-wallets"
+              tabIndex={activeTab === id ? 0 : -1}
+              onClick={() => setActiveTab(id)}
+              className={cn(
+                'inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border transition-colors sm:px-4 sm:justify-start',
+                activeTab === id ? active : idle
+              )}
+            >
+              <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>{label} ({count})</span>
+              {selected > 0 && (
+                <span className={cn('animate-fade-in text-xs px-1.5 py-0.5 rounded-sm', badge)} aria-label={`${selected} selected`}>
+                  {selected}
+                </span>
+              )}
+            </button>
+          ))}
         </div>
 
         <div className="flex items-center gap-2">
@@ -788,6 +777,8 @@ export function ExploreContent({
                 viewMode === 'grid' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
               )}
               title="Grid view"
+              aria-label="Grid view"
+              aria-pressed={viewMode === 'grid'}
             >
               <LayoutGrid className="h-4 w-4" />
             </button>
@@ -798,6 +789,8 @@ export function ExploreContent({
                 viewMode === 'table' ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
               )}
               title="Table view"
+              aria-label="Table view"
+              aria-pressed={viewMode === 'table'}
             >
               <List className="h-4 w-4" />
             </button>

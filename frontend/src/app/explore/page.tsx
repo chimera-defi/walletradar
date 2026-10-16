@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import {
   parseSoftwareWallets,
@@ -86,8 +87,8 @@ export default async function ExplorePage() {
       <div className="mb-8">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
           <div>
-            <h1 className="text-3xl font-bold mb-2 text-slate-100">Explore &amp; Compare</h1>
-            <p className="text-slate-400">
+            <h1 className="text-3xl font-bold mb-2 text-foreground">Explore &amp; Compare</h1>
+            <p className="text-muted-foreground">
               Filter, sort, and compare wallets, cards, and ramps side-by-side. Select products to see a detailed comparison.
             </p>
           </div>
@@ -101,41 +102,43 @@ export default async function ExplorePage() {
         <div className="mt-4">
           {chainStats ? (
             <div className="flex flex-wrap gap-4 text-sm">
-              <div className="px-3 py-1.5 bg-slate-900/70 border border-slate-700/60 rounded-lg">
-                <span className="text-slate-400">Data Updated:</span>{' '}
-                <span className="font-semibold text-slate-200">{walletStats.lastUpdated}</span>
+              <div className="px-3 py-1.5 bg-card/70 border border-border rounded-lg">
+                <span className="text-muted-foreground">Data Updated:</span>{' '}
+                <span className="font-semibold text-foreground">{walletStats.lastUpdated}</span>
               </div>
-              <div className="px-3 py-1.5 bg-slate-900/70 border border-slate-700/60 rounded-lg">
-                <span className="text-slate-400">Total EVM Chains:</span>{' '}
-                <span className="font-semibold text-slate-200">{chainStats.evmChains}</span>
+              <div className="px-3 py-1.5 bg-card/70 border border-border rounded-lg">
+                <span className="text-muted-foreground">Total EVM Chains:</span>{' '}
+                <span className="font-semibold text-foreground">{chainStats.evmChains}</span>
               </div>
-              <div className="px-3 py-1.5 bg-slate-900/70 border border-slate-700/60 rounded-lg">
-                <span className="text-slate-400">EVM TVL:</span>{' '}
-                <span className="font-semibold text-emerald-400">
+              <div className="px-3 py-1.5 bg-card/70 border border-border rounded-lg">
+                <span className="text-muted-foreground">EVM TVL:</span>{' '}
+                <span className="font-semibold text-emerald-700 dark:text-emerald-400">
                   {chainStats.evmTVL}
                 </span>
               </div>
-              <div className="px-3 py-1.5 bg-slate-900/70 border border-slate-700/60 rounded-lg">
-                <span className="text-slate-400">Top Chain:</span>{' '}
-                <span className="font-semibold text-slate-200">
+              <div className="px-3 py-1.5 bg-card/70 border border-border rounded-lg">
+                <span className="text-muted-foreground">Top Chain:</span>{' '}
+                <span className="font-semibold text-foreground">
                   {chainStats.topChains[0]?.name} ({chainStats.topChains[0]?.tvl})
                 </span>
               </div>
             </div>
           ) : (
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-foreground">
               Live chain stats are temporarily unavailable. Data last updated: {walletStats.lastUpdated}.
             </p>
           )}
         </div>
       </div>
 
-      <ExploreContent
-        softwareWallets={softwareWallets}
-        hardwareWallets={hardwareWallets}
-        cryptoCards={cryptoCards}
-        ramps={ramps}
-      />
+      <Suspense fallback={<div className="container mx-auto px-4 py-8 text-sm text-muted-foreground" role="status">Loading comparison tables...</div>}>
+        <ExploreContent
+          softwareWallets={softwareWallets}
+          hardwareWallets={hardwareWallets}
+          cryptoCards={cryptoCards}
+          ramps={ramps}
+        />
+      </Suspense>
     </div>
   );
 }

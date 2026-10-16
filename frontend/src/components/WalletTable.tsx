@@ -126,6 +126,7 @@ function SoftwareWalletItem({
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground"
+ aria-label="GitHub repository (opens in new tab)"
             >
               <Github className="h-4 w-4" />
             </a>
@@ -287,6 +288,7 @@ function HardwareWalletItem({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
+ aria-label="GitHub repository (opens in new tab)"
               >
                 <Github className="h-4 w-4" />
               </a>
@@ -297,6 +299,7 @@ function HardwareWalletItem({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
+ aria-label="Official website (opens in new tab)"
               >
                 <ExternalLink className="h-4 w-4" />
               </a>
@@ -358,6 +361,7 @@ function HardwareWalletItem({
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1 text-sm"
+ aria-label="GitHub repository (opens in new tab)"
           >
             <Github className="h-4 w-4" />
           </a>
@@ -416,6 +420,7 @@ function CryptoCardItem({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
+ aria-label="Official website (opens in new tab)"
               >
                 <ExternalLink className="h-3 w-3" />
               </a>
@@ -487,6 +492,7 @@ function CryptoCardItem({
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground"
+ aria-label="Official website (opens in new tab)"
             >
               <ExternalLink className="h-3 w-3" />
             </a>
@@ -636,6 +642,7 @@ function RampItem({
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground"
               title={`Visit ${ramp.name} website`}
+ aria-label="Official website (opens in new tab)"
             >
               <ExternalLink className="h-4 w-4" />
             </a>
@@ -759,7 +766,12 @@ export function WalletTable<T extends WalletData>({
         <p className="mb-2 text-xs text-muted-foreground sm:hidden">
           Swipe horizontally to view all columns.
         </p>
-        <div className="max-h-[70vh] overflow-auto overscroll-contain [WebkitOverflowScrolling:touch] border border-border rounded-lg sm:max-h-none sm:overflow-visible sm:border-0 sm:rounded-none">
+        <div
+          role="region"
+          aria-label={`${type} comparison table, scrollable`}
+          tabIndex={0}
+          className="max-h-[70vh] overflow-auto overscroll-contain [WebkitOverflowScrolling:touch] border border-border rounded-lg sm:max-h-none sm:overflow-x-auto"
+        >
           <table className="w-full">
           <thead>
             <tr>

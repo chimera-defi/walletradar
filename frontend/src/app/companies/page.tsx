@@ -48,7 +48,7 @@ export default function CompaniesPage() {
 
       <div className="grid gap-6">
         <div className="border border-border rounded-lg overflow-hidden">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto" role="region" aria-label="Company comparison table" tabIndex={0}>
             <table className="w-full text-sm text-left">
               <thead className="bg-muted/50 border-b border-border">
                 <tr>

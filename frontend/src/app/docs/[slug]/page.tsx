@@ -96,7 +96,9 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
   }
 
   const toc = extractTableOfContents(document.content);
-  const filteredToc = toc.filter(item => item.level <= 2);
+  // The first H1 is stripped from the body (the page title replaces it), so give the title its id and drop it from the TOC.
+  const titleHeadingId = toc.find(item => item.level === 1)?.id;
+  const filteredToc = toc.filter(item => item.level <= 2 && item.id !== titleHeadingId);
   
   // Page URL and description
   const pageUrl = `${brand.baseUrl}/docs/${params.slug}/`;
@@ -301,24 +303,24 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
       
       {/* Navigation between table and details */}
       {relatedDoc && (
-        <div className="mb-6 p-4 rounded-xl border border-slate-700/60 bg-slate-900/70 backdrop-blur-sm">
+        <div className="mb-6 p-4 rounded-xl border border-border bg-card/70 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               {isTablePage ? (
                 <>
-                  <Table className="h-4 w-4 text-slate-400" />
-                  <span className="text-sm text-slate-400">Viewing comparison table</span>
+                  <Table className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm text-muted-foreground">Viewing comparison table</span>
                 </>
               ) : (
                 <>
-                  <FileText className="h-4 w-4 text-slate-400" />
-                  <span className="text-sm text-slate-400">Viewing full documentation</span>
+                  <FileText className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm text-muted-foreground">Viewing full documentation</span>
                 </>
               )}
             </div>
             <Link
               href={`/docs/${relatedDoc.slug}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-sky-400 hover:text-sky-300 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors"
             >
               {isTablePage ? (
                 <>
@@ -340,8 +342,8 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
         {/* Main Content */}
         <article className="min-w-0">
           {/* Header */}
-          <header className="mb-8 pb-6 border-b border-slate-700/60">
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-3 flex-wrap">
+          <header className="mb-8 pb-6 border-b border-border">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3 flex-wrap">
               <BookOpen className="h-4 w-4" aria-hidden="true" />
               <span className="capitalize">{document.category}</span>
               {document.lastUpdated && (
@@ -354,9 +356,9 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
               <span aria-hidden="true">•</span>
               <span>{formatReadingTime(calculateReadingTime(document.content))}</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">{document.title}</h1>
-            <p className="text-lg text-slate-400 mb-3 speakable-summary">{summaryText}</p>
-            <p className="text-sm text-slate-500 mb-4">
+            <h1 id={titleHeadingId} className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{document.title}</h1>
+            <p className="text-lg text-muted-foreground mb-3 speakable-summary">{summaryText}</p>
+            <p className="text-sm text-muted-foreground mb-4">
               Summary: {enhancedDescription}
             </p>
             {/* Social Sharing - Header */}
@@ -377,21 +379,21 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
 
           {/* Merchant Feed (collapsible, for SEO agents - near footer) */}
           {(isTablePage || (isDetailsPage && ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps'].some(s => document.slug.startsWith(s)))) && (
-            <details className="mt-8 rounded-lg border border-slate-700/60 bg-slate-900/50 overflow-hidden" id="merchant-feed">
+            <details className="mt-8 rounded-lg border border-border bg-card/50 overflow-hidden" id="merchant-feed">
               <summary className="flex items-center gap-3 p-3 cursor-pointer list-none bg-muted/30 hover:bg-muted/50 transition-colors [&::-webkit-details-marker]:hidden">
                 <Rss className="h-5 w-5 text-muted-foreground flex-shrink-0" aria-hidden />
-                <span className="font-semibold text-slate-200">Merchant Feed (SEO agents)</span>
+                <span className="font-semibold text-foreground">Merchant Feed (SEO agents)</span>
                 <span className="text-xs text-muted-foreground ml-auto">Click to expand</span>
               </summary>
-              <div className="p-4 border-t border-slate-700/60 text-sm text-muted-foreground space-y-2">
+              <div className="p-4 border-t border-border text-sm text-muted-foreground space-y-2">
                 {(document.slug === 'hardware-wallets' || document.slug === 'hardware-wallets-details') ? (
                   <>
                     <p>
-                      <a href={`${brand.baseUrl}/merchant-center.xml`} className="text-sky-400 hover:text-sky-300 underline">
+                      <a href={`${brand.baseUrl}/merchant-center.xml`} className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline">
                         merchant-center.xml
                       </a>
                       {' — Verified USD pricing for hardware wallets. Exclusions: '}
-                      <a href="https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md" className="text-sky-400 hover:text-sky-300 underline" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md" className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline" target="_blank" rel="noopener noreferrer">
                         MERCHANT_FEED.md
                       </a>
                     </p>
@@ -399,11 +401,11 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
                 ) : (
                   <p>
                     Merchant feed not available for this category. The feed covers hardware wallets only.{' '}
-                    <Link href="/docs/hardware-wallets#merchant-feed" className="text-sky-400 hover:text-sky-300 underline">
+                    <Link href="/docs/hardware-wallets#merchant-feed" className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline">
                       See Hardware Wallets
                     </Link>
                     {' for '}
-                    <a href={`${brand.baseUrl}/merchant-center.xml`} className="text-sky-400 hover:text-sky-300 underline">
+                    <a href={`${brand.baseUrl}/merchant-center.xml`} className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline">
                       merchant-center.xml
                     </a>
                     .
@@ -414,9 +416,9 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
           )}
 
           {/* Footer Navigation */}
-          <footer className="mt-12 pt-8 border-t border-slate-700/60">
+          <footer className="mt-12 pt-8 border-t border-border">
             {/* Social Sharing - Footer */}
-            <div className="mb-6 pb-6 border-b border-slate-700/60">
+            <div className="mb-6 pb-6 border-b border-border">
               <SocialShare
                 url={pageUrl}
                 title={document.title}
@@ -428,7 +430,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-slate-200 transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Home
@@ -438,7 +440,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
                   href="https://walletbeat.fyi?utm_source=walletradar&utm_medium=comparison"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   WalletBeat
                   <ExternalLink className="h-3 w-3" />
@@ -447,7 +449,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
                   href="https://ethereum.org/en/wallets/find-wallet/?utm_source=walletradar&utm_medium=comparison"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Ethereum.org
                   <ExternalLink className="h-3 w-3" />
@@ -463,8 +465,8 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
             <TableOfContents items={filteredToc} />
             
             {/* Related Documents */}
-            <div className="mt-8 pt-8 border-t border-slate-700/60">
-              <p className="font-semibold text-sm mb-3 text-slate-200">Related</p>
+            <div className="mt-8 pt-8 border-t border-border">
+              <p className="font-semibold text-sm mb-3 text-foreground">Related</p>
               <RelatedDocuments currentSlug={params.slug} />
             </div>
           </div>
@@ -551,10 +553,10 @@ function RelatedDocuments({ currentSlug }: { currentSlug: string }) {
         <li key={doc.slug}>
           <Link
             href={`/docs/${doc.slug}`}
-            className="text-sm text-slate-400 hover:text-slate-200 transition-colors block"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors block"
           >
             <span className="line-clamp-2">{doc.title}</span>
-            <span className="text-xs text-slate-500 capitalize">
+            <span className="text-xs text-muted-foreground capitalize">
               {doc.category}
             </span>
           </Link>
