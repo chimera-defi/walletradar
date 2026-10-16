@@ -47,7 +47,7 @@ The Rec mark is a rank band, not a fixed score cutoff. `assignRecommendationBand
 
 1. Inactive rows are 🔴 Avoid, whatever their score.
 2. Software wallets only: a row with Core not full, or Developer Safety & Control of 10 or less, is ⚪ Not for dev.
-3. The remaining rows are sorted by score. The bottom 25% are 🔴 Avoid, the next 25% are 🟡 Situational, the top 50% are 🟢 Recommended.
+3. The remaining rows (N of them) are sorted by score, lowest first. The bottom `floor(N × 0.25)` are 🔴 Avoid, the rows up to `floor(N × 0.5)` are 🟡 Situational, and the rest are 🟢 Recommended. Rows with equal scores keep their table order, so the cutoffs are rounded down and ties are not split by any other rule.
 4. A row with status "launching" cannot be 🟢. It is capped at 🟡.
 
 So the same score can land in different bands in different tables, and in the same table after other rows change. Never write a Rec by hand.
