@@ -590,7 +590,7 @@ export function parseCryptoCards(): CryptoCard[] {
       provider: name, // Provider is now the card name itself
       providerUrl: cardUrl, // URL now comes from Card column
       status: parseCardStatus(cells[10] || ''),
-      bestFor: cells[11]?.trim() || '',
+      bestFor: cells[11]?.replace(/~~/g, '').trim() || '',
       recommendation: scoreInfo.recommendation as 'recommended' | 'situational' | 'avoid',
       type: 'card' as const,
     };
@@ -674,7 +674,7 @@ export function parseRamps(): Ramp[] {
       foundedYear: Number.isFinite(foundedYear) ? foundedYear : null,
       funding: funding.status,
       fundingSource: funding.source,
-      bestFor: cells[12]?.trim() || '',
+      bestFor: cells[12]?.replace(/~~/g, '').trim() || '',
       recommendation: scoreInfo.recommendation as 'recommended' | 'situational' | 'avoid',
       url,
       type: 'ramp' as const,
@@ -758,7 +758,7 @@ export function parseQRPayments(): QRPayment[] {
       minFee: cells[7]?.trim() || 'None',
       devUx: cells[8]?.trim() || 'Good',
       status: parseCardStatus(cells[9] || ''),
-      bestFor: cells[10]?.trim() || '',
+      bestFor: cells[10]?.replace(/~~/g, '').trim() || '',
       recommendation: parseQRRecommendation(cells[1] || ''), // Uses score emoji
       url,
       type: 'qr-payment' as const,
