@@ -164,6 +164,8 @@ For technically-inclined users who want maximum transparency and control:
 
 ## 🔒 Security Deep Dive
 
+Secure element, firmware openness, reproducible builds and anti-tamper features for each device.
+
 ### Security Features Comparison
 
 | Wallet | Secure Element | Air-Gap | Open Firmware | Reproducible | Passphrase | Multisig | Duress PIN | Anti-Tamper |
