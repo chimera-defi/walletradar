@@ -164,7 +164,7 @@ Reviewed 2026-10-10. Competitor figures are leads to check against issuer pages,
 | GitHub REST | Stars, commits, releases, licence | 60 requests/h unauthenticated, 5000/h with token. `refresh-github-data.sh` supports a token, tag fallback and licence capture. |
 | DefiLlama free API | Chain TVL | We use only `/v2/chains` (`frontend/src/lib/defillama.ts`). `/oracles` and `bridges.llama.fi` returned 402; avoid. |
 | ESMA MiCA CASP register | MiCA status for ramps | CSV `esma.europa.eu/sites/default/files/2024-12/CASPS.csv` (Latin-1 with BOM). Wired into `scripts/verify-ramps.py`. |
-| L2BEAT | Chain security stage | Undocumented JSON (`l2beat.com/api/scaling/summary`); expect schema drift. |
+| L2BEAT | Chain security stage | Repo is MIT. `l2beat.com/api/scaling/summary` returned 200 JSON on 2026-10-10; the alternate `api.l2beat.com` returned 401. Undocumented JSON: expect schema drift and snapshot it rather than depending on it live. |
 | Audit registries (Sherlock, Spearbit) | Audit links | No licence on repos: store metadata and links only. |
 | CoinGecko public API (K) | Token prices | Attribution on the free tier; rate limits unconfirmed. |
 

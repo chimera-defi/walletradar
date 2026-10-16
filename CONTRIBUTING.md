@@ -6,11 +6,11 @@ Keep the tables accurate and sourced. Tables are the source of truth.
 
 ### Software Wallets (EVM)
 - **Main comparison:** [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) | [Details](./SOFTWARE_WALLETS_DETAILS.md)
-- **Refresh script:** [scripts/refresh-github-data.sh](./scripts/refresh-github-data.sh)
+- **Refresh script:** [scripts/refresh-github-data.sh](https://github.com/chimera-defi/walletradar/blob/main/scripts/refresh-github-data.sh)
 
 ### Hardware Wallets (Cold Storage)
 - **Hardware comparison:** [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) | [Details](./HARDWARE_WALLETS_DETAILS.md)
-- **Refresh script:** [scripts/refresh-hardware-wallet-data.sh](./scripts/refresh-hardware-wallet-data.sh)
+- **Refresh script:** [scripts/refresh-hardware-wallet-data.sh](https://github.com/chimera-defi/walletradar/blob/main/scripts/refresh-hardware-wallet-data.sh)
 
 ### Crypto Cards
 - **Card comparison:** [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) | [Details](./CRYPTO_CARDS_DETAILS.md)

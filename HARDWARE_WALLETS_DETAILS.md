@@ -19,10 +19,10 @@
 | 5 | **Keycard Shell** | 83 | ✅ Active | 🟢 |
 <!-- GENERATED_HARDWARE_SNAPSHOT_END -->
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](./HARDWARE_WALLET_COMPANIES.md)
+**Last Updated:** October 15, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for EVM wallet recommendations and integration details.
-**Companies:** See [Hardware Wallet Companies](./HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
+**Companies:** See [Hardware Wallet Companies](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
 
 ---
 
@@ -119,7 +119,7 @@ Unlike software wallets where frequent updates can indicate instability, hardwar
 
 **Quick Answers (current scores from the main table):** Highest score? **Keystone 3 Pro** (92) at ~$149. Bitcoin-only? **ColdCard Mk5** (86) at ~$219 or **Mk4** (88, no longer listed in the Coinkite store), after reading the July 2026 advisory below. Best value? **Trezor Safe 3** (77) at ~$59. Budget QR-capable option? **Blockstream Jade** (74) at ~$67. See [full comparison table](#complete-hardware-wallet-comparison) for all hardware wallets.
 
-**Jump to:** [Comparison Table](#complete-hardware-wallet-comparison) | [Scoring Methodology](#-scoring-methodology) | [Security Deep Dive](#-security-deep-dive) | [Why Look Beyond Ledger?](#-why-look-beyond-ledger)
+**Jump to:** [Comparison Table](./HARDWARE_WALLETS.md#complete-hardware-wallet-comparison) | [Scoring Methodology](#-scoring-methodology) | [Security Deep Dive](#-security-deep-dive) | [Why Look Beyond Ledger?](#-why-look-beyond-ledger)
 
 ### Top Picks by Use Case
 

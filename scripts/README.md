@@ -164,7 +164,7 @@ If no token is available, it falls back to GitHub Atom feeds for the last commit
 Set `GITHUB_TOKEN` for higher limits:
 
 ```bash
-export GITHUB_TOKEN=<your token>
+export GITHUB_TOKEN="<your token>"
 ./scripts/refresh-github-data.sh
 ```
 

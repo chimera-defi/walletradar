@@ -52,9 +52,9 @@
 ---
 ## 🎯 Quick Recommendations
 
-Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md). Best for development: **Rabby** (86). Most stable: **Brave** (~2 releases/month). Compatibility testing: **MetaMask** (80, ~5 releases/month, test last). See the [full comparison table](#complete-wallet-comparison).
+Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md). Best for development: **Rabby** (86). Most stable: **Brave** (~2 releases/month). Compatibility testing: **MetaMask** (80, ~5 releases/month, test last). See the [full comparison table](./SOFTWARE_WALLETS.md#complete-wallet-comparison).
 
-**Jump to:** [Comparison Table](#complete-wallet-comparison) | [Scoring Methodology](#-wallet-scores-developer-focused-methodology) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
+**Jump to:** [Comparison Table](./SOFTWARE_WALLETS.md#complete-wallet-comparison) | [Scoring Methodology](#-wallet-scores-developer-focused-methodology) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
 
 ### ✅ Top Picks (mobile + browser extension)
 
