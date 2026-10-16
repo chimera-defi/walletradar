@@ -276,7 +276,7 @@ export function Tooltip({
               <div className="mt-2 pt-2 border-t border-white/15 dark:border-gray-700">
                 <Link
                   href={linkHref}
-                  className="text-[11px] font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-200 dark:text-blue-700 dark:hover:text-blue-800 underline underline-offset-2"
+                  className="text-[11px] font-semibold text-blue-300 hover:text-blue-200 dark:text-blue-700 dark:hover:text-blue-900 underline underline-offset-2"
                   onClick={() => {
                     setIsVisible(false);
                     setIsClickOpen(false);

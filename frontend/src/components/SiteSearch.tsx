@@ -68,6 +68,11 @@ export function SiteSearch({ searchData: initialData = [] }: SiteSearchProps) {
   const resultsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  // Retry a failed index load each time the dialog is reopened.
+  useEffect(() => {
+    if (isOpen) setIndexState((s) => (s === 'error' ? 'idle' : s));
+  }, [isOpen]);
+
   // Load the search index lazily the first time the dialog opens.
   useEffect(() => {
     if (!isOpen || indexState !== 'idle') return;
