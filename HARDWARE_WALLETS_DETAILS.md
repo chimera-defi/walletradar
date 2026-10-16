@@ -164,7 +164,7 @@ For technically-inclined users who want maximum transparency and control:
 
 ## 🔒 Security Deep Dive
 
-Secure element, firmware openness and audit status for each device.
+Secure element, firmware openness, reproducible builds and anti-tamper features for each device.
 
 ### Security Features Comparison
 
