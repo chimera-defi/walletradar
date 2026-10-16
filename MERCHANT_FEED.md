@@ -1,6 +1,6 @@
 # Merchant Center Feed (Hardware Wallets)
 
-Last updated: 2026-10-15
+Last updated: 2026-10-16
 
 ## Scope
 
@@ -12,26 +12,33 @@ Last updated: 2026-10-15
 
 | Item | Price (USD) | Source |
 | --- | --- | --- |
-| Bitkey | 150 | https://bitkey.world/products/bitkey |
 | Ledger Nano X | 99 | https://shop.ledger.com/products/ledger-nano-x |
-| Ledger Nano S+ | 59 | https://shop.ledger.com/products/ledger-nano-s-plus |
+| Ledger Nano S+ | 69 | https://shop.ledger.com/products/ledger-nano-s-plus |
 | Ledger Nano Gen5 | 179 | https://shop.ledger.com/products/ledger-nano-gen5 |
 | Ledger Flex | 249 | https://shop.ledger.com/products/ledger-flex |
 | Trezor Safe 3 | 59 | https://trezor.io/trezor-safe-3 |
 | OneKey Pro | 278 | https://onekey.so/products/onekey-pro-hardware-wallet/ |
 | OneKey Classic 1S | 99 | https://onekey.so/products/onekey-classic-1s-hardware-wallet/ |
 | OneKey Classic 1S Pure | 79 | https://onekey.so/products/onekey-classic-1s-hardware-wallet/#pure |
-| Blockstream Jade | 79 | https://store.blockstream.com/product/blockstream-jade/ |
+| Blockstream Jade | 67 | https://store.blockstream.com/product/blockstream-jade/ |
 
 ## Price checks on 2026-10-15
 
 - Re-fetched and unchanged: Ledger Flex 249 (shop.ledger.com via r.jina.ai), Trezor Safe 3 59, OneKey Classic 1S 99, OneKey Classic 1S Pure 79, OneKey Pro 278.
-- Blockstream Jade: page shows regular price 79 and a sale price 67 with the colour variants on that page listed as sold out or unavailable. The generator hardcodes `availability` as "in stock" and does not check stock, so the feed's availability for Jade is unverified; the feed keeps the regular price 79.
-- Not re-verified this run (price did not render or page unavailable; `last_checked` left unchanged): Ledger Nano X, Ledger Nano S+, Ledger Nano Gen5 (price shown as "Loading" or absent), Bitkey (product URL returned 404; bitkey.world/products/bitkey needs a new URL).
+
+## Price checks on 2026-10-16
+
+- Re-fetched with curl (page JSON-LD offers): Ledger Nano X 99 USD (in stock), Ledger Nano Gen5 179 USD (in stock), Ledger Flex 249 USD (in stock).
+- Ledger Nano S+: 69 USD in stock (previous 59 was a single out-of-stock variant offer). Feed now 69.
+- Blockstream Jade: 67 USD on the store page (previous 79 was the list price before the sale). Three colour variants in stock, two sold out, so the product is listed as in stock.
+- Bitkey: bitkey.world shows EUR 230 only; no USD price confirmed. Moved to the excluded list (feed is USD only). The old product URL returned 404.
+- Not re-fetched this run: Trezor Safe 3, OneKey (checked 2026-10-15; OneKey Classic 1S 99 and Pure 79 re-seen in page JSON today).
+- `availability` is now read from an optional `availability` field in `data/merchant_pricing.json` (in stock, out of stock, preorder, backorder; default in stock).
 
 ## Excluded from feed (no verified USD price or out of scope)
 
 - Arculus (blocked by 403 during automated fetch)
+- Bitkey (EUR 230 only on bitkey.world)
 - BitBox02 (EUR pricing; feed limited to USD)
 - BitBox02 Nova (EUR pricing; feed limited to USD)
 - ColdCard Mk4 (blocked by 403 during automated fetch)
@@ -72,7 +79,7 @@ Ramps are fee-based services (not a fixed-price product).
 We only include items with verifiable USD pricing and a direct product page.
 
 **How do I add a new priced item?**  
-Add a USD price, source URL, and `last_checked` date in `data/merchant_pricing.json`, then rerun the feed generator.
+Add a USD price, source URL, and `last_checked` date (plus `availability` if not in stock) in `data/merchant_pricing.json`, then rerun the feed generator.
 
 ## Playwright verification (crypto card checks)
 
