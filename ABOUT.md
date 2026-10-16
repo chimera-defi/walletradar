@@ -2,7 +2,7 @@
 
 ## Our Mission
 
-Wallet Radar is an **independent, educational research platform** dedicated to providing objective, comprehensive analysis of crypto access products, payment rails, and blockchain tools.
+Wallet Radar is an **independent, educational research platform** dedicated to providing objective analysis of crypto access products, payment rails, and blockchain tools.
 
 We are not owned or controlled by any product provider, exchange, or financial institution. We exist to help developers and crypto users make informed decisions through transparent, source-linked research.
 
@@ -22,7 +22,7 @@ Our research draws from:
 - **WalletBeat** - Wallet technical specifications and features
 - **Security audits** - Published audit reports from reputable firms
 - **Community research** - Verified data from wallet documentation
-- **Independent testing** - Hands-on evaluation of wallet features
+- **Public sources and scripts** - Data is compiled from the sources above and checked with the scripts in `scripts/`
 
 ## Why Independence Matters
 
@@ -74,7 +74,7 @@ Wallet Radar is **educational research only**. We explicitly do NOT:
 A: No provider can pay for ranking or inclusion. If we ever use commercial links, they will be disclosed clearly and kept separate from scoring and editorial decisions.
 
 **Q: Why was I warned about phishing?**
-A: This is a false positive. Chrome's Safe Browsing uses heuristics that sometimes incorrectly flag new educational sites about wallets and cryptocurrencies. This is NOT a security issue with our site. We do NOT phish for passwords, collect wallets, or have login pages. We are working to improve our domain reputation through backlinks, age, and transparency. See our [security information](/.well-known/security.txt) and [trust signals](/#why-were-not-phishing) for verification.
+A: This is a false positive. Chrome's Safe Browsing uses heuristics that sometimes incorrectly flag new educational sites about wallets and cryptocurrencies. This is NOT a security issue with our site. We do NOT phish for passwords, collect wallets, or have login pages. We are working to improve our domain reputation through backlinks, age, and transparency. See our [security information](/.well-known/security.txt) for verification.
 
 **Q: Can I trust this data?**
 A: We maintain high standards for accuracy and transparency. All data is sourced from official repositories and published research. However, this is educational research, not financial advice. Always verify critical information independently.

@@ -1,6 +1,6 @@
-# Wallet Data Scripts
+# Data scripts
 
-Automation scripts for refreshing wallet comparison data.
+Tools that refresh and check the comparison tables. Run them from the repo root.
 
 ## Scripts
 
@@ -66,7 +66,20 @@ Validates that:
 ./scripts/validate_merchant_feed.py
 ```
 
-Pricing sources and exclusions are documented in `MERCHANT_FEED.md`.
+Pricing sources and exclusions: `MERCHANT_FEED.md`.
+
+### `verify-crypto-cards.js` (Cards)
+
+Checks card pages with Playwright (headless Chromium), which gets past some bot walls that plain fetches hit.
+
+```bash
+node scripts/verify-crypto-cards.js gnosis-pay   # one card
+node scripts/verify-crypto-cards.js all
+```
+
+### `setup-git-hooks.sh`
+
+Sets `core.hooksPath` to `.githooks`, which enforces the commit format and blocks direct pushes to `main`.
 
 ### `recompute_scores.py` (Score Totals)
 
@@ -130,36 +143,11 @@ If no token is available, it falls back to GitHub Atom feeds for the last commit
 ./scripts/refresh-github-data.sh --markdown
 ```
 
-#### Output Formats
+#### Output formats
 
-**Text (default):**
-```
-=== Wallet GitHub Activity Check ===
-Generated: 2025-12-01
-
-MetaMask        MetaMask/metamask-extension           2025-11-27    4 days  ✅ Active
-Rabby           RabbyHub/Rabby                        2025-11-21   10 days  ✅ Active
-...
-```
-
-**JSON (`--json`):**
-```json
-{
-  "generated": "2025-12-01",
-  "wallets": [
-    {"wallet": "MetaMask", "repo": "MetaMask/metamask-extension", "lastCommit": "2025-11-27", "daysAgo": 4, "status": "✅"},
-    ...
-  ]
-}
-```
-
-**Markdown (`--markdown`):**
-```markdown
-| Wallet | Repository | Last Commit | Days Ago | Stars | Issues | Status |
-|--------|------------|-------------|----------|-------|--------|--------|
-| **MetaMask** | [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | 2025-11-27 | 4 | 12345 | 321 | ✅ Active |
-...
-```
+- Text (default): one line per repo with last commit date, days ago and status.
+- `--json`: `generated` date plus a `wallets` array (`wallet`, `repo`, `lastCommit`, `daysAgo`, `status`, plus the fields below).
+- `--markdown`: a table (`Wallet | Repository | Last Commit | Days Ago | Stars | Issues | Status`, then the fields below).
 
 #### Token, release and licence fields
 
@@ -173,15 +161,14 @@ Rabby           RabbyHub/Rabby                        2025-11-21   10 days  ✅ 
 - **Without token:** 60 requests/hour. Each repo costs up to 5 calls (repo, commits, releases/latest, plus /tags and one commit lookup on the fallback), so roughly 12–20 repos per hour; use a token for full runs
 - **With token:** 5,000 requests/hour
 
-Set the `GITHUB_TOKEN` environment variable for higher rate limits:
+Set `GITHUB_TOKEN` for higher limits:
 
 ```bash
-export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
+export GITHUB_TOKEN="<your token>"
 ./scripts/refresh-github-data.sh
 ```
 
-If no token is set, the script uses Atom feeds for commit dates and skips API calls.
-It may attempt a best-effort HTML scrape for stars/issues where applicable.
+Without a token the script uses Atom feeds for commit dates and a best-effort HTML scrape for stars and issues.
 
 #### Activity Status Definitions
 
@@ -191,15 +178,16 @@ It may attempt a best-effort HTML scrape for stars/issues where applicable.
 | ⚠️ Slow | 31-120 days | Reduced activity |
 | ❌ Inactive | >120 days | Likely abandoned |
 
-## Automation Status
+## Automation
 
-The standalone repository currently keeps these refresh scripts manual. Run them
-locally when auditing activity data, review the output, update the relevant
-Markdown tables if needed, and ship the result through a normal PR.
+Two GitHub Actions run every Monday. Both open a PR; a human reviews and merges.
 
-There is no scheduled `refresh-wallet-data.yml` workflow in `.github/workflows/`
-at the moment. If a scheduled refresh is reintroduced, document the workflow
-name and output files here in the same PR.
+| Workflow | Time (UTC) | What it does |
+|---|---|---|
+| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) with `ACTIVITY_STATUS.md`, `HARDWARE_ACTIVITY_STATUS.md` and `data/*.json`. It does not edit the comparison tables. |
+| `.github/workflows/generate-merchant-feed.yml` | 10:00 | Regenerates and validates `frontend/public/merchant-center.xml`, then opens a PR if it changed. |
+
+Table values (prices, licences, audits, custody) are checked by hand against primary sources. See `docs/VERIFICATION.md`.
 
 ## Data Directory
 

@@ -1,16 +1,16 @@
 # Contributing to Wallet Comparison
 
-Thank you for helping keep this wallet comparison accurate and up-to-date!
+Keep the tables accurate and sourced. Tables are the source of truth.
 
 ## Quick Links
 
 ### Software Wallets (EVM)
 - **Main comparison:** [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) | [Details](./SOFTWARE_WALLETS_DETAILS.md)
-- **Refresh script:** [scripts/refresh-github-data.sh](./scripts/refresh-github-data.sh)
+- **Refresh script:** [scripts/refresh-github-data.sh](https://github.com/chimera-defi/walletradar/blob/main/scripts/refresh-github-data.sh)
 
 ### Hardware Wallets (Cold Storage)
 - **Hardware comparison:** [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) | [Details](./HARDWARE_WALLETS_DETAILS.md)
-- **Refresh script:** [scripts/refresh-hardware-wallet-data.sh](./scripts/refresh-hardware-wallet-data.sh)
+- **Refresh script:** [scripts/refresh-hardware-wallet-data.sh](https://github.com/chimera-defi/walletradar/blob/main/scripts/refresh-hardware-wallet-data.sh)
 
 ### Crypto Cards
 - **Card comparison:** [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) | [Details](./CRYPTO_CARDS_DETAILS.md)
@@ -39,7 +39,7 @@ What this does:
 3. Refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 4. Fails the frontend smoke test if the markdown tables drift from the generated output.
 
-Current methodology version: `2026-04-visible-columns-v1`
+Current methodology version: `2026-04-visible-columns-v3`
 
 ## Adding a New Software Wallet
 
@@ -491,7 +491,7 @@ Use this template for your PR:
 
 ## Renaming Files or Changing URLs
 
-**⚠️ IMPORTANT:** Changing file names or URL slugs requires comprehensive updates across the entire codebase. Follow this checklist to avoid breaking links and SEO.
+**⚠️ IMPORTANT:** Changing file names or URL slugs requires updates across the whole codebase. Follow this checklist to avoid breaking links and SEO.
 
 ### When to Rename
 
@@ -620,7 +620,7 @@ bun run build
 
 ## Adding a New Comparison Type
 
-When adding a completely new comparison category (e.g., ramps, exchanges, etc.), follow this comprehensive checklist:
+When adding a completely new comparison category (e.g., ramps, exchanges, etc.), follow this checklist:
 
 ### 1. Markdown Files
 - [ ] Create `CATEGORY.md` (table view)

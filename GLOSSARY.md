@@ -1,6 +1,6 @@
 # Glossary of Wallet Terms
 
-This glossary defines core terms used across Wallet Radar comparisons.
+Terms used across the Wallet Radar comparisons.
 
 ## Terms
 
@@ -36,7 +36,3 @@ The primary URL that search engines should index for a page.
 
 **JSON-LD**  
 Structured data format used for SEO schemas (e.g., FAQPage, Product).
-
----
-
-**Related:** See `SEO_IMPLEMENTATION.md` for schema usage details.
