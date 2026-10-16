@@ -36,6 +36,7 @@ export function getOgImagePath(slug: string): string {
     'hardware-wallet-setup-guide': '/og/articles/hardware-wallet-setup-guide.svg',
     'software-wallet-setup-guide': '/og/articles/software-wallet-setup-guide.svg',
     'video-transcripts': '/og/articles/video-transcripts.svg',
+    'how-wallet-radar-works': '/og/articles/how-wallet-radar-works.png',
   };
   return imageMap[slug] || '/og-image.svg';
 }
