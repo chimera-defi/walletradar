@@ -41,53 +41,117 @@ const COLORS = {
 };
 
 // Wallet data for the images
-// IMPORTANT: This data must match SOFTWARE_WALLETS.md and HARDWARE_WALLETS.md
-// Last verified: December 2025
+// Every number and name below is read from the markdown tables at the repo root
+// (SOFTWARE_WALLETS.md, HARDWARE_WALLETS.md, CRYPTO_CARDS.md, RAMPS.md, QR_PAYMENTS.md).
+// Nothing is typed in, so a score or price change in a table shows up on the next run.
+const ROOT_DIR = path.join(__dirname, '../..');
+
+function stripMarkdown(cell) {
+  return cell
+    .replace(/~~/g, '')
+    .replace(/\*\*/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** First pipe table of a root markdown file -> [{ ...cells by header, _struck }] */
+function loadTable(file) {
+  const lines = fs.readFileSync(path.join(ROOT_DIR, file), 'utf8').split('\n');
+  const start = lines.findIndex((l) => l.startsWith('| ') && l.includes('Score'));
+  if (start < 0) throw new Error(`No table with a Score column in ${file}`);
+  const headers = lines[start].split('|').slice(1, -1).map((h) => h.trim());
+  const rows = [];
+  for (let i = start + 2; i < lines.length && lines[i].startsWith('|'); i++) {
+    const raw = lines[i].split('|').slice(1, -1).map((c) => c.trim());
+    if (raw.length !== headers.length) continue;
+    const row = { _struck: raw[0].includes('~~') };
+    headers.forEach((h, idx) => { row[h] = stripMarkdown(raw[idx]); });
+    row.score = parseInt(row.Score, 10);
+    rows.push(row);
+  }
+  return rows;
+}
+
+/** Active rows (not struck through), best score first. Ties keep table order. */
+function ranked(file, nameKey) {
+  return loadTable(file)
+    .filter((r) => !r._struck && Number.isFinite(r.score))
+    .map((r, i) => ({ r, i }))
+    .sort((x, y) => y.r.score - x.r.score || x.i - y.i)
+    .map(({ r }) => ({ ...r, name: r[nameKey] }));
+}
+
+/** Region cell without its leading flag/globe emoji token (only a non-ASCII first token is dropped). */
+function regionText(value) {
+  return String(value).replace(/^[^\x00-\x7F]+\s*/, '');
+}
+
+function clip(value, max = 16) {
+  const text = String(value || '-').replace(/\s*\([^)]*\)/g, '').trim();
+  return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+}
+
+/** Drop emoji and symbols the canvas font cannot draw. */
+function plain(value) {
+  return String(value).replace(/[^\x20-\x7E]+/g, '').replace(/\s+/g, ' ').trim();
+}
+
+const SOFTWARE_ROWS = ranked('SOFTWARE_WALLETS.md', 'Wallet');
+const HARDWARE_ROWS = ranked('HARDWARE_WALLETS.md', 'Wallet');
+const CARD_ROWS = ranked('CRYPTO_CARDS.md', 'Card');
+const RAMP_ROWS = ranked('RAMPS.md', 'Provider');
+const QR_ROWS = ranked('QR_PAYMENTS.md', 'Provider');
+
+/** Lowest exact USD price in the Price column (ranges and starred estimates are skipped), e.g. "$59+". */
+/** Largest "N+" or "~N+" country count in the Coverage column, e.g. "~170+". */
+function maxCountries(rows) {
+  let best = null;
+  rows.forEach((r) => {
+    const m = /(~?)(\d+)\+/.exec(r.Coverage);
+    if (m && (!best || Number(m[2]) > best.n)) best = { n: Number(m[2]), text: `${m[1]}${m[2]}+` };
+  });
+  return best ? best.text : 'n/a';
+}
+
+function lowestUsdPrice(rows) {
+  const prices = rows
+    .map((r) => /^~?\$([\d,]+)$/.exec(r.Price))
+    .filter(Boolean)
+    .map((m) => parseFloat(m[1].replace(/,/g, '')));
+  return prices.length ? `$${Math.min(...prices)}+` : 'n/a';
+}
+
 const WALLET_DATA = {
-  software: [
-    // Data from SOFTWARE_WALLETS.md
-    { name: 'Rabby', score: 92, platforms: 'Mobile+Ext', chains: '94', status: '🟢' },
-    { name: 'Trust', score: 85, platforms: 'Mobile+Ext', chains: '163', status: '🟢' },
-    { name: 'Rainbow', score: 82, platforms: 'Mobile+Ext', chains: '15+', status: '🟢' },
-    { name: 'Brave', score: 78, platforms: 'Mobile+Ext', chains: '10+', status: '🟢' },
-    { name: 'Coinbase', score: 75, platforms: 'Mobile+Ext', chains: '20+', status: '🟢' },
-  ],
-  hardware: [
-    // Data from HARDWARE_WALLETS.md
-    { name: 'Trezor Safe 5', score: 94, price: '~$169', security: 'Optiga SE', status: '🟢' },
-    { name: 'Keystone 3 Pro', score: 91, price: '~$149', security: '3× SE', status: '🟢' },
-    { name: 'ColdCard Mk4', score: 91, price: '~$150', security: 'Dual SE', status: '🟢' },
-    { name: 'Trezor Safe 3', score: 91, price: '~$79', security: 'Optiga SE', status: '🟢' },
-    { name: 'BitBox02', score: 88, price: '~$150', security: 'ATECC', status: '🟢' },
-  ],
-  cards: [
-    // Data from CRYPTO_CARDS.md - Top 5 by score
-    // Last verified: October 15, 2026
-    { name: 'EtherFi Cash', cashback: '2-3%', type: 'Credit', region: 'Global', status: '🟢' },
-    { name: 'Ethena Pay', cashback: '4-5%', type: 'Debit', region: 'Global*', status: '🟢' },
-    { name: 'Bleap', cashback: 'Up to 20%', type: 'Debit', region: 'EU/MX/BR', status: '🟢' },
-    { name: 'Plasma One', cashback: 'Up to 4%', type: 'Debit', region: 'Global', status: '🟢' },
-    { name: 'Gemini Card', cashback: 'Up to 4%', type: 'Credit', region: 'US', status: '🟢' },
-  ],
-  ramps: [
-    // Data from RAMPS.md - Top 5 by score
-    // Last verified: October 2026
-    { name: 'Transak', score: 92, type: 'Both', coverage: '160+', devUx: 'React SDK', status: '🟢' },
-    { name: 'MoonPay', score: 90, type: 'Both', coverage: '160+', devUx: 'Widget', status: '🟢' },
-    { name: 'Coinbase Pay', score: 89, type: 'Both', coverage: '100+', devUx: 'SDK', status: '🟢' },
-    { name: 'Ramp', score: 88, type: 'Both', coverage: '150+', devUx: 'SDK', status: '🟢' },
-    { name: 'Sardine', score: 86, type: 'Both', coverage: 'US+', devUx: 'API/SDK', status: '🟢' },
-  ],
-  qrPayments: [
-    // Data from QR_PAYMENTS.md - Top 5 by score
-    // Last verified: October 2026
-    { name: 'Flexa', score: 88, type: 'In-Store', feeModel: '~0.5%', devUx: 'SDK/API', status: '🟢' },
-    { name: 'NOWPayments', score: 85, type: 'Both', feeModel: '0.5%', devUx: 'API', status: '🟢' },
-    { name: 'Coinbase Commerce', score: 83, type: 'Both', feeModel: '1%', devUx: 'SDK', status: '🟢' },
-    { name: 'BitPay', score: 82, type: 'Both', feeModel: '1%', devUx: 'API', status: '🟢' },
-    { name: 'CoinGate', score: 80, type: 'Both', feeModel: '1%', devUx: 'API', status: '🟢' },
-  ],
+  software: SOFTWARE_ROWS.slice(0, 5).map((r) => ({
+    name: r.name, score: r.score, license: clip(plain(r.License)), funding: clip(plain(r.Funding)), status: r.Rec,
+  })),
+  hardware: HARDWARE_ROWS.slice(0, 5).map((r) => ({
+    name: r.name, score: r.score, price: clip(r.Price.replace(/[‡†*]+/g, '')), security: clip(r['Secure Elem'].replace(/^✅ /, '')), status: r.Rec,
+  })),
+  cards: CARD_ROWS.slice(0, 5).map((r) => ({
+    name: r.name, score: r.score, cashback: clip(r['Cash Back']), type: r.Type, region: clip(regionText(r.Region)), status: r.Rec,
+  })),
+  ramps: RAMP_ROWS.slice(0, 5).map((r) => ({
+    name: r.name, score: r.score, type: r.Type, coverage: clip(r.Coverage), devUx: clip(r['Dev UX']), status: r.Rec,
+  })),
+  qrPayments: QR_ROWS.slice(0, 5).map((r) => ({
+    name: r.name, score: r.score, type: r.Type, feeModel: clip(r['Fee Model']), devUx: clip(r['Dev UX']), status: r.Score.replace(/^\d+\s*/, '') || r.Status,
+  })),
 };
+
+/** Top-3 pick lines for the details images: name, score and the table's own "Best For" text. */
+const MEDALS = ['🥇', '🥈', '🥉'];
+function topPicks(rows, forKey, extra = () => ({})) {
+  return rows.slice(0, 3).map((r, i) => ({
+    rank: MEDALS[i], name: r.name, score: r.score, for: clip(r[forKey], 52), ...extra(r),
+  }));
+}
+/** Next three ranked rows as "Name (score) - Best For" lines. */
+function alsoRanked(rows, forKey) {
+  return rows.slice(3, 6).map((r) => `• ${r.name} (${r.score}) - ${clip(r[forKey], 44)}`);
+}
 
 /**
  * Draw rounded rectangle
@@ -124,6 +188,11 @@ function drawBranding(ctx) {
 /**
  * Draw a data table
  */
+// Canvas fonts draw the status emoji grey or blank, so draw coloured dots instead.
+const STATUS_COLORS = {
+  '🟢': '#22c55e', '✅': '#22c55e', '🟡': '#eab308', '⚠️': '#eab308', '🔴': '#f87171', '❌': '#f87171', '⚪': '#e2e8f0',
+};
+
 function drawTable(ctx, headers, data, startY) {
   const startX = 50;
   const rowHeight = 50;
@@ -190,7 +259,19 @@ function drawTable(ctx, headers, data, startY) {
         ctx.font = '16px Arial, sans-serif';
       }
       
-      ctx.fillText(String(value), x, y);
+      if (headers[colIndex] === 'Status') {
+        const dot = STATUS_COLORS[String(value).trim()];
+        if (dot) {
+          ctx.fillStyle = dot;
+          ctx.beginPath();
+          ctx.arc(x + 8, y - 6, 7, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillText('-', x, y);
+        }
+      } else {
+        ctx.fillText(String(value), x, y);
+      }
       x += colWidths[colIndex];
     });
   });
@@ -257,13 +338,13 @@ function generateSoftwareWalletsImage() {
   ctx.fillText('EVM wallets scored on security, activity & developer experience', 50, 195);
   
   // Table
-  const headers = ['Wallet', 'Score', 'Platforms', 'Chains', 'Status'];
+  const headers = ['Wallet', 'Score', 'License', 'Funding', 'Status'];
   drawTable(ctx, headers, WALLET_DATA.software, 230);
   
   // Footer
   drawFooter(ctx, [
-    { value: 'Compared', label: 'Wallets' },
-    { value: '163', label: 'Max Chains (Trust)' },
+    { value: String(SOFTWARE_ROWS.length), label: 'Wallets Scored' },
+    { value: SOFTWARE_ROWS[0].name, label: `Top Pick (Score: ${SOFTWARE_ROWS[0].score})` },
     { value: 'Weekly', label: 'Data Updates' },
   ]);
   
@@ -303,9 +384,9 @@ function generateHardwareWalletsImage() {
   
   // Footer
   drawFooter(ctx, [
-    { value: 'Reviewed', label: 'Devices' },
-    { value: 'Trezor', label: 'Top Pick (Score: 94)' },
-    { value: '$79+', label: 'Starting Price' },
+    { value: String(HARDWARE_ROWS.length), label: 'Devices Scored' },
+    { value: HARDWARE_ROWS[0].name, label: `Top Pick (Score: ${HARDWARE_ROWS[0].score})` },
+    { value: lowestUsdPrice(HARDWARE_ROWS), label: 'Lowest USD Price' },
   ]);
   
   return canvas;
@@ -339,14 +420,14 @@ function generateCryptoCardsImage() {
   ctx.fillText('Crypto debit & credit cards compared for rewards & availability', 50, 195);
   
   // Table
-  const headers = ['Card', 'Cashback', 'Type', 'Region', 'Status'];
+  const headers = ['Card', 'Score', 'Cashback', 'Type', 'Region', 'Status'];
   drawTable(ctx, headers, WALLET_DATA.cards, 230);
   
   // Footer
   drawFooter(ctx, [
-    { value: 'Compared', label: 'Cards' },
-    { value: '5%', label: 'Top Verified Cashback' },
-    { value: 'Global', label: 'Availability' },
+    { value: String(CARD_ROWS.length), label: 'Cards Scored' },
+    { value: CARD_ROWS[0].name, label: `Top Pick (Score: ${CARD_ROWS[0].score})` },
+    { value: clip(regionText(CARD_ROWS[0].Region), 14), label: 'Top Pick Region' },
   ]);
   
   return canvas;
@@ -444,11 +525,7 @@ function generateSoftwareWalletsDetailsImage() {
   ctx.fillText('🎯 Top Recommendations', 50, startY);
 
   // Top picks
-  const picks = [
-    { rank: '🥇', name: 'Rabby', score: 92, for: 'Development - tx simulation, catches bugs' },
-    { rank: '🥈', name: 'Trust', score: 85, for: 'Production - stable, 163 chains' },
-    { rank: '🥉', name: 'Rainbow', score: 82, for: 'Production - best code quality' },
-  ];
+  const picks = topPicks(SOFTWARE_ROWS, 'Best For');
 
   let y = startY + 50;
   picks.forEach((pick) => {
@@ -477,13 +554,9 @@ function generateSoftwareWalletsDetailsImage() {
   y += 20;
   ctx.fillStyle = COLORS.primary;
   ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('💡 Use Cases', 50, y);
+  ctx.fillText('📋 Also Ranked', 50, y);
 
-  const useCases = [
-    '• Maximum Stability: Brave (78) - ~2 releases/month',
-    '• Account Abstraction: Coinbase (75) - EIP-4337 support',
-    '• Compatibility Testing: MetaMask (68) - test last',
-  ];
+  const useCases = alsoRanked(SOFTWARE_ROWS, 'Best For');
 
   y += 40;
   ctx.fillStyle = COLORS.textMuted;
@@ -539,11 +612,7 @@ function generateHardwareWalletsDetailsImage() {
   ctx.fillText('🎯 Top Recommendations', 50, startY);
 
   // Top picks
-  const picks = [
-    { rank: '🥇', name: 'Trezor Safe 5', score: 94, for: 'Best overall - Optiga SE, $169' },
-    { rank: '🥈', name: 'Keystone 3 Pro', score: 91, for: 'Air-gapped - 3× SE chips, $149' },
-    { rank: '🥉', name: 'ColdCard Mk4', score: 91, for: 'Bitcoin-first - Dual SE, $150' },
-  ];
+  const picks = topPicks(HARDWARE_ROWS, 'Price', (r) => ({ for: clip(`${r['Secure Elem'].replace(/^✅ /, '')}, ${r.Price}`, 52) }));
 
   let y = startY + 50;
   picks.forEach((pick) => {
@@ -590,8 +659,8 @@ function generateHardwareWalletsDetailsImage() {
 
   // Footer
   drawFooter(ctx, [
-    { value: 'Reviewed', label: 'Devices' },
-    { value: '$79+', label: 'Starting Price' },
+    { value: String(HARDWARE_ROWS.length), label: 'Devices Scored' },
+    { value: lowestUsdPrice(HARDWARE_ROWS), label: 'Lowest USD Price' },
     { value: 'Secure Element', label: 'Protection' },
   ]);
 
@@ -631,14 +700,10 @@ function generateCryptoCardsDetailsImage() {
   // Section title
   ctx.fillStyle = COLORS.primary;
   ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🎯 Top Cashback Cards', 50, startY);
+  ctx.fillText('🎯 Top Scored Cards', 50, startY);
 
   // Top picks
-  const picks = [
-    { rank: '🥇', name: 'EtherFi Cash', cashback: '2-3%', for: 'Global - Non-custodial DeFi credit' },
-    { rank: '🥈', name: 'Plasma One', cashback: 'Up to 4%', for: 'Global - Self-custody debit' },
-    { rank: '🥉', name: 'MetaMask Card', cashback: '1-3%', for: 'Self-custody (US/UK signups paused)' },
-  ];
+  const picks = topPicks(CARD_ROWS, 'Best For', (r) => ({ cashback: clip(r['Cash Back'], 16) }));
 
   let y = startY + 50;
   picks.forEach((pick) => {
@@ -667,13 +732,9 @@ function generateCryptoCardsDetailsImage() {
   y += 20;
   ctx.fillStyle = COLORS.primary;
   ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🌍 Regional Options', 50, y);
+  ctx.fillText('📋 Also Ranked', 50, y);
 
-  const regions = [
-    '• US: Gemini Card (up to 4%), Coinbase Card, Fold Card',
-    '• EU/UK: Kraken Card (up to 2%), Plasma One (up to 4%)',
-    '• Global: EtherFi Cash (2-3%), Plasma One (up to 4%)',
-  ];
+  const regions = alsoRanked(CARD_ROWS, 'Best For');
 
   y += 40;
   ctx.fillStyle = COLORS.textMuted;
@@ -685,9 +746,9 @@ function generateCryptoCardsDetailsImage() {
 
   // Footer
   drawFooter(ctx, [
-    { value: 'Compared', label: 'Cards' },
-    { value: '5%', label: 'Top Verified Cashback' },
-    { value: 'Global', label: 'Coverage' },
+    { value: String(CARD_ROWS.length), label: 'Cards Scored' },
+    { value: CARD_ROWS[0].name, label: `Top Pick (Score: ${CARD_ROWS[0].score})` },
+    { value: clip(regionText(CARD_ROWS[0].Region), 14), label: 'Top Pick Region' },
   ]);
 
   return canvas;
@@ -734,7 +795,7 @@ function generateRampsImage() {
   // Footer
   drawFooter(ctx, [
     { value: 'Compared', label: 'Providers' },
-    { value: '160+', label: 'Max Countries' },
+    { value: maxCountries(RAMP_ROWS), label: 'Most Countries Listed' },
     { value: 'Global', label: 'Coverage' },
   ]);
   
@@ -777,11 +838,7 @@ function generateRampsDetailsImage() {
   ctx.fillText('🎯 Top Developer Picks', 50, startY);
 
   // Top picks
-  const picks = [
-    { rank: '🥇', name: 'Transak', score: 92, for: 'React SDK, 160+ countries' },
-    { rank: '🥈', name: 'MoonPay', score: 90, for: 'Widget, wide coverage' },
-    { rank: '🥉', name: 'Coinbase Pay', score: 89, for: 'SDK, Coinbase users' },
-  ];
+  const picks = topPicks(RAMP_ROWS, 'Best For');
 
   let y = startY + 50;
   picks.forEach((pick) => {
@@ -810,13 +867,9 @@ function generateRampsDetailsImage() {
   y += 20;
   ctx.fillStyle = COLORS.primary;
   ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('💡 Use Cases', 50, y);
+  ctx.fillText('📋 Also Ranked', 50, y);
 
-  const useCases = [
-    '• Developers: Transak (React SDK), Coinbase Pay (SDK)',
-    '• Enterprise: Modern Treasury, Stripe (API-first)',
-    '• Global Coverage: MoonPay, Transak (160+ countries)',
-  ];
+  const useCases = alsoRanked(RAMP_ROWS, 'Best For');
 
   y += 40;
   ctx.fillStyle = COLORS.textMuted;
@@ -861,7 +914,7 @@ function generateQRPaymentsImage() {
   // Subtitle
   ctx.fillStyle = COLORS.textMuted;
   ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('8+ providers scored on fees, coverage & developer experience', 50, 195);
+  ctx.fillText(`${QR_ROWS.length} providers scored on fees, coverage & developer experience`, 50, 195);
 
   // Table
   const headers = ['Provider', 'Score', 'Type', 'Fee', 'Dev UX'];
@@ -876,8 +929,8 @@ function generateQRPaymentsImage() {
 
   // Footer
   drawFooter(ctx, [
-    { value: '8+', label: 'Providers Compared' },
-    { value: '0.5%', label: 'Lowest Fee' },
+    { value: String(QR_ROWS.length), label: 'Providers Scored' },
+    { value: QR_ROWS[0].name, label: `Top Pick (Score: ${QR_ROWS[0].score})` },
     { value: 'Global', label: 'Coverage' },
   ]);
 
@@ -920,11 +973,7 @@ function generateQRPaymentsDetailsImage() {
   ctx.fillText('🎯 Top QR Payment Providers', 50, startY);
 
   // Top picks
-  const picks = [
-    { rank: '🥇', name: 'Flexa', score: 88, for: 'Retail POS - no chargebacks' },
-    { rank: '🥈', name: 'NOWPayments', score: 85, for: 'Lowest fees at 0.5%' },
-    { rank: '🥉', name: 'Coinbase Commerce', score: 83, for: 'Brand trust & easy setup' },
-  ];
+  const picks = topPicks(QR_ROWS, 'Best For');
 
   let y = startY + 50;
   picks.forEach((pick) => {
@@ -953,13 +1002,9 @@ function generateQRPaymentsDetailsImage() {
   y += 20;
   ctx.fillStyle = COLORS.primary;
   ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('💡 Use Cases', 50, y);
+  ctx.fillText('📋 Also Ranked', 50, y);
 
-  const useCases = [
-    '• Retail: Flexa (POS integration, guaranteed settlement)',
-    '• E-Commerce: NOWPayments, Coinbase Commerce (plugins)',
-    '• Emerging Markets: YODL Pay (local QR standards)',
-  ];
+  const useCases = alsoRanked(QR_ROWS, 'Best For');
 
   y += 40;
   ctx.fillStyle = COLORS.textMuted;
@@ -971,9 +1016,9 @@ function generateQRPaymentsDetailsImage() {
 
   // Footer
   drawFooter(ctx, [
-    { value: '8+', label: 'Providers Compared' },
+    { value: String(QR_ROWS.length), label: 'Providers Scored' },
     { value: 'QR + POS', label: 'Integration' },
-    { value: 'No Chargebacks', label: 'Settlement' },
+    { value: QR_ROWS[0].name, label: `Top Pick (Score: ${QR_ROWS[0].score})` },
   ]);
 
   return canvas;
@@ -1043,7 +1088,7 @@ function generateExploreImage() {
     {
       icon: '📱',
       title: 'QR Payments',
-      count: '8+',
+      count: 'Compared',
       desc: 'QR payment providers',
     },
   ];

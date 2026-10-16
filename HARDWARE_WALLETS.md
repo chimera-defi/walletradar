@@ -35,7 +35,7 @@
 | [**KeepKey**](https://keepkey.com/) | 61 | [keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | ❌ | ✅ Full | ❌ None | OLED | ~$60 | USB | ✅ Active | 2014 | 🟢 ShapeShift | 🟡 |
 | [**Ledger Nano X**](https://www.ledger.com/) | 61 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33J2M0 EAL5+ | Mono OLED | ~$99 | USB/BT | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**Ledger Stax**](https://www.ledger.com/) | 59 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | E-Ink Touch | ~$399 | USB/BT/NFC | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
-| [**Bitkey**](https://bitkey.world/products/bitkey) | 55 | [bitkey](https://github.com/proto-at-block/bitkey) | ❌ | ✅ Full† | ❌ Not documented | OLED Touch | ~€230 | NFC/USB-C | ✅ Active | 2009 | 🟢 Block | 🔴 |
+| [**Bitkey**](https://bitkey.world/) | 55 | [bitkey](https://github.com/proto-at-block/bitkey) | ❌ | ✅ Full† | ❌ Not documented | OLED Touch | ~€230 | NFC/USB-C | ✅ Active | 2009 | 🟢 Block | 🔴 |
 | [**Firefly**](https://firefly.city/) *(partial data)* | 55 | [wallet](https://github.com/firefly/wallet) | ✅ Full | ✅ Full | ❌ None | OLED | ~$5* | TBD | ❌ Inactive | TBD | 🔴 Unknown | 🔴 |
 | [**imKey Pro**](https://imkey.im/) *(partial data)* | 53 | [imkey-core](https://github.com/consenlabs/imkey-core) | TBD | ⚠️ Partial | ✅ SE EAL6+ | TBD | ~$110‡ | USB/BT | ❌ Inactive | 2018 | 🟢 Self | 🔴 |
 | [**SafePal X1**](https://www.safepal.com/en/store) | 52 | Private | ❌ | ⚠️ Partial | ✅ SE | LCD | ~$70 | BT | 🔒 Private | 2018 | 🟢 Binance | 🔴 |
