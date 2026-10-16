@@ -328,7 +328,7 @@ export function generateBreadcrumbSchema(
  * const schema = generateFAQSchema([
  *   {
  *     question: 'Is Rabby Wallet better than MetaMask?',
- *     answer: 'Rabby Wallet scores 92/100 vs MetaMask 84/100. Rabby offers transaction simulation and scam detection...'
+ *     answer: 'Rabby Wallet scores 86/100 vs MetaMask 80/100. Rabby offers transaction simulation and scam detection...'
  *   }
  * ]);
  * ```
@@ -414,10 +414,10 @@ export function generateHowToSchema(
  *
  * ### What is the best wallet?
  *
- * Rabby Wallet (92/100) is the best choice...
+ * Rabby Wallet (86/100) is the best choice...
  * `;
  * const faqs = extractFAQsFromMarkdown(content);
- * // Returns: [{ question: 'What is the best wallet?', answer: 'Rabby Wallet (92/100)...' }]
+ * // Returns: [{ question: 'What is the best wallet?', answer: 'Rabby Wallet (86/100)...' }]
  * ```
  */
 export function extractFAQsFromMarkdown(content: string): Array<{ question: string; answer: string }> {
@@ -490,7 +490,7 @@ interface WalletSchemaData {
  * ```ts
  * const schema = generateWalletProductSchema({
  *   name: 'Rabby Wallet',
- *   score: 92,
+ *   score: 86,
  *   url: 'https://rabby.io',
  *   platforms: ['Web', 'Desktop', 'Mobile'],
  *   features: ['Transaction Simulation', 'Scam Detection', 'Multi-chain Support']

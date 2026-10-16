@@ -2,7 +2,8 @@
 """Generate a Google Merchant Center feed from wallet tables.
 
 Notes:
-- Pricing is sourced from `data/merchant_pricing.json`.
+- Pricing is sourced from `data/merchant_pricing.json`; an optional `availability` field
+  (in stock | out of stock | preorder | backorder) defaults to in stock.
 - Items without verified pricing are skipped to avoid placeholder values.
 """
 from __future__ import annotations
@@ -61,10 +62,23 @@ def parse_table(lines: List[str]) -> List[Dict[str, str]]:
     return rows
 
 
-def load_pricing() -> Dict[str, Dict[str, Any]]:
-    if not PRICING_FILE.exists():
+def load_pricing(path: Path = PRICING_FILE) -> Dict[str, Dict[str, Any]]:
+    if not path.exists():
         return {}
-    return json.loads(PRICING_FILE.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+AVAILABILITY_VALUES = {"in stock", "out of stock", "preorder", "backorder"}
+
+
+def normalize_availability(value: Any) -> str:
+    """Return a Merchant Center availability value; default to 'in stock'."""
+    if not value:
+        return "in stock"
+    value = str(value).strip().lower().replace("_", " ")
+    if value not in AVAILABILITY_VALUES:
+        raise ValueError(f"Unsupported availability: {value!r}")
+    return value
 
 
 def build_item(row: Dict[str, str], pricing: Dict[str, Dict[str, Any]]) -> Dict[str, str] | None:
@@ -89,7 +103,7 @@ def build_item(row: Dict[str, str], pricing: Dict[str, Dict[str, Any]]) -> Dict[
         "description": f"{name} - {product_type} listed on Wallet Radar.",
         "link": url,
         "image_link": f"{BASE_URL}/og/wallets/hardware.png",
-        "availability": "in stock",
+        "availability": normalize_availability(price_entry.get("availability")),
         "condition": "new",
         "price": price_value,
         "brand": brand,
@@ -119,10 +133,11 @@ def write_feed(items: List[Dict[str, str]], output_path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default=str(BASE_DIR / "frontend" / "public" / "merchant-center.xml"))
+    parser.add_argument("--pricing", default=str(PRICING_FILE))
     args = parser.parse_args()
 
     items: List[Dict[str, str]] = []
-    pricing = load_pricing()
+    pricing = load_pricing(Path(args.pricing))
     for _, path in TABLE_FILES.items():
         content = path.read_text(encoding="utf-8").splitlines()
         rows = parse_table(content)

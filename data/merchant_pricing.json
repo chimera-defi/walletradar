@@ -1,12 +1,12 @@
 {
   "Bitkey": {
-    "last_checked": "2026-04-08",
-    "price": "150 USD",
-    "source": "https://bitkey.world/products/bitkey"
+    "last_checked": "2026-10-16",
+    "price": "230 EUR",
+    "source": "https://bitkey.world/"
   },
   "Blockstream Jade": {
     "last_checked": "2026-10-15",
-    "price": "79 USD",
+    "price": "67 USD",
     "source": "https://store.blockstream.com/product/blockstream-jade/"
   },
   "Ledger Flex": {
@@ -15,17 +15,17 @@
     "source": "https://shop.ledger.com/products/ledger-flex"
   },
   "Ledger Nano Gen5": {
-    "last_checked": "2026-02-03",
+    "last_checked": "2026-10-16",
     "price": "179 USD",
     "source": "https://shop.ledger.com/products/ledger-nano-gen5"
   },
   "Ledger Nano S+": {
-    "last_checked": "2026-02-03",
-    "price": "59 USD",
+    "last_checked": "2026-10-16",
+    "price": "69 USD",
     "source": "https://shop.ledger.com/products/ledger-nano-s-plus"
   },
   "Ledger Nano X": {
-    "last_checked": "2026-02-03",
+    "last_checked": "2026-10-16",
     "price": "99 USD",
     "source": "https://shop.ledger.com/products/ledger-nano-x"
   },
