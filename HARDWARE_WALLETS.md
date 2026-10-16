@@ -126,10 +126,10 @@
 
 > **TL;DR:** Use **Keystone 3 Pro** (92) when you want the strongest air-gapped multi-asset option, **ColdCard Mk5 / Q** (86 / 84) for Bitcoin-first security (read the July 2026 seed-generation advisory first), **Keycard Shell** (83) or **Blockstream Jade** (74) for open QR-capable setups, and **Trezor Safe 7 / 5 / 3** (78 / 78 / 77) when you prefer a USB-first open-source workflow with mainstream wallet integrations. The original Foundation Passport is discontinued.
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](./HARDWARE_WALLETS_DETAILS.md#-scoring-methodology) | [GitHub Activity Data](./HARDWARE_WALLETS_DETAILS.md#github-metrics-firmware-repositories) | [View Company Aggregates](./HARDWARE_WALLET_COMPANIES.md)
+**Last Updated:** October 15, 2026 | [Scoring Methodology](./HARDWARE_WALLETS_DETAILS.md#-scoring-methodology) | [GitHub Activity Data](./HARDWARE_WALLETS_DETAILS.md#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for EVM wallet recommendations and integration details.
-**Companies:** See [Hardware Wallet Companies](./HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
+**Companies:** See [Hardware Wallet Companies](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
 
 > 📖 **Want more details?** See the [full documentation with recommendations, methodology, security deep dive, and more](./HARDWARE_WALLETS_DETAILS.md).
 

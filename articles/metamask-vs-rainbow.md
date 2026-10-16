@@ -58,7 +58,7 @@ Source: `SOFTWARE_WALLETS.md`
 ## Pros & Cons
 
 **Rainbow**
-- ✅ Best-in-class NFT UX
+- ✅ Strong NFT UX
 - ✅ Lower churn than MetaMask
 - ⚠️ Smaller ecosystem
 
