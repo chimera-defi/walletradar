@@ -2,7 +2,9 @@
 
 Full-page screenshots in light mode, taken with headless Chromium (Playwright). "Before" is the site built from `main` before the UI pass (#114). "After" is the site built from the UI pass branch. Each pair is shown at 1280 px and 375 px wide.
 
-Files are palette-reduced PNGs of 200 KB or less. Both Cards 1280 px shots were scaled down to fit (before 796 px wide, after 768 px wide), so they are not at the same scale as the others. The "after" shots were taken before the last small commit on the UI branch (tooltip contrast and search retry), so tooltips may differ from `main`.
+Files are palette-reduced PNGs of 200 KB or less. Three 1280 px shots were scaled down to fit that limit, so they are not at the same scale as the rest: before Cards 796 px wide, after Cards 575 px wide, after Home 767 px wide, before Ramps shows 1286 px (it overflowed horizontally before the UI pass).
+
+The "after" shots were re-taken from the final branch build, after the `~~` strikethrough fix in `wallet-data.ts`, so the Cards page no longer shows literal tildes. The "before" shots come from the earlier `main` build and still show them.
 
 | Page | 1280 px before | 1280 px after | 375 px before | 375 px after |
 |---|---|---|---|---|
