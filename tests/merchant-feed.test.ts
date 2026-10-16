@@ -15,7 +15,7 @@ function run(pricing: object): string {
   const pf = path.join(dir, 'pricing.json');
   const out = path.join(dir, 'feed.xml');
   writeFileSync(pf, JSON.stringify(pricing));
-  execFileSync('python3', [path.join(root, 'scripts/generate_merchant_feed.py'), '--pricing', pf, '--output', out]);
+  execFileSync('python3', [path.join(root, 'scripts/generate_merchant_feed.py'), '--pricing', pf, '--output', out], { stdio: 'pipe' });
   return readFileSync(out, 'utf8');
 }
 
