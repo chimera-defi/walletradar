@@ -83,6 +83,11 @@ function ranked(file, nameKey) {
     .map(({ r }) => ({ ...r, name: r[nameKey] }));
 }
 
+/** Region cell without its leading flag/globe emoji token (only a non-ASCII first token is dropped). */
+function regionText(value) {
+  return String(value).replace(/^[^\x00-\x7F]+\s*/, '');
+}
+
 function clip(value, max = 16) {
   const text = String(value || '-').replace(/\s*\([^)]*\)/g, '').trim();
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
@@ -123,10 +128,10 @@ const WALLET_DATA = {
     name: r.name, score: r.score, license: clip(plain(r.License)), funding: clip(plain(r.Funding)), status: r.Rec,
   })),
   hardware: HARDWARE_ROWS.slice(0, 5).map((r) => ({
-    name: r.name, score: r.score, price: clip(r.Price), security: clip(r['Secure Elem'].replace(/^✅ /, '')), status: r.Rec,
+    name: r.name, score: r.score, price: clip(r.Price.replace(/[‡†*]+/g, '')), security: clip(r['Secure Elem'].replace(/^✅ /, '')), status: r.Rec,
   })),
   cards: CARD_ROWS.slice(0, 5).map((r) => ({
-    name: r.name, score: r.score, cashback: clip(r['Cash Back']), type: r.Type, region: clip(r.Region.replace(/^\S+ /, '')), status: r.Rec,
+    name: r.name, score: r.score, cashback: clip(r['Cash Back']), type: r.Type, region: clip(regionText(r.Region)), status: r.Rec,
   })),
   ramps: RAMP_ROWS.slice(0, 5).map((r) => ({
     name: r.name, score: r.score, type: r.Type, coverage: clip(r.Coverage), devUx: clip(r['Dev UX']), status: r.Rec,
@@ -183,6 +188,11 @@ function drawBranding(ctx) {
 /**
  * Draw a data table
  */
+// Canvas fonts draw the status emoji grey or blank, so draw coloured dots instead.
+const STATUS_COLORS = {
+  '🟢': '#22c55e', '✅': '#22c55e', '🟡': '#eab308', '⚠️': '#eab308', '🔴': '#f87171', '❌': '#f87171', '⚪': '#e2e8f0',
+};
+
 function drawTable(ctx, headers, data, startY) {
   const startX = 50;
   const rowHeight = 50;
@@ -249,7 +259,19 @@ function drawTable(ctx, headers, data, startY) {
         ctx.font = '16px Arial, sans-serif';
       }
       
-      ctx.fillText(String(value), x, y);
+      if (headers[colIndex] === 'Status') {
+        const dot = STATUS_COLORS[String(value).trim()];
+        if (dot) {
+          ctx.fillStyle = dot;
+          ctx.beginPath();
+          ctx.arc(x + 8, y - 6, 7, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillText('-', x, y);
+        }
+      } else {
+        ctx.fillText(String(value), x, y);
+      }
       x += colWidths[colIndex];
     });
   });
@@ -398,14 +420,14 @@ function generateCryptoCardsImage() {
   ctx.fillText('Crypto debit & credit cards compared for rewards & availability', 50, 195);
   
   // Table
-  const headers = ['Card', 'Cashback', 'Type', 'Region', 'Status'];
+  const headers = ['Card', 'Score', 'Cashback', 'Type', 'Region', 'Status'];
   drawTable(ctx, headers, WALLET_DATA.cards, 230);
   
   // Footer
   drawFooter(ctx, [
     { value: String(CARD_ROWS.length), label: 'Cards Scored' },
     { value: CARD_ROWS[0].name, label: `Top Pick (Score: ${CARD_ROWS[0].score})` },
-    { value: clip(CARD_ROWS[0].Region.replace(/^\S+ /, ''), 14), label: 'Top Pick Region' },
+    { value: clip(regionText(CARD_ROWS[0].Region), 14), label: 'Top Pick Region' },
   ]);
   
   return canvas;
@@ -726,7 +748,7 @@ function generateCryptoCardsDetailsImage() {
   drawFooter(ctx, [
     { value: String(CARD_ROWS.length), label: 'Cards Scored' },
     { value: CARD_ROWS[0].name, label: `Top Pick (Score: ${CARD_ROWS[0].score})` },
-    { value: clip(CARD_ROWS[0].Region.replace(/^\S+ /, ''), 14), label: 'Top Pick Region' },
+    { value: clip(regionText(CARD_ROWS[0].Region), 14), label: 'Top Pick Region' },
   ]);
 
   return canvas;
@@ -1066,7 +1088,7 @@ function generateExploreImage() {
     {
       icon: '📱',
       title: 'QR Payments',
-      count: String(QR_ROWS.length),
+      count: 'Compared',
       desc: 'QR payment providers',
     },
   ];
