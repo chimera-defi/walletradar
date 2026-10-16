@@ -55,7 +55,7 @@ export function SocialShare({ url, title, description, className = '', size = 'd
       label: 'Share on Twitter',
       shortLabel: 'Twitter',
       className: 'hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2]',
-      bgClass: 'bg-[#1DA1F2]/10 text-[#1DA1F2]',
+      bgClass: 'bg-muted text-foreground',
     },
     {
       platform: 'facebook' as const,
@@ -63,7 +63,7 @@ export function SocialShare({ url, title, description, className = '', size = 'd
       label: 'Share on Facebook',
       shortLabel: 'Facebook',
       className: 'hover:bg-[#4267B2]/10 hover:text-[#4267B2]',
-      bgClass: 'bg-[#4267B2]/10 text-[#4267B2]',
+      bgClass: 'bg-muted text-foreground',
     },
     {
       platform: 'linkedin' as const,
@@ -71,7 +71,7 @@ export function SocialShare({ url, title, description, className = '', size = 'd
       label: 'Share on LinkedIn',
       shortLabel: 'LinkedIn',
       className: 'hover:bg-[#0077B5]/10 hover:text-[#0077B5]',
-      bgClass: 'bg-[#0077B5]/10 text-[#0077B5]',
+      bgClass: 'bg-muted text-foreground',
     },
     {
       platform: 'email' as const,

@@ -46,8 +46,8 @@ export default function GlossaryPage() {
   if (!doc) {
     return (
       <div className="container mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold text-slate-100">Glossary</h1>
-        <p className="text-slate-300 mt-4">Glossary not found.</p>
+        <h1 className="text-3xl font-bold text-foreground">Glossary</h1>
+        <p className="text-muted-foreground mt-4">Glossary not found.</p>
       </div>
     );
   }

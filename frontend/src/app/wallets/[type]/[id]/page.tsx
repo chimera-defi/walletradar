@@ -393,7 +393,7 @@ export default async function WalletDetailPage({ params: paramsPromise }: { para
             <p className="mb-2 text-xs text-muted-foreground sm:hidden">
               Swipe horizontally to view full breakdown columns.
             </p>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto" role="region" aria-label="Details table" tabIndex={0}>
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border text-left text-muted-foreground">

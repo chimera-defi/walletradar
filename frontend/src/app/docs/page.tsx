@@ -50,8 +50,8 @@ export default function DocsPage() {
       <Breadcrumbs items={[{ label: 'Docs', href: '/docs' }]} />
 
       <header className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">Documentation</h1>
-        <p className="text-lg text-slate-400 max-w-2xl">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Documentation</h1>
+        <p className="text-lg text-muted-foreground max-w-2xl">
           Browse documentation, guides, and research materials for wallets, cards, ramps, and related crypto access products.
           Our resources help developers make informed decisions with transparent methodology and source-backed data.
         </p>
