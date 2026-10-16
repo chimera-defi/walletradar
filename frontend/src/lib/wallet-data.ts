@@ -73,7 +73,6 @@ function extractGitHubUrl(cell: string): string | null {
   if (match && match[2].includes('github.com')) {
     return match[2];
   }
-  if (cell.toLowerCase().includes('private')) return null;
   return null;
 }
 
