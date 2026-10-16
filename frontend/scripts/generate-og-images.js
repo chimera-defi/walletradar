@@ -1102,9 +1102,95 @@ function generateExploreImage() {
 }
 
 /**
+ * Generate the "How Wallet Radar works" article image.
+ * The numbers are computed from SOFTWARE_WALLETS.md with the real scoring code, not typed in.
+ */
+function generateHowItWorksImage() {
+  const { computeSoftwareScore } = require('../src/lib/scoring.js');
+  const tablePath = path.join(__dirname, '../../SOFTWARE_WALLETS.md');
+  const row = fs.readFileSync(tablePath, 'utf8').split('\n').find((line) => line.includes('**Rabby**'));
+  if (!row) throw new Error('Rabby row not found in SOFTWARE_WALLETS.md');
+  const cells = row.split('|').slice(1, -1).map((cell) => cell.trim());
+  const info = computeSoftwareScore(cells);
+
+  const canvas = createCanvas(WIDTH, HEIGHT);
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = COLORS.background;
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  drawBranding(ctx);
+
+  ctx.fillStyle = COLORS.text;
+  ctx.font = 'bold 54px Arial, sans-serif';
+  ctx.fillText('How Wallet Radar works', 50, 170);
+
+  ctx.fillStyle = COLORS.textMuted;
+  ctx.font = '24px Arial, sans-serif';
+  ctx.fillText('Where the data comes from, how scores are computed,', 50, 215);
+  ctx.fillText('and how to read the tables.', 50, 249);
+
+  // Panel with one worked example
+  const panelX = 50;
+  const panelY = 290;
+  const panelW = 1100;
+  const panelH = 230;
+  ctx.fillStyle = COLORS.backgroundAlt;
+  roundRect(ctx, panelX, panelY, panelW, panelH, 12);
+  ctx.fill();
+  ctx.strokeStyle = COLORS.border;
+  ctx.lineWidth = 1;
+  roundRect(ctx, panelX, panelY, panelW, panelH, 12);
+  ctx.stroke();
+
+  ctx.fillStyle = COLORS.text;
+  ctx.font = 'bold 28px Arial, sans-serif';
+  ctx.fillText(`Rabby: ${info.score} / 100`, panelX + 30, panelY + 50);
+  ctx.fillStyle = COLORS.textMuted;
+  ctx.font = '18px Arial, sans-serif';
+  ctx.fillText('Computed from the visible table cells by the scoring code', panelX + 330, panelY + 48);
+
+  const colW = 350;
+  info.breakdown.forEach((entry, i) => {
+    const col = i % 3;
+    const rowIdx = Math.floor(i / 3);
+    const x = panelX + 30 + col * (colW + 10);
+    const y = panelY + 95 + rowIdx * 70;
+    ctx.fillStyle = COLORS.textMuted;
+    ctx.font = '16px Arial, sans-serif';
+    ctx.fillText(entry.label, x, y);
+    ctx.fillStyle = COLORS.text;
+    ctx.font = 'bold 16px Arial, sans-serif';
+    const label = `${entry.score}/${entry.max}`;
+    ctx.fillText(label, x + colW - 40 - ctx.measureText(label).width, y);
+    ctx.fillStyle = COLORS.border;
+    roundRect(ctx, x, y + 12, colW - 40, 8, 4);
+    ctx.fill();
+    ctx.fillStyle = COLORS.primary;
+    roundRect(ctx, x, y + 12, Math.max(8, (colW - 40) * (entry.score / entry.max)), 8, 4);
+    ctx.fill();
+  });
+
+  drawFooter(ctx, [
+    { value: 'Sourced', label: 'Data' },
+    { value: '0-100', label: 'Scores by script' },
+    { value: 'Shareable', label: 'URL state' },
+  ]);
+
+  return canvas;
+}
+
+/**
  * Main execution
  */
 async function main() {
+  if (process.argv.includes('--only=how-wallet-radar-works')) {
+    const articleDir = path.join(OUTPUT_DIR, 'og', 'articles');
+    fs.mkdirSync(articleDir, { recursive: true });
+    saveCanvas(generateHowItWorksImage(), 'og/articles/how-wallet-radar-works.png');
+    return;
+  }
+
   console.log(`🎨 Generating OG Images for ${BRAND_NAME}...\\n`);
 
   // Ensure output directory exists
@@ -1126,6 +1212,9 @@ async function main() {
   saveCanvas(generateCryptoCardsDetailsImage(), 'og-crypto-cards-details.png');
   saveCanvas(generateRampsDetailsImage(), 'og-ramps-details.png');
   saveCanvas(generateQRPaymentsDetailsImage(), 'og-qr-payments-details.png');
+
+  console.log('\n📰 Generating article images...');
+  saveCanvas(generateHowItWorksImage(), 'og/articles/how-wallet-radar-works.png');
 
   console.log('\n🔍 Generating explore page image...');
   saveCanvas(generateExploreImage(), 'og-explore.png');

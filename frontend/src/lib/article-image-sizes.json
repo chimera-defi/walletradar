@@ -1,0 +1,26 @@
+{
+  "/articles/how-wallet-radar-works/cards-discontinued.png": {
+    "width": 1280,
+    "height": 820
+  },
+  "/articles/how-wallet-radar-works/compare-view.png": {
+    "width": 1280,
+    "height": 820
+  },
+  "/articles/how-wallet-radar-works/filters-sort.png": {
+    "width": 1280,
+    "height": 820
+  },
+  "/articles/how-wallet-radar-works/mobile.png": {
+    "width": 375,
+    "height": 700
+  },
+  "/articles/how-wallet-radar-works/software-table.png": {
+    "width": 1280,
+    "height": 820
+  },
+  "/articles/how-wallet-radar-works/wallet-detail.png": {
+    "width": 1280,
+    "height": 780
+  }
+}

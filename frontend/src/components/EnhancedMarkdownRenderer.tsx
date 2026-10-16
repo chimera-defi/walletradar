@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import articleImageSizes from '@/lib/article-image-sizes.json';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -866,13 +868,19 @@ function getMarkdownComponents() {
         typeof src === 'string' && !/^(https?:)?\/\//i.test(src)
           ? src.replace(/^(\.\.?\/)*frontend\/public\//, '/')
           : undefined;
+      if (!safeSrc) return null;
+      // Same-origin PNGs under /articles/ have known dimensions (article-image-sizes.json),
+      // so next/image can reserve space. Anything else gets a 16:9 placeholder box with auto height.
+      const known = (articleImageSizes as Record<string, { width: number; height: number }>)[safeSrc];
       return (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={safeSrc}
           alt={alt || 'Image'}
+          width={known?.width ?? 1200}
+          height={known?.height ?? 675}
+          unoptimized
           loading="lazy"
-          decoding="async"
+          sizes="(min-width: 768px) 768px, 100vw"
           className="max-w-full h-auto rounded-lg"
         />
       );
