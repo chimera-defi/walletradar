@@ -21,7 +21,7 @@
 | [**Kast**](https://kast.xyz) (@kastxyz) | 71 | Debit | 📋 CeFi | ✅ | 🌍 Global | 1.5-3% | $0-$10,000/yr | Up to 2-3% | Kast Points | ✅ | Stablecoin banking (custodial terms) | 🟢 |
 | [**Bitpanda Card**](https://www.bitpanda.com/en/card) | 70 | Debit | 🏦 Exch | ❌ | 🇪🇺 Euro area | 1% | $0 | 0% | Crypto | ✅ | Bitpanda users (euro-area residents) | 🟢 |
 | [**Fuse Wallet Card**](https://fusewallet.com) (@fusewallet) | 70 | Prepaid | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | 0% | USDC | ⚠️ | Solana stablecoins | 🟢 |
-| [**Lava Card**](https://lava.xyz/card) | 70 | Credit | 📋 CeFi | ❌ | Select countries (list unverified) | Up to 5% | $0 | 0% | BTC | ⚠️ | Secured Visa credit card with bitcoin rewards (Rain named on page; issuing bank not named; signup is 'Request your card', live vs waitlist unclear; 3% base rate is search-snippet only) | 🟢 |
+| [**Lava Card**](https://lava.xyz/card) | 70 | Credit | 📋 CeFi | ❌ | Select countries (list unverified) | Up to 5% | $0 | 0% | BTC | ⚠️ | Bitcoin-rewards Visa (Rain named on page; issuing bank not named; signup is 'Request your card', live vs waitlist unclear). Credit/secured type, Biz and the 3% base rate are not on the fetched page (FAQ search snippet only) | 🟢 |
 | [**1inch Card**](https://1inch.com/card) | 69 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU/UK | Up to 2% | $0 | 0% | 1INCH | ✅ | DeFi users | 🟢 |
 | [**COCA**](https://coca.xyz) | 69 | Debit | 📋 CeFi | ❌ | 🌍 Global* | Up to 8% | $0 | TBD | TBD | ⚠️ | Page claims non-custodial Visa card; issuer, funding path, fees and FX not stated, so custody labelled CeFi | 🟢 |
 | [**Tuyo**](https://tuyo.com/card) (@itstuyo) | 69 | Prepaid | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | ~1% | TUYO | ✅ | USDC on Base | 🟢 |

@@ -18,7 +18,7 @@ describe('cardFreshness', () => {
     expect(cardFreshness('2026-08-17', NOW).state).toBe('stale');
   });
   it('treats missing or malformed dates as unknown', () => {
-    for (const v of [null, undefined, '', 'Oct 2026', '2026-13-45']) {
+    for (const v of [null, undefined, '', 'Oct 2026', '2026-13-45', '2026-02-30']) {
       expect(cardFreshness(v as string | null, NOW)).toEqual({ state: 'unknown', days: null });
     }
   });

@@ -3,7 +3,11 @@
 Manual, no timers and no paid services. Run weekly (Monday suggested) or when a card shuts down in the news. Allow about an hour.
 
 ## 1. Stale first
-Open the cards page and sort by the **Last verified** badge: anything yellow ("Stale", more than 60 days) or red ("Not verified") goes first. The dates live in `data/card-verification.json` (`last_verified`, `source`, `source_url`).
+List the oldest checks first (the cards page has no freshness sort):
+```bash
+jq -r '.cards | to_entries | sort_by(.value.last_verified // "") | .[] | "\(.value.last_verified // "never")  \(.key)"' data/card-verification.json | head -20
+```
+Anything older than 60 days (yellow "Stale" badge) or `never` (red "Not verified") goes first. Fields: `last_verified`, `source`, `source_url`. The badge turns stale in the viewer's browser, so it stays correct between deploys.
 
 ## 2. Re-check each stale card against its issuer
 Use the issuer's own page, blog or help centre. Secondary sites (news, aggregators, review sites) can point you at a change but do not count as a check.
