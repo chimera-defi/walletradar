@@ -338,4 +338,4 @@ Storage: Geographic distribution + fireproof safes
 - [Hardware Wallet Setup Guide](/articles/wallet-setup-guide) - First-time setup
 
 **Data Sources:** GitHub REST API (Oct 2026), Official manufacturer specifications, Security audit reports
-**Last Updated:** October 15, 2026
+**Last Updated:** October 17, 2026
