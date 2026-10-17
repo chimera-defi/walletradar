@@ -105,9 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     // Higher priority for comparison tables, lower for other docs
-    // New naming: software-wallets (table), software-wallets-details (details)
-    const isComparisonTable = !doc.slug.includes('-details') && ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps'].includes(doc.slug);
-    const isComparisonDetails = doc.slug.includes('-details');
+    const isComparisonTable = ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps', 'qr-payments'].includes(doc.slug);
 
     const changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] =
       doc.category === 'comparison' ? 'weekly' : 'monthly';
@@ -116,7 +114,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/docs/${doc.slug}/`,
       lastModified,
       changeFrequency,
-      priority: isComparisonTable ? 0.9 : isComparisonDetails ? 0.85 : 0.7,
+      priority: isComparisonTable ? 0.9 : 0.7,
     };
   });
 
