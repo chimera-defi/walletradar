@@ -1,5 +1,5 @@
 /**
- * Tests for getScoreColorClasses() in frontend/src/lib/utils.ts.
+ * Tests for getScoreColorClasses() in frontend/src/lib/score-utils.ts.
  * Runs via: bunx vitest run tests/score-utils.test.ts
  */
 import { describe, expect, it } from 'vitest';
