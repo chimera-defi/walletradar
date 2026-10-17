@@ -184,21 +184,43 @@ const DETAIL_SNAPSHOT_CONFIGS = {
   },
 };
 
-const DETAIL_TOP_PROVIDER_CONFIGS = {
-  ramps: {
-    file: path.join(ROOT, 'RAMPS_DETAILS.md'),
-    startMarker: '<!-- GENERATED_RAMPS_TOP_PROVIDERS_START -->',
-    endMarker: '<!-- GENERATED_RAMPS_TOP_PROVIDERS_END -->',
+// Same grouping rules as getHardwareWalletCompanies() in frontend/src/lib/wallet-data.ts.
+function hardwareCompanyName(walletName) {
+  let company = walletName.split(' ')[0];
+  if (walletName.startsWith('BC Vault')) company = 'BC Vault';
+  if (walletName.toLowerCase().includes('coldcard')) company = 'Coldcard';
+  if (walletName.toLowerCase().includes('trezor')) company = 'Trezor';
+  if (walletName.includes('BitBox')) company = 'BitBox';
+  return company;
+}
+
+const DETAIL_DERIVED_BLOCK_CONFIGS = {
+  hardware: {
+    file: path.join(ROOT, 'HARDWARE_WALLETS_DETAILS.md'),
+    startMarker: '<!-- GENERATED_HARDWARE_COMPANIES_START -->',
+    endMarker: '<!-- GENERATED_HARDWARE_COMPANIES_END -->',
     build(rows) {
-      const topRows = rows.slice(0, 10);
+      const companies = new Map();
+      rows.forEach((row) => {
+        const company = hardwareCompanyName(row.name);
+        if (!companies.has(company)) companies.set(company, []);
+        companies.get(company).push(row);
+      });
+      const ranked = [...companies.entries()]
+        .map(([name, wallets]) => ({
+          name,
+          wallets,
+          mean: wallets.reduce((sum, w) => sum + w.score, 0) / wallets.length,
+        }))
+        .sort((a, b) => (b.mean - a.mean) || a.name.localeCompare(b.name));
       return [
         this.startMarker,
-        'This table mirrors the current generated ordering from [RAMPS.md](./RAMPS.md):',
+        'Derived from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table_scores.js`: the aggregated score is the mean of the company\'s row scores, grouped by the same rules as the [companies page](/companies/). Do not edit by hand.',
         '',
-        '| Provider | Score | Best For | Global Coverage | Fee Model | Dev UX |',
-        '|----------|-------|----------|-----------------|-----------|--------|',
-        ...topRows.map((row) => (
-          `| ${row.cells[0]} | ${row.score} | ${row.cells[12]} | ${row.cells[5]} | ${row.cells[6]} | ${row.cells[8]} |`
+        '| Company | Aggregated Score | Wallet Count | Wallets |',
+        '|---------|------------------|--------------|---------|',
+        ...ranked.map((c) => (
+          `| **${c.name}** | ${c.mean.toFixed(1)} | ${c.wallets.length} | ${c.wallets.map((w) => w.name).join(', ')} |`
         )),
         this.endMarker,
       ].join('\n');
@@ -362,11 +384,11 @@ function processDetailSnapshots(tableResults, { write = false } = {}) {
   });
 }
 
-function processDetailTopProviderBlocks(tableResults, { write = false } = {}) {
-  return Object.entries(DETAIL_TOP_PROVIDER_CONFIGS).map(([label, config]) => {
+function processDetailDerivedBlocks(tableResults, { write = false } = {}) {
+  return Object.entries(DETAIL_DERIVED_BLOCK_CONFIGS).map(([label, config]) => {
     const tableResult = tableResults.find((result) => result.label === label);
     if (!tableResult) {
-      throw new Error(`Could not find table result for top-provider block ${label}`);
+      throw new Error(`Could not find table result for derived block ${label}`);
     }
 
     const original = fs.readFileSync(config.file, 'utf8');
@@ -379,7 +401,7 @@ function processDetailTopProviderBlocks(tableResults, { write = false } = {}) {
     }
 
     return {
-      label: `${label}-details-top`,
+      label: `${label}-details-derived`,
       file: config.file,
       changed,
       rows: tableResult.processedRows.length,
@@ -390,8 +412,8 @@ function processDetailTopProviderBlocks(tableResults, { write = false } = {}) {
 function processAllTables(options = {}) {
   const tableResults = TABLE_CONFIGS.map((config) => processTable(config, options));
   const detailResults = processDetailSnapshots(tableResults, options);
-  const detailTopProviderResults = processDetailTopProviderBlocks(tableResults, options);
-  return [...tableResults, ...detailResults, ...detailTopProviderResults];
+  const detailDerivedResults = processDetailDerivedBlocks(tableResults, options);
+  return [...tableResults, ...detailResults, ...detailDerivedResults];
 }
 
 function main() {

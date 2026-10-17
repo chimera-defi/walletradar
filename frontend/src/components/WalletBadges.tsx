@@ -364,7 +364,7 @@ export function getWalletDetailHref(type: 'software' | 'hardware' | 'cards' | 'r
 }
 
 export const TABLE_METHOD_LINKS = {
-  software: '/docs/software-wallets#-wallet-scores-developer-focused-methodology',
+  software: '/docs/contributing#score-sync-workflow',
   hardware: '/docs/hardware-wallets#-scoring-methodology',
   cards: '/docs/crypto-cards#scoring-methodology',
   ramps: '/docs/ramps#scoring-methodology',

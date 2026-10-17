@@ -1893,12 +1893,6 @@ Headline maximums; many require staking or tiers, and several are unverified (se
 
 ---
 
-## Score Summary
-
-Current scores and recommendation bands are generated in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) (see the Verification Log below for the October 2026 changes).
-
----
-
 ## Verification Log (October 2026)
 
 Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text was treated as data. Many issuer sites blocked fetches (403/404/429); fields that could not be confirmed were set to `TBD` or left as previously published and are listed under **Unverified**. Sources per card: EtherFi (ether.fi/cash, etherfi.gitbook.io legal docs), Plasma One (plasma.org/personal), KAST (kast.xyz, Terms of Service effective 2026-07-07), Ethena Pay (pay.ethena.fi), Crypto.com ([US fees](https://help.crypto.com/en/articles/5966563-crypto-com-visa-card-fees-and-limits-united-states)), Ready ([terms](https://www.ready.co/legal/ready-rewards-terms-and-conditions), [The Defiant](https://thedefiant.io/news/cefi/ready-shuts-card-program-after-issuer-winds-down)), KuCard ([terms](https://www.kucoin.com/announcement/KuCard-Terms-of-Use)), MetaMask ([FAQ](https://support.metamask.io/trade/metamask-card/card-faq/)), 1inch (1inch.com/card), ThorWallet (thorwallet.org/cards), Gnosis Pay (gnosispay.com), Gemini, Plutus ([fees](https://www.plutus.it/fees), [terms](https://www.plutus.it/legal/terms-and-conditions/gbp)), RedotPay ([help](https://helpcenter.redotpay.com/en/articles/10566200)), Jupiter ([docs](https://docs.jup.ag/user-docs/global/spend/jupiter-card)), Avici ([docs](https://docs.avici.money/getting-started/secured-credit-cards.md)), Wayex, Shakepay ([agreement](https://legal.shakepay.com/master/shakepay-visa-card-cardholder-agreement)), Meow ([terms](https://meow.com/card-reward-terms)), Solflare (solflare.com/crypto-card), Tuyo ([card](https://tuyo.com/card)), Slash ([terms](https://www.slash.com/legal/cashback-terms)), Binance ([Brazil FAQ](https://www.binance.com/en/support/faq/an-overview-of-the-binance-brazil-card-53e464e091ba40d39f88f5f62882166c)), Kraken ([FAQ](https://support.krak.app/articles/krak-card-faqs)), Swissborg ([FAQ](https://help.swissborg.com/hc/en-gb/articles/42850564502545-SwissBorg-Crypto-Debit-Card-FAQs)), CoinJar, OKX ([explainer](https://www.okx.com/learn/okx-card-europe-explained)), Uphold ([The Block](https://www.theblock.co/post/376864), *secondary*).

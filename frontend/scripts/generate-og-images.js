@@ -141,18 +141,6 @@ const WALLET_DATA = {
   })),
 };
 
-/** Top-3 pick lines for the details images: name, score and the table's own "Best For" text. */
-const MEDALS = ['🥇', '🥈', '🥉'];
-function topPicks(rows, forKey, extra = () => ({})) {
-  return rows.slice(0, 3).map((r, i) => ({
-    rank: MEDALS[i], name: r.name, score: r.score, for: clip(r[forKey], 52), ...extra(r),
-  }));
-}
-/** Next three ranked rows as "Name (score) - Best For" lines. */
-function alsoRanked(rows, forKey) {
-  return rows.slice(3, 6).map((r) => `• ${r.name} (${r.score}) - ${clip(r[forKey], 44)}`);
-}
-
 /**
  * Draw rounded rectangle
  */
@@ -490,271 +478,6 @@ function saveCanvas(canvas, filename) {
 }
 
 /**
- * Generate Software Wallets Details Page Image (non-table)
- */
-function generateSoftwareWalletsDetailsImage() {
-  const canvas = createCanvas(WIDTH, HEIGHT);
-  const ctx = canvas.getContext('2d');
-
-  // Background gradient
-  const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  gradient.addColorStop(0, COLORS.background);
-  gradient.addColorStop(1, '#0c1929');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // Branding
-  drawBranding(ctx);
-
-  // Title
-  ctx.fillStyle = COLORS.text;
-  ctx.font = 'bold 42px Arial, sans-serif';
-  ctx.fillText('Software Wallet Guide', 50, 160);
-
-  // Subtitle
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('Developer-focused recommendations and methodology', 50, 195);
-
-  // Recommendations section
-  const startY = 250;
-
-  // Section title
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🎯 Top Recommendations', 50, startY);
-
-  // Top picks
-  const picks = topPicks(SOFTWARE_ROWS, 'Best For');
-
-  let y = startY + 50;
-  picks.forEach((pick) => {
-    // Rank
-    ctx.font = '32px Arial, sans-serif';
-    ctx.fillText(pick.rank, 50, y);
-
-    // Wallet name and score
-    ctx.fillStyle = COLORS.text;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(pick.name, 110, y);
-
-    ctx.fillStyle = COLORS.accent;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(`${pick.score}`, 250, y);
-
-    // Description
-    ctx.fillStyle = COLORS.textMuted;
-    ctx.font = '18px Arial, sans-serif';
-    ctx.fillText(pick.for, 110, y + 28);
-
-    y += 80;
-  });
-
-  // Use cases section
-  y += 20;
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('📋 Also Ranked', 50, y);
-
-  const useCases = alsoRanked(SOFTWARE_ROWS, 'Best For');
-
-  y += 40;
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '18px Arial, sans-serif';
-  useCases.forEach((useCase) => {
-    ctx.fillText(useCase, 50, y);
-    y += 35;
-  });
-
-  // Footer
-  drawFooter(ctx, [
-    { value: 'Compared', label: 'Wallets' },
-    { value: 'Weekly', label: 'Data Updates' },
-    { value: 'Open Source', label: 'Methodology' },
-  ]);
-
-  return canvas;
-}
-
-/**
- * Generate Hardware Wallets Details Page Image (non-table)
- */
-function generateHardwareWalletsDetailsImage() {
-  const canvas = createCanvas(WIDTH, HEIGHT);
-  const ctx = canvas.getContext('2d');
-
-  // Background gradient
-  const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  gradient.addColorStop(0, '#0f172a');
-  gradient.addColorStop(1, '#1e1b4b');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // Branding
-  drawBranding(ctx);
-
-  // Title
-  ctx.fillStyle = COLORS.text;
-  ctx.font = 'bold 42px Arial, sans-serif';
-  ctx.fillText('Hardware Wallet Guide', 50, 160);
-
-  // Subtitle
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('Cold storage security and recommendations', 50, 195);
-
-  // Recommendations section
-  const startY = 250;
-
-  // Section title
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🎯 Top Recommendations', 50, startY);
-
-  // Top picks
-  const picks = topPicks(HARDWARE_ROWS, 'Price', (r) => ({ for: clip(`${r['Secure Elem'].replace(/^✅ /, '')}, ${r.Price}`, 52) }));
-
-  let y = startY + 50;
-  picks.forEach((pick) => {
-    // Rank
-    ctx.font = '32px Arial, sans-serif';
-    ctx.fillText(pick.rank, 50, y);
-
-    // Wallet name and score
-    ctx.fillStyle = COLORS.text;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(pick.name, 110, y);
-
-    ctx.fillStyle = COLORS.accent;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(`${pick.score}`, 370, y);
-
-    // Description
-    ctx.fillStyle = COLORS.textMuted;
-    ctx.font = '18px Arial, sans-serif';
-    ctx.fillText(pick.for, 110, y + 28);
-
-    y += 80;
-  });
-
-  // Key features section
-  y += 20;
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🔒 Security Features', 50, y);
-
-  const features = [
-    '• Secure Element chips for key storage',
-    '• Open source firmware for transparency',
-    '• Air-gapped options for maximum security',
-  ];
-
-  y += 40;
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '18px Arial, sans-serif';
-  features.forEach((feature) => {
-    ctx.fillText(feature, 50, y);
-    y += 35;
-  });
-
-  // Footer
-  drawFooter(ctx, [
-    { value: String(HARDWARE_ROWS.length), label: 'Devices Scored' },
-    { value: lowestUsdPrice(HARDWARE_ROWS), label: 'Lowest USD Price' },
-    { value: 'Secure Element', label: 'Protection' },
-  ]);
-
-  return canvas;
-}
-
-/**
- * Generate Crypto Cards Details Page Image (non-table)
- */
-function generateCryptoCardsDetailsImage() {
-  const canvas = createCanvas(WIDTH, HEIGHT);
-  const ctx = canvas.getContext('2d');
-
-  // Background gradient
-  const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  gradient.addColorStop(0, '#0f172a');
-  gradient.addColorStop(1, '#14532d');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // Branding
-  drawBranding(ctx);
-
-  // Title
-  ctx.fillStyle = COLORS.text;
-  ctx.font = 'bold 42px Arial, sans-serif';
-  ctx.fillText('Crypto Card Guide', 50, 160);
-
-  // Subtitle
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('Maximize cashback and rewards on crypto spending', 50, 195);
-
-  // Recommendations section
-  const startY = 250;
-
-  // Section title
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🎯 Top Scored Cards', 50, startY);
-
-  // Top picks
-  const picks = topPicks(CARD_ROWS, 'Best For', (r) => ({ cashback: clip(r['Cash Back'], 16) }));
-
-  let y = startY + 50;
-  picks.forEach((pick) => {
-    // Rank
-    ctx.font = '32px Arial, sans-serif';
-    ctx.fillText(pick.rank, 50, y);
-
-    // Card name and cashback
-    ctx.fillStyle = COLORS.text;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(pick.name, 110, y);
-
-    ctx.fillStyle = COLORS.accent;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(pick.cashback, 330, y);
-
-    // Description
-    ctx.fillStyle = COLORS.textMuted;
-    ctx.font = '18px Arial, sans-serif';
-    ctx.fillText(pick.for, 110, y + 28);
-
-    y += 80;
-  });
-
-  // Regional options section
-  y += 20;
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('📋 Also Ranked', 50, y);
-
-  const regions = alsoRanked(CARD_ROWS, 'Best For');
-
-  y += 40;
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '18px Arial, sans-serif';
-  regions.forEach((region) => {
-    ctx.fillText(region, 50, y);
-    y += 35;
-  });
-
-  // Footer
-  drawFooter(ctx, [
-    { value: String(CARD_ROWS.length), label: 'Cards Scored' },
-    { value: CARD_ROWS[0].name, label: `Top Pick (Score: ${CARD_ROWS[0].score})` },
-    { value: clip(regionText(CARD_ROWS[0].Region), 14), label: 'Top Pick Region' },
-  ]);
-
-  return canvas;
-}
-
-/**
  * Generate Ramps OG Image (Table)
  */
 function generateRampsImage() {
@@ -803,93 +526,6 @@ function generateRampsImage() {
 }
 
 /**
- * Generate Ramps Details Page Image (non-table)
- */
-function generateRampsDetailsImage() {
-  const canvas = createCanvas(WIDTH, HEIGHT);
-  const ctx = canvas.getContext('2d');
-
-  // Background gradient
-  const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  gradient.addColorStop(0, '#0f172a');
-  gradient.addColorStop(1, '#1e3a5f');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // Branding
-  drawBranding(ctx);
-
-  // Title
-  ctx.fillStyle = COLORS.text;
-  ctx.font = 'bold 42px Arial, sans-serif';
-  ctx.fillText('Ramp Provider Guide', 50, 160);
-
-  // Subtitle
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('Choose the best on-ramp and off-ramp for your dApp', 50, 195);
-
-  // Recommendations section
-  const startY = 250;
-
-  // Section title
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🎯 Top Developer Picks', 50, startY);
-
-  // Top picks
-  const picks = topPicks(RAMP_ROWS, 'Best For');
-
-  let y = startY + 50;
-  picks.forEach((pick) => {
-    // Rank
-    ctx.font = '32px Arial, sans-serif';
-    ctx.fillText(pick.rank, 50, y);
-
-    // Provider name and score
-    ctx.fillStyle = COLORS.text;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(pick.name, 110, y);
-
-    ctx.fillStyle = COLORS.accent;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(`Score: ${pick.score}`, 330, y);
-
-    // Description
-    ctx.fillStyle = COLORS.textMuted;
-    ctx.font = '18px Arial, sans-serif';
-    ctx.fillText(pick.for, 110, y + 28);
-
-    y += 80;
-  });
-
-  // Use case section
-  y += 20;
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('📋 Also Ranked', 50, y);
-
-  const useCases = alsoRanked(RAMP_ROWS, 'Best For');
-
-  y += 40;
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '18px Arial, sans-serif';
-  useCases.forEach((useCase) => {
-    ctx.fillText(useCase, 50, y);
-    y += 35;
-  });
-
-  // Footer
-  drawFooter(ctx, [
-    { value: 'Compared', label: 'Providers' },
-    { value: 'Both', label: 'On/Off-Ramp' },
-    { value: 'Global', label: 'Coverage' },
-  ]);
-
-  return canvas;
-}
-
-/**
  * Generate QR Payments OG Image (Table)
  */
 function generateQRPaymentsImage() {
@@ -932,93 +568,6 @@ function generateQRPaymentsImage() {
     { value: String(QR_ROWS.length), label: 'Providers Scored' },
     { value: QR_ROWS[0].name, label: `Top Pick (Score: ${QR_ROWS[0].score})` },
     { value: 'Global', label: 'Coverage' },
-  ]);
-
-  return canvas;
-}
-
-/**
- * Generate QR Payments Details Page Image (non-table)
- */
-function generateQRPaymentsDetailsImage() {
-  const canvas = createCanvas(WIDTH, HEIGHT);
-  const ctx = canvas.getContext('2d');
-
-  // Background gradient
-  const gradient = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-  gradient.addColorStop(0, '#0f172a');
-  gradient.addColorStop(1, '#312e81');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // Branding
-  drawBranding(ctx);
-
-  // Title
-  ctx.fillStyle = COLORS.text;
-  ctx.font = 'bold 42px Arial, sans-serif';
-  ctx.fillText('QR Payment Provider Guide', 50, 160);
-
-  // Subtitle
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '20px Arial, sans-serif';
-  ctx.fillText('Accept crypto payments at your retail store or e-commerce site', 50, 195);
-
-  // Recommendations section
-  const startY = 250;
-
-  // Section title
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('🎯 Top QR Payment Providers', 50, startY);
-
-  // Top picks
-  const picks = topPicks(QR_ROWS, 'Best For');
-
-  let y = startY + 50;
-  picks.forEach((pick) => {
-    // Rank
-    ctx.font = '32px Arial, sans-serif';
-    ctx.fillText(pick.rank, 50, y);
-
-    // Provider name and score
-    ctx.fillStyle = COLORS.text;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(pick.name, 110, y);
-
-    ctx.fillStyle = COLORS.accent;
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText(`Score: ${pick.score}`, 400, y);
-
-    // Description
-    ctx.fillStyle = COLORS.textMuted;
-    ctx.font = '18px Arial, sans-serif';
-    ctx.fillText(pick.for, 110, y + 28);
-
-    y += 80;
-  });
-
-  // Use case section
-  y += 20;
-  ctx.fillStyle = COLORS.primary;
-  ctx.font = 'bold 24px Arial, sans-serif';
-  ctx.fillText('📋 Also Ranked', 50, y);
-
-  const useCases = alsoRanked(QR_ROWS, 'Best For');
-
-  y += 40;
-  ctx.fillStyle = COLORS.textMuted;
-  ctx.font = '18px Arial, sans-serif';
-  useCases.forEach((useCase) => {
-    ctx.fillText(useCase, 50, y);
-    y += 35;
-  });
-
-  // Footer
-  drawFooter(ctx, [
-    { value: String(QR_ROWS.length), label: 'Providers Scored' },
-    { value: 'QR + POS', label: 'Integration' },
-    { value: QR_ROWS[0].name, label: `Top Pick (Score: ${QR_ROWS[0].score})` },
   ]);
 
   return canvas;
@@ -1243,20 +792,13 @@ async function main() {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   }
 
-  // Generate all images (11 total: 5 table + 5 details + 1 explore)
+  // Generate all images (table images, explore, home, articles)
   console.log('📊 Generating table comparison images...');
   saveCanvas(generateSoftwareWalletsImage(), 'og-software-wallets-table.png');
   saveCanvas(generateHardwareWalletsImage(), 'og-hardware-wallets-table.png');
   saveCanvas(generateCryptoCardsImage(), 'og-crypto-cards-table.png');
   saveCanvas(generateRampsImage(), 'og-ramps-table.png');
   saveCanvas(generateQRPaymentsImage(), 'og-qr-payments-table.png');
-
-  console.log('\n📖 Generating details/guide images...');
-  saveCanvas(generateSoftwareWalletsDetailsImage(), 'og-software-wallets-details.png');
-  saveCanvas(generateHardwareWalletsDetailsImage(), 'og-hardware-wallets-details.png');
-  saveCanvas(generateCryptoCardsDetailsImage(), 'og-crypto-cards-details.png');
-  saveCanvas(generateRampsDetailsImage(), 'og-ramps-details.png');
-  saveCanvas(generateQRPaymentsDetailsImage(), 'og-qr-payments-details.png');
 
   console.log('\n📰 Generating article images...');
   saveCanvas(generateHowItWorksImage(), 'og/articles/how-wallet-radar-works.png');
@@ -1276,12 +818,11 @@ async function main() {
   console.log('\n✨ All OG images generated successfully!');
   console.log('\nGenerated files:');
   console.log('  📊 Table pages: og-{software-wallets,hardware-wallets,crypto-cards}-table.png');
-  console.log('  📖 Details pages: og-{software-wallets,hardware-wallets,crypto-cards}-details.png');
   console.log('  🔍 Explore page: og-explore.png');
   console.log('  🏠 Homepage: og-image.png');
   console.log('\nNext steps:');
   console.log('1. Review the generated images in /public/');
-  console.log('2. Update seo.ts to map table/details pages to correct images');
+  console.log('2. Update seo.ts to map table pages to correct images');
   console.log('3. Test with Twitter Card Validator: https://cards-dev.twitter.com/validator');
 }
 

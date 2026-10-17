@@ -13,7 +13,7 @@ Recomputes `Score` and recommendation cells from the visible markdown-table colu
 - `CRYPTO_CARDS.md`
 - `RAMPS.md`
 
-It also sorts rows by computed score so the published tables stay in rank order, and refreshes the generated snapshot blocks at the top of the matching `*_DETAILS.md` files.
+It also sorts rows by computed score so the published tables stay in rank order, and refreshes the generated snapshot blocks at the top of the matching `*_DETAILS.md` files, plus the derived company-aggregates block in `HARDWARE_WALLETS_DETAILS.md`.
 
 #### Usage
 
@@ -88,21 +88,6 @@ node scripts/verify-crypto-cards.js all
 ### `setup-git-hooks.sh`
 
 Sets `core.hooksPath` to `.githooks`, which enforces the commit format and blocks direct pushes to `main`.
-
-### `recompute_scores.py` (Score Totals)
-
-Recalculates totals in scoring breakdown tables for software and hardware
-wallets. This only updates totals where the per-category columns already exist.
-
-This is separate from `sync_table_scores.js`, which regenerates the public
-comparison-table score cells from the visible columns.
-
-#### Usage
-
-```bash
-./scripts/recompute_scores.py
-```
-
 
 ### `verify-ramps.py` (Ramps)
 

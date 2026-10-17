@@ -30,13 +30,13 @@
 - [Complete Wallet Comparison](./SOFTWARE_WALLETS.md#complete-wallet-comparison) (Table View)
 - [Quick Recommendations](#-quick-recommendations)
 - [GitHub Metrics](#github-metrics-stars-issues-code-quality)
-- [Scoring Methodology](#-wallet-scores-developer-focused-methodology)
+- [Scoring Methodology](./CONTRIBUTING.md#score-sync-workflow)
 - [Security Audits](#-security-audits-from-walletbeat--github)
 - [Known Quirks & Gotchas](#-known-quirks--gotchas)
-- [Account Type Support](#account-type-support-from-walletbeat)
-- [Hardware Wallet Support](#hardware-wallet-support-from-walletbeat)
-- [ENS & Address Resolution](#ens--address-resolution-from-walletbeat)
-- [Browser Integration](#browser-integration-from-walletbeat)
+- [Account Type Support](#account-type-support)
+- [Hardware Wallet Support](#hardware-wallet-support)
+- [ENS & Address Resolution](#ens--address-resolution)
+- [Browser Integration](#browser-integration)
 - [EIP Support Matrix](#-eip-support-matrix)
 - [EIP-7702 Wallet Support](#-eip-7702-wallet-support-pectra-upgrade)
 - [Gas Estimation & Transaction Preview](#-gas-estimation--transaction-preview)
@@ -46,15 +46,13 @@
 - [Security Features](#-security-features-tx-simulation--scam-protection)
 - [Privacy & Data Collection](#-privacy--data-collection)
 - [Data Sources & Verification](#data-sources--verification)
-- [Changelog](#-changelog)
-- [Contributing](#-contributing-add-a-new-wallet)
 
 ---
 ## 🎯 Quick Recommendations
 
 Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md). Best for development: **Rabby** (86). Most stable: **Brave** (~2 releases/month). Compatibility testing: **MetaMask** (80, ~5 releases/month, test last). See the [full comparison table](./SOFTWARE_WALLETS.md#complete-wallet-comparison).
 
-**Jump to:** [Comparison Table](./SOFTWARE_WALLETS.md#complete-wallet-comparison) | [Scoring Methodology](#-wallet-scores-developer-focused-methodology) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
+**Jump to:** [Comparison Table](./SOFTWARE_WALLETS.md#complete-wallet-comparison) | [Scoring Methodology](./CONTRIBUTING.md#score-sync-workflow) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
 
 ### ✅ Top Picks (mobile + browser extension)
 
@@ -128,23 +126,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 
 ---
 
-## 📊 Wallet Scores (Developer-Focused Methodology)
-
-**Goal:** find stable MetaMask alternatives with both mobile and browser extension for developer use.
-
-Scores are generated from the visible table columns by `frontend/src/lib/scoring.js` (methodology `2026-04-visible-columns-v3`). Run `bun scripts/sync_table_scores.js --write` to regenerate. Per-wallet scores live in the [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) table; the formula is in [CONTRIBUTING.md](./CONTRIBUTING.md). The 2025 per-category breakdown that used to sit here was removed because it no longer matched the generated scores.
-
-**Score interpretation (auto-generated bands):**
-- 🟢 **Recommended:** top half of active, developer-fit rows
-- 🟡 **Situational:** middle quartile of active, developer-fit rows
-- 🔴 **Avoid:** bottom quartile or inactive
-- ⚪ **Not for dev:** fails core developer-fit requirements (for example, no mobile + extension)
-
-**Key insight:** MetaMask scores 80 despite being the industry standard because of ~5 releases/month (high churn). Rabby (86) leads on tx simulation and stability.
-
----
-
-### ⚠️ Previously Recommended, Now Inactive
+## ⚠️ Previously Recommended, Now Inactive
 | Wallet | Status | Alternative |
 |--------|--------|-------------|
 | Block Wallet | ❌ No commits since Nov 2024 | Rainbow, Enkrypt |
@@ -312,7 +294,7 @@ Complete explanations for all table columns:
 
 | Column | Values | Meaning |
 |--------|--------|---------|
-| **Score** | 0-100 | Weighted score prioritizing core criteria, stability, and developer experience. See [Scoring Methodology](#-wallet-scores-developer-focused-methodology) |
+| **Score** | 0-100 | Weighted score prioritizing core criteria, stability, and developer experience. See [Scoring Methodology](./CONTRIBUTING.md#score-sync-workflow) |
 | **Core** | ✅ / ⚠️ / ❌ | ✅ = Has BOTH mobile + browser extension (core criteria) | ⚠️ = Partial (e.g., Starknet-only desktop) | ❌ = Missing one or both |
 | **Rel/Mo** | Number or ? | Releases per month (lower = more stable; MetaMask ~8/mo is high churn) | ? = Unknown (private repo) |
 | **RPC** | ✅ / ⚠️ / ❌ | ✅ = Custom RPC support | ⚠️ = Limited | ❌ = No custom RPC |
@@ -967,45 +949,6 @@ Primary sources fetched in this pass. Anything not listed here keeps its 2026-10
 - imToken privacy link (token.im/privacy): HTTP 403 Cloudflare challenge in plain and headless Chromium fetches, not a 404. Link kept.
 - Private-repo wallets (OKX, Phantom, Zerion, Exodus, 1inch, Bitget, Mt Pelerin) and Rel/Mo for bursty or multi-product repos (Brave, Ambire, Ledger, Gem, Uniswap, Sequence, Trust, Rainbow, Safe, MEW, imToken, Enkrypt): unchanged. Release counts from the GitHub API over 90 days (Ambire 50, Ledger 34, Gem 84, Brave 100+) are not comparable with the table's Rel/Mo.
 - HW, API, ENS columns and chain lists for all rows: not re-fetched.
-
----
-
-## 📝 Changelog
-
-See [CHANGELOG.md](./CHANGELOG.md) for a complete history of changes to wallet statuses, recommendations, and documentation structure.
-
----
-
-## 🆕 Contributing: Add a New Wallet
-
-To add a new wallet to this comparison, open a PR with:
-
-1. **Main table row** with all 17 columns
-2. **Verification** of at least: GitHub repo, last commit, license, chains
-3. **Source links** for any claims made
-
-### Required Data Template
-
-```markdown
-| **WalletName** | XX | [repo](url) | ✅/⚠️/❌ | N | 📱🌐 | ✅/❌ | ✅/⚠️/❌ | ✅/⚠️/❓ | 🟢/🟡/🔴 | ✅/⚠️/❌ | ✅/⚠️ | EOA/4337 | ✅/❌ | ✅/⚠️/❌ | Use case | 🟢/🟡/🔴 |
-```
-
-### Verification Checklist
-
-- [ ] GitHub repo exists and is accessible
-- [ ] Last commit date checked (for activity status)
-- [ ] License file verified in repo
-- [ ] Chain count verified from official docs
-- [ ] Device support confirmed (mobile, browser, desktop)
-- [ ] At least one data source linked
-
-### Data Sources
-
-Prefer in this order:
-1. **GitHub repo** - License, activity, code quality
-2. **Official docs** - Features, chain support
-3. **WalletBeat** - Technical features, security
-4. **Wallet website** - Marketing claims (verify independently)
 
 ---
 
