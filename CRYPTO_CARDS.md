@@ -22,34 +22,39 @@
 | [**Bitpanda Card**](https://www.bitpanda.com/en/card) | 70 | Debit | 🏦 Exch | ❌ | 🇪🇺 Euro area | 1% | $0 | 0% | Crypto | ✅ | Bitpanda users (euro-area residents) | 🟢 |
 | [**Fuse Wallet Card**](https://fusewallet.com) (@fusewallet) | 70 | Prepaid | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | 0% | USDC | ⚠️ | Solana stablecoins | 🟢 |
 | [**1inch Card**](https://1inch.com/card) | 69 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU/UK | Up to 2% | $0 | 0% | 1INCH | ✅ | DeFi users | 🟢 |
+| [**COCA**](https://coca.xyz) | 69 | Debit | 📋 CeFi | ❌ | 🌍 Global* | Up to 8% | $0 | TBD | TBD | ⚠️ | Page claims non-custodial Visa card; issuer, funding path, fees and FX not stated, so custody labelled CeFi | 🟢 |
 | [**Tuyo**](https://tuyo.com/card) (@itstuyo) | 69 | Prepaid | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | ~1% | TUYO | ✅ | USDC on Base | 🟢 |
 | [**Meow Card**](https://www.meow.com/cards) (@meow) | 68 | Business | 📋 CeFi | ✅ | 🌍 Global | Up to 1.5% | $0 | TBD (avg ~2% savings) | USD cash | ✅ | Global startup finance ops | 🟢 |
-| [**Plutus Card**](https://plutus.it) | 68 | Debit | 📋 CeFi | ❌ | 🇬🇧 UK | 3-9% | £0 | 2.5% | PLU | ✅ | EU/UK perks | 🟢 |
 | [**Revolut Crypto**](https://www.revolut.com/crypto/crypto-card/) | 68 | Debit | 📋 CeFi | ⚠️ | 🌍 Global | TBD | $0-$17/mo | 0-2% | Multi | ✅ | Fiat+Crypto | 🟢 |
 | [**Jupiter Card**](https://jup.ag/rewards) | 67 | Debit | 📋 CeFi | ❌ | 🌍 Global | 2% | $0 | 1-1.8% | USDC | ⚠️ | Solana/Jupiter users | 🟡 |
-| [**Nexo Card**](https://nexo.com/card) | 67 | Credit | 📋 CeFi | ✅ | 🇪🇺 EU/UK | 0.5-2% | $0 | 0.2-2.5% | NEXO | ✅ | Crypto credit | 🟡 |
-| [**ThorWallet**](https://thorwallet.org) (@THORWalletORG) | 67 | Debit | 🔐 Self | ❌ | 🌍 Global | 0.5% | $0-$124 one-off | 1.5% | Multi | ✅ | Cross-chain DeFi | 🟡 |
+| [**Nexo Card**](https://nexo.com/card) | 67 | Credit | 📋 CeFi | ✅ | 🇪🇺 EU/UK | 0.5-2% | $0 | 0.2-2.5% | NEXO | ✅ | Crypto credit | 🟢 |
+| [**ThorWallet**](https://thorwallet.org) (@THORWalletORG) | 67 | Debit | 🔐 Self | ❌ | 🌍 Global | 0.5% | $0-$124 one-off | 1.5% | Multi | ✅ | Cross-chain DeFi | 🟢 |
 | [**Tria**](https://tria.so) (@useTria) | 67 | Prepaid | 🔐 Self | ❌ | 🌍 Global | Up to 6% | TBD | TBD | Stables | ⚠️ | Token rewards | 🟢 |
-| [**Wirex Card**](https://wirex.one) | 67 | Debit | 📋 CeFi | ⚠️ | 🌍 Global | Up to 8% | TBD | 0% | USD cash | ⚠️ | Multi-crypto; relaunched as Wirex One (USD cashback); Cardano Card ends 2026-10-31 (secondary) | 🟢 |
-| [**Gnosis Pay**](https://gnosispay.com) | 66 | Debit | 🔐 Self | ⚠️ | 🌍 Global* | TBD | €0 | 0% | GNO/SAFE | ⚠️ | Consumer card winding down: card and web app end 2026-12-20 per press (Gnosis Pay blog 2026-09-03: wound up in favour of partner cards) | 🟡 |
+| [**Wirex Card**](https://wirex.one) | 67 | Debit | 📋 CeFi | ⚠️ | 🌍 Global | Up to 8% | TBD | 0% | USD cash | ⚠️ | Multi-crypto; relaunched as Wirex One (USD cashback); legacy Wirex app discontinued for EEA 2026-09-30 (status.wirexapp.com); Cardano Card ends 2026-10-31 (secondary) | 🟢 |
+| [**Gnosis Pay**](https://gnosispay.com) | 66 | Debit | 🔐 Self | ⚠️ | 🌍 Global* | TBD | €0 | 0% | GNO/SAFE | ⚠️ | Consumer card winding down: card and web app end 2026-12-20 per press (Gnosis Pay blog 2026-09-03: wound up in favour of partner cards); cashback eligibility ended 2026-09-30 per press (secondary) | 🟡 |
 | [**Coinbase Card**](https://www.coinbase.com/card) | 64 | Debit | 🏦 Exch | ❌ | 🇺🇸 US | TBD | $0 | 0% | BTC, ETH | ✅ | Coinbase users | 🟡 |
 | [**Reap**](https://reap.global) | 64 | Business | 📋 CeFi | ✅ | HK/MX | 0% | $0 | 2% | Stables | ✅ | Business | 🟡 |
 | [**Bybit Card**](https://www.bybit.com/en/cards/) | 63 | Debit | 🏦 Exch | ✅ | 🌍 Non-EEA | TBD | $0 | TBD | Multi | ⚠️ | $100 ATM free then 2% | 🟡 |
+| [**Plutus Card**](https://plutus.it) | 63 | Debit | 📋 CeFi | ❌ | 🇬🇧 UK | 3-9% | £0 | 2.5% | PLU | ⚠️ | EU/UK perks; plutus.it links a '2026 Transition Update' we could not read; one review site claims a Modulr banking-partner collapse in Jan 2026 (unconfirmed) | 🟡 |
 | [**RedotPay**](https://redotpay.com) | 63 | Debit | 📋 CeFi | ✅ | 🌍 Global* | TBD | $0 ($10-$100 issuance) | 1.2% | USDT, USDC | ✅ | Multi-region (ex US/SG) | 🟡 |
 | [**Shakepay Card**](https://shakepay.com/card) | 63 | Prepaid | 📋 CeFi | ❌ | 🇨🇦 CA | 1-1.5% | $0 | 0-3% | BTC | ✅ | Canada | 🟡 |
 | [**Slash Platinum Card**](https://www.slash.com/products/corporate-cards) (@slashapp) | 63 | Business | 📋 CeFi | ✅ | 🇺🇸 US | 1.5-2% | $0-$25/mo | 1% (min $0.4) | USD cash | ✅ | US internet businesses | 🟡 |
 | [**Uphold Card**](https://uphold.com) | 63 | Debit | 📋 CeFi | ⚠️ | 🇺🇸🇪🇺 US/EU | 1-4% | $0-$99.99/yr | TBD | XRP, BTC | ⚠️ | US relaunch 2025-10 (secondary) | 🟡 |
 | [**Hi Card**](https://hi.com) | 62 | Debit | 📋 CeFi | ❌ | 🌍 Global | TBD | $0 | 0% | HI | ⚠️ | High cashback | 🟡 |
-| [**KuCard**](https://www.kucoin.com/kucard) | 61 | Debit | 🏦 Exch | ❌ | 🇪🇺 EEA | Up to 1% | $0 (€9.99 issuance) | TBD | Multi | ✅ | KuCoin users | 🔴 |
-| [**Solflare Card**](https://solflare.com/card) (@solflare_wallet) | 61 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 0% | $0 | 0% | None | ⚠️ | Cards paused since 2026-07-28 (issuer Kulipa wound down); issuer return "expected August" not met as of 2026-10-15 | 🔴 |
+| [**KuCard**](https://www.kucoin.com/kucard) | 61 | Debit | 🏦 Exch | ❌ | 🇪🇺 EEA | Up to 1% | $0 (€9.99 issuance) | TBD | Multi | ✅ | KuCoin users | 🟡 |
+| [**Solflare Card**](https://solflare.com/card) (@solflare_wallet) | 61 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 0% | $0 | 0% | None | ⚠️ | Cards paused since 2026-07-28 (issuer Kulipa wound down); issuer return "expected August" not met as of 2026-10-15 | 🟡 |
 | [**Binance Card**](https://www.binance.com/en/cards) | 60 | Debit | 🏦 Exch | ⚠️ | 🇧🇷 Brazil | Up to 3% | $0 | 0-2% | BNB | ✅ | Binance users | 🔴 |
 | [**Fold Card**](https://foldapp.com) | 60 | Debit | 📋 CeFi | ❌ | 🇺🇸 US | TBD | $0 | 0-3% | BTC | ✅ | Bitcoin rewards | 🔴 |
 | [**BitPay Card**](https://bitpay.com/card) | 59 | Prepaid | 📋 CeFi | ⚠️ | 🇺🇸 US | 1%* | $0 | 0% | None | ⚠️ | US program reportedly ended (unconfirmed) | 🔴 |
+| [**Ledger CL Card**](https://shop.ledger.com/pages/cl-card-crypto-card) | 59 | Debit | 📋 CeFi | ❌ | 🌍 Global* | 1% | TBD | TBD | BTC, USDT | ✅ | Ledger users (Baanx program, Monavate issuing entity; EEA, UK, US, CH, CA, CO, MX, BR). Custody conflicting: page says spend from self-custody, but card account is operated by Monavate; fees and FX unread | 🔴 |
 | [**CoinJar Card**](https://www.coinjar.com/au/card) | 58 | Debit | 📋 CeFi | ❌ | 🇦🇺 AU | 1% rewards pts | $0 | 2.99% | Points | ⚠️ | 1% fee returned | 🔴 |
 | [**Swissborg Card**](https://swissborg.com) | 58 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU | 1-2% | $0 | TBD | BORG | ⚠️ | Card advertised on swissborg.com (Mastercard, BORG cashback); /card page 404 | 🔴 |
-| [**Amp Pay Black Card**](https://ampay.com) (@GetAmpPay) | 56 | Debit | 🔐 Self | ❌ | 🌍 Global | TBD | TBD | TBD | USDC/SOL | ⚠️ | Solana payments (status unverified) | 🔴 |
+| **Amp Pay Black Card** (@GetAmpPay) | 56 | Debit | 🔐 Self | ❌ | 🌍 Global | TBD | TBD | TBD | USDC/SOL | ⚠️ | Solana payments (status unverified; ampay.com gave no response 2026-10-17) | 🔴 |
+| [**Oobit**](https://oobit.com) | 54 | Debit | 📋 CeFi | ❌ | Select countries (list unverified) | Up to 10% | TBD | TBD | TBD | ⚠️ | Apple/Google Pay spend of crypto; issuer, custody and fees not stated on the site (Rain, ~3% FX per spendnode, secondary) | 🔴 |
 | [**Tangem Pay**](https://tangem.com/en/tangem-pay/) | 53 | Debit | 📋 CeFi | ❌ | Select countries (list unverified) | 1-2% | $0-$29.99/mo | TBD | TBD | ✅ | Tangem wallet users (Visa via Rain; spends a loaded card balance; Basic 1% free, Plus 2% at $29.99/mo; Prestige 4% at $999/yr is waitlisted; availability limited, some US states excluded per issuer FAQ, not confirmed on fetched page) | 🔴 |
+| [**Xplace Platinum**](https://x.place/cashback/) | 52 | Credit | 📋 CeFi | ❌ | 🌍 Global | 2% | TBD | TBD | TBD | ⚠️ | Credit mode: 2% cashback capped at $250/mo (issuer page). $999 fee, 0% FX and non-custodial Kamino collateral are spendnode-only (secondary); custody labelled CeFi until the issuer states it | 🔴 |
 | ~~[**Kontigo**](https://kontigo.com)~~ | 51 | Debit | 🔐 Self | ⚠️ | 🌍 Global | 10% BTC | $0 | 0% | BTC | ❌ | ~~Crypto neobank~~ | 🔴 |
+| [**Deblock**](https://deblock.com/en/cards) | 49 | Debit | 📋 CeFi | ❌ | FR | TBD | $0 | TBD | Cash | ⚠️ | French neobank Visa; Standard plan free per issuer page, Premium terms from reviews only; EU rollout and MiCA registration unverified | 🔴 |
 | [**Nummus Wallet Card**](https://nummuswallet.com/) (@NummusWallet) | 41 | Debit | 📋 CeFi | ✅ | 🌍 Global | 0% | $0-$14.99/mo ($300-$750 one-time setup tiers) | 2.5-4% top-up | None | ⚠️ | Partner-issued banking/card rails | 🔴 |
 | ~~[**Ready Card**](https://www.ready.co/card)~~ | 41 | Debit | 🔐 Self | ❌ | 🇪🇺 EU/UK | 3% | $0 | 0% | Crypto | ❌ | ~~Self-custody EU/UK~~ Discontinued (late July 2026, issuer Kulipa wound down; The Defiant, secondary; ready.co/card shows no notice) | 🔴 |
 | [**Phantom Cash Card**](https://phantom.com/cash) | 40 | Prepaid | 📋 CeFi | ❌ | 🇺🇸 US | TBD | TBD | TBD | TBD | ⚠️ | Phantom users in US (not New York); Visa via Lead Bank/Bridge | 🔴 |
@@ -109,13 +114,17 @@
 | 🌍 | Global (200+ countries) |
 | **\*** | Not available in US |
 
-**🇺🇸 US-Available Cards:** Coinbase, Fold, Gemini, Uphold, Kraken (Krak US card, 2026-08-18), BitPay, Crypto.com, Wirex, Revolut, Hi Card, EtherFi, Reap (business), Slash Platinum, Meow Card, Tuyo, Fuse Wallet Card, Jupiter Card (31 states), Phantom Cash Card (not New York)
+**🇺🇸 US-Available Cards:** Ledger CL (per Ledger page), Coinbase, Fold, Gemini, Uphold, Kraken (Krak US card, 2026-08-18), BitPay, Crypto.com, Wirex, Revolut, Hi Card, EtherFi, Reap (business), Slash Platinum, Meow Card, Tuyo, Fuse Wallet Card, Jupiter Card (31 states), Phantom Cash Card (not New York)
 
 **Methodology Update (April 2026):**
 - Scores are generated directly from the table columns, not from manual bonus / penalty overrides.
 - Status, custody model, region coverage, rewards, annual fee, and FX fee now drive the score mechanically.
 - If you want to change a score, update the data columns and rerun `scripts/sync_table_scores.js --write`.
 - Custody labels classify the **card spend path**, not the provider's broader wallet marketing. If a product offers a non-custodial wallet but requires loading, converting, or transferring funds into a card/issuer/partner balance before spend, it belongs in **📋 CeFi** unless official card docs say funds remain user-controlled until authorization or purchase.
+
+**Market sweep (October 17, 2026):** web research for launches, changes and shutdowns since about 2026-07-15; sources and open items in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#market-sweep-2026-10-17).
+- **Added** (new to the table; fields the issuer page does not state are TBD or marked secondary): Ledger CL Card, Xplace Platinum, COCA, Oobit, Deblock.
+- **Updated**: Wirex (legacy app discontinued for EEA 2026-09-30), Gnosis Pay (cashback ended 2026-09-30, secondary), Plutus (status set to Verify), link fixes for Payy, Amp Pay and CryptoSpend.
 
 **Recheck (October 15, 2026):** issuer pages re-fetched; full log with sources in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#recheck-2026-10-15).
 - **Gnosis Pay**: consumer card and web app are being wound down in favour of partner cards (issuer blog 2026-09-03); press gives 2026-12-20 as the end date. Status set to ⚠️.
@@ -164,7 +173,7 @@
 >
 > **🔐 Self-Custody Spend-Path Cards:** EtherFi Cash, Tria*, MetaMask Card, Gnosis Pay, ThorWallet*, Payy*, Avici Money, Plasma One, Ethena Pay (beta; collateral can be liquidated), Tuyo, and Solflare (paused). *Official card terms not fully retrievable; see the Oct 2026 verification log in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#verification-log-october-2026). OKX Card is Exch (OKX Pay holds the balance); 1inch Card is CeFi (prepaid Mastercard, Monavate/Baanx).
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Custody Model Taxonomy](./CRYPTO_CARDS_DETAILS.md#custody-model-taxonomy) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
+**Last Updated:** October 17, 2026 | [Scoring Methodology](./CRYPTO_CARDS_DETAILS.md#scoring-methodology) | [Custody Model Taxonomy](./CRYPTO_CARDS_DETAILS.md#custody-model-taxonomy) | [Provider Groupings](./CRYPTO_CARDS_DETAILS.md#provider-groupings)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) and [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for wallet recommendations.
 
