@@ -889,7 +889,7 @@ export function getWalletById(type: WalletType, id: string): WalletData | null {
   return wallets.find(wallet => wallet.id === id) ?? null;
 }
 
-export interface WalletCompany {
+interface WalletCompany {
   name: string;
   aggregatedScore: number;
   walletCount: number;

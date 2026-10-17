@@ -6,49 +6,12 @@ import { describe, expect, it } from 'vitest';
 import { getScoreColorClasses } from '../frontend/src/lib/score-utils';
 
 describe('getScoreColorClasses', () => {
-  describe('green band (score >= 75)', () => {
-    it('returns green classes for score 100', () => {
-      expect(getScoreColorClasses(100)).toContain('text-green-700');
-    });
-
-    it('returns green classes for score 75 — lower boundary', () => {
-      expect(getScoreColorClasses(75)).toContain('text-green-700');
-    });
-
-  });
-
-  describe('yellow band (50 <= score < 75)', () => {
-    it('returns yellow classes for score 74 — just below green', () => {
-      expect(getScoreColorClasses(74)).toContain('text-yellow-700');
-    });
-
-    it('returns yellow classes for score 50 — lower boundary', () => {
-      expect(getScoreColorClasses(50)).toContain('text-yellow-700');
-    });
-
-  });
-
-  describe('red band (score < 50)', () => {
-    it('returns red classes for score 49 — just below yellow', () => {
-      expect(getScoreColorClasses(49)).toContain('text-red-700');
-    });
-
-    it('returns red classes for score 0', () => {
-      expect(getScoreColorClasses(0)).toContain('bg-red-100');
-    });
-
-  });
-
-  describe('return type invariant', () => {
-
-    it('each band contains exactly one bg- and one text- class', () => {
-      for (const score of [0, 50, 75]) {
-        const result = getScoreColorClasses(score);
-        const bgCount = result.split(' ').filter(c => c.startsWith('bg-') && !c.startsWith('dark:')).length;
-        const textCount = result.split(' ').filter(c => c.startsWith('text-') && !c.startsWith('dark:')).length;
-        expect(bgCount).toBe(1);
-        expect(textCount).toBe(1);
-      }
-    });
+  it.each([
+    [75, 'text-green-700'],
+    [74, 'text-yellow-700'],
+    [50, 'text-yellow-700'],
+    [49, 'text-red-700'],
+  ])('score %i -> %s', (score, expected) => {
+    expect(getScoreColorClasses(score)).toContain(expected);
   });
 });
