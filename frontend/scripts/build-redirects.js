@@ -47,7 +47,7 @@ for (const e of entries) {
   seen.add(e.from);
   const toPath = e.to.split('#')[0].split('?')[0];
   if (toPath === e.from) { errors.push(`${tag}: "to" equals "from"`); continue; }
-  if (fs.existsSync(pagePath(e.from))) { errors.push(`${tag}: "from" ${e.from} is a real page in out/`); continue; }
+  if (fs.existsSync(pagePath(e.from)) && !fs.readFileSync(pagePath(e.from), 'utf8').includes('data-redirect-stub')) { errors.push(`${tag}: "from" ${e.from} is a real page in out/`); continue; }
   const targetFile = pagePath(toPath);
   if (!fs.existsSync(targetFile)) { errors.push(`${tag}: target ${toPath} does not exist in out/`); continue; }
   if (fs.readFileSync(targetFile, 'utf8').includes('data-redirect-stub')) { errors.push(`${tag}: target ${toPath} is itself a stub`); continue; }
