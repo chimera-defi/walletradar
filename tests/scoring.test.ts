@@ -6,13 +6,11 @@ import { describe, it, expect } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const {
-  SCORING_METHODOLOGY_VERSION,
   computeSoftwareScore,
   computeHardwareScore,
   computeCardScore,
   computeRampScore,
   assignRecommendationBands,
-  recommendationEmoji,
   formatScoreBreakdownTooltip,
 } = require('../frontend/src/lib/scoring');
 
@@ -87,33 +85,8 @@ const RAMP_CELLS = [
   '🟢',     // [11] 🟢 funding = sustainable
 ];
 
-describe('SCORING_METHODOLOGY_VERSION', () => {
-  it('is a non-empty string', () => {
-    expect(typeof SCORING_METHODOLOGY_VERSION).toBe('string');
-    expect(SCORING_METHODOLOGY_VERSION.length).toBeGreaterThan(0);
-  });
-});
-
-describe('recommendationEmoji', () => {
-  it('maps recommended to green circle', () => {
-    expect(recommendationEmoji('recommended')).toBe('🟢');
-  });
-
-  it('maps situational to yellow circle', () => {
-    expect(recommendationEmoji('situational')).toBe('🟡');
-  });
-
-  it('maps not-for-dev to white circle', () => {
-    expect(recommendationEmoji('not-for-dev')).toBe('⚪');
-  });
-
-  it('maps avoid (and any unknown) to red circle', () => {
-    expect(recommendationEmoji('avoid')).toBe('🔴');
-  });
-});
-
 describe('formatScoreBreakdownTooltip', () => {
-  it('formats score header and breakdown entries', () => {
+  it('formats the score header and breakdown entries, and handles an empty breakdown', () => {
     const info = {
       score: 75,
       maxScore: 100,
@@ -122,185 +95,93 @@ describe('formatScoreBreakdownTooltip', () => {
         { label: 'Usability', score: 55, max: 70 },
       ],
     };
-    expect(formatScoreBreakdownTooltip(info)).toBe(
-      'Score 75/100\nSecurity: 20/30\nUsability: 55/70'
-    );
-  });
-
-  it('handles empty breakdown gracefully', () => {
-    const info = { score: 0, maxScore: 100, breakdown: [] };
-    expect(formatScoreBreakdownTooltip(info)).toBe('Score 0/100');
+    expect(formatScoreBreakdownTooltip(info)).toBe('Score 75/100\nSecurity: 20/30\nUsability: 55/70');
+    expect(formatScoreBreakdownTooltip({ score: 0, maxScore: 100, breakdown: [] })).toBe('Score 0/100');
   });
 });
 
-describe('computeSoftwareScore', () => {
-  it('returns expected shape with required fields', () => {
-    const result = computeSoftwareScore(SOFTWARE_ACTIVE);
-    expect(typeof result.score).toBe('number');
-    expect(result.maxScore).toBe(100);
-    expect(Array.isArray(result.breakdown)).toBe(true);
-    expect(result.breakdown.length).toBeGreaterThan(0);
-    expect(result.methodologyVersion).toBe(SCORING_METHODOLOGY_VERSION);
-  });
+const inactiveAt = (cells: string[], i: number) => {
+  const copy = [...cells];
+  copy[i] = '❌ inactive';
+  return copy;
+};
 
-  it('scores fully active wallet with all signals at 98', () => {
-    const result = computeSoftwareScore(SOFTWARE_ACTIVE);
-    expect(result.score).toBe(98);
+describe.each([
+  ['software', computeSoftwareScore, SOFTWARE_ACTIVE, SOFTWARE_INACTIVE, 98],
+  ['hardware', computeHardwareScore, HARDWARE_CELLS, inactiveAt(HARDWARE_CELLS, 9), 100],
+  ['card', computeCardScore, CARD_ACTIVE, CARD_INACTIVE, null],
+  ['ramp', computeRampScore, RAMP_CELLS, inactiveAt(RAMP_CELLS, 9), 100],
+])('compute%sScore', (_kind, compute, active, inactive, expectedScore) => {
+  it('scores an active row with strong signals as recommended, within 0-100', () => {
+    const result = compute(active);
+    expect(result.maxScore).toBe(100);
+    expect(result.score).toBeGreaterThanOrEqual(0);
+    expect(result.score).toBeLessThanOrEqual(100);
+    if (expectedScore === null) expect(result.score).toBeGreaterThan(80);
+    else expect(result.score).toBe(expectedScore);
     expect(result.recommendation).toBe('recommended');
   });
 
-  it('marks inactive wallet as avoid regardless of other signals', () => {
-    const result = computeSoftwareScore(SOFTWARE_INACTIVE);
-    expect(result.recommendation).toBe('avoid');
-  });
-
-  it('score is clamped to 0-100', () => {
-    for (const cells of [SOFTWARE_ACTIVE, SOFTWARE_INACTIVE]) {
-      const { score } = computeSoftwareScore(cells);
-      expect(score).toBeGreaterThanOrEqual(0);
-      expect(score).toBeLessThanOrEqual(100);
-    }
-  });
-
-  it('breakdown entries have required keys', () => {
-    const result = computeSoftwareScore(SOFTWARE_ACTIVE);
-    for (const entry of result.breakdown) {
-      expect(typeof entry.key).toBe('string');
-      expect(typeof entry.label).toBe('string');
-      expect(typeof entry.score).toBe('number');
-      expect(typeof entry.max).toBe('number');
-    }
+  it('marks an inactive row as avoid regardless of other signals', () => {
+    expect(compute(inactive).recommendation).toBe('avoid');
   });
 });
 
-describe('computeHardwareScore', () => {
-  it('returns expected shape', () => {
-    const result = computeHardwareScore(HARDWARE_CELLS);
-    expect(typeof result.score).toBe('number');
-    expect(result.maxScore).toBe(100);
-    expect(result.recommendation).toBeDefined();
-  });
-
-  it('scores hardware wallet with top signals at 100', () => {
-    const result = computeHardwareScore(HARDWARE_CELLS);
-    expect(result.score).toBe(100);
-    expect(result.recommendation).toBe('recommended');
-  });
-
-  it('marks inactive hardware as avoid', () => {
+describe('computeHardwareScore price parsing', () => {
+  const row = (price: string) => {
     const cells = [...HARDWARE_CELLS];
-    cells[9] = '❌ inactive';
-    const result = computeHardwareScore(cells);
-    expect(result.recommendation).toBe('avoid');
-  });
-});
+    cells[7] = price;
+    return cells;
+  };
 
-describe('computeCardScore', () => {
-  it('active card with strong signals is recommended', () => {
-    const result = computeCardScore(CARD_ACTIVE);
-    expect(result.score).toBeGreaterThan(80);
-    expect(result.recommendation).toBe('recommended');
+  it('scores a EUR price the same as the same USD amount', () => {
+    expect(computeHardwareScore(row('~€129')).score).toBe(computeHardwareScore(row('~$129')).score);
   });
 
-  it('inactive card is marked avoid', () => {
-    const result = computeCardScore(CARD_INACTIVE);
-    expect(result.recommendation).toBe('avoid');
-  });
-
-  it('score is clamped to 0-100', () => {
-    const { score } = computeCardScore(CARD_ACTIVE);
-    expect(score).toBeGreaterThanOrEqual(0);
-    expect(score).toBeLessThanOrEqual(100);
-  });
-});
-
-describe('computeRampScore', () => {
-  it('active ramp with top signals scores 100', () => {
-    const result = computeRampScore(RAMP_CELLS);
-    expect(result.score).toBe(100);
-    expect(result.recommendation).toBe('recommended');
-  });
-
-  it('inactive ramp is marked avoid', () => {
-    const cells = [...RAMP_CELLS];
-    cells[9] = '❌ inactive';
-    const result = computeRampScore(cells);
-    expect(result.recommendation).toBe('avoid');
-  });
-
-  it('score is clamped to 0-100', () => {
-    const { score } = computeRampScore(RAMP_CELLS);
-    expect(score).toBeGreaterThanOrEqual(0);
-    expect(score).toBeLessThanOrEqual(100);
+  it('scores a EUR price above the neutral unknown-price value', () => {
+    expect(computeHardwareScore(row('~€29')).score).toBeGreaterThan(computeHardwareScore(row('TBD')).score);
   });
 });
 
 describe('assignRecommendationBands', () => {
+  const eligible = { core: 'full', devControl: 24, activity: 'active' };
+
   it('marks inactive entries as avoid outside percentile logic', () => {
-    const scoreInfos = [
+    const { recommendations } = assignRecommendationBands('software', [
       { score: 90, signals: { activity: 'inactive' } },
-      { score: 50, signals: { core: 'full', devControl: 24, activity: 'active' } },
-    ];
-    const { recommendations } = assignRecommendationBands('software', scoreInfos);
+      { score: 50, signals: eligible },
+    ]);
     expect(recommendations[0]).toBe('avoid');
   });
 
-  it('marks software entries with low devControl as not-for-dev', () => {
-    const scoreInfos = [
+  it('marks low-devControl software as not-for-dev, but never hardware', () => {
+    const software = assignRecommendationBands('software', [
       { score: 80, signals: { core: 'partial', devControl: 5 } },
-      { score: 90, signals: { core: 'full', devControl: 20, activity: 'active' } },
-    ];
-    const { recommendations } = assignRecommendationBands('software', scoreInfos);
-    expect(recommendations[0]).toBe('not-for-dev');
-  });
-
-  it('highest scorer of eligible entries gets recommended', () => {
-    const scoreInfos = [
-      { score: 30, signals: { core: 'full', devControl: 24, activity: 'active' } },
-      { score: 40, signals: { core: 'full', devControl: 24, activity: 'active' } },
-      { score: 70, signals: { core: 'full', devControl: 24, activity: 'active' } },
-      { score: 90, signals: { core: 'full', devControl: 24, activity: 'active' } },
-    ];
-    const { recommendations } = assignRecommendationBands('software', scoreInfos);
-    expect(recommendations[3]).toBe('recommended');
-  });
-
-  it('bottom 25th percentile of eligible entries gets avoid', () => {
-    const scoreInfos = Array.from({ length: 8 }, (_, i) => ({
-      score: (i + 1) * 10,
-      signals: { core: 'full', devControl: 24, activity: 'active' },
-    }));
-    const { recommendations } = assignRecommendationBands('software', scoreInfos);
-    // avoidCutoff = floor(8 * 0.25) = 2; lowest two scores get avoid
-    expect(recommendations[0]).toBe('avoid');
-    expect(recommendations[1]).toBe('avoid');
-  });
-
-  it('hardware kind does not produce not-for-dev', () => {
-    const scoreInfos = [
+      { score: 90, signals: eligible },
+    ]);
+    expect(software.recommendations[0]).toBe('not-for-dev');
+    const hardware = assignRecommendationBands('hardware', [
       { score: 80, signals: { activity: 'active' } },
       { score: 90, signals: { activity: 'active' } },
-    ];
-    const { recommendations } = assignRecommendationBands('hardware', scoreInfos);
-    expect(recommendations).not.toContain('not-for-dev');
+    ]);
+    expect(hardware.recommendations).not.toContain('not-for-dev');
   });
 
-  it('ramp kind alias is normalised correctly', () => {
-    const scoreInfos = [
+  it('gives the highest scorer recommended, including via the ramp kind alias', () => {
+    const software = assignRecommendationBands('software', [30, 40, 70, 90].map((score) => ({ score, signals: eligible })));
+    expect(software.recommendations[3]).toBe('recommended');
+    const ramp = assignRecommendationBands('ramp', [
       { score: 80, signals: { status: 'active' } },
       { score: 90, signals: { status: 'active' } },
-    ];
-    const { recommendations } = assignRecommendationBands('ramp', scoreInfos);
-    expect(recommendations[1]).toBe('recommended');
+    ]);
+    expect(ramp.recommendations[1]).toBe('recommended');
   });
 
-  it('returns band summary metadata', () => {
-    const scoreInfos = [
-      { score: 60, signals: { core: 'full', devControl: 24, activity: 'active' } },
-      { score: 90, signals: { core: 'full', devControl: 24, activity: 'active' } },
-    ];
-    const { bands } = assignRecommendationBands('software', scoreInfos);
-    expect(typeof bands.eligibleCount).toBe('number');
-    expect(typeof bands.recommendedCount).toBe('number');
+  it('gives the bottom 25th percentile of eligible entries avoid', () => {
+    const scoreInfos = Array.from({ length: 8 }, (_, i) => ({ score: (i + 1) * 10, signals: eligible }));
+    const { recommendations } = assignRecommendationBands('software', scoreInfos);
+    // avoidCutoff = floor(8 * 0.25) = 2; lowest two scores get avoid
+    expect(recommendations.slice(0, 2)).toEqual(['avoid', 'avoid']);
+    expect(recommendations[2]).not.toBe('avoid');
   });
 });

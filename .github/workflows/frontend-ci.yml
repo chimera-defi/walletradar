@@ -59,3 +59,6 @@ jobs:
 
       - name: Verify static export output
         run: node scripts/verify-build-output.js
+
+      - name: Check internal links
+        run: node scripts/check-links.js
