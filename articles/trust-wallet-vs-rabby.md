@@ -2,7 +2,7 @@
 title: "Trust Wallet vs Rabby: Multi-Chain vs Developer-First"
 description: "Compare Trust Wallet (82) and Rabby (86) using Wallet Radar scores for stability, chains, and developer tooling."
 category: comparison
-lastUpdated: "2026-10-15"
+lastUpdated: "2026-10-17"
 author: "Wallet Radar"
 wallets: ["Trust", "Rabby"]
 tags: ["comparison", "software-wallets", "multi-chain"]

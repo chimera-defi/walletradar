@@ -2,7 +2,7 @@
 title: "Best Wallet for Ethereum Developers in 2026: Top 5 Picks"
 description: "Expert guide to the best crypto wallets for Ethereum development. Compare Rabby, Rainbow, Safe, MetaMask, and Trust Wallet for smart contract development, DeFi testing, and dApp integration."
 category: guide
-lastUpdated: "2026-10-15"
+lastUpdated: "2026-10-17"
 author: "Wallet Radar"
 wallets: ["Rabby", "Rainbow", "Safe", "MetaMask", "Trust"]
 tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
@@ -130,7 +130,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 - Debugging community-reported issues
 
 **Limitations:**
-- ⚠️ Limited transaction simulation (Ethereum only, server-side)
+- ⚠️ Limited transaction simulation (Snaps only)
 - ⚠️ High release churn (~5/month)
 - Frequent breaking changes
 - Weaker scam detection
