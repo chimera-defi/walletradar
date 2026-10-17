@@ -2,20 +2,21 @@
 
 Status: **no deploy since 2026-10-10 14:54:30Z.** Every merge to `main` since (33 first-parent commits through `3392461`) is unpublished.
 
-## Most likely cause: the Amplify app still builds `Etc-mono-repo`, not this repo
+## Cause: the Amplify app still builds `Etc-mono-repo`, not this repo
 
 Evidence (all checked this run):
 
 | Check | Result |
 |---|---|
-| Last monorepo push | `Etc-mono-repo` `16c9141`, 2026-10-10 14:52:51Z (`wallets/scripts/refresh-github-data.sh`). Before that its previous commit is 2026-09-24. **No monorepo push since**, so an app tracking it has had nothing to build. |
-| Live `last-modified` | 2026-10-10 14:54:30 GMT, 1m39s after that monorepo push. This repo's last pre-stall pushes were 14:49:55–14:50:02Z (4.5 min earlier), so the live build could be either; the monorepo timing fits a typical build. |
-| Can the live headers tell the repos apart? | **No.** The monorepo's `customHttp.yml` is identical to this repo's at `ee79846` apart from `appRoot: wallets/frontend`. The live CSP and `/docs/qr-payments/` exist in both. The earlier version of this note called the monorepo "ruled out"; that was wrong. |
+| Live site is the monorepo build | `https://walletradar.org/llms.txt` links `github.com/chimera-defi/Etc-mono-repo/blob/main/wallets/MERCHANT_FEED.md` (this repo's version links `walletradar`); the live homepage HTML contains the string `Etc-mono-repo`; `/manifest.webmanifest` is 404 although this repo emits it from `frontend/src/app/manifest.ts`. No commit of this repo from #82 on can have produced that site. |
+| Last monorepo push to `main` | `Etc-mono-repo` `16c9141`, 2026-10-10 14:52:51Z (`wallets/scripts/refresh-github-data.sh`); the commit before it is 2026-09-24. Nothing pushed to `main` since, so an app tracking it has had nothing to build. (Its `pushed_at` is 2026-10-12, from the `auto/refresh-wallet-data` branch; check whether the app also has other branches connected.) |
+| Live `last-modified` | 2026-10-10 14:54:30 GMT: 1m39s after that monorepo push; this repo's pre-stall pushes were 14:49:55–14:50:02Z. |
+| Do the live headers tell the repos apart? | No. The monorepo's `customHttp.yml` is identical to this repo's at `ee79846` apart from `appRoot: wallets/frontend`, and `/docs/qr-payments/` exists in both. The `llms.txt`, homepage and manifest rows above do. |
 | Monorepo extraction | `Etc-mono-repo` PR #290 ("extract WalletRadar to standalone repo and stub monorepo") is **OPEN, not merged**. `wallets/` there is still the full site. |
 | Repo webhooks on this repo | `gh api repos/chimera-defi/walletradar/hooks` returns `[]`. |
 | GitHub check suite "AWS Amplify (us-east-2)" | `queued`, no conclusion, zero runs, on every commit, including September ones. A placeholder, not a stall signal. It exists on the 2026-10-16 merge, so the Amplify GitHub App installation does include this repo; that only means the app can see it, not that an app builds from it. |
 
-Reading: the app was set up for the monorepo (`appRoot: wallets/frontend`). Work moved to this repo, but the app was never repointed; the 10-10 deploy was the monorepo's last push. This is **inferred** from timing and config; the console shows the truth (step 1 below).
+Reading: the app was set up for the monorepo (`appRoot: wallets/frontend`). Work moved to this repo, but the app was never repointed; the 10-10 deploy was the monorepo's last push to `main`. That the live site is the monorepo build is confirmed from the artifacts above; the console's Repository field (step 1) is the final check.
 
 ## Ruled out from the repo side
 
