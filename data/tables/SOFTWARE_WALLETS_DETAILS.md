@@ -63,7 +63,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 | **Brave** | 75 | ~2 | 🟢 | Stability: built into the browser |
 | **Trust** | 82 | ~3 | 🟢 | Multi-chain production use |
 | **Coinbase** | 67 | ~2 | 🔴 | Account abstraction (EIP-4337) |
-| **Rainbow** | 69 | ~4 | ⚪ | NFT and Ethereum use |
+| **Rainbow** | 69 | ~4 | 🟢 | NFT and Ethereum use |
 
 ### Good wallets that miss the core criteria
 
