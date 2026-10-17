@@ -19,7 +19,7 @@
 | 5 | **Keycard Shell** | 83 | ✅ Active | 🟢 |
 <!-- GENERATED_HARDWARE_SNAPSHOT_END -->
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
+**Last Updated:** October 17, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for EVM wallet recommendations and integration details.
 **Companies:** See [Hardware Wallet Companies](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
@@ -117,7 +117,7 @@ Unlike software wallets where frequent updates can indicate instability, hardwar
 
 ## 🏆 Quick Recommendations
 
-**Quick Answers (current scores from the main table):** Highest score? **Keystone 3 Pro** (92) at ~$149. Bitcoin-only? **ColdCard Mk5** (86) at ~$219 or **Mk4** (88, no longer listed in the Coinkite store), after reading the July 2026 advisory below. Best value? **Trezor Safe 3** (77) at ~$59. Budget QR-capable option? **Blockstream Jade** (74) at ~$67. See [full comparison table](#complete-hardware-wallet-comparison) for all hardware wallets.
+**Quick Answers (current scores from the main table):** Highest score? **Keystone 3 Pro** (92) at ~$149. Bitcoin-only? **ColdCard Mk5** (86) at ~$219 or **Mk4** (88, replaced by the Mk5 per coldcard.com/mk4 and no longer sold), after reading the July 2026 advisory below. Best value? **Trezor Safe 3** (77) at ~$59. Budget QR-capable option? **Blockstream Jade** (74) at ~$67. See [full comparison table](#complete-hardware-wallet-comparison) for all hardware wallets.
 
 **Jump to:** [Comparison Table](./HARDWARE_WALLETS.md#complete-hardware-wallet-comparison) | [Scoring Methodology](#-scoring-methodology) | [Security Deep Dive](#-security-deep-dive) | [Why Look Beyond Ledger?](#-why-look-beyond-ledger)
 
@@ -129,7 +129,7 @@ Unlike software wallets where frequent updates can indicate instability, hardwar
 | **Bitcoin Only** | ColdCard Mk5 | 86 | Blockstream Jade Plus (70) | Blockstream Jade (~$67) |
 | **Air-Gapped** | Keystone 3 Pro | 92 | ColdCard Q (84) | SafePal S1 (~$50) |
 | **Best Value** | Trezor Safe 3 | 77 | Blockstream Jade (74) | Tangem (~$55) |
-| **Beginners** | Trezor Safe 5 | 78 | BitBox02 (73, price UNVERIFIED) | Blockstream Jade (~$67) |
+| **Beginners** | Trezor Safe 5 | 78 | BitBox02 (73, ~€149) | Blockstream Jade (~$67) |
 | **DIY/Self-Build** | Specter DIY | 70 | SeedSigner (70) | Krux (~$30-100, UNVERIFIED) |
 
 ### DIY Signing Devices
@@ -235,7 +235,7 @@ Checked 2026-10-15. Primary sources are named; anything only reported by news si
 | 2026-07-30 | Coinkite ColdCard | A build error in the 2021 library migration made seed generation use a software PRNG instead of the hardware TRNG. Attackers regenerated seeds offline and stole funds. Affected: Mk2/Mk3 firmware 4.0.1-4.1.9, Mk4/Mk5 before 5.6.0 (Edge before 6.6.0X), Q before 1.5.0Q (Edge before 6.6.0QX). Updating does not repair an existing seed; it must be migrated. Losses: Bitcoin Optech states above 1,000 BTC; TRM Labs (secondary) reports about 1,816 BTC. | [Coinkite advisory](https://coinkite.com/historical-disclosures), [Bitcoin Optech](https://bitcoinops.org/en/newsletters/2026/07/31/) |
 | 2026-06-03 | Trezor Safe 7 (Tropic Square TROPIC01 chip) | Ledger Donjon found a laser fault-injection attack in late January 2026; Tropic Square then extracted one more secret tied to PIN protection. Trezor says funds, PIN and backups are not exposed, no user action is needed, and the issue cannot be fixed by firmware. | [Trezor blog](https://trezor.io/blog/news/Trezor-response-TROPIC01-chip-disclosure-no-impact-to-your-funds) |
 | 2026-08-13 and 2026-09-04 | Trezor | Shipping provider ShipMonk was breached. 13,689 customers affected in the first notice, about 67,000 more US customers added on Sep 4 (80,689 total per Trezor). Names, emails, phone numbers and addresses exposed. Devices, keys and backups not affected. | [Trezor blog](https://trezor.io/blog/news/recent-customer-data-exposed-in-shipping-provider-incident) |
-| 2026-08-17 | BitBox | Dixence update (firmware 9.26.5) fixed two severe firmware flaws found in internal audits; no exploitation reported. The BitBox site returned HTTP 403, so this comes from news reports only (UNVERIFIED against BitBox). | [Cointelegraph](https://cointelegraph.com/news/bitbox-patches-severe-wallet-firmware-flaws) |
+| 2026-08-17 | BitBox | Dixence update (firmware 9.26.5) fixed two severe firmware flaws found in internal audits; no exploitation reported. BitBox's GitHub release firmware/v9.26.5 (2026-08-17) confirms the release and lists "Security improvements"; the "two severe flaws" detail is from news reports only (UNVERIFIED against BitBox, whose blog was not found on 2026-10-17). | [BitBox release](https://github.com/BitBoxSwiss/bitbox02-firmware/releases/tag/firmware%2Fv9.26.5), [Cointelegraph](https://cointelegraph.com/news/bitbox-patches-severe-wallet-firmware-flaws) |
 
 No 2026 vulnerability reports for Keystone, OneKey, Tangem, Jade or SafePal turned up in searches run on 2026-10-15; this is an absence of search results, not an audit.
 
