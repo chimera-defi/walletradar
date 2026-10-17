@@ -245,3 +245,11 @@ Add or update the row in `HARDWARE_WALLETS.md`. Public firmware repos with `✅ 
 - `curl`
 - `jq`
 - `date` (GNU or BSD)
+
+### `check_freshness.js` (Table freshness)
+
+Reads each table's `**Last Updated:**` line and reports age in days. Warns past 30 days; `--strict` exits 1 past 90 days or when the line is missing. Runs monthly in `external-links.yml`.
+
+```bash
+bun scripts/check_freshness.js [--strict]
+```
