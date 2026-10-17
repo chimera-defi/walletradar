@@ -24,6 +24,45 @@ if (!sitemap.includes('<loc>')) {
   process.exit(1);
 }
 
+// Sitemap integrity: unique <loc>s, every HTML <loc> is a built page, no redirect stub is listed.
+const pageFor = (u) => {
+  const p = new URL(u).pathname.replace(/^\/+|\/+$/g, '');
+  return path.join(out, p, 'index.html');
+};
+const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1].trim());
+const siteProblems = [];
+const dupes = locs.filter((l, i) => locs.indexOf(l) !== i);
+if (dupes.length) siteProblems.push('duplicate <loc>: ' + [...new Set(dupes)].join(', '));
+for (const l of locs) {
+  if (/\.(xml|txt)$/.test(new URL(l).pathname)) continue; // non-HTML entries (merchant feed, llms.txt)
+  const f = pageFor(l);
+  if (!fs.existsSync(f)) { siteProblems.push(`<loc> has no built page: ${l}`); continue; }
+  if (fs.readFileSync(f, 'utf8').includes('data-redirect-stub')) siteProblems.push(`<loc> is a redirect stub: ${l}`);
+}
+
+// Redirects: every entry has a stub that points at an existing page; amplify-redirects.json parses.
+const redirectsDir = path.join(__dirname, '..', 'redirects');
+const entries = fs.existsSync(redirectsDir)
+  ? fs.readdirSync(redirectsDir).filter((f) => f.endsWith('.json')).flatMap((f) => JSON.parse(fs.readFileSync(path.join(redirectsDir, f), 'utf8')))
+  : [];
+for (const e of entries) {
+  const stub = path.join(out, e.from.replace(/^\/+|\/+$/g, ''), 'index.html');
+  if (!fs.existsSync(stub)) { siteProblems.push(`redirect stub missing for ${e.from}`); continue; }
+  if (!fs.readFileSync(stub, 'utf8').includes('data-redirect-stub')) siteProblems.push(`${e.from} exists but is not a redirect stub`);
+  const target = path.join(out, e.to.split('#')[0].split('?')[0].replace(/^\/+|\/+$/g, ''), 'index.html');
+  if (!fs.existsSync(target)) siteProblems.push(`redirect target missing for ${e.from} -> ${e.to}`);
+}
+try {
+  const rules = JSON.parse(fs.readFileSync(path.join(out, 'amplify-redirects.json'), 'utf8'));
+  if (!Array.isArray(rules) || rules.length !== entries.length * 2) siteProblems.push(`amplify-redirects.json: expected ${entries.length * 2} rules`);
+} catch (e) {
+  siteProblems.push('amplify-redirects.json missing or invalid: ' + e.message);
+}
+if (siteProblems.length) {
+  console.error('Sitemap/redirect check failed:\n  ' + siteProblems.join('\n  '));
+  process.exit(1);
+}
+
 // Content check: the first built page of each dynamic route must have a real title,
 // not the "Not Found" fallback (regression: sync `params` in Next 16 404'd every one).
 const title = (file) => {
