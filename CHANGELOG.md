@@ -5,6 +5,7 @@ Status changes, recommendation changes, data corrections and docs changes. Newes
 ## 2026-10-17
 
 - **Crypto cards market sweep.** 5 rows added with unstated fields left TBD: Ledger CL Card, Xplace Platinum, COCA, Oobit, Deblock. Wirex (legacy app discontinued for EEA 2026-09-30), Gnosis Pay (cashback ended 2026-09-30, secondary) and Plutus (status to Verify) updated. Payy, Amp Pay, CryptoSpend and Wirex links fixed. Sources and watchlist: `CRYPTO_CARDS_DETAILS.md` (Market sweep) and `docs/MARKET_SWEEP_2026-10-17.md`.
+- **Cards UI.** Each card shows a last-verified date (`data/card-verification.json`) with a stale badge after 60 days; the Region filter matches multi-region cards; new Discontinued preset. Lava Card added. Weekly re-sweep runbook in `docs/CARD_RESWEEP_RUNBOOK.md`.
 
 ## 2026-10-15
 

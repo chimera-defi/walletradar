@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "cards": {
+    "EtherFi Cash": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)': EtherFi network Visa via gitbook; cashback/fees on ether.fi/cash unverified (HTTP 429)",
+      "source_url": "https://etherfi.gitbook.io"
+    },
+    "Ethena Pay": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://pay.ethena.fi"
+    },
+    "Bleap": {
+      "last_verified": "2026-10-15",
+      "source": "Row added 2026-10-15 from bleap.finance (fetched 2026-10-15)",
+      "source_url": "https://bleap.finance"
+    },
+    "Plasma One": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://www.plasma.org/personal"
+    },
+    "Gemini Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: gemini.com/credit-card fetched",
+      "source_url": "https://www.gemini.com/credit-card"
+    },
+    "OKX Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: my.okx.com/pay fetched (FX 0%)",
+      "source_url": "https://my.okx.com/pay"
+    },
+    "MetaMask Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://metamask.io/card"
+    },
+    "Avici Money": {
+      "last_verified": "2026-10-10",
+      "source": "Verification Log (October 2026), issuer pages retrieved 2026-10-10: docs.avici.money secured credit cards docs; not in the 2026-10-15 recheck",
+      "source_url": "https://docs.avici.money/getting-started/secured-credit-cards.md"
+    },
+    "CryptoSpend": {
+      "last_verified": "2026-10-10",
+      "source": "Verification Log (October 2026), issuer pages retrieved 2026-10-10 (Wayex); 2026-10-15 recheck says page states neither 1% cashback nor BTC/ETH rewards; cryptospend.com.au no response 2026-10-17",
+      "source_url": "https://www.wayex.com/en-US/"
+    },
+    "Kraken Card": {
+      "last_verified": "2026-10-15",
+      "source": "Per-card section: kraken.com/features/crypto-card and US launch post fetched 2026-10-15; US FX and cashback tiers unverified (pages disagree)",
+      "source_url": "https://www.kraken.com/features/crypto-card"
+    },
+    "Bitget Wallet Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: web3.bitget.com/en/card fetched; activation fee and FX range unverified",
+      "source_url": "https://web3.bitget.com/en/card"
+    },
+    "Payy": {
+      "last_verified": null,
+      "source": "No primary-source check dated in the repo; 2026-10-15 recheck lists Payy card terms as unverified"
+    },
+    "ToonPay Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://www.toonpay.io/"
+    },
+    "Crypto.com Visa": {
+      "last_verified": "2026-10-10",
+      "source": "Verification Log (October 2026), issuer pages retrieved 2026-10-10: help.crypto.com US fees and limits page",
+      "source_url": "https://help.crypto.com/en/articles/5966563-crypto-com-visa-card-fees-and-limits-united-states"
+    },
+    "Kast": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://kast.xyz"
+    },
+    "Bitpanda Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'; row added 2026-10-10 from bitpanda.com/en/card",
+      "source_url": "https://www.bitpanda.com/en/card"
+    },
+    "Fuse Wallet Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: fusewallet.com fetched (region); card terms not read",
+      "source_url": "https://fusewallet.com"
+    },
+    "1inch Card": {
+      "last_verified": "2026-10-10",
+      "source": "Verification Log (October 2026), issuer pages retrieved 2026-10-10: 1inch.com/card; 2026-10-15 recheck says page states neither cashback nor regions",
+      "source_url": "https://1inch.com/card"
+    },
+    "COCA": {
+      "last_verified": "2026-10-17",
+      "source": "Market sweep (2026-10-17), issuer page fetched 2026-10-17 (coca.xyz); issuer, fees and FX not stated",
+      "source_url": "https://coca.xyz"
+    },
+    "Tuyo": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: tuyo.com/card fetched",
+      "source_url": "https://tuyo.com/card"
+    },
+    "Meow Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://www.meow.com/cards"
+    },
+    "Revolut Crypto": {
+      "last_verified": null,
+      "source": "Primary page returned 403 on 2026-10-15; no earlier dated primary check in the repo"
+    },
+    "Jupiter Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: docs.jup.ag Jupiter Card docs fetched",
+      "source_url": "https://docs.jup.ag/user-docs/global/spend/jupiter-card"
+    },
+    "Nexo Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://nexo.com/card"
+    },
+    "ThorWallet": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://thorwallet.org/cards"
+    },
+    "Tria": {
+      "last_verified": "2026-10-10",
+      "source": "tria.so fetched 2026-10-10 (Changes table); card terms unretrievable and card terms still unverified 2026-10-15",
+      "source_url": "https://tria.so"
+    },
+    "Wirex Card": {
+      "last_verified": "2026-10-17",
+      "source": "Market sweep (2026-10-17): status.wirexapp.com (primary); also wirex.one fetched 2026-10-15",
+      "source_url": "https://status.wirexapp.com/"
+    },
+    "Gnosis Pay": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'; issuer blog fetched 2026-10-15 (wind-down); end date 2026-12-20 is secondary",
+      "source_url": "https://gnosispay.com/blog/gnosis-pay-the-next-era"
+    },
+    "Coinbase Card": {
+      "last_verified": null,
+      "source": "Primary pages returned 403 on 2026-10-10 and 2026-10-15; search snippets only"
+    },
+    "Reap": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'; 0% cashback and 2% FX not listed on page",
+      "source_url": "https://reap.global"
+    },
+    "Bybit Card": {
+      "last_verified": null,
+      "source": "Primary fetch timed out 2026-10-15; no earlier dated primary check in the repo"
+    },
+    "Plutus Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'; annual fee and region unverified; 2026 Transition Update not retrievable",
+      "source_url": "https://plutus.it"
+    },
+    "RedotPay": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://redotpay.com"
+    },
+    "Shakepay Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://shakepay.com/card"
+    },
+    "Slash Platinum Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://www.slash.com/products/corporate-cards"
+    },
+    "Uphold Card": {
+      "last_verified": null,
+      "source": "Primary page returned 403 (2026-10-15) and times out; only secondary source (The Block) on file"
+    },
+    "Hi Card": {
+      "last_verified": null,
+      "source": "2026-10-15 recheck: hi.com mentions no card; no primary confirmation"
+    },
+    "KuCard": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)' (KuCard terms)",
+      "source_url": "https://www.kucoin.com/kucard"
+    },
+    "Solflare Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: solflare.com/crypto-card still paused; date and issuer secondary",
+      "source_url": "https://solflare.com/crypto-card"
+    },
+    "Binance Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)' (Binance Brazil)",
+      "source_url": "https://www.binance.com/en/cards"
+    },
+    "Fold Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://foldapp.com"
+    },
+    "BitPay Card": {
+      "last_verified": null,
+      "source": "Page has no status; reports conflict; no primary confirmation (2026-10-15)"
+    },
+    "Ledger CL Card": {
+      "last_verified": "2026-10-17",
+      "source": "Market sweep (2026-10-17), issuer page fetched 2026-10-17 (shop.ledger.com)",
+      "source_url": "https://shop.ledger.com/pages/cl-card-crypto-card"
+    },
+    "CoinJar Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) 'Checked and unchanged (primary page matched the table)'",
+      "source_url": "https://www.coinjar.com/au/card"
+    },
+    "Swissborg Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: swissborg.com advertises the card; fee schedule not on page",
+      "source_url": "https://swissborg.com"
+    },
+    "Amp Pay Black Card": {
+      "last_verified": null,
+      "source": "Issuer domain unreachable (TLS cert expired 2026-10-15; no response 2026-10-17); status unverified"
+    },
+    "Oobit": {
+      "last_verified": "2026-10-17",
+      "source": "Market sweep (2026-10-17), issuer page fetched 2026-10-17 (oobit.com); issuer, custody, fees not stated",
+      "source_url": "https://oobit.com"
+    },
+    "Tangem Pay": {
+      "last_verified": "2026-10-15",
+      "source": "Row added 2026-10-15 from tangem.com/en/tangem-pay (fetched 2026-10-15)",
+      "source_url": "https://tangem.com/en/tangem-pay/"
+    },
+    "Xplace Platinum": {
+      "last_verified": "2026-10-17",
+      "source": "Market sweep (2026-10-17), issuer page fetched 2026-10-17 (x.place/cashback); fee, FX, start date from secondary only",
+      "source_url": "https://x.place/cashback/"
+    },
+    "Kontigo": {
+      "last_verified": null,
+      "source": "Homepage still promotes card; discontinued status unverified; no dated primary check"
+    },
+    "Deblock": {
+      "last_verified": "2026-10-17",
+      "source": "Market sweep (2026-10-17), issuer page fetched 2026-10-17 (deblock.com/en/cards); Premium terms from reviews only",
+      "source_url": "https://deblock.com/en/cards"
+    },
+    "Nummus Wallet Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: nummuswallet.com fetched",
+      "source_url": "https://nummuswallet.com/"
+    },
+    "Ready Card": {
+      "last_verified": null,
+      "source": "Discontinued status from secondary press only; ready.co/card shows no notice on 2026-10-15"
+    },
+    "Phantom Cash Card": {
+      "last_verified": "2026-10-15",
+      "source": "Row added 2026-10-15 from phantom.com/cash (fetched 2026-10-15)",
+      "source_url": "https://phantom.com/cash"
+    },
+    "Spendly": {
+      "last_verified": null,
+      "source": "Parked-domain status from a secondary source only"
+    },
+    "Cypher Card": {
+      "last_verified": "2026-10-15",
+      "source": "Recheck (2026-10-15) table: cypherhq.io wind-down page (primary)",
+      "source_url": "https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher"
+    },
+    "Lava Card": {
+      "last_verified": "2026-10-17",
+      "source": "lava.xyz/card fetched in watchlist retry (5% BTC, no annual fee, no FX fee); issuer bank not named",
+      "source_url": "https://lava.xyz/card"
+    }
+  }
+}
