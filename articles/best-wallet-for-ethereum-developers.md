@@ -17,7 +17,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 **Top 5 for Developers:**
 1. **Rabby** (86) - Best overall for daily development
 2. **Trust** (82) - Best for multi-chain + mobile development
-3. **Rainbow** (64) - Best for Ethereum-only + mobile development
+3. **Rainbow** (69) - Best for Ethereum-only + mobile development
 4. **MetaMask** (80) - Best for compatibility testing
 5. **Safe** (77) - Best for multi-signature and team wallets
 
@@ -82,7 +82,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 
 ---
 
-## #3: Rainbow (64/100) - Best Ethereum-Only
+## #3: Rainbow (69/100) - Best Ethereum-Only
 
 ### ✅ Why Rainbow for Ethereum Focus
 
@@ -176,7 +176,7 @@ tags: ["ethereum", "developer-tools", "web3", "smart-contracts"]
 |--------|-------|------------------------|-----------|--------|--------|----------|
 | **Rabby** | 86 | ✅ Full | ❌ | ✅ | 120+ EVM | Daily development |
 | **Trust** | 82 | ⚠️ Supported networks | ❌ | ✅ | 100+ (all chains) | Multi-chain mobile |
-| **Rainbow** | 64 | ⚠️ Basic | ❌ | ✅ | Ethereum + L2s | Ethereum-only mobile |
+| **Rainbow** | 69 | ⚠️ Basic | ❌ | ✅ | Ethereum + L2s | Ethereum-only mobile |
 | **MetaMask** | 80 | ⚠️ Limited | ❌ | ✅ | 100+ | Compatibility testing |
 | **Safe** | 77 | ❌ | ✅ | ❌ | EVM | Team/DAO treasuries |
 
@@ -214,7 +214,7 @@ All top wallets (Rabby, MetaMask, Rainbow, Trust) support Ledger and Trezor hard
 
 ### Which wallet has the best mobile development experience?
 
-Rainbow (64) has the best mobile UX for Ethereum-only development. Trust Wallet (82) is best for multi-chain mobile development. Both have excellent mobile apps with built-in dApp browsers.
+Rainbow (69) has the best mobile UX for Ethereum-only development. Trust Wallet (82) is best for multi-chain mobile development. Both have excellent mobile apps with built-in dApp browsers.
 
 ### How important is open source for development wallets?
 

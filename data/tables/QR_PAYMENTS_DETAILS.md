@@ -310,6 +310,16 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 
 ---
 
+## Recheck log (2026-10-17, pass 3)
+
+All items below stay UNVERIFIED; no cell changed.
+
+| Item | Result | Source |
+|------|--------|--------|
+| Coinbase Commerce status | coinbase.com/commerce now serves the "Coinbase Business" page (available in the US and Singapore). It does not mention Commerce, so the retirement date is not confirmed by a page we reached. commerce.coinbase.com still returns 502, help.coinbase.com a bot check, docs.cdp.coinbase.com/commerce a 404. Row keeps the Verify mark. | https://www.coinbase.com/commerce, https://commerce.coinbase.com/ |
+| Flexa fee | flexa.co and docs.flexa.co list no merchant fee (the site says only "zero fees for conversion or custody" on payouts). ~0.5% stays UNVERIFIED. | https://flexa.co/ |
+| Binance Pay merchant fee | pay.binance.com and binance.com help pages render empty in headless Chromium; developers.binance.com Binance Pay docs carry no fee figure. Stays UNVERIFIED. | https://developers.binance.com/docs/binance-pay/introduction |
+
 ## Related Resources
 
 - [Crypto On/Off-Ramp Comparison](./RAMPS.md)
