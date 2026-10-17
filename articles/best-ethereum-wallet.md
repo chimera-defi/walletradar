@@ -1,6 +1,6 @@
 ---
 title: "Best Ethereum Wallet in 2026: Guide"
-description: "Wallet Radar picks for Ethereum: Rabby (86), Trust (75), Rainbow (64), and MetaMask (80) for compatibility."
+description: "Wallet Radar picks for Ethereum: Rabby (86), Trust (82), Rainbow (64), and MetaMask (80) for compatibility."
 category: comparison
 lastUpdated: "2026-10-15"
 author: "Wallet Radar"
@@ -12,7 +12,7 @@ tags: ["guide", "ethereum", "wallets"]
 ## Quick Answer
 
 - **Best overall (developers):** **Rabby (86)**
-- **Best multi-chain stability:** **Trust (75)**
+- **Best multi-chain stability:** **Trust (82)**
 - **Best Ethereum UX:** **Rainbow (64)**
 - **Best compatibility:** **MetaMask (80)**
 
@@ -25,7 +25,7 @@ Source: `SOFTWARE_WALLETS.md`
 | Wallet | Score | Best For |
 |--------|-------|----------|
 | **Rabby** | **86** | Development + safety |
-| **Trust** | 75 | Multi-chain stability |
+| **Trust** | 82 | Multi-chain stability |
 | **Rainbow** | 64 | Ethereum/NFT UX |
 | **MetaMask** | 80 | Compatibility |
 
@@ -37,7 +37,7 @@ Source: `SOFTWARE_WALLETS.md`
 **Rabby (86)** — Best transaction simulation and safety tooling.
 
 ### 2) Multi-Chain Users
-**Trust (75)** — Broad chain support with stable release cadence.
+**Trust (82)** — Broad chain support with stable release cadence.
 
 ### 3) Ethereum UX
 **Rainbow (64)** — Strong Ethereum/NFT focus and clean UX.

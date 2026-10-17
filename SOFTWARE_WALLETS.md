@@ -59,10 +59,10 @@
 - ✅ Open services and strong account-abstraction posture
 - ❌ Does not meet the mobile + extension core requirement
 
-**Trust (75)**
+**Trust (82)**
 - ✅ Broad multi-chain coverage
 - ✅ Stable release cadence
-- ❌ No built-in tx simulation
+- ⚠️ Tx simulation only on supported networks (security scanner, Aug 2026)
 - ⚠️ Partial open source
 
 ### Additional Chains by Wallet
@@ -147,7 +147,7 @@
 
 ## Quick Summary
 
-> **TL;DR:** Use **Rabby** (86) as the default EVM development wallet, **MetaMask** (80) for compatibility coverage, **Safe** (77) for treasury / multi-sig / AA flows, and **Trust** (75) when you need the broadest chain reach. Only wallets with ✅ in the "Core" column cover both mobile and browser-extension testing.
+> **TL;DR:** Use **Rabby** (86) as the default EVM development wallet, **MetaMask** (80) for compatibility coverage, **Safe** (77) for treasury / multi-sig / AA flows, and **Trust** (82) when you need the broadest chain reach. Only wallets with ✅ in the "Core" column cover both mobile and browser-extension testing.
 
 **Data Sources:** GitHub/API refreshes (verified April 8, 2026), [WalletBeat](https://walletbeat.fyi), official wallet docs, and the generated table sync script.
 
@@ -165,11 +165,11 @@
 
 ### Is Rabby Wallet better than MetaMask?
 
-For daily development, yes. Rabby now leads **84 vs 77**, mostly because it gives developers more built-in pre-signing safety and control. MetaMask remains essential for compatibility testing because the install base and ecosystem support are still unmatched, but Rabby is the better primary wallet.
+For daily development, yes. Rabby leads **86 vs 80**, mostly because it gives developers more built-in pre-signing safety and control. MetaMask remains essential for compatibility testing because the install base and ecosystem support are still unmatched, but Rabby is the better primary wallet.
 
 ### What wallets have transaction simulation?
 
-In this table, **Rabby** is still the only wallet with full built-in transaction simulation. That matters because the score now comes directly from the visible columns, so simulation is treated as a concrete developer-safety input rather than a narrative bonus.
+In this table, **Rabby** is still the only wallet with full built-in transaction simulation; **Trust** and **Ledger Live** have limited simulation (supported networks only, or opt-in EVM Transaction Check). That matters because the score now comes directly from the visible columns, so simulation is treated as a concrete developer-safety input rather than a narrative bonus.
 
 ### Which software wallet is best for production apps?
 
