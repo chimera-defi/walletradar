@@ -440,7 +440,7 @@ No host match (not verified either way): Stripe, Changelly, Sardine, Guardarian,
 | Mercuryo | Homepage says 150+ countries, 70+ coins, 10+ payment methods | Fees not published; table says Global |
 | Banxa | OSL take-private effective 2026-01-02; MiCA authorisation stated on site | Fees ("flexible, customised"), country count (counter showed 0) |
 | Simplex | 190+ countries, payment methods | Fees, limits (not published) |
-| Transak | Production KYC country API (api.transak.com/api/v2/countries) lists 26 allowed countries on 2026-10-17; fees page not published (headless Chromium reached transak.com, no fee figure) | Fees;  sources conflict on country count (26+ on global-coverage page, 162+ elsewhere), so ~64 is unchanged |
+| Transak | Production KYC country API (api.transak.com/api/v2/countries) lists 26 allowed countries on 2026-10-17; fees page not published (headless Chromium reached transak.com, no fee figure); re-tried 2026-10-17 pass 3: transak.com/pricing renders without a fee figure, docs.transak.com guides say only that Transak's baseline fee varies by payment method (plus a partner fee up to 5%) and point to a Notion page that does not load, and the public quote API needs a partner key, so fees stay UNVERIFIED | Fees;  sources conflict on country count (26+ on global-coverage page, 162+ elsewhere), so ~64 is unchanged |
 | CoinSwitch | Still operating as an India crypto exchange; minimum entry ₹100 | Ramp fees, API product details |
 | MoonPay | Card fee up to 4.5%, min fee up to $3.99 / $4.50 | Country count (~160+), token count |
 | onesafe | none | Not re-fetched |

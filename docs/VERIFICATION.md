@@ -49,16 +49,16 @@ Every number in scope was re-fetched from a primary page or API on 2026-10-15, o
 
 Each item below keeps its old value and carries a mark or a note in the data.
 
-- **Software wallets:** audit claims and dates, funding, Tx Sim, Scam, HW, API, ENS columns, chain lists (only Rainbow, Rabby and Zerion EVM/Solana scope spot-checked). Private-repo wallets (OKX, Phantom, Zerion, Exodus, 1inch, Bitget, Mt Pelerin). Rel/Mo for Brave, Ambire, Ledger, Gem, Uniswap, Sequence, Trust, Rainbow, Safe, MEW, imToken, Enkrypt (bursty or multi-product repos). Coinbase Wallet row kept at Active ❌, Rel ~2: the SDK repo has commits but no release since 2025-06-25 and is superseded by the Base Account SDK. A rule-based update would lift its score to 82, so it was left for an owner decision.
-- **Hardware wallets (‡ marks):** Arculus price (getarculus.com HTTP 403), ColdCard Mk4 price (no longer listed). BitBox02, Nova, Cypherock and imKey prices were resolved on 2026-10-17. Also: Ledger Nano S price (not in shop), DIY prices (Krux, SeedSigner, Specter, Firefly), Passport Prime USD, Bitkey USD, BC Vault currency (EUR assumed from shop `currency_code`), Keycard USD. Per-wallet chains and audit cells were not re-fetched; 338 unchanged cells were not individually re-checked.
+- **Software wallets:** audit claims and dates (Sequence resolved 2026-10-17), funding, Tx Sim (Rainbow and Brave resolved 2026-10-17), Scam, HW, API, ENS columns, chain lists (only Rainbow, Rabby and Zerion EVM/Solana scope spot-checked). Private-repo wallets (OKX, Phantom, Zerion, Exodus, 1inch, Bitget, Mt Pelerin). Rel/Mo for Brave, Ambire, Ledger, Gem, Uniswap, Sequence, Trust, Rainbow, Safe, MEW, imToken, Enkrypt (bursty or multi-product repos). Coinbase Wallet row kept at Active ❌, Rel ~2: the SDK repo has commits but no release since 2025-06-25 and is superseded by the Base Account SDK. A rule-based update would lift its score to 82, so it was left for an owner decision.
+- **Hardware wallets (‡ marks):** ColdCard Mk4 price (replaced by Mk5, no longer priced). BitBox02, Nova, Cypherock, imKey and Arculus prices were resolved on 2026-10-17. Also: Ledger Nano S price (not in shop), DIY prices (Krux, SeedSigner, Specter, Firefly), Passport Prime USD, Bitkey USD, BC Vault currency (EUR assumed from shop `currency_code`), Keycard USD. Per-wallet chains and audit cells were not re-fetched; 338 unchanged cells were not individually re-checked.
 - **Cards:** EtherFi cashback and fees (429 and a Vercel checkpoint), Coinbase, Revolut, Uphold (403), Bybit (timeout), 1inch cashback and regions, Wayex 1% cashback, Reap 0%/2% FX, Hi Card, BitPay status, Amp Pay (expired certificate), Payy, Tria, Kontigo, Spendly, Bitget $10 activation and FX range, Plutus annual fee and region, Kraken US FX and tiers (two Kraken pages conflict), Gnosis 2026-12-20 date (secondary source), Ready shutdown (secondary source), Wirex monthly fee, Bleap and Tangem region and custody (labelled CeFi).
-- **Ramps and QR:** Transak fees (transak.com 403), Binance Pay merchant fee, Flexa fee (network count resolved 2026-10-17), Coinbase Commerce status (portal 502, help page 403; marked Verify).
+- **Ramps and QR:** Transak fees (re-tried 2026-10-17: no figure on transak.com or docs, quote API needs a partner key), Binance Pay merchant fee (Binance pages render empty, API docs list no fee), Flexa fee (network count resolved 2026-10-17; no fee on flexa.co or docs), Coinbase Commerce status (coinbase.com/commerce now serves Coinbase Business without mentioning Commerce; portal 502, help page bot check; marked Verify).
 - **Not added, no primary page:** Coinbase One Card, Fold credit card, Crypto.com US credit card, Binance CIS relaunch, Moonwell card.
 
 ### Known blockers (cannot be verified from an agent)
 
 - Bot-protected pages: bitbox.swiss, getarculus.com, transak.com, coinbase.com, uphold.com, revolut.com and EtherFi return 403, 429 or a browser check. A headless Chromium pass resolves some; the rest need a human browser session.
-- Secondary-only facts: Gnosis Pay end date, Ready shutdown, Solflare pause detail, Ledger Global-e incident and BitBox Dixence update (not added).
+- Secondary-only facts: Gnosis Pay end date (the 2026-09-03 Gnosis Pay blog announces the consumer web app sunset with no date), Ready shutdown (ready.co does not mention it), Solflare pause detail, Ledger Global-e incident and BitBox Dixence update (not added).
 - Legacy score narratives in `data/tables/SOFTWARE_WALLETS_DETAILS.md` were removed in the docs cleanup. Table scores are the only scores.
 - Out-of-slice drift reported by the hardware pass: `data/merchant_pricing.json` (Ledger Nano S+ 59 vs 69, Jade 79 vs 67 list/sale, Bitkey 150 vs €230) and `frontend/scripts/generate-og-images.js` hardware prices; OG PNGs need regenerating after the UI pass.
 
@@ -74,7 +74,7 @@ Each item below keeps its old value and carries a mark or a note in the data.
 | Legacy `WALLET_COMPARISON_UNIFIED`, `HARDWARE_WALLET_COMPARISON`, `CRYPTO_CREDIT_CARD_COMPARISON` docs | Stay deleted. Everything useful is in the `*_DETAILS.md` files. The old card scoring handicaps (exchange -3, Crypto.com -20, unverified -5) are obsolete. |
 | `npm audit` high finding (js-yaml via gray-matter, build-time only) | Open. Fix in a dependency PR. |
 | Cards to add once a primary page confirms custody and region (Ledger CL and Oobit landed 2026-10-17): SafePal Card, Exa, Holyheld, Coinbase One | Open. |
-| ColdCard Mk4, Arculus and other ‡ prices | Open until a source page shows a price. |
+| ColdCard Mk4 and other ‡ prices | Open until a source page shows a price. |
 | Wallets WalletBeat lists but we do not: Family, Base App, Elytro | Open. Family has too few sourced fields. Base App duplicates the Coinbase row. Elytro's site returned HTTP 402 on 2026-10-10. |
 | `TODO` or `FIXME` markers in docs and code | None. The remaining `- [ ]` lines are PR and contributor checklist templates, not open work. |
 
