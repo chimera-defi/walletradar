@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { getDocumentBySlug } from '@/lib/markdown';
+import { getGlossaryDocument } from '@/lib/markdown';
 import { EnhancedMarkdownRenderer } from '@/components/EnhancedMarkdownRenderer';
 import { optimizeMetaDescription, generateBreadcrumbSchema } from '@/lib/seo';
 import { brand, withBrand } from '@/lib/brand';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function GlossaryPage() {
-  const doc = getDocumentBySlug('glossary');
+  const doc = getGlossaryDocument();
   const description = optimizeMetaDescription(doc?.description || 'Definitions of key wallet and crypto terms.');
 
   const breadcrumbSchema = generateBreadcrumbSchema([
