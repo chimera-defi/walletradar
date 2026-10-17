@@ -28,14 +28,9 @@ export function getOgImagePath(slug: string): string {
     'coldcard-vs-trezor-safe-7': '/og/articles/coldcard-vs-trezor-safe-7.svg',
     'coinbase-wallet-vs-metamask': '/og/articles/coinbase-wallet-vs-metamask.svg',
     'best-ethereum-wallet': '/og/articles/best-ethereum-wallet.svg',
-    'best-wallet-for-defi': '/og/articles/best-wallet-for-defi.svg',
-    'best-wallet-for-nft-collectors': '/og/articles/best-wallet-for-nft-collectors.svg',
-    'best-multi-chain-wallet': '/og/articles/best-multi-chain-wallet.svg',
+    'wallet-setup-guide': '/og/articles/wallet-setup-guide.svg',
     'best-crypto-card': '/og/articles/best-crypto-card.svg',
     'best-crypto-onramp': '/og/articles/best-crypto-onramp.svg',
-    'hardware-wallet-setup-guide': '/og/articles/hardware-wallet-setup-guide.svg',
-    'software-wallet-setup-guide': '/og/articles/software-wallet-setup-guide.svg',
-    'video-transcripts': '/og/articles/video-transcripts.svg',
     'how-wallet-radar-works': '/og/articles/how-wallet-radar-works.png',
   };
   return imageMap[slug] || '/og-image.svg';

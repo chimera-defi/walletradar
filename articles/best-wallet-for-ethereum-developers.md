@@ -290,7 +290,7 @@ Desktop: Rabby (development)
 **Related Articles:**
 - [Rabby vs MetaMask: Detailed Comparison](/articles/rabby-vs-metamask)
 - [Software Wallet Comparison](/docs/software-wallets) - Full comparison of 20+ wallets
-- [Best Wallet for DeFi Development](/articles/best-wallet-for-defi) - DeFi-specific recommendations
+- [Best Wallet for DeFi](/articles/best-ethereum-wallet#5-defi) - DeFi-specific recommendations
 
 **Data Sources:** GitHub REST API (Dec 2025), [WalletBeat](https://walletbeat.fyi), Wallet Radar scoring methodology
 **Last Updated:** January 19, 2026

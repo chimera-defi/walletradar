@@ -1,0 +1,8 @@
+[
+  { "from": "/articles/best-multi-chain-wallet/", "to": "/articles/best-ethereum-wallet/#7-multi-chain-coverage", "reason": "Merged into Best Ethereum Wallet as a use-case section." },
+  { "from": "/articles/best-wallet-for-defi/", "to": "/articles/best-ethereum-wallet/#5-defi", "reason": "Merged into Best Ethereum Wallet as a use-case section." },
+  { "from": "/articles/best-wallet-for-nft-collectors/", "to": "/articles/best-ethereum-wallet/#6-nft-collectors", "reason": "Merged into Best Ethereum Wallet as a use-case section." },
+  { "from": "/articles/hardware-wallet-setup-guide/", "to": "/articles/wallet-setup-guide/#hardware-wallet-setup", "reason": "Merged into the combined Wallet Setup Guide." },
+  { "from": "/articles/software-wallet-setup-guide/", "to": "/articles/wallet-setup-guide/#software-wallet-setup", "reason": "Merged into the combined Wallet Setup Guide." },
+  { "from": "/articles/video-transcripts/", "to": "/articles/", "reason": "Empty transcript template removed." }
+]
