@@ -41,7 +41,7 @@ function main(argv) {
   let fresh = 0;
   let bad = 0;
   for (const f of FILES) {
-    const d = parseLastUpdated(fs.readFileSync(path.join(root, f), 'utf8'));
+    const d = parseLastUpdated(fs.readFileSync(path.join(root, 'data', 'tables', f), 'utf8'));
     const age = d ? ageDays(d, today) : null;
     const status = classify(age);
     if (status === 'fresh') fresh++;

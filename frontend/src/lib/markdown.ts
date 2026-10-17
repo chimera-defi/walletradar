@@ -4,7 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { brand } from './brand';
 
-// Path to markdown files (one level up from frontend)
+// Repo root (one level up from frontend). Document keys below are paths relative to it.
 const CONTENT_DIR = path.join(process.cwd(), '..');
 
 export interface MarkdownDocument {
@@ -19,31 +19,31 @@ export interface MarkdownDocument {
 
 // Define the markdown files we want to process and their metadata
 const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>> = {
-  'SOFTWARE_WALLETS.md': {
+  'data/tables/SOFTWARE_WALLETS.md': {
     title: 'Software Wallet Comparison',
     description: 'Developer-focused comparison of software wallets with scoring, security audits, and recommendations',
     category: 'comparison',
     order: 1,
   },
-  'HARDWARE_WALLETS.md': {
+  'data/tables/HARDWARE_WALLETS.md': {
     title: 'Hardware Wallet Comparison',
     description: 'Cold storage comparison of hardware wallets with security features and GitHub metrics',
     category: 'comparison',
     order: 2,
   },
-  'CRYPTO_CARDS.md': {
+  'data/tables/CRYPTO_CARDS.md': {
     title: 'Crypto Credit Card Comparison',
     description: 'Comparison of crypto credit cards.',
     category: 'comparison',
     order: 3,
   },
-  'RAMPS.md': {
+  'data/tables/RAMPS.md': {
     title: 'Crypto On/Off-Ramp Comparison',
     description: 'Comparison of crypto on-ramp and off-ramp providers with fees, coverage, and developer experience.',
     category: 'comparison',
     order: 4,
   },
-  'QR_PAYMENTS.md': {
+  'data/tables/QR_PAYMENTS.md': {
     title: 'QR Payment Crypto Providers',
     description: 'Comparison of QR code crypto payment providers for merchants with fees, coverage, and integration options',
     category: 'comparison',
@@ -61,13 +61,13 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     category: 'guide',
     order: 5,
   },
-  'ABOUT.md': {
+  'docs/site/ABOUT.md': {
     title: `About ${brand.displayName}`,
     description: `Educational research platform for comparing crypto access products. Independent, developer-focused, and open source.`,
     category: 'guide',
     order: 6,
   },
-  'DATA_SOURCES.md': {
+  'docs/site/DATA_SOURCES.md': {
     title: 'Data Sources & External Links',
     description: 'Transparency about external links, data verification, and link tracking. Why we link to wallet sites and how to verify information.',
     category: 'guide',
@@ -100,7 +100,7 @@ export function getAllDocuments(): MarkdownDocument[] {
       const { content } = matter(fileContent);
       
       const config = DOCUMENT_CONFIG[filename];
-      const slug = filename.replace('.md', '').toLowerCase().replace(/_/g, '-');
+      const slug = path.basename(filename, '.md').toLowerCase().replace(/_/g, '-');
       
       // Extract last updated from content if present
       const lastUpdatedMatch = content.match(/Last [Uu]pdated:?\s*([^\n\|]+)/);
@@ -133,11 +133,11 @@ export function getDocumentBySlug(slug: string): MarkdownDocument | null {
 
 // The narrative DETAILS doc of each category is rendered inside the category page (/docs/<slug>/#details).
 const DETAILS_FILES: Record<string, string> = {
-  'software-wallets': 'SOFTWARE_WALLETS_DETAILS.md',
-  'hardware-wallets': 'HARDWARE_WALLETS_DETAILS.md',
-  'crypto-cards': 'CRYPTO_CARDS_DETAILS.md',
-  'ramps': 'RAMPS_DETAILS.md',
-  'qr-payments': 'QR_PAYMENTS_DETAILS.md',
+  'software-wallets': 'data/tables/SOFTWARE_WALLETS_DETAILS.md',
+  'hardware-wallets': 'data/tables/HARDWARE_WALLETS_DETAILS.md',
+  'crypto-cards': 'data/tables/CRYPTO_CARDS_DETAILS.md',
+  'ramps': 'data/tables/RAMPS_DETAILS.md',
+  'qr-payments': 'data/tables/QR_PAYMENTS_DETAILS.md',
 };
 
 function readContent(filename: string): string | null {
@@ -154,7 +154,7 @@ export function getDetailsDocument(slug: string): string | null {
 
 /** The glossary is served at /glossary/ only, so it is not part of DOCUMENT_CONFIG. */
 export function getGlossaryDocument(): MarkdownDocument | null {
-  const content = readContent('GLOSSARY.md');
+  const content = readContent('docs/site/GLOSSARY.md');
   if (content === null) return null;
   return {
     slug: 'glossary',

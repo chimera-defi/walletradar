@@ -23,7 +23,7 @@ tags: ["comparison", "software-wallets", "ethereum"]
 | **Rainbow** | 64 | NFT/Ethereum UX |
 | **MetaMask** | **80** | Compatibility + ecosystem coverage |
 
-Source: `SOFTWARE_WALLETS.md`
+Source: `data/tables/SOFTWARE_WALLETS.md`
 
 ---
 
@@ -82,8 +82,8 @@ Source: `SOFTWARE_WALLETS.md`
 Yes, for compatibility testing across most dApps.
 
 **Is Rainbow safe?**  
-Rainbow scores 64 in the table. Check its [row](https://github.com/chimera-defi/walletradar/blob/main/SOFTWARE_WALLETS.md) for audit and licence details.
+Rainbow scores 64 in the table. Check its [row](https://github.com/chimera-defi/walletradar/blob/main/data/tables/SOFTWARE_WALLETS.md) for audit and licence details.
 
 ---
 
-**Related:** `SOFTWARE_WALLETS_DETAILS.md` for methodology.
+**Related:** `data/tables/SOFTWARE_WALLETS_DETAILS.md` for methodology.

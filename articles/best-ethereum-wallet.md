@@ -16,7 +16,7 @@ tags: ["guide", "ethereum", "wallets", "defi", "nft", "multi-chain"]
 - **Best Ethereum UX:** **Rainbow (64)**
 - **Best compatibility:** **MetaMask (80)**
 
-Source: `SOFTWARE_WALLETS.md`
+Source: `data/tables/SOFTWARE_WALLETS.md`
 
 ---
 
@@ -66,7 +66,7 @@ Building on Ethereum? See [Best Wallet for Ethereum Developers](/articles/best-w
 ## How We Score
 
 Scores are generated from the visible table columns.  
-See `SOFTWARE_WALLETS_DETAILS.md` for the methodology.
+See `data/tables/SOFTWARE_WALLETS_DETAILS.md` for the methodology.
 
 ---
 

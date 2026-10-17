@@ -65,24 +65,24 @@ frontend/
 
 ## Content Management
 
-The frontend reads Markdown files from the repository root:
+The frontend reads Markdown files from the repository root, `data/tables/` and `docs/site/` (the repo-relative paths below):
 
 | File | Page URL |
 |------|----------|
 | `README.md` | `/docs/readme` |
-| `ABOUT.md` | `/docs/about` |
-| `SOFTWARE_WALLETS.md` | `/docs/software-wallets` |
-| `SOFTWARE_WALLETS_DETAILS.md` | `/docs/software-wallets-details` |
-| `HARDWARE_WALLETS.md` | `/docs/hardware-wallets` |
-| `HARDWARE_WALLETS_DETAILS.md` | `/docs/hardware-wallets-details` |
-| `CRYPTO_CARDS.md` | `/docs/crypto-cards` |
-| `CRYPTO_CARDS_DETAILS.md` | `/docs/crypto-cards-details` |
-| `RAMPS.md` | `/docs/ramps` |
-| `RAMPS_DETAILS.md` | `/docs/ramps-details` |
-| `QR_PAYMENTS.md` | `/docs/qr-payments` |
-| `QR_PAYMENTS_DETAILS.md` | `/docs/qr-payments-details` |
-| `DATA_SOURCES.md` | `/docs/data-sources` |
-| `GLOSSARY.md` | `/docs/glossary` |
+| `docs/site/ABOUT.md` | `/docs/about` |
+| `data/tables/SOFTWARE_WALLETS.md` | `/docs/software-wallets` |
+| `data/tables/SOFTWARE_WALLETS_DETAILS.md` | `/docs/software-wallets-details` |
+| `data/tables/HARDWARE_WALLETS.md` | `/docs/hardware-wallets` |
+| `data/tables/HARDWARE_WALLETS_DETAILS.md` | `/docs/hardware-wallets-details` |
+| `data/tables/CRYPTO_CARDS.md` | `/docs/crypto-cards` |
+| `data/tables/CRYPTO_CARDS_DETAILS.md` | `/docs/crypto-cards-details` |
+| `data/tables/RAMPS.md` | `/docs/ramps` |
+| `data/tables/RAMPS_DETAILS.md` | `/docs/ramps-details` |
+| `data/tables/QR_PAYMENTS.md` | `/docs/qr-payments` |
+| `data/tables/QR_PAYMENTS_DETAILS.md` | `/docs/qr-payments-details` |
+| `docs/site/DATA_SOURCES.md` | `/docs/data-sources` |
+| `docs/site/GLOSSARY.md` | `/docs/glossary` |
 | `CONTRIBUTING.md` | `/docs/contributing` |
 | `CHANGELOG.md` | `/docs/changelog` |
 
@@ -90,31 +90,31 @@ The full list and metadata live in `DOCUMENT_CONFIG` in `src/lib/markdown.ts`.
 
 ### Wallet data tables (used by `/explore`)
 
-The interactive explorer reads **markdown tables** from the repository root via `src/lib/wallet-data.ts`.
+The interactive explorer reads **markdown tables** from `data/tables/` via `src/lib/wallet-data.ts`.
 
 Scores and recommendations are generated from the visible markdown-table columns via `scripts/sync_table_scores.js`. That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 
 If you change any of these table column orders, you must update the parser + resync the tables + run tests:
 
-- `SOFTWARE_WALLETS.md` (software wallets)
+- `data/tables/SOFTWARE_WALLETS.md` (software wallets)
   - Columns: Wallet, Score, Core, Rel/Mo, RPC, GitHub, Active, Chains, Devices, Testnets, License, API, Audits, Funding, Tx Sim, Scam, Account, ENS/Naming, HW, Best For, Rec
-- `HARDWARE_WALLETS.md` (hardware wallets)
+- `data/tables/HARDWARE_WALLETS.md` (hardware wallets)
   - Columns: Wallet, Score, GitHub, Air-Gap, Open Source, Secure Elem, Display, Price, Conn, Activity, Rec
-- `CRYPTO_CARDS.md` (cards)
+- `data/tables/CRYPTO_CARDS.md` (cards)
   - Columns: Card, Score, Type, Custody, Biz, Region, Cash Back, Annual Fee, FX Fee, Rewards, Status, Best For
   - Note: Card column contains clickable link to provider website (e.g., `[**Card Name**](url)`)
-- `RAMPS.md` (ramps)
+- `data/tables/RAMPS.md` (ramps)
   - Columns: Provider, Score, Type, On-Ramp, Off-Ramp, Coverage, Fee Model, Min Fee, Dev UX, Status, Best For
 
 `bun run test` runs a lightweight smoke test in `scripts/smoke-test-wallet-data.js` to catch table header/structure drift.
 
 ### Adding New Documents
 
-1. Add a new Markdown file to the repository root
+1. Add a new Markdown file (datasets in `data/tables/`, site pages in `docs/site/`)
 2. Update `DOCUMENT_CONFIG` in `src/lib/markdown.ts`:
 
 ```typescript
-'NEW_FILE.md': {
+'docs/site/NEW_FILE.md': {  // path relative to the repo root; the slug comes from the basename
   title: 'Page Title',
   description: 'Brief description',
   category: 'comparison' | 'research' | 'guide' | 'other',

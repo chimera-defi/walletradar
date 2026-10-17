@@ -16,7 +16,7 @@ tags: ["comparison", "ramps", "payments"]
 - **Best Coinbase integration:** **Coinbase Pay (84)**, now branded Coinbase Onramp, 2.5% credit card and 0.5% ACH
 - **Card fees to compare:** **MoonPay (79)** up to 4.5%; **Ramp (86)** up to 3.9% for USD/EUR/GBP cards and up to 5.45% for other currencies
 
-Source: `RAMPS.md`, checked 2026-10-17. Scores are generated from the table columns, so a fee or coverage change can move them.
+Source: `data/tables/RAMPS.md`, checked 2026-10-17. Scores are generated from the table columns, so a fee or coverage change can move them.
 
 ---
 

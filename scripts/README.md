@@ -8,12 +8,12 @@ Tools that refresh and check the comparison tables. Run them from the repo root.
 
 Recomputes `Score` and recommendation cells from the visible markdown-table columns for:
 
-- `SOFTWARE_WALLETS.md`
-- `HARDWARE_WALLETS.md`
-- `CRYPTO_CARDS.md`
-- `RAMPS.md`
+- `data/tables/SOFTWARE_WALLETS.md`
+- `data/tables/HARDWARE_WALLETS.md`
+- `data/tables/CRYPTO_CARDS.md`
+- `data/tables/RAMPS.md`
 
-It also sorts rows by computed score so the published tables stay in rank order, and refreshes the generated snapshot blocks at the top of the matching `*_DETAILS.md` files, plus the derived company-aggregates block in `HARDWARE_WALLETS_DETAILS.md`.
+It also sorts rows by computed score so the published tables stay in rank order, and refreshes the generated snapshot blocks at the top of the matching `*_DETAILS.md` files, plus the derived company-aggregates block in `data/tables/HARDWARE_WALLETS_DETAILS.md`.
 
 #### Usage
 
@@ -74,7 +74,7 @@ Validates that:
 ./scripts/validate_merchant_feed.py
 ```
 
-Pricing sources and exclusions: `MERCHANT_FEED.md`.
+Pricing sources and exclusions: `docs/MERCHANT_FEED.md`.
 
 ### `verify-crypto-cards.js` (Cards)
 
@@ -91,7 +91,7 @@ Sets `core.hooksPath` to `.githooks`, which enforces the commit format and block
 
 ### `verify-ramps.py` (Ramps)
 
-Verifies ramp provider URLs from `RAMPS.md` using a direct fetch plus
+Verifies ramp provider URLs from `data/tables/RAMPS.md` using a direct fetch plus
 `r.jina.ai` proxy as a fallback to detect bot challenges.
 
 #### Usage
@@ -107,7 +107,7 @@ UTF-8 BOM / latin-1 tolerant), matches each RAMPS row by website host
 domain of the ramp host also matches) and records `mica_status`
 (`authorised`, `authorisation_ended`, `no_host_match` (no register host matched; not proof of non-registration)) plus `mica_detail`
 (entity, home state, authorisation date, services). This is report-only:
-`RAMPS.md` is never edited. If the download fails, a warning is printed, the
+`data/tables/RAMPS.md` is never edited. If the download fails, a warning is printed, the
 URL checks run as before, the MiCA fields stay `not_checked` and the exit code
 is unchanged. Offline test: `tests/verify-ramps-mica.test.ts` (runs under vitest).
 
@@ -120,7 +120,7 @@ is unchanged. Offline test: `tests/verify-ramps-mica.test.ts` (runs under vitest
 
 Queries GitHub for **EVM software wallet** activity.
 
-Queries the GitHub API to get the latest commit dates and activity status for all tracked wallet repositories. The tracked repos are discovered from the public `SOFTWARE_WALLETS.md` table, so adding or removing rows there automatically changes the refresh set.
+Queries the GitHub API to get the latest commit dates and activity status for all tracked wallet repositories. The tracked repos are discovered from the public `data/tables/SOFTWARE_WALLETS.md` table, so adding or removing rows there automatically changes the refresh set.
 If no token is available, it falls back to GitHub Atom feeds for the last commit date and attempts a best-effort HTML scrape for stars/issues.
 
 #### Usage
@@ -177,7 +177,7 @@ Two GitHub Actions run every Monday. Both open a PR; a human reviews and merges.
 
 | Workflow | Time (UTC) | What it does |
 |---|---|---|
-| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) with `ACTIVITY_STATUS.md`, `HARDWARE_ACTIVITY_STATUS.md` and `data/*.json`. It does not edit the comparison tables. |
+| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) with `ACTIVITY_STATUS.md`, `data/tables/HARDWARE_ACTIVITY_STATUS.md` and `data/*.json`. It does not edit the comparison tables. |
 | `.github/workflows/generate-merchant-feed.yml` | 10:00 | Regenerates and validates `frontend/public/merchant-center.xml`, then opens a PR if it changed. |
 
 Table values (prices, licences, audits, custody) are checked by hand against primary sources. See `docs/VERIFICATION.md`.
@@ -208,7 +208,7 @@ If no token is set, the script falls back to Atom feeds for last-commit dates an
 ./scripts/refresh-hardware-wallet-data.sh --markdown
 ```
 
-The tracked repos are discovered from `HARDWARE_WALLETS.md`. The script only follows rows with a public GitHub firmware repo and dedupes shared repos such as the Trezor and BitBox product lines.
+The tracked repos are discovered from `data/tables/HARDWARE_WALLETS.md`. The script only follows rows with a public GitHub firmware repo and dedupes shared repos such as the Trezor and BitBox product lines.
 
 **Closed Source / not firmware-tracked:** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus
 
@@ -218,11 +218,11 @@ The tracked repos are discovered from `HARDWARE_WALLETS.md`. The script only fol
 
 ### For Software Wallets
 
-Add or update the row in `SOFTWARE_WALLETS.md`. If the GitHub column links to a public repo, the refresh script will pick it up automatically.
+Add or update the row in `data/tables/SOFTWARE_WALLETS.md`. If the GitHub column links to a public repo, the refresh script will pick it up automatically.
 
 ### For Hardware Wallets
 
-Add or update the row in `HARDWARE_WALLETS.md`. Public firmware repos with `✅ Full` open source are discovered automatically; SDK-only and non-firmware links are skipped.
+Add or update the row in `data/tables/HARDWARE_WALLETS.md`. Public firmware repos with `✅ Full` open source are discovered automatically; SDK-only and non-firmware links are skipped.
 
 ## Requirements
 
