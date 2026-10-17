@@ -17,7 +17,7 @@
 | 5 | **Gemini Card** | 79 | Credit building | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
-**Last Updated:** October 15, 2026 (re-check of issuer pages on 2026-10-15, see [Recheck log](#recheck-2026-10-15); earlier Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
+**Last Updated:** October 17, 2026 (market sweep: see [sweep log](#market-sweep-2026-10-17); re-check of issuer pages on 2026-10-15, see [Recheck log](#recheck-2026-10-15); earlier Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
 
 ---
 
@@ -376,7 +376,7 @@ The Binance Card is a debit card linked to your Binance account, offering BNB re
 
 ### Wirex Card
 
-**Website:** [wirexapp.com/card](https://wirexapp.com/card)
+**Website:** [wirexapp.com/card](https://www.wirexapp.com/card)
 
 **Overview:**
 The Wirex Card is a multi-crypto debit card. As of 2026-10-15 the issuer's page (wirex.one) advertises Wirex One: "up to 8% cashback in USD on every purchase", "Zero-fee FX and ATM worldwide" and availability in "130+ countries". Secondary reports (SpendNode, June 2026) say the older WXT rewards and paid subscription tiers were replaced by a WPAY-based membership; wirex.one did not state this, so the annual/monthly fee is shown as TBD.
@@ -709,7 +709,7 @@ The CoinJar Card is a crypto debit card for Australia. The official AU card page
 
 ### CryptoSpend Card
 
-**Website:** [cryptospend.com.au](https://cryptospend.com.au)
+**Website:** cryptospend.com.au (no response 2026-10-17); current site [wayex.com](https://www.wayex.com/en-US/)
 
 **Overview:**
 The CryptoSpend Card is a multi-crypto rewards debit card available in Australia.
@@ -1124,7 +1124,7 @@ ThorWallet offers Mastercard debit cards directly from your non-custodial DeFi w
 
 ### Amp Pay Black Card
 
-**Website:** [getamp.pay](https://getamp.pay)
+**Website:** getamp.pay (domain dead as of 2026-10-17; link removed)
 
 **Status:** ✅ Active (Solana-powered payments)
 
@@ -1174,7 +1174,7 @@ Amp Pay Black Card is a Solana-powered crypto debit card enabling instant spendi
 
 ### Payy Card
 
-**Website:** [payy.link](https://payy.link) or [docs.payy.network](https://docs.payy.network)
+**Website:** [payy.network](https://payy.network) or [docs.payy.network](https://docs.payy.network)
 
 **Status:** ✅ Active (Launched August 2025 by Polybase Labs)
 
@@ -1817,7 +1817,7 @@ Headline maximums; many require staking or tiers, and several are unverified (se
 - **Notes:** Binance Business accounts available
 
 **Wirex Card**
-- **Website:** [wirexapp.com/card](https://wirexapp.com/card)
+- **Website:** [wirexapp.com/card](https://www.wirexapp.com/card)
 - **Business Support:** ✅ Yes
 - **Notes:** Wirex Business accounts available
 
@@ -1940,6 +1940,36 @@ Retrieved 2026-10-10 from issuer pages unless marked *(secondary)*. Page text wa
 | Bitpanda Card | New row | n/a | Debit, 🏦 Exch, euro area, 1% crypto cashback, $0 annual, 0% FX, ✅ | [bitpanda.com/en/card](https://www.bitpanda.com/en/card) (2026-10-10): spends from the Bitpanda account, asset converted to EUR in the EUR wallet; euro-area residents; "0% FX fees" (Visa mark-up applies); 1% on crypto spending only (meta description says "up to 2%", body says 1%) |
 | Cypher Card | New row (inactive) | n/a | ❌, ~~strikethrough~~ | Primary: [cypherhq.io wind-down page](https://www.cypherhq.io/wind-down-support/what-is-happening-to-cypher) ("Cypher has been acquired by Nium"; cards cancelled 2026-08-08 00:00 UTC; app/dApp/business platform offline 2026-09-06) and [Nium announcement, 2026-07-08](https://www.nium.com/newsroom/nium-acquires-cypher). Fees and cashback TBD |
 | Coinbase Card (One Card, Amex) | No change | n/a | n/a | coinbase.com/creditcard, help.coinbase.com and the launch blog returned 403; only search snippets of coinbase.com pages (US only, Coinbase One members, issuer First Electronic Bank, Amex network) seen. Not a primary-page confirmation, so no row added or edited |
+
+### Market sweep (2026-10-17)
+
+Web sweep for cards launched, changed or discontinued since about 2026-07-15. All access dates 2026-10-17. "Secondary" means a news, review or aggregator page, not the issuer.
+
+**Added rows**
+
+| Card | What the issuer page says | Not stated / unverified | Source |
+|------|---------------------------|-------------------------|--------|
+| Ledger CL Card | Baanx program, Monavate issuing entity; EEA, UK, US, CH, CA, CO, MX, BR; 1% back in BTC/USDT (BTC/USDC in US) | Fees, FX, custody wording (terms at withcl.com/legal) | [shop.ledger.com](https://shop.ledger.com/pages/cl-card-crypto-card) |
+| Xplace Platinum | 2% cashback capped at $250/mo, credit mode only | $999 annual fee, 0% FX, non-custodial Kamino (Solana) collateral and the 2026-09-14 start date (spendnode only) | [x.place/cashback](https://x.place/cashback/), [spendnode](https://spendnode.io/crypto-cards/xplace-platinum-card/) (secondary) |
+| COCA | Visa, non-custodial, up to 8% cashback, free card; UK, EEA, Asia, South America, Middle East, Africa | Issuer (Wirex per spendnode), fees, FX | [coca.xyz](https://coca.xyz) |
+| Oobit | Up to 10% rewards, Apple Pay / Google Pay; regional availability applies | Issuer, custody, fees, FX (Rain and ~3% FX per spendnode) | [oobit.com](https://oobit.com) |
+| Deblock | Free Standard Visa debit plan | Premium EUR 14.99/mo, up to 1% cashback, 0% FX (reviews only); MiCA/ACPR status not checked | [deblock.com/en/cards](https://deblock.com/en/cards) |
+
+**Changed rows**
+
+| Card | Change | Confidence | Source |
+|------|--------|------------|--------|
+| Wirex | Legacy Wirex app discontinued for EEA customers 2026-09-30; balances not viewable from 2026-10-01; migrate to Wirex One. Cardano Card (Emurgo x Wirex) ends 2026-10-31 | Primary for the app; secondary for Cardano Card | [status.wirexapp.com](https://status.wirexapp.com/) |
+| Gnosis Pay | Notice 2026-09-21; card and web app stop 2026-12-20 23:59 UTC; cashback eligibility ends 2026-09-30; final distribution 2026-10-07 | Secondary (help article returned 404) | press summaries (Crypto Briefing, The Defiant; article URLs not retained) |
+| Plutus | Status set to Verify: site links a "2026 Transition Update" (not retrievable); a Modulr banking-partner collapse in Jan 2026 is claimed by one review site only | Unverified | [plutus.it](https://plutus.it), cryptocards.so (secondary) |
+
+**Dead or paused, context for existing rows**
+- Kulipa (card issuer for Ready and Solflare) halted operations around 2026-07-29. Ready and Solflare say it held no customer balances; the Kulipa CEO denies insolvency and cites an undisclosed structural change. No primary Kulipa statement found. ([The Defiant](https://thedefiant.io/news/cefi/ready-shuts-card-program-after-issuer-winds-down), [Condia](https://thecondia.com/kulipa-ceo-denies-insolvency/))
+- Moonwell Card (built on Cypher): purchases stopped after 2026-08-07, withdrawals closed 2026-09-06. Not given its own row; Cypher's row covers the shutdown.
+
+**Link fixes (external-link sweep, 2026-10-17):** Payy site is payy.network (payy.link redirects); wirexapp.com/card needs `www.`; getamp.pay and ampay.com, and cryptospend.com.au, gave no response and are shown as text, not links.
+
+**Watchlist, not added (unconfirmed):** Gate Card / Gate Money (announced 2026-10-08, 40+ markets, issuer and fees not published), Gate US Card (Lead Bank/Bridge, search summary only), Lava Card (secured Visa, 3% BTC, issuing bank unnamed), Square/Block Bitcoin credit card (2026-10-13 reports only), Orbi Mexico Mastercard (2026-10-08, SoFi BIN sponsor), Tria Lite $20/yr (review site only), ThorWallet card tiers (Basic $5, Premium $124, 1.5% FX, "indicative"), BitMart Card (exchange wind-down, card stop unverified).
 
 ### Recheck (2026-10-15)
 
