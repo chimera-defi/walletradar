@@ -1,6 +1,6 @@
 ---
 title: "Best Ethereum Wallet in 2026: Guide"
-description: "Wallet Radar picks for Ethereum: Rabby (86), Trust (82), Rainbow (64), and MetaMask (80) for compatibility."
+description: "Wallet Radar picks for Ethereum: Rabby (86), Trust (82), Rainbow (69), and MetaMask (80) for compatibility."
 category: comparison
 lastUpdated: "2026-10-17"
 author: "Wallet Radar"
@@ -13,7 +13,7 @@ tags: ["guide", "ethereum", "wallets", "defi", "nft", "multi-chain"]
 
 - **Best overall (developers):** **Rabby (86)**
 - **Best multi-chain stability:** **Trust (82)**
-- **Best Ethereum UX:** **Rainbow (64)**
+- **Best Ethereum UX:** **Rainbow (69)**
 - **Best compatibility:** **MetaMask (80)**
 
 Source: `data/tables/SOFTWARE_WALLETS.md`
@@ -26,7 +26,7 @@ Source: `data/tables/SOFTWARE_WALLETS.md`
 |--------|-------|----------|
 | **Rabby** | **86** | Development + safety |
 | **Trust** | 82 | Multi-chain stability |
-| **Rainbow** | 64 | Ethereum/NFT UX |
+| **Rainbow** | 69 | Ethereum/NFT UX |
 | **MetaMask** | 80 | Compatibility |
 
 ---
@@ -40,7 +40,7 @@ Source: `data/tables/SOFTWARE_WALLETS.md`
 **Trust (82)** — Broad chain support with stable release cadence.
 
 ### 3) Ethereum UX
-**Rainbow (64)** — Strong Ethereum/NFT focus and clean UX.
+**Rainbow (69)** — Strong Ethereum/NFT focus and clean UX.
 
 ### 4) Compatibility
 **MetaMask (80)** — Required for broad dApp coverage.
@@ -51,7 +51,7 @@ Source: `data/tables/SOFTWARE_WALLETS.md`
 - **MetaMask (80)**: best for compatibility, with the widest dApp coverage.
 
 ### 6) NFT Collectors
-- **Rainbow (64)**: best NFT UX. Optimized for Ethereum and NFT use, which suits collectors.
+- **Rainbow (69)**: best NFT UX. Optimized for Ethereum and NFT use, which suits collectors.
 - **Rabby (86)**: best safety tooling. Transaction simulation helps avoid malicious approvals and fake collections.
 - **MetaMask (80)**: best compatibility, including older dApps.
 

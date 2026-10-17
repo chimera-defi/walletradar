@@ -102,7 +102,7 @@ The coloured Rec mark (🟢 🟡 🔴 ⚪) is a rank band set per table each tim
 3. The remaining rows are sorted by score, lowest first. The bottom `floor(N × 0.25)` rows are 🔴, the next rows up to `floor(N × 0.5)` are 🟡, and the rest are 🟢. Rows with equal scores are ordered as they appear in the table.
 4. A "launching" product cannot be 🟢. It is capped at 🟡.
 
-The software table shows how much this matters. Of 33 wallets, 18 are ⚪ because they miss the developer gate. Only 8 are ranked: 2 🔴, 2 🟡, 4 🟢. With the inactive rows that makes 9 🔴 in all. Rabby is 🟢 because it is in the top 4 of 8, not because 86 crosses a line. Elsewhere: 43 hardware wallets give 18 🟢, 9 🟡, 16 🔴; 63 cards give 29, 16, 18; 22 ramps give 11, 6, 5.
+The software table shows how much this matters. Of 33 wallets, 17 are ⚪ because they miss the developer gate. Only 9 are ranked: 2 🔴, 2 🟡, 5 🟢. With the inactive rows that makes 9 🔴 in all. Rabby is 🟢 because it is in the top 5 of 9, not because 86 crosses a line. Elsewhere: 43 hardware wallets give 18 🟢, 9 🟡, 16 🔴; 63 cards give 29, 16, 18; 22 ramps give 11, 6, 5.
 
 ## How to read a comparison
 

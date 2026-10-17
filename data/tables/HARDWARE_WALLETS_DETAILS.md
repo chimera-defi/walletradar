@@ -153,7 +153,7 @@ For technically-inclined users who want maximum transparency and control:
 | **Ledger** (all models) | 59-67 | ⚠️ Ledger Recover capability — use with passphrase only |
 | **Ellipal Titan** | 48 | Closed source, no Secure Element |
 | **SecuX V20** | 48 | Closed source, unknown funding |
-| **Arculus** | 39 | Closed source, NFC-only, no passphrase |
+| **Arculus** | 41 | Closed source, NFC-only, no passphrase |
 | **KeepKey** | 61 | No secure element (MCU only). Firmware is maintained (v7.14.1 released Jun 2026), so it is no longer listed as abandoned |
 | **BC Vault** | 30 | Closed source, no SE, unconventional backup |
 | **ColdCard (seeds made on affected firmware)** | see main table | Weak seed-generation RNG, funds stolen, seeds must be migrated (see Security Incidents) |
@@ -265,6 +265,13 @@ No 2026 vulnerability reports for Keystone, OneKey, Tangem, Jade or SafePal turn
 
 ---
 
+## Recheck log (2026-10-17, pass 3)
+
+| Item | Result | Source |
+|------|--------|--------|
+| Arculus price | ~$100 (UNVERIFIED) -> ~$60. Product page "Arculus Cold Storage Wallet" shows $59.76 current price and $99.00 non-sale price (page metadata `product:price:amount` and `og:price:standard_amount`), in stock. Fetched with headless Chromium after plain fetches returned 403. The sale price can end; list is $99. Score 39 -> 41. | https://www.getarculus.com/products/arculus-cold-storage-wallet.html |
+| ColdCard Mk4 price | Still unresolved, ~$160 kept with ‡. coldcard.com/mk4 says "COLDCARD Mk4 has been replaced by Mk5"; the Coinkite store lists Mk4 only as a compatible-device note on an accessory, with no Mk4 product price. | https://coldcard.com/mk4, https://store.coinkite.com/store |
+
 ## Resources
 
 ### Manufactured Wallets
@@ -315,8 +322,8 @@ Derived from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table
 | **Ellipal** | 48.0 | 1 | Ellipal Titan 2.0 |
 | **SecuX** | 48.0 | 1 | SecuX V20 |
 | **Tangem** | 46.0 | 1 | Tangem Wallet |
+| **Arculus** | 41.0 | 1 | Arculus |
 | **GridPlus** | 40.0 | 1 | GridPlus Lattice1 |
-| **Arculus** | 39.0 | 1 | Arculus |
 | **BC Vault** | 30.0 | 1 | BC Vault |
 <!-- GENERATED_HARDWARE_COMPANIES_END -->
 
