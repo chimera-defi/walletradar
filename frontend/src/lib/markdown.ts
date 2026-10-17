@@ -25,21 +25,9 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     category: 'comparison',
     order: 1,
   },
-  'SOFTWARE_WALLETS_DETAILS.md': {
-    title: 'Software Wallet Comparison - Details',
-    description: 'Full documentation with recommendations, methodology, security audits, and more',
-    category: 'comparison',
-    order: 1,
-  },
   'HARDWARE_WALLETS.md': {
     title: 'Hardware Wallet Comparison',
     description: 'Cold storage comparison of hardware wallets with security features and GitHub metrics',
-    category: 'comparison',
-    order: 2,
-  },
-  'HARDWARE_WALLETS_DETAILS.md': {
-    title: 'Hardware Wallet Comparison - Details',
-    description: 'Full documentation with recommendations, methodology, security deep dive, and more',
     category: 'comparison',
     order: 2,
   },
@@ -49,33 +37,15 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     category: 'comparison',
     order: 3,
   },
-  'CRYPTO_CARDS_DETAILS.md': {
-    title: 'Crypto Credit Card Comparison - Details',
-    description: 'Full documentation with card reviews, scoring methodology, business support, and recommendations',
-    category: 'comparison',
-    order: 3,
-  },
   'RAMPS.md': {
     title: 'Crypto On/Off-Ramp Comparison',
     description: 'Comparison of crypto on-ramp and off-ramp providers with fees, coverage, and developer experience.',
     category: 'comparison',
     order: 4,
   },
-  'RAMPS_DETAILS.md': {
-    title: 'Crypto On/Off-Ramp Comparison - Details',
-    description: 'Full documentation with provider reviews, integration guides, fee analysis, and recommendations',
-    category: 'comparison',
-    order: 4,
-  },
   'QR_PAYMENTS.md': {
     title: 'QR Payment Crypto Providers',
     description: 'Comparison of QR code crypto payment providers for merchants with fees, coverage, and integration options',
-    category: 'comparison',
-    order: 5,
-  },
-  'QR_PAYMENTS_DETAILS.md': {
-    title: 'QR Payment Crypto Providers - Details',
-    description: 'Full documentation with provider reviews, QR payment technology, integration guides, and recommendations',
     category: 'comparison',
     order: 5,
   },
@@ -102,12 +72,6 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
     description: 'Transparency about external links, data verification, and link tracking. Why we link to wallet sites and how to verify information.',
     category: 'guide',
     order: 6.5,
-  },
-  'GLOSSARY.md': {
-    title: 'Glossary',
-    description: 'Definitions of key wallet and crypto terms.',
-    category: 'guide',
-    order: 6.7,
   },
   'CHANGELOG.md': {
     title: 'Changelog',
@@ -167,29 +131,39 @@ export function getDocumentBySlug(slug: string): MarkdownDocument | null {
   return documents.find((doc) => doc.slug === slug) || null;
 }
 
-// Helper to get related document (table/details)
-export function getRelatedDocument(slug: string, type: 'table' | 'details'): MarkdownDocument | null {
-  const documents = getAllDocuments();
-  
-  // Map slugs to their related documents
-  const relatedMap: Record<string, { table: string; details: string }> = {
-    'software-wallets': { table: 'software-wallets', details: 'software-wallets-details' },
-    'software-wallets-details': { table: 'software-wallets', details: 'software-wallets-details' },
-    'hardware-wallets': { table: 'hardware-wallets', details: 'hardware-wallets-details' },
-    'hardware-wallets-details': { table: 'hardware-wallets', details: 'hardware-wallets-details' },
-    'crypto-cards': { table: 'crypto-cards', details: 'crypto-cards-details' },
-    'crypto-cards-details': { table: 'crypto-cards', details: 'crypto-cards-details' },
-    'ramps': { table: 'ramps', details: 'ramps-details' },
-    'ramps-details': { table: 'ramps', details: 'ramps-details' },
-    'qr-payments': { table: 'qr-payments', details: 'qr-payments-details' },
-    'qr-payments-details': { table: 'qr-payments', details: 'qr-payments-details' },
+// The narrative DETAILS doc of each category is rendered inside the category page (/docs/<slug>/#details).
+const DETAILS_FILES: Record<string, string> = {
+  'software-wallets': 'SOFTWARE_WALLETS_DETAILS.md',
+  'hardware-wallets': 'HARDWARE_WALLETS_DETAILS.md',
+  'crypto-cards': 'CRYPTO_CARDS_DETAILS.md',
+  'ramps': 'RAMPS_DETAILS.md',
+  'qr-payments': 'QR_PAYMENTS_DETAILS.md',
+};
+
+function readContent(filename: string): string | null {
+  const filePath = path.join(CONTENT_DIR, filename);
+  if (!fs.existsSync(filePath)) return null;
+  return matter(fs.readFileSync(filePath, 'utf-8')).content;
+}
+
+/** Markdown body of a category's DETAILS doc, or null when the category has none. */
+export function getDetailsDocument(slug: string): string | null {
+  const filename = DETAILS_FILES[slug];
+  return filename ? readContent(filename) : null;
+}
+
+/** The glossary is served at /glossary/ only, so it is not part of DOCUMENT_CONFIG. */
+export function getGlossaryDocument(): MarkdownDocument | null {
+  const content = readContent('GLOSSARY.md');
+  if (content === null) return null;
+  return {
+    slug: 'glossary',
+    title: 'Glossary',
+    description: 'Definitions of key wallet and crypto terms.',
+    content,
+    category: 'guide',
+    order: 6.7,
   };
-  
-  const related = relatedMap[slug];
-  if (!related) return null;
-  
-  const targetSlug = type === 'table' ? related.table : related.details;
-  return documents.find((doc) => doc.slug === targetSlug) || null;
 }
 
 export function getDocumentSlugs(): string[] {
@@ -227,10 +201,10 @@ export function getWalletStats(documents: MarkdownDocument[]): {
   ramps: number;
   lastUpdated: string;
 } {
-  const softwareDoc = documents.find(d => d.slug === 'software-wallets' || d.slug === 'software-wallets-details');
-  const hardwareDoc = documents.find(d => d.slug === 'hardware-wallets' || d.slug === 'hardware-wallets-details');
-  const cryptoCardDoc = documents.find(d => d.slug === 'crypto-cards' || d.slug === 'crypto-cards-details');
-  const rampsDoc = documents.find(d => d.slug === 'ramps' || d.slug === 'ramps-details');
+  const softwareDoc = documents.find(d => d.slug === 'software-wallets');
+  const hardwareDoc = documents.find(d => d.slug === 'hardware-wallets');
+  const cryptoCardDoc = documents.find(d => d.slug === 'crypto-cards');
+  const rampsDoc = documents.find(d => d.slug === 'ramps');
 
   // Count wallets from tables by matching data rows with name + numeric score
   // Pattern: | **Name** | Score | or | [**Name**](url) | Score 🟢 | (handles links, emojis, strikethrough)

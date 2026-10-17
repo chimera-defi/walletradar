@@ -1,5 +1,5 @@
 import { getAllWalletData } from './wallet-data';
-import { getAllDocuments } from './markdown';
+import { getAllDocuments, getGlossaryDocument } from './markdown';
 import { getAllArticles } from './articles';
 import { brandFaqAnswer, brandFaqQuestion } from './brand';
 import type { SearchItem } from './search-data';
@@ -140,7 +140,9 @@ function generateSearchData(): SearchItem[] {
   });
 
   // Add documentation
-  const documents = getAllDocuments();
+  const documents = [...getAllDocuments()];
+  const glossary = getGlossaryDocument();
+  if (glossary) documents.push(glossary);
   documents.forEach((doc) => {
     items.push({
       id: `doc-${doc.slug}`,
@@ -149,7 +151,7 @@ function generateSearchData(): SearchItem[] {
       content: `${doc.title} ${doc.description} ${doc.content.slice(0, 500)}`.toLowerCase(),
       type: 'doc',
       category: doc.category,
-      url: `/docs/${doc.slug}`,
+      url: doc.slug === 'glossary' ? '/glossary' : `/docs/${doc.slug}`,
       tags: [doc.category, 'documentation'],
     });
   });
