@@ -31,7 +31,7 @@ const typeDocs: Record<WalletType, { href: string; label: string }> = {
 };
 
 const methodologyDocs: Record<WalletType, string> = {
-  software: '/docs/software-wallets#-wallet-scores-developer-focused-methodology',
+  software: '/docs/contributing#score-sync-workflow',
   hardware: '/docs/hardware-wallets#-scoring-methodology',
   cards: '/docs/crypto-cards#scoring-methodology',
   ramps: '/docs/ramps#scoring-methodology',
