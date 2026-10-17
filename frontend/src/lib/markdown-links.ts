@@ -1,6 +1,6 @@
 import { brand } from './brand';
 
-/** Slugs of the root *.md files the site renders under /docs/<slug>. Keep in sync with DOCUMENT_CONFIG in markdown.ts. */
+/** Slugs of the *.md files the site renders under /docs/<slug>. Keep in sync with DOCUMENT_CONFIG in markdown.ts. */
 const RENDERED_DOC_SLUGS = new Set([
   'software-wallets',
   'hardware-wallets',
@@ -79,8 +79,10 @@ export function resolveMarkdownLink(href: string, anchors?: Map<string, string>)
   const articleMatch = pathPart.match(/^articles\/([^/]+)\.md$/i);
   if (articleMatch) return { kind: 'internal', href: `/articles/${articleMatch[1]}/${suffix}` };
 
-  if (/\.md$/i.test(pathPart) && !pathPart.includes('/')) {
-    const slug = pathPart.replace(/\.md$/i, '').toLowerCase().replace(/_/g, '-');
+  // Datasets live in data/tables and site pages in docs/site; the slug comes from the basename.
+  const docPath = pathPart.replace(/^(?:data\/tables|docs\/site)\//, '');
+  if (/\.md$/i.test(docPath) && !docPath.includes('/')) {
+    const slug = docPath.replace(/\.md$/i, '').toLowerCase().replace(/_/g, '-');
     if (slug === 'glossary') return { kind: 'internal', href: `/glossary/${suffix}` };
     // X_DETAILS.md is rendered inside the category page, so its anchors live on /docs/<cat>/.
     const detailsOf = slug.match(/^(.+)-details$/)?.[1];

@@ -15,11 +15,12 @@ const {
 } = require('../frontend/src/lib/scoring.js');
 
 const ROOT = path.resolve(__dirname, '..');
+const TABLES = path.join(ROOT, 'data', 'tables');
 
 const TABLE_CONFIGS = [
   {
     label: 'software',
-    file: path.join(ROOT, 'SOFTWARE_WALLETS.md'),
+    file: path.join(TABLES, 'SOFTWARE_WALLETS.md'),
     header: '| Wallet | Score | Core | Rel/Mo | RPC | GitHub | Active | Chains | Devices | Testnets | License | API | Audits | Funding | Tx Sim | Scam | Account | ENS/Naming | HW | Best For | Rec |',
     compute: computeSoftwareScore,
     formatScore: (scoreInfo) => String(scoreInfo.score),
@@ -31,7 +32,7 @@ const TABLE_CONFIGS = [
   },
   {
     label: 'hardware',
-    file: path.join(ROOT, 'HARDWARE_WALLETS.md'),
+    file: path.join(TABLES, 'HARDWARE_WALLETS.md'),
     header: '| Wallet | Score | GitHub | Air-Gap | Open Source | Secure Elem | Display | Price | Conn | Activity | Founded | Funding | Rec |',
     compute: computeHardwareScore,
     formatScore: (scoreInfo) => String(scoreInfo.score),
@@ -43,7 +44,7 @@ const TABLE_CONFIGS = [
   },
   {
     label: 'cards',
-    file: path.join(ROOT, 'CRYPTO_CARDS.md'),
+    file: path.join(TABLES, 'CRYPTO_CARDS.md'),
     header: '| Card | Score | Type | Custody | Biz | Region | Cash Back | Annual Fee | FX Fee | Rewards | Status | Best For | Rec |',
     separator: '| ---- | ----- | ---- | ------- | --- | ------ | --------- | ---------- | ------ | ------- | ------ | -------- | --- |',
     legacyHeaders: [
@@ -60,7 +61,7 @@ const TABLE_CONFIGS = [
   },
   {
     label: 'ramps',
-    file: path.join(ROOT, 'RAMPS.md'),
+    file: path.join(TABLES, 'RAMPS.md'),
     header: '| Provider | Score | Type | On-Ramp | Off-Ramp | Coverage | Fee Model | Min Fee | Dev UX | Status | Founded | Funding | Best For | Rec |',
     separator: '| -------- | ----- | ---- | ------- | -------- | -------- | --------- | ------- | ------ | ------ | ------- | ------- | -------- | --- |',
     legacyHeaders: [
@@ -79,7 +80,7 @@ const TABLE_CONFIGS = [
 
 const DETAIL_SNAPSHOT_CONFIGS = {
   software: {
-    file: path.join(ROOT, 'SOFTWARE_WALLETS_DETAILS.md'),
+    file: path.join(TABLES, 'SOFTWARE_WALLETS_DETAILS.md'),
     startMarker: '<!-- GENERATED_SOFTWARE_SNAPSHOT_START -->',
     endMarker: '<!-- GENERATED_SOFTWARE_SNAPSHOT_END -->',
     build(rows) {
@@ -105,7 +106,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
     },
   },
   hardware: {
-    file: path.join(ROOT, 'HARDWARE_WALLETS_DETAILS.md'),
+    file: path.join(TABLES, 'HARDWARE_WALLETS_DETAILS.md'),
     startMarker: '<!-- GENERATED_HARDWARE_SNAPSHOT_START -->',
     endMarker: '<!-- GENERATED_HARDWARE_SNAPSHOT_END -->',
     build(rows) {
@@ -131,7 +132,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
     },
   },
   cards: {
-    file: path.join(ROOT, 'CRYPTO_CARDS_DETAILS.md'),
+    file: path.join(TABLES, 'CRYPTO_CARDS_DETAILS.md'),
     startMarker: '<!-- GENERATED_CARDS_SNAPSHOT_START -->',
     endMarker: '<!-- GENERATED_CARDS_SNAPSHOT_END -->',
     build(rows) {
@@ -157,7 +158,7 @@ const DETAIL_SNAPSHOT_CONFIGS = {
     },
   },
   ramps: {
-    file: path.join(ROOT, 'RAMPS_DETAILS.md'),
+    file: path.join(TABLES, 'RAMPS_DETAILS.md'),
     startMarker: '<!-- GENERATED_RAMPS_SNAPSHOT_START -->',
     endMarker: '<!-- GENERATED_RAMPS_SNAPSHOT_END -->',
     build(rows) {
@@ -196,7 +197,7 @@ function hardwareCompanyName(walletName) {
 
 const DETAIL_DERIVED_BLOCK_CONFIGS = {
   hardware: {
-    file: path.join(ROOT, 'HARDWARE_WALLETS_DETAILS.md'),
+    file: path.join(TABLES, 'HARDWARE_WALLETS_DETAILS.md'),
     startMarker: '<!-- GENERATED_HARDWARE_COMPANIES_START -->',
     endMarker: '<!-- GENERATED_HARDWARE_COMPANIES_END -->',
     build(rows) {

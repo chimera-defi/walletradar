@@ -10,7 +10,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 PRICING_FILE = BASE_DIR / "data" / "merchant_pricing.json"
-HARDWARE_TABLE = BASE_DIR / "HARDWARE_WALLETS.md"
+HARDWARE_TABLE = BASE_DIR / "data" / "tables" / "HARDWARE_WALLETS.md"
 FEED_FILE = BASE_DIR / "frontend" / "public" / "merchant-center.xml"
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")

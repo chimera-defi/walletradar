@@ -78,6 +78,8 @@ function listFiles() {
   add('.', /\.md$/);
   add('articles', /\.md$/);
   add('docs', /\.md$/);
+  add('docs/site', /\.md$/);
+  add('data/tables', /\.md$/);
   add('data', /\.json$/);
   return out;
 }

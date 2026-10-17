@@ -78,7 +78,7 @@ describe('estimateEarnings', () => {
 
 describe('real CRYPTO_CARDS.md cells', () => {
   it('never throw', () => {
-    const lines = fs.readFileSync(path.join(__dirname, '..', 'CRYPTO_CARDS.md'), 'utf8').split('\n');
+    const lines = fs.readFileSync(path.join(__dirname, '..', 'data', 'tables', 'CRYPTO_CARDS.md'), 'utf8').split('\n');
     let n = 0;
     for (const l of lines) {
       if (!l.startsWith('|')) continue;

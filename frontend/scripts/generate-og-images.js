@@ -41,10 +41,11 @@ const COLORS = {
 };
 
 // Wallet data for the images
-// Every number and name below is read from the markdown tables at the repo root
+// Every number and name below is read from the markdown tables in data/tables
 // (SOFTWARE_WALLETS.md, HARDWARE_WALLETS.md, CRYPTO_CARDS.md, RAMPS.md, QR_PAYMENTS.md).
 // Nothing is typed in, so a score or price change in a table shows up on the next run.
 const ROOT_DIR = path.join(__dirname, '../..');
+const TABLES_DIR = path.join(ROOT_DIR, 'data', 'tables');
 
 function stripMarkdown(cell) {
   return cell
@@ -56,9 +57,9 @@ function stripMarkdown(cell) {
     .trim();
 }
 
-/** First pipe table of a root markdown file -> [{ ...cells by header, _struck }] */
+/** First pipe table of a data/tables markdown file -> [{ ...cells by header, _struck }] */
 function loadTable(file) {
-  const lines = fs.readFileSync(path.join(ROOT_DIR, file), 'utf8').split('\n');
+  const lines = fs.readFileSync(path.join(TABLES_DIR, file), 'utf8').split('\n');
   const start = lines.findIndex((l) => l.startsWith('| ') && l.includes('Score'));
   if (start < 0) throw new Error(`No table with a Score column in ${file}`);
   const headers = lines[start].split('|').slice(1, -1).map((h) => h.trim());
@@ -701,7 +702,7 @@ function generateExploreImage() {
  */
 function generateHowItWorksImage() {
   const { computeSoftwareScore } = require('../src/lib/scoring.js');
-  const tablePath = path.join(__dirname, '../../SOFTWARE_WALLETS.md');
+  const tablePath = path.join(__dirname, '../../data/tables/SOFTWARE_WALLETS.md');
   const row = fs.readFileSync(tablePath, 'utf8').split('\n').find((line) => line.includes('**Rabby**'));
   if (!row) throw new Error('Rabby row not found in SOFTWARE_WALLETS.md');
   const cells = row.split('|').slice(1, -1).map((cell) => cell.trim());

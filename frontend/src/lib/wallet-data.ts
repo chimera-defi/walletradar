@@ -14,8 +14,9 @@ const {
   assignRecommendationBands,
 } = scoring;
 
-// Path to markdown files (one level up from frontend)
+// Repo root (one level up from frontend); the dataset tables live in data/tables.
 const CONTENT_DIR = path.join(process.cwd(), '..');
+const TABLES_DIR = path.join(CONTENT_DIR, 'data', 'tables');
 const MERCHANT_PRICING_PATH = path.join(CONTENT_DIR, 'data', 'merchant_pricing.json');
 
 function loadMerchantPricing(): Record<string, { last_checked?: string }> {
@@ -399,7 +400,7 @@ export function getUnmatchedAttributeKeys(): string[] {
 
 // Parse software wallets from markdown
 export function parseSoftwareWallets(): SoftwareWallet[] {
-  const filePath = path.join(CONTENT_DIR, 'SOFTWARE_WALLETS.md');
+  const filePath = path.join(TABLES_DIR, 'SOFTWARE_WALLETS.md');
 
   if (!fs.existsSync(filePath)) {
     console.error('Software wallet file not found:', filePath);
@@ -473,7 +474,7 @@ export function parseSoftwareWallets(): SoftwareWallet[] {
 
 // Parse hardware wallets from markdown
 export function parseHardwareWallets(): HardwareWallet[] {
-  const filePath = path.join(CONTENT_DIR, 'HARDWARE_WALLETS.md');
+  const filePath = path.join(TABLES_DIR, 'HARDWARE_WALLETS.md');
   const pricing = loadMerchantPricing();
 
   if (!fs.existsSync(filePath)) {
@@ -545,7 +546,7 @@ export function parseHardwareWallets(): HardwareWallet[] {
 
 // Parse crypto cards from markdown
 export function parseCryptoCards(): CryptoCard[] {
-  const filePath = path.join(CONTENT_DIR, 'CRYPTO_CARDS.md');
+  const filePath = path.join(TABLES_DIR, 'CRYPTO_CARDS.md');
 
   if (!fs.existsSync(filePath)) {
     console.error('Crypto card file not found:', filePath);
@@ -635,7 +636,7 @@ function parseRampType(cell: string): 'both' | 'on-ramp' | 'off-ramp' {
 
 // Parse ramps from markdown
 export function parseRamps(): Ramp[] {
-  const filePath = path.join(CONTENT_DIR, 'RAMPS.md');
+  const filePath = path.join(TABLES_DIR, 'RAMPS.md');
 
   if (!fs.existsSync(filePath)) {
     console.error('Ramp file not found:', filePath);
@@ -726,7 +727,7 @@ export function parseQRRecommendation(cell: string): 'recommended' | 'situationa
 
 // Parse QR payments from markdown
 export function parseQRPayments(): QRPayment[] {
-  const filePath = path.join(CONTENT_DIR, 'QR_PAYMENTS.md');
+  const filePath = path.join(TABLES_DIR, 'QR_PAYMENTS.md');
 
   if (!fs.existsSync(filePath)) {
     console.error('QR payments file not found:', filePath);
@@ -807,7 +808,7 @@ let cachedAllWalletData: AllWalletData | null = null;
 let cachedWalletTableSummary: WalletTableSummary | null = null;
 
 function countFirstTableColumns(fileName: string): number {
-  const filePath = path.join(CONTENT_DIR, fileName);
+  const filePath = path.join(TABLES_DIR, fileName);
   if (!fs.existsSync(filePath)) return 0;
 
   const content = fs.readFileSync(filePath, 'utf-8');
