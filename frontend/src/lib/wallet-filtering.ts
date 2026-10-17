@@ -229,7 +229,7 @@ export function filterCryptoCards(
     }
 
     // Region filter
-    if (filters.region?.length && !filters.region.includes(card.regionCode)) {
+    if (filters.region?.length && !card.regionCodes.some(code => filters.region!.includes(code))) {
       return false;
     }
 

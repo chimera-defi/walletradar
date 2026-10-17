@@ -145,6 +145,10 @@ export interface CryptoCard {
   businessSupport: 'yes' | 'no' | 'verify';
   region: string;
   regionCode: string;
+  /** All region codes found in the Region cell (flags), e.g. US and EU for a US/EU card */
+  regionCodes: string[];
+  /** ISO date of the last primary-source check recorded in data/card-verification.json, or null */
+  lastVerified: string | null;
   cashBack: string;
   cashBackMax: number | null;
   annualFee: string;
