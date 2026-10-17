@@ -17,6 +17,7 @@ describe('parseCashback', () => {
     ['Up to 5%', { min: null, max: 5 }],
     ['1% rewards pts', { min: 1, max: 1 }],
     ['10% BTC', { min: 10, max: 10 }],
+    ['1% on $500', { min: 1, max: 1 }],
     ['TBD', null],
     ['1-15%*', null],
   ])('%s', (cell, want) => expect(parseCashback(cell)).toEqual(want));
@@ -31,6 +32,8 @@ describe('parseAnnualFee', () => {
     ['$0-$10,000/yr', { min: 0, max: 10000, oneOffExcluded: false }],
     ['$0-$29.99/mo', { min: 0, max: 359.88, oneOffExcluded: false }],
     ['$0 ($10 activation)', { min: 0, max: 0, oneOffExcluded: true }],
+    ['$0-$124 one-off', null],
+    ['$99 or €89', null],
     ['TBD', null],
   ])('%s', (cell, want) => {
     const got = parseAnnualFee(cell);
@@ -51,6 +54,8 @@ describe('parseFxFee', () => {
     ['1% (min $0.4)', null],
     ['Up to 2-3%', null],
     ['TBD (avg ~2% savings)', null],
+    ['2.5-4% top-up', null],
+    ['3% ATM', null],
     ['TBD', null],
   ])('%s', (cell, want) => expect(parseFxFee(cell)).toEqual(want));
 });
@@ -58,7 +63,7 @@ describe('parseFxFee', () => {
 describe('estimateEarnings', () => {
   const card = { status: 'active', cashBack: '2-3%', annualFee: '$0-$100/yr', fxFee: '0-1%' };
   it('computes range', () => {
-    // 1000/mo => 12000/yr; best 3% = 360 - 0 - 0; conservative 2% = 240 - 12000*0.5*1% = 60 - 100
+    // 1000/mo => 12000/yr; best 3% = 360 - 0 - 0; conservative 2% = 240 - 12000*0.5*1% = 60 - 100 -> 240-60-100 = 80
     expect(estimateEarnings(card, { monthlySpend: 1000, foreignSharePct: 50 })).toMatchObject({
       kind: 'range', best: 360, conservative: 80,
     });
@@ -83,14 +88,5 @@ describe('real CRYPTO_CARDS.md cells', () => {
       }
     }
     expect(n).toBeGreaterThan(100);
-  });
-});
-
-import { clearControlledQueryParams } from '../frontend/src/lib/explore-url-state';
-describe('compare share URL params', () => {
-  it('cd and compare are controlled keys (cleared on reset, rebuilt from state)', () => {
-    const p = new URLSearchParams('tab=cards&cd=a,b,c,d&compare=1&utm=x');
-    clearControlledQueryParams(p);
-    expect(p.toString()).toBe('utm=x');
   });
 });

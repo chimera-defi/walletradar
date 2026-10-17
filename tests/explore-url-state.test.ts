@@ -335,3 +335,11 @@ describe('clearControlledQueryParams', () => {
     expect(params.get('lang')).toBe('en');
   });
 });
+
+describe('compare share URL params', () => {
+  it('cd and compare are controlled keys (cleared on reset, rebuilt from state)', () => {
+    const p = new URLSearchParams('tab=cards&cd=a,b,c,d&compare=1&utm=x');
+    clearControlledQueryParams(p);
+    expect(p.toString()).toBe('utm=x');
+  });
+});
