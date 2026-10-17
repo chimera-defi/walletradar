@@ -24,7 +24,6 @@ This repository enforces attribution and testing sections via CI.
 - [ ] `cd frontend && bun run type-check`
 - [ ] `cd frontend && bun run test`
 - [ ] `cd frontend && bun run build`
-- [ ] `cd frontend && bun run validate-cards`
 - [ ] Display contract validated (table headers and columns unchanged, or the smoke test updated to match)
 - [ ] Manual QA in light mode and dark mode for touched pages
 
