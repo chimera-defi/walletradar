@@ -36,11 +36,9 @@ print(json.dumps(out))
 
 describe('verify-ramps MiCA CASP check', () => {
   const out = JSON.parse(execFileSync('python3', ['-I', '-c', PY, script], { encoding: 'utf8' }));
-  it('normalises hosts and indexes the BOM CSV', () => {
+  it('normalises hosts, indexes the BOM CSV and reports authorised / ended / missing statuses', () => {
     expect(out.norm).toBe('bitpanda.com');
     expect(out.hosts).toEqual(['bitpanda.com', 'coinbase.com', 'old.example']);
-  });
-  it('reports authorised / ended / missing statuses', () => {
     expect(out.hit).toBe('authorised');
     expect(out.sub).toBe('parent_domain');
     expect(out.ended).toBe('authorisation_ended');

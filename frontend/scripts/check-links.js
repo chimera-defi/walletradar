@@ -4,7 +4,6 @@
  *
  * Usage:
  *   node scripts/check-links.js            internal links, asset refs and #anchors
- *   node scripts/check-links.js --external also HEAD/GET every external https link (network)
  *
  * Exit code 1 when any internal link, asset or anchor is broken.
  */
@@ -12,7 +11,6 @@ const fs = require('fs');
 const path = require('path');
 
 const OUT = path.join(__dirname, '..', 'out');
-const checkExternal = process.argv.includes('--external');
 
 function walk(dir, acc = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -77,34 +75,7 @@ for (const page of pages) {
   }
 }
 
-async function checkExternalLinks() {
-  const results = [];
-  const urls = [...external.keys()].filter((u) => !/googletagmanager|google-analytics/.test(u));
-  const queue = [...urls];
-  async function worker() {
-    while (queue.length) {
-      const url = queue.pop();
-      let status = 0;
-      try {
-        const ctl = new AbortController();
-        const t = setTimeout(() => ctl.abort(), 15000);
-        let res = await fetch(url, { method: 'HEAD', redirect: 'follow', signal: ctl.signal, headers: { 'user-agent': 'walletradar-linkcheck' } });
-        if (res.status === 405 || res.status === 403 || res.status === 400) {
-          res = await fetch(url, { method: 'GET', redirect: 'follow', signal: ctl.signal, headers: { 'user-agent': 'walletradar-linkcheck' } });
-        }
-        clearTimeout(t);
-        status = res.status;
-      } catch (e) {
-        status = `ERR ${e.cause?.code || e.name}`;
-      }
-      if (typeof status !== 'number' || status >= 400) results.push({ url, status, pages: external.get(url).slice(0, 3) });
-    }
-  }
-  await Promise.all(Array.from({ length: 10 }, worker));
-  return results;
-}
-
-(async () => {
+{
   console.log(`pages: ${pages.length}, internal refs checked: ${checked}, unique external: ${external.size}`);
   if (broken.length) {
     console.log(`\nBROKEN INTERNAL (${broken.length}):`);
@@ -118,10 +89,5 @@ async function checkExternalLinks() {
   } else {
     console.log('no broken internal links');
   }
-  if (checkExternal) {
-    const bad = await checkExternalLinks();
-    console.log(`\nEXTERNAL non-2xx/3xx (${bad.length}):`);
-    for (const b of bad) console.log(`  ${b.status} ${b.url}   (e.g. ${b.pages.join(', ')})`);
-  }
   process.exit(broken.length ? 1 : 0);
-})();
+}

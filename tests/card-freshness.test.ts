@@ -13,16 +13,12 @@ import { QUICK_PRESETS } from '../frontend/src/lib/explore-presets';
 const NOW = new Date('2026-10-17T12:00:00Z');
 
 describe('cardFreshness', () => {
-  it('is fresh at the boundary and stale one day later', () => {
+  it('is fresh at the boundary, stale a day later, unknown for bad dates, and never negative for future dates', () => {
     expect(cardFreshness('2026-08-18', NOW)).toEqual({ state: 'fresh', days: STALE_AFTER_DAYS });
     expect(cardFreshness('2026-08-17', NOW).state).toBe('stale');
-  });
-  it('treats missing or malformed dates as unknown', () => {
     for (const v of [null, undefined, '', 'Oct 2026', '2026-13-45', '2026-02-30']) {
-      expect(cardFreshness(v as string | null, NOW)).toEqual({ state: 'unknown', days: null });
+      expect(cardFreshness(v as string | null, NOW), String(v)).toEqual({ state: 'unknown', days: null });
     }
-  });
-  it('never reports negative days for future dates', () => {
     expect(cardFreshness('2026-12-01', NOW).days).toBe(0);
   });
 });
@@ -35,17 +31,15 @@ const card = (o: Partial<CryptoCard>): CryptoCard => ({
 });
 
 describe('card filters', () => {
-  it('matches a US/EU card on either region', () => {
+  it('matches a US/EU card on either region, and the discontinued preset selects only inactive cards', () => {
     const cards = [card({})];
     expect(filterCryptoCards(cards, { region: ['EU'] })).toHaveLength(1);
     expect(filterCryptoCards(cards, { region: ['US'] })).toHaveLength(1);
     expect(filterCryptoCards(cards, { region: ['UK'] })).toHaveLength(0);
-  });
-  it('discontinued preset selects only inactive cards', () => {
     const preset = QUICK_PRESETS.cards.find(p => p.id === 'discontinued');
     expect(preset?.filters.cardStatus).toEqual(['inactive']);
-    const cards = [card({ id: 'a', status: 'inactive', score: 1 }), card({ id: 'b' })];
-    expect(filterCryptoCards(cards, { cardStatus: ['inactive'] }).map(c => c.id)).toEqual(['a']);
+    const mixed = [card({ id: 'a', status: 'inactive', score: 1 }), card({ id: 'b' })];
+    expect(filterCryptoCards(mixed, { cardStatus: ['inactive'] }).map(c => c.id)).toEqual(['a']);
   });
 });
 
@@ -56,12 +50,10 @@ describe('freshness filter and sort', () => {
     card({ id: 'old', lastVerified: '2020-01-01' }),
     card({ id: 'none', lastVerified: null }),
   ];
-  it('filters by freshness state', () => {
+  it('filters by freshness state and sorts oldest first, unverified before dated', () => {
     expect(filterCryptoCards(cards, { verification: ['stale'] }).map(c => c.id)).toEqual(['old']);
     expect(filterCryptoCards(cards, { verification: ['unknown'] }).map(c => c.id)).toEqual(['none']);
     expect(filterCryptoCards(cards, { verification: ['fresh', 'stale'] }).map(c => c.id).sort()).toEqual(['new', 'old']);
-  });
-  it('sorts oldest first ascending, unverified before dated', () => {
     expect(sortWallets(cards, 'lastVerified', 'asc').map(c => c.id)).toEqual(['none', 'old', 'new']);
   });
 });
