@@ -71,7 +71,7 @@
 - Some providers (Flexa, BitPay) offer guaranteed settlement with no chargebacks
 
 **Supported Cryptocurrencies:**
-- **Flexa:** 99+ digital assets (flexa.co, 2026-10-15); network count UNVERIFIED
+- **Flexa:** 99+ digital assets (flexa.co, 2026-10-17); docs list 112 payment currencies across 19 network labels (docs.flexa.co/payments/currencies)
 - **NOWPayments:** 300+ cryptocurrencies (home page also says 350+ coins)
 - **Coinbase Commerce:** Major cryptos (BTC, ETH, USDC, etc.)
 - **BitPay:** BTC, BCH, ETH, DOGE, LTC, XRP plus stablecoins and tokens (bitpay.com/pricing)
@@ -82,7 +82,7 @@
 
 ---
 
-> ⚠️ **Data Accuracy Note:** Re-checked 2026-10-15 against provider pages. Changes: BitPay fee is tiered 2% + 25¢ (not 1%); NOWPayments starts at 1% (not 0.5%); YODL Pay is live in AR, BO, BR, CO, PE, PH and VN, with TH and IN listed as coming soon and no page support for ID, MY, PromptPay, QRIS or UPI; Coinbase Commerce is being replaced by Coinbase Business (US and Singapore businesses only) with the Commerce portal inaccessible after 2026-03-31 (Coinbase help centre text seen through a search result; the page itself returned 403 and commerce.coinbase.com returned 502 to fetches, so current state is UNVERIFIED); Flexa's SPEDN consumer app shut down on 2026-03-31. **Scores are estimates and were not recomputed:** no script scores this table, so they still reflect the older inputs. Binance Pay regional columns, Alchemy Pay figures and Flexa's ~0.5% fee are UNVERIFIED (no primary figure found).
+> ⚠️ **Data Accuracy Note:** Re-checked 2026-10-15 against provider pages. Changes: BitPay fee is tiered 2% + 25¢ (not 1%); NOWPayments starts at 1% (not 0.5%); YODL Pay is live in AR, BO, BR, CO, PE, PH and VN, with TH and IN listed as coming soon and no page support for ID, MY, PromptPay, QRIS or UPI; Coinbase Commerce is being replaced by Coinbase Business (US and Singapore businesses only) with the Commerce portal inaccessible after 2026-03-31 (Coinbase help centre text seen through a search result; the page itself returned 403 and commerce.coinbase.com returned 502 to fetches, so current state is UNVERIFIED); Flexa's SPEDN consumer app shut down on 2026-03-31. **Scores are estimates and were not recomputed:** no script scores this table, so they still reflect the older inputs. Binance Pay regional columns, Binance Pay merchant fee, Alchemy Pay figures and Flexa's ~0.5% fee are UNVERIFIED (no primary figure found; re-tried with headless Chromium 2026-10-17: Binance pages empty, Flexa lists no fee, commerce.coinbase.com still 502, help.coinbase.com bot check).
 
 ---
 
@@ -94,7 +94,7 @@
 
 > **TL;DR:** Use **Flexa** (88) for retail in-store payments with guaranteed settlement, **NOWPayments** (85) for wide crypto support (300+ coins, from 1%), **Coinbase Commerce** (83, being replaced by Coinbase Business; UNVERIFIED current state) for brand trust and easy integration, **BitPay** (82) for Bitcoin-focused merchants, **CoinGate** (80) for EU compliance, **YODL Pay** (78) for emerging market street vendors, **Binance Pay** (77) for Binance ecosystem users, or **Alchemy Pay** (75) for hybrid fiat+crypto solutions.
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](./QR_PAYMENTS_DETAILS.md#scoring-methodology) | [Integration Guides](./QR_PAYMENTS_DETAILS.md#integration-guides)
+**Last Updated:** October 17, 2026 | [Scoring Methodology](./QR_PAYMENTS_DETAILS.md#scoring-methodology) | [Integration Guides](./QR_PAYMENTS_DETAILS.md#integration-guides)
 
 **Related:** See [Crypto On/Off-Ramp Comparison](./RAMPS.md), [Crypto Credit Card Comparison](./CRYPTO_CARDS.md), and [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for related recommendations.
 

@@ -65,7 +65,7 @@ Last updated: 2026-10-16
 - Regenerate the feed with:
   - `./scripts/generate_merchant_feed.py`
 - Public feed output: `frontend/public/merchant-center.xml`.
-- No scheduled feed workflow is currently checked into `.github/workflows/`; regenerate and review the feed in the same PR as pricing updates.
+- `.github/workflows/generate-merchant-feed.yml` regenerates the feed every Monday 10:00 UTC (and on manual dispatch), validates it with `scripts/validate_merchant_feed.py`, and opens an automated PR when `frontend/public/merchant-center.xml` changes. Still review the feed in the same PR as manual pricing updates.
 
 ## FAQ
 

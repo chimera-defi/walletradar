@@ -78,7 +78,7 @@ Fees are critical for merchant adoption. QR payment providers typically offer lo
 
 ### 2. Wallet Compatibility
 
-- **Flexa:** Works with most major wallets (13+ networks claimed earlier, UNVERIFIED)
+- **Flexa:** Works with most major wallets (docs list 112 payment currencies across 19 network labels, including Lightning; docs.flexa.co/payments/currencies, 2026-10-17)
 - **NOWPayments:** Compatible with all standard crypto wallets
 - **Coinbase Commerce:** Optimized for Coinbase Wallet, supports all
 - **BitPay:** BitPay Wallet optimized, supports all Bitcoin wallets
@@ -233,7 +233,7 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 ### Flexa
 - **Website:** [flexa.co](https://flexa.co/)
 - Leader in retail crypto payments
-- 99+ digital assets (flexa.co, 2026-10-15); 13+ networks UNVERIFIED
+- 99+ digital assets (flexa.co, 2026-10-17); the docs list 112 payment currencies across 19 network labels (docs.flexa.co/payments/currencies, 2026-10-17)
 - Guaranteed settlement - no chargebacks
 - Works with existing POS systems (Square, Clover, etc.)
 - The SPEDN consumer app shut down on 2026-03-31 (support.flexa.co); Flexa continues with Flexa Payments and the Flexa SDK for merchants. The earlier retailer examples (Home Depot, Whole Foods) ran through SPEDN and are no longer shown as current
@@ -334,7 +334,7 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 
 ---
 
-**Last Updated:** October 15, 2026
+**Last Updated:** October 17, 2026
 
 **Verification Notes:**
 - Re-checked 2026-10-15 from provider pages; UNVERIFIED items listed in QR_PAYMENTS.md and below
@@ -345,4 +345,4 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 ### Notes from the 2026-10-15 check
 
 - **Coinbase Commerce:** Coinbase's help centre (help.coinbase.com, "Transitioning from Coinbase Commerce to Coinbase Business", seen through a search result because the page returned 403 to fetches) says Commerce is being unified with Coinbase Business, the Commerce portal becomes inaccessible after 2026-03-31, and Coinbase Business is open to US or Singapore businesses only. commerce.coinbase.com returned 502. Treat as discontinued for most merchants, but the current state is UNVERIFIED. The table status is set to Verify.
-- **Not re-checked (no primary figure found):** Flexa fee and network count; Binance Pay merchant fee and regions (Binance's own post lists seven LATAM and Asia QR countries for tourist payments: Argentina, Bolivia, Brazil, Colombia, Peru, Philippines, Vietnam); Alchemy Pay QR fees and rewards; CoinGate settlement time.
+- **Not re-checked (no primary figure found):** Flexa merchant fee (flexa.co and docs list none; flexa.co says payouts carry zero conversion or custody fees); Binance Pay merchant fee and regions (pay.binance.com and the merchant fee FAQ returned an empty page to headless Chromium on 2026-10-17; Binance's own post lists seven LATAM and Asia QR countries for tourist payments: Argentina, Bolivia, Brazil, Colombia, Peru, Philippines, Vietnam); Alchemy Pay QR fees and rewards; CoinGate settlement time.

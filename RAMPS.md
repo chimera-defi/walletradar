@@ -6,14 +6,14 @@
 | -------- | ----- | ---- | ------- | -------- | -------- | --------- | ------- | ------ | ------ | ------- | ------- | -------- | --- |
 | [**CoinGate**](https://coingate.com/) | 90 | Both | ✅ | ✅ | Global | Low | ~€0.01 ‡ | Good (API) | ✅ | 2014 | 🟢 Self | Low fees | 🟢 |
 | [**BitPay**](https://bitpay.com/) | 89 | Both | ✅ | ✅ | Global | Medium | ~$1.00 ‡ | Good (API) | ✅ | 2011 | 🟢 Revenue | Bitcoin focus | 🟢 |
-| [**Stripe**](https://stripe.com/docs/crypto) | 88 | Both | ✅ | ✅ | Global | Usage Based | Custom | Excellent (Stripe style) | ✅ | 2010 | 🟢 PublicCo | Trust | 🟢 |
+| [**Stripe**](https://docs.stripe.com/stablecoins) | 88 | Both | ✅ | ✅ | Global | Usage Based | Custom | Excellent (Stripe style) | ✅ | 2010 | 🟢 PublicCo | Trust | 🟢 |
 | [**Guardarian**](https://guardarian.com/) | 86 | Both | ✅ | ✅ | ~170+ Countries | Low/Medium | ~€5.00 ‡ | Good (Widget) | ✅ | 2017 | 🟡 VC | EU focus | 🟢 |
 | [**Ramp**](https://rampnetwork.com/) | 86 | Both | ✅ | ✅ | ~150+ Countries | Low/Medium | ~€2.49 | Good (SDK) | ✅ | 2017 | 🟡 VC | EU / Speed | 🟢 |
 | [**Changelly**](https://changelly.com/) | 85 | Both | ✅ | ✅ | Global | Medium | ~$5.00 ‡ | Good (API) | ✅ | 2015 | 🟢 Revenue | Exchange | 🟢 |
-| [**Coinbase Pay**](https://www.coinbase.com/developers/pay-sdk) | 84 | Both | ✅ | ✅ | ~90+ Countries | Medium | Not published | Excellent (SDK) | ✅ | 2012 | 🟢 Coinbase | Coinbase users | 🟢 |
+| [**Coinbase Pay**](https://docs.cdp.coinbase.com/onramp/introduction/welcome) | 84 | Both | ✅ | ✅ | ~90+ Countries | Medium | Not published | Excellent (SDK) | ✅ | 2012 | 🟢 Coinbase | Coinbase users | 🟢 |
 | [**Coinify**](https://www.coinify.com/) | 84 | Both | ✅ | ✅ | ~170+ Countries | Medium | ~€5.00 ‡ | Good (API) | ✅ | 2014 | 🟢 Revenue | EU | 🟢 |
 | [**Sardine**](https://www.sardine.ai/) | 84 | Both | ✅ | ✅ | US + Select Global | Variable (Risk based) | Custom | Advanced (API/SDK) | ✅ | 2020 | 🟡 VC | US / Fraud | 🟢 |
-| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Both | ✅ | ✅ | ~170+ Countries ‡ | Variable | Custom | Advanced (Plugin/API) | ✅ | 2018 | 🟡 VC | Global pay rails | 🟢 |
+| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Both | ✅ | ✅ | ~170+ Countries | Variable | Custom | Advanced (Plugin/API) | ✅ | 2018 | 🟡 VC | Global pay rails | 🟢 |
 | [**Mercuryo**](https://mercuryo.io/) | 82 | Both | ✅ | ✅ | Global | Medium | Custom | Good | ✅ | 2018 | 🟡 VC | B2B | 🟢 |
 | [**Banxa**](https://banxa.com/) | 81 | Both | ✅ | ✅ | Global | Variable | Custom | Good | ✅ | 2014 | 🟢 OSL Group | Local Pay | 🟡 |
 | [**Simplex**](https://www.simplex.com/) | 81 | Both | ✅ | ✅ | ~190+ Countries | Medium/High | ~$10.00 ‡ | Good (Widget) | ✅ | 2014 | 🟢 Nuvei | High limits | 🟡 |
@@ -114,7 +114,7 @@
 
 > **TL;DR:** Use **Coinbase Pay** (84) when your users already live inside Coinbase, **CoinGate** (90) or **BitPay** (89) for low-friction two-way coverage, **Ramp** (86) for EU/L2-heavy consumer flows, **Stripe** (88) for enterprise trust, and **Sardine** (84) when US fraud controls matter more than the widest coverage.
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](./RAMPS_DETAILS.md#scoring-methodology) | [Integration Guides](./RAMPS_DETAILS.md#integration-guides)
+**Last Updated:** October 17, 2026 | [Scoring Methodology](./RAMPS_DETAILS.md#scoring-methodology) | [Integration Guides](./RAMPS_DETAILS.md#integration-guides)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md), [Hardware Wallet Comparison](./HARDWARE_WALLETS.md), and [Crypto Credit Card Comparison](./CRYPTO_CARDS.md) for wallet recommendations.
 
