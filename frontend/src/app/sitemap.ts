@@ -120,7 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  const { software, hardware, cards, ramps } = getAllWalletData();
+  const { software, hardware, cards, ramps, qrPayments } = getAllWalletData();
   const walletRoutes: MetadataRoute.Sitemap = [
     ...software.map(wallet => ({
       url: `${baseUrl}/wallets/software/${wallet.id}/`,
@@ -142,6 +142,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...ramps.map(wallet => ({
       url: `${baseUrl}/wallets/ramps/${wallet.id}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    })),
+    ...qrPayments.map(wallet => ({
+      url: `${baseUrl}/wallets/qr-payments/${wallet.id}/`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.6,

@@ -274,6 +274,7 @@ function parseCardStatus(cell: string): 'active' | 'verify' | 'launching' | 'ina
 function generateSlug(name: string): string {
   return name
     .toLowerCase()
+    .replace(/\+/g, '-plus') // "Ledger Nano S+" must not collide with "Ledger Nano S"
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }
