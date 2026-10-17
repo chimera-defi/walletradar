@@ -98,7 +98,6 @@ bun run start
 | `bun run type-check` | TypeScript check |
 | `bun run test` | Data smoke test |
 | `bun run generate-og` | Generate OG images |
-| `bun run validate-cards` | Validate Twitter cards |
 
 From the repo root, run `bunx vitest run tests/` for the unit tests.
 
