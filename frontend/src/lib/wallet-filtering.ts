@@ -50,7 +50,7 @@ export type SortField =
   | 'price'
   | 'cashBackMax'
   | 'lastVerified';
-export type SortDirection = 'asc' | 'desc';
+type SortDirection = 'asc' | 'desc';
 
 function passesScoreFilter(score: number, filters: FilterOptions): boolean {
   if (filters.minScore !== undefined && score < filters.minScore) return false;

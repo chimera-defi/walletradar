@@ -310,9 +310,3 @@ export const commonTooltips = {
     other: 'Other chains: TON, XRP, Tron, Cardano, etc.',
   },
 } as const;
-
-// Type exports for type-safe tooltip access
-export type SoftwareWalletTooltipKey = keyof typeof softwareWalletTooltips.headers;
-export type HardwareWalletTooltipKey = keyof typeof hardwareWalletTooltips.headers;
-export type CryptoCardTooltipKey = keyof typeof cryptoCardTooltips.headers;
-export type RampTooltipKey = keyof typeof rampTooltips.headers;
