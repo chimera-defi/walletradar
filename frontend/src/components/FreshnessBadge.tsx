@@ -1,9 +1,25 @@
-import { cn } from '@/lib/utils';
-import { cardFreshness, STALE_AFTER_DAYS } from '@/lib/card-freshness';
+'use client';
 
-/** Last primary-source check for a card; "stale" past STALE_AFTER_DAYS, "not verified" if no date is recorded. */
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { cardFreshness, STALE_AFTER_DAYS, type CardFreshness } from '@/lib/card-freshness';
+
+/**
+ * Last primary-source check for a card. The static HTML is rendered neutral (no clock-dependent state);
+ * after mount the badge upgrades to "stale" using the viewer's date, so a page built long ago still
+ * flags cards older than STALE_AFTER_DAYS.
+ */
 export function FreshnessBadge({ lastVerified, className }: { lastVerified: string | null; className?: string }) {
-  const { state } = cardFreshness(lastVerified);
+  // Missing or invalid dates are deterministic, so they can render the same on server and client.
+  const initial: CardFreshness = cardFreshness(lastVerified, new Date(0)).state === 'unknown'
+    ? { state: 'unknown', days: null }
+    : { state: 'fresh', days: null };
+  const [fresh, setFresh] = useState<CardFreshness>(initial);
+  useEffect(() => {
+    setFresh(cardFreshness(lastVerified));
+  }, [lastVerified]);
+
+  const { state } = fresh;
   const label =
     state === 'unknown' ? 'Not verified' : state === 'stale' ? `Stale: checked ${lastVerified}` : `Checked ${lastVerified}`;
   const title =
