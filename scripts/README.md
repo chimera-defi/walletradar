@@ -78,7 +78,7 @@ Pricing sources and exclusions: `MERCHANT_FEED.md`.
 
 ### `verify-crypto-cards.js` (Cards)
 
-Checks card pages with Playwright (headless Chromium), which gets past some bot walls that plain fetches hit.
+Manual tool, not run in CI. Checks card pages with Playwright (headless Chromium), which gets past some bot walls that plain fetches hit. Playwright is not in `package.json`; run it through `bunx playwright` (install the browser once with `bunx playwright install chromium`).
 
 ```bash
 node scripts/verify-crypto-cards.js gnosis-pay   # one card

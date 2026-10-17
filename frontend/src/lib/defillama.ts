@@ -12,7 +12,7 @@ interface ChainTVL {
   cmcId: string | null;
 }
 
-export interface ChainData {
+interface ChainData {
   name: string;
   tvl: number;
   tvlFormatted: string;
