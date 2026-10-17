@@ -233,7 +233,7 @@ The scoring system evaluates QR payment providers across multiple dimensions:
 ### Flexa
 - **Website:** [flexa.co](https://flexa.co/)
 - Leader in retail crypto payments
-- 99+ digital assets (flexa.co, 2026-10-17); the docs list 112 payment currencies on 19 networks (docs.flexa.co/payments/currencies, 2026-10-17)
+- 99+ digital assets (flexa.co, 2026-10-17); the docs list 112 payment currencies across 19 network labels (docs.flexa.co/payments/currencies, 2026-10-17)
 - Guaranteed settlement - no chargebacks
 - Works with existing POS systems (Square, Clover, etc.)
 - The SPEDN consumer app shut down on 2026-03-31 (support.flexa.co); Flexa continues with Flexa Payments and the Flexa SDK for merchants. The earlier retailer examples (Home Depot, Whole Foods) ran through SPEDN and are no longer shown as current

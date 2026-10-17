@@ -71,7 +71,7 @@
 - Some providers (Flexa, BitPay) offer guaranteed settlement with no chargebacks
 
 **Supported Cryptocurrencies:**
-- **Flexa:** 99+ digital assets (flexa.co, 2026-10-17); docs list 112 payment currencies on 19 networks (docs.flexa.co/payments/currencies)
+- **Flexa:** 99+ digital assets (flexa.co, 2026-10-17); docs list 112 payment currencies across 19 network labels (docs.flexa.co/payments/currencies)
 - **NOWPayments:** 300+ cryptocurrencies (home page also says 350+ coins)
 - **Coinbase Commerce:** Major cryptos (BTC, ETH, USDC, etc.)
 - **BitPay:** BTC, BCH, ETH, DOGE, LTC, XRP plus stablecoins and tokens (bitpay.com/pricing)
