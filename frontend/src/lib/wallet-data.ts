@@ -232,7 +232,7 @@ function parseBusinessSupport(cell: string): 'yes' | 'no' | 'verify' {
 }
 
 // Parse region
-function parseRegion(cell: string): { region: string; code: string } {
+function parseRegion(cell: string): { region: string; code: string; codes: string[] } {
   // Map of flags to region codes
   const regionMap: Record<string, string> = {
     '🇺🇸': 'US',
@@ -243,17 +243,16 @@ function parseRegion(cell: string): { region: string; code: string } {
     '🌍': 'Global',
   };
 
-  let code = 'Unknown';
+  const codes: string[] = [];
   for (const [flag, regionCode] of Object.entries(regionMap)) {
-    if (cell.includes(flag)) {
-      code = regionCode;
-      break;
-    }
+    if (cell.includes(flag)) codes.push(regionCode);
   }
+  const code = codes[0] ?? 'Unknown';
 
   return {
     region: cell.replace(/[🇺🇸🇪🇺🇬🇧🇨🇦🇦🇺🌍*]/g, '').trim(),
     code,
+    codes,
   };
 }
 
@@ -360,6 +359,21 @@ function walletAttributesFor(name: string): WalletAttributes | undefined {
     reproducibleBuild: toSourced(row.reproducible_build),
     chainVerification: toSourced(row.chain_verification),
   };
+}
+
+// Per-card last primary-source check (data/card-verification.json), joined by table row name.
+let cardVerificationCache: Record<string, { last_verified: string | null }> | null = null;
+function cardLastVerified(name: string): string | null {
+  if (!cardVerificationCache) {
+    cardVerificationCache = {};
+    try {
+      const raw = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, 'data', 'card-verification.json'), 'utf-8'));
+      cardVerificationCache = raw.cards || {};
+    } catch {
+      // Missing file: every card renders as "not verified".
+    }
+  }
+  return cardVerificationCache?.[name]?.last_verified ?? null;
 }
 
 function cardAttributesFor(name: string): CardAttributes | undefined {
@@ -581,6 +595,8 @@ export function parseCryptoCards(): CryptoCard[] {
       businessSupport: parseBusinessSupport(cells[4] || ''),
       region: region.region,
       regionCode: region.code,
+      regionCodes: region.codes,
+      lastVerified: cardLastVerified(name),
       cashBack: cells[6]?.trim() || '0%',
       cashBackMax: parseCashBackMax(cells[6] || ''),
       annualFee: cells[7]?.trim() || '$0',

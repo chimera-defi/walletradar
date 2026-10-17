@@ -21,6 +21,7 @@
 | [**Kast**](https://kast.xyz) (@kastxyz) | 71 | Debit | 📋 CeFi | ✅ | 🌍 Global | 1.5-3% | $0-$10,000/yr | Up to 2-3% | Kast Points | ✅ | Stablecoin banking (custodial terms) | 🟢 |
 | [**Bitpanda Card**](https://www.bitpanda.com/en/card) | 70 | Debit | 🏦 Exch | ❌ | 🇪🇺 Euro area | 1% | $0 | 0% | Crypto | ✅ | Bitpanda users (euro-area residents) | 🟢 |
 | [**Fuse Wallet Card**](https://fusewallet.com) (@fusewallet) | 70 | Prepaid | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | 0% | USDC | ⚠️ | Solana stablecoins | 🟢 |
+| [**Lava Card**](https://lava.xyz/card) | 70 | Credit | 📋 CeFi | ❌ | Select countries (list unverified) | Up to 5% | $0 | 0% | BTC | ⚠️ | Bitcoin-rewards Visa (Rain named on page; issuing bank not named; signup is 'Request your card', live vs waitlist unclear). Credit/secured type, Biz and the 3% base rate are not on the fetched page (FAQ search snippet only) | 🟢 |
 | [**1inch Card**](https://1inch.com/card) | 69 | Debit | 📋 CeFi | ❌ | 🇪🇺 EU/UK | Up to 2% | $0 | 0% | 1INCH | ✅ | DeFi users | 🟢 |
 | [**COCA**](https://coca.xyz) | 69 | Debit | 📋 CeFi | ❌ | 🌍 Global* | Up to 8% | $0 | TBD | TBD | ⚠️ | Page claims non-custodial Visa card; issuer, funding path, fees and FX not stated, so custody labelled CeFi | 🟢 |
 | [**Tuyo**](https://tuyo.com/card) (@itstuyo) | 69 | Prepaid | 🔐 Self | ❌ | 🌍 Global | 0% | $0 | ~1% | TUYO | ✅ | USDC on Base | 🟢 |
@@ -123,7 +124,7 @@
 - Custody labels classify the **card spend path**, not the provider's broader wallet marketing. If a product offers a non-custodial wallet but requires loading, converting, or transferring funds into a card/issuer/partner balance before spend, it belongs in **📋 CeFi** unless official card docs say funds remain user-controlled until authorization or purchase.
 
 **Market sweep (October 17, 2026):** web research for launches, changes and shutdowns since about 2026-07-15; sources and open items in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#market-sweep-2026-10-17).
-- **Added** (new to the table; fields the issuer page does not state are TBD or marked secondary): Ledger CL Card, Xplace Platinum, COCA, Oobit, Deblock.
+- **Added** (new to the table; fields the issuer page does not state are TBD or marked secondary): Ledger CL Card, Xplace Platinum, COCA, Oobit, Deblock, Lava Card.
 - **Updated**: Wirex (legacy app discontinued for EEA 2026-09-30), Gnosis Pay (cashback ended 2026-09-30, secondary), Plutus (status set to Verify), link fixes for Payy, Amp Pay and CryptoSpend.
 
 **Recheck (October 15, 2026):** issuer pages re-fetched; full log with sources in [CRYPTO_CARDS_DETAILS.md](./CRYPTO_CARDS_DETAILS.md#recheck-2026-10-15).

@@ -10,6 +10,8 @@ import { AttributeList, cardAttributeViews, walletAttributeViews } from '@/compo
 import { getAllWalletData, getWalletById, getWalletsByType, isWalletType, type WalletType } from '@/lib/wallet-data';
 import { generateWalletKeywords, optimizeMetaDescription, generateBreadcrumbSchema, generateWalletProductSchema } from '@/lib/seo';
 import { aboutBrandLabel, brand, withBrand } from '@/lib/brand';
+import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { STALE_AFTER_DAYS } from '@/lib/card-freshness';
 import type { CryptoCard, HardwareWallet, Ramp, SoftwareWallet, WalletData } from '@/types/wallets';
 
 const typeLabels: Record<WalletType, string> = {
@@ -457,6 +459,16 @@ export default async function WalletDetailPage({ params: paramsPromise }: { para
               </div>
             </details>
           </div>
+
+          {params.type === 'cards' && (
+            <div className="rounded-xl border border-border p-4 sm:p-6 mb-6">
+              <h2 className="text-xl font-semibold mb-2">Last verified</h2>
+              <p className="text-sm text-muted-foreground mb-3">
+                Date of the last check against the issuer&apos;s own page. Cards not rechecked for {STALE_AFTER_DAYS} days are marked stale.
+              </p>
+              <FreshnessBadge lastVerified={(wallet as CryptoCard).lastVerified} />
+            </div>
+          )}
 
           {(params.type === 'software' || params.type === 'cards') && (
             <div className="rounded-xl border border-border p-4 sm:p-6 mb-6">
