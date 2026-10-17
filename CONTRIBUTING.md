@@ -255,7 +255,6 @@ Add your row to `RAMPS.md` in score order (highest first):
 
 If applicable, also update:
 
-- [ ] **Top Providers Comparison** table in RAMPS_DETAILS.md
 - [ ] **Provider-Specific Notes** section
 - [ ] **Fee Analysis** section
 - [ ] **Developer Experience** section

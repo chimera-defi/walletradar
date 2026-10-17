@@ -19,10 +19,10 @@
 | 5 | **Keycard Shell** | 83 | ✅ Active | 🟢 |
 <!-- GENERATED_HARDWARE_SNAPSHOT_END -->
 
-**Last Updated:** October 17, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
+**Last Updated:** October 17, 2026 | [Scoring Methodology](#-scoring-methodology) | [GitHub Activity Data](#github-metrics-firmware-repositories) | [Company Aggregates](#company-aggregates-derived)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for EVM wallet recommendations and integration details.
-**Companies:** See [Hardware Wallet Companies](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.
+**Companies:** See [Company Aggregates](#company-aggregates-derived) for aggregated scores and wallet counts by manufacturer.
 
 ---
 
@@ -37,7 +37,7 @@
 - [Why Look Beyond Ledger?](#-why-look-beyond-ledger)
 - [Ledger Migration](#-ledger-migration)
 - [Resources](#resources)
-- [Changelog](#-changelog)
+- [Company Aggregates](#company-aggregates-derived)
 
 ---
 
@@ -286,9 +286,41 @@ No 2026 vulnerability reports for Keystone, OneKey, Tangem, Jade or SafePal turn
 
 ---
 
-## 📝 Changelog
+## Company Aggregates (derived)
 
-See [CHANGELOG.md](./CHANGELOG.md) for a complete history of changes to hardware wallet statuses, recommendations, and documentation structure.
+<!-- GENERATED_HARDWARE_COMPANIES_START -->
+Derived from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table_scores.js`: the aggregated score is the mean of the company's row scores, grouped by the same rules as the [companies page](/companies/). Do not edit by hand.
+
+| Company | Aggregated Score | Wallet Count | Wallets |
+|---------|------------------|--------------|---------|
+| **Keystone** | 92.0 | 1 | Keystone 3 Pro |
+| **Coldcard** | 86.0 | 3 | ColdCard Mk4, ColdCard Mk5, ColdCard Q |
+| **Trezor** | 77.7 | 3 | Trezor Safe 5, Trezor Safe 7, Trezor Safe 3 |
+| **Keycard** | 74.0 | 2 | Keycard Shell, Keycard |
+| **BitBox** | 73.0 | 2 | BitBox02, BitBox02 Nova |
+| **Foundation** | 71.5 | 2 | Foundation Passport (Core), Foundation Passport Prime |
+| **Krux** | 70.0 | 1 | Krux |
+| **SeedSigner** | 70.0 | 1 | SeedSigner |
+| **Specter** | 70.0 | 1 | Specter DIY |
+| **Blockstream** | 67.3 | 3 | Blockstream Jade, Blockstream Jade Plus, Blockstream Jade Core |
+| **Cypherock** | 67.0 | 1 | Cypherock X1 Standard |
+| **NGRAVE** | 65.0 | 1 | NGRAVE ZERO |
+| **Ledger** | 62.5 | 6 | Ledger Nano S+, Ledger Nano Gen5, Ledger Flex, Ledger Nano S, Ledger Nano X, Ledger Stax |
+| **KeepKey** | 61.0 | 1 | KeepKey |
+| **SafePal** | 60.5 | 2 | SafePal S1, SafePal X1 |
+| **OneKey** | 60.3 | 4 | OneKey Classic 1S Pure, OneKey Pro, OneKey Classic 1S, OneKey Pro 2 |
+| **Bitkey** | 55.0 | 1 | Bitkey |
+| **Firefly** | 55.0 | 1 | Firefly |
+| **imKey** | 53.0 | 1 | imKey Pro |
+| **Ellipal** | 48.0 | 1 | Ellipal Titan 2.0 |
+| **SecuX** | 48.0 | 1 | SecuX V20 |
+| **Tangem** | 46.0 | 1 | Tangem Wallet |
+| **GridPlus** | 40.0 | 1 | GridPlus Lattice1 |
+| **Arculus** | 39.0 | 1 | Arculus |
+| **BC Vault** | 30.0 | 1 | BC Vault |
+<!-- GENERATED_HARDWARE_COMPANIES_END -->
+
+For the change history see [CHANGELOG.md](./CHANGELOG.md).
 
 ---
 

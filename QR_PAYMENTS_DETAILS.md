@@ -4,22 +4,7 @@
 
 **Data Sources:** Developer Documentation, Fee Schedules, Integration Guides (re-checked 2026-10-15).
 
-**Verification Status:** Re-checked 2026-10-15. Items that could not be confirmed from a primary page are marked UNVERIFIED. Scores below are older estimates; no script computes QR scores, so they were not recomputed. Values marked with "~" are approximate and should be verified on official provider websites before integration.
-
----
-
-## 🔲 Top Providers Comparison
-
-| Provider | Score | Best For | Coverage | Fee Model | Dev UX |
-|----------|-------|----------|----------|-----------|--------|
-| [**Flexa**](https://flexa.co/) | 88 | 🏪 Retail POS | Global | Low (~0.5%, UNVERIFIED) | Excellent (SDK/API) |
-| [**NOWPayments**](https://nowpayments.io/) | 85 | 🪙 Multi-Crypto | Global | Low (from 1%) | Excellent (API) |
-| [**Coinbase Commerce**](https://commerce.coinbase.com/) | 83 | 🤝 Brand Trust | Global | Low (1%, UNVERIFIED) | Great (SDK) |
-| [**BitPay**](https://bitpay.com/) | 82 | ₿ Bitcoin Focus | Global | Medium (2% + 25¢, tiered) | Good (API) |
-| [**CoinGate**](https://coingate.com/) | 80 | 🇪🇺 EU Merchants | Global | Low (1%) | Good (API) |
-| [**YODL Pay**](https://yodl.me/) | 78 | 🌍 Emerging Markets | Select Global | Variable | Good (App) |
-| [**Binance Pay**](https://pay.binance.com/) | 77 | 🔶 Binance Users | Global | Zero (P2P); merchant fee UNVERIFIED | Good (API) |
-| [**Alchemy Pay**](https://alchemypay.org/) | 75 | 💱 Hybrid Fiat+Crypto | Global | Variable | Good (SDK) |
+**Verification Status:** Re-checked 2026-10-15. Items that could not be confirmed from a primary page are marked UNVERIFIED. Scores live only in the main table [QR_PAYMENTS.md](./QR_PAYMENTS.md); they are older estimates, and no script computes QR scores, so they were not recomputed. Values marked with "~" are approximate and should be verified on official provider websites before integration.
 
 ---
 
