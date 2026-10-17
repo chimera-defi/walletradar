@@ -50,9 +50,9 @@ Every number in scope was re-fetched from a primary page or API on 2026-10-15, o
 Each item below keeps its old value and carries a mark or a note in the data.
 
 - **Software wallets:** audit claims and dates, funding, Tx Sim, Scam, HW, API, ENS columns, chain lists (only Rainbow, Rabby and Zerion EVM/Solana scope spot-checked). Private-repo wallets (OKX, Phantom, Zerion, Exodus, 1inch, Bitget, Mt Pelerin). Rel/Mo for Brave, Ambire, Ledger, Gem, Uniswap, Sequence, Trust, Rainbow, Safe, MEW, imToken, Enkrypt (bursty or multi-product repos). Coinbase Wallet row kept at Active ❌, Rel ~2: the SDK repo has commits but no release since 2025-06-25 and is superseded by the Base Account SDK. A rule-based update would lift its score to 82, so it was left for an owner decision.
-- **Hardware wallets (‡ marks):** BitBox02 and Nova price (bitbox.swiss HTTP 403), Arculus price (getarculus.com HTTP 403), Cypherock price (none on page), ColdCard Mk4 price (no longer listed), imKey price. Also: Ledger Nano S price (not in shop), DIY prices (Krux, SeedSigner, Specter, Firefly), Passport Prime USD, Bitkey USD, BC Vault currency (EUR assumed from shop `currency_code`), Keycard USD. Per-wallet chains and audit cells were not re-fetched; 338 unchanged cells were not individually re-checked.
+- **Hardware wallets (‡ marks):** Arculus price (getarculus.com HTTP 403), ColdCard Mk4 price (no longer listed). BitBox02, Nova, Cypherock and imKey prices were resolved on 2026-10-17. Also: Ledger Nano S price (not in shop), DIY prices (Krux, SeedSigner, Specter, Firefly), Passport Prime USD, Bitkey USD, BC Vault currency (EUR assumed from shop `currency_code`), Keycard USD. Per-wallet chains and audit cells were not re-fetched; 338 unchanged cells were not individually re-checked.
 - **Cards:** EtherFi cashback and fees (429 and a Vercel checkpoint), Coinbase, Revolut, Uphold (403), Bybit (timeout), 1inch cashback and regions, Wayex 1% cashback, Reap 0%/2% FX, Hi Card, BitPay status, Amp Pay (expired certificate), Payy, Tria, Kontigo, Spendly, Bitget $10 activation and FX range, Plutus annual fee and region, Kraken US FX and tiers (two Kraken pages conflict), Gnosis 2026-12-20 date (secondary source), Ready shutdown (secondary source), Wirex monthly fee, Bleap and Tangem region and custody (labelled CeFi).
-- **Ramps and QR:** Transak fees (transak.com 403), Binance Pay merchant fee, Flexa fee and network count, Coinbase Commerce status (portal 502, help page 403; marked Verify).
+- **Ramps and QR:** Transak fees (transak.com 403), Binance Pay merchant fee, Flexa fee (network count resolved 2026-10-17), Coinbase Commerce status (portal 502, help page 403; marked Verify).
 - **Not added, no primary page:** Coinbase One Card, Fold credit card, Crypto.com US credit card, Binance CIS relaunch, Moonwell card.
 
 ### Known blockers (cannot be verified from an agent)
@@ -73,8 +73,8 @@ Each item below keeps its old value and carries a mark or a note in the data.
 | `EXTRACT_STUB_PLAN.md` (split wallets out of the mono-repo) | Split and push done; link cleanup done. The mono-repo stub commit is out of scope here. |
 | Legacy `WALLET_COMPARISON_UNIFIED`, `HARDWARE_WALLET_COMPARISON`, `CRYPTO_CREDIT_CARD_COMPARISON` docs | Stay deleted. Everything useful is in the `*_DETAILS.md` files. The old card scoring handicaps (exchange -3, Crypto.com -20, unverified -5) are obsolete. |
 | `npm audit` high finding (js-yaml via gray-matter, build-time only) | Open. Fix in a dependency PR. |
-| Cards to add once a primary page confirms custody and region: Ledger CL, Oobit, SafePal Card, Exa, Holyheld, Coinbase One | Open. |
-| Cypherock, imKey, ColdCard Mk4 and other ‡ prices | Open until a source page shows a price. |
+| Cards to add once a primary page confirms custody and region (Ledger CL and Oobit landed 2026-10-17): SafePal Card, Exa, Holyheld, Coinbase One | Open. |
+| ColdCard Mk4, Arculus and other ‡ prices | Open until a source page shows a price. |
 | Wallets WalletBeat lists but we do not: Family, Base App, Elytro | Open. Family has too few sourced fields. Base App duplicates the Coinbase row. Elytro's site returned HTTP 402 on 2026-10-10. |
 | `TODO` or `FIXME` markers in docs and code | None. The remaining `- [ ]` lines are PR and contributor checklist templates, not open work. |
 
