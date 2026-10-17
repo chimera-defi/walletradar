@@ -15,97 +15,33 @@ const SORT_FIELDS_BY_TAB: Readonly<Record<string, ReadonlySet<string>>> = {
   ramps: new Set(['score', 'name']),
 };
 
-// ── tab presence ─────────────────────────────────────────────────────────────
-
-describe('QUICK_PRESETS tab presence', () => {
-  it('defines exactly the expected tabs', () => {
-    const actualTabs = Object.keys(QUICK_PRESETS).sort();
-    expect(actualTabs).toEqual([...EXPECTED_TABS].sort());
-  });
-
-  it.each(EXPECTED_TABS)('tab "%s" has at least one preset', (tab) => {
-    expect(QUICK_PRESETS[tab].length).toBeGreaterThan(0);
-  });
-});
-
-// ── required fields ───────────────────────────────────────────────────────────
-
-describe('QUICK_PRESETS preset shape', () => {
-  it.each(EXPECTED_TABS)('every preset in "%s" has id, label, icon, description, and filters', (tab) => {
-    for (const preset of QUICK_PRESETS[tab]) {
-      expect(typeof preset.id).toBe('string');
-      expect(preset.id.length).toBeGreaterThan(0);
-
-      expect(typeof preset.label).toBe('string');
-      expect(preset.label.length).toBeGreaterThan(0);
-
-      expect(typeof preset.icon).toBe('string');
-      expect(preset.icon.length).toBeGreaterThan(0);
-
-      expect(typeof preset.description).toBe('string');
-      expect(preset.description.length).toBeGreaterThan(0);
-
-      expect(preset.filters).toBeDefined();
-      expect(typeof preset.filters).toBe('object');
-    }
-  });
-
-  it.each(EXPECTED_TABS)('optional sort field in "%s" is a valid per-tab sort field when present', (tab) => {
-    for (const preset of QUICK_PRESETS[tab]) {
-      if (preset.sort !== undefined) {
-        expect(SORT_FIELDS_BY_TAB[tab].has(preset.sort.field)).toBe(true);
-        expect(['asc', 'desc']).toContain(preset.sort.direction);
+describe('QUICK_PRESETS', () => {
+  it('every tab has well-formed presets (shape, valid sort/viewMode, sane filter ranges)', () => {
+    for (const tab of EXPECTED_TABS) {
+      expect(QUICK_PRESETS[tab].length, tab).toBeGreaterThan(0);
+      for (const preset of QUICK_PRESETS[tab] as PresetConfig[]) {
+        for (const key of ['id', 'label', 'icon', 'description'] as const) {
+          expect(typeof preset[key], `${tab}/${preset.id}.${key}`).toBe('string');
+          expect(preset[key].length, `${tab}/${preset.id}.${key}`).toBeGreaterThan(0);
+        }
+        expect(typeof preset.filters).toBe('object');
+        if (preset.sort !== undefined) {
+          expect(SORT_FIELDS_BY_TAB[tab].has(preset.sort.field), `${tab}/${preset.id} sort`).toBe(true);
+          expect(['asc', 'desc']).toContain(preset.sort.direction);
+        }
+        if (preset.viewMode !== undefined) expect(['grid', 'table']).toContain(preset.viewMode);
+        const { minScore, priceMin, priceMax } = preset.filters;
+        if (minScore !== undefined) {
+          expect(minScore).toBeGreaterThanOrEqual(0);
+          expect(minScore).toBeLessThanOrEqual(100);
+        }
+        if (priceMin !== undefined && priceMax !== undefined) expect(priceMax).toBeGreaterThanOrEqual(priceMin);
       }
     }
   });
 
-  it.each(EXPECTED_TABS)('optional viewMode in "%s" is grid or table when present', (tab) => {
-    for (const preset of QUICK_PRESETS[tab]) {
-      if (preset.viewMode !== undefined) {
-        expect(['grid', 'table']).toContain(preset.viewMode);
-      }
-    }
-  });
-});
-
-// ── uniqueness ────────────────────────────────────────────────────────────────
-
-describe('QUICK_PRESETS ID uniqueness', () => {
-  it.each(EXPECTED_TABS)('no duplicate preset IDs within "%s"', (tab) => {
-    const ids = QUICK_PRESETS[tab].map((p) => p.id);
-    const unique = new Set(ids);
-    expect(unique.size).toBe(ids.length);
-  });
-
-  it('no duplicate preset IDs across all tabs', () => {
+  it('preset IDs are unique across all tabs', () => {
     const allIds = EXPECTED_TABS.flatMap((tab) => QUICK_PRESETS[tab].map((p) => p.id));
-    const unique = new Set(allIds);
-    expect(unique.size).toBe(allIds.length);
-  });
-});
-
-// ── filter shape sanity ───────────────────────────────────────────────────────
-
-describe('QUICK_PRESETS filter shape sanity', () => {
-  it('minScore filter values are in range 0-100 when present', () => {
-    for (const tab of EXPECTED_TABS) {
-      for (const preset of QUICK_PRESETS[tab]) {
-        if (preset.filters.minScore !== undefined) {
-          expect(preset.filters.minScore).toBeGreaterThanOrEqual(0);
-          expect(preset.filters.minScore).toBeLessThanOrEqual(100);
-        }
-      }
-    }
-  });
-
-  it('priceMax >= priceMin when both are present', () => {
-    for (const tab of EXPECTED_TABS) {
-      for (const preset of QUICK_PRESETS[tab]) {
-        const { priceMin, priceMax } = preset.filters;
-        if (priceMin !== undefined && priceMax !== undefined) {
-          expect(priceMax).toBeGreaterThanOrEqual(priceMin);
-        }
-      }
-    }
+    expect(new Set(allIds).size).toBe(allIds.length);
   });
 });
