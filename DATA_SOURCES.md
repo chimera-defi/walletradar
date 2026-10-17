@@ -78,7 +78,7 @@ If a link ever has a commercial relationship, we disclose it on the page. It nev
 
 ### How often
 
-- **Comparison tables:** rechecked in reviewed passes. The last full pass was 2026-10-15. Each table shows its own "Last Updated" date.
+- **Comparison tables:** rechecked in reviewed passes. The last full pass was 2026-10-17. Each table shows its own "Last Updated" date.
 - **Activity data:** weekly (Action PR, reviewed before merge).
 - **Security information:** updated when we learn of it.
 
