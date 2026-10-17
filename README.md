@@ -19,7 +19,7 @@
 
 ## What is Wallet Radar?
 
-Wallet Radar compares crypto access products so a developer can pick one fast. It tracks **147 products** (software wallets, hardware wallets, crypto cards, on/off-ramps) and scores each from columns you can see in the tables.
+Wallet Radar compares crypto access products so a developer can pick one fast. It tracks **161 products** (software wallets, hardware wallets, crypto cards, on/off-ramps) and scores each from columns you can see in the tables.
 
 The goal: find a MetaMask alternative with a mobile app and a browser extension, stable enough for daily development. Fewer releases per month means fewer surprise breaking changes.
 
@@ -36,7 +36,7 @@ What you get:
 |----------|-------|----------------|
 | Software wallets | 33 | Browser extensions, mobile apps, desktop wallets |
 | Hardware wallets | 43 | Cold storage devices and secure element details |
-| Crypto cards | 57 | Crypto-backed credit and debit cards |
+| Crypto cards | 63 | Crypto-backed credit and debit cards |
 | On/off-ramps | 22 | Fiat-to-crypto providers |
 
 Counts are table rows, including discontinued and partial-data rows. QR payment providers are in [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md).
@@ -139,7 +139,7 @@ Commit refreshed data through a PR after review. Full script docs: [scripts/READ
 
 - [SOFTWARE_WALLETS.md](./data/tables/SOFTWARE_WALLETS.md): software wallets (33 rows)
 - [HARDWARE_WALLETS.md](./data/tables/HARDWARE_WALLETS.md): hardware wallets (43 rows)
-- [CRYPTO_CARDS.md](./data/tables/CRYPTO_CARDS.md): crypto cards (57 rows)
+- [CRYPTO_CARDS.md](./data/tables/CRYPTO_CARDS.md): crypto cards (63 rows)
 - [RAMPS.md](./data/tables/RAMPS.md): on/off-ramps (22 rows)
 - [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md): QR payment providers
 - [ABOUT.md](./docs/site/ABOUT.md), [GLOSSARY.md](./docs/site/GLOSSARY.md), [DATA_SOURCES.md](./docs/site/DATA_SOURCES.md)
