@@ -2,6 +2,7 @@
 
 import { ExternalLink, Shield, Zap, AlertTriangle } from 'lucide-react';
 import { Github } from './BrandIcons';
+import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { AttributeChips, cardAttributeViews, walletAttributeViews } from '@/components/AttributeBadges';
 import Link from 'next/link';
 import { Tooltip, HeaderTooltip } from '@/components/Tooltip';
@@ -427,6 +428,7 @@ function CryptoCardItem({
             )}
           </div>
           <div className="text-sm text-muted-foreground">{card.bestFor}</div>
+          <FreshnessBadge lastVerified={card.lastVerified} className="mt-1" />
           <AttributeChips views={cardAttributeViews(card.attributes)} />
         </td>
         <td className="py-3 px-4">
@@ -503,6 +505,7 @@ function CryptoCardItem({
         <div className="mt-1 flex flex-wrap gap-2">
           <Badge variant="info" tooltip={cryptoCardTooltips.cardType[card.cardType]} tooltipLinkHref={detailHref}>{card.cardType}</Badge>
           <CustodyBadge custody={card.custody} tooltipLinkHref={detailHref} />
+          <FreshnessBadge lastVerified={card.lastVerified} />
         </div>
       }
     >

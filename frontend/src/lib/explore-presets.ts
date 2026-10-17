@@ -102,6 +102,13 @@ export const QUICK_PRESETS: Record<ExploreTab, PresetConfig[]> = {
       description: 'Cards with business or corporate support.',
       filters: { businessSupport: true },
     },
+    {
+      id: 'discontinued',
+      label: 'Discontinued',
+      icon: '🪦',
+      description: 'Shut down or inactive cards, kept for the record.',
+      filters: { cardStatus: ['inactive'] },
+    },
   ],
   ramps: [
     {
