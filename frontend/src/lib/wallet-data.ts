@@ -1,3 +1,4 @@
+import { parseCashbackMax } from '@/lib/card-economics';
 import fs from 'fs';
 import path from 'path';
 import type { ApiOpenness, CardAttributes, CryptoCard, HardwareWallet, QRPayment, Ramp, SoftwareWallet, SourcedAttribute, WalletAttributes, WalletData } from '@/types/wallets';
@@ -258,8 +259,7 @@ function parseRegion(cell: string): { region: string; code: string; codes: strin
 
 // Parse cashback max percentage
 function parseCashBackMax(cell: string): number | null {
-  const match = cell.match(/(\d+)%/);
-  return match ? parseInt(match[1], 10) : null;
+  return parseCashbackMax(cell);
 }
 
 // Parse card status

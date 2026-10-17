@@ -4,6 +4,7 @@ Status changes, recommendation changes, data corrections and docs changes. Newes
 
 ## 2026-10-17
 
+- **Cards compare earnings estimate.** The cards comparison has monthly-spend and % spent-abroad inputs and an "Est. net per year" range (best case vs conservative) from the headline Cashback, Annual Fee and FX cells; headline rates only, no caps, tiers or staking, none for discontinued cards, "Not computable" when a cell is TBD. Cards can also be sorted and filtered by last-verified age, and the comparison shows and exports the last-verified date. Max cashback now parses decimals (1-1.5% is 1.5).
 - **Crypto cards market sweep.** 5 rows added with unstated fields left TBD: Ledger CL Card, Xplace Platinum, COCA, Oobit, Deblock. Wirex (legacy app discontinued for EEA 2026-09-30), Gnosis Pay (cashback ended 2026-09-30, secondary) and Plutus (status to Verify) updated. Payy, Amp Pay, CryptoSpend and Wirex links fixed. Sources and watchlist: `CRYPTO_CARDS_DETAILS.md` (Market sweep) and `docs/MARKET_SWEEP_2026-10-17.md`.
 - **Cards UI.** Each card shows a last-verified date (`data/card-verification.json`) with a stale badge after 60 days; the Region filter matches multi-region cards; new Discontinued preset. Lava Card added. Weekly re-sweep runbook in `docs/CARD_RESWEEP_RUNBOOK.md`.
 
