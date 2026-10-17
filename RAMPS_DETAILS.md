@@ -23,7 +23,7 @@
 
 ### Ramps URL Verification (Automated)
 
-Ran `scripts/verify-ramps.py` on 2026-10-15 (direct fetch, `r.jina.ai` fallback, ESMA MiCA CASP register lookup).
+Ran `scripts/verify-ramps.py` on 2026-10-15 and again on 2026-10-17 (the licence table below is unchanged) (direct fetch, `r.jina.ai` fallback, ESMA MiCA CASP register lookup).
 
 **Direct FAIL + proxy OK:** Coinbase Pay, Banxa, Simplex  
 **Bot/Access flags:** Sardine, Mercuryo, Transak, MoonPay, Modern Treasury (access denied); MoonPay and Modern Treasury also return "not found" text. CoinGate and CoinSwitch fail only through the proxy.  
@@ -40,14 +40,14 @@ This table mirrors the current generated ordering from [RAMPS.md](./RAMPS.md):
 |----------|-------|----------|-----------------|-----------|--------|
 | [**CoinGate**](https://coingate.com/) | 90 | Low fees | Global | Low | Good (API) |
 | [**BitPay**](https://bitpay.com/) | 89 | Bitcoin focus | Global | Medium | Good (API) |
-| [**Stripe**](https://stripe.com/docs/crypto) | 88 | Trust | Global | Usage Based | Excellent (Stripe style) |
+| [**Stripe**](https://docs.stripe.com/stablecoins) | 88 | Trust | Global | Usage Based | Excellent (Stripe style) |
 | [**Guardarian**](https://guardarian.com/) | 86 | EU focus | ~170+ Countries | Low/Medium | Good (Widget) |
 | [**Ramp**](https://rampnetwork.com/) | 86 | EU / Speed | ~150+ Countries | Low/Medium | Good (SDK) |
 | [**Changelly**](https://changelly.com/) | 85 | Exchange | Global | Medium | Good (API) |
-| [**Coinbase Pay**](https://www.coinbase.com/developers/pay-sdk) | 84 | Coinbase users | ~90+ Countries | Medium | Excellent (SDK) |
+| [**Coinbase Pay**](https://docs.cdp.coinbase.com/onramp/introduction/welcome) | 84 | Coinbase users | ~90+ Countries | Medium | Excellent (SDK) |
 | [**Coinify**](https://www.coinify.com/) | 84 | EU | ~170+ Countries | Medium | Good (API) |
 | [**Sardine**](https://www.sardine.ai/) | 84 | US / Fraud | US + Select Global | Variable (Risk based) | Advanced (API/SDK) |
-| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Global pay rails | ~170+ Countries ‡ | Variable | Advanced (Plugin/API) |
+| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Global pay rails | ~170+ Countries | Variable | Advanced (Plugin/API) |
 <!-- GENERATED_RAMPS_TOP_PROVIDERS_END -->
 
 ---
@@ -283,7 +283,7 @@ Why this model:
 - Good widget integration
 
 ### Coinbase Pay
-- **Website:** [coinbase.com/developers/pay-sdk](https://www.coinbase.com/developers/pay-sdk)
+- **Website:** [docs.cdp.coinbase.com/onramp](https://docs.cdp.coinbase.com/onramp/introduction/welcome)
 - Now branded Coinbase Onramp (developer docs: docs.cdp.coinbase.com/onramp). Available in all countries Coinbase operates in except Japan; debit cards in the US plus 90+ countries, credit cards in 90 countries excluding the US, ACH US only
 - Guest checkout (debit card, Apple Pay) via the hosted widget was deprecated on 2026-06-30
 - Seamless Coinbase ecosystem integration
@@ -307,7 +307,7 @@ Why this model:
 - Higher limits
 
 ### Stripe
-- **Website:** [stripe.com/docs/crypto](https://stripe.com/docs/crypto)
+- **Website:** [docs.stripe.com/stablecoins](https://docs.stripe.com/stablecoins)
 - Mainstream brand recognition
 - Excellent developer experience
 - Conservative asset list
@@ -452,16 +452,16 @@ No host match (not verified either way): Stripe, Changelly, Sardine, Guardarian,
 | Coinbase Pay | Fees 2.5% card / 0.5% ACH, countries, payment methods, rename, guest-checkout deprecation (docs.cdp.coinbase.com) | Table min fee (~$1.00 had no source, now "Not published"); limits not published |
 | CoinGate | 1% fee, 180+ payout countries, MiCA licence (coingate.com) | Min fee ~€0.01 (only crypto payout €0.50 + 0.5% found) |
 | BitPay | Merchant fee tiers, NYDFS licence mention, coins (bitpay.com/pricing) | Ramp-specific min fee and country list (not published) |
-| Stripe | Onramp in public preview, application needed, Stripe is merchant of record (docs.stripe.com) | Fees, countries, tokens (docs page published none; third-party claims not used) |
+| Stripe | Link moved from stripe.com/docs/crypto (redirects) to docs.stripe.com/stablecoins on 2026-10-17: the page covers stablecoin payouts (160+ countries), accepting crypto payments and the fiat-to-crypto onramp (public preview, application needed; Stripe is merchant of record) | Fees, countries, tokens (docs publish none); the Off-Ramp ✅ cell (the stablecoins page lists wallet payouts and an onramp, no fiat off-ramp product); third-party claims not used |
 | Ramp | Fees, min fee €2.49, 150+ countries, 120+ assets, payment methods (rampnetwork.com) | Founded/funding |
 | Changelly | none | FAQ page published no fees or countries |
 | Sardine | none | Site and docs published no fees, countries or limits |
 | Guardarian | 170+ countries, 1000+ coins, 20+ payment methods | Min fee ~€5.00 (site says "zero extra costs") |
-| Alchemy Pay | none | alchemypay.org and its docs index published no figures; "~170+" is a third-party claim |
+| Alchemy Pay | 173 countries for fiat-crypto purchases (alchemypay.org, 2026-10-17) | Fees (no figures published) |
 | Mercuryo | Homepage says 150+ countries, 70+ coins, 10+ payment methods | Fees not published; table says Global |
 | Banxa | OSL take-private effective 2026-01-02; MiCA authorisation stated on site | Fees ("flexible, customised"), country count (counter showed 0) |
 | Simplex | 190+ countries, payment methods | Fees, limits (not published) |
-| Transak | none | transak.com, its help centre and docs returned 403 or no figure; sources conflict on country count (26+ on global-coverage page, 162+ elsewhere), so ~64 is unchanged |
+| Transak | Production KYC country API (api.transak.com/api/v2/countries) lists 26 allowed countries on 2026-10-17; fees page not published (headless Chromium reached transak.com, no fee figure) | Fees;  sources conflict on country count (26+ on global-coverage page, 162+ elsewhere), so ~64 is unchanged |
 | CoinSwitch | Still operating as an India crypto exchange; minimum entry ₹100 | Ramp fees, API product details |
 | MoonPay | Card fee up to 4.5%, min fee up to $3.99 / $4.50 | Country count (~160+), token count |
 | onesafe | none | Not re-fetched |
@@ -484,7 +484,7 @@ New providers: none added. No candidate had primary-source figures for every col
 
 ---
 
-**Last Updated:** October 15, 2026
+**Last Updated:** October 17, 2026
 
 **Verification Notes:**
 - Re-checked 2026-10-15; sources are cited inline and in the section below.
