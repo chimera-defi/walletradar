@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { CryptoCard } from '../frontend/src/types/wallets';
 import { cardFreshness, STALE_AFTER_DAYS } from '../frontend/src/lib/card-freshness';
-import { filterCryptoCards } from '../frontend/src/lib/wallet-filtering';
+import { filterCryptoCards, sortWallets } from '../frontend/src/lib/wallet-filtering';
 import { QUICK_PRESETS } from '../frontend/src/lib/explore-presets';
 
 const NOW = new Date('2026-10-17T12:00:00Z');
@@ -46,6 +46,23 @@ describe('card filters', () => {
     expect(preset?.filters.cardStatus).toEqual(['inactive']);
     const cards = [card({ id: 'a', status: 'inactive', score: 1 }), card({ id: 'b' })];
     expect(filterCryptoCards(cards, { cardStatus: ['inactive'] }).map(c => c.id)).toEqual(['a']);
+  });
+});
+
+describe('freshness filter and sort', () => {
+  const recent = new Date().toISOString().slice(0, 10);
+  const cards = [
+    card({ id: 'new', lastVerified: recent }),
+    card({ id: 'old', lastVerified: '2020-01-01' }),
+    card({ id: 'none', lastVerified: null }),
+  ];
+  it('filters by freshness state', () => {
+    expect(filterCryptoCards(cards, { verification: ['stale'] }).map(c => c.id)).toEqual(['old']);
+    expect(filterCryptoCards(cards, { verification: ['unknown'] }).map(c => c.id)).toEqual(['none']);
+    expect(filterCryptoCards(cards, { verification: ['fresh', 'stale'] }).map(c => c.id).sort()).toEqual(['new', 'old']);
+  });
+  it('sorts oldest first ascending, unverified before dated', () => {
+    expect(sortWallets(cards, 'lastVerified', 'asc').map(c => c.id)).toEqual(['none', 'old', 'new']);
   });
 });
 

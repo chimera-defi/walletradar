@@ -1,3 +1,4 @@
+import { cardFreshness } from '@/lib/card-freshness';
 import type { CryptoCard, CustodyType, HardwareWallet, Ramp, SoftwareWallet, WalletData } from '@/types/wallets';
 
 /**
@@ -32,6 +33,8 @@ export interface FilterOptions {
   cashBackMin?: number;
   custody?: CustodyType[];
   cardStatus?: ('active' | 'verify' | 'launching' | 'inactive')[];
+  /** Last-verified freshness: fresh, stale (older than 60 days) or unknown (no check recorded) */
+  verification?: ('fresh' | 'stale' | 'unknown')[];
 
   // Common
   minScore?: number;
@@ -45,7 +48,8 @@ export type SortField =
   | 'chains'
   | 'releasesPerMonth'
   | 'price'
-  | 'cashBackMax';
+  | 'cashBackMax'
+  | 'lastVerified';
 export type SortDirection = 'asc' | 'desc';
 
 function passesScoreFilter(score: number, filters: FilterOptions): boolean {
@@ -257,6 +261,11 @@ export function filterCryptoCards(
       return false;
     }
 
+    // Freshness filter
+    if (filters.verification?.length && !filters.verification.includes(cardFreshness(card.lastVerified).state)) {
+      return false;
+    }
+
     return true;
   });
 }
@@ -339,6 +348,13 @@ export function sortWallets<T extends WalletData>(
         if (a.type === 'hardware' && b.type === 'hardware') {
           aValue = (a as HardwareWallet).price ?? 999;
           bValue = (b as HardwareWallet).price ?? 999;
+        }
+        break;
+      case 'lastVerified':
+        // ISO dates sort lexically; a missing date sorts as oldest.
+        if (a.type === 'card' && b.type === 'card') {
+          aValue = (a as CryptoCard).lastVerified ?? '';
+          bValue = (b as CryptoCard).lastVerified ?? '';
         }
         break;
       case 'cashBackMax':

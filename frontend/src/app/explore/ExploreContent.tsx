@@ -134,6 +134,7 @@ function toFilterOptions(filters: FilterState): FilterOptions {
   if (filters.custody.length) opts.custody = filters.custody as FilterOptions['custody'];
   if (filters.cardStatus.length) opts.cardStatus = filters.cardStatus as FilterOptions['cardStatus'];
   if (filters.region.length) opts.region = filters.region;
+  if (filters.verification.length) opts.verification = filters.verification as FilterOptions['verification'];
   if (filters.businessSupport !== null) opts.businessSupport = filters.businessSupport;
   if (filters.noAnnualFee !== null) opts.noAnnualFee = filters.noAnnualFee;
   if (filters.cashBackMin > 0) opts.cashBackMin = filters.cashBackMin;
