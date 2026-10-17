@@ -120,7 +120,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 | **Kohaku**∆ | Jul 3, 2026 | 98 | 11 | 11.2% | ⭐⭐⭐⭐ |
 
 **GitHub Legend:**
-- **Ratio:** Issues ÷ Stars (lower = better code quality). Rainbow 1.0% is excellent, MetaMask 21.6% indicates maintenance burden.
+- **Ratio:** Issues ÷ Stars (lower = better code quality). Rainbow 1.0% is excellent, MetaMask 21.7% indicates maintenance burden.
 - **Stability:** ⭐⭐ = High churn (>6 rel/mo) | ⭐⭐⭐ = Medium | ⭐⭐⭐⭐ = Stable (<3 rel/mo)
 - **Private:** Closed-source repos have no public metrics
 
@@ -254,7 +254,7 @@ Every wallet has quirks that can cause developer headaches. Know them before you
 | Wallet | Quirk | Impact | Workaround |
 |--------|-------|--------|------------|
 | **MetaMask** | ~5 releases/month (GitHub releases, last 90 days: 15), frequent breaking changes | High maintenance burden | Pin versions, test after updates |
-| **MetaMask** | 21.6% issue/star ratio (highest) | Many open bugs | Check GitHub issues before debugging |
+| **MetaMask** | 21.7% issue/star ratio (highest) | Many open bugs | Check GitHub issues before debugging |
 | **Rabby** | ENS only works for importing addresses, not sending | Can't send to .eth directly | Use resolved address |
 | **Rabby** | Mobile app has unpatched security issues | Security risk on mobile | Use browser extension instead |
 | **Safe** | No browser extension, web app only | Extra click for users | Use WalletConnect |
@@ -599,9 +599,9 @@ How accurately do wallets estimate gas and preview transaction effects?
 | **Phantom** | ✅ Good | ✅ Full | ✅ Warnings | ✅ Yes | Built-in |
 | **MetaMask** | ⚠️ Variable | ⚠️ Snaps only | ⚠️ Basic | ❌ No | eth_estimateGas |
 | **Frame** | ✅ Good | ✅ Full | ⚠️ Basic | ❌ No | Built-in |
-| **Trust** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ External | eth_estimateGas |
+| **Trust** | ⚠️ Basic | ⚠️ Supported networks (not listed) | ⚠️ Basic | ❌ External | Built-in Security Scanner (trustwallet.com, 2026-08-13) |
 | **Rainbow** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ External | eth_estimateGas |
-| **Ledger Live** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ No | eth_estimateGas |
+| **Ledger Live** | ⚠️ Basic | ⚠️ EVM only, opt-in | ⚠️ Basic | ❌ No | Transaction Check (ledger.com academy, 2026-05-26) |
 | **Others** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ External | eth_estimateGas |
 
 **Recommendations:**
@@ -681,7 +681,7 @@ Understanding how wallets make money helps assess long-term viability and potent
 | **Enkrypt** | None visible | MEW | 🟡 Medium | Part of MEW ecosystem |
 | **imToken** | Swap fees | VC (China) | 🟡 Medium | Regional focus |
 | **Daimo** | None (early) | VC | 🟡 Medium | Pre-revenue, VC-funded |
-| **Phantom** | Swap fees | VC (~$259M: $109M Series B 2022 + $150M Series C Jan 2025) | 🟢 Low | Well-funded unicorn |
+| **Phantom** | Swap fees | VC (~$268M: $9M Series A 2021 + $109M Series B 2022 + $150M Series C Jan 2025) | 🟢 Low | Well-funded unicorn |
 | **Zerion** | Premium features | VC ($12M) | 🟡 Medium | Freemium model |
 | **OKX** | Exchange integration | OKX Exchange | 🟢 Low | Backed by major exchange |
 | **Argent** | None visible | VC | 🔴 High | ❌ INACTIVE - funding concerns |
@@ -948,13 +948,13 @@ Primary sources fetched in this pass. Anything not listed here keeps its 2026-10
 
 | Item | Result | Source |
 |------|--------|--------|
-| Coinbase Wallet / Base App | Name unchanged. Base App was renamed back to Coinbase Wallet on 2026-09-10; wallet.coinbase.com and base.app both show "Coinbase Wallet". Row kept, URL now wallet.coinbase.com (coinbase.com/wallet returns 403 to bots). No official post found; the rename is reported by The Block (Sep 10-11, 2026). | https://wallet.coinbase.com/, https://base.app/, https://theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115 |
+| Coinbase Wallet / Base App | Name unchanged. Base App was renamed back to Coinbase Wallet on 2026-09-10; wallet.coinbase.com and base.app both show "Coinbase Wallet". Row kept, URL now wallet.coinbase.com (coinbase.com/wallet returns 403 to bots). The rename is reported by The Block (Sep 10, 2026) and Crowdfund Insider (Sep 11, 2026), which embeds the official @coinbasewallet post "Base App is now Coinbase Wallet". | https://wallet.coinbase.com/, https://base.app/, https://theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115 |
 | Trust Tx Sim / Scam | Tx Sim ❌ -> ⚠️ (built-in simulation, supported networks only, list not published); Scam ⚠️ -> ✅ (destination screening against scam and drainer databases). Published Aug 13, 2026. | https://trustwallet.com/blog/security/how-trust-wallet-security-scanner-works |
 | Ledger Live Tx Sim | ❌ -> ⚠️: Transaction Check simulates EVM transactions, opt-in, needs a Ledger device. App is now branded Ledger Wallet (ex. Ledger Live). | https://www.ledger.com/academy/glossary/transaction-check, https://shop.ledger.com/pages/ledger-wallet |
 | Rabby audits | Newest reports Oct 9, 2026 (Least Authority) and Aug 24, 2026 (SlowMist) for extension and mobile; unresolved/partial counts read from the PDFs. | https://github.com/RabbyHub/Rabby/tree/develop/audits/2026, https://github.com/RabbyHub/rabby-mobile/tree/develop/audits/2026 |
 | MetaMask audits | Delegation framework has Cyfrin reports dated 10-26, 5-26, 4-26 and Diligence 4-25. Table cell year 2025 -> 2026. | https://github.com/MetaMask/delegation-framework/tree/main/audits |
 | Gem Wallet audit | CertiK April 2026 confirmed. | https://github.com/gemwalletcom/wallet (README), https://gemwallet.com/ |
-| Phantom funding | Series B $109M (Jan 2022) + Series C $150M at $3B (Jan 16, 2025); cell shows ~$259M. | https://www.theblock.co/post/335305/phantom-wallet-raises-150-million-at-3-billion-valuation |
+| Phantom funding | Series A $9M (Jul 2021) + Series B $109M (Jan 2022) + Series C $150M at $3B (Jan 16, 2025); cell shows ~$268M. | https://www.theblock.co/post/335305/phantom-wallet-raises-150-million-at-3-billion-valuation |
 | Argent -> Ready | argent.xyz redirects to www.ready.co; the page does not state the rebrand, which is reported by secondary sources. Row kept as Argent (now Ready). | https://www.ready.co/ |
 | Link fixes | 1inch.io/wallet -> 1inch.com/wallet; phantom.app -> phantom.com; okx.com/web3 -> web3.okx.com; ledger.com/ledger-live -> shop.ledger.com/pages/ledger-wallet; explorer.walletconnect.com -> walletguide.walletconnect.com; viem.sh/experimental/eip7702 -> viem.sh/docs/eip7702; consensys.io/privacy-policy -> metamask.io/privacy-notice; Rabby, OKX and Zerion privacy pages replaced. Enkrypt has no findable privacy page (404 on enkrypt.com/privacy-policy and /privacy), so the hyperlink was removed. | all HTTP 200 on 2026-10-17 except Enkrypt |
 

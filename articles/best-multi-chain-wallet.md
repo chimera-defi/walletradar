@@ -2,7 +2,7 @@
 title: "Best Multi-Chain Wallet in 2026"
 description: "Wallet Radar picks for multi-chain usage: Trust for broad chain support, Rabby for EVM safety."
 category: guide
-lastUpdated: "2026-10-15"
+lastUpdated: "2026-10-17"
 author: "Wallet Radar"
 tags: ["guide", "multi-chain", "wallets"]
 ---
