@@ -7,19 +7,19 @@
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain audits, integration tradeoffs, and developer workflow details.
 
 <!-- GENERATED_SOFTWARE_SNAPSHOT_START -->
-> **Current generated snapshot:** Rabby (86, Development, 🟢), MetaMask (80, Compatibility, 🟢), Safe (77, Treasury/DAO, ⚪), and Brave (75, Brave users, 🟢). Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Rabby (86, Development, 🟢), Trust (82, Multi-chain, 🟢), MetaMask (80, Compatibility, 🟢), and Safe (77, Treasury/DAO, ⚪). Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Wallet | Score | Best For | Rec |
 | ---- | ------ | ----- | -------- | --- |
 | 1 | **Rabby** | 86 | Development | 🟢 |
-| 2 | **MetaMask** | 80 | Compatibility | 🟢 |
-| 3 | **Safe** | 77 | Treasury/DAO | ⚪ |
-| 4 | **Brave** | 75 | Brave users | 🟢 |
-| 5 | **Trust** | 75 | Multi-chain | 🟢 |
+| 2 | **Trust** | 82 | Multi-chain | 🟢 |
+| 3 | **MetaMask** | 80 | Compatibility | 🟢 |
+| 4 | **Safe** | 77 | Treasury/DAO | ⚪ |
+| 5 | **Brave** | 75 | Brave users | 🟢 |
 <!-- GENERATED_SOFTWARE_SNAPSHOT_END -->
 
-**Data Sources:** GitHub REST API (stars, issues, last commit: re-fetched Oct 15, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
+**Data Sources:** GitHub REST API (stars, issues, last commit: re-fetched Oct 17, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
 **Related:** See [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for cold storage recommendations.
 
@@ -63,7 +63,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 | **Rabby** | 86 | ~4 | 🟢 | Development: tx simulation catches bugs before mainnet |
 | **MetaMask** | 80 | ~5 | 🟢 | Compatibility testing: widest support, highest churn |
 | **Brave** | 75 | ~2 | 🟢 | Stability: built into the browser |
-| **Trust** | 75 | ~3 | 🟢 | Multi-chain production use |
+| **Trust** | 82 | ~3 | 🟢 | Multi-chain production use |
 | **Coinbase** | 67 | ~2 | 🔴 | Account abstraction (EIP-4337) |
 | **Rainbow** | 64 | ~4 | ⚪ | NFT and Ethereum use |
 
@@ -71,7 +71,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 
 - **Safe** (77): treasury and DAO multisig. No browser extension.
 - **Ambire** (71): smart wallet, EIP-7702 + 4337. No mobile app.
-- **Ledger Live** (61): for hardware wallet users.
+- **Ledger Live** (66): for hardware wallet users.
 - **Enkrypt** (53): multi-chain testing, extension only.
 
 ### Avoid (inactive or abandoned)
@@ -93,38 +93,38 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 
 | Wallet | Last Commit | Stars | Issues | Ratio | Stability |
 |--------|-------------|-------|--------|-------|-----------|
-| **Rabby** | Oct 15, 2026 | 1,913 | 139 | 7.3% | ⭐⭐⭐ |
-| **Trust** | Oct 14, 2026 | 3,572 | 192 | 5.4% | ⭐⭐⭐ |
-| **Rainbow** | Oct 15, 2026 | 4,397 | 44 | 1.0% | ⭐⭐⭐ |
-| **Brave** | Oct 15, 2026 | 23,897 | 11,068 | 46.3% | ⭐⭐⭐⭐ |
-| **Coinbase** | Oct 13, 2026 | 1,765 | 91 | 5.2% | ⭐⭐⭐⭐ |
-| **MetaMask** | Oct 15, 2026 | 13,232 | 2,858 | 21.6% | ⭐⭐⭐ |
+| **Rabby** | Oct 15, 2026 | 1,914 | 140 | 7.3% | ⭐⭐⭐ |
+| **Trust** | Oct 14, 2026 | 3,573 | 193 | 5.4% | ⭐⭐⭐ |
+| **Rainbow** | Oct 16, 2026 | 4,397 | 43 | 1.0% | ⭐⭐⭐ |
+| **Brave** | Oct 16, 2026 | 23,907 | 11,083 | 46.4% | ⭐⭐⭐⭐ |
+| **Coinbase** | Oct 16, 2026 | 1,766 | 92 | 5.2% | ⭐⭐⭐⭐ |
+| **MetaMask** | Oct 16, 2026 | 13,236 | 2,874 | 21.7% | ⭐⭐⭐ |
 | **Phantom** | Private | - | - | - | ⭐⭐⭐ |
 | **OKX** | Private | - | - | - | ⭐⭐⭐⭐ |
-| **Safe** | Oct 15, 2026 | 595 | 92 | 15.5% | ⭐⭐⭐⭐ |
+| **Safe** | Oct 16, 2026 | 595 | 101 | 17.0% | ⭐⭐⭐⭐ |
 | **Enkrypt** | Sep 1, 2026 | 436 | 19 | 4.4% | ⭐⭐⭐⭐ |
-| **Ambire** | Oct 15, 2026 | 72 | 7 | 9.7% | ⭐⭐⭐⭐ |
+| **Ambire** | Oct 16, 2026 | 72 | 6 | 8.3% | ⭐⭐⭐⭐ |
 | **Wigwam** | Sep 20, 2026 | 86 | 0 | 0.0% | ⭐⭐⭐⭐ |
-| **Ledger Live** | Oct 15, 2026 | 622 | 153 | 24.6% | ⭐⭐⭐⭐ |
-| **MEW** | Aug 3, 2026 | 1,587 | 56 | 3.5% | ⭐⭐⭐⭐ |
-| **Sequence** | Oct 14, 2026 | 318 | 34 | 10.7% | ⭐⭐⭐⭐ |
+| **Ledger Live** (now Ledger Wallet) | Oct 16, 2026 | 622 | 126 | 20.3% | ⭐⭐⭐⭐ |
+| **MEW** | Oct 16, 2026 | 1,587 | 57 | 3.6% | ⭐⭐⭐⭐ |
+| **Sequence** | Oct 14, 2026 | 318 | 33 | 10.4% | ⭐⭐⭐⭐ |
 | **Daimo** | Feb 18, 2026 | 408 | 227 | 55.6% | ⭐⭐⭐ |
 | **Zerion** | Private | - | - | - | ⭐⭐⭐ |
-| **Uniswap** | Oct 14, 2026 | 5,538 | 830 | 15.0% | ⭐⭐⭐ |
+| **Uniswap** | Oct 16, 2026 | 5,536 | 830 | 15.0% | ⭐⭐⭐ |
 | **Taho** | Aug 20, 2026 | 3,207 | 336 | 10.5% | ⭐⭐⭐⭐ |
 | **imToken** | May 20, 2026 | 34 | 24 | 70.6% | ⭐⭐⭐ |
 | **1inch** | Private | - | - | - | ⭐⭐⭐ |
-| **Frame** | Feb 1, 2025 | 1,209 | 99 | 8.2% | ⭐⭐⭐⭐ |
-| **Argent** | Mar 14, 2025 | 640 | 95 | 14.8% | ⭐⭐⭐⭐ |
+| **Frame** | Feb 1, 2025 | 1,210 | 99 | 8.2% | ⭐⭐⭐⭐ |
+| **Argent** | Mar 14, 2025 | 639 | 95 | 14.9% | ⭐⭐⭐⭐ |
 | **Block** | Nov 27, 2024 | 93 | 45 | 48.4% | ⭐⭐⭐⭐ |
-| **Kohaku**∆ | Jul 3, 2026 | 98 | 10 | 10.2% | ⭐⭐⭐⭐ |
+| **Kohaku**∆ | Jul 3, 2026 | 98 | 11 | 11.2% | ⭐⭐⭐⭐ |
 
 **GitHub Legend:**
-- **Ratio:** Issues ÷ Stars (lower = better code quality). Rainbow 1.0% is excellent, MetaMask 21.6% indicates maintenance burden.
+- **Ratio:** Issues ÷ Stars (lower = better code quality). Rainbow 1.0% is excellent, MetaMask 21.7% indicates maintenance burden.
 - **Stability:** ⭐⭐ = High churn (>6 rel/mo) | ⭐⭐⭐ = Medium | ⭐⭐⭐⭐ = Stable (<3 rel/mo)
 - **Private:** Closed-source repos have no public metrics
 
-**Data Sources:** GitHub REST API (re-fetched Oct 15, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
+**Data Sources:** GitHub REST API (re-fetched Oct 17, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
 ---
 
@@ -216,10 +216,10 @@ START HERE
 
 | Wallet | Last Audit | Auditor(s) | Unpatched Flaws | Audit Reports |
 |--------|------------|------------|-----------------|---------------|
-| **Rabby** | Dec 2024 | SlowMist, Least Authority | All fixed | [Extension](https://github.com/RabbyHub/Rabby/tree/develop/audits) |
-| **Rabby Mobile** | Oct 2024 | Cure53, Least Authority, SlowMist | ⚠️ 8 medium/high | [Mobile](https://github.com/RabbyHub/rabby-mobile/tree/develop/audits) |
+| **Rabby** | Oct 2026 | Least Authority (Oct 9, 2026), SlowMist (Aug 24, 2026) | 1 Medium unresolved, 1 partially resolved (Least Authority Oct 2026); earlier reports fixed | [Extension](https://github.com/RabbyHub/Rabby/tree/develop/audits) |
+| **Rabby Mobile** | Oct 2026 | Least Authority (Oct 9, 2026), SlowMist (Aug 24, 2026), Cure53 (2024) | ⚠️ 4 Medium unresolved, 1 partially resolved, no High (Least Authority Oct 2026) | [Mobile](https://github.com/RabbyHub/rabby-mobile/tree/develop/audits) |
 | **Safe** | May 2025 | Ackee, Certora | None found | [Safe Audits](https://github.com/safe-fndn/safe-smart-account/tree/main/docs) |
-| **MetaMask** | Apr 2025 | Diligence, Cure53, Cyfrin | All fixed | [Delegator](https://assets.ctfassets.net/clixtyxoaeas/21m4LE3WLYbgWjc33aDcp2/8252073e115688b1dc1500a9c2d33fe4/metamask-delegator-framework-audit-2024-10.pdf) |
+| **MetaMask** | Oct 2026 (Cyfrin); Apr 2025 (Diligence) | Diligence, Cyfrin (Cure53 not re-found) | All fixed | [Delegator](https://assets.ctfassets.net/clixtyxoaeas/21m4LE3WLYbgWjc33aDcp2/8252073e115688b1dc1500a9c2d33fe4/metamask-delegator-framework-audit-2024-10.pdf) |
 | **Trust Wallet** | Sep 2023 | External (Binance) | All fixed | [Audit](https://github.com/trustwallet/wallet-core/tree/master/audit) |
 | **Ambire** | 2023-2025 | Hunter Security (4), Pashov (3), Shieldify, Code4rena, CuriousApple, Facu | None found | [11+ Audits](https://github.com/AmbireTech/ambire-common/tree/main/audits) |
 | **Daimo** | Oct 2023 | Veridise | All fixed | [Audit](https://github.com/daimo-eth/daimo/tree/master/audits) |
@@ -229,16 +229,17 @@ START HERE
 | **MEW** | None | - | - | No public audit |
 | **Enkrypt** | None | - | - | No public audit |
 | **Taho** | None | - | - | No public audit |
-| **Coinbase** | Private | - | - | Enterprise (not public) |
+| **Coinbase** | Private (app); smart-wallet contracts audited 2023-2024 | Cantina, Certora, Code4rena | Not re-checked | App: not public. Contracts: [coinbase/smart-wallet audits](https://github.com/coinbase/smart-wallet/tree/main/audits) |
+| **Gem Wallet** | Apr 2026 | CertiK | Not re-checked | [Report](https://static.gemwallet.com/audits/Gem-Wallet-CertiK-Security-Audit-April-2026.pdf) |
 | **Phantom** | Private | - | - | Proprietary |
 | **Zerion** | Private | - | - | Proprietary |
 | **OKX** | Private | - | - | Proprietary |
 
 **Audit Quality Notes:**
-- ✅ **Rabby Extension**: 6 audits (2021-2024), all issues fixed
-- ⚠️ **Rabby Mobile**: Recent Cure53 audit found high-severity issues (mnemonic/password recovery via process dump) - NOT YET FIXED
+- ✅ **Rabby Extension**: audits every year 2021-2026 in the repo `audits/` folder; the Oct 2026 Least Authority report lists one Medium unresolved and one partially resolved
+- ⚠️ **Rabby Mobile**: the Oct 2026 Least Authority report lists 11 issues (no High); 4 Medium are unresolved (batch review, bridge deposit intent check, mnemonic screenshot protection, failed-password throttling). The 2024 Cure53 High finding was not re-checked.
 - ✅ **Safe**: Formally verified by Certora, excellent audit history
-- ✅ **MetaMask**: Delegation framework well-audited
+- ✅ **MetaMask**: Delegation framework audited by Diligence and Cyfrin (reports in `MetaMask/delegation-framework/audits`, latest Cyfrin 10-26). No separate public report found for the extension itself.
 - ✅ **Trust Wallet**: Core library audited Sep 2023
 - 🐛 **Brave**: Active HackerOne bug bounty program
 - ⚠️ **imToken**: Last audit was 2018 - very old
@@ -253,7 +254,7 @@ Every wallet has quirks that can cause developer headaches. Know them before you
 | Wallet | Quirk | Impact | Workaround |
 |--------|-------|--------|------------|
 | **MetaMask** | ~5 releases/month (GitHub releases, last 90 days: 15), frequent breaking changes | High maintenance burden | Pin versions, test after updates |
-| **MetaMask** | 21.6% issue/star ratio (highest) | Many open bugs | Check GitHub issues before debugging |
+| **MetaMask** | 21.7% issue/star ratio (highest) | Many open bugs | Check GitHub issues before debugging |
 | **Rabby** | ENS only works for importing addresses, not sending | Can't send to .eth directly | Use resolved address |
 | **Rabby** | Mobile app has unpatched security issues | Security risk on mobile | Use browser extension instead |
 | **Safe** | No browser extension, web app only | Extra click for users | Use WalletConnect |
@@ -569,7 +570,7 @@ EIP-7702 allows EOAs (Externally Owned Accounts) to temporarily delegate to smar
 - [Awesome EIP-7702](https://github.com/fireblocks-labs/awesome-eip-7702) — Curated list of tools, guides, and implementations
 - [7702 Checker](https://7702checker.azfuller.com/) — Check chain support for EIP-7702
 - [MetaMask Delegation Framework](https://github.com/MetaMask/delegation-framework) — Reference implementation
-- [Viem EIP-7702 Support](https://viem.sh/experimental/eip7702) — TypeScript library support
+- [Viem EIP-7702 Support](https://viem.sh/docs/eip7702) — TypeScript library support
 
 **Note:** EIP-7702 was activated in Ethereum's Pectra upgrade. Check [7702 Beat](https://swiss-knife.xyz/7702beat) for current chain and wallet adoption status.
 
@@ -598,9 +599,9 @@ How accurately do wallets estimate gas and preview transaction effects?
 | **Phantom** | ✅ Good | ✅ Full | ✅ Warnings | ✅ Yes | Built-in |
 | **MetaMask** | ⚠️ Variable | ⚠️ Snaps only | ⚠️ Basic | ❌ No | eth_estimateGas |
 | **Frame** | ✅ Good | ✅ Full | ⚠️ Basic | ❌ No | Built-in |
-| **Trust** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ External | eth_estimateGas |
+| **Trust** | ⚠️ Basic | ⚠️ Supported networks (not listed) | ⚠️ Basic | ❌ External | Built-in Security Scanner (trustwallet.com, 2026-08-13) |
 | **Rainbow** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ External | eth_estimateGas |
-| **Ledger Live** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ No | eth_estimateGas |
+| **Ledger Live** | ⚠️ Basic | ⚠️ EVM only, opt-in | ⚠️ Basic | ❌ No | Transaction Check (ledger.com academy, 2026-05-26) |
 | **Others** | ⚠️ Basic | ❌ None | ⚠️ Basic | ❌ External | eth_estimateGas |
 
 **Recommendations:**
@@ -680,7 +681,7 @@ Understanding how wallets make money helps assess long-term viability and potent
 | **Enkrypt** | None visible | MEW | 🟡 Medium | Part of MEW ecosystem |
 | **imToken** | Swap fees | VC (China) | 🟡 Medium | Regional focus |
 | **Daimo** | None (early) | VC | 🟡 Medium | Pre-revenue, VC-funded |
-| **Phantom** | Swap fees | VC ($109M) | 🟢 Low | Well-funded unicorn |
+| **Phantom** | Swap fees | VC (~$268M: $9M Series A 2021 + $109M Series B 2022 + $150M Series C Jan 2025) | 🟢 Low | Well-funded unicorn |
 | **Zerion** | Premium features | VC ($12M) | 🟡 Medium | Freemium model |
 | **OKX** | Exchange integration | OKX Exchange | 🟢 Low | Backed by major exchange |
 | **Argent** | None visible | VC | 🔴 High | ❌ INACTIVE - funding concerns |
@@ -709,7 +710,7 @@ Key security features for protecting users from malicious transactions:
 | **MetaMask** | ⚠️ Snaps only | ⚠️ Blockaid | ✅ Yes | ⚠️ Basic | ❌ No |
 | **Rabby** | ✅ Built-in | ✅ Built-in | ✅ Yes | ✅ Yes | ❌ No |
 | **Coinbase** | ✅ Built-in | ✅ Built-in | ✅ Yes | ⚠️ Basic | ❌ No |
-| **Trust** | ❌ No | ⚠️ Basic | ✅ Yes | ⚠️ Basic | ❌ No |
+| **Trust** | ⚠️ Supported networks | ✅ Built-in scanner | ✅ Yes | ⚠️ Basic | ❌ No |
 | **Rainbow** | ❌ No | ⚠️ Basic | ✅ Yes | ⚠️ Basic | ❌ No |
 | **Safe** | ✅ Built-in | ✅ Tenderly | ✅ Yes | ✅ Yes | ✅ Yes |
 | **Ambire** | ✅ Built-in | ✅ Built-in | ✅ Yes | ✅ Yes | ✅ Yes |
@@ -754,8 +755,8 @@ What data each wallet collects affects user privacy and regulatory compliance:
 
 | Wallet | Default RPC | IP Logged | Tx History | Analytics | Privacy Policy |
 |--------|-------------|-----------|------------|-----------|----------------|
-| **MetaMask** | Infura (Consensys) | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://consensys.io/privacy-policy) |
-| **Rabby** | Custom RPCs | ✅ No | ✅ No | ⚠️ Minimal | [Link](https://rabby.io/privacy) |
+| **MetaMask** | Infura (Consensys) | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://metamask.io/privacy-notice) |
+| **Rabby** | Custom RPCs | ✅ No | ✅ No | ⚠️ Minimal | [Link](https://rabby.io/docs/privacy) |
 | **Coinbase** | Coinbase | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://www.coinbase.com/legal/privacy) |
 | **Trust** | Trust RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://trustwallet.com/privacy-policy) |
 | **Rainbow** | Rainbow RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://rainbow.me/privacy) |
@@ -765,11 +766,11 @@ What data each wallet collects affects user privacy and regulatory compliance:
 | **Taho** | Alchemy | ⚠️ Yes | ✅ No | ✅ Minimal | [Link](https://taho.xyz/privacy) |
 | **Frame** | Custom only | ✅ No | ✅ No | ✅ No | Open source |
 | **Brave** | Brave Proxy | ✅ Proxied | ✅ No | ⚠️ Opt-in | [Link](https://brave.com/privacy/browser/) |
-| **Enkrypt** | MEW RPCs | ⚠️ Yes | ✅ No | ⚠️ Minimal | [Link](https://www.enkrypt.com/privacy-policy/) |
+| **Enkrypt** | MEW RPCs | ⚠️ Yes | ✅ No | ⚠️ Minimal | Not found (enkrypt.com privacy URLs 404, 2026-10-17) |
 | **imToken** | imToken RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://token.im/privacy) |
 | **Phantom** | Phantom RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://phantom.com/privacy) |
-| **Zerion** | Zerion RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://zerion.io/privacy) |
-| **OKX** | OKX RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://www.okx.com/privacy) |
+| **Zerion** | Zerion RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://zerion.io/privacy-policy) |
+| **OKX** | OKX RPCs | ⚠️ Yes | ⚠️ Yes | ⚠️ Yes | [Link](https://web3.okx.com/help/okx-web3-ecosystem-privacy-policy) |
 
 **Privacy Ratings:**
 - ✅ **Best:** Frame, Brave (proxy), Rabby (custom RPCs)
@@ -825,7 +826,7 @@ What data each wallet collects affects user privacy and regulatory compliance:
 |----------|-----|-------|------|
 | **WalletBeat** | [walletbeat.fyi](https://walletbeat.fyi) ([GitHub](https://github.com/walletbeat/walletbeat)) | Technical features | License, devices, ENS, testnets, security, backup, RPC |
 | Ethereum.org | [ethereum.org/wallets/find-wallet](https://ethereum.org/en/wallets/find-wallet/) | Consumer features | Filtering by features |
-| WalletConnect | [explorer.walletconnect.com](https://explorer.walletconnect.com/) | Wallet registry | WalletConnect support |
+| WalletConnect | [walletguide.walletconnect.com](https://walletguide.walletconnect.com/) | Wallet registry | WalletConnect support |
 | CoinGecko | [coingecko.com/en/wallets](https://www.coingecko.com/en/wallets) | User reviews | Popularity, ratings |
 | ChainList | [chainlist.org](https://chainlist.org) | RPC endpoints | Chain RPC configs |
 
@@ -941,6 +942,34 @@ Several previously recommended wallets have **stopped active development**. See 
 
 ---
 
+## Recheck log (2026-10-17)
+
+Primary sources fetched in this pass. Anything not listed here keeps its 2026-10-15 value.
+
+| Item | Result | Source |
+|------|--------|--------|
+| Coinbase Wallet / Base App | Name unchanged. Base App was renamed back to Coinbase Wallet on 2026-09-10; wallet.coinbase.com and base.app both show "Coinbase Wallet". Row kept, URL now wallet.coinbase.com (coinbase.com/wallet returns 403 to bots). The rename is reported by The Block (Sep 10, 2026) and Crowdfund Insider (Sep 11, 2026), which embeds the official @coinbasewallet post "Base App is now Coinbase Wallet". | https://wallet.coinbase.com/, https://base.app/, https://theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115 |
+| Trust Tx Sim / Scam | Tx Sim ❌ -> ⚠️ (built-in simulation, supported networks only, list not published); Scam ⚠️ -> ✅ (destination screening against scam and drainer databases). Published Aug 13, 2026. | https://trustwallet.com/blog/security/how-trust-wallet-security-scanner-works |
+| Ledger Live Tx Sim | ❌ -> ⚠️: Transaction Check simulates EVM transactions, opt-in, needs a Ledger device. App is now branded Ledger Wallet (ex. Ledger Live). | https://www.ledger.com/academy/glossary/transaction-check, https://shop.ledger.com/pages/ledger-wallet |
+| Rabby audits | Newest reports Oct 9, 2026 (Least Authority) and Aug 24, 2026 (SlowMist) for extension and mobile; unresolved/partial counts read from the PDFs. | https://github.com/RabbyHub/Rabby/tree/develop/audits/2026, https://github.com/RabbyHub/rabby-mobile/tree/develop/audits/2026 |
+| MetaMask audits | Delegation framework has Cyfrin reports dated 10-26, 5-26, 4-26 and Diligence 4-25. Table cell year 2025 -> 2026. | https://github.com/MetaMask/delegation-framework/tree/main/audits |
+| Gem Wallet audit | CertiK April 2026 confirmed. | https://github.com/gemwalletcom/wallet (README), https://gemwallet.com/ |
+| Phantom funding | Series A $9M (Jul 2021) + Series B $109M (Jan 2022) + Series C $150M at $3B (Jan 16, 2025); cell shows ~$268M. | https://www.theblock.co/post/335305/phantom-wallet-raises-150-million-at-3-billion-valuation |
+| Argent -> Ready | argent.xyz redirects to www.ready.co; the page does not state the rebrand, which is reported by secondary sources. Row kept as Argent (now Ready). | https://www.ready.co/ |
+| Link fixes | 1inch.io/wallet -> 1inch.com/wallet; phantom.app -> phantom.com; okx.com/web3 -> web3.okx.com; ledger.com/ledger-live -> shop.ledger.com/pages/ledger-wallet; explorer.walletconnect.com -> walletguide.walletconnect.com; viem.sh/experimental/eip7702 -> viem.sh/docs/eip7702; consensys.io/privacy-policy -> metamask.io/privacy-notice; Rabby, OKX and Zerion privacy pages replaced. Enkrypt has no findable privacy page (404 on enkrypt.com/privacy-policy and /privacy), so the hyperlink was removed. | all HTTP 200 on 2026-10-17 except Enkrypt |
+
+**Unverified after this pass (old value kept):**
+- Rainbow Tx Sim and Scam: only a Blockaid vendor post (Dec 6, 2023) says Rainbow uses Blockaid; no Rainbow primary page found. Cells unchanged.
+- Brave Tx Sim: simulation exists behind a flag (`brave://flags/#brave-wallet-enable-transaction-simulations`, Brave 1.65.114 release notes, secondary); cell unchanged.
+- MetaMask Tx Sim: support page says Ethereum mainnet only (search snippet, page not fetched in full); cell unchanged at ⚠️.
+- Coinbase audits: the app has no public report; the separate smart-wallet contracts have public Cantina, Certora and Code4rena reports. Cell left at ❓ Priv for an owner decision.
+- Sequence audit year (2024): v3 contracts repo has Certora, Code4rena, Consensys and Quantstamp reports but the PDFs were not dated.
+- imToken privacy link (token.im/privacy): HTTP 403 Cloudflare challenge in plain and headless Chromium fetches, not a 404. Link kept.
+- Private-repo wallets (OKX, Phantom, Zerion, Exodus, 1inch, Bitget, Mt Pelerin) and Rel/Mo for bursty or multi-product repos (Brave, Ambire, Ledger, Gem, Uniswap, Sequence, Trust, Rainbow, Safe, MEW, imToken, Enkrypt): unchanged. Release counts from the GitHub API over 90 days (Ambire 50, Ledger 34, Gem 84, Brave 100+) are not comparable with the table's Rel/Mo.
+- HW, API, ENS columns and chain lists for all rows: not re-fetched.
+
+---
+
 ## 📝 Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md) for a complete history of changes to wallet statuses, recommendations, and documentation structure.
@@ -980,4 +1009,4 @@ Prefer in this order:
 
 ---
 
-*Last updated: October 15, 2026 (GitHub metrics, licences, activity and Rel/Mo re-checked against the GitHub API; Daimo archived Feb 18, 2026; Status moved to status-im/status-app, legacy repo archived Jul 22, 2026). Earlier note, December 16, 2025. Full wallet validation: Wigwam and Taho resumed active development; GitHub metrics refreshed for all 25 wallets. Kohaku (ethereum/kohaku-extension) added as an Ethereum-maintained Ambire-derived experimental wallet marked with ∆. Data from [WalletBeat](https://walletbeat.fyi), [awesome-eip-7702](https://github.com/fireblocks-labs/awesome-eip-7702), [7702 Beat](https://swiss-knife.xyz/7702beat), and GitHub API.*
+*Last updated: October 17, 2026 (Trust and Ledger Live security columns, Rabby and MetaMask audit dates, Phantom funding, GitHub metrics and external links re-checked; see the Recheck log). Earlier: October 15, 2026 (GitHub metrics, licences, activity and Rel/Mo re-checked against the GitHub API; Daimo archived Feb 18, 2026; Status moved to status-im/status-app, legacy repo archived Jul 22, 2026). Earlier note, December 16, 2025. Full wallet validation: Wigwam and Taho resumed active development; GitHub metrics refreshed for all 25 wallets. Kohaku (ethereum/kohaku-extension) added as an Ethereum-maintained Ambire-derived experimental wallet marked with ∆. Data from [WalletBeat](https://walletbeat.fyi), [awesome-eip-7702](https://github.com/fireblocks-labs/awesome-eip-7702), [7702 Beat](https://swiss-knife.xyz/7702beat), and GitHub API.*
