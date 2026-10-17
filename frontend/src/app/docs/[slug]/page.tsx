@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { ArrowLeft, Clock, BookOpen, ExternalLink, FileText, Table, Rss } from 'lucide-react';
+import { ArrowLeft, Clock, BookOpen, ExternalLink, Rss } from 'lucide-react';
 import Link from 'next/link';
-import { getAllDocuments, getDocumentBySlug, getDocumentSlugs, extractTableOfContents, getRelatedDocument } from '@/lib/markdown';
+import { getAllDocuments, getDocumentBySlug, getDocumentSlugs, extractTableOfContents, getDetailsDocument } from '@/lib/markdown';
 import { calculateReadingTime, formatReadingTime, optimizeMetaDescription, generateKeywords, getOgImagePath, markdownToPlainText, extractFAQsFromMarkdown, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import { EnhancedMarkdownRenderer } from '@/components/EnhancedMarkdownRenderer';
 import { TableOfContents } from '@/components/TableOfContents';
@@ -95,11 +95,22 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
     notFound();
   }
 
+  const detailsContent = getDetailsDocument(document.slug);
   const toc = extractTableOfContents(document.content);
   // The first H1 is stripped from the body (the page title replaces it), so give the title its id and drop it from the TOC.
   const titleHeadingId = toc.find(item => item.level === 1)?.id;
   const filteredToc = toc.filter(item => item.level <= 2 && item.id !== titleHeadingId);
-  
+  if (detailsContent) {
+    const detailsToc = extractTableOfContents(detailsContent);
+    const detailsTitleId = detailsToc.find(item => item.level === 1)?.id;
+    filteredToc.push(
+      { id: 'details', title: 'Details', level: 2 },
+      ...detailsToc.filter(item => item.level === 2 && item.id !== detailsTitleId),
+    );
+  }
+  // FAQ schema and reading time cover the whole page, details included.
+  const fullContent = detailsContent ? `${document.content}\n\n${detailsContent}` : document.content;
+
   // Page URL and description
   const pageUrl = `${brand.baseUrl}/docs/${params.slug}/`;
   const rawDescription = document.description || 
@@ -107,15 +118,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
   const enhancedDescription = optimizeMetaDescription(rawDescription);
   const summaryText = document.description || enhancedDescription;
 
-  // Check if this is a table or details page and get the related one
-  // New naming: software-wallets (table), software-wallets-details (details)
-  const isDetailsPage = document.slug.includes('-details');
-  const isTablePage = !isDetailsPage && ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps'].includes(document.slug);
-  const relatedDoc = isTablePage 
-    ? getRelatedDocument(document.slug, 'details')
-    : isDetailsPage 
-    ? getRelatedDocument(document.slug, 'table')
-    : null;
+  const isTablePage = ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps'].includes(document.slug);
 
   // Parse lastUpdated to ISO format
   const parseDate = (dateStr?: string): string => {
@@ -139,7 +142,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
   ], brand.baseUrl);
 
   // Extract FAQs from markdown content and generate FAQ schema
-  const faqs = extractFAQsFromMarkdown(document.content);
+  const faqs = extractFAQsFromMarkdown(fullContent);
   const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs) : null;
 
   const speakableSchema = {
@@ -301,43 +304,6 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
         ]}
       />
       
-      {/* Navigation between table and details */}
-      {relatedDoc && (
-        <div className="mb-6 p-4 rounded-xl border border-border bg-card/70 backdrop-blur-sm">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              {isTablePage ? (
-                <>
-                  <Table className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">Viewing comparison table</span>
-                </>
-              ) : (
-                <>
-                  <FileText className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">Viewing full documentation</span>
-                </>
-              )}
-            </div>
-            <Link
-              href={`/docs/${relatedDoc.slug}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors"
-            >
-              {isTablePage ? (
-                <>
-                  <FileText className="h-4 w-4" />
-                  View Full Documentation
-                </>
-              ) : (
-                <>
-                  <Table className="h-4 w-4" />
-                  View Comparison Table
-                </>
-              )}
-            </Link>
-          </div>
-        </div>
-      )}
-
       <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-8">
         {/* Main Content */}
         <article className="min-w-0">
@@ -354,7 +320,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
                 </>
               )}
               <span aria-hidden="true">•</span>
-              <span>{formatReadingTime(calculateReadingTime(document.content))}</span>
+              <span>{formatReadingTime(calculateReadingTime(fullContent))}</span>
             </div>
             <h1 id={titleHeadingId} className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{document.title}</h1>
             <p className="text-lg text-muted-foreground mb-3 speakable-summary">{summaryText}</p>
@@ -377,8 +343,19 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
             skipFirstH1={true}
           />
 
+          {detailsContent && (
+            <section id="details" className="mt-12 pt-8 border-t border-border scroll-mt-24">
+              <h2 className="text-2xl font-bold mb-6 text-foreground">Details</h2>
+              <EnhancedMarkdownRenderer
+                content={detailsContent}
+                showExpandableSections={true}
+                skipFirstH1={true}
+              />
+            </section>
+          )}
+
           {/* Merchant Feed (collapsible, for SEO agents - near footer) */}
-          {(isTablePage || (isDetailsPage && ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps'].some(s => document.slug.startsWith(s)))) && (
+          {isTablePage && (
             <details className="mt-8 rounded-lg border border-border bg-card/50 overflow-hidden" id="merchant-feed">
               <summary className="flex items-center gap-3 p-3 cursor-pointer list-none bg-muted/30 hover:bg-muted/50 transition-colors [&::-webkit-details-marker]:hidden">
                 <Rss className="h-5 w-5 text-muted-foreground flex-shrink-0" aria-hidden />
@@ -386,7 +363,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
                 <span className="text-xs text-muted-foreground ml-auto">Click to expand</span>
               </summary>
               <div className="p-4 border-t border-border text-sm text-muted-foreground space-y-2">
-                {(document.slug === 'hardware-wallets' || document.slug === 'hardware-wallets-details') ? (
+                {document.slug === 'hardware-wallets' ? (
                   <>
                     <p>
                       <a href={`${brand.baseUrl}/merchant-center.xml`} className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline">
@@ -481,23 +458,11 @@ function RelatedDocuments({ currentSlug }: { currentSlug: string }) {
   const documents = getAllDocuments();
   const currentDoc = documents.find(d => d.slug === currentSlug);
   
-  // Exclude the related table/details page since we show navigation banner
-  // New naming: software-wallets (table), software-wallets-details (details)
-  const isDetailsPage = currentSlug.includes('-details');
-  const isTablePage = !isDetailsPage && ['software-wallets', 'hardware-wallets', 'crypto-cards', 'ramps'].includes(currentSlug);
-  const relatedDoc = isTablePage 
-    ? getRelatedDocument(currentSlug, 'details')
-    : isDetailsPage 
-    ? getRelatedDocument(currentSlug, 'table')
-    : null;
-  
   // Smart related document selection
   const getRelatedDocs = () => {
     const candidates = documents.filter((doc) => {
       // Exclude current document
       if (doc.slug === currentSlug) return false;
-      // Exclude related table/details page (shown in banner)
-      if (relatedDoc && doc.slug === relatedDoc.slug) return false;
       return true;
     });
 

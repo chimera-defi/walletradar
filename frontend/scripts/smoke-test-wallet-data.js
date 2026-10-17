@@ -333,7 +333,7 @@ function assertMethodologyVersionTag(fileLabel, content) {
 
 function assertMarkdownConfigFilesExist() {
   const markdownSource = readFileOrFail(path.join(FRONTEND_DIR, 'src', 'lib', 'markdown.ts'));
-  const configuredFiles = Array.from(markdownSource.matchAll(/^\s+'([^']+\.md)':\s*\{/gm))
+  const configuredFiles = Array.from(markdownSource.matchAll(/'([A-Za-z_]+\.md)'/g))
     .map((match) => match[1]);
   const missing = configuredFiles.filter((filename) => !fs.existsSync(path.join(REPO_ROOT, filename)));
 

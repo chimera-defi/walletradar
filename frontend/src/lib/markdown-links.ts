@@ -1,27 +1,21 @@
 import { brand } from './brand';
 
 /** Slugs of the root *.md files the site renders under /docs/<slug>. Keep in sync with DOCUMENT_CONFIG in markdown.ts. */
-export const RENDERED_DOC_SLUGS = new Set([
+const RENDERED_DOC_SLUGS = new Set([
   'software-wallets',
-  'software-wallets-details',
   'hardware-wallets',
-  'hardware-wallets-details',
   'crypto-cards',
-  'crypto-cards-details',
   'ramps',
-  'ramps-details',
   'qr-payments',
-  'qr-payments-details',
   'readme',
   'contributing',
   'about',
   'data-sources',
-  'glossary',
   'changelog',
 ]);
 
 /** Lowercase and drop everything but letters and digits, so "#-a--b" and "#a-b" compare equal. */
-export function anchorKey(value: string): string {
+function anchorKey(value: string): string {
   let decoded = value;
   try {
     decoded = decodeURIComponent(value);
@@ -57,7 +51,7 @@ export function buildAnchorMap(markdown: string): Map<string, string> {
   return map;
 }
 
-export type ResolvedLink =
+type ResolvedLink =
   | { kind: 'hash'; href: string }
   | { kind: 'internal'; href: string }
   | { kind: 'external'; href: string };
@@ -87,6 +81,12 @@ export function resolveMarkdownLink(href: string, anchors?: Map<string, string>)
 
   if (/\.md$/i.test(pathPart) && !pathPart.includes('/')) {
     const slug = pathPart.replace(/\.md$/i, '').toLowerCase().replace(/_/g, '-');
+    if (slug === 'glossary') return { kind: 'internal', href: `/glossary/${suffix}` };
+    // X_DETAILS.md is rendered inside the category page, so its anchors live on /docs/<cat>/.
+    const detailsOf = slug.match(/^(.+)-details$/)?.[1];
+    if (detailsOf && RENDERED_DOC_SLUGS.has(detailsOf)) {
+      return { kind: 'internal', href: `/docs/${detailsOf}/${suffix || '#details'}` };
+    }
     if (RENDERED_DOC_SLUGS.has(slug)) return { kind: 'internal', href: `/docs/${slug}${suffix}` };
   }
 

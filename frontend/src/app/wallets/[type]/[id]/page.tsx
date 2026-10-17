@@ -31,11 +31,11 @@ const typeDocs: Record<WalletType, { href: string; label: string }> = {
 };
 
 const methodologyDocs: Record<WalletType, string> = {
-  software: '/docs/software-wallets-details#-wallet-scores-developer-focused-methodology',
-  hardware: '/docs/hardware-wallets-details#-scoring-methodology',
-  cards: '/docs/crypto-cards-details#scoring-methodology',
-  ramps: '/docs/ramps-details#scoring-methodology',
-  'qr-payments': '/docs/qr-payments-details#scoring-methodology',
+  software: '/docs/software-wallets#-wallet-scores-developer-focused-methodology',
+  hardware: '/docs/hardware-wallets#-scoring-methodology',
+  cards: '/docs/crypto-cards#scoring-methodology',
+  ramps: '/docs/ramps#scoring-methodology',
+  'qr-payments': '/docs/qr-payments#scoring-methodology',
 };
 
 const typeIcons: Record<WalletType, React.JSX.Element> = {
