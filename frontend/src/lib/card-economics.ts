@@ -37,8 +37,8 @@ export function parseCashback(cell: string): CashbackRate | null {
   }
   // Ranges like 2-3% or 0-4.5%: lowest number before the first % sign group.
   const head = text.replace(/\(.*?\)/g, '');
-  const nums = [...head.matchAll(NUM)].map(m => parseFloat(m[0]));
-  return nums.length ? { min: Math.min(...nums), max: Math.max(...nums) } : null;
+  const nums = [...head.matchAll(NUM)].map(m => parseFloat(m[0])).filter(n => n <= max);
+  return nums.length ? { min: Math.min(...nums), max } : null;
 }
 
 export interface AnnualFee extends Range {
@@ -46,28 +46,26 @@ export interface AnnualFee extends Range {
   oneOffExcluded: boolean;
 }
 
-/** Annual fee in USD. Monthly fees are x12; one-off fees are flagged, not amortized. Non-USD non-zero fees return null. */
+/** Annual fee in USD. Monthly fees are x12; one-off fees in parentheses are flagged, not amortized; a bare one-off fee or any non-USD non-zero fee returns null. */
 export function parseAnnualFee(cell: string): AnnualFee | null {
   const text = clean(cell);
   if (!text || /tbd/i.test(text)) return null;
   const oneOffExcluded = /one-off|issuance|activation|setup|\bKYC\b/i.test(text);
-  const main = text.replace(/\(.*?\)/g, ' ').replace(/one-off/gi, ' ');
-  const cur = /([$£€])/.exec(main)?.[1];
+  // A one-off phrase outside parentheses means the number is not a yearly fee.
+  if (/one-off/i.test(text.replace(/\(.*?\)/g, ' '))) return null;
+  const main = text.replace(/\(.*?\)/g, ' ');
+  if (/[£€]\s*\d*[1-9]/.test(main) || (/\$/.test(main) && /[£€]/.test(main))) return null;
   const nums = [...main.matchAll(NUM)].map(m => parseFloat(m[0]));
   if (!nums.length) return null;
   const mult = /\/\s*mo/i.test(main) ? 12 : 1;
-  const min = Math.min(...nums) * mult;
-  const max = Math.max(...nums) * mult;
-  if (cur && cur !== '$' && max > 0) return null;
-  return { min, max, oneOffExcluded };
+  return { min: Math.min(...nums) * mult, max: Math.max(...nums) * mult, oneOffExcluded };
 }
 
 /** Foreign-exchange fee percent. Compound or conditional cells (2% + 2% processing, 1% (min $0.4), Up to) return null. */
 export function parseFxFee(cell: string): Range | null {
   const text = clean(cell);
-  if (!text || /tbd/i.test(text) || /\+|\bmin\b|up to/i.test(text) || text.includes('(')) return null;
+  if (!/^~?\d+(\.\d+)?(\s*-\s*\d+(\.\d+)?)?\s*%$/.test(text)) return null;
   const nums = [...text.matchAll(NUM)].map(m => parseFloat(m[0]));
-  if (!nums.length || !text.includes('%')) return null;
   return { min: Math.min(...nums), max: Math.max(...nums) };
 }
 

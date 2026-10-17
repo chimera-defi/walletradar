@@ -515,24 +515,26 @@ function CryptoCardComparison({
   cards: CryptoCard[];
   onRemove: (id: string) => void;
 }) {
-  const [monthlySpend, setMonthlySpend] = useState(1000);
-  const [foreignSharePct, setForeignSharePct] = useState(20);
+  const [spendText, setSpendText] = useState('1000');
+  const [foreignText, setForeignText] = useState('20');
+  const monthlySpend = Math.min(1000000, Math.max(0, Number(spendText) || 0));
+  const foreignSharePct = Math.min(100, Math.max(0, Number(foreignText) || 0));
   return (
     <>
     <div className="flex flex-wrap items-end gap-4 mb-3 text-sm">
       <label className="flex flex-col gap-1">
         <span className="text-muted-foreground">Monthly spend (USD)</span>
         <input
-          type="number" min={0} max={1000000} step={100} value={monthlySpend}
-          onChange={e => setMonthlySpend(Math.min(1000000, Math.max(0, Number(e.target.value) || 0)))}
+          type="number" min={0} max={1000000} step={100} value={spendText}
+          onChange={e => setSpendText(e.target.value)}
           className="w-32 rounded-md border border-border bg-card px-2 py-1 text-foreground"
         />
       </label>
       <label className="flex flex-col gap-1">
         <span className="text-muted-foreground">Spent abroad (%)</span>
         <input
-          type="number" min={0} max={100} step={5} value={foreignSharePct}
-          onChange={e => setForeignSharePct(Math.min(100, Math.max(0, Number(e.target.value) || 0)))}
+          type="number" min={0} max={100} step={5} value={foreignText}
+          onChange={e => setForeignText(e.target.value)}
           className="w-24 rounded-md border border-border bg-card px-2 py-1 text-foreground"
         />
       </label>
@@ -554,7 +556,7 @@ function CryptoCardComparison({
               <ComparisonRow label="Region" values={items.map(c => c.region)} />
               <ComparisonRow label="Business Support" values={items.map(c => c.businessSupport === 'yes')} isBoolean />
               <ComparisonRow label="Status" values={items.map(c => c.status)} />
-              <ComparisonRow label="Last verified" values={items.map(c => <span key={c.id} className="inline-flex flex-wrap items-center gap-2">{c.lastVerified ?? 'Not verified'}<FreshnessBadge lastVerified={c.lastVerified} /></span>)} />
+              <ComparisonRow label="Last verified" values={items.map(c => <FreshnessBadge key={c.id} lastVerified={c.lastVerified} />)} />
             </>
           )}
           <SectionHeader title="Rewards" isOpen={sections.rewards} onToggle={() => toggle('rewards')} colSpan={colSpan} />
