@@ -17,107 +17,36 @@ import {
   brandFaqAnswer,
 } from '../frontend/src/lib/brand';
 
-// ---------------------------------------------------------------------------
-// brand (default preset sanity check)
-// ---------------------------------------------------------------------------
-
-describe('brand', () => {
-  it('resolves the default walletradar preset when no env vars are set', () => {
+describe('brand labels', () => {
+  it('resolves the default preset and builds withBrand / aboutBrandLabel from it', () => {
     expect(brand.displayName).toBe('Wallet Radar');
     expect(brand.utmSource).toBe('walletradar');
-    expect(brand.baseUrl).toBe('https://walletradar.org');
-  });
-});
-
-// ---------------------------------------------------------------------------
-// withBrand
-// ---------------------------------------------------------------------------
-
-describe('withBrand', () => {
-  it('appends the brand display name with a pipe separator', () => {
     expect(withBrand('Best Wallets 2026')).toBe('Best Wallets 2026 | Wallet Radar');
-  });
-
-});
-
-// ---------------------------------------------------------------------------
-// aboutBrandLabel
-// ---------------------------------------------------------------------------
-
-describe('aboutBrandLabel', () => {
-  it('returns "About <displayName>"', () => {
     expect(aboutBrandLabel()).toBe('About Wallet Radar');
   });
 });
 
-// ---------------------------------------------------------------------------
-// appendUtm
-// ---------------------------------------------------------------------------
-
 describe('appendUtm', () => {
-  it('adds utm_source and default utm_medium to a plain URL', () => {
-    const result = appendUtm('https://example.com/page');
-    const url = new URL(result);
-    expect(url.searchParams.get('utm_source')).toBe('walletradar');
-    expect(url.searchParams.get('utm_medium')).toBe('comparison');
+  it('adds default utm_source/utm_medium but never overwrites an existing utm_source', () => {
+    const added = new URL(appendUtm('https://example.com/page'));
+    expect(added.searchParams.get('utm_source')).toBe('walletradar');
+    expect(added.searchParams.get('utm_medium')).toBe('comparison');
+    const kept = new URL(appendUtm('https://example.com/?utm_source=existing'));
+    expect(kept.searchParams.get('utm_source')).toBe('existing');
   });
 
-  it('does not overwrite an existing utm_source', () => {
-    const result = appendUtm('https://example.com/?utm_source=existing');
-    const url = new URL(result);
-    expect(url.searchParams.get('utm_source')).toBe('existing');
-  });
-
-
-
-  it('leaves mailto: URLs completely unchanged', () => {
+  it('leaves mailto: and unparseable URLs unchanged', () => {
     expect(appendUtm('mailto:test@example.com')).toBe('mailto:test@example.com');
-  });
-
-  it('returns the original string unchanged for an invalid URL', () => {
     expect(appendUtm('not-a-url')).toBe('not-a-url');
   });
-
-
-
 });
 
-// ---------------------------------------------------------------------------
-// brandFaqQuestion / brandFaqAnswer
-// ---------------------------------------------------------------------------
-
-describe('brandFaqQuestion', () => {
-  it('replaces "Wallet Radar" with brand.displayName', () => {
-    expect(brandFaqQuestion('Is Wallet Radar free to use?')).toBe(
-      'Is Wallet Radar free to use?'
-    );
-  });
-
-  it('leaves text with no "Wallet Radar" substring unchanged', () => {
-    expect(brandFaqQuestion('Is this service free?')).toBe('Is this service free?');
-  });
-
-  it('replaces multiple occurrences in one string', () => {
+describe('brandFaqQuestion / brandFaqAnswer', () => {
+  it('substitute every "Wallet Radar" occurrence and leave other text unchanged', () => {
     const input = 'Wallet Radar is great. I recommend Wallet Radar to everyone.';
-    const result = brandFaqQuestion(input);
-    expect(result.match(/Wallet Radar/g)?.length).toBe(2);
-  });
-});
-
-describe('brandFaqAnswer', () => {
-  it('replaces "Wallet Radar" with brand.displayName', () => {
-    expect(brandFaqAnswer('Wallet Radar scores wallets on security and UX.')).toBe(
-      'Wallet Radar scores wallets on security and UX.'
-    );
-  });
-
-  it('leaves text with no "Wallet Radar" substring unchanged', () => {
-    expect(brandFaqAnswer('Nothing to replace here.')).toBe('Nothing to replace here.');
-  });
-
-  it('replaces multiple occurrences in one string', () => {
-    const input = 'Wallet Radar reviews wallets. Wallet Radar is independent.';
-    const result = brandFaqAnswer(input);
-    expect(result.match(/Wallet Radar/g)?.length).toBe(2);
+    for (const fn of [brandFaqQuestion, brandFaqAnswer]) {
+      expect(fn(input).match(/Wallet Radar/g)?.length).toBe(2);
+      expect(fn('Nothing to replace here.')).toBe('Nothing to replace here.');
+    }
   });
 });

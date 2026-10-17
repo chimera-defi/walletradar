@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -8,16 +8,7 @@ const data = JSON.parse(readFileSync(join(root, 'data/attributes.json'), 'utf8')
 
 type Attr = { id: string; applies_to: string; values: string[]; allowed_source_kinds: string[]; required_source_fields: string[] };
 const attrs: Attr[] = schema['x-attributes'];
-const SECTION_FILES: Record<string, string> = { software_wallets: 'SOFTWARE_WALLETS.md', crypto_cards: 'CRYPTO_CARDS.md' };
-
-function rowNames(file: string): Set<string> {
-  const names = new Set<string>();
-  for (const line of readFileSync(join(root, file), 'utf8').split('\n')) {
-    const m = /^\|\s*(?:~~)?\[\*\*(.+?)\*\*\]/.exec(line);
-    if (m) names.add(m[1]);
-  }
-  return names;
-}
+const SECTIONS = ['software_wallets', 'crypto_cards'];
 
 // Minimal validator for the JSON Schema subset used in data/attributes.schema.json.
 function validate(value: any, s: any, defs: any, path: string, errs: string[]): void {
@@ -49,7 +40,7 @@ describe('attributes sidecar', () => {
   it('every attribute is declared, applies to its section and uses an allowed value', () => {
     const byId = new Map(attrs.map((a) => [a.id, a]));
     for (const a of attrs) expect(a.values).toContain('unknown');
-    for (const section of Object.keys(SECTION_FILES)) {
+    for (const section of SECTIONS) {
       for (const [name, entries] of Object.entries<any>(data[section])) {
         for (const [id, e] of Object.entries<any>(entries)) {
           const a = byId.get(id);
@@ -64,12 +55,23 @@ describe('attributes sidecar', () => {
     }
   });
 
-  it('every key matches a row name in the root markdown table', () => {
-    for (const [section, file] of Object.entries(SECTION_FILES)) {
-      const rows = rowNames(file);
-      expect(rows.size).toBeGreaterThan(10);
-      for (const name of Object.keys(data[section])) expect(rows, `${name} not in ${file}`).toContain(name);
-    }
+  describe('loader join (frontend/src/lib/wallet-data.ts)', () => {
+    let mod: typeof import('../frontend/src/lib/wallet-data');
+    beforeAll(async () => {
+      // wallet-data resolves the repo root as process.cwd()/.. (frontend build cwd).
+      process.chdir(join(__dirname, '..', 'frontend'));
+      mod = await import('../frontend/src/lib/wallet-data');
+    });
+
+    it('matches every attribute key to a table row and attaches source info; unknown stays data', () => {
+      expect(mod.getUnmatchedAttributeKeys()).toEqual([]);
+      const metamask = mod.parseSoftwareWallets().find((w) => w.name === 'MetaMask');
+      expect(metamask?.attributes?.reproducibleBuild?.sourceUrl).toMatch(/^https:\/\//);
+      const withNetwork = mod.parseCryptoCards().filter((c) => c.attributes?.cardNetwork);
+      expect(withNetwork.length).toBeGreaterThan(0);
+      // Rows without sidecar data keep attributes undefined (rendered as "not evaluated").
+      expect(mod.parseSoftwareWallets().some((w) => !w.attributes)).toBe(true);
+    });
   });
 
   it('is not empty for any attribute', () => {
