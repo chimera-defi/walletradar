@@ -286,11 +286,8 @@ Each comparison page has custom-generated OG images for social sharing:
 | Page | OG Image |
 |------|----------|
 | Software Wallets (table) | `/og-software-wallets-table.png` |
-| Software Wallets (details) | `/og-software-wallets-details.png` |
 | Hardware Wallets (table) | `/og-hardware-wallets-table.png` |
-| Hardware Wallets (details) | `/og-hardware-wallets-details.png` |
 | Crypto Cards (table) | `/og-crypto-cards-table.png` |
-| Crypto Cards (details) | `/og-crypto-cards-details.png` |
 | Explore | `/og-explore.png` |
 | Default | `/og-image.png` |
 
