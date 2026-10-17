@@ -1,8 +1,8 @@
 ---
 title: "Trust Wallet vs Rabby: Multi-Chain vs Developer-First"
-description: "Compare Trust Wallet (75) and Rabby (86) using Wallet Radar scores for stability, chains, and developer tooling."
+description: "Compare Trust Wallet (82) and Rabby (86) using Wallet Radar scores for stability, chains, and developer tooling."
 category: comparison
-lastUpdated: "2026-10-15"
+lastUpdated: "2026-10-17"
 author: "Wallet Radar"
 wallets: ["Trust", "Rabby"]
 tags: ["comparison", "software-wallets", "multi-chain"]
@@ -13,7 +13,7 @@ tags: ["comparison", "software-wallets", "multi-chain"]
 ## Quick Answer
 
 **Rabby (86/100)** is best for developers due to transaction simulation and stability.  
-**Trust Wallet (75/100)** is better for multi-chain coverage and mainstream users.
+**Trust Wallet (82/100)** is better for multi-chain coverage and mainstream users.
 
 ---
 
@@ -22,7 +22,7 @@ tags: ["comparison", "software-wallets", "multi-chain"]
 | Wallet | Score | Best For |
 |--------|-------|----------|
 | **Rabby** | **86** | Development + security |
-| **Trust** | 75 | Multi-chain + mainstream |
+| **Trust** | 82 | Multi-chain + mainstream |
 
 Source: `SOFTWARE_WALLETS.md`
 
@@ -32,8 +32,8 @@ Source: `SOFTWARE_WALLETS.md`
 
 | Feature | Rabby | Trust |
 |---------|-------|-------|
-| Tx simulation | ✅ | ❌ |
-| Scam detection | ✅ | ⚠️ Basic |
+| Tx simulation | ✅ | ⚠️ Supported networks |
+| Scam detection | ✅ | ✅ |
 | Chain coverage | EVM-focused | Multi-chain |
 | Release cadence | ~4/mo | ~3/mo |
 | ENS support | ⚠️ Import only | ✅ Basic |
@@ -44,7 +44,7 @@ Source: `SOFTWARE_WALLETS.md`
 
 ### 1) Developer Tooling
 - **Rabby:** Transaction simulation + scam detection.
-- **Trust:** No built-in simulation.
+- **Trust:** Built-in security scanner (simulation plus scam screening) on supported networks only, per Trust Wallet's Aug 2026 post.
 
 ### 2) Multi-Chain Coverage
 - **Trust:** Broad chain support (EVM + non-EVM).

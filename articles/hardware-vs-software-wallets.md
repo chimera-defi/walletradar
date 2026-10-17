@@ -2,7 +2,7 @@
 title: "Hardware vs Software Wallets: Which Should You Use?"
 description: "Understand tradeoffs between hardware and software wallets, with Wallet Radar recommendations for each use case."
 category: comparison
-lastUpdated: "2026-10-15"
+lastUpdated: "2026-10-17"
 author: "Wallet Radar"
 tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 ---
@@ -47,7 +47,7 @@ tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 
 **Software (daily use):**
 - **Rabby** (86) — dev + safety features  
-- **Trust** (75) — multi-chain stability  
+- **Trust** (82) — multi-chain stability  
 - **Rainbow** (64) — Ethereum/NFT UX
 
 Sources: `HARDWARE_WALLETS_DETAILS.md`, `SOFTWARE_WALLETS.md`
