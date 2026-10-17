@@ -32,6 +32,14 @@ bun scripts/sync_table_scores.js --write
 - `frontend/scripts/smoke-test-wallet-data.js` expects the tables to be in sync
 - This script is now the source of truth for score/recommendation cells and the generated detail-doc snapshots
 
+### `check_external_links.js` (External links)
+
+Fetches every external URL in the root `*.md`, `articles/`, `docs/` and `data/*.json` and classes each as ok, moved (final host differs, often a rebrand), blocked (403/429/5xx, not proof of breakage) or broken (404/410/DNS/timeout). Report only unless `--strict`. The monthly workflow `.github/workflows/external-links.yml` uploads the TSV as an artifact.
+
+```bash
+bun scripts/check_external_links.js --tsv /tmp/links.tsv
+```
+
 ### `generate_merchant_feed.py` (Merchant Center)
 
 Generates a Google Merchant Center feed from the hardware wallet comparison
