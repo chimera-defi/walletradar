@@ -153,7 +153,7 @@ For technically-inclined users who want maximum transparency and control:
 | **Ledger** (all models) | 59-67 | ⚠️ Ledger Recover capability — use with passphrase only |
 | **Ellipal Titan** | 48 | Closed source, no Secure Element |
 | **SecuX V20** | 48 | Closed source, unknown funding |
-| **Arculus** | 39 | Closed source, NFC-only, no passphrase |
+| **Arculus** | 41 | Closed source, NFC-only, no passphrase |
 | **KeepKey** | 61 | No secure element (MCU only). Firmware is maintained (v7.14.1 released Jun 2026), so it is no longer listed as abandoned |
 | **BC Vault** | 30 | Closed source, no SE, unconventional backup |
 | **ColdCard (seeds made on affected firmware)** | see main table | Weak seed-generation RNG, funds stolen, seeds must be migrated (see Security Incidents) |
