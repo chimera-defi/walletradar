@@ -1,0 +1,7 @@
+[
+  {
+    "from": "/wallets/hardware/foundation-passport/",
+    "to": "/wallets/hardware/foundation-passport-core/",
+    "reason": "Row renamed to Foundation Passport (Core); the old URL is in the live sitemap."
+  }
+]
