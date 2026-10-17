@@ -66,7 +66,7 @@ Each item below keeps its old value and carries a mark or a note in the data.
 
 | Item | Verdict |
 |---|---|
-| Remove `rehype-raw` from the markdown renderer | Won't do. Tables embed `<img src="/chains/...">` chain icons that need raw HTML. Audit command is in [SECURITY_INCIDENT_PORKBUN.md](./SECURITY_INCIDENT_PORKBUN.md). |
+| Remove `rehype-raw` from the markdown renderer | Won't do. Tables embed `<img src="/chains/...">` chain icons that need raw HTML. Audit command is in [SECURITY_INCIDENT_PORKBUN.md](./archive/SECURITY_INCIDENT_PORKBUN.md). |
 | VirusTotal re-scan and Porkbun reply | Operator-owned, not agent-actionable. |
 | Temporarily disable GA to test detections | Won't do. GA stays, lazy-loaded. |
 | `IMPROVEMENTS_RECOMMENDED.md` (10 recommendations) | Resolved or won't-do per item. Done: section order, merged recommendation sections, features matrix, cross-references, methodology box. Won't do: legend tiering, splitting the wide tables (tables feed the parser and scoring), resource cross-refs, separate "Last Updated" format. |

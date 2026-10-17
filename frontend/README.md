@@ -70,10 +70,23 @@ The frontend reads Markdown files from the repository root:
 | File | Page URL |
 |------|----------|
 | `README.md` | `/docs/readme` |
+| `ABOUT.md` | `/docs/about` |
 | `SOFTWARE_WALLETS.md` | `/docs/software-wallets` |
+| `SOFTWARE_WALLETS_DETAILS.md` | `/docs/software-wallets-details` |
 | `HARDWARE_WALLETS.md` | `/docs/hardware-wallets` |
+| `HARDWARE_WALLETS_DETAILS.md` | `/docs/hardware-wallets-details` |
 | `CRYPTO_CARDS.md` | `/docs/crypto-cards` |
+| `CRYPTO_CARDS_DETAILS.md` | `/docs/crypto-cards-details` |
+| `RAMPS.md` | `/docs/ramps` |
+| `RAMPS_DETAILS.md` | `/docs/ramps-details` |
+| `QR_PAYMENTS.md` | `/docs/qr-payments` |
+| `QR_PAYMENTS_DETAILS.md` | `/docs/qr-payments-details` |
+| `DATA_SOURCES.md` | `/docs/data-sources` |
+| `GLOSSARY.md` | `/docs/glossary` |
 | `CONTRIBUTING.md` | `/docs/contributing` |
+| `CHANGELOG.md` | `/docs/changelog` |
+
+The full list and metadata live in `DOCUMENT_CONFIG` in `src/lib/markdown.ts`.
 
 ### Wallet data tables (used by `/explore`)
 
@@ -168,7 +181,6 @@ Each brand build is exported to `out-brands/<id>/`.
 | `bun run type-check` | Run TypeScript checks |
 | `bun run test` | Run wallet data smoke tests |
 | `bun run generate-og` | Generate page-specific OG images |
-| `bun run validate-cards` | Validate Twitter Cards and OG tags |
 
 ## Customization
 
@@ -295,13 +307,7 @@ The `<SocialShare>` component is included on all document pages with:
 
 ### Twitter Card Validation
 
-After building, validate your Twitter Cards:
-
-```bash
-bun run validate-cards
-```
-
-Then test with the official validators:
+After building, test with the official validators:
 - Twitter: https://cards-dev.twitter.com/validator
 - Facebook: https://developers.facebook.com/tools/debug/
 - LinkedIn: https://www.linkedin.com/post-inspector/
@@ -322,12 +328,7 @@ bun run generate-og -- --force
 
 #### Validate Before Posting
 
-```bash
-# Check all pages have valid Twitter Cards
-bun run validate-cards
-```
-
-Then test with official validators:
+Test with the official validators:
 - **Twitter**: https://cards-dev.twitter.com/validator
 - **Facebook**: https://developers.facebook.com/tools/debug/
 - **LinkedIn**: https://www.linkedin.com/post-inspector/
@@ -339,80 +340,6 @@ Use the `generateUtmUrl()` utility or add parameters manually:
 ```
 https://walletradar.org/docs/software-wallets/?utm_source=twitter&utm_medium=social&utm_campaign=software_dec2025
 ```
-
----
-
-## Tweet Templates
-
-Ready-to-use templates for promoting Wallet Radar:
-
-### Software Wallets
-```
-Stop gambling on wallet updates breaking your dApp tests.
-
-We've tracked GitHub activity, release frequency, and security audits to find the most STABLE MetaMask alternatives.
-
-Rabby scored highest (92/100).
-
-Full comparison → walletradar.org/docs/software-wallets/
-
-#DeFi #Web3 #crypto
-```
-
-### Hardware Wallets
-```
-Looking for a Ledger alternative after the Recover controversy?
-
-We've scored hardware wallets on:
-🔐 Security architecture
-🔓 Open source firmware
-📊 Development activity
-💰 Value for money
-
-Top pick: Trezor Safe 5 (94/100)
-
-walletradar.org/docs/hardware-wallets/
-```
-
-### Crypto Cards
-```
-Tired of searching for the best crypto card?
-
-We compared crypto debit & credit cards:
-💳 Cashback rates (up to 10%)
-🌍 Availability (US/EU/Global)
-💰 Fees & requirements
-
-walletradar.org/docs/crypto-cards/
-```
-
-### General Promotion
-```
-📡 Wallet Radar
-
-Developer-focused crypto wallet research:
-• software wallets compared
-• hardware wallets reviewed
-• crypto cards analyzed
-
-Free. Open source. No affiliate links (currently).
-
-walletradar.org
-```
-
-### Best Posting Times (Crypto Twitter)
-
-| Day | Best Times (EST) |
-|-----|-----------------|
-| Monday-Thursday | 9am, 12pm, 5pm |
-| Friday | 9am, 12pm |
-| Weekend | 11am, 4pm |
-
-### Hashtags
-
-**Primary**: #DeFi #Web3 #crypto #Ethereum
-
-**Secondary**: #MetaMask #CryptoWallet #blockchain
 
 ---
 

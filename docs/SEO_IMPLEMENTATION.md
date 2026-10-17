@@ -40,7 +40,6 @@ Markdown files in `articles/` with this frontmatter: `title`, `description`, `ca
 
 ```bash
 cd frontend
-bun run build && bun run validate-cards   # static export plus Twitter/OG card checks
 bun run test                              # data smoke test
 ```
 
@@ -49,11 +48,10 @@ bun run test                              # data smoke test
 
 ## LLM citation tracking
 
-Weekly, ask ChatGPT, Perplexity, Copilot and Gemini a fixed set of queries ("best crypto wallet for developers", "Rabby vs MetaMask", "most secure hardware wallet", "best non-custodial crypto card") and record whether walletradar.org is cited. Template and archive: `seo/llm-citations/README.md`.
+Weekly, ask ChatGPT, Perplexity, Copilot and Gemini a fixed set of queries ("best crypto wallet for developers", "Rabby vs MetaMask", "most secure hardware wallet", "best non-custodial crypto card") and record whether walletradar.org is cited. Template and archive: `docs/archive/llm-citations/README.md`.
 
 ## Not done
 
 - Real-time chain and price integrations beyond DefiLlama chains (`lib/defillama.ts`).
-- VideoObject schema for `articles/video-transcripts.md`.
 - Third-party expert reviews or audit embeds.
 - Citation-rate targets. The tracking folder has one archived run (2026-02-03).
