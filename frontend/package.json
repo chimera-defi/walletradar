@@ -13,7 +13,6 @@
     "test": "node scripts/smoke-test-wallet-data.js",
     "generate-image-sizes": "node scripts/generate-image-sizes.js",
     "generate-og": "node scripts/generate-og-images.js",
-    "validate-cards": "node scripts/validate-twitter-cards.js",
     "check-links": "node scripts/check-links.js"
   },
   "dependencies": {
@@ -38,7 +37,6 @@
     "eslint": "^9.39.0",
     "eslint-config-next": "^16.4.0",
     "postcss": "^8.5.29",
-    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^6"
   },

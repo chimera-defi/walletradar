@@ -47,7 +47,7 @@ function getPreset(): BrandPreset {
   return BRAND_PRESETS[presetId] || BRAND_PRESETS[DEFAULT_PRESET];
 }
 
-export interface BrandProfile {
+interface BrandProfile {
   profileId: string;
   displayName: string;
   shortName: string;
