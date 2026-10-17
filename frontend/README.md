@@ -72,17 +72,17 @@ The frontend reads Markdown files from the repository root, `data/tables/` and `
 | `README.md` | `/docs/readme` |
 | `docs/site/ABOUT.md` | `/docs/about` |
 | `data/tables/SOFTWARE_WALLETS.md` | `/docs/software-wallets` |
-| `data/tables/SOFTWARE_WALLETS_DETAILS.md` | `/docs/software-wallets-details` |
+| `data/tables/SOFTWARE_WALLETS_DETAILS.md` | `/docs/software-wallets/#details` |
 | `data/tables/HARDWARE_WALLETS.md` | `/docs/hardware-wallets` |
-| `data/tables/HARDWARE_WALLETS_DETAILS.md` | `/docs/hardware-wallets-details` |
+| `data/tables/HARDWARE_WALLETS_DETAILS.md` | `/docs/hardware-wallets/#details` |
 | `data/tables/CRYPTO_CARDS.md` | `/docs/crypto-cards` |
-| `data/tables/CRYPTO_CARDS_DETAILS.md` | `/docs/crypto-cards-details` |
+| `data/tables/CRYPTO_CARDS_DETAILS.md` | `/docs/crypto-cards/#details` |
 | `data/tables/RAMPS.md` | `/docs/ramps` |
-| `data/tables/RAMPS_DETAILS.md` | `/docs/ramps-details` |
+| `data/tables/RAMPS_DETAILS.md` | `/docs/ramps/#details` |
 | `data/tables/QR_PAYMENTS.md` | `/docs/qr-payments` |
-| `data/tables/QR_PAYMENTS_DETAILS.md` | `/docs/qr-payments-details` |
+| `data/tables/QR_PAYMENTS_DETAILS.md` | `/docs/qr-payments/#details` |
 | `docs/site/DATA_SOURCES.md` | `/docs/data-sources` |
-| `docs/site/GLOSSARY.md` | `/docs/glossary` |
+| `docs/site/GLOSSARY.md` | `/glossary` |
 | `CONTRIBUTING.md` | `/docs/contributing` |
 | `CHANGELOG.md` | `/docs/changelog` |
 
