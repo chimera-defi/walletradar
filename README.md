@@ -39,7 +39,9 @@ What you get:
 | Crypto cards | 57 | Crypto-backed credit and debit cards |
 | On/off-ramps | 22 | Fiat-to-crypto providers |
 
-Counts are table rows, including discontinued and partial-data rows. QR payment providers are in [QR_PAYMENTS.md](./QR_PAYMENTS.md).
+Counts are table rows, including discontinued and partial-data rows. QR payment providers are in [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md).
+
+Note: the dataset files moved to `data/tables/` and ABOUT, DATA_SOURCES and GLOSSARY to `docs/site/` (MERCHANT_FEED to `docs/`), so GitHub deep links to their old root paths no longer resolve.
 
 ## Bot-protected sites
 
@@ -59,7 +61,7 @@ Some provider sites block automated checks (403, 429, timeout). A headless Chrom
 
 - **Filter and compare.** Filter by platform, features (transaction simulation, scam alerts, testnets) and licence (open source, source-available, proprietary). Compare up to 4 wallets side by side.
 - **Scoring.** Security (audits, open source, simulation), GitHub activity, developer experience, platform coverage.
-- **Data updates.** A weekly GitHub Action refreshes GitHub activity data and opens a PR. Prices, licences, audits and custody are checked by hand against primary sources and shipped through reviewed PRs. A second weekly Action regenerates the hardware wallet Merchant Center feed ([MERCHANT_FEED.md](https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md)).
+- **Data updates.** A weekly GitHub Action refreshes GitHub activity data and opens a PR. Prices, licences, audits and custody are checked by hand against primary sources and shipped through reviewed PRs. A second weekly Action regenerates the hardware wallet Merchant Center feed ([MERCHANT_FEED.md](https://github.com/chimera-defi/walletradar/blob/main/docs/MERCHANT_FEED.md)).
 - **Live chain data.** TVL from DeFiLlama.
 - **UI.** Next.js static site, dark mode, responsive, structured data for SEO.
 
@@ -122,7 +124,7 @@ docs/              Maintainer docs (verification log, SEO notes, incident record
 | Trust Wallet registry | Network support | [GitHub](https://github.com/trustwallet/wallet-core) |
 | DeFiLlama | Chain TVL | [defillama.com](https://defillama.com) |
 
-Details and attribution: [DATA_SOURCES.md](./DATA_SOURCES.md).
+Details and attribution: [DATA_SOURCES.md](./docs/site/DATA_SOURCES.md).
 
 ## Refresh data
 
@@ -135,12 +137,12 @@ Commit refreshed data through a PR after review. Full script docs: [scripts/READ
 
 ## Documentation
 
-- [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md): software wallets (33 rows)
-- [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md): hardware wallets (43 rows)
-- [CRYPTO_CARDS.md](./CRYPTO_CARDS.md): crypto cards (57 rows)
-- [RAMPS.md](./RAMPS.md): on/off-ramps (22 rows)
-- [QR_PAYMENTS.md](./QR_PAYMENTS.md): QR payment providers
-- [ABOUT.md](./ABOUT.md), [GLOSSARY.md](./GLOSSARY.md), [DATA_SOURCES.md](./DATA_SOURCES.md)
+- [SOFTWARE_WALLETS.md](./data/tables/SOFTWARE_WALLETS.md): software wallets (33 rows)
+- [HARDWARE_WALLETS.md](./data/tables/HARDWARE_WALLETS.md): hardware wallets (43 rows)
+- [CRYPTO_CARDS.md](./data/tables/CRYPTO_CARDS.md): crypto cards (57 rows)
+- [RAMPS.md](./data/tables/RAMPS.md): on/off-ramps (22 rows)
+- [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md): QR payment providers
+- [ABOUT.md](./docs/site/ABOUT.md), [GLOSSARY.md](./docs/site/GLOSSARY.md), [DATA_SOURCES.md](./docs/site/DATA_SOURCES.md)
 - [CONTRIBUTING.md](./CONTRIBUTING.md): how to contribute and how scores work
 - [CHANGELOG.md](./CHANGELOG.md): change history
 - [Verification log](https://github.com/chimera-defi/walletradar/blob/main/docs/VERIFICATION.md): what was verified, what is not, and why

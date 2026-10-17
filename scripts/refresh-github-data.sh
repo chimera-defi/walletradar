@@ -21,7 +21,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SOFTWARE_TABLE="$SCRIPT_DIR/../SOFTWARE_WALLETS.md"
+SOFTWARE_TABLE="$SCRIPT_DIR/../data/tables/SOFTWARE_WALLETS.md"
 
 load_repos_from_table() {
     python3 - "$SOFTWARE_TABLE" <<'PY'

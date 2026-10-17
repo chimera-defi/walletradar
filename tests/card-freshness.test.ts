@@ -64,7 +64,7 @@ describe('data/card-verification.json', () => {
   const names: string[] = [];
   // Only the main comparison table: from the header row to the first non-table line.
   let inTable = false;
-  for (const line of readFileSync(join(root, 'CRYPTO_CARDS.md'), 'utf8').split('\n')) {
+  for (const line of readFileSync(join(root, 'data', 'tables', 'CRYPTO_CARDS.md'), 'utf8').split('\n')) {
     if (line.startsWith('| Card |')) inTable = true;
     else if (inTable && !line.startsWith('|')) break;
     if (!inTable) continue;

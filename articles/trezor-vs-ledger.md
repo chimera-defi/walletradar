@@ -25,7 +25,7 @@ tags: ["comparison", "hardware-wallets", "security"]
 | **Ledger Nano X** | 61 | Same Recover risk |
 | **Ledger Stax** | 59 | Same Recover risk |
 
-Source: `HARDWARE_WALLETS_DETAILS.md`
+Source: `data/tables/HARDWARE_WALLETS_DETAILS.md`
 
 ---
 
@@ -93,4 +93,4 @@ Trezor is preferred by users who want maximal transparency.
 
 ---
 
-**Related:** See `HARDWARE_WALLETS_DETAILS.md` for full scoring methodology.
+**Related:** See `data/tables/HARDWARE_WALLETS_DETAILS.md` for full scoring methodology.

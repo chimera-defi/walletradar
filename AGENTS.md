@@ -2,10 +2,10 @@
 
 Mission: independent, source-linked comparison of wallets, cards and ramps for developers and crypto users. No pay-to-rank.
 
-Static Next.js site (`frontend/`) generated from the markdown comparison tables at the repo root. Product data and scoring live in the docs; code only parses and renders them.
+Static Next.js site (`frontend/`) generated from the markdown comparison tables in `data/tables/`. Product data and scoring live in the docs; code only parses and renders them.
 
 ## Layout
-- Root `*.md`: data tables (`SOFTWARE_WALLETS`, `HARDWARE_WALLETS`, `CRYPTO_CARDS`, `RAMPS`, `QR_PAYMENTS` + `*_DETAILS`) and site pages (`README`, `ABOUT`, `CONTRIBUTING`, `GLOSSARY`, `DATA_SOURCES`, `CHANGELOG`). Which files the site renders: `frontend/src/lib/markdown.ts`.
+- `data/tables/*.md`: data tables (`SOFTWARE_WALLETS`, `HARDWARE_WALLETS`, `CRYPTO_CARDS`, `RAMPS`, `QR_PAYMENTS` + `*_DETAILS`). `docs/site/*.md`: site pages (`ABOUT`, `GLOSSARY`, `DATA_SOURCES`). Root `*.md`: `README`, `CONTRIBUTING`, `CHANGELOG`, `AGENTS`, `CLAUDE`. Which files the site renders: `frontend/src/lib/markdown.ts`.
 - `frontend/`: the app (static export to `out/`). `scripts/`: data tooling, see `scripts/README.md`. `tests/`: vitest unit tests. `data/`, `articles/`, `branding/`: inputs. `docs/`: maintainer docs, index in `docs/README.md`.
 - Scoring methodology and the update workflow: `CONTRIBUTING.md`. Do not restate it elsewhere.
 

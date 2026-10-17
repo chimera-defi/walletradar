@@ -1,6 +1,6 @@
 # Crypto card market sweep, 2026-10-17
 
-Window: about 2026-07-15 to 2026-10-17. All sources accessed 2026-10-17. "Secondary" = news, review or aggregator page. Per-field sources are in [CRYPTO_CARDS_DETAILS.md](../../CRYPTO_CARDS_DETAILS.md#market-sweep-2026-10-17).
+Window: about 2026-07-15 to 2026-10-17. All sources accessed 2026-10-17. "Secondary" = news, review or aggregator page. Per-field sources are in [CRYPTO_CARDS_DETAILS.md](../../data/tables/CRYPTO_CARDS_DETAILS.md#market-sweep-2026-10-17).
 
 Coverage caveat: the sweep found no new consumer card launch in the US, Canada, APAC or EU/MEA that an issuer page confirms. Several official pages blocked fetches (403/429); "not found" means not seen.
 

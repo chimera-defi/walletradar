@@ -24,7 +24,7 @@ tags: ["comparison", "software-wallets", "multi-chain"]
 | **Rabby** | **86** | Development + security |
 | **Trust** | 82 | Multi-chain + mainstream |
 
-Source: `SOFTWARE_WALLETS.md`
+Source: `data/tables/SOFTWARE_WALLETS.md`
 
 ---
 
@@ -88,4 +88,4 @@ Trust Wallet.
 
 ---
 
-**Related:** `SOFTWARE_WALLETS_DETAILS.md`
+**Related:** `data/tables/SOFTWARE_WALLETS_DETAILS.md`

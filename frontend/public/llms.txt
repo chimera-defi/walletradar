@@ -7,7 +7,7 @@ Hardware wallets: https://walletradar.org/docs/hardware-wallets
 Crypto cards: https://walletradar.org/docs/crypto-cards
 Ramps: https://walletradar.org/docs/ramps
 Merchant Center feed (hardware wallets): https://walletradar.org/merchant-center.xml
-Pricing/exclusions: https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md
+Pricing/exclusions: https://github.com/chimera-defi/walletradar/blob/main/docs/MERCHANT_FEED.md
 
 Notes:
 - Merchant feed includes hardware wallets with verified USD pricing only.

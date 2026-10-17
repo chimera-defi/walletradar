@@ -8,7 +8,7 @@
  *
  * Notes:
  * - Dependency-free (plain Node.js).
- * - Reads markdown tables from the repository root.
+ * - Reads markdown tables from data/tables.
  */
 const fs = require('fs');
 const path = require('path');
@@ -26,6 +26,7 @@ const { processAllTables } = require(path.join(__dirname, '..', '..', 'scripts',
 const FRONTEND_DIR = path.resolve(__dirname, '..');
 const WALLETS_DIR = path.resolve(FRONTEND_DIR, '..');
 const REPO_ROOT = WALLETS_DIR;
+const TABLES_DIR = path.join(REPO_ROOT, 'data', 'tables');
 const CURRENT_YEAR = new Date().getUTCFullYear();
 
 const SOFTWARE_CONTRACT_MUTATORS = {
@@ -333,7 +334,7 @@ function assertMethodologyVersionTag(fileLabel, content) {
 
 function assertMarkdownConfigFilesExist() {
   const markdownSource = readFileOrFail(path.join(FRONTEND_DIR, 'src', 'lib', 'markdown.ts'));
-  const configuredFiles = Array.from(markdownSource.matchAll(/'([A-Za-z_]+\.md)'/g))
+  const configuredFiles = Array.from(markdownSource.matchAll(/'([A-Za-z_/]+\.md)'/g))
     .map((match) => match[1]);
   const missing = configuredFiles.filter((filename) => !fs.existsSync(path.join(REPO_ROOT, filename)));
 
@@ -347,7 +348,7 @@ function assertMarkdownConfigFilesExist() {
 function assertReferencedWorkflowFilesExist() {
   const docsToCheck = [
     'README.md',
-    'MERCHANT_FEED.md',
+    'docs/MERCHANT_FEED.md',
     'scripts/README.md',
     'frontend/README.md',
     'CONTRIBUTING.md',
@@ -387,7 +388,7 @@ function run() {
   console.log('🔎 Running wallet table smoke tests...\n');
 
   // ---- Software wallets table ----
-  const softwarePath = path.join(WALLETS_DIR, 'SOFTWARE_WALLETS.md');
+  const softwarePath = path.join(TABLES_DIR, 'SOFTWARE_WALLETS.md');
   const softwareContent = readFileOrFail(softwarePath);
   assertMethodologyVersionTag('Software wallets table', softwareContent);
   const softwareTable = parsePrimaryTable(softwareContent);
@@ -460,7 +461,7 @@ function run() {
   }
 
   // ---- Hardware wallets table ----
-  const hardwarePath = path.join(WALLETS_DIR, 'HARDWARE_WALLETS.md');
+  const hardwarePath = path.join(TABLES_DIR, 'HARDWARE_WALLETS.md');
   const hardwareContent = readFileOrFail(hardwarePath);
   assertMethodologyVersionTag('Hardware wallets table', hardwareContent);
   const hardwareTable = parsePrimaryTable(hardwareContent);
@@ -696,7 +697,7 @@ function run() {
   }
 
   // ---- Crypto cards table ----
-  const cardsPath = path.join(WALLETS_DIR, 'CRYPTO_CARDS.md');
+  const cardsPath = path.join(TABLES_DIR, 'CRYPTO_CARDS.md');
   const cardsContent = readFileOrFail(cardsPath);
   assertMethodologyVersionTag('Crypto cards table', cardsContent);
   const cardsTable = parsePrimaryTable(cardsContent);
@@ -789,7 +790,7 @@ function run() {
   }
 
   // ---- Ramps table ----
-  const rampsPath = path.join(WALLETS_DIR, 'RAMPS.md');
+  const rampsPath = path.join(TABLES_DIR, 'RAMPS.md');
   const rampsContent = readFileOrFail(rampsPath);
   assertMethodologyVersionTag('Ramps table', rampsContent);
   const rampsTable = parsePrimaryTable(rampsContent);

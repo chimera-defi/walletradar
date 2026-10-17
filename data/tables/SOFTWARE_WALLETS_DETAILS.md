@@ -30,7 +30,7 @@
 - [Complete Wallet Comparison](./SOFTWARE_WALLETS.md#complete-wallet-comparison) (Table View)
 - [Quick Recommendations](#-quick-recommendations)
 - [GitHub Metrics](#github-metrics-stars-issues-code-quality)
-- [Scoring Methodology](./CONTRIBUTING.md#score-sync-workflow)
+- [Scoring Methodology](../../CONTRIBUTING.md#score-sync-workflow)
 - [Security Audits](#-security-audits-from-walletbeat--github)
 - [Known Quirks & Gotchas](#-known-quirks--gotchas)
 - [Account Type Support](#account-type-support)
@@ -52,7 +52,7 @@
 
 Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md). Best for development: **Rabby** (86). Most stable: **Brave** (~2 releases/month). Compatibility testing: **MetaMask** (80, ~5 releases/month, test last). See the [full comparison table](./SOFTWARE_WALLETS.md#complete-wallet-comparison).
 
-**Jump to:** [Comparison Table](./SOFTWARE_WALLETS.md#complete-wallet-comparison) | [Scoring Methodology](./CONTRIBUTING.md#score-sync-workflow) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
+**Jump to:** [Comparison Table](./SOFTWARE_WALLETS.md#complete-wallet-comparison) | [Scoring Methodology](../../CONTRIBUTING.md#score-sync-workflow) | [Features Matrix](#wallet-features-matrix) | [EIP Support](#-eip-support-matrix) | [Developer Experience](#-developer-experience-benchmarks)
 
 ### ✅ Top Picks (mobile + browser extension)
 
@@ -294,7 +294,7 @@ Complete explanations for all table columns:
 
 | Column | Values | Meaning |
 |--------|--------|---------|
-| **Score** | 0-100 | Weighted score prioritizing core criteria, stability, and developer experience. See [Scoring Methodology](./CONTRIBUTING.md#score-sync-workflow) |
+| **Score** | 0-100 | Weighted score prioritizing core criteria, stability, and developer experience. See [Scoring Methodology](../../CONTRIBUTING.md#score-sync-workflow) |
 | **Core** | ✅ / ⚠️ / ❌ | ✅ = Has BOTH mobile + browser extension (core criteria) | ⚠️ = Partial (e.g., Starknet-only desktop) | ❌ = Missing one or both |
 | **Rel/Mo** | Number or ? | Releases per month (lower = more stable; MetaMask ~8/mo is high churn) | ? = Unknown (private repo) |
 | **RPC** | ✅ / ⚠️ / ❌ | ✅ = Custom RPC support | ⚠️ = Limited | ❌ = No custom RPC |

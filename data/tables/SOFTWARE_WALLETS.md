@@ -82,7 +82,7 @@
 **Scoring & Recommendation:**
 | Symbol | Meaning |
 |--------|---------|
-| **Score** | 0-100 weighted score ([methodology](./CONTRIBUTING.md#score-sync-workflow)) |
+| **Score** | 0-100 weighted score ([methodology](../../CONTRIBUTING.md#score-sync-workflow)) |
 | **Core** | ✅ Has mobile + browser ext | ⚠️ Partial | ❌ Missing one or both |
 | **Rec** | 🟢 Top half of active developer-fit rows | 🟡 Middle quartile | 🔴 Bottom quartile / inactive | ⚪ Not for dev |
 

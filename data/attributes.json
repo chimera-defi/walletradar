@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_note": "Sidecar attributes; not scored. See DATA_SOURCES.md.",
+  "generated_note": "Sidecar attributes; not scored. See docs/site/DATA_SOURCES.md.",
   "software_wallets": {
     "Ambire": {
       "bug_bounty": {
