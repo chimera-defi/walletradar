@@ -27,7 +27,7 @@ export const SORT_PARAM_KEYS: Record<ExploreTab, string> = {
 const SORT_FIELDS_BY_TAB: Record<ExploreTab, ReadonlySet<SortField>> = {
   software: new Set<SortField>(['score', 'name', 'chains', 'releasesPerMonth']),
   hardware: new Set<SortField>(['score', 'name', 'price']),
-  cards: new Set<SortField>(['score', 'name', 'cashBackMax']),
+  cards: new Set<SortField>(['score', 'name', 'cashBackMax', 'lastVerified']),
   ramps: new Set<SortField>(['score', 'name']),
 };
 
@@ -45,6 +45,7 @@ const FILTER_ARRAY_ALLOWLIST: Partial<Record<keyof FilterState, ReadonlySet<stri
   custody: new Set(['self', 'exchange', 'cefi']),
   cardStatus: new Set(['active', 'verify', 'launching', 'inactive']),
   region: new Set(['US', 'EU', 'UK', 'CA', 'AU', 'Global']),
+  verification: new Set(['fresh', 'stale', 'unknown']),
 };
 
 const CONTROLLED_QUERY_KEYS = [
@@ -101,6 +102,7 @@ export function normalizeFilterState(filters: FilterState): FilterState {
     custody: normalizeStringArray(filters.custody, FILTER_ARRAY_ALLOWLIST.custody),
     cardStatus: normalizeStringArray(filters.cardStatus, FILTER_ARRAY_ALLOWLIST.cardStatus),
     region: normalizeStringArray(filters.region, FILTER_ARRAY_ALLOWLIST.region),
+    verification: normalizeStringArray(filters.verification, FILTER_ARRAY_ALLOWLIST.verification),
     priceMin,
     priceMax,
     cashBackMin: clampNumber(Math.round(filters.cashBackMin), 0, 10),
