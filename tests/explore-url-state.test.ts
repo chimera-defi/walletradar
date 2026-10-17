@@ -27,6 +27,7 @@ vi.mock('@/components/WalletFilters', () => ({
     cardType: [],
     custody: [],
     cardStatus: [],
+    verification: [],
     region: [],
     businessSupport: null,
     noAnnualFee: null,
@@ -54,6 +55,7 @@ const initialFilterState = {
   cardType: [] as string[],
   custody: [] as string[],
   cardStatus: [] as string[],
+  verification: [] as string[],
   region: [] as string[],
   businessSupport: null as boolean | null,
   noAnnualFee: null as boolean | null,
@@ -331,5 +333,13 @@ describe('clearControlledQueryParams', () => {
     clearControlledQueryParams(params);
     expect(params.get('page')).toBe('1');
     expect(params.get('lang')).toBe('en');
+  });
+});
+
+describe('compare share URL params', () => {
+  it('cd and compare are controlled keys (cleared on reset, rebuilt from state)', () => {
+    const p = new URLSearchParams('tab=cards&cd=a,b,c,d&compare=1&utm=x');
+    clearControlledQueryParams(p);
+    expect(p.toString()).toBe('utm=x');
   });
 });
