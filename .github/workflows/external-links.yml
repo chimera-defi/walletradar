@@ -26,3 +26,5 @@ jobs:
           path: |
             external-links.tsv
             external-links.txt
+      - name: Table freshness (report only)
+        run: bun scripts/check_freshness.js
