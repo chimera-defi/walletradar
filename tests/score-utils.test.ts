@@ -3,7 +3,7 @@
  * Runs via: bunx vitest run tests/score-utils.test.ts
  */
 import { describe, expect, it } from 'vitest';
-import { getScoreColorClasses } from '../frontend/src/lib/utils';
+import { getScoreColorClasses } from '../frontend/src/lib/score-utils';
 
 describe('getScoreColorClasses', () => {
   it.each([
