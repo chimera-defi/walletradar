@@ -8,6 +8,8 @@ import { cn, getScoreColorClasses } from '@/lib/utils';
 import { copyTextToClipboard } from '@/lib/clipboard';
 import { ScoreBreakdownBar, getScoreBreakdownShortLabel } from '@/components/ScoreBreakdownBar';
 import { CHAIN_ICONS } from '@/lib/chain-icons';
+import { estimateEarnings, EARNINGS_CAVEAT, type EarningsEstimate } from '@/lib/card-economics';
+import { FreshnessBadge } from '@/components/FreshnessBadge';
 import type { CryptoCard, HardwareWallet, Ramp, ScoreBreakdownEntry, SoftwareWallet, SupportedChains, WalletData } from '@/types/wallets';
 
 function ChainSupportDisplay({ chains }: { chains: SupportedChains }) {
@@ -513,7 +515,28 @@ function CryptoCardComparison({
   cards: CryptoCard[];
   onRemove: (id: string) => void;
 }) {
+  const [monthlySpend, setMonthlySpend] = useState(1000);
+  const [foreignSharePct, setForeignSharePct] = useState(20);
   return (
+    <>
+    <div className="flex flex-wrap items-end gap-4 mb-3 text-sm">
+      <label className="flex flex-col gap-1">
+        <span className="text-muted-foreground">Monthly spend (USD)</span>
+        <input
+          type="number" min={0} max={1000000} step={100} value={monthlySpend}
+          onChange={e => setMonthlySpend(Math.min(1000000, Math.max(0, Number(e.target.value) || 0)))}
+          className="w-32 rounded-md border border-border bg-card px-2 py-1 text-foreground"
+        />
+      </label>
+      <label className="flex flex-col gap-1">
+        <span className="text-muted-foreground">Spent abroad (%)</span>
+        <input
+          type="number" min={0} max={100} step={5} value={foreignSharePct}
+          onChange={e => setForeignSharePct(Math.min(100, Math.max(0, Number(e.target.value) || 0)))}
+          className="w-24 rounded-md border border-border bg-card px-2 py-1 text-foreground"
+        />
+      </label>
+    </div>
     <ComparisonTableScaffold
       items={cards}
       onRemove={onRemove}
@@ -531,6 +554,7 @@ function CryptoCardComparison({
               <ComparisonRow label="Region" values={items.map(c => c.region)} />
               <ComparisonRow label="Business Support" values={items.map(c => c.businessSupport === 'yes')} isBoolean />
               <ComparisonRow label="Status" values={items.map(c => c.status)} />
+              <ComparisonRow label="Last verified" values={items.map(c => <span key={c.id} className="inline-flex flex-wrap items-center gap-2">{c.lastVerified ?? 'Not verified'}<FreshnessBadge lastVerified={c.lastVerified} /></span>)} />
             </>
           )}
           <SectionHeader title="Rewards" isOpen={sections.rewards} onToggle={() => toggle('rewards')} colSpan={colSpan} />
@@ -540,6 +564,12 @@ function CryptoCardComparison({
               <ComparisonRow label="Max Cashback %" values={items.map(c => c.cashBackMax)} highlight />
               <ComparisonRow label="Reward Token" values={items.map(c => c.rewards)} />
               <ComparisonRow label="Best For" values={items.map(c => c.bestFor)} />
+              <ComparisonRow
+                label="Est. net per year (USD)"
+                values={items.map(c => formatEstimate(estimateEarnings(c, { monthlySpend, foreignSharePct })))}
+                highlight
+              />
+              <tr><td colSpan={colSpan} className="px-4 py-2 text-xs text-muted-foreground">{EARNINGS_CAVEAT}</td></tr>
             </>
           )}
           <SectionHeader title="Fees" isOpen={sections.fees} onToggle={() => toggle('fees')} colSpan={colSpan} />
@@ -562,7 +592,16 @@ function CryptoCardComparison({
         </>
       )}
     />
+    </>
   );
+}
+
+function formatEstimate(e: EarningsEstimate): string {
+  if (e.kind === 'none') return `No estimate (${e.reason})`;
+  if (e.kind === 'uncomputable') return `Not computable: ${e.reason}`;
+  const usd = (n: number) => `${n < 0 ? '-' : ''}$${Math.abs(n).toLocaleString('en-US')}`;
+  const range = e.best === e.conservative ? usd(e.best) : `${usd(e.conservative)} to ${usd(e.best)}`;
+  return range + (e.minRateUnstated ? ' (min assumes 0% rewards)' : '') + (e.oneOffExcluded ? ' + excl. one-off fees' : '');
 }
 
 // ─── Ramp comparison ──────────────────────────────────────────────────────────
@@ -691,7 +730,7 @@ function generateComparisonCsv(wallets: WalletData[], type: ComparisonToolProps[
   if (type === 'cards') {
     const typed = wallets as CryptoCard[];
     rows = [
-      ['Name', 'Score', 'CardType', 'Custody', 'Region', 'Cashback', 'AnnualFee', 'FXFee', 'Status', 'BusinessSupport'],
+      ['Name', 'Score', 'CardType', 'Custody', 'Region', 'Cashback', 'AnnualFee', 'FXFee', 'Status', 'BusinessSupport', 'LastVerified'],
       ...typed.map((card) => [
         card.name,
         card.score,
@@ -703,6 +742,7 @@ function generateComparisonCsv(wallets: WalletData[], type: ComparisonToolProps[
         card.fxFee,
         card.status,
         card.businessSupport,
+        card.lastVerified ?? '',
       ].map(String)),
     ];
   }
