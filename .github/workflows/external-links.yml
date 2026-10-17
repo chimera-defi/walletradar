@@ -1,0 +1,25 @@
+name: External Link Audit
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: External Link Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Audit external links (report only)
+        run: bun scripts/check_external_links.js --tsv external-links.tsv | tee external-links.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: external-links
+          path: |
+            external-links.tsv
+            external-links.txt
