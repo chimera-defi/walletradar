@@ -198,3 +198,5 @@ For organizations and treasury setups, **Safe** is still the strongest security 
 ### Which wallets support the most blockchains?
 
 **Trust Wallet** remains the broadest multi-chain option in this table, while **MetaMask** has materially improved its non-EVM reach and **OKX** still covers a wide private-stack multi-chain surface. For focused Ethereum work, **Rabby** remains the higher-signal choice.
+
+**Last Updated:** October 17, 2026 | [Scoring Methodology](./SOFTWARE_WALLETS_DETAILS.md)
