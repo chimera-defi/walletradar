@@ -5,7 +5,7 @@
 > **Source of truth note:** Current `Score` values are generated from the visible columns in [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) via `scripts/sync_table_scores.js` (`2026-04-visible-columns-v3`). If a long-form section below mentions older rankings or manual bonuses, trust the main comparison table.
 
 <!-- GENERATED_CARDS_SNAPSHOT_START -->
-> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Ethena Pay (84, Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon), 🟢), Bleap (83, MPC self-custodial wallet, Mastercard (custody labelled CeFi: issuing bank and card funding path not stated), 🟢), and COCA (82, Non-custodial Visa card per issuer page; issuer, fees and FX not stated, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** EtherFi Cash (92, Self-custody DeFi, 🟢), Ethena Pay (84, Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon), 🟢), Bleap (83, MPC self-custodial wallet, Mastercard (custody labelled CeFi: issuing bank and card funding path not stated), 🟢), and Plasma One (81, USDT spend card, 🟢). Regenerated from [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Card | Score | Best For | Rec |
@@ -13,8 +13,8 @@
 | 1 | **EtherFi Cash** | 92 | Self-custody DeFi | 🟢 |
 | 2 | **Ethena Pay** | 84 | Non-US AVAX-cashback spend card (47 listed jurisdictions; EU coming soon) | 🟢 |
 | 3 | **Bleap** | 83 | MPC self-custodial wallet, Mastercard (custody labelled CeFi: issuing bank and card funding path not stated) | 🟢 |
-| 4 | **COCA** | 82 | Non-custodial Visa card per issuer page; issuer, fees and FX not stated | 🟢 |
-| 5 | **Plasma One** | 81 | USDT spend card | 🟢 |
+| 4 | **Plasma One** | 81 | USDT spend card | 🟢 |
+| 5 | **Gemini Card** | 79 | Credit building | 🟢 |
 <!-- GENERATED_CARDS_SNAPSHOT_END -->
 
 **Last Updated:** October 17, 2026 (market sweep: see [sweep log](#market-sweep-2026-10-17); re-check of issuer pages on 2026-10-15, see [Recheck log](#recheck-2026-10-15); earlier Oct 2026 issuer-source verification: see [Verification Log](#verification-log-october-2026). Custody: KAST, 1inch, Jupiter, CryptoSpend/Wayex, CoinJar, Spendly, Bitget Wallet Card, and Nummus Wallet Card are CeFi/card-platform; OKX Card is Exch because OKX Pay holds the balance.)
@@ -1950,7 +1950,7 @@ Web sweep for cards launched, changed or discontinued since about 2026-07-15. Al
 | Card | What the issuer page says | Not stated / unverified | Source |
 |------|---------------------------|-------------------------|--------|
 | Ledger CL Card | Baanx program, Monavate issuing entity; EEA, UK, US, CH, CA, CO, MX, BR; 1% back in BTC/USDT (BTC/USDC in US) | Fees, FX, custody wording (terms at withcl.com/legal) | [shop.ledger.com](https://shop.ledger.com/pages/cl-card-crypto-card) |
-| Xplace Platinum | $999 annual fee, 0% FX, 2% cashback capped at $250/mo, credit mode only; collateral non-custodial in Kamino (Solana) | 2026-09-14 start date and grandfathering (spendnode only) | [x.place/cashback](https://x.place/cashback/), [spendnode](https://spendnode.io/crypto-cards/xplace-platinum-card/) (secondary) |
+| Xplace Platinum | 2% cashback capped at $250/mo, credit mode only | $999 annual fee, 0% FX, non-custodial Kamino (Solana) collateral and the 2026-09-14 start date (spendnode only) | [x.place/cashback](https://x.place/cashback/), [spendnode](https://spendnode.io/crypto-cards/xplace-platinum-card/) (secondary) |
 | COCA | Visa, non-custodial, up to 8% cashback, free card; UK, EEA, Asia, South America, Middle East, Africa | Issuer (Wirex per spendnode), fees, FX | [coca.xyz](https://coca.xyz) |
 | Oobit | Up to 10% rewards, Apple Pay / Google Pay; regional availability applies | Issuer, custody, fees, FX (Rain and ~3% FX per spendnode) | [oobit.com](https://oobit.com) |
 | Deblock | Free Standard Visa debit plan | Premium EUR 14.99/mo, up to 1% cashback, 0% FX (reviews only); MiCA/ACPR status not checked | [deblock.com/en/cards](https://deblock.com/en/cards) |
@@ -1960,7 +1960,7 @@ Web sweep for cards launched, changed or discontinued since about 2026-07-15. Al
 | Card | Change | Confidence | Source |
 |------|--------|------------|--------|
 | Wirex | Legacy Wirex app discontinued for EEA customers 2026-09-30; balances not viewable from 2026-10-01; migrate to Wirex One. Cardano Card (Emurgo x Wirex) ends 2026-10-31 | Primary for the app; secondary for Cardano Card | [status.wirexapp.com](https://status.wirexapp.com/) |
-| Gnosis Pay | Notice 2026-09-21; card and web app stop 2026-12-20 23:59 UTC; cashback eligibility ends 2026-09-30; final distribution 2026-10-07 | Secondary (help article returned 404) | [Crypto Briefing](https://cryptobriefing.com), [The Defiant](https://thedefiant.io) |
+| Gnosis Pay | Notice 2026-09-21; card and web app stop 2026-12-20 23:59 UTC; cashback eligibility ends 2026-09-30; final distribution 2026-10-07 | Secondary (help article returned 404) | press summaries (Crypto Briefing, The Defiant; article URLs not retained) |
 | Plutus | Status set to Verify: site links a "2026 Transition Update" (not retrievable); a Modulr banking-partner collapse in Jan 2026 is claimed by one review site only | Unverified | [plutus.it](https://plutus.it), cryptocards.so (secondary) |
 
 **Dead or paused, context for existing rows**

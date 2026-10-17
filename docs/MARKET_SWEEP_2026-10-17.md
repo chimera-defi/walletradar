@@ -7,7 +7,7 @@ Coverage caveat: the sweep found no new consumer card launch in the US, Canada, 
 ## Diff
 
 ### New rows (5)
-Ledger CL Card (confirmed on Ledger's page), Xplace Platinum, COCA, Oobit, Deblock. Fields the issuer page does not state are `TBD`; status ⚠️ except Ledger CL.
+Ledger CL Card (confirmed on Ledger's page), Xplace Platinum, COCA, Oobit, Deblock. Fields the issuer page does not state are `TBD` or marked secondary; custody is CeFi where the issuer does not state the funding path (Bleap precedent); status ⚠️ except Ledger CL.
 
 ### Changed (3)
 - Wirex: legacy app discontinued for the EEA 2026-09-30 (primary: status.wirexapp.com). Cardano Card ends 2026-10-31 (secondary).
