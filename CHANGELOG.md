@@ -4,6 +4,9 @@ Status changes, recommendation changes, data corrections and docs changes. Newes
 
 ## 2026-10-17
 
+- **Second data-integrity pass (software, hardware, ramps/QR).** Software: Trust 75 -> 82 (Tx Sim and Scam re-read), Ledger Live 61 -> 66, Rabby/MetaMask audit lists, Phantom ~$268M, Gem CertiK; Coinbase Wallet row kept (renamed back from Base App 2026-09-10). Hardware: BitBox02 EUR 149, Nova EUR 175, Cypherock $179, imKey $109.99, Keycard link; Jade Core and OneKey Pro 2 added (43 rows). Ramps/QR: Stripe and Coinbase onramp doc links, Alchemy Pay mark removed, Flexa "112 payment currencies across 19 network labels", MERCHANT_FEED workflow claim corrected. Details in each `*_DETAILS.md` Recheck log and `docs/VERIFICATION.md`.
+- **External link auditor.** `scripts/check_external_links.js` (ok / moved / blocked / broken) plus a monthly read-only workflow, `.github/workflows/external-links.yml`.
+- **Amplify diagnosis.** `docs/AMPLIFY_DIAGNOSIS.md`: the app still builds the old monorepo; repointing it is a console step.
 - **Crypto cards market sweep.** 5 rows added with unstated fields left TBD: Ledger CL Card, Xplace Platinum, COCA, Oobit, Deblock. Wirex (legacy app discontinued for EEA 2026-09-30), Gnosis Pay (cashback ended 2026-09-30, secondary) and Plutus (status to Verify) updated. Payy, Amp Pay, CryptoSpend and Wirex links fixed. Sources and watchlist: `CRYPTO_CARDS_DETAILS.md` (Market sweep) and `docs/MARKET_SWEEP_2026-10-17.md`.
 
 ## 2026-10-15
