@@ -8,20 +8,20 @@
 | [**ColdCard Mk4**](https://coldcard.com/) | 88 | [firmware](https://github.com/Coldcard/firmware) | ✅ Full | ✅ Full | ✅ Dual SE | Mono LCD | ~$160‡ | MicroSD | ✅ Active | 2011 | 🟢 Self | 🟢 |
 | [**ColdCard Mk5**](https://coldcard.com/mk5) | 86 | [firmware](https://github.com/Coldcard/firmware) | ✅ Full | ✅ Full | ✅ Dual SE | LCD | ~$219 | MicroSD/NFC | ✅ Active | 2011 | 🟢 Self | 🟢 |
 | [**ColdCard Q**](https://coldcard.com/q) | 84 | [firmware](https://github.com/Coldcard/firmware) | ✅ Full | ✅ Full | ✅ Dual SE | LCD | ~$319 | QR/MicroSD/NFC | ✅ Active | 2011 | 🟢 Self | 🟢 |
-| [**Keycard Shell**](https://get.keycard.tech/products/keycard-shell) | 83 | [keycard-shell](https://github.com/keycard-tech/keycard-shell) | ✅ Full | ✅ Full | ✅ SE | Touch Keypad | ~€129 | QR/USB | ✅ Active | 2017 | 🟢 Status | 🟢 |
+| [**Keycard Shell**](https://keycard.tech/products/keycard-shell) | 83 | [keycard-shell](https://github.com/keycard-tech/keycard-shell) | ✅ Full | ✅ Full | ✅ SE | Touch Keypad | ~€129 | QR/USB | ✅ Active | 2017 | 🟢 Status | 🟢 |
 | [**Trezor Safe 5**](https://trezor.io/) | 78 | [trezor-firmware](https://github.com/trezor/trezor-firmware) | ❌ | ✅ Full | ✅ Optiga | Touch Color | ~$129 | USB-C | ✅ Active | 2013 | 🟢 SatoshiLabs | 🟢 |
 | [**Trezor Safe 7**](https://trezor.io/) | 78 | [trezor-firmware](https://github.com/trezor/trezor-firmware) | ❌ | ✅ Full | ✅ Tropic01 + Optiga | Touch Color | ~$249 | USB-C/BT | ✅ Active | 2013 | 🟢 SatoshiLabs | 🟢 |
 | [**Trezor Safe 3**](https://trezor.io/) | 77 | [trezor-firmware](https://github.com/trezor/trezor-firmware) | ❌ | ✅ Full | ✅ Optiga | Mono OLED | ~$59 | USB-C | ✅ Active | 2013 | 🟢 SatoshiLabs | 🟢 |
 | ~~[**Foundation Passport (Core)**](https://foundation.xyz/blog/passport-is-now-passport-core)~~ | 76 | [passport2](https://github.com/Foundation-Devices/passport2) | ✅ Full | ✅ Full | ✅ ATECC | Color LCD | ~$199* | MicroSD/QR | ❌ Inactive | 2020 | 🟡 VC | 🔴 |
 | [**Blockstream Jade**](https://blockstream.com/jade/) | 74 | [Jade](https://github.com/Blockstream/Jade) | ✅ Full | ✅ Full | ❌ None (virtual SE) | Color LCD | ~$67 | USB/BT/QR | ✅ Active | 2014 | 🟡 VC | 🟢 |
-| [**BitBox02**](https://bitbox.swiss/) | 73 | [bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | ❌ | ✅ Full | ✅ ATECC | Touch Edge | ~$150‡ | USB-C | ✅ Active | 2015 | 🟢 Self | 🟢 |
-| [**BitBox02 Nova**](https://bitbox.swiss/) | 73 | [bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | ❌ | ✅ Full | ✅ ATECC | Touch Edge | ~$150‡ | USB-C | ✅ Active | 2015 | 🟢 Self | 🟢 |
+| [**BitBox02**](https://bitbox.swiss/) | 73 | [bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | ❌ | ✅ Full | ✅ ATECC | Touch Edge | ~€149 | USB-C | ✅ Active | 2015 | 🟢 Self | 🟢 |
+| [**BitBox02 Nova**](https://bitbox.swiss/) | 73 | [bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | ❌ | ✅ Full | ✅ ATECC | Touch Edge | ~€175 | USB-C | ✅ Active | 2015 | 🟢 Self | 🟢 |
 | [**Blockstream Jade Plus**](https://store.blockstream.com/products/jade-plus) | 70 | [Jade](https://github.com/Blockstream/Jade) | ✅ Full | ✅ Full | ❌ None (virtual SE) | Color LCD | ~$149 | USB/BT/QR | ✅ Active | 2014 | 🟡 VC | 🟢 |
 | [**Krux**](https://selfcustody.github.io/krux/) | 70 | [krux](https://github.com/selfcustody/krux) | ✅ Full | ✅ Full | ❌ None | LCD | ~$30-100* | QR | ✅ Active | 2021 | 🔴 Community | 🟢 |
 | [**SeedSigner**](https://seedsigner.com/) | 70 | [seedsigner](https://github.com/SeedSigner/seedsigner) | ✅ Full | ✅ Full | ❌ None | LCD | ~$50-100* | QR | ✅ Active | 2020 | 🔴 Community | 🟢 |
 | [**Specter DIY**](https://specter.solutions/hardware/) | 70 | [specter-diy](https://github.com/cryptoadvance/specter-diy) | ✅ Full | ✅ Full | ❌ None | LCD | ~$50-150* | QR | ✅ Active | 2020 | 🔴 Community | 🟢 |
 | [**SafePal S1**](https://www.safepal.com/) | 69 | Private | ✅ Full | ⚠️ Partial | ✅ SE | LCD | ~$50 | QR | 🔒 Private | 2018 | 🟢 Binance | 🟢 |
-| [**Cypherock X1 Standard**](https://www.cypherock.com/) | 67 | [x1_wallet_firmware](https://github.com/Cypherock/x1_wallet_firmware) | ❌ | ✅ Full | ✅ ATECC + EAL6+ Cards | OLED | ~$179‡ | USB-C/NFC | ⚠️ Slow | 2019 | 🟡 VC | 🟡 |
+| [**Cypherock X1 Standard**](https://www.cypherock.com/) | 67 | [x1_wallet_firmware](https://github.com/Cypherock/x1_wallet_firmware) | ❌ | ✅ Full | ✅ ATECC + EAL6+ Cards | OLED | ~$179 | USB-C/NFC | ⚠️ Slow | 2019 | 🟡 VC | 🟡 |
 | [**Foundation Passport Prime**](https://foundation.xyz/passport-prime) | 67 | [KeyOS](https://github.com/Foundation-Devices/KeyOS) | ❌ | ✅ Full | ✅ SE | Touch Color | ~€381 | BT/NFC/USB-C/QR | ⚠️ Slow | 2020 | 🟡 VC | 🟢 |
 | [**Ledger Nano S+**](https://www.ledger.com/) | 67 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | Mono OLED | ~$69 | USB | 🔒 Private | 2014 | 🟢 Ledger | 🟢 |
 | [**Keycard**](https://keycard.tech/) | 65 | [status-keycard](https://github.com/keycard-tech/status-keycard) | ❌ | ✅ Full | ✅ CC | None | ~€29 | NFC | ✅ Active | 2017 | 🟢 Status | 🟡 |
@@ -35,10 +35,12 @@
 | [**KeepKey**](https://keepkey.com/) | 61 | [keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | ❌ | ✅ Full | ❌ None | OLED | ~$60 | USB | ✅ Active | 2014 | 🟢 ShapeShift | 🟡 |
 | [**Ledger Nano X**](https://www.ledger.com/) | 61 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33J2M0 EAL5+ | Mono OLED | ~$99 | USB/BT | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**Ledger Stax**](https://www.ledger.com/) | 59 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | E-Ink Touch | ~$399 | USB/BT/NFC | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
+| [**Blockstream Jade Core**](https://blockstream.com/jade/) | 58 | [Jade](https://github.com/Blockstream/Jade) | ❌ | ✅ Full | ❌ None (virtual SE) | Color LCD | ~$99 | USB/BT | ✅ Active | 2014 | 🟡 VC | 🔴 |
 | [**Bitkey**](https://bitkey.world/) | 55 | [bitkey](https://github.com/proto-at-block/bitkey) | ❌ | ✅ Full† | ❌ Not documented | OLED Touch | ~€230 | NFC/USB-C | ✅ Active | 2009 | 🟢 Block | 🔴 |
 | [**Firefly**](https://firefly.city/) *(partial data)* | 55 | [wallet](https://github.com/firefly/wallet) | ✅ Full | ✅ Full | ❌ None | OLED | ~$5* | TBD | ❌ Inactive | TBD | 🔴 Unknown | 🔴 |
-| [**imKey Pro**](https://imkey.im/) *(partial data)* | 53 | [imkey-core](https://github.com/consenlabs/imkey-core) | TBD | ⚠️ Partial | ✅ SE EAL6+ | TBD | ~$110‡ | USB/BT | ❌ Inactive | 2018 | 🟢 Self | 🔴 |
+| [**imKey Pro**](https://imkey.im/) *(partial data)* | 53 | [imkey-core](https://github.com/consenlabs/imkey-core) | TBD | ⚠️ Partial | ✅ SE EAL6+ | TBD | ~$110 | USB/BT | ❌ Inactive | 2018 | 🟢 Self | 🔴 |
 | [**SafePal X1**](https://www.safepal.com/en/store) | 52 | Private | ❌ | ⚠️ Partial | ✅ SE | LCD | ~$70 | BT | 🔒 Private | 2018 | 🟢 Binance | 🔴 |
+| [**OneKey Pro 2**](https://onekey.so/products/onekey-pro-2/) *(partial data)* | 51 | TBD | ❌ | ✅ Full | ✅ SE | Touch Color | ~$299 | USB/BT/NFC | TBD | 2019 | 🟡 VC | 🔴 |
 | [**Ellipal Titan 2.0**](https://www.ellipal.com/) | 48 | Private | ✅ Full | ❌ Closed | ❌ None | Touch Color | ~$169 | QR | 🔒 Private | 2018 | 🔴 Unknown | 🔴 |
 | [**SecuX V20**](https://secuxtech.com/) | 48 | Private | ❌ | ❌ Closed | ✅ SE | Touch Color | ~$99 | USB/BT | 🔒 Private | 2018 | 🔴 Unknown | 🔴 |
 | [**Tangem Wallet**](https://tangem.com/) | 46 | Private | ❌ | ⚠️ Partial | ✅ SE | None | ~$55 | NFC | 🔒 Private | 2017 | 🟡 VC | 🔴 |
@@ -47,8 +49,9 @@
 | [**BC Vault**](https://bc-vault.com/) | 30 | Private | ❌ | ❌ Closed | ❌ None | OLED | ~€160 | USB | 🔒 Private | 2014 | 🔴 Unknown | 🔴 |
 
 *\* DIY wallets — price varies based on components purchased; requires self-assembly*
-*‡ Price UNVERIFIED on 2026-10-15: the official store blocked automated fetches (BitBox, HTTP 403), had no price on the fetched page (Cypherock), blocked the fetch (Arculus, HTTP 403), or no longer lists the device (ColdCard Mk4 was replaced by the Mk5 in the Coinkite store; imKey shows no price). The figure is the previous value.*
-*Prices are USD from official stores on 2026-10-15 unless the cell shows € (scored by face value, like a USD amount) (store sells in euros and no USD price was available: Keycard, Passport Prime, Bitkey, BC Vault). Blockstream Jade is on sale at $67 (list $79); Jade Plus is $149 plastic, $169 metal.*
+*‡ Price UNVERIFIED on 2026-10-17: getarculus.com returned HTTP 403 on a plain fetch and a Cloudflare check in headless Chromium, so the Arculus figure is the previous value. ColdCard Mk4 is not sold any more (coldcard.com/mk4: "replaced by Mk5") and has no current price, so ~$160 is the previous value.*
+*Prices are USD from official stores on 2026-10-15 (BitBox02, BitBox02 Nova, Cypherock X1 Standard, imKey Pro, Jade Core and OneKey Pro 2 on 2026-10-17) unless the cell shows € (scored by face value, like a USD amount) (store sells in euros and no USD price was available: Keycard, Passport Prime, Bitkey, BC Vault, BitBox02 and Nova at €149 and €175 on shop.bitbox.swiss). Blockstream Jade is on sale at $67 (list $79); Jade Plus is $149 plastic, $169 metal.*
+*Cypherock X1 Standard $179 is the sale price (list $209, cypherock.com/shop). imKey Pro is $109.99 (shop.imkey.im). Jade Core is $99 on blockstream.com/jade (its store.blockstream.com page returned 404 on 2026-10-17); the page lists USB-C, Bluetooth and a 1.9" LCD but no camera or air-gap feature, so Air-Gap reads ❌. OneKey Pro 2 ($299, onekey.so/products/onekey-pro-2/) is partial data: the page lists 4 EAL6+ secure elements, Bluetooth, NFC, USB-C and Air-Gap, and says all software and firmware are open source, but no public Pro 2 firmware repo was identified, so GitHub and Activity are TBD and Air-Gap is ❌ pending a documented QR flow.*
 *Jade and Jade Plus use a "virtual secure element" (open-source blind oracle) instead of a physical chip, so the Secure Elem cell reads None.*
 *Activity follows the linked firmware repo (default-branch commits, checked 2026-10-15). OneKey Classic 1S rows link the `firmware` repo, last commit 2026-05-12, so they read Inactive even though the device is still sold. Discontinued devices (Passport Core, Ledger Nano S) are set to Inactive.*
 *† Bitkey publishes app, server, schematics, and firmware code under MIT, but external parties still cannot build every firmware component because the fingerprint matching library remains proprietary.*
@@ -126,7 +129,7 @@
 
 > **TL;DR:** Use **Keystone 3 Pro** (92) when you want the strongest air-gapped multi-asset option, **ColdCard Mk5 / Q** (86 / 84) for Bitcoin-first security (read the July 2026 seed-generation advisory first), **Keycard Shell** (83) or **Blockstream Jade** (74) for open QR-capable setups, and **Trezor Safe 7 / 5 / 3** (78 / 78 / 77) when you prefer a USB-first open-source workflow with mainstream wallet integrations. The original Foundation Passport is discontinued.
 
-**Last Updated:** October 15, 2026 | [Scoring Methodology](./HARDWARE_WALLETS_DETAILS.md#-scoring-methodology) | [GitHub Activity Data](./HARDWARE_WALLETS_DETAILS.md#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
+**Last Updated:** October 17, 2026 | [Scoring Methodology](./HARDWARE_WALLETS_DETAILS.md#-scoring-methodology) | [GitHub Activity Data](./HARDWARE_WALLETS_DETAILS.md#github-metrics-firmware-repositories) | [View Company Aggregates](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md)
 
 **Related:** See [Software Wallet Comparison](./SOFTWARE_WALLETS.md) for EVM wallet recommendations and integration details.
 **Companies:** See [Hardware Wallet Companies](https://github.com/chimera-defi/walletradar/blob/main/HARDWARE_WALLET_COMPANIES.md) for aggregated scores and wallet counts by manufacturer.

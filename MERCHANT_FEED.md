@@ -1,6 +1,6 @@
 # Merchant Center Feed (Hardware Wallets)
 
-Last updated: 2026-10-16
+Last updated: 2026-10-17
 
 ## Scope
 
@@ -35,13 +35,19 @@ Last updated: 2026-10-16
 - Not re-fetched this run: Trezor Safe 3, OneKey (checked 2026-10-15; OneKey Classic 1S 99 and Pure 79 re-seen in page JSON today).
 - `availability` is now read from an optional `availability` field in `data/merchant_pricing.json` (in stock, out of stock, preorder, backorder; default in stock).
 
+## Price checks on 2026-10-17
+
+- Re-fetched from page JSON-LD (all unchanged): Ledger Nano X 99, Nano S+ 69, Nano Gen5 179, Flex 249, Trezor Safe 3 59 (USD), OneKey Pro 278, OneKey Classic 1S 99 and Pure 79, Blockstream Jade 67.
+- BitBox02 (EUR 149) and BitBox02 Nova (EUR 175) are priced in euros on shop.bitbox.swiss, so they stay out of the USD feed. Arculus still returns HTTP 403.
+- Rows tagged "(partial data)" in the table (imKey Pro, OneKey Pro 2) do not match the feed's name lookup and are not in the feed.
+
 ## Excluded from feed (no verified USD price or out of scope)
 
-- Arculus (blocked by 403 during automated fetch)
+- Arculus (HTTP 403 and a Cloudflare check on 2026-10-17)
 - Bitkey (EUR 230 only on bitkey.world)
 - BitBox02 (EUR pricing; feed limited to USD)
 - BitBox02 Nova (EUR pricing; feed limited to USD)
-- ColdCard Mk4 (blocked by 403 during automated fetch)
+- ColdCard Mk4 (replaced by the Mk5 per coldcard.com/mk4; no current price)
 - Ellipal Titan 2.0 (no product page found)
 - Foundation Passport (no price on marketing page)
 - GridPlus Lattice1 (store hostname not resolvable)

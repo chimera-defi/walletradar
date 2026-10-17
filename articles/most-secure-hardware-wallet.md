@@ -114,7 +114,7 @@ tags: ["hardware-wallet", "security", "cold-storage", "bitcoin"]
    - Countdown to brick (protects against brute force)
    - Anti-phishing words
 
-**Price:** ~$160 (UNVERIFIED; Mk4 no longer listed, Mk5 is $219)
+**Price:** ~$160 (UNVERIFIED; Mk4 is replaced by the Mk5 per coldcard.com/mk4 and no longer sold, Mk5 is $219)
 **Best For:** Bitcoin maximalists, paranoid security, long-term cold storage
 
 **Limitations:**
