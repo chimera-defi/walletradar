@@ -7,16 +7,16 @@
 > **TL;DR:** The generated snapshot below mirrors the current main-table ordering and scores. Use it for the latest rankings; the long-form sections below explain audits, integration tradeoffs, and developer workflow details.
 
 <!-- GENERATED_SOFTWARE_SNAPSHOT_START -->
-> **Current generated snapshot:** Rabby (86, Development, 🟢), MetaMask (80, Compatibility, 🟢), Safe (77, Treasury/DAO, ⚪), and Brave (75, Brave users, 🟢). Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
+> **Current generated snapshot:** Rabby (86, Development, 🟢), Trust (82, Multi-chain, 🟢), MetaMask (80, Compatibility, 🟢), and Safe (77, Treasury/DAO, ⚪). Regenerated from [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) by `scripts/sync_table_scores.js` using methodology `2026-04-visible-columns-v3`.
 
 ### Current Top Rows (generated)
 | Rank | Wallet | Score | Best For | Rec |
 | ---- | ------ | ----- | -------- | --- |
 | 1 | **Rabby** | 86 | Development | 🟢 |
-| 2 | **MetaMask** | 80 | Compatibility | 🟢 |
-| 3 | **Safe** | 77 | Treasury/DAO | ⚪ |
-| 4 | **Brave** | 75 | Brave users | 🟢 |
-| 5 | **Trust** | 75 | Multi-chain | 🟢 |
+| 2 | **Trust** | 82 | Multi-chain | 🟢 |
+| 3 | **MetaMask** | 80 | Compatibility | 🟢 |
+| 4 | **Safe** | 77 | Treasury/DAO | ⚪ |
+| 5 | **Brave** | 75 | Brave users | 🟢 |
 <!-- GENERATED_SOFTWARE_SNAPSHOT_END -->
 
 **Data Sources:** GitHub REST API (stars, issues, last commit: re-fetched Oct 15, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
