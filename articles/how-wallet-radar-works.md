@@ -2,7 +2,7 @@
 title: "How Wallet Radar Works: Data, Scores and How to Read Them"
 description: "Where Wallet Radar data comes from, how the 0-100 scores are computed (with one wallet recomputed by the script), and how to read the tables, filters and compare view."
 category: guide
-lastUpdated: "2026-10-16"
+lastUpdated: "2026-10-17"
 author: "Wallet Radar"
 tags: ["methodology", "scoring", "data-sources", "guide"]
 ---
@@ -11,7 +11,7 @@ tags: ["methodology", "scoring", "data-sources", "guide"]
 
 Wallet Radar is four markdown tables and one script. The tables hold what we could source about software wallets, hardware wallets, crypto cards and ramps. The script turns each row into a 0-100 score. The website reads the same tables and the same scoring code, so what you see is what the script computes.
 
-This page covers where the data comes from, how a score is built, how to read the comparison pages, and where the numbers stop being reliable. Counts are from the tables on 2026-10-16: 33 software wallets, 41 hardware wallets, 51 cards and 22 ramps.
+This page covers where the data comes from, how a score is built, how to read the comparison pages, and where the numbers stop being reliable. Counts are from the tables on 2026-10-17: 33 software wallets, 43 hardware wallets, 57 cards and 22 ramps.
 
 ## Where the data comes from
 
@@ -102,7 +102,7 @@ The coloured Rec mark (🟢 🟡 🔴 ⚪) is a rank band set per table each tim
 3. The remaining rows are sorted by score, lowest first. The bottom `floor(N × 0.25)` rows are 🔴, the next rows up to `floor(N × 0.5)` are 🟡, and the rest are 🟢. Rows with equal scores are ordered as they appear in the table.
 4. A "launching" product cannot be 🟢. It is capped at 🟡.
 
-The software table shows how much this matters. Of 33 wallets, 18 are ⚪ because they miss the developer gate. Only 8 are ranked: 2 🔴, 2 🟡, 4 🟢. With the inactive rows that makes 9 🔴 in all. Rabby is 🟢 because it is in the top 4 of 8, not because 86 crosses a line. Elsewhere: 41 hardware wallets give 18 🟢, 9 🟡, 14 🔴; 51 cards give 23, 13, 15; 22 ramps give 11, 6, 5.
+The software table shows how much this matters. Of 33 wallets, 18 are ⚪ because they miss the developer gate. Only 8 are ranked: 2 🔴, 2 🟡, 4 🟢. With the inactive rows that makes 9 🔴 in all. Rabby is 🟢 because it is in the top 4 of 8, not because 86 crosses a line. Elsewhere: 43 hardware wallets give 18 🟢, 9 🟡, 16 🔴; 57 cards give 26, 14, 17; 22 ramps give 11, 6, 5.
 
 ## How to read a comparison
 
