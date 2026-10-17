@@ -434,7 +434,7 @@ Only rename files/URLs if:
 
 **Comparison pages follow this pattern:**
 - **Table view:** `CATEGORY.md` → `/docs/category` (e.g., `data/tables/SOFTWARE_WALLETS.md` → `/docs/software-wallets`)
-- **Details view:** `CATEGORY_DETAILS.md` → `/docs/category-details` (e.g., `data/tables/SOFTWARE_WALLETS_DETAILS.md` → `/docs/software-wallets-details`)
+- **Details view:** `CATEGORY_DETAILS.md` renders inside the category page at `/docs/category/#details` (e.g., `data/tables/SOFTWARE_WALLETS_DETAILS.md` → `/docs/software-wallets/#details`)
 
 **Slug generation formula:** `filename.replace('.md', '').toLowerCase().replace(/_/g, '-')`
 
