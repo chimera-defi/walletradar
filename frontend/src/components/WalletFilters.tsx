@@ -36,6 +36,7 @@ export interface FilterState {
   cardType: string[];
   custody: string[];
   cardStatus: string[];
+  verification: string[];
   region: string[];
   businessSupport: boolean | null;
   noAnnualFee: boolean | null;
@@ -144,6 +145,12 @@ const CARD_STATUS_OPTIONS = [
   { value: 'inactive', label: '❌ Inactive', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' },
 ];
 
+const VERIFICATION_OPTIONS = [
+  { value: 'fresh', label: 'Checked within 60 days' },
+  { value: 'stale', label: 'Stale (over 60 days)' },
+  { value: 'unknown', label: 'Not verified' },
+];
+
 const SORT_OPTIONS = {
   software: [
     { value: 'score', label: 'Score' },
@@ -160,6 +167,7 @@ const SORT_OPTIONS = {
     { value: 'score', label: 'Score' },
     { value: 'name', label: 'Name' },
     { value: 'cashBackMax', label: 'Cashback Rate' },
+    { value: 'lastVerified', label: 'Last Verified' },
   ],
   ramps: [
     { value: 'score', label: 'Score' },
@@ -188,6 +196,7 @@ export const initialFilterState: FilterState = {
   cardType: [],
   custody: [],
   cardStatus: [],
+  verification: [],
   region: [],
   businessSupport: null,
   noAnnualFee: null,
@@ -407,6 +416,7 @@ export function WalletFilters({
     if (filters.cardType.length) count++;
     if (filters.custody.length) count++;
     if (filters.cardStatus.length) count++;
+    if (filters.verification.length) count++;
     if (filters.region.length) count++;
     if (filters.businessSupport !== null) count++;
     if (filters.noAnnualFee !== null) count++;
@@ -640,6 +650,12 @@ export function WalletFilters({
                 options={CARD_STATUS_OPTIONS}
                 selected={filters.cardStatus}
                 onChange={values => updateFilter('cardStatus', values)}
+              />
+              <MultiSelect
+                label="Last Verified"
+                options={VERIFICATION_OPTIONS}
+                selected={filters.verification}
+                onChange={values => updateFilter('verification', values)}
               />
               <MultiSelect
                 label="Region"
