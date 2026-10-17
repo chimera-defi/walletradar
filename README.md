@@ -69,7 +69,7 @@ Some provider sites block automated checks (403, 429, timeout). A headless Chrom
 
 - **Frontend:** Next.js 16, React 19, Tailwind CSS 4, TypeScript 6, Lucide icons, react-markdown with GFM.
 - **Data:** Markdown tables parsed at build time. Sources: GitHub REST API, WalletBeat, Rabby API, Trust Wallet registry, DeFiLlama.
-- **Hosting and CI:** AWS Amplify, GitHub Actions. OG images are generated with Canvas and Sharp.
+- **Hosting and CI:** AWS Amplify, GitHub Actions. OG images are generated with Canvas.
 
 ## Get started
 
@@ -109,8 +109,10 @@ scripts/           Data tooling (see scripts/README.md)
 tests/             Vitest unit tests
 data/              Sidecar attributes, merchant pricing
 articles/          SEO articles
-docs/              Maintainer docs (verification log, SEO notes, incident record)
-*.md (root)        Data tables, *_DETAILS.md, and site pages
+docs/              Maintainer docs (verification log, SEO notes, redirects; one-off records in docs/archive)
+data/tables/       Data tables and *_DETAILS.md
+docs/site/         Site pages (about, data sources, glossary)
+*.md (root)        README, AGENTS, CLAUDE, CONTRIBUTING, CHANGELOG
 ```
 
 ## Data sources
