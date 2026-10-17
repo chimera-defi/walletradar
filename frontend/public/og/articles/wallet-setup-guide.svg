@@ -8,7 +8,7 @@
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
   <text x="80" y="120" fill="#38BDF8" font-size="24" font-family="Arial, sans-serif" font-weight="600">Wallet Radar</text>
-  <text x="80" y="220" fill="#E2E8F0" font-size="48" font-family="Arial, sans-serif" font-weight="700">Best Multi-Chain Wallet in 2026</text>
+  <text x="80" y="220" fill="#E2E8F0" font-size="48" font-family="Arial, sans-serif" font-weight="700">Wallet Setup Guide</text>
   <rect x="80" y="520" width="220" height="36" rx="18" fill="#0EA5E9" opacity="0.2" />
-  <text x="95" y="545" fill="#7DD3FC" font-size="18" font-family="Arial, sans-serif">wallet comparison</text>
+  <text x="95" y="545" fill="#7DD3FC" font-size="18" font-family="Arial, sans-serif">setup guide</text>
 </svg>
