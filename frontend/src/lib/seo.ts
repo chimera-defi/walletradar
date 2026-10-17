@@ -9,15 +9,10 @@
 export function getOgImagePath(slug: string): string {
   const imageMap: Record<string, string> = {
     'software-wallets': '/og-image.svg',
-    'software-wallets-details': '/og-image.svg',
     'hardware-wallets': '/og-image.svg',
-    'hardware-wallets-details': '/og-image.svg',
     'crypto-cards': '/og-image.svg',
-    'crypto-cards-details': '/og-image.svg',
     'ramps': '/og-image.svg',
-    'ramps-details': '/og-image.svg',
     'qr-payments': '/og-image.svg',
-    'qr-payments-details': '/og-image.svg',
     'rabby-vs-metamask': '/og/articles/rabby-vs-metamask.svg',
     'best-wallet-for-ethereum-developers': '/og/articles/best-wallet-for-ethereum-developers.svg',
     'most-secure-hardware-wallet': '/og/articles/most-secure-hardware-wallet.svg',
