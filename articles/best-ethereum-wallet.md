@@ -46,7 +46,7 @@ Source: `SOFTWARE_WALLETS.md`
 **MetaMask (80)** — Required for broad dApp coverage.
 
 ### 5) DeFi
-- **Rabby (86)**: best for DeFi safety. Transaction simulation reduces costly mistakes and reveals approvals before signing.
+- **Rabby (86)**: best for DeFi safety. Transaction simulation and scam detection reduce costly mistakes and reveals approvals before signing.
 - **Safe (77)**: best for treasuries and DAOs. A multisig standard for teams that require multi-approver security.
 - **MetaMask (80)**: best for compatibility, with the widest dApp coverage.
 
