@@ -24,7 +24,7 @@ How walletradar.org is set up for search engines and for LLM citation. Covers on
 2. Every comparison page keeps its FAQ section. Questions become FAQPage JSON-LD through `extractFAQsFromMarkdown`.
 3. Scores quoted in prose must match the table. Run `bun scripts/sync_table_scores.js` (no `--write`; it reports drift) after any score edit, then `rg` the old number in `articles/` and the FAQs.
 4. Do not duplicate a schema type on one page. Validate new schema on one page first.
-5. Link to official sites. No affiliate links. If a link ever has a commercial relationship, label it ([DATA_SOURCES.md](../DATA_SOURCES.md)).
+5. Link to official sites. No affiliate links. If a link ever has a commercial relationship, label it ([DATA_SOURCES.md](site/DATA_SOURCES.md)).
 6. A new page needs an OG image generator entry and a committed PNG ([AGENTS.md](../AGENTS.md)).
 
 ## Articles
@@ -33,7 +33,7 @@ Markdown files in `articles/` with this frontmatter: `title`, `description`, `ca
 
 ## Merchant Center feed and speakable summary
 
-- `scripts/generate_merchant_feed.py` writes `frontend/public/merchant-center.xml` from the hardware wallet table. Pricing sources and exclusions: [MERCHANT_FEED.md](../MERCHANT_FEED.md). A weekly workflow (`.github/workflows/generate-merchant-feed.yml`) regenerates it.
+- `scripts/generate_merchant_feed.py` writes `frontend/public/merchant-center.xml` from the hardware wallet table. Pricing sources and exclusions: [MERCHANT_FEED.md](MERCHANT_FEED.md). A weekly workflow (`.github/workflows/generate-merchant-feed.yml`) regenerates it.
 - The homepage has a short `.speakable-summary` block. Homepage and doc pages emit Speakable JSON-LD pointing at it, so voice assistants read a summary instead of a table.
 
 ## Test it

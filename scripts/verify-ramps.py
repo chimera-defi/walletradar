@@ -20,7 +20,7 @@ from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 
 ROOT = Path(__file__).resolve().parents[1]
-RAMPS_MD = ROOT / "RAMPS.md"
+RAMPS_MD = ROOT / "data" / "tables" / "RAMPS.md"
 ARTIFACTS = ROOT / "artifacts"
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
 

@@ -25,7 +25,7 @@ tags: ["comparison", "software-wallets", "account-abstraction"]
 | **Coinbase Wallet** | 67 | Coinbase ecosystem + AA |
 | **MetaMask** | 80 | Compatibility + dApp coverage |
 
-Source: `SOFTWARE_WALLETS.md`
+Source: `data/tables/SOFTWARE_WALLETS.md`
 
 ---
 

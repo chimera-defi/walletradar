@@ -46,14 +46,14 @@ The method is defined once, in the [contributing guide](https://github.com/chime
 
 ### One wallet, recomputed by the script
 
-Rabby's row in `SOFTWARE_WALLETS.md` reads, in the cells that matter: Core ✅, Rel/Mo ~4, RPC ✅, GitHub linked, Active ✅, Chains one EVM icon, Devices 📱🌐💻, Testnets ✅, License ✅ MIT, API 🌐 Public, Audits ⚠️, Funding 🟢, Tx Sim ✅, Scam ✅, Account EOA+Safe, ENS ⚠️ Import only, HW ✅.
+Rabby's row in `data/tables/SOFTWARE_WALLETS.md` reads, in the cells that matter: Core ✅, Rel/Mo ~4, RPC ✅, GitHub linked, Active ✅, Chains one EVM icon, Devices 📱🌐💻, Testnets ✅, License ✅ MIT, API 🌐 Public, Audits ⚠️, Funding 🟢, Tx Sim ✅, Scam ✅, Account EOA+Safe, ENS ⚠️ Import only, HW ✅.
 
 We ran the scoring function on that row from the repo root:
 
 ```js
 const fs = require('fs');
 const { computeSoftwareScore } = require('./frontend/src/lib/scoring.js');
-const row = fs.readFileSync('SOFTWARE_WALLETS.md', 'utf8').split('\n').find((l) => l.includes('**Rabby**'));
+const row = fs.readFileSync('data/tables/SOFTWARE_WALLETS.md', 'utf8').split('\n').find((l) => l.includes('**Rabby**'));
 const cells = row.split('|').slice(1, -1).map((c) => c.trim());
 const info = computeSoftwareScore(cells);
 console.log(info.score, info.recommendation);

@@ -20,7 +20,7 @@ BASE_URL = os.environ.get("WALLET_BASE_URL", "https://walletradar.org")
 BASE_DIR = Path(__file__).resolve().parents[1]
 
 TABLE_FILES = {
-    "hardware": BASE_DIR / "HARDWARE_WALLETS.md",
+    "hardware": BASE_DIR / "data" / "tables" / "HARDWARE_WALLETS.md",
 }
 PRICING_FILE = BASE_DIR / "data" / "merchant_pricing.json"
 

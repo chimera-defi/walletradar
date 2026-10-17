@@ -6,16 +6,16 @@ Contents: [Data refresh 2026-10-15](#data-refresh-2026-10-15) | [Open items and 
 
 ## Data refresh 2026-10-15
 
-Every number in scope was re-fetched from a primary page or API on 2026-10-15, or marked UNVERIFIED with the reason. Scores were regenerated with `bun scripts/sync_table_scores.js --write`, never by hand. Full per-cell tables are in the PR bodies and in `CRYPTO_CARDS_DETAILS.md` (Recheck log) and `HARDWARE_WALLETS_DETAILS.md`.
+Every number in scope was re-fetched from a primary page or API on 2026-10-15, or marked UNVERIFIED with the reason. Scores were regenerated with `bun scripts/sync_table_scores.js --write`, never by hand. Full per-cell tables are in the PR bodies and in `data/tables/CRYPTO_CARDS_DETAILS.md` (Recheck log) and `data/tables/HARDWARE_WALLETS_DETAILS.md`.
 
 ### Changes per category
 
 | Category | Data changes | Notes |
 |---|---|---|
-| Software wallets | 14 changed fields in `SOFTWARE_WALLETS.md`; GitHub metrics refreshed for 22 repos in `_DETAILS` | Scores regenerated. Merged as #110. |
+| Software wallets | 14 changed fields in `data/tables/SOFTWARE_WALLETS.md`; GitHub metrics refreshed for 22 repos in `_DETAILS` | Scores regenerated. Merged as #110. |
 | Hardware wallets | 53 changed cells over 33 wallets (26 price changes, 6 new rows) | Scores regenerated. Merged as #112. |
-| Crypto cards | 16 changed fields in `CRYPTO_CARDS.md`, 3 new rows (Bleap, Tangem Pay, Phantom Cash Card) | Merged as #111. |
-| Ramps and QR | 9 changed fields in `RAMPS.md`; 13 more in `RAMPS_DETAILS.md` and `QR_PAYMENTS*.md` | Merged as #113. |
+| Crypto cards | 16 changed fields in `data/tables/CRYPTO_CARDS.md`, 3 new rows (Bleap, Tangem Pay, Phantom Cash Card) | Merged as #111. |
+| Ramps and QR | 9 changed fields in `data/tables/RAMPS.md`; 13 more in `data/tables/RAMPS_DETAILS.md` and `data/tables/QR_PAYMENTS*.md` | Merged as #113. |
 
 ### Top changes (old -> new)
 
@@ -59,7 +59,7 @@ Each item below keeps its old value and carries a mark or a note in the data.
 
 - Bot-protected pages: bitbox.swiss, getarculus.com, transak.com, coinbase.com, uphold.com, revolut.com and EtherFi return 403, 429 or a browser check. A headless Chromium pass resolves some; the rest need a human browser session.
 - Secondary-only facts: Gnosis Pay end date, Ready shutdown, Solflare pause detail, Ledger Global-e incident and BitBox Dixence update (not added).
-- Legacy score narratives in `SOFTWARE_WALLETS_DETAILS.md` were removed in the docs cleanup. Table scores are the only scores.
+- Legacy score narratives in `data/tables/SOFTWARE_WALLETS_DETAILS.md` were removed in the docs cleanup. Table scores are the only scores.
 - Out-of-slice drift reported by the hardware pass: `data/merchant_pricing.json` (Ledger Nano S+ 59 vs 69, Jade 79 vs 67 list/sale, Bitkey 150 vs €230) and `frontend/scripts/generate-og-images.js` hardware prices; OG PNGs need regenerating after the UI pass.
 
 ## Open items and won't-do
@@ -111,11 +111,11 @@ Kept as is:
 - **Fuse Wallet Card (Self, UNVERIFIED):** fusewallet.com says "self-custodial smart accounts"; card terms not read. `fuse.io` is a different entity.
 - **Kontigo (Self, inactive):** kept as a discontinued row after Rain shut down the card program.
 
-The full per-card custody table lives in the Custody column of `CRYPTO_CARDS.md`. Issuer evidence per card is in `CRYPTO_CARDS_DETAILS.md`.
+The full per-card custody table lives in the Custody column of `data/tables/CRYPTO_CARDS.md`. Issuer evidence per card is in `data/tables/CRYPTO_CARDS_DETAILS.md`.
 
 ## WalletBeat additions (2026-10-10)
 
-Snapshot: https://github.com/walletbeat/walletbeat/tree/82e3036aba53d8dd13a55f42089ba09c44afa8c5 (MIT, see [DATA_SOURCES.md](../DATA_SOURCES.md)). Rows are tagged `*(partial data)*`. Only sourced fields are filled; the rest is `TBD` or `?`. Generated scores treat `TBD` as the lowest-signal value, so they are lower bounds, not rankings. `EVM` in Chains means WalletBeat evaluates the wallet on EVM; no other chains are claimed. Funding `Self` = WalletBeat `selfFunded: true`; `Unknown` = no funding flag.
+Snapshot: https://github.com/walletbeat/walletbeat/tree/82e3036aba53d8dd13a55f42089ba09c44afa8c5 (MIT, see [DATA_SOURCES.md](site/DATA_SOURCES.md)). Rows are tagged `*(partial data)*`. Only sourced fields are filled; the rest is `TBD` or `?`. Generated scores treat `TBD` as the lowest-signal value, so they are lower bounds, not rankings. `EVM` in Chains means WalletBeat evaluates the wallet on EVM; no other chains are claimed. Funding `Self` = WalletBeat `selfFunded: true`; `Unknown` = no funding flag.
 
 `WB` = `https://github.com/walletbeat/walletbeat/blob/82e3036aba53d8dd13a55f42089ba09c44afa8c5/data/`. `GH` = GitHub REST API metadata fetched 2026-10-10.
 
@@ -135,7 +135,7 @@ Not added: **Family** (only devices and account type are sourced, so every score
 ## Card notes
 
 - **Reap:** Cloudflare blocks plain fetches. Playwright with a ~30 second wait works. Pricing page: https://reap.global/resources/info/pricing. Corporate Visa credit card, annual fee free, ATM 2%, FX 2%, 1:1 collateral, business accounts only. The 2026-10-15 recheck could not re-confirm the 0%/2% FX figures (UNVERIFIED).
-- **EtherFi Cash:** the page is JavaScript-rendered; Playwright with `networkidle` extracts it. Tier details are in `CRYPTO_CARDS_DETAILS.md`. The 2026-10-15 recheck hit a 429 and a Vercel checkpoint, so cashback and fees are UNVERIFIED.
+- **EtherFi Cash:** the page is JavaScript-rendered; Playwright with `networkidle` extracts it. Tier details are in `data/tables/CRYPTO_CARDS_DETAILS.md`. The 2026-10-15 recheck hit a 429 and a Vercel checkpoint, so cashback and fees are UNVERIFIED.
 - **Mode Card:** modeapp.com is unreachable on repeated checks (`mode.com` is a different company). Treat as defunct.
 - **Cards that block or 404 on their card page:** Swissborg (now advertised on swissborg.com), Uphold, CoinJar, Hi Card, Bybit. Find a live card page before changing fees.
 - **High cashback claims (8-10%)** usually need token staking. Record the base rate and the staked maximum separately.

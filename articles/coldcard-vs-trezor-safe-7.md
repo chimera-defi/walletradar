@@ -25,7 +25,7 @@ tags: ["comparison", "hardware-wallets", "bitcoin"]
 | **Trezor Safe 7** | 78 | Multi-chain, secure element |
 | **ColdCard Mk4** | **88** | Bitcoin-only, air-gap |
 
-Source: `HARDWARE_WALLETS_DETAILS.md`
+Source: `data/tables/HARDWARE_WALLETS_DETAILS.md`
 
 ---
 

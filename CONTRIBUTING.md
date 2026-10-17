@@ -5,18 +5,18 @@ Keep the tables accurate and sourced. Tables are the source of truth.
 ## Quick Links
 
 ### Software Wallets (EVM)
-- **Main comparison:** [SOFTWARE_WALLETS.md](./SOFTWARE_WALLETS.md) | [Details](./SOFTWARE_WALLETS_DETAILS.md)
+- **Main comparison:** [SOFTWARE_WALLETS.md](./data/tables/SOFTWARE_WALLETS.md) | [Details](./data/tables/SOFTWARE_WALLETS_DETAILS.md)
 - **Refresh script:** [scripts/refresh-github-data.sh](https://github.com/chimera-defi/walletradar/blob/main/scripts/refresh-github-data.sh)
 
 ### Hardware Wallets (Cold Storage)
-- **Hardware comparison:** [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) | [Details](./HARDWARE_WALLETS_DETAILS.md)
+- **Hardware comparison:** [HARDWARE_WALLETS.md](./data/tables/HARDWARE_WALLETS.md) | [Details](./data/tables/HARDWARE_WALLETS_DETAILS.md)
 - **Refresh script:** [scripts/refresh-hardware-wallet-data.sh](https://github.com/chimera-defi/walletradar/blob/main/scripts/refresh-hardware-wallet-data.sh)
 
 ### Crypto Cards
-- **Card comparison:** [CRYPTO_CARDS.md](./CRYPTO_CARDS.md) | [Details](./CRYPTO_CARDS_DETAILS.md)
+- **Card comparison:** [CRYPTO_CARDS.md](./data/tables/CRYPTO_CARDS.md) | [Details](./data/tables/CRYPTO_CARDS_DETAILS.md)
 
 ### Ramps (On/Off-Ramp Providers)
-- **Ramp comparison:** [RAMPS.md](./RAMPS.md) | [Details](./RAMPS_DETAILS.md)
+- **Ramp comparison:** [RAMPS.md](./data/tables/RAMPS.md) | [Details](./data/tables/RAMPS_DETAILS.md)
 
 ---
 
@@ -100,7 +100,7 @@ If you want to change the formula, update the scoring code first, then rerun the
 
 ### Step 3: Add to Main Table
 
-Add your row to `SOFTWARE_WALLETS.md`. Ordering does not need to be perfect before sync because the score script will sort rows automatically.
+Add your row to `data/tables/SOFTWARE_WALLETS.md`. Ordering does not need to be perfect before sync because the score script will sort rows automatically.
 
 ```markdown
 | **WalletName** | XX | [repo](https://github.com/org/repo) | ✅ | 50+ | 📱🌐 | ✅ | ✅ MIT | ✅ 2024 | 🟢 Company | ✅ | ✅ | EOA | ✅ Multiple | ❌ | Use Case | 🟢 |
@@ -168,7 +168,7 @@ The Founded and Funding columns feed Company Track Record, and the Price column 
 
 ### Step 2: Add to Main Table
 
-Add your row to `HARDWARE_WALLETS.md` in score order:
+Add your row to `data/tables/HARDWARE_WALLETS.md` in score order:
 
 ```markdown
 | [**WalletName**](https://example.com/) | 0 | [firmware](https://github.com/org/repo) | ✅/❌ | ✅/⚠️/❌ | ✅/❌ SE Type | Display | ~$XXX | Conn | ✅/⚠️/❌/🔒 | YYYY | 🟢/🟡/🔴 Source | 🔴 |
@@ -243,7 +243,7 @@ Operational Confidence comes from the Status column: 15 for active, 9 for verify
 
 ### Step 2: Add to Main Table
 
-Add your row to `RAMPS.md` in score order (highest first):
+Add your row to `data/tables/RAMPS.md` in score order (highest first):
 
 ```markdown
 | [**ProviderName**](https://provider.com/) | XX 🟢 | Both | ✅ | ✅ | ~160+ Countries | Medium | ~$5.00 | Excellent (React SDK) | ✅ | Developers |
@@ -328,7 +328,7 @@ bun run generate-og # Regenerate OG images
 
 ## Adding a New Crypto Card
 
-See existing `CRYPTO_CARDS.md` for card-specific guidelines. Follow similar pattern to software/hardware wallets.
+See existing `data/tables/CRYPTO_CARDS.md` for card-specific guidelines. Follow similar pattern to software/hardware wallets.
 
 ---
 
@@ -433,8 +433,8 @@ Only rename files/URLs if:
 ### File Naming Convention
 
 **Comparison pages follow this pattern:**
-- **Table view:** `CATEGORY.md` → `/docs/category` (e.g., `SOFTWARE_WALLETS.md` → `/docs/software-wallets`)
-- **Details view:** `CATEGORY_DETAILS.md` → `/docs/category-details` (e.g., `SOFTWARE_WALLETS_DETAILS.md` → `/docs/software-wallets-details`)
+- **Table view:** `CATEGORY.md` → `/docs/category` (e.g., `data/tables/SOFTWARE_WALLETS.md` → `/docs/software-wallets`)
+- **Details view:** `CATEGORY_DETAILS.md` → `/docs/category-details` (e.g., `data/tables/SOFTWARE_WALLETS_DETAILS.md` → `/docs/software-wallets-details`)
 
 **Slug generation formula:** `filename.replace('.md', '').toLowerCase().replace(/_/g, '-')`
 

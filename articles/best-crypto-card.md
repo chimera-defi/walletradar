@@ -16,7 +16,7 @@ tags: ["comparison", "crypto-cards", "spending"]
 - **Best self-custody alternative:** **Plasma One (81)**  
 - **Self-custody, US/UK signups paused:** **MetaMask Card (77)**  
 
-Source: `CRYPTO_CARDS.md`
+Source: `data/tables/CRYPTO_CARDS.md`
 
 ---
 
@@ -52,7 +52,7 @@ Check the status column before applying.
 ## FAQ
 
 **Which card is best for the US?**  
-See `CRYPTO_CARDS.md` for US-available options.
+See `data/tables/CRYPTO_CARDS.md` for US-available options.
 
 **Is self-custody safer?**  
 Yes, you retain control of funds.

@@ -370,7 +370,7 @@ export default async function DocumentPage({ params: paramsPromise }: PageProps)
                         merchant-center.xml
                       </a>
                       {' — Verified USD pricing for hardware wallets. Exclusions: '}
-                      <a href="https://github.com/chimera-defi/walletradar/blob/main/MERCHANT_FEED.md" className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/chimera-defi/walletradar/blob/main/docs/MERCHANT_FEED.md" className="text-sky-700 dark:text-sky-400 hover:text-sky-300 underline" target="_blank" rel="noopener noreferrer">
                         MERCHANT_FEED.md
                       </a>
                     </p>

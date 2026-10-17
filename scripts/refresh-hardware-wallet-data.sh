@@ -21,7 +21,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-HARDWARE_TABLE="$SCRIPT_DIR/../HARDWARE_WALLETS.md"
+HARDWARE_TABLE="$SCRIPT_DIR/../data/tables/HARDWARE_WALLETS.md"
 
 load_repos_from_table() {
     python3 - "$HARDWARE_TABLE" <<'PY'
