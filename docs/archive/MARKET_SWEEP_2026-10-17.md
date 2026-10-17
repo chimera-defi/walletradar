@@ -1,6 +1,6 @@
 # Crypto card market sweep, 2026-10-17
 
-Window: about 2026-07-15 to 2026-10-17. All sources accessed 2026-10-17. "Secondary" = news, review or aggregator page. Per-field sources are in [CRYPTO_CARDS_DETAILS.md](../CRYPTO_CARDS_DETAILS.md#market-sweep-2026-10-17).
+Window: about 2026-07-15 to 2026-10-17. All sources accessed 2026-10-17. "Secondary" = news, review or aggregator page. Per-field sources are in [CRYPTO_CARDS_DETAILS.md](../../CRYPTO_CARDS_DETAILS.md#market-sweep-2026-10-17).
 
 Coverage caveat: the sweep found no new consumer card launch in the US, Canada, APAC or EU/MEA that an issuer page confirms. Several official pages blocked fetches (403/429); "not found" means not seen.
 
@@ -44,4 +44,4 @@ Gate Card / Gate Money, Gate US Card, Lava Card, Square/Block BTC credit card, O
 Not recommended: affiliate links (conflicts with the no-pay-to-rank mission) and adding exchange/infra projects without a consumer card.
 
 ## Follow-up (same day)
-Done from the list above: #1 last-verified badge (stale after 60 days), #2 region filter now matches multi-region cards (US/EU), a "Discontinued" quick preset keeps dead cards visible, and the weekly runbook is [CARD_RESWEEP_RUNBOOK.md](./CARD_RESWEEP_RUNBOOK.md). Watchlist retry added Lava Card; the rest stay unconfirmed (see the sweep log).
+Done from the list above: #1 last-verified badge (stale after 60 days), #2 region filter now matches multi-region cards (US/EU), a "Discontinued" quick preset keeps dead cards visible, and the weekly runbook is [CARD_RESWEEP_RUNBOOK.md](../CARD_RESWEEP_RUNBOOK.md). Watchlist retry added Lava Card; the rest stay unconfirmed (see the sweep log).
