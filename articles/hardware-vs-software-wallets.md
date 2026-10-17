@@ -48,7 +48,7 @@ tags: ["comparison", "hardware-wallets", "software-wallets", "security"]
 **Software (daily use):**
 - **Rabby** (86) — dev + safety features  
 - **Trust** (82) — multi-chain stability  
-- **Rainbow** (64) — Ethereum/NFT UX
+- **Rainbow** (69) — Ethereum/NFT UX
 
 Sources: `data/tables/HARDWARE_WALLETS_DETAILS.md`, `data/tables/SOFTWARE_WALLETS.md`
 

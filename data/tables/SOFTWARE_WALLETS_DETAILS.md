@@ -63,7 +63,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 | **Brave** | 75 | ~2 | 🟢 | Stability: built into the browser |
 | **Trust** | 82 | ~3 | 🟢 | Multi-chain production use |
 | **Coinbase** | 67 | ~2 | 🔴 | Account abstraction (EIP-4337) |
-| **Rainbow** | 64 | ~4 | ⚪ | NFT and Ethereum use |
+| **Rainbow** | 69 | ~4 | ⚪ | NFT and Ethereum use |
 
 ### Good wallets that miss the core criteria
 
@@ -940,12 +940,17 @@ Primary sources fetched in this pass. Anything not listed here keeps its 2026-10
 | Argent -> Ready | argent.xyz redirects to www.ready.co; the page does not state the rebrand, which is reported by secondary sources. Row kept as Argent (now Ready). | https://www.ready.co/ |
 | Link fixes | 1inch.io/wallet -> 1inch.com/wallet; phantom.app -> phantom.com; okx.com/web3 -> web3.okx.com; ledger.com/ledger-live -> shop.ledger.com/pages/ledger-wallet; explorer.walletconnect.com -> walletguide.walletconnect.com; viem.sh/experimental/eip7702 -> viem.sh/docs/eip7702; consensys.io/privacy-policy -> metamask.io/privacy-notice; Rabby, OKX and Zerion privacy pages replaced. Enkrypt has no findable privacy page (404 on enkrypt.com/privacy-policy and /privacy), so the hyperlink was removed. | all HTTP 200 on 2026-10-17 except Enkrypt |
 
+Pass 3 (2026-10-17, UNVERIFIED sweep):
+
+| Item | Result | Source |
+|------|--------|--------|
+| Rainbow Tx Sim | ❌ -> ⚠️ (score 64 -> 69). The mobile app source calls the backend `simulateTransactions` / `simulateMessage` for dapp requests and shows simulated events and a scan result in `SignTransactionSheet`. Marked ⚠️, not ✅: supported networks are not published and the extension was not checked. Scam stays ⚠️ (the scan result is returned but its scope is undocumented). | https://github.com/rainbow-me/rainbow/blob/master/src/resources/transactions/transactionSimulation.ts, https://github.com/rainbow-me/rainbow/tree/master/src/features/dapp-request/screens |
+| Brave Tx Sim | Confirmed ❌, no change. `kBraveWalletTransactionSimulationsFeature` is `FEATURE_DISABLED_BY_DEFAULT` in brave-core; the opt-in setting exists but the feature ships off. | https://github.com/brave/brave-core/blob/master/components/brave_wallet/common/features.cc |
+| Sequence audit year | 2024 -> 2026. The v3 wallet contracts repo holds Certora (audit window 2026-04-29 to 2026-05-27), Code4rena (2025-10-07 to 2025-10-22), Consensys (April-May 2025) and Quantstamp (2025-07-08 to 2025-08-13); dates read from the PDFs. | https://github.com/0xsequence/wallet-contracts-v3/tree/master/audits |
+
 **Unverified after this pass (old value kept):**
-- Rainbow Tx Sim and Scam: only a Blockaid vendor post (Dec 6, 2023) says Rainbow uses Blockaid; no Rainbow primary page found. Cells unchanged.
-- Brave Tx Sim: simulation exists behind a flag (`brave://flags/#brave-wallet-enable-transaction-simulations`, Brave 1.65.114 release notes, secondary); cell unchanged.
 - MetaMask Tx Sim: support page says Ethereum mainnet only (search snippet, page not fetched in full); cell unchanged at ⚠️.
 - Coinbase audits: the app has no public report; the separate smart-wallet contracts have public Cantina, Certora and Code4rena reports. Cell left at ❓ Priv for an owner decision.
-- Sequence audit year (2024): v3 contracts repo has Certora, Code4rena, Consensys and Quantstamp reports but the PDFs were not dated.
 - imToken privacy link (token.im/privacy): HTTP 403 Cloudflare challenge in plain and headless Chromium fetches, not a 404. Link kept.
 - Private-repo wallets (OKX, Phantom, Zerion, Exodus, 1inch, Bitget, Mt Pelerin) and Rel/Mo for bursty or multi-product repos (Brave, Ambire, Ledger, Gem, Uniswap, Sequence, Trust, Rainbow, Safe, MEW, imToken, Enkrypt): unchanged. Release counts from the GitHub API over 90 days (Ambire 50, Ledger 34, Gem 84, Brave 100+) are not comparable with the table's Rel/Mo.
 - HW, API, ENS columns and chain lists for all rows: not re-fetched.
