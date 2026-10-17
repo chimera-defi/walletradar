@@ -12,6 +12,8 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 PRICING_FILE = BASE_DIR / "data" / "merchant_pricing.json"
 HARDWARE_TABLE = BASE_DIR / "data" / "tables" / "HARDWARE_WALLETS.md"
 FEED_FILE = BASE_DIR / "frontend" / "public" / "merchant-center.xml"
+# Merchant Center accepts any ISO currency; Bitkey is only sold in EUR (bitkey.world, 2026-10-17).
+ALLOWED_CURRENCIES = ("USD", "EUR")
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -46,8 +48,8 @@ def validate_pricing(pricing: dict[str, dict[str, str]], names: set[str]) -> lis
         price = entry.get("price", "")
         source = entry.get("source", "")
         checked = entry.get("last_checked", "")
-        if not price.endswith("USD"):
-            errors.append(f"pricing: {name} price not USD: {price}")
+        if not price.endswith(ALLOWED_CURRENCIES):
+            errors.append(f"pricing: {name} price not USD/EUR: {price}")
         if not source:
             errors.append(f"pricing: {name} missing source")
         if not checked or not DATE_RE.match(checked):
@@ -69,8 +71,8 @@ def validate_feed(pricing: dict[str, dict[str, str]]) -> list[str]:
         price = item.findtext("g:price", default="", namespaces=ns)
         product_type = item.findtext("g:product_type", default="", namespaces=ns)
         title = item.findtext("g:title", default="", namespaces=ns)
-        if not price.endswith("USD"):
-            errors.append(f"feed: {title} price not USD: {price}")
+        if not price.endswith(ALLOWED_CURRENCIES):
+            errors.append(f"feed: {title} price not USD/EUR: {price}")
         if product_type != "Hardware Wallet":
             errors.append(f"feed: {title} unexpected product_type: {product_type}")
         if title not in pricing:
