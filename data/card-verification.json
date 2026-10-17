@@ -274,6 +274,36 @@
       "last_verified": "2026-10-17",
       "source": "lava.xyz/card fetched in watchlist retry (5% BTC, no annual fee, no FX fee); issuer bank not named",
       "source_url": "https://lava.xyz/card"
+    },
+    "Gate Card (Visa, intl)": {
+      "last_verified": null,
+      "source": "Row added 2026-10-17 from crypto.news 2026-10-08 (secondary): announced, no issuer, fees or launch date; gate.com/card not read",
+      "source_url": "https://www.gate.com/card"
+    },
+    "Gate US Card": {
+      "last_verified": "2026-10-17",
+      "source": "Row added 2026-10-17 from gate.com/en-us/card (fetched): Visa prepaid issued by Lead Bank, Bridge program manager; fees and cashback not stated",
+      "source_url": "https://www.gate.com/en-us/card"
+    },
+    "Square Credit Card (Bitcoin rewards)": {
+      "last_verified": "2026-10-17",
+      "source": "Row added 2026-10-17 from the Block roadmap item (read): 3% back in bitcoin, status In Progress, no date",
+      "source_url": "https://block.xyz/bitcoin/roadmap/item/earn-bitcoin-back-with-square-credit-card-032"
+    },
+    "Orbi Card": {
+      "last_verified": null,
+      "source": "Row added 2026-10-17 from Business Wire/finviz 2026-10-08 and paymentexpert (secondary): announced, no terms; orbi.mx not verified",
+      "source_url": "https://orbi.mx"
+    },
+    "MEXC Global Card": {
+      "last_verified": "2026-10-17",
+      "source": "Row added 2026-10-17 from mexc.com/buy-crypto/mexc-card and the MEXC learn article (read); issuer bank and full country list not stated",
+      "source_url": "https://www.mexc.com/buy-crypto/mexc-card"
+    },
+    "Pionex Card": {
+      "last_verified": "2026-10-17",
+      "source": "Row added 2026-10-17 from the Pionex card review blog (verified 2026-09-03 by Pionex) and help-center Visa fee schedule (read); issuer bank and FX fee not stated",
+      "source_url": "https://www.pionex.com/blog/pionex-card-review/"
     }
   }
 }
