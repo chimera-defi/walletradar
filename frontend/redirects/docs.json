@@ -1,0 +1,8 @@
+[
+  { "from": "/docs/software-wallets-details/", "to": "/docs/software-wallets/#details", "reason": "DETAILS folded into the category page." },
+  { "from": "/docs/hardware-wallets-details/", "to": "/docs/hardware-wallets/#details", "reason": "DETAILS folded into the category page." },
+  { "from": "/docs/crypto-cards-details/", "to": "/docs/crypto-cards/#details", "reason": "DETAILS folded into the category page." },
+  { "from": "/docs/ramps-details/", "to": "/docs/ramps/#details", "reason": "DETAILS folded into the category page." },
+  { "from": "/docs/qr-payments-details/", "to": "/docs/qr-payments/#details", "reason": "DETAILS folded into the category page." },
+  { "from": "/docs/glossary/", "to": "/glossary/", "reason": "Same GLOSSARY.md was rendered twice; /glossary/ has the DefinedTerm schema." }
+]
