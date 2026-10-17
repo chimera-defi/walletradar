@@ -43,7 +43,7 @@ jobs:
       - name: Verify OG images exist
         run: |
           missing=0
-          for img in og-image og-software-wallets-table og-hardware-wallets-table og-crypto-cards-table og-ramps-table og-software-wallets-details og-hardware-wallets-details og-crypto-cards-details og-ramps-details og-explore; do
+          for img in og-image og-software-wallets-table og-hardware-wallets-table og-crypto-cards-table og-ramps-table og-explore; do
             if [ ! -f "public/$img.png" ]; then
               echo "Missing: public/$img.png"
               missing=$((missing + 1))

@@ -31,27 +31,6 @@ Ran `scripts/verify-ramps.py` on 2026-10-15 and again on 2026-10-17 (the licence
 
 ---
 
-## 🌉 Top Providers Comparison
-
-<!-- GENERATED_RAMPS_TOP_PROVIDERS_START -->
-This table mirrors the current generated ordering from [RAMPS.md](./RAMPS.md):
-
-| Provider | Score | Best For | Global Coverage | Fee Model | Dev UX |
-|----------|-------|----------|-----------------|-----------|--------|
-| [**CoinGate**](https://coingate.com/) | 90 | Low fees | Global | Low | Good (API) |
-| [**BitPay**](https://bitpay.com/) | 89 | Bitcoin focus | Global | Medium | Good (API) |
-| [**Stripe**](https://docs.stripe.com/stablecoins) | 88 | Trust | Global | Usage Based | Excellent (Stripe style) |
-| [**Guardarian**](https://guardarian.com/) | 86 | EU focus | ~170+ Countries | Low/Medium | Good (Widget) |
-| [**Ramp**](https://rampnetwork.com/) | 86 | EU / Speed | ~150+ Countries | Low/Medium | Good (SDK) |
-| [**Changelly**](https://changelly.com/) | 85 | Exchange | Global | Medium | Good (API) |
-| [**Coinbase Pay**](https://docs.cdp.coinbase.com/onramp/introduction/welcome) | 84 | Coinbase users | ~90+ Countries | Medium | Excellent (SDK) |
-| [**Coinify**](https://www.coinify.com/) | 84 | EU | ~170+ Countries | Medium | Good (API) |
-| [**Sardine**](https://www.sardine.ai/) | 84 | US / Fraud | US + Select Global | Variable (Risk based) | Advanced (API/SDK) |
-| [**Alchemy Pay**](https://ramp.alchemypay.org/#/index) | 82 | Global pay rails | ~170+ Countries | Variable | Advanced (Plugin/API) |
-<!-- GENERATED_RAMPS_TOP_PROVIDERS_END -->
-
----
-
 ## 💰 Fee Structure Analysis
 
 Fees are the biggest friction point for users. They typically consist of three parts:
@@ -73,7 +52,7 @@ Fees are the biggest friction point for users. They typically consist of three p
 
 ---
 
-## 🛠️ Developer Experience (DX)
+## Developer Experience (DX)
 
 ### 1. Integration Methods
 *   **Widget (No-Code/Low-Code):** The easiest way. You embed an iframe or use a React component.
