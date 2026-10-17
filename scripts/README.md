@@ -177,7 +177,7 @@ Two GitHub Actions run every Monday. Both open a PR; a human reviews and merges.
 
 | Workflow | Time (UTC) | What it does |
 |---|---|---|
-| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) with `ACTIVITY_STATUS.md`, `data/tables/HARDWARE_ACTIVITY_STATUS.md` and `data/*.json`. It does not edit the comparison tables. |
+| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) with `ACTIVITY_STATUS.md`, `HARDWARE_ACTIVITY_STATUS.md` and `data/*.json`. It does not edit the comparison tables. |
 | `.github/workflows/generate-merchant-feed.yml` | 10:00 | Regenerates and validates `frontend/public/merchant-center.xml`, then opens a PR if it changed. |
 
 Table values (prices, licences, audits, custody) are checked by hand against primary sources. See `docs/VERIFICATION.md`.
