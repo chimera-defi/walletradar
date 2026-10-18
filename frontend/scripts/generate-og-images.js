@@ -11,6 +11,7 @@
 const { createCanvas, registerFont } = require('canvas');
 const fs = require('fs');
 const path = require('path');
+const { splitRow, parseTable, stripMarkdown } = require('../src/lib/table-parse.js');
 
 const BRAND_NAME = process.env.NEXT_PUBLIC_BRAND_NAME || 'Wallet Radar';
 const BRAND_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://walletradar.org';
@@ -47,25 +48,14 @@ const COLORS = {
 const ROOT_DIR = path.join(__dirname, '../..');
 const TABLES_DIR = path.join(ROOT_DIR, 'data', 'tables');
 
-function stripMarkdown(cell) {
-  return cell
-    .replace(/~~/g, '')
-    .replace(/\*\*/g, '')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/<[^>]+>/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
 /** First pipe table of a data/tables markdown file -> [{ ...cells by header, _struck }] */
 function loadTable(file) {
   const lines = fs.readFileSync(path.join(TABLES_DIR, file), 'utf8').split('\n');
   const start = lines.findIndex((l) => l.startsWith('| ') && l.includes('Score'));
   if (start < 0) throw new Error(`No table with a Score column in ${file}`);
-  const headers = lines[start].split('|').slice(1, -1).map((h) => h.trim());
+  const { header: headers, rows: raws } = parseTable(lines, start);
   const rows = [];
-  for (let i = start + 2; i < lines.length && lines[i].startsWith('|'); i++) {
-    const raw = lines[i].split('|').slice(1, -1).map((c) => c.trim());
+  for (const raw of raws) {
     if (raw.length !== headers.length) continue;
     const row = { _struck: raw[0].includes('~~') };
     headers.forEach((h, idx) => { row[h] = stripMarkdown(raw[idx]); });
@@ -705,7 +695,7 @@ function generateHowItWorksImage() {
   const tablePath = path.join(__dirname, '../../data/tables/SOFTWARE_WALLETS.md');
   const row = fs.readFileSync(tablePath, 'utf8').split('\n').find((line) => line.includes('**Rabby**'));
   if (!row) throw new Error('Rabby row not found in SOFTWARE_WALLETS.md');
-  const cells = row.split('|').slice(1, -1).map((cell) => cell.trim());
+  const cells = splitRow(row);
   const info = computeSoftwareScore(cells);
 
   const canvas = createCanvas(WIDTH, HEIGHT);
