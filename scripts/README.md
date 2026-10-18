@@ -6,6 +6,8 @@ Tools that refresh and check the comparison tables. Run them from the repo root.
 
 ### `sync_table_scores.js` (Comparison Tables)
 
+Markdown-table parsing is shared with the smoke test and `generate-og-images.js` via `frontend/src/lib/table-parse.js` (CommonJS, node builtins only).
+
 Recomputes `Score` and recommendation cells from the visible markdown-table columns for:
 
 - `data/tables/SOFTWARE_WALLETS.md`
@@ -34,7 +36,7 @@ bun scripts/sync_table_scores.js --write
 
 ### `check_external_links.js` (External links)
 
-Fetches every external URL in the root `*.md`, `articles/`, `docs/` and `data/*.json` and classes each as ok, moved (final base domain differs, often a rebrand), blocked (401/403/429/999/5xx, not proof of breakage) or broken (404/410/DNS/timeout). Report only unless `--strict`. The monthly workflow `.github/workflows/external-links.yml` uploads the TSV as an artifact.
+Fetches every external URL in the root `*.md`, `articles/`, `docs/`, `docs/site/`, `data/tables/` and `data/*.json` and classes each as ok, moved (final base domain differs, often a rebrand), blocked (401/403/429/999/5xx, not proof of breakage) or broken (404/410/DNS/timeout). Report only unless `--strict`. The monthly workflow `.github/workflows/external-links.yml` uploads the TSV as an artifact.
 
 ```bash
 bun scripts/check_external_links.js --tsv /tmp/links.tsv
@@ -177,7 +179,7 @@ Two GitHub Actions run every Monday. Both open a PR; a human reviews and merges.
 
 | Workflow | Time (UTC) | What it does |
 |---|---|---|
-| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) with `ACTIVITY_STATUS.md`, `HARDWARE_ACTIVITY_STATUS.md` and `data/*.json`. It does not edit the comparison tables. |
+| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) committing only `data/activity.json` and `data/hardware-activity.json`. The Markdown reports go to the run's job summary and are not committed. It does not edit the comparison tables. |
 | `.github/workflows/generate-merchant-feed.yml` | 10:00 | Regenerates and validates `frontend/public/merchant-center.xml`, then opens a PR if it changed. |
 
 Table values (prices, licences, audits, custody) are checked by hand against primary sources. See `docs/VERIFICATION.md`.
