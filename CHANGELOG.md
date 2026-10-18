@@ -2,6 +2,10 @@
 
 Status changes, recommendation changes, data corrections and docs changes. Newest first within each section.
 
+## 2026-10-18
+
+- **Refactors and fixes.** Weekly refresh no longer writes `*ACTIVITY_STATUS.md` reports to the repo root (step summary only; JSON files still committed). One shared markdown-table parser (`frontend/src/lib/table-parse.js`) for `sync_table_scores.js`, the smoke test and the OG generator. Fonts are self-hosted (`frontend/src/app/fonts/`), so the build no longer depends on Google Fonts; †, ₹ and Δ now use the fallback font. Arculus added to the merchant feed (59.76 USD) and its stale 403 note fixed.
+
 ## 2026-10-17
 
 - **UNVERIFIED pass 3.** Rainbow Tx Simulation ❌ -> ⚠️ (mobile app calls backend simulation for dapp requests), score 64 -> 69, Rec ⚪ -> 🟢 (software: 17 ⚪, 9 ranked, 5 🟢). Arculus price ~$100 -> ~$60 (sale; list $99), score 39 -> 41, still 🔴. Sequence audit year 2024 -> 2026. Brave Tx Sim confirmed ❌. Unresolved items stay in `docs/VERIFICATION.md`.
