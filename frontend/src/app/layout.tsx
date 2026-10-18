@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { IBM_Plex_Sans, Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
@@ -10,17 +10,20 @@ import { brand } from '@/lib/brand';
 
 // Google Analytics Measurement ID - hardcoded for static export reliability
 const GA_MEASUREMENT_ID = 'G-L6ZV569CMN';
-const bodyFont = IBM_Plex_Sans({
-  subsets: ['latin'],
+// Self-hosted variable fonts (latin subset) so the build never contacts Google Fonts.
+const bodyFont = localFont({
+  src: './fonts/ibm-plex-sans-latin-variable.woff2',
+  weight: '400 700',
+  style: 'normal',
   display: 'swap',
   variable: '--font-body',
-  weight: ['400', '500', '600', '700'],
 });
-const displayFont = Space_Grotesk({
-  subsets: ['latin'],
+const displayFont = localFont({
+  src: './fonts/space-grotesk-latin-variable.woff2',
+  weight: '500 700',
+  style: 'normal',
   display: 'swap',
   variable: '--font-display',
-  weight: ['500', '600', '700'],
 });
 
 export const metadata: Metadata = {
