@@ -40,12 +40,12 @@ jobs:
       - name: Create data directory
         run: mkdir -p data
       
-      - name: Run refresh script - Software Wallets (Markdown)
+      - name: Run refresh script - Software Wallets (Markdown report, job summary only)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x scripts/refresh-github-data.sh
-          scripts/refresh-github-data.sh --markdown > ACTIVITY_STATUS.md
+          scripts/refresh-github-data.sh --markdown > "$RUNNER_TEMP/activity-status.md"
           echo "Generated software wallet activity status report"
       
       - name: Run refresh script - Software Wallets (JSON)
@@ -55,12 +55,12 @@ jobs:
           scripts/refresh-github-data.sh --json > data/activity.json
           echo "Generated software wallet JSON data file"
       
-      - name: Run refresh script - Hardware Wallets (Markdown)
+      - name: Run refresh script - Hardware Wallets (Markdown report, job summary only)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x scripts/refresh-hardware-wallet-data.sh
-          scripts/refresh-hardware-wallet-data.sh --markdown > HARDWARE_ACTIVITY_STATUS.md
+          scripts/refresh-hardware-wallet-data.sh --markdown > "$RUNNER_TEMP/hardware-activity-status.md"
           echo "Generated hardware wallet activity status report"
       
       - name: Run refresh script - Hardware Wallets (JSON)
@@ -73,7 +73,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git add ACTIVITY_STATUS.md HARDWARE_ACTIVITY_STATUS.md data/
+          git add data/activity.json data/hardware-activity.json
           if git diff --cached --quiet; then
             echo "changes=false" >> $GITHUB_OUTPUT
             echo "No changes detected"
@@ -104,12 +104,10 @@ jobs:
             ## Changes Made
             
             **Software Wallets:**
-            - Updated `ACTIVITY_STATUS.md` with current commit dates
-            - Updated `data/activity.json` with machine-readable data
+            - Updated `data/activity.json` with machine-readable data (the Markdown reports are in the workflow run summary, not committed)
             
             **Hardware Wallets:**
-            - Updated `HARDWARE_ACTIVITY_STATUS.md` with firmware repo activity
-            - Updated `data/hardware-activity.json` with machine-readable data
+            - Updated `data/hardware-activity.json` with machine-readable data (the Markdown reports are in the workflow run summary, not committed)
             
             ## Testing & Verification
             - [ ] Verify activity statuses are accurate
@@ -129,15 +127,15 @@ jobs:
           echo "## Wallet Activity Refresh Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Software Wallets" >> $GITHUB_STEP_SUMMARY
-          if [ -f ACTIVITY_STATUS.md ]; then
-            cat ACTIVITY_STATUS.md >> $GITHUB_STEP_SUMMARY
+          if [ -f "$RUNNER_TEMP/activity-status.md" ]; then
+            cat "$RUNNER_TEMP/activity-status.md" >> $GITHUB_STEP_SUMMARY
           else
             echo "⚠️ No software wallet activity file generated" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Hardware Wallets" >> $GITHUB_STEP_SUMMARY
-          if [ -f HARDWARE_ACTIVITY_STATUS.md ]; then
-            cat HARDWARE_ACTIVITY_STATUS.md >> $GITHUB_STEP_SUMMARY
+          if [ -f "$RUNNER_TEMP/hardware-activity-status.md" ]; then
+            cat "$RUNNER_TEMP/hardware-activity-status.md" >> $GITHUB_STEP_SUMMARY
           else
             echo "⚠️ No hardware wallet activity file generated" >> $GITHUB_STEP_SUMMARY
           fi
