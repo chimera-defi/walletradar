@@ -8,6 +8,8 @@ Tools that refresh and check the comparison tables. Run them from the repo root.
 
 Recomputes `Score` and recommendation cells from the visible markdown-table columns for:
 
+Markdown-table parsing is shared with the smoke test and `generate-og-images.js` via `frontend/src/lib/table-parse.js` (CommonJS, node builtins only).
+
 - `data/tables/SOFTWARE_WALLETS.md`
 - `data/tables/HARDWARE_WALLETS.md`
 - `data/tables/CRYPTO_CARDS.md`
