@@ -38,12 +38,13 @@ Last updated: 2026-10-17
 ## Price checks on 2026-10-17
 
 - Re-fetched from page JSON-LD (all unchanged): Ledger Nano X 99, Nano S+ 69, Nano Gen5 179, Flex 249, Trezor Safe 3 59 (USD), OneKey Pro 278, OneKey Classic 1S 99 and Pure 79, Blockstream Jade 67.
-- BitBox02 (EUR 149) and BitBox02 Nova (EUR 175) are priced in euros on shop.bitbox.swiss, so they stay out of the USD feed. Arculus still returns HTTP 403.
+- BitBox02 (EUR 149) and BitBox02 Nova (EUR 175) are priced in euros on shop.bitbox.swiss, so they stay out of the USD feed. Arculus returns HTTP 403 to plain fetches but its product page serves in a headless browser (see below).
 - Rows tagged "(partial data)" in the table (imKey Pro, OneKey Pro 2) do not match the feed's name lookup and are not in the feed.
+
+- Arculus Cold Storage Wallet added on 2026-10-18: `product:price:amount` 59.76 (sale; list price 99) read from the product page in headless Chromium.
 
 ## Excluded from feed (no verified USD price or out of scope)
 
-- Arculus (HTTP 403 and a Cloudflare check on 2026-10-17)
 - Bitkey (EUR 230 only on bitkey.world)
 - BitBox02 (EUR pricing; feed limited to USD)
 - BitBox02 Nova (EUR pricing; feed limited to USD)
