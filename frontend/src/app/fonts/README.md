@@ -1,6 +1,6 @@
 # Self-hosted fonts
 
-Latin-subset variable woff2 files, loaded by `next/font/local` in `../layout.tsx` so the build never contacts Google Fonts. They are the exact files `next/font/google` previously downloaded for the same families (IBM Plex Sans 400-700, Space Grotesk 500-700, latin subset), so rendering is unchanged.
+Latin-subset variable woff2 files, loaded by `next/font/local` in `../layout.tsx` so the build never contacts Google Fonts. They are the exact files `next/font/google` previously downloaded for the same families (IBM Plex Sans 400-700, Space Grotesk 500-700, latin subset), so latin glyphs render identically. The latin-ext and greek subsets Google served on demand are not included; the three characters that used them (†, ₹, Δ) fall back to the system font.
 
 - IBM Plex Sans: Copyright IBM Corp., SIL OFL 1.1 (`OFL-IBM-Plex-Sans.txt`)
 - Space Grotesk: Copyright The Space Grotesk Project Authors, SIL OFL 1.1 (`OFL-Space-Grotesk.txt`)
