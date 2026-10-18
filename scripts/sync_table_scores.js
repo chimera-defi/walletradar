@@ -14,6 +14,8 @@ const {
   recommendationEmoji,
 } = require('../frontend/src/lib/scoring.js');
 
+const { splitRow: parseRow, isSeparatorLine, tableEnd } = require('../frontend/src/lib/table-parse.js');
+
 const ROOT = path.resolve(__dirname, '..');
 const TABLES = path.join(ROOT, 'data', 'tables');
 
@@ -229,20 +231,8 @@ const DETAIL_DERIVED_BLOCK_CONFIGS = {
   },
 };
 
-function parseRow(line) {
-  return line
-    .trim()
-    .split('|')
-    .slice(1, -1)
-    .map((cell) => cell.trim());
-}
-
 function formatRow(cells) {
   return `| ${cells.join(' | ')} |`;
-}
-
-function isSeparatorLine(line) {
-  return /^\|[\s:-]+\|$/.test(line.trim());
 }
 
 function sortRows(rowsWithScores) {
@@ -295,10 +285,7 @@ function processTable(config, { write = false } = {}) {
     throw new Error(`Could not find table header for ${config.label}: ${config.file}`);
   }
 
-  let endIndex = headerIndex + 2;
-  while (endIndex < lines.length && lines[endIndex].trim().startsWith('|')) {
-    endIndex += 1;
-  }
+  const endIndex = tableEnd(lines, headerIndex);
 
   const bodyLines = lines.slice(headerIndex + 2, endIndex).filter((line) => line.trim().startsWith('|') && !isSeparatorLine(line));
   const scoredRows = bodyLines.map((line) => {

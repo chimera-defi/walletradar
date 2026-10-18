@@ -12,6 +12,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { isFirstTableHeader, parseTable } = require('../src/lib/table-parse.js');
 const {
   SCORING_METHODOLOGY_VERSION,
   computeSoftwareScore,
@@ -104,36 +105,10 @@ function readFileOrFail(filePath) {
   return fs.readFileSync(filePath, 'utf8');
 }
 
-function parseTableLine(line) {
-  return line
-    .split('|')
-    .slice(1, -1)
-    .map((cell) => cell.trim());
-}
-
 function parsePrimaryTable(content) {
   const lines = content.split('\n');
-  const headerIndex = lines.findIndex((line, index) => (
-    line.startsWith('|') &&
-    index + 1 < lines.length &&
-    /^\|[\s-:|]+\|$/.test(lines[index + 1].trim())
-  ));
-
-  if (headerIndex === -1) {
-    return { header: [], rows: [] };
-  }
-
-  const header = parseTableLine(lines[headerIndex]);
-  const rows = [];
-
-  for (let i = headerIndex + 2; i < lines.length; i += 1) {
-    const line = lines[i];
-    if (!line.startsWith('|')) break;
-    if (/^\|[\s-:|]+\|$/.test(line.trim())) continue;
-    rows.push(parseTableLine(line));
-  }
-
-  return { header, rows };
+  const headerIndex = lines.findIndex(isFirstTableHeader);
+  return headerIndex === -1 ? { header: [], rows: [] } : parseTable(lines, headerIndex);
 }
 
 function normalizeHeaderCell(cell) {
