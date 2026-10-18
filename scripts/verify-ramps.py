@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Verify RAMPS provider URLs from RAMPS.md.
+Verify RAMPS provider URLs from data/tables/RAMPS.md.
 Outputs JSON + text summary under artifacts/.
 """
 
