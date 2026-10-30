@@ -121,5 +121,18 @@
       <g:google_product_category>Electronics</g:google_product_category>
       <g:product_type>Hardware Wallet</g:product_type>
     </item>
+    <item>
+      <g:id>hardware-arculus</g:id>
+      <g:title>Arculus</g:title>
+      <g:description>Arculus - Hardware Wallet listed on Wallet Radar.</g:description>
+      <g:link>https://walletradar.org/docs/hardware-wallets#arculus</g:link>
+      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>59.76 USD</g:price>
+      <g:brand>Arculus</g:brand>
+      <g:google_product_category>Electronics</g:google_product_category>
+      <g:product_type>Hardware Wallet</g:product_type>
+    </item>
   </channel>
 </rss>
