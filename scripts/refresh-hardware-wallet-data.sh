@@ -110,15 +110,22 @@ if [ "${#REPOS[@]}" -eq 0 ]; then
     exit 1
 fi
 
-# Set up authentication header if token is available
-if [ -n "$GITHUB_TOKEN" ]; then
+# Set up authentication: GITHUB_TOKEN, else GH_TOKEN. The token is passed to
+# curl via a config on stdin so it never appears in argv or output.
+AUTH_TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
+if [ -n "$AUTH_TOKEN" ]; then
     echo "Using GitHub token for API requests" >&2
 else
-    echo "Warning: No GITHUB_TOKEN set. Rate limited to 60 requests/hour." >&2
+    echo "Warning: No GITHUB_TOKEN/GH_TOKEN set. Rate limited to 60 requests/hour." >&2
     echo "Set GITHUB_TOKEN environment variable for higher limits." >&2
     echo "Falling back to GitHub Atom feeds for last-commit timestamps; stars/issues will be unavailable." >&2
     echo "Attempting HTML scrape fallback for stars/issues (best effort)." >&2
 fi
+
+# gh_curl [curl args...]: silent curl with the token header (call only when AUTH_TOKEN is set).
+gh_curl() {
+    printf 'header = "Authorization: Bearer %s"\n' "$AUTH_TOKEN" | curl -s -K - "$@"
+}
 
 # Function to get activity status based on days since last commit
 get_status() {
@@ -200,9 +207,9 @@ for i in "${!REPOS[@]}"; do
     WALLET="${WALLET_NAMES[$i]}"
     
     # Get repository info (stars, issues)
-    if [ -n "$GITHUB_TOKEN" ]; then
+    if [ -n "$AUTH_TOKEN" ]; then
         REPO_URL="https://api.github.com/repos/$REPO"
-        REPO_RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$REPO_URL" 2>/dev/null)
+        REPO_RESPONSE=$(gh_curl "$REPO_URL" 2>/dev/null)
         if echo "$REPO_RESPONSE" | grep -q "API rate limit exceeded"; then
             echo "Error: GitHub API rate limit exceeded. Set GITHUB_TOKEN." >&2
             exit 1
@@ -234,9 +241,9 @@ for i in "${!REPOS[@]}"; do
     fi
 
     # Get the default branch commits
-    if [ -n "$GITHUB_TOKEN" ]; then
+    if [ -n "$AUTH_TOKEN" ]; then
         API_URL="https://api.github.com/repos/$REPO/commits?per_page=1"
-        RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$API_URL" 2>/dev/null)
+        RESPONSE=$(gh_curl "$API_URL" 2>/dev/null)
         if echo "$RESPONSE" | grep -q "API rate limit exceeded"; then
             echo "Error: GitHub API rate limit exceeded. Set GITHUB_TOKEN." >&2
             exit 1

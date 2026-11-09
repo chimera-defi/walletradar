@@ -91,31 +91,31 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 
 | Wallet | Last Commit | Stars | Issues | Ratio | Stability |
 |--------|-------------|-------|--------|-------|-----------|
-| **Rabby** | Oct 15, 2026 | 1,914 | 140 | 7.3% | ⭐⭐⭐ |
-| **Trust** | Oct 14, 2026 | 3,573 | 193 | 5.4% | ⭐⭐⭐ |
-| **Rainbow** | Oct 16, 2026 | 4,397 | 43 | 1.0% | ⭐⭐⭐ |
-| **Brave** | Oct 16, 2026 | 23,907 | 11,083 | 46.4% | ⭐⭐⭐⭐ |
-| **Coinbase** | Oct 16, 2026 | 1,766 | 92 | 5.2% | ⭐⭐⭐⭐ |
-| **MetaMask** | Oct 16, 2026 | 13,236 | 2,874 | 21.7% | ⭐⭐⭐ |
+| **Rabby** | Nov 5, 2026 | 1,931 | 159 | 8.2% | ⭐⭐⭐ |
+| **Trust** | Nov 6, 2026 | 3,589 | 209 | 5.8% | ⭐⭐⭐ |
+| **Rainbow** | Nov 7, 2026 | 4,400 | 39 | 0.9% | ⭐⭐⭐ |
+| **Brave** | Nov 9, 2026 | 24,164 | 12,270 | 50.8% | ⭐⭐⭐⭐ |
+| **Coinbase** | Oct 27, 2026 | 1,769 | 92 | 5.2% | ⭐⭐⭐⭐ |
+| **MetaMask** | Nov 9, 2026 | 13,251 | 2,938 | 22.2% | ⭐⭐⭐ |
 | **Phantom** | Private | - | - | - | ⭐⭐⭐ |
 | **OKX** | Private | - | - | - | ⭐⭐⭐⭐ |
-| **Safe** | Oct 16, 2026 | 595 | 101 | 17.0% | ⭐⭐⭐⭐ |
-| **Enkrypt** | Sep 1, 2026 | 436 | 19 | 4.4% | ⭐⭐⭐⭐ |
-| **Ambire** | Oct 16, 2026 | 72 | 6 | 8.3% | ⭐⭐⭐⭐ |
+| **Safe** | Nov 9, 2026 | 598 | 104 | 17.4% | ⭐⭐⭐⭐ |
+| **Enkrypt** | Sep 1, 2026 | 441 | 22 | 5.0% | ⭐⭐⭐⭐ |
+| **Ambire** | Nov 6, 2026 | 72 | 6 | 8.3% | ⭐⭐⭐⭐ |
 | **Wigwam** | Sep 20, 2026 | 86 | 0 | 0.0% | ⭐⭐⭐⭐ |
-| **Ledger Live** (now Ledger Wallet) | Oct 16, 2026 | 622 | 126 | 20.3% | ⭐⭐⭐⭐ |
-| **MEW** | Oct 16, 2026 | 1,587 | 57 | 3.6% | ⭐⭐⭐⭐ |
-| **Sequence** | Oct 14, 2026 | 318 | 33 | 10.4% | ⭐⭐⭐⭐ |
-| **Daimo** | Feb 18, 2026 | 408 | 227 | 55.6% | ⭐⭐⭐ |
+| **Ledger Live** (now Ledger Wallet) | Nov 9, 2026 | 627 | 168 | 26.8% | ⭐⭐⭐⭐ |
+| **MEW** | Oct 16, 2026 | 1,588 | 60 | 3.8% | ⭐⭐⭐⭐ |
+| **Sequence** | Nov 3, 2026 | 318 | 38 | 11.9% | ⭐⭐⭐⭐ |
+| **Daimo** | Feb 18, 2026 | 406 | 227 | 55.9% | ⭐⭐⭐ |
 | **Zerion** | Private | - | - | - | ⭐⭐⭐ |
-| **Uniswap** | Oct 16, 2026 | 5,536 | 830 | 15.0% | ⭐⭐⭐ |
-| **Taho** | Aug 20, 2026 | 3,207 | 336 | 10.5% | ⭐⭐⭐⭐ |
-| **imToken** | May 20, 2026 | 34 | 24 | 70.6% | ⭐⭐⭐ |
+| **Uniswap** | Nov 4, 2026 | 5,546 | 841 | 15.2% | ⭐⭐⭐ |
+| **Taho** | Nov 7, 2026 | 3,212 | 333 | 10.4% | ⭐⭐⭐⭐ |
+| **imToken** | May 20, 2026 | 34 | 26 | 76.5% | ⭐⭐⭐ |
 | **1inch** | Private | - | - | - | ⭐⭐⭐ |
-| **Frame** | Feb 1, 2025 | 1,210 | 99 | 8.2% | ⭐⭐⭐⭐ |
-| **Argent** | Mar 14, 2025 | 639 | 95 | 14.9% | ⭐⭐⭐⭐ |
-| **Block** | Nov 27, 2024 | 93 | 45 | 48.4% | ⭐⭐⭐⭐ |
-| **Kohaku**∆ | Jul 3, 2026 | 98 | 11 | 11.2% | ⭐⭐⭐⭐ |
+| **Frame** | Feb 1, 2025 | 1,209 | 99 | 8.2% | ⭐⭐⭐⭐ |
+| **Argent** | Mar 14, 2025 | 641 | 96 | 15.0% | ⭐⭐⭐⭐ |
+| **Block** | Nov 27, 2024 | 95 | 45 | 47.4% | ⭐⭐⭐⭐ |
+| **Kohaku**∆ | Jul 3, 2026 | 97 | 7 | 7.2% | ⭐⭐⭐⭐ |
 
 **GitHub Legend:**
 - **Ratio:** Issues ÷ Stars (lower = better code quality). Rainbow 1.0% is excellent, MetaMask 21.7% indicates maintenance burden.
@@ -886,22 +886,22 @@ Each wallet has quirks. Test your dApp with at least 3 wallets before production
 
 | Repository | Last Commit | Status |
 |------------|-------------|--------|
-| [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | Oct 15, 2026 | ✅ Active |
-| [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) | Oct 15, 2026 | ✅ Active |
-| [coinbase/coinbase-wallet-sdk](https://github.com/coinbase/coinbase-wallet-sdk) | Oct 13, 2026 (docs/rebrand notes; last release Jun 25, 2025, superseded by Base Account SDK) | ⚠️ Slow |
-| [trustwallet/wallet-core](https://github.com/trustwallet/wallet-core) | Oct 14, 2026 | ✅ Active |
-| [rainbow-me/rainbow](https://github.com/rainbow-me/rainbow) | Oct 15, 2026 | ✅ Active |
-| [tahowallet/extension](https://github.com/tahowallet/extension) | Aug 20, 2026 | ⚠️ Slow |
-| [MyEtherWallet/MyEtherWallet](https://github.com/MyEtherWallet/MyEtherWallet) | Aug 3, 2026 | ⚠️ Slow |
-| [AmbireTech/extension](https://github.com/AmbireTech/extension) | Oct 15, 2026 | ✅ Active |
+| [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | Nov 9, 2026 | ✅ Active |
+| [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) | Nov 5, 2026 | ✅ Active |
+| [coinbase/coinbase-wallet-sdk](https://github.com/coinbase/coinbase-wallet-sdk) | Oct 27, 2026 (docs/rebrand notes; last release Jun 25, 2025, superseded by Base Account SDK) | ⚠️ Slow |
+| [trustwallet/wallet-core](https://github.com/trustwallet/wallet-core) | Nov 6, 2026 | ✅ Active |
+| [rainbow-me/rainbow](https://github.com/rainbow-me/rainbow) | Nov 7, 2026 | ✅ Active |
+| [tahowallet/extension](https://github.com/tahowallet/extension) | Nov 7, 2026 | ✅ Active |
+| [MyEtherWallet/MyEtherWallet](https://github.com/MyEtherWallet/MyEtherWallet) | Oct 16, 2026 | ✅ Active |
+| [AmbireTech/extension](https://github.com/AmbireTech/extension) | Nov 6, 2026 | ✅ Active |
 | [block-wallet/extension](https://github.com/block-wallet/extension) | Nov 27, 2024 | ❌ Inactive |
-| [wigwamapp/wigwam](https://github.com/wigwamapp/wigwam) | Sep 20, 2026 | ✅ Active |
-| [safe-global/safe-wallet-monorepo](https://github.com/safe-global/safe-wallet-monorepo) | Oct 15, 2026 | ✅ Active |
+| [wigwamapp/wigwam](https://github.com/wigwamapp/wigwam) | Sep 20, 2026 | ⚠️ Slow |
+| [safe-global/safe-wallet-monorepo](https://github.com/safe-global/safe-wallet-monorepo) | Nov 9, 2026 | ✅ Active |
 | [argentlabs/argent-x](https://github.com/argentlabs/argent-x) | Mar 14, 2025 | ❌ Inactive |
 | [floating/frame](https://github.com/floating/frame) | Feb 1, 2025 | ❌ Inactive |
-| [brave/brave-browser](https://github.com/brave/brave-browser) | Oct 15, 2026 | ✅ Active |
+| [brave/brave-browser](https://github.com/brave/brave-browser) | Nov 9, 2026 | ✅ Active |
 | [enkryptcom/enKrypt](https://github.com/enkryptcom/enKrypt) | Sep 1, 2026 | ⚠️ Slow |
-| [ethereum/kohaku-extension](https://github.com/ethereum/kohaku-extension) | Jul 3, 2026 | ⚠️ Slow |
+| [ethereum/kohaku-extension](https://github.com/ethereum/kohaku-extension) | Jul 3, 2026 | ❌ Inactive |
 
 **Not Verified (private repos):** OKX, 1inch, Zerion, Phantom
 
