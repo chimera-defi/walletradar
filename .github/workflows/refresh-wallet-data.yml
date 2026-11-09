@@ -70,10 +70,20 @@ jobs:
           scripts/refresh-hardware-wallet-data.sh --json > data/hardware-activity.json
           echo "Generated hardware wallet JSON data file"
       
+      - name: Apply activity to the tables and re-score
+        run: |
+          node scripts/apply_activity.js --write
+          node scripts/sync_table_scores.js --write
+          # Second pass: bands are assigned before rows are sorted, so score ties at a band cutoff settle on pass two.
+          node scripts/sync_table_scores.js --write
+          # Bot PRs run no CI, so check here: tables in sync and the data smoke test passes.
+          node scripts/sync_table_scores.js
+          node frontend/scripts/smoke-test-wallet-data.js
+
       - name: Check for changes
         id: check_changes
         run: |
-          git add data/activity.json data/hardware-activity.json
+          git add data/activity.json data/hardware-activity.json data/tables/
           if git diff --cached --quiet; then
             echo "changes=false" >> $GITHUB_OUTPUT
             echo "No changes detected"
@@ -108,6 +118,8 @@ jobs:
             
             **Hardware Wallets:**
             - Updated `data/hardware-activity.json` with machine-readable data (the Markdown reports are in the workflow run summary, not committed)
+
+            **Tables:** `scripts/apply_activity.js` copied status, last commit, stars, issues and ratio into `data/tables/` (software and hardware tables plus their DETAILS docs); `scripts/sync_table_scores.js --write` re-scored them. Review status flips and rank moves in the diff.
             
             ## Testing & Verification
             - [ ] Verify activity statuses are accurate
