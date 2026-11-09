@@ -60,6 +60,8 @@ Equivalent CLI for an operator with credentials: `aws amplify start-job --region
 | `start-job --job-type RELEASE` on `main` | Job 196 succeeded at 07:07:08Z; live `last-modified` is 07:07:01 GMT. The job record shows the commit as `HEAD`, not a SHA. |
 | Live site is this repo's build | `llms.txt`, `search-index.json`, `manifest.webmanifest` and `robots.txt` match a local build of `09d4a75` byte for byte; `sitemap.xml` differs only in `lastmod` dates. The three paths that were 404 return 200, and `llms.txt` links `walletradar`. |
 | Auto-deploy | Tested by merging #160, which added this section; that PR's body records the result. |
+| Token | Deleted after job 197. Job 198, started by hand once the token was gone, succeeded at 07:18:35Z, and the hook stayed active. The merge that added this row tests a deploy from a merge without the token; that PR's body records the result. |
+| Testing the hook | Re-sending an old push from GitHub's webhook page got a 202 and started no job, so it proves nothing. Only a real merge tests this path. |
 
 To roll back, run the same `update-app` command with `https://github.com/chimera-defi/Etc-mono-repo` and a new token, and set `AMPLIFY_MONOREPO_APP_ROOT` back to `wallets/frontend`. Merge `Etc-mono-repo` #338 only while the app points here, because it empties that repo's `wallets/`.
 
