@@ -24,12 +24,13 @@ it('rewrites status cells by repo and keeps their style and notes', () => {
     '| [**Bad**](https://b) | [b](https://github.com/x/bad) | ✅ | ✅ Active |',
     '| [**Coinbase**](https://c) | [c](https://github.com/coinbase/coinbase-wallet-sdk) | ❌ | ❌ Inactive |',
     '| [**Ledger**](https://l) | Private | 🔒 | 🔒 Private |',
+    '| [**Part**](https://p) | [s](https://github.com/cryptoadvance/specter-diy) | ⚠️ Partial | ⚠️ Partial |',
   ].join('\n');
   const { text, changed } = applyToMarkdown(doc, entries);
   const lines = text.split('\n');
   expect(changed).toBe(1);
   expect(lines[2]).toBe('| [**Specter DIY**](https://s) | [s](https://github.com/cryptoadvance/specter-diy) | ⚠️ | ⚠️ Slow (develop branch) |');
-  expect(lines.slice(3)).toEqual(doc.split('\n').slice(3)); // struck-through, bad data, KEEP_STATUS and private rows unchanged
+  expect(lines.slice(3)).toEqual(doc.split('\n').slice(3)); // struck-through, bad data, KEEP_STATUS, private and non-activity labels unchanged
 });
 
 it('joins by bold name in a metrics table without repo links', () => {

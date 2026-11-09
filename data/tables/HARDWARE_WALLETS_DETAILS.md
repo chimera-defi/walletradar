@@ -85,13 +85,13 @@ Complete explanations for all table columns:
 | **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Oct 16, 2026 (default branch); Oct 5, 2026 (develop) | 165 | 25 | 15.2% | ✅ Active (develop branch) |
 
 **Code Quality Notes:**
-- ✅ **ColdCard (0.8%):** Very few open issues relative to community size. This does not offset the July 2026 seed-generation advisory (see Security Incidents below).
-- ✅ **BitBox02 (20.9%), Blockstream Jade (21.0%), Krux (21.3%), Specter DIY (21.4%):** Moderate ratios.
-- ⚠️ **SeedSigner (22.7%):** Moderate; large community with many feature requests.
-- ⚠️ **Trezor (40.1%):** Higher ratio reflects a large feature set and user base.
-- ⚠️ **Keystone (55.3%):** High; many open issues relative to stars.
-- 🔴 **OneKey Pro (68.8%):** High ratio and the last commit on the default branch is more than three months old.
-- ⚠️ **KeepKey:** The default branch (`master`) was last committed on Apr 5, 2026, but the `develop` branch was committed on Oct 5, 2026 and firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
+- ✅ **ColdCard (1.1%):** Very few open issues relative to community size. This does not offset the July 2026 seed-generation advisory (see Security Incidents below).
+- ✅ **BitBox02 (18.5%), Blockstream Jade (20.7%), Specter DIY (21.6%), Krux (22.5%):** Moderate ratios.
+- ⚠️ **SeedSigner (22.8%):** Moderate; large community with many feature requests.
+- ⚠️ **Trezor (41.7%):** Higher ratio reflects a large feature set and user base.
+- ⚠️ **Keystone (60.3%):** High; many open issues relative to stars.
+- 🔴 **OneKey Pro (71.9%):** High ratio; the default branch is active again (last commit Oct 22, 2026, per the 2026-11-09 refresh).
+- ⚠️ **KeepKey:** The default branch (`master`) was last committed on Oct 16, 2026 (2026-11-09 refresh); the `develop` branch was committed on Oct 5, 2026 and firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
 
 **Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus (checked for a firmware repo on GitHub, 2026-10-15; Bitkey and Cypherock repos are public and listed in the main table)
 
