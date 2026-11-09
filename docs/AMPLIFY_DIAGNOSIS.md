@@ -14,7 +14,7 @@ Evidence (all checked this run):
 | Last monorepo push to `main` | `Etc-mono-repo` `16c9141`, 2026-10-10 14:52:51Z (`wallets/scripts/refresh-github-data.sh`); the commit before it is 2026-09-24. Nothing pushed to `main` since, so an app tracking it has had nothing to build. (Its `pushed_at` is 2026-10-12, from the `auto/refresh-wallet-data` branch; check whether the app also has other branches connected.) |
 | Live `last-modified` | 2026-10-10 14:54:30 GMT: 1m39s after that monorepo push; this repo's pre-stall pushes were 14:49:55–14:50:02Z. |
 | Do the live headers tell the repos apart? | No. The monorepo's `customHttp.yml` is identical to this repo's at `ee79846` apart from `appRoot: wallets/frontend`, and `/docs/qr-payments/` exists in both. The `llms.txt`, homepage and manifest rows above do. |
-| Monorepo extraction | `Etc-mono-repo` PR #290 ("extract WalletRadar to standalone repo and stub monorepo") is **OPEN, not merged**. `wallets/` there is still the full site. (Later: a 2026-10-24 history rewrite auto-closed #290 and #338 replaced it; #338 was still an open draft on 2026-11-09.) |
+| Monorepo extraction | `Etc-mono-repo` PR #290 ("extract WalletRadar to standalone repo and stub monorepo") is **OPEN, not merged**. `wallets/` there is still the full site. (Later: a 2026-10-24 history rewrite auto-closed #290 and #338 replaced it; #338 stayed an open draft until it merged on 2026-11-09 at 07:59:26Z, `d35e932`.) |
 | Repo webhooks on this repo | `gh api repos/chimera-defi/walletradar/hooks` returns `[]`. |
 | GitHub check suite "AWS Amplify (us-east-2)" | `queued`, no conclusion, zero runs, on every commit, including September ones. A placeholder, not a stall signal. It exists on the 2026-10-16 merge, so the Amplify GitHub App installation does include this repo; that only means the app can see it, not that an app builds from it. |
 
@@ -62,6 +62,7 @@ Equivalent CLI for an operator with credentials: `aws amplify start-job --region
 | Auto-deploy | Tested by merging #160, which added this section; that PR's body records the result. |
 | Token | Deleted after job 197. Job 198, started by hand once the token was gone, succeeded at 07:18:35Z, and the hook stayed active. The merge that added this row tests a deploy from a merge without the token; that PR's body records the result. |
 | Testing the hook | Re-sending an old push from GitHub's webhook page got a 202 and started no job, so it proves nothing. Only a real merge tests this path. |
+| Monorepo merge | `Etc-mono-repo` #338 merged at 07:59:26Z (`d35e932`), emptying that repo's `wallets/`, while the app pointed here. Its old hook still answered 202, but no job started: at 08:10:01Z the latest job was still 199, and live `last-modified` held at 07:24:47 GMT across 20 samples over ten minutes. |
 
-To roll back, run the same `update-app` command with `https://github.com/chimera-defi/Etc-mono-repo` and a new token, and set `AMPLIFY_MONOREPO_APP_ROOT` back to `wallets/frontend`. Merge `Etc-mono-repo` #338 only while the app points here, because it empties that repo's `wallets/`.
+To roll back a bad release, revert its merge on this repo's `main`, since every merge deploys. Going back to a monorepo build is harder since #338: `Etc-mono-repo` `main` has no `wallets/frontend`, so it would need a branch cut from `d8c1b80` and connected in Amplify, the same `update-app` command with `https://github.com/chimera-defi/Etc-mono-repo` and a new token, and `AMPLIFY_MONOREPO_APP_ROOT` back to `wallets/frontend`. That path is untested.
 
