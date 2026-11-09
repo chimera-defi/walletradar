@@ -23,7 +23,8 @@ const TARGETS = [
 const LABEL = { '✅': 'Active', '⚠️': 'Slow', '❌': 'Inactive' };
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const DATE_RE = /^[A-Z][a-z]{2} \d{1,2}, \d{4}/;
-const STATUS_RE = /^(✅|⚠️|❌|🔒)(\s*(Active|Slow|Inactive|Private)\b)?/;
+// A status token is a bare emoji, or an emoji plus an activity word (other labels such as "⚠️ Partial" are left alone).
+const STATUS_RE = /^(✅|⚠️|❌|🔒)(\s*(Active|Slow|Inactive|Private)\b|\s*$)/;
 // Repos whose status cells stay hand-kept (other columns still refresh). Give the reason.
 const KEEP_STATUS = {
   'coinbase/coinbase-wallet-sdk': 'commits since the Jun 2025 release are docs; SDK superseded by Base Account SDK',
@@ -41,7 +42,7 @@ function loadEntries(file) {
 
 /** Swap the leading status token, keeping its style (bare emoji or "emoji Label") and any note after it. */
 function statusCell(old, emoji) {
-  return old.replace(STATUS_RE, (_, _e, word) => (word ? `${emoji} ${LABEL[emoji]}` : emoji));
+  return old.replace(STATUS_RE, (_, _e, rest) => (rest.trim() ? `${emoji} ${LABEL[emoji]}` : emoji));
 }
 
 /** New cell values for one row, or null when the row has no match. */
@@ -77,7 +78,9 @@ function applyToMarkdown(text, allEntries) {
   // Valid entries only: a known status emoji and a numeric daysAgo.
   const entries = allEntries.filter((w) => LABEL[w.status] && Number.isFinite(w.daysAgo));
   const byRepo = new Map(entries.map((w) => [String(w.repo).toLowerCase(), w]));
-  const byName = new Map(entries.map((w) => [w.wallet, w]));
+  const names = entries.map((w) => w.wallet);
+  // Name join only for names that occur once (the hardware JSON repeats e.g. "Foundation Passport").
+  const byName = new Map(entries.filter((w) => names.indexOf(w.wallet) === names.lastIndexOf(w.wallet)).map((w) => [w.wallet, w]));
   const lines = text.split('\n');
   let header = null;
   let changed = 0;
