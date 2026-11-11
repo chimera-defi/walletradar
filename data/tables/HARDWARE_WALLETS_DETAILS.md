@@ -82,7 +82,7 @@ Complete explanations for all table columns:
 | **Foundation Passport Prime** | [Foundation-Devices/KeyOS](https://github.com/Foundation-Devices/KeyOS) | Oct 21, 2026 | 33 | 17 | 51.5% | ✅ Active |
 | **OneKey Pro** | [OneKeyHQ/firmware-pro](https://github.com/OneKeyHQ/firmware-pro) | Oct 22, 2026 | 32 | 23 | 71.9% | ✅ Active |
 | **OneKey Classic 1S** | [OneKeyHQ/firmware](https://github.com/OneKeyHQ/firmware) | May 12, 2026 | 89 | 37 | 41.6% | ❌ Inactive |
-| **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Oct 16, 2026 (default branch); Oct 5, 2026 (develop) | 165 | 25 | 15.2% | ✅ Active (develop branch) |
+| **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Oct 16, 2026 | 165 | 25 | 15.2% | ✅ Active |
 
 **Code Quality Notes:**
 - ✅ **ColdCard (1.1%):** Very few open issues relative to community size. This does not offset the July 2026 seed-generation advisory (see Security Incidents below).
@@ -91,7 +91,7 @@ Complete explanations for all table columns:
 - ⚠️ **Trezor (41.7%):** Higher ratio reflects a large feature set and user base.
 - ⚠️ **Keystone (60.3%):** High; many open issues relative to stars.
 - 🔴 **OneKey Pro (71.9%):** High ratio; the default branch is active again (see Last Commit in the table).
-- ⚠️ **KeepKey:** Work lands on `develop` as well as `master`, so the table shows both dates and rates the row on either; firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
+- ⚠️ **KeepKey:** Activity follows the default branch (`master`), like every other row. Some work also lands on `develop`, which the refresh does not read; firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
 
 **Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus (checked for a firmware repo on GitHub, 2026-10-15; Bitkey and Cypherock repos are public and listed in the main table)
 
