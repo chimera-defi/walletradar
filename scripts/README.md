@@ -216,7 +216,7 @@ The tracked repos are discovered from `data/tables/HARDWARE_WALLETS.md`. The scr
 
 ### `apply_activity.js` (Activity into the tables)
 
-Copies `data/activity.json` and `data/hardware-activity.json` into the software and hardware tables and their `*_DETAILS.md` docs. It updates the status, last commit, stars, issues and ratio cells. Rows join by GitHub repo; the software GitHub Metrics table has no repo column, so it joins by bold wallet name. It leaves alone struck-through rows, rows with no public repo, prose, and any note after a status (e.g. `✅ Active (develop branch)`). Repos in `KEEP_STATUS` keep a hand-set status; each one records why. The weekly workflow runs it, then `sync_table_scores.js --write` twice. The second pass is needed because bands are assigned before rows are sorted, so a score tie at a band cutoff only settles on the second run.
+Copies `data/activity.json` and `data/hardware-activity.json` into the software and hardware tables and their `*_DETAILS.md` docs. It updates the status, last commit, stars, issues and ratio cells. Rows join by GitHub repo; the software GitHub Metrics table has no repo column, so it joins by bold wallet name. It leaves alone struck-through rows, rows with no public repo, prose, and any note after a status (e.g. `✅ Active (develop branch)`). Repos in `KEEP_STATUS` keep a hand-set status; each one records why. The weekly workflow runs it, then `sync_table_scores.js --write` once (it sorts rows before assigning bands, so one pass is stable; `tests/sync-table-scores.test.ts` checks this).
 
 ```bash
 node scripts/apply_activity.js            # report rows that would change
