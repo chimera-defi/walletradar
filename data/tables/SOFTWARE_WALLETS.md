@@ -39,6 +39,7 @@
 | [**NuFi**](https://nu.fi/) *(partial data)* | 20 | ❌ | ? | TBD | [nufi](https://github.com/nufi-official/nufi) | ❌ | <img src="/chains/eth.svg" width="16" title="EVM"> | 🌐 | TBD | ❌ Prop | TBD | ❓ None | 🟢 Self | TBD | TBD | EOA+7702 | TBD | ✅ | Unverified: WalletBeat-sourced fields only | 🔴 |
 
 > **Scoring note:** `Score` and `Rec` are generated from the visible columns above using `scripts/sync_table_scores.js` and methodology version `2026-04-visible-columns-v3`. They should not be hand-edited.
+> **Coinbase Active is hand-set (❌):** the GitHub link is the `coinbase-wallet-sdk` repo, not the wallet app (closed source). Its last release was Jun 2025 and Coinbase now points integrators to `@base-org/account` ([base/account-sdk](https://github.com/base/account-sdk)) as the current SDK, so repo commits do not show the wallet is maintained. `scripts/apply_activity.js` skips this status cell (`KEEP_STATUS`); the other columns still refresh.
 
 ## Pros & Cons (Top Picks)
 

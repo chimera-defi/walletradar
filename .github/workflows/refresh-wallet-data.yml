@@ -74,8 +74,6 @@ jobs:
         run: |
           node scripts/apply_activity.js --write
           node scripts/sync_table_scores.js --write
-          # Second pass: bands are assigned before rows are sorted, so score ties at a band cutoff settle on pass two.
-          node scripts/sync_table_scores.js --write
           # Bot PRs run no CI, so check here: tables in sync and the data smoke test passes.
           node scripts/sync_table_scores.js
           node frontend/scripts/smoke-test-wallet-data.js
