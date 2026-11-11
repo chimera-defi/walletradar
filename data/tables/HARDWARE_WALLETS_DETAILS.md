@@ -66,7 +66,7 @@ Complete explanations for all table columns:
 
 ### GitHub Metrics (Firmware Repositories)
 
-**Generated:** October 15, 2026 from the GitHub API (default-branch last commit, stars, open issues plus pull requests)
+**Source:** GitHub API, refreshed weekly (default-branch last commit, stars, open issues plus pull requests); dates are in the Last Commit column
 
 | Wallet | Repository | Last Commit | Stars | Issues | Ratio | Status |
 |--------|------------|-------------|-------|--------|-------|--------|
@@ -90,8 +90,8 @@ Complete explanations for all table columns:
 - ⚠️ **SeedSigner (22.8%):** Moderate; large community with many feature requests.
 - ⚠️ **Trezor (41.7%):** Higher ratio reflects a large feature set and user base.
 - ⚠️ **Keystone (60.3%):** High; many open issues relative to stars.
-- 🔴 **OneKey Pro (71.9%):** High ratio; the default branch is active again (last commit Oct 22, 2026, per the 2026-11-09 refresh).
-- ⚠️ **KeepKey:** The default branch (`master`) was last committed on Oct 16, 2026 (2026-11-09 refresh); the `develop` branch was committed on Oct 5, 2026 and firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
+- 🔴 **OneKey Pro (71.9%):** High ratio; the default branch is active again (see Last Commit in the table).
+- ⚠️ **KeepKey:** Work lands on `develop` as well as `master`, so the table shows both dates and rates the row on either; firmware v7.14.1 was released Jun 5, 2026. The device is on sale at keepkey.com. It is not abandoned.
 
 **Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus (checked for a firmware repo on GitHub, 2026-10-15; Bitkey and Cypherock repos are public and listed in the main table)
 

@@ -27,7 +27,7 @@ const DATE_RE = /^[A-Z][a-z]{2} \d{1,2}, \d{4}/;
 const STATUS_RE = /^(✅|⚠️|❌|🔒)(\s*(Active|Slow|Inactive|Private)\b|\s*$)/;
 // Repos whose status cells stay hand-kept (other columns still refresh). Give the reason.
 const KEEP_STATUS = {
-  'coinbase/coinbase-wallet-sdk': 'commits since the Jun 2025 release are docs; SDK superseded by Base Account SDK',
+  'coinbase/coinbase-wallet-sdk': 'the repo is an SDK, not the wallet app; last release Jun 2025, and Coinbase points integrators to @base-org/account (base/account-sdk) as the current SDK',
 };
 
 const fmtDate = (iso) => {

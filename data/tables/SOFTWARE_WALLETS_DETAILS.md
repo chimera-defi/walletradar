@@ -19,7 +19,7 @@
 | 5 | **Brave** | 75 | Brave users | 🟢 |
 <!-- GENERATED_SOFTWARE_SNAPSHOT_END -->
 
-**Data Sources:** GitHub REST API (stars, issues, last commit: re-fetched Oct 17, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
+**Data Sources:** GitHub REST API (stars, issues, last commit; refreshed weekly), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
 **Related:** See [Hardware Wallet Comparison](./HARDWARE_WALLETS.md) for cold storage recommendations.
 
@@ -77,7 +77,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 - **Block**: abandoned; source-available, non-commercial licence.
 - **Frame**: inactive since Feb 2025.
 - **Argent** (now Ready): inactive repo, Starknet-only desktop.
-- **imToken**: inactive (last commit May 20, 2026).
+- **imToken**: inactive (see Last Commit in the GitHub Metrics table).
 
 ### MetaMask: why it sits below Rabby
 
@@ -122,7 +122,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 - **Stability:** ⭐⭐ = High churn (>6 rel/mo) | ⭐⭐⭐ = Medium | ⭐⭐⭐⭐ = Stable (<3 rel/mo)
 - **Private:** Closed-source repos have no public metrics
 
-**Data Sources:** GitHub REST API (re-fetched Oct 17, 2026), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
+**Data Sources:** GitHub REST API (refreshed weekly), [WalletBeat](https://walletbeat.fyi) (Dec 2025)
 
 ---
 
@@ -132,7 +132,7 @@ Scores below are the generated scores from [SOFTWARE_WALLETS.md](./SOFTWARE_WALL
 | Block Wallet | ❌ No commits since Nov 2024 | Rainbow, Enkrypt |
 | Frame | ❌ No commits since Feb 2025 | Rabby |
 | Argent-X | ❌ No commits since Mar 2025 | Safe |
-| Coinbase SDK | ⚠️ Slow (Jul 2025) | Trust Wallet |
+| Coinbase SDK | ⚠️ Slow; no release since Jun 2025, superseded by Base Account SDK | Trust Wallet |
 
 ---
 
@@ -242,7 +242,7 @@ Every wallet has quirks that can cause developer headaches. Know them before you
 | **Safe** | No browser extension, web app only | Extra click for users | Use WalletConnect |
 | **Safe** | Transactions require gas from signers | UX friction | Use paymaster/relayer |
 | **Rainbow** | Limited custom RPC support | Can't use private RPC easily | Use default RPCs |
-| **Coinbase** | SDK development slowed (Jul 2025) | May have stale bugs | Consider alternatives |
+| **Coinbase** | SDK last released Jun 2025; superseded by Base Account SDK | May have stale bugs | Consider alternatives |
 | **Phantom** | No testnet support | Can't test with Phantom | Use different wallet for testing |
 | **Phantom** | Solana-first, EVM secondary | EVM features may lag | Verify EVM support |
 | **Daimo** | Base chain only | Limited chain support | Only for Base L2 apps |
@@ -888,7 +888,7 @@ Each wallet has quirks. Test your dApp with at least 3 wallets before production
 |------------|-------------|--------|
 | [MetaMask/metamask-extension](https://github.com/MetaMask/metamask-extension) | Nov 9, 2026 | ✅ Active |
 | [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) | Nov 5, 2026 | ✅ Active |
-| [coinbase/coinbase-wallet-sdk](https://github.com/coinbase/coinbase-wallet-sdk) | Oct 27, 2026 (docs/rebrand notes; last release Jun 25, 2025, superseded by Base Account SDK) | ⚠️ Slow |
+| [coinbase/coinbase-wallet-sdk](https://github.com/coinbase/coinbase-wallet-sdk) | Oct 27, 2026 (last release Jun 2025, superseded by Base Account SDK) | ⚠️ Slow |
 | [trustwallet/wallet-core](https://github.com/trustwallet/wallet-core) | Nov 6, 2026 | ✅ Active |
 | [rainbow-me/rainbow](https://github.com/rainbow-me/rainbow) | Nov 7, 2026 | ✅ Active |
 | [tahowallet/extension](https://github.com/tahowallet/extension) | Nov 7, 2026 | ✅ Active |

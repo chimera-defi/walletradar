@@ -288,15 +288,19 @@ function processTable(config, { write = false } = {}) {
   const endIndex = tableEnd(lines, headerIndex);
 
   const bodyLines = lines.slice(headerIndex + 2, endIndex).filter((line) => line.trim().startsWith('|') && !isSeparatorLine(line));
-  const scoredRows = bodyLines.map((line) => {
+  // Sort before banding: ties at a band cutoff break by row index, so the bands must see
+  // the final row order (the one the site and smoke test read) for one pass to be stable.
+  const scoredRows = sortRows(bodyLines.map((line) => {
     const originalCells = parseRow(line);
     const scoreInfo = config.compute(originalCells);
     return {
       sourceLine: line,
       originalCells,
       scoreInfo,
+      score: scoreInfo.score,
+      name: extractName(originalCells[0]),
     };
-  });
+  }));
 
   const { recommendations } = assignRecommendationBands(
     config.label,
