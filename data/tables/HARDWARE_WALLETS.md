@@ -47,6 +47,7 @@
 | [**Arculus**](https://www.getarculus.com/) | 41 | Private | ❌ | ❌ Closed | ✅ SE | None | ~$60 | NFC | 🔒 Private | 2000 | 🟢 CompoSecure | 🔴 |
 | [**GridPlus Lattice1**](https://gridplus.io/) | 40 | [SDK only](https://github.com/GridPlus/gridplus-sdk) | ❌ | ⚠️ SDK only | ✅ SE | 5" Touch | ~$397 | WiFi/USB | 🔒 Private | 2017 | 🔴 Unknown | 🔴 |
 | [**BC Vault**](https://bc-vault.com/) | 30 | Private | ❌ | ❌ Closed | ❌ None | OLED | ~€160 | USB | 🔒 Private | 2014 | 🔴 Unknown | 🔴 |
+| [**ERA Wallet**](https://era-wallet.com/) | 0 | [ERA-firmware-p](https://github.com/ERAWLT/ERA-firmware-p) | ✅ Full | ⚠️ Partial | ✅ ATECC | E-Ink Touch | ~$226 | QR/NFC | ❌ Inactive | 2022 | 🟡 VC | 🔴 |
 
 *\* DIY wallets — price varies based on components purchased; requires self-assembly*
 *‡ Price UNVERIFIED on 2026-10-17: ColdCard Mk4 is not sold any more (coldcard.com/mk4: "replaced by Mk5") and has no current price, so ~$160 is the previous value. Arculus ~$60 is the current sale price on getarculus.com (list $99), read from the product page on 2026-10-17.*
