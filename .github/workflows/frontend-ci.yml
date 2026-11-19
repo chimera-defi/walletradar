@@ -54,6 +54,12 @@ jobs:
             exit 1
           fi
 
+      - name: Validate merchant feed
+        # Prices map to table rows; every image_link has a file in public/.
+        run: |
+          python3 ../scripts/test_validate_merchant_feed.py
+          python3 ../scripts/validate_merchant_feed.py
+
       - name: Build
         run: bun run build
 
