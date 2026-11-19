@@ -3,7 +3,7 @@
 Manual, no timers and no paid services. Run weekly (Monday suggested) or when a card shuts down in the news. Allow about an hour.
 
 ## 1. Stale first
-List the oldest checks first (the cards page has no freshness sort):
+List the oldest checks first (the Cards tab on /explore can also sort by Last Verified):
 ```bash
 jq -r '.cards | to_entries | sort_by(.value.last_verified // "") | .[] | "\(.value.last_verified // "never")  \(.key)"' data/card-verification.json | head -20
 ```
@@ -16,12 +16,12 @@ Use the issuer's own page, blog or help centre. Secondary sites (news, aggregato
 - Shut-down cards stay in the table with Status ❌, strikethrough name and the reason (see Cypher, Ready). Do not delete rows.
 
 ## 3. Look for new and dead cards
-Search for the last 7 days: "crypto card launch", "crypto card discontinued", "card issuer wind down" (watch issuer-level news: Rain, Baanx, Monavate, Kulipa, Lead Bank/Bridge, Nium). Track competitors for names we lack: SpendNode directory, The Grid cards, Spark.money, Eco.com. A new card becomes a row only when its issuer page states what it states; otherwise add it to the **Watchlist** in `data/tables/CRYPTO_CARDS_DETAILS.md` (Market sweep section) with the source and what is missing.
+Search for the last 7 days: "crypto card launch", "crypto card discontinued", "card issuer wind down" (watch issuer-level news: Rain, Baanx, Monavate, Kulipa, Lead Bank/Bridge, Nium). Track competitors for names we lack: SpendNode directory, The Grid cards, Spark.money, Eco.com. A new card becomes a row only when its issuer page states what it states; otherwise add it to the market-sweep log in `data/tables/CRYPTO_CARDS_DETAILS.md` (latest "Market sweep" section; it has no separate Watchlist heading) with the source and what is missing.
 
 ## 4. Write it down
 - Add or update the card's section in `data/tables/CRYPTO_CARDS_DETAILS.md` and a dated entry in its sweep log (sources with access dates).
 - Add a `CHANGELOG.md` entry.
-- New row needs an entry in `data/card-verification.json` (the test fails otherwise).
+- New row needs an entry in `data/card-verification.json` (`tests/card-freshness.test.ts`, run by `bunx vitest run tests/`, fails otherwise).
 
 ## 5. Verify and ship
 ```bash
