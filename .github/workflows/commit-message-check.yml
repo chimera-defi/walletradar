@@ -16,7 +16,8 @@ jobs:
   check-commit-messages:
     name: Check Commit Messages
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+    # Agent-only rules: PRs from forks (external contributors) are exempt; Build & Lint still runs for them.
+    if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
 
     steps:
       - name: Validate commit messages in PR
