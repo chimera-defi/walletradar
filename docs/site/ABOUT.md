@@ -8,7 +8,7 @@ We are not owned or controlled by any product provider, exchange, or financial i
 
 ## What We Do
 
-- **Compare products** - Analyze software wallets, hardware wallets, crypto cards, ramps, and adjacent crypto access tools
+- **Compare products** - Analyze software wallets, hardware wallets, crypto cards, ramps, QR payment providers, and adjacent crypto access tools
 - **Track development activity** - Monitor GitHub commits, releases, and maintenance frequency
 - **Review security** - Document audit status, security features, and architectural choices
 - **Evaluate user experience** - Assess developer tools, transaction simulation, and platform support
