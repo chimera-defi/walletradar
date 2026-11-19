@@ -102,7 +102,7 @@ def build_item(row: Dict[str, str], pricing: Dict[str, Dict[str, Any]]) -> Dict[
         "title": name,
         "description": f"{name} - {product_type} listed on Wallet Radar.",
         "link": url,
-        "image_link": f"{BASE_URL}/og/wallets/hardware.png",
+        "image_link": f"{BASE_URL}/og-hardware-wallets-table.png",
         "availability": normalize_availability(price_entry.get("availability")),
         "condition": "new",
         "price": price_value,

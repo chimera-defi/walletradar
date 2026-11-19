@@ -7,11 +7,14 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 PRICING_FILE = BASE_DIR / "data" / "merchant_pricing.json"
 HARDWARE_TABLE = BASE_DIR / "data" / "tables" / "HARDWARE_WALLETS.md"
 FEED_FILE = BASE_DIR / "frontend" / "public" / "merchant-center.xml"
+PUBLIC_DIR = BASE_DIR / "frontend" / "public"
+SITE_HOST = "walletradar.org"
 # Merchant Center accepts any ISO currency; Bitkey is only sold in EUR (bitkey.world, 2026-10-17).
 ALLOWED_CURRENCIES = ("USD", "EUR")
 
@@ -59,6 +62,18 @@ def validate_pricing(pricing: dict[str, dict[str, str]], names: set[str]) -> lis
     return errors
 
 
+def image_error(url: str, public_dir: Path = PUBLIC_DIR) -> str | None:
+    """Return why an image_link is invalid, or None if it maps to a file inside public_dir."""
+    parts = urlsplit(url)
+    if parts.scheme != "https" or parts.netloc != SITE_HOST:
+        return f"not on https://{SITE_HOST}/"
+    root = public_dir.resolve()
+    target = (root / unquote(parts.path).lstrip("/")).resolve()
+    if not target.is_relative_to(root) or not target.is_file():
+        return "has no file in frontend/public"
+    return None
+
+
 def validate_feed(pricing: dict[str, dict[str, str]]) -> list[str]:
     errors: list[str] = []
     try:
@@ -77,6 +92,10 @@ def validate_feed(pricing: dict[str, dict[str, str]]) -> list[str]:
             errors.append(f"feed: {title} unexpected product_type: {product_type}")
         if title not in pricing:
             errors.append(f"feed: {title} missing pricing entry")
+        image = item.findtext("g:image_link", default="", namespaces=ns)
+        problem = image_error(image)
+        if problem:
+            errors.append(f"feed: {title} image_link {problem}: {image}")
     return errors
 
 

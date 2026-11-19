@@ -9,7 +9,7 @@
       <g:title>Trezor Safe 3</g:title>
       <g:description>Trezor Safe 3 - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#trezor-safe-3</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>59 USD</g:price>
@@ -22,7 +22,7 @@
       <g:title>Blockstream Jade</g:title>
       <g:description>Blockstream Jade - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#blockstream-jade</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>67 USD</g:price>
@@ -35,7 +35,7 @@
       <g:title>Ledger Nano S+</g:title>
       <g:description>Ledger Nano S+ - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#ledger-nano-s</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>69 USD</g:price>
@@ -48,7 +48,7 @@
       <g:title>OneKey Pro</g:title>
       <g:description>OneKey Pro - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#onekey-pro</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>278 USD</g:price>
@@ -61,7 +61,7 @@
       <g:title>Ledger Nano Gen5</g:title>
       <g:description>Ledger Nano Gen5 - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#ledger-nano-gen5</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>179 USD</g:price>
@@ -74,7 +74,7 @@
       <g:title>OneKey Classic 1S Pure</g:title>
       <g:description>OneKey Classic 1S Pure - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#onekey-classic-1s-pure</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>79 USD</g:price>
@@ -87,7 +87,7 @@
       <g:title>Ledger Flex</g:title>
       <g:description>Ledger Flex - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#ledger-flex</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>249 USD</g:price>
@@ -100,7 +100,7 @@
       <g:title>OneKey Classic 1S</g:title>
       <g:description>OneKey Classic 1S - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#onekey-classic-1s</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>99 USD</g:price>
@@ -113,7 +113,7 @@
       <g:title>Ledger Nano X</g:title>
       <g:description>Ledger Nano X - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#ledger-nano-x</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>99 USD</g:price>
@@ -126,7 +126,7 @@
       <g:title>Arculus</g:title>
       <g:description>Arculus - Hardware Wallet listed on Wallet Radar.</g:description>
       <g:link>https://walletradar.org/docs/hardware-wallets#arculus</g:link>
-      <g:image_link>https://walletradar.org/og/wallets/hardware.png</g:image_link>
+      <g:image_link>https://walletradar.org/og-hardware-wallets-table.png</g:image_link>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:price>59.76 USD</g:price>
