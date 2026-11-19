@@ -144,6 +144,7 @@ Major regional availability changes discovered through browser automation verifi
 
 | Date | Wallet | Change | Details |
 |------|--------|--------|---------|
+| Nov 19, 2026 | **ERA Wallet** | ADDED (vendor-submitted) | Submitted by the vendor (PR #168), checked by maintainers against the official site, GitHub org and Keylabs audit. Display and Funding set to sourced values (E-Ink, Unknown); score 70 🔴 |
 | Oct 10, 2026 | **Firefly, imKey Pro** | ADDED (partial data) | Listed in WalletBeat but missing here. Only sourced fields filled (official sites, official repos, WalletBeat pinned commit); unknown fields are `TBD`. Scores are generated and are lower bounds. Sources: docs/VERIFICATION.md. |
 | Oct 10, 2026 | **Ledger Stax, Tria, Bybit Card** | RATING SHIFT (percentile) | Recommendation bands are percentile-based over all rows, so adding low-scoring partial-data rows moved Ledger Stax 🔴→🟡 (hardware), Tria 🟢→🟡 and Bybit Card 🟡→🔴 (cards) with no change to their own data. Partial-data rows are NOT excluded from the percentile base (simplest honest option; excluding them would diverge the generator and frontend); they carry a visible "partial data" flag. Firefly Founded set to TBD (repo-date proxy), score 57→55. |
 | Dec 2025 | **Keycard Shell** | Added | Modular air-gapped hardware wallet with secure element, duress PIN, water/dust resistant, fully open source (score 91 🟢) |

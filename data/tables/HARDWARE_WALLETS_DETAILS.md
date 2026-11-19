@@ -95,6 +95,8 @@ Complete explanations for all table columns:
 
 **Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus (checked for a firmware repo on GitHub, 2026-10-15; Bitkey and Cypherock repos are public and listed in the main table)
 
+**Partial firmware, not refresh-tracked:** ERA Wallet ([ERAWLT/ERA-firmware-p](https://github.com/ERAWLT/ERA-firmware-p) with submodules ERA-bootloader-p, ERA-bootstrapper-p, ERA-apps-p, ERA-crypto-p; last commit Nov 30, 2025; checked 2026-11-19). The README says the published code cannot be built independently.
+
 **Firmware Release Patterns:**
 Unlike software wallets where frequent updates can indicate instability, hardware wallet firmware updates are intentionally infrequent for security. Most manufacturers release 2-4 firmware updates per year. This is by design — each update requires extensive security review and user action to install.
 
@@ -194,6 +196,7 @@ Secure element, firmware openness, reproducible builds and anti-tamper features 
 | **KeepKey** | ❌ MCU only | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | **Arculus** | ✅ CC EAL6+ | ❌ NFC | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **BC Vault** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
+| **ERA Wallet** | ✅ ATECC608C | ✅ QR | ⚠️ | ❌ | Unknown | Unknown | Unknown | Unknown |
 
 **Security Feature Definitions:**
 - **Secure Element:** Dedicated security chip to protect private keys (vs general-purpose MCU)
@@ -281,6 +284,7 @@ No 2026 vulnerability reports for Keystone, OneKey, Tangem, Jade or SafePal turn
 - [Blockstream Jade](https://blockstream.com/jade/) — [GitHub](https://github.com/Blockstream/Jade)
 - [ColdCard](https://coldcard.com/) — [GitHub](https://github.com/Coldcard)
 - [Foundation Passport](https://foundation.xyz/) — [GitHub](https://github.com/Foundation-Devices)
+- [ERA Wallet](https://era-wallet.com/) — [GitHub](https://github.com/ERAWLT)
 
 ### DIY Signing Devices
 - [SeedSigner](https://seedsigner.com/) — [GitHub](https://github.com/SeedSigner/seedsigner) — Raspberry Pi-based
@@ -306,6 +310,7 @@ Derived from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table
 | **BitBox** | 73.0 | 2 | BitBox02, BitBox02 Nova |
 | **Foundation** | 73.0 | 2 | Foundation Passport (Core), Foundation Passport Prime |
 | **Keycard** | 72.5 | 2 | Keycard Shell, Keycard |
+| **ERA** | 70.0 | 1 | ERA Wallet |
 | **Krux** | 70.0 | 1 | Krux |
 | **SeedSigner** | 70.0 | 1 | SeedSigner |
 | **Blockstream** | 67.3 | 3 | Blockstream Jade, Blockstream Jade Plus, Blockstream Jade Core |

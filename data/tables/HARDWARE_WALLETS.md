@@ -17,6 +17,7 @@
 | [**BitBox02**](https://bitbox.swiss/) | 73 | [bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | ❌ | ✅ Full | ✅ ATECC | Touch Edge | ~€149 | USB-C | ✅ Active | 2015 | 🟢 Self | 🟢 |
 | [**BitBox02 Nova**](https://bitbox.swiss/) | 73 | [bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | ❌ | ✅ Full | ✅ ATECC | Touch Edge | ~€175 | USB-C | ✅ Active | 2015 | 🟢 Self | 🟢 |
 | [**Blockstream Jade Plus**](https://store.blockstream.com/products/jade-plus) | 70 | [Jade](https://github.com/Blockstream/Jade) | ✅ Full | ✅ Full | ❌ None (virtual SE) | Color LCD | ~$149 | USB/BT/QR | ✅ Active | 2014 | 🟡 VC | 🟢 |
+| [**ERA Wallet**](https://era-wallet.com/) | 70 | [ERA-firmware-p](https://github.com/ERAWLT/ERA-firmware-p) | ✅ Full | ⚠️ Partial | ✅ ATECC | E-Ink | ~$226 | QR/NFC | ❌ Inactive | 2022 | 🔴 Unknown | 🔴 |
 | [**Foundation Passport Prime**](https://foundation.xyz/passport-prime) | 70 | [KeyOS](https://github.com/Foundation-Devices/KeyOS) | ❌ | ✅ Full | ✅ SE | Touch Color | ~€381 | BT/NFC/USB-C/QR | ✅ Active | 2020 | 🟡 VC | 🟢 |
 | [**Krux**](https://selfcustody.github.io/krux/) | 70 | [krux](https://github.com/selfcustody/krux) | ✅ Full | ✅ Full | ❌ None | LCD | ~$30-100* | QR | ✅ Active | 2021 | 🔴 Community | 🟢 |
 | [**SeedSigner**](https://seedsigner.com/) | 70 | [seedsigner](https://github.com/SeedSigner/seedsigner) | ✅ Full | ✅ Full | ❌ None | LCD | ~$50-100* | QR | ✅ Active | 2020 | 🔴 Community | 🟢 |
@@ -47,7 +48,6 @@
 | [**Arculus**](https://www.getarculus.com/) | 41 | Private | ❌ | ❌ Closed | ✅ SE | None | ~$60 | NFC | 🔒 Private | 2000 | 🟢 CompoSecure | 🔴 |
 | [**GridPlus Lattice1**](https://gridplus.io/) | 40 | [SDK only](https://github.com/GridPlus/gridplus-sdk) | ❌ | ⚠️ SDK only | ✅ SE | 5" Touch | ~$397 | WiFi/USB | 🔒 Private | 2017 | 🔴 Unknown | 🔴 |
 | [**BC Vault**](https://bc-vault.com/) | 30 | Private | ❌ | ❌ Closed | ❌ None | OLED | ~€160 | USB | 🔒 Private | 2014 | 🔴 Unknown | 🔴 |
-| [**ERA Wallet**](https://era-wallet.com/) | 0 | [ERA-firmware-p](https://github.com/ERAWLT/ERA-firmware-p) | ✅ Full | ⚠️ Partial | ✅ ATECC | E-Ink Touch | ~$226 | QR/NFC | ❌ Inactive | 2022 | 🟡 VC | 🔴 |
 
 *\* DIY wallets — price varies based on components purchased; requires self-assembly*
 *‡ Price UNVERIFIED on 2026-10-17: ColdCard Mk4 is not sold any more (coldcard.com/mk4: "replaced by Mk5") and has no current price, so ~$160 is the previous value. Arculus ~$60 is the current sale price on getarculus.com (list $99), read from the product page on 2026-10-17.*
@@ -56,6 +56,7 @@
 *Jade and Jade Plus use a "virtual secure element" (open-source blind oracle) instead of a physical chip, so the Secure Elem cell reads None.*
 *Activity follows the linked firmware repo (default-branch commits; the weekly refresh sets the Activity and Last Commit cells). OneKey Classic 1S rows link the `firmware` repo, so they read Inactive even though the device is still sold. Discontinued devices (Passport Core, Ledger Nano S) are set to Inactive.*
 *† Bitkey publishes app, server, schematics, and firmware code under MIT, but external parties still cannot build every firmware component because the fingerprint matching library remains proprietary.*
+*ERA Wallet was submitted by the vendor (HWLT FZE, Dubai) in PR #168; maintainers checked each cell on 2026-11-19 against era-wallet.com, the [ERAWLT](https://github.com/ERAWLT) GitHub org and the [Keylabs audit](https://github.com/keylabsio/audits/blob/main/2024-12-ERA-WLT.pdf) (Dec 2024, retest notes updated Aug 2026). Store price $226, in stock. Signing is QR only (EIP-4527); NFC is used for the encrypted backup card and firmware updates; the site lists no USB, Bluetooth or Wi-Fi. Secure element: ATECC608C. Open Source reads Partial because the firmware README says some components are private and the code cannot be built independently. The weekly refresh tracks only fully open firmware, so Activity was set by hand from the last firmware commit (Nov 30, 2025). The site does not say whether the e-ink screen is touch, and no funding source was found, so Display reads E-Ink and Funding reads Unknown.*
 
 **Note:** ~~Strikethrough~~ indicates discontinued/inactive wallets. Ledger Nano S was discontinued in 2023; limited storage (2-3 apps max) compared to Nano S+. Foundation Passport Core (the original Passport) is discontinued per a Foundation staff reply dated 2026-07-16; Passport Prime is its successor.
 
