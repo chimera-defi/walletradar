@@ -95,7 +95,7 @@ Complete explanations for all table columns:
 
 **Closed Source (no public firmware repos):** Ledger, NGRAVE, Ellipal, SafePal, SecuX, Tangem, BC Vault, GridPlus (checked for a firmware repo on GitHub, 2026-10-15; Bitkey and Cypherock repos are public and listed in the main table)
 
-**Partial firmware, not refresh-tracked:** ERA Wallet ([ERAWLT/ERA-firmware-p](https://github.com/ERAWLT/ERA-firmware-p) with submodules ERA-bootloader-p, ERA-bootstrapper-p, ERA-apps-p, ERA-crypto-p; last commit Nov 30, 2025; checked 2026-11-19). The README says the published code cannot be built independently.
+**Partial firmware, not refresh-tracked:** ERA Wallet ([ERAWLT/ERA-firmware-p](https://github.com/ERAWLT/ERA-firmware-p) and the related repos ERA-bootloader-p, ERA-bootstrapper-p, ERA-apps-p, ERA-crypto-p; last commits Nov 30 to Dec 1, 2025; checked 2026-11-19). The code is source-available (Business Source License 1.1), and the README says it cannot be built independently.
 
 **Firmware Release Patterns:**
 Unlike software wallets where frequent updates can indicate instability, hardware wallet firmware updates are intentionally infrequent for security. Most manufacturers release 2-4 firmware updates per year. This is by design — each update requires extensive security review and user action to install.
@@ -196,7 +196,7 @@ Secure element, firmware openness, reproducible builds and anti-tamper features 
 | **KeepKey** | ❌ MCU only | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | **Arculus** | ✅ CC EAL6+ | ❌ NFC | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **BC Vault** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
-| **ERA Wallet** | ✅ ATECC608C | ✅ QR | ⚠️ | ❌ | Unknown | Unknown | Unknown | Unknown |
+| **ERA Wallet** | ✅ ATECC608C | ✅ QR | ⚠️ | ❌ | ✅ | Unknown | Unknown | Unknown |
 
 **Security Feature Definitions:**
 - **Secure Element:** Dedicated security chip to protect private keys (vs general-purpose MCU)

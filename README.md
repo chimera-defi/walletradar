@@ -35,7 +35,7 @@ What you get:
 | Category | Count | What it covers |
 |----------|-------|----------------|
 | Software wallets | 33 | Browser extensions, mobile apps, desktop wallets |
-| Hardware wallets | 43 | Cold storage devices and secure element details |
+| Hardware wallets | 44 | Cold storage devices and secure element details |
 | Crypto cards | 63 | Crypto-backed credit and debit cards |
 | On/off-ramps | 22 | Fiat-to-crypto providers |
 
@@ -139,7 +139,7 @@ Commit refreshed data through a PR after review. Full script docs: [scripts/READ
 ## Documentation
 
 - [SOFTWARE_WALLETS.md](./data/tables/SOFTWARE_WALLETS.md): software wallets (33 rows)
-- [HARDWARE_WALLETS.md](./data/tables/HARDWARE_WALLETS.md): hardware wallets (43 rows)
+- [HARDWARE_WALLETS.md](./data/tables/HARDWARE_WALLETS.md): hardware wallets (44 rows)
 - [CRYPTO_CARDS.md](./data/tables/CRYPTO_CARDS.md): crypto cards (63 rows)
 - [RAMPS.md](./data/tables/RAMPS.md): on/off-ramps (22 rows)
 - [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md): QR payment providers
