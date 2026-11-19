@@ -32,3 +32,4 @@ Static Next.js site (`frontend/`) generated from the markdown comparison tables 
 - Branch + PR only; never push to `main`. One task per PR.
 - Commit header `type(scope): subject` and trailer `Co-authored-by: Chimera <chimera_defi@protonmail.com>`.
 - PR body follows `.github/pull_request_template.md`: `**Agent:** <actual model>`, `**Co-authored-by:** Chimera <chimera_defi@protonmail.com>`, and the Summary / Original Request / Changes Made / Testing & Verification sections.
+- External contributors (PRs from forks) are exempt from the commit-message and PR-attribution checks; Build & Lint and Vitest still apply. Maintainer fix-up commits pushed to a fork branch follow the agent rules anyway.

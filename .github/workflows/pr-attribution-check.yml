@@ -12,7 +12,8 @@ jobs:
   check-pr-attribution:
     name: Check PR Attribution
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+    # Agent-only rules: PRs from forks (external contributors) are exempt; Build & Lint still runs for them.
+    if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       pull-requests: write
       contents: read
