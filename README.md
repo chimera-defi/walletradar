@@ -19,7 +19,7 @@
 
 ## What is Wallet Radar?
 
-Wallet Radar compares crypto access products so a developer can pick one fast. It tracks **161 products** (software wallets, hardware wallets, crypto cards, on/off-ramps) and scores each from columns you can see in the tables.
+Wallet Radar compares crypto access products so a developer can pick one fast. It tracks **162 products** (software wallets, hardware wallets, crypto cards, on/off-ramps; the home page counts the same four tables) and scores each from columns you can see in the tables. QR payment providers are listed separately and are not in that count.
 
 The goal: find a MetaMask alternative with a mobile app and a browser extension, stable enough for daily development. Fewer releases per month means fewer surprise breaking changes.
 
@@ -38,8 +38,9 @@ What you get:
 | Hardware wallets | 44 | Cold storage devices and secure element details |
 | Crypto cards | 63 | Crypto-backed credit and debit cards |
 | On/off-ramps | 22 | Fiat-to-crypto providers |
+| QR payments | 8 | QR payment providers, counted apart from the 162 |
 
-Counts are table rows, including discontinued and partial-data rows. QR payment providers are in [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md).
+Counts are table rows as of 2026-11-19, including discontinued and partial-data rows. QR payment providers are in [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md).
 
 Note: the dataset files moved to `data/tables/` and ABOUT, DATA_SOURCES and GLOSSARY to `docs/site/` (MERCHANT_FEED to `docs/`), so GitHub deep links to their old root paths no longer resolve.
 
@@ -61,7 +62,7 @@ Some provider sites block automated checks (403, 429, timeout). A headless Chrom
 
 - **Filter and compare.** Filter by platform, features (transaction simulation, scam alerts, testnets) and licence (open source, source-available, proprietary). Compare up to 4 wallets side by side.
 - **Scoring.** Security (audits, open source, simulation), GitHub activity, developer experience, platform coverage.
-- **Data updates.** A weekly GitHub Action refreshes GitHub activity data and opens a PR. Prices, licences, audits and custody are checked by hand against primary sources and shipped through reviewed PRs. A second weekly Action regenerates the hardware wallet Merchant Center feed ([MERCHANT_FEED.md](https://github.com/chimera-defi/walletradar/blob/main/docs/MERCHANT_FEED.md)).
+- **Data updates.** A weekly GitHub Action refreshes GitHub activity data, applies it to the tables with `scripts/apply_activity.js`, re-scores them with `scripts/sync_table_scores.js`, and opens a PR that commits `data/activity.json`, `data/hardware-activity.json` and `data/tables/`. Prices, licences, audits and custody are checked by hand against primary sources and shipped through reviewed PRs. A second weekly Action regenerates the hardware wallet Merchant Center feed ([MERCHANT_FEED.md](https://github.com/chimera-defi/walletradar/blob/main/docs/MERCHANT_FEED.md)).
 - **Live chain data.** TVL from DeFiLlama.
 - **UI.** Next.js static site, dark mode, responsive, structured data for SEO.
 
@@ -98,6 +99,8 @@ bun run start
 | `bun run type-check` | TypeScript check |
 | `bun run test` | Data smoke test |
 | `bun run generate-og` | Generate OG images |
+| `bun run generate-image-sizes` | Record article image dimensions (run after changing an article image) |
+| `bun run check-links` | Check internal links, assets and anchors in `out/` |
 
 From the repo root, run `bunx vitest run tests/` for the unit tests.
 
