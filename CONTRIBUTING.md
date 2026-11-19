@@ -2,6 +2,21 @@
 
 Keep the tables accurate and sourced. Tables are the source of truth.
 
+Agents and maintainers: the commit, attribution and PR rules live in [AGENTS.md](./AGENTS.md) ("Git and attribution").
+
+## Outside contributors
+
+Fixing a row, adding a product or correcting a source? You can open a PR from a fork. You do not need to follow our agent rules:
+
+- No agent commit format and no `Co-authored-by` trailer.
+- No agent PR template. Any clear description works (see [Pull Request Description](#pull-request-description)).
+- PRs from forks skip the **Check Commit Messages** and **Check PR Attribution** jobs (`.github/workflows/commit-message-check.yml` and `pr-attribution-check.yml`; their `if` tests `head.repo.full_name`; PR #173).
+- **Build & Lint** and **Vitest** still run. A maintainer has to approve the workflow runs for a fork PR before they start.
+- Maintainers may push fix-up commits to your branch (a score re-sync, for example). Keep "Allow edits by maintainers" on.
+- Vendors submitting their own product: say so in the PR. Every claim is checked against primary sources (official docs and site, then GitHub), and there is no pay-to-rank (see [Trust and transparency](./README.md#trust-and-transparency) in the README). PR #168 (ERA Wallet) is an example: the vendor submitted the row, and maintainers re-checked each claim and pushed fix-ups before merging.
+
+Run the checks in [Score Sync Workflow](#score-sync-workflow) before you open the PR.
+
 ## Quick Links
 
 ### Software Wallets (EVM)
@@ -18,6 +33,10 @@ Keep the tables accurate and sourced. Tables are the source of truth.
 ### Ramps (On/Off-Ramp Providers)
 - **Ramp comparison:** [RAMPS.md](./data/tables/RAMPS.md) | [Details](./data/tables/RAMPS_DETAILS.md)
 
+### QR Payments
+- **QR payment comparison:** [QR_PAYMENTS.md](./data/tables/QR_PAYMENTS.md) | [Details](./data/tables/QR_PAYMENTS_DETAILS.md)
+- No sync script covers this table, so its Score column is maintained by hand (method: Scoring Methodology in the details file).
+
 ---
 
 ## Score Sync Workflow
@@ -29,12 +48,12 @@ Run this after any change to the comparison tables:
 ```bash
 bun scripts/sync_table_scores.js --write
 cd frontend
-bun test
+bun run test
 ```
 
 What this does:
 
-1. Recomputes `Score` and recommendation cells for software wallets, hardware wallets, cards, and ramps.
+1. Recomputes `Score` and recommendation cells for software wallets, hardware wallets, cards, and ramps (`scripts/sync_table_scores.js` does not cover QR payments).
 2. Sorts rows by computed score.
 3. Refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 4. Fails the frontend smoke test if the markdown tables drift from the generated output.
@@ -64,22 +83,29 @@ Before adding a wallet, verify:
 
 ### Step 1: Gather Required Data
 
+The table header in `data/tables/SOFTWARE_WALLETS.md` (21 columns) is the contract; the smoke test (`frontend/scripts/smoke-test-wallet-data.js`) fails if it changes. Value meanings are in "Column Definitions" in `SOFTWARE_WALLETS_DETAILS.md`.
+
 | Column | How to Verify |
 |--------|---------------|
+| **Wallet** | `[**Name**](official-site-url)` |
 | **Score** | Generated from the visible columns after sync |
+| **Core** | ✅ only if it has both a mobile app and a browser extension |
+| **Rel/Mo** | Count releases per month on the repo's releases page (`?` if private) |
+| **RPC** | Check if custom RPC can be added |
 | **GitHub** | Find the main wallet repo (not SDK/packages) |
 | **Active** | Check last commit date on default branch |
-| **Chains** | Count from official docs or registry files |
+| **Chains** | Chain icons from official docs or registry files |
 | **Devices** | Check app stores + Chrome Web Store |
 | **Testnets** | Check if custom RPC/chains can be added |
 | **License** | Read LICENSE file in repo root |
+| **API** | Is the backend open, public, partial or closed (separate from the client licence) |
 | **Audits** | Search repo for `/audits` folder or security page |
 | **Funding** | Research company backing, funding rounds |
 | **Tx Sim** | Test wallet or check WalletBeat |
 | **Scam** | Test wallet or check WalletBeat |
-| **Account Type** | EOA, Safe, EIP-4337, or EIP-7702 |
-| **HW Wallets** | Check settings for Ledger/Trezor support |
-| **EIP-4337** | Check if smart account creation is supported |
+| **Account** | EOA, Safe, EIP-4337, or EIP-7702 |
+| **ENS/Naming** | Test sending to a `.eth` name |
+| **HW** | Check settings for Ledger/Trezor support |
 | **Best For** | Your assessment of ideal use case |
 | **Rec** | Generated from the computed score and activity status |
 
@@ -100,28 +126,37 @@ If you want to change the formula, update the scoring code first, then rerun the
 
 ### Step 3: Add to Main Table
 
-Add your row to `data/tables/SOFTWARE_WALLETS.md`. Ordering does not need to be perfect before sync because the score script will sort rows automatically.
+Add your row to `data/tables/SOFTWARE_WALLETS.md`. Ordering does not need to be perfect before sync because the score script will sort rows automatically. Put `0` and `🔴` in Score and Rec; the sync script replaces them.
 
 ```markdown
-| **WalletName** | XX | [repo](https://github.com/org/repo) | ✅ | 50+ | 📱🌐 | ✅ | ✅ MIT | ✅ 2024 | 🟢 Company | ✅ | ✅ | EOA | ✅ Multiple | ❌ | Use Case | 🟢 |
+| [**WalletName**](https://example.com/) | 0 | ✅ | ~2 | ✅ | [repo](https://github.com/org/repo) | ✅ | <img src="/chains/eth.svg" width="16" title="EVM"> | 📱🌐 | ✅ | ✅ MIT | 🌐 Public | ✅ 2024 | 🟢 Company | ✅ | ✅ | EOA | ✅ Basic | ✅ | Use Case | 🔴 |
 ```
 
 ### Step 4: Update Other Sections
 
 If applicable, also update:
 
-- [ ] **Scoring table** (if in top 10)
-- [ ] **Security Audits table** (if audited)
-- [ ] **Account Type Support table**
-- [ ] **Hardware Wallet Support table**
-- [ ] **ENS & Address Resolution table**
-- [ ] **Browser Integration table**
-- [ ] **Monetization table**
-- [ ] **Privacy & Data Collection table**
+In `data/tables/SOFTWARE_WALLETS_DETAILS.md`:
+
+- [ ] **GitHub Metrics**
+- [ ] **Security Audits** (if audited)
+- [ ] **Account Type Support**
+- [ ] **Hardware Wallet Support**
+- [ ] **ENS & Address Resolution**
+- [ ] **Browser Integration**
+- [ ] **Monetization & Business Model**
+- [ ] **Security Features (Tx Simulation & Scam Protection)**
+- [ ] **Privacy & Data Collection**
+
+The "Current Top Rows" block is generated by the sync script; do not edit it.
 
 ### Step 5: Add to Changelog
 
-Add an entry to [CHANGELOG.md](./CHANGELOG.md) in the appropriate section (Software Wallets or Hardware Wallets):
+Add an entry to [CHANGELOG.md](./CHANGELOG.md). It has three kinds of entry:
+
+- **Per-item changes** (a row added, a status, score or rating change): one table row in the matching category table (Software Wallets (EVM), Hardware Wallets (Cold Storage), Crypto Credit Cards), newest first.
+- **Cross-cutting passes** (a data recheck, a refactor, a UI change): a bullet under the newest `## YYYY-MM-DD` heading at the top; add a new heading for a new date.
+- **Scripts and tooling:** a row in the Tooling table.
 
 ```markdown
 | Dec 2025 | **WalletName** | Added | New wallet with score XX |
@@ -141,17 +176,23 @@ Before adding a hardware wallet, verify:
 
 ### Step 1: Gather Required Data
 
+The header in `data/tables/HARDWARE_WALLETS.md` is the contract (13 columns); value meanings are in "Column Definitions" in `HARDWARE_WALLETS_DETAILS.md`.
+
 | Column | How to Verify |
 |--------|---------------|
+| **Wallet** | `[**Name**](official-site-url)` |
 | **Score** | Generated from the visible columns after sync (see [hardware wallet scoring](#hardware-wallet-scoring)) |
+| **GitHub** | Firmware repo link, or "Private" if closed |
 | **Air-Gap** | Check if device requires USB/BT connection during signing |
 | **Open Source** | Find firmware repo on GitHub; verify it's actual firmware, not just SDK |
 | **Secure Element** | Check official specs for SE chip (e.g., ATECC608, Optiga) |
 | **Display** | Screen type, size, touch capability |
-| **Chains** | Count from official supported assets list |
 | **Price** | Check official store (not Amazon/resellers) |
-| **Connectivity** | USB, Bluetooth, QR, NFC, MicroSD, WiFi |
-| **Company** | Research company background, funding, location |
+| **Conn** | USB, Bluetooth, QR, NFC, MicroSD, WiFi |
+| **Activity** | Check last commit date on the firmware repo |
+| **Founded** | Year the company was founded (official site, press) |
+| **Funding** | Research company funding and background |
+| **Rec** | Generated after sync |
 
 ### Hardware Wallet Scoring
 
@@ -171,7 +212,7 @@ The Founded and Funding columns feed Company Track Record, and the Price column 
 Add your row to `data/tables/HARDWARE_WALLETS.md` in score order:
 
 ```markdown
-| [**WalletName**](https://example.com/) | 0 | [firmware](https://github.com/org/repo) | ✅/❌ | ✅/⚠️/❌ | ✅/❌ SE Type | Display | ~$XXX | Conn | ✅/⚠️/❌/🔒 | YYYY | 🟢/🟡/🔴 Source | 🔴 |
+| [**WalletName**](https://example.com/) | 0 | [firmware](https://github.com/org/repo) | ✅ Full | ✅ Full | ✅ Dual SE | Touch Color | ~$XXX | USB | ✅ Active | YYYY | 🟡 VC | 🔴 |
 ```
 
 Notes:
@@ -182,12 +223,11 @@ Notes:
 
 If applicable, also update:
 
-- [ ] **Scoring breakdown table**
-- [ ] **GitHub Metrics table** (if open source)
-- [ ] **Security Features table**
-- [ ] **Funding section**
-- [ ] **Known Quirks section**
-- [ ] **Software integration tables**
+In `data/tables/HARDWARE_WALLETS_DETAILS.md`:
+
+- [ ] **GitHub Metrics (Firmware Repositories)** (if open source)
+- [ ] **Security Features Comparison**
+- [ ] **Quick Recommendations** and **Wallets to Avoid or Use with Caution**, if the wallet belongs there
 - [ ] **Changelog** — Add entry to [CHANGELOG.md](./CHANGELOG.md)
 
 ### Step 4: Run Verification
@@ -214,6 +254,7 @@ Before adding a ramp provider, verify:
 | Column | How to Verify |
 |--------|---------------|
 | **Score** | Generated from the visible columns after sync (see [ramp scoring](#ramp-scoring)) |
+| **Provider** | `[**Name**](official-site-url)`; the link is the only URL, there is no URL column |
 | **Type** | Both, On-Ramp only, or Off-Ramp only |
 | **On-Ramp** | ✅ if supports fiat → crypto, ❌ otherwise |
 | **Off-Ramp** | ✅ if supports crypto → fiat, ❌ otherwise |
@@ -221,10 +262,11 @@ Before adding a ramp provider, verify:
 | **Fee Model** | Check pricing page or API docs |
 | **Min Fee** | Check pricing page (use ~ prefix if approximate) |
 | **Dev UX** | Check developer docs (SDK, Widget, API) |
-| **Status** | ✅ Active, ⚠️ Verify (needs verification), 🚧 Launching |
+| **Status** | ✅ Active, ⚠️ Verify (needs verification), 🔄 Launching, ❌ Inactive |
+| **Founded** | Year the company was founded |
+| **Funding** | Research company funding and background (🟢 / 🟡 / 🔴 label) |
 | **Best For** | Your assessment of ideal use case |
 | **Rec** | Generated by the rank bands (see [How the Rec mark is set](#how-the-rec-mark-is-set)) |
-| **URL** | Official website URL |
 
 ### Ramp Scoring
 
@@ -243,10 +285,10 @@ Operational Confidence comes from the Status column: 15 for active, 9 for verify
 
 ### Step 2: Add to Main Table
 
-Add your row to `data/tables/RAMPS.md` in score order (highest first):
+Add your row to `data/tables/RAMPS.md` (header: 14 columns). Use `0` and `🔴` for Score and Rec; the sync script fills them in and sorts the rows (highest first):
 
 ```markdown
-| [**ProviderName**](https://provider.com/) | XX 🟢 | Both | ✅ | ✅ | ~160+ Countries | Medium | ~$5.00 | Excellent (React SDK) | ✅ | Developers |
+| [**ProviderName**](https://provider.com/) | 0 | Both | ✅ | ✅ | ~160+ Countries | Medium | ~$5.00 | Excellent (React SDK) | ✅ | 2017 | 🟡 VC | Developers | 🔴 |
 ```
 
 **Important:** Use markdown link format `[**Name**](url)` for provider name to enable clickable links.
@@ -255,9 +297,13 @@ Add your row to `data/tables/RAMPS.md` in score order (highest first):
 
 If applicable, also update:
 
-- [ ] **Provider-Specific Notes** section
-- [ ] **Fee Analysis** section
-- [ ] **Developer Experience** section
+In `data/tables/RAMPS_DETAILS.md`:
+
+- [ ] **Fee Structure Analysis**
+- [ ] **Developer Experience (DX)**
+- [ ] **Integration Guides**
+- [ ] **Provider-Specific Notes**
+- [ ] **Verification status by provider**
 - [ ] **Changelog** — Add entry to [CHANGELOG.md](./CHANGELOG.md)
 
 ### Step 4: Frontend Integration
@@ -267,6 +313,7 @@ When adding a new comparison type (like ramps), you must update:
 #### 4a. Type Definitions (`frontend/src/types/wallets.ts`)
 - [ ] Add interface (e.g., `Ramp`) with all required fields including `url: string | null`
 - [ ] Add to `WalletData` union type
+- [ ] Use a unique `type` discriminator (existing ones: `'software'`, `'hardware'`, `'card'`, `'ramp'`, `'qr-payment'`)
 
 #### 4b. Data Parsing (`frontend/src/lib/wallet-data.ts`)
 - [ ] Add parsing function (e.g., `parseRamps()`)
@@ -283,24 +330,23 @@ When adding a new comparison type (like ramps), you must update:
 #### 4d. Components
 - [ ] **WalletTable.tsx:** Add item component (e.g., `RampItem`) for table/grid views
 - [ ] **ComparisonTool.tsx:** Add comparison component (e.g., `RampComparison`)
-- [ ] **WalletFilters.tsx:** Add filter options if needed
-- [ ] **ExploreContent.tsx:** Add tab, state management, filtering
+- [ ] **WalletFilters.tsx:** Add filter and sort options if needed
+- [ ] **app/explore/ExploreContent.tsx:** Add tab, state management, filtering
 
 #### 4e. Pages
 - [ ] **explore/page.tsx:** Call parsing function, pass to ExploreContent
 - [ ] **docs/[slug]/page.tsx:** Add to `isTablePage` check
 - [ ] **sitemap.ts:** Add to `isComparisonTable` check
 
-#### 4f. Navigation (See Rule #127)
-- [ ] **Navigation.tsx:** Add to burger menu
+#### 4f. Navigation
+- [ ] **Navigation.tsx:** Add to `navItems` (the same list feeds the burger menu)
 - [ ] **Footer.tsx:** Add to Comparisons section
-- [ ] **InternalLinks.tsx:** Add card to FeaturedCategoryLinks
-- [ ] **page.tsx:** Add to hero section, stats section, Top Developer Picks
+- [ ] **app/page.tsx:** Add to hero section, stats section, Top Developer Picks
 
 #### 4g. SEO (`frontend/src/lib/seo.ts`)
 - [ ] Add OG image mappings for table and details pages
-- [ ] Add keyword detection for new type (e.g., ramp-specific keywords)
-- [ ] Update ItemList schema to handle new type correctly
+- [ ] Add keyword detection for new type in `generateKeywords` (e.g., ramp-specific keywords)
+- [ ] Update the ItemList schema in `frontend/src/app/docs/[slug]/page.tsx` to handle new type correctly
 
 #### 4h. OG Images (`frontend/scripts/generate-og-images.js`)
 - [ ] Add data to `WALLET_DATA` object
@@ -308,11 +354,11 @@ When adding a new comparison type (like ramps), you must update:
 - [ ] Create generator function for details image
 - [ ] Add to `main()` function
 - [ ] Run `bun run generate-og` and commit PNGs
-- [ ] Update CI workflow to check for new images
+- [ ] Add the new images to the list checked in `.github/workflows/frontend-ci.yml`
 
 #### 4i. Markdown Config (`frontend/src/lib/markdown.ts`)
 - [ ] Add file to `DOCUMENT_CONFIG`
-- [ ] Add to `relatedMap` for table/details navigation
+- [ ] Add the DETAILS file to `DETAILS_FILES` so it renders inside the category page
 
 ### Step 5: Verification
 
@@ -328,7 +374,7 @@ bun run generate-og # Regenerate OG images
 
 ## Adding a New Crypto Card
 
-See existing `data/tables/CRYPTO_CARDS.md` for card-specific guidelines. Follow similar pattern to software/hardware wallets.
+See existing `data/tables/CRYPTO_CARDS.md` for card-specific guidelines. Follow similar pattern to software/hardware wallets. The header there is the contract. A new row also needs an entry in `data/card-verification.json` (`tests/card-freshness.test.ts` fails otherwise). Re-verification passes: [docs/CARD_RESWEEP_RUNBOOK.md](docs/CARD_RESWEEP_RUNBOOK.md).
 
 ---
 
@@ -386,36 +432,25 @@ When a wallet publishes a new audit:
 
 ---
 
-## Pull Request Template
+## Pull Request Description
 
-Use this template for your PR:
+Agents and maintainers: use [.github/pull_request_template.md](./.github/pull_request_template.md). It has these sections:
 
-```markdown
-## New [Wallet/Card/Ramp]: [Name]
+- **Agent:** the actual model used (required)
+- **Co-authored-by:** `Chimera <chimera_defi@protonmail.com>` (required)
+- **Summary** (required)
+- **Original Request** (required)
+- **Changes Made** (required)
+- **Testing & Verification** (required): a checklist of `bun scripts/sync_table_scores.js`, `bun run lint`, `bun run type-check`, `bun run test`, `bun run build`, the display contract, and manual QA in light and dark mode
+- **Related Issues/PRs** and **Notes** (optional)
 
-### Data Sources
-- GitHub: [link] (if applicable)
-- Official docs: [link]
-- WalletBeat: [link if available]
+For non-fork PRs, CI (`.github/workflows/pr-attribution-check.yml`) fails if Agent, Co-authored-by or any of the four required sections is missing. The rules are in [AGENTS.md](./AGENTS.md).
 
-### Verification
-- [x] GitHub repo verified (if applicable)
-- [x] Last commit date checked: YYYY-MM-DD (if applicable)
-- [x] License verified: [LICENSE] (if applicable)
-- [x] Chain count verified: [N] chains (if applicable)
-- [x] Score calculated: XX/100
+Outside contributors: the template is optional. Any clear description works. For a new or changed row, include:
 
-### Score Breakdown
-- [Component 1]: XX/pts
-- [Component 2]: XX/pts
-- **Total: XX/100**
-
-### Changes
-- Added row to main comparison table
-- Added to [list other sections updated]
-- Updated [CHANGELOG.md](./CHANGELOG.md)
-- Updated frontend (if new comparison type)
-```
+- The sources: official docs or site first, then GitHub; WalletBeat link if available.
+- What you verified (repo, last commit date, licence, chain count, as they apply).
+- If you are the vendor of the product, say so.
 
 ---
 
@@ -449,7 +484,7 @@ When renaming files or changing URL patterns, you MUST update:
 #### 2. Frontend Configuration (`frontend/src/lib/markdown.ts`)
 - [ ] Update `DOCUMENT_CONFIG` with new file names
 - [ ] Verify slug generation matches expected URLs
-- [ ] Update `relatedMap` in `getRelatedDocument()` function
+- [ ] Update `DETAILS_FILES` (which DETAILS file renders inside which category page)
 - [ ] Update `getWalletStats()` function if it references specific slugs
 
 #### 3. SEO & Metadata (`frontend/src/lib/seo.ts`)
@@ -461,15 +496,14 @@ When renaming files or changing URL patterns, you MUST update:
 #### 4. Frontend Components
 - [ ] Update `Navigation.tsx` nav items
 - [ ] Update `Footer.tsx` links
-- [ ] Update `InternalLinks.tsx` (FeaturedCategoryLinks)
-- [ ] Update `page.tsx` (homepage links and structured data)
+- [ ] Update `app/page.tsx` (homepage links and structured data)
 - [ ] Update any page-specific links (e.g., `companies/page.tsx`)
 
 #### 5. Page Logic (`frontend/src/app/docs/[slug]/page.tsx`)
 - [ ] Update table/details detection logic
-- [ ] Verify `isTablePage` and `isDetailsPage` detection
+- [ ] Verify `isTablePage` detection and that `getDetailsDocument` finds the DETAILS file
 - [ ] Update `RelatedDocuments` component logic if needed
-- [ ] Update ItemList schema to handle new type correctly
+- [ ] Update ItemList schema (the `itemListSchema` block) to handle new type correctly
 
 #### 6. Sitemap (`frontend/src/app/sitemap.ts`)
 - [ ] Update `isComparisonTable` detection logic
@@ -480,8 +514,9 @@ When renaming files or changing URL patterns, you MUST update:
 - [ ] Update any comments referencing old file names
 
 #### 8. Scripts
-- [ ] Update `scripts/generate-og-images.js` file references and comments
-- [ ] Update `scripts/smoke-test-wallet-data.js` file paths
+- [ ] Update `frontend/scripts/generate-og-images.js` file references and comments
+- [ ] Update `frontend/scripts/smoke-test-wallet-data.js` file paths
+- [ ] Update `scripts/sync_table_scores.js` file paths
 - [ ] Verify any other scripts that reference file names
 
 #### 9. Documentation
@@ -493,7 +528,7 @@ When renaming files or changing URL patterns, you MUST update:
 #### 10. Verification
 - [ ] Run verification script to check file existence
 - [ ] Verify slug generation produces expected URLs
-- [ ] Test related document mapping (table ↔ details)
+- [ ] Check that the details section still renders at `/docs/<slug>/#details`
 - [ ] Check for any remaining old references: `rg -n "old-name" frontend/`
 - [ ] Verify no broken internal links in markdown files
 - [ ] Run `bun run type-check`, `bun run lint`, `bun run build`
@@ -507,7 +542,7 @@ When renaming files or changing URL patterns, you MUST update:
    - Update any social media posts or external documentation
 
 2. **OG Images:** Social media caches OG images
-   - Increment `ogImageVersion` in `layout.tsx` when regenerating images
+   - Increment the OG image version when regenerating images: `ogImageVersion` in `frontend/src/lib/brand.ts` (default `'v5'`, or `NEXT_PUBLIC_OG_IMAGE_VERSION`) and the hardcoded `ogImageVersion` in `frontend/src/app/docs/[slug]/page.tsx`
    - Verify OG image paths match new slugs
 
 3. **Sitemap:** Search engines need updated sitemap
@@ -515,7 +550,7 @@ When renaming files or changing URL patterns, you MUST update:
    - Verify sitemap priorities are correct for new naming pattern
 
 4. **Structured Data:** Schema.org markup includes URLs
-   - Verify structured data URLs in `page.tsx` match new slugs
+   - Verify structured data URLs in `app/page.tsx` and `app/docs/[slug]/page.tsx` match new slugs
    - Check breadcrumb and article schema URLs
 
 ### Example: Complete Rename Workflow

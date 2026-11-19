@@ -13,7 +13,7 @@ When adding a completely new comparison category (e.g., ramps, exchanges, etc.),
 ### 2. Type Definitions (`frontend/src/types/wallets.ts`)
 - [ ] Create interface with all required fields
 - [ ] Include `url: string | null` field for website links
-- [ ] Add `type: 'category'` field
+- [ ] Add a unique `type` discriminator (existing: `'software'`, `'hardware'`, `'card'`, `'ramp'`, `'qr-payment'`)
 - [ ] Add to `WalletData` union type
 
 ### 3. Data Parsing (`frontend/src/lib/wallet-data.ts`)
@@ -34,34 +34,33 @@ When adding a completely new comparison category (e.g., ramps, exchanges, etc.),
 - [ ] **WalletTable.tsx:** Add item component for table/grid views
 - [ ] **ComparisonTool.tsx:** Add comparison component
 - [ ] **WalletFilters.tsx:** Add filter options if needed
-- [ ] **ExploreContent.tsx:** Add tab, state, filtering
+- [ ] **app/explore/ExploreContent.tsx:** Add tab, state, filtering
 
 ### 6. Pages
 - [ ] **explore/page.tsx:** Parse and pass data
 - [ ] **docs/[slug]/page.tsx:** Add to `isTablePage` check
 - [ ] **sitemap.ts:** Add to `isComparisonTable` check
 
-### 7. Navigation (Rule #127)
-- [ ] **Navigation.tsx:** Add to burger menu
+### 7. Navigation
+- [ ] **Navigation.tsx:** Add to `navItems` (the same list feeds the burger menu)
 - [ ] **Footer.tsx:** Add to Comparisons section
-- [ ] **InternalLinks.tsx:** Add card to FeaturedCategoryLinks
-- [ ] **page.tsx:** Add to hero section, stats section, Top Developer Picks
+- [ ] **app/page.tsx:** Add to hero section, stats section, Top Developer Picks
 
-### 8. SEO (Rule #128)
+### 8. SEO
 - [ ] **seo.ts:** Add OG image mappings
-- [ ] **seo.ts:** Add keyword detection
+- [ ] **seo.ts:** Add keyword detection in `generateKeywords`
 - [ ] **docs/[slug]/page.tsx:** Update ItemList schema for new type
-- [ ] **generate-og-images.js:** Add generator functions
-- [ ] **CI workflow:** Add image check
+- [ ] **frontend/scripts/generate-og-images.js:** Add generator functions
+- [ ] **`.github/workflows/frontend-ci.yml`:** Add the new images to the checked list
 - [ ] Run `bun run generate-og` and commit PNGs
 
 ### 9. Markdown Config (`frontend/src/lib/markdown.ts`)
 - [ ] Add files to `DOCUMENT_CONFIG`
-- [ ] Add to `relatedMap` for table/details navigation
+- [ ] Add the DETAILS file to `DETAILS_FILES` so it renders inside the category page (`/docs/<slug>/#details`)
 
 ### 10. Documentation
 - [ ] Update `README.md` to include new category
-- [ ] Update `CONTRIBUTING.md` with category-specific guidelines
+- [ ] Update [CONTRIBUTING.md](../CONTRIBUTING.md) with category-specific guidelines
 - [ ] Add to changelog
 
 ### 11. Verification
