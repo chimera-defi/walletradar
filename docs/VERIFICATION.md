@@ -1,6 +1,6 @@
 # Verification log
 
-Maintainer notes. Tables in the root `*.md` files are the source of truth; this file records where values came from, what is still unverified, and what we decided not to do.
+Maintainer notes. Tables in `data/tables/*.md` are the source of truth; this file records where values came from, what is still unverified, and what we decided not to do.
 
 Contents: [Data refresh 2026-10-15](#data-refresh-2026-10-15) | [Open items and won't-do](#open-items-and-wont-do) | [How to verify](#how-to-verify) | [Card custody decisions](#card-custody-decisions) | [WalletBeat additions](#walletbeat-additions-2026-10-10) | [Card notes](#card-notes) | [Competitors and data sources](#competitors-and-data-sources)
 
@@ -60,7 +60,7 @@ Each item below keeps its old value and carries a mark or a note in the data.
 - Bot-protected pages: bitbox.swiss, getarculus.com, transak.com, coinbase.com, uphold.com, revolut.com and EtherFi return 403, 429 or a browser check. A headless Chromium pass resolves some; the rest need a human browser session.
 - Secondary-only facts: Gnosis Pay end date (the 2026-09-03 Gnosis Pay blog announces the consumer web app sunset with no date), Ready shutdown (ready.co does not mention it), Solflare pause detail, Ledger Global-e incident and BitBox Dixence update (not added).
 - Legacy score narratives in `data/tables/SOFTWARE_WALLETS_DETAILS.md` were removed in the docs cleanup. Table scores are the only scores.
-- Out-of-slice drift reported by the hardware pass: `data/merchant_pricing.json` (Ledger Nano S+ 59 vs 69, Jade 79 vs 67 list/sale, Bitkey 150 vs €230) and `frontend/scripts/generate-og-images.js` hardware prices; OG PNGs need regenerating after the UI pass.
+- Out-of-slice drift reported by the hardware pass: `data/merchant_pricing.json` (Ledger Nano S+ 59 vs 69, Jade 79 vs 67 list/sale, Bitkey 150 vs €230; resolved: `data/merchant_pricing.json` and `frontend/public/merchant-center.xml` now match) and `frontend/scripts/generate-og-images.js` hardware prices (resolved: the script now reads prices from `data/tables/HARDWARE_WALLETS.md`); OG PNGs need regenerating after the UI pass.
 
 ## Open items and won't-do
 
@@ -69,8 +69,8 @@ Each item below keeps its old value and carries a mark or a note in the data.
 | Remove `rehype-raw` from the markdown renderer | Won't do. Tables embed `<img src="/chains/...">` chain icons that need raw HTML. Audit command is in [SECURITY_INCIDENT_PORKBUN.md](./archive/SECURITY_INCIDENT_PORKBUN.md). |
 | VirusTotal re-scan and Porkbun reply | Operator-owned, not agent-actionable. |
 | Temporarily disable GA to test detections | Won't do. GA stays, lazy-loaded. |
-| `IMPROVEMENTS_RECOMMENDED.md` (10 recommendations) | Resolved or won't-do per item. Done: section order, merged recommendation sections, features matrix, cross-references, methodology box. Won't do: legend tiering, splitting the wide tables (tables feed the parser and scoring), resource cross-refs, separate "Last Updated" format. |
-| `EXTRACT_STUB_PLAN.md` (split wallets out of the mono-repo) | Split and push done; link cleanup done. The mono-repo stub commit is out of scope here. |
+| `IMPROVEMENTS_RECOMMENDED.md` (10 recommendations; file since removed, kept here as history) | Resolved or won't-do per item. Done: section order, merged recommendation sections, features matrix, cross-references, methodology box. Won't do: legend tiering, splitting the wide tables (tables feed the parser and scoring), resource cross-refs, separate "Last Updated" format. |
+| `EXTRACT_STUB_PLAN.md` (split wallets out of the mono-repo; file since removed, kept here as history) | Split and push done; link cleanup done. The mono-repo stub commit is out of scope here. |
 | Legacy `WALLET_COMPARISON_UNIFIED`, `HARDWARE_WALLET_COMPARISON`, `CRYPTO_CREDIT_CARD_COMPARISON` docs | Stay deleted. Everything useful is in the `*_DETAILS.md` files. The old card scoring handicaps (exchange -3, Crypto.com -20, unverified -5) are obsolete. |
 | `npm audit` high finding (js-yaml via gray-matter, build-time only) | Open. Fix in a dependency PR. |
 | Cards to add once a primary page confirms custody and region (Ledger CL and Oobit landed 2026-10-17): SafePal Card, Exa, Holyheld, Coinbase One | Open. |
@@ -170,7 +170,7 @@ Reviewed 2026-10-10. Competitor figures are leads to check against issuer pages,
 
 ### Gaps still open
 
-- **Cards they list that we lack:** Exa, Holyheld, SafePal Card, Oobit, Ledger CL, MEXC, Gate and Pionex cards, Kolo, Hyperbeat Pay, COCA, Mercuryo, Xapo Bank Card. Verify each on an issuer page before adding. SpendNode and cryptocards.so list **Krak Card** where we list Kraken Card; probably the same product.
+- **Cards they list that we lack:** Exa, Holyheld, SafePal Card, Kolo, Hyperbeat Pay, Mercuryo, Xapo Bank Card. Since added to `data/tables/CRYPTO_CARDS.md`: Oobit, Ledger CL, MEXC, Gate, Pionex, COCA. Verify each on an issuer page before adding. SpendNode and cryptocards.so list **Krak Card** where we list Kraken Card; probably the same product.
 - **Wallets they list that we lack:** Family, Base App, Elytro (WalletBeat); TokenPocket, Cake Wallet, Edge, Unstoppable, AlphaWallet, Braavos, Railway (ethereum.org).
 - **Number discrepancies queued for an issuer-page check:** Crypto.com US tiers, Binance region and rate (we say Brazil, competitor says Europe/UK up to 8% BNB), BitPay FX (we say 0%, competitor says 3%), Wirex, Nexo, Coinbase.
 - **Done from the earlier recommendation list:** WalletBeat wallets added, Bug Bounty / Reproducible Build / Chain Verification as sidecar attributes (`data/attributes.json`), MiCA check in `verify-ramps.py`, hardened `refresh-github-data.sh`, Bitpanda, Cypher, Bleap, Tangem Pay added.

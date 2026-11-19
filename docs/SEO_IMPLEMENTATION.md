@@ -9,12 +9,13 @@ How walletradar.org is set up for search engines and for LLM citation. Covers on
 | Schema generators (breadcrumb, FAQ, HowTo, wallet product), meta description and keyword helpers | `frontend/src/lib/seo.ts` |
 | Organization and WebSite JSON-LD, theme script, GA | `frontend/src/app/layout.tsx` |
 | Homepage FAQPage JSON-LD | `frontend/src/app/page.tsx` |
-| Doc pages: breadcrumb, Article, FAQ and Speakable JSON-LD | `frontend/src/app/docs/[slug]/page.tsx` |
-| Wallet profile pages: breadcrumb and Product/SoftwareApplication JSON-LD | `frontend/src/app/wallets/[type]/[id]/page.tsx` |
+| Doc pages: breadcrumb and Speakable JSON-LD on every page; FAQ when the page has FAQs; Article and ItemList on comparisons; HowTo on guides | `frontend/src/app/docs/[slug]/page.tsx` |
+| Wallet profile pages: breadcrumb and one product schema by type (Product/SoftwareApplication for wallets, FinancialProduct for cards, Service for ramps and QR payments; `seo.ts`) | `frontend/src/app/wallets/[type]/[id]/page.tsx` |
 | Article pages: breadcrumb, Article, FAQ, HowTo JSON-LD | `frontend/src/app/articles/[slug]/page.tsx`, `frontend/src/lib/articles.ts` |
-| Sitemap (docs, wallets, articles) and robots | `frontend/src/app/sitemap.ts`, `robots.ts`, `public/robots.txt` |
+| Sitemap (docs, wallets, articles) | `frontend/src/app/sitemap.ts` |
+| robots.txt | `frontend/src/app/robots.ts` (served). `frontend/public/robots.txt` also exists but the static export publishes the generated one: allow all, `Host`, and the sitemap plus `merchant-center.xml` (checked in `out/robots.txt` after `bun run build`). Edit `robots.ts`. |
 | LLM discovery file | `frontend/public/llms.txt` |
-| OG images (1200x630) | `frontend/scripts/generate-og-images.js`, PNGs in `frontend/public/` |
+| OG images (1200x630) | Metadata points at `og-image.svg` (site, doc and wallet pages) and `og/articles/*` (articles: SVGs plus one PNG). `frontend/scripts/generate-og-images.js` writes PNGs to `frontend/public/` (`og-*-table.png`, `og-explore.png`, `og-image.png`, `og/articles/how-wallet-radar-works.png`); only the last is page metadata; the root README embeds `og-image.png`, `og-software-wallets-table.png` and `og-explore.png`. |
 | Multi-brand profiles | `frontend/src/lib/brand.ts`, `frontend/scripts/export-brands.js` |
 | Security headers (static export) | `customHttp.yml` |
 
@@ -25,7 +26,7 @@ How walletradar.org is set up for search engines and for LLM citation. Covers on
 3. Scores quoted in prose must match the table. Run `bun scripts/sync_table_scores.js` (no `--write`; it reports drift) after any score edit, then `rg` the old number in `articles/` and the FAQs.
 4. Do not duplicate a schema type on one page. Validate new schema on one page first.
 5. Link to official sites. No affiliate links. If a link ever has a commercial relationship, label it ([DATA_SOURCES.md](site/DATA_SOURCES.md)).
-6. A new page needs an OG image generator entry and a committed PNG ([AGENTS.md](../AGENTS.md)).
+6. A page uses the default `og-image.svg` unless `getOgImagePath` in `seo.ts` maps it. A new comparison category needs a generator in `frontend/scripts/generate-og-images.js` and its PNG committed; `.github/workflows/frontend-ci.yml` fails if a listed PNG is missing ([AGENTS.md](../AGENTS.md)).
 
 ## Articles
 

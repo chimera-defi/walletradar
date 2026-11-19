@@ -90,6 +90,7 @@ What we could not confirm is marked UNVERIFIED in the data. The reasons are in t
 - ⚠️ Verify: needs manual confirmation, or activity is slow
 - 🔄 Launching: not released yet
 - ❌ Inactive, defunct or not available
+- 🔒 Private repository: no public activity to check
 
 Always confirm on the official site before you decide.
 
