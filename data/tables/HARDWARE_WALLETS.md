@@ -25,17 +25,17 @@
 | [**Ledger Nano S+**](https://www.ledger.com/) | 67 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | Mono OLED | ~$69 | USB | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**OneKey Pro**](https://onekey.so/) | 67 | [firmware-pro](https://github.com/OneKeyHQ/firmware-pro) | ❌ | ✅ Full | ✅ SE | Touch Color | ~$278 | USB/BT | ✅ Active | 2019 | 🟡 VC | 🟢 |
 | [**Specter DIY**](https://specter.solutions/hardware/) | 67 | [specter-diy](https://github.com/cryptoadvance/specter-diy) | ✅ Full | ✅ Full | ❌ None | LCD | ~$50-150* | QR | ⚠️ Slow | 2020 | 🔴 Community | 🟢 |
-| [**Keycard**](https://keycard.tech/) | 65 | [status-keycard](https://github.com/keycard-tech/status-keycard) | ❌ | ✅ Full | ✅ CC | None | ~€29 | NFC | ✅ Active | 2017 | 🟢 Status | 🟡 |
 | [**NGRAVE ZERO**](https://www.ngrave.io/) | 65 | Private | ✅ Full | ⚠️ Partial | ✅ SE | Touch Color | ~$398 | QR | 🔒 Private | 2018 | 🟡 VC | 🟡 |
 | [**Ledger Nano Gen5**](https://www.ledger.com/) | 64 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | Mono E-Ink Touch | ~$179 | USB/BT/NFC | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**OneKey Classic 1S Pure**](https://onekey.so/) | 64 | [firmware](https://github.com/OneKeyHQ/firmware) | ❌ | ✅ Full | ✅ SE | Mono OLED | ~$79 | USB | ❌ Inactive | 2019 | 🟡 VC | 🔴 |
+| [**Keycard**](https://keycard.tech/) | 62 | [status-keycard](https://github.com/keycard-tech/status-keycard) | ❌ | ✅ Full | ✅ CC | None | ~€29 | NFC | ⚠️ Slow | 2017 | 🟢 Status | 🟡 |
 | [**Ledger Flex**](https://www.ledger.com/) | 62 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | E-Ink Touch | ~$249 | USB/BT/NFC | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | ~~[**Ledger Nano S**](https://www.ledger.com/)~~ | 62 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ SE | Mono OLED | ~$59* | USB | ❌ Inactive | 2014 | 🟢 Ledger | 🔴 |
 | [**OneKey Classic 1S**](https://onekey.so/) | 62 | [firmware](https://github.com/OneKeyHQ/firmware) | ❌ | ✅ Full | ✅ SE | Mono OLED | ~$99 | USB | ❌ Inactive | 2019 | 🟡 VC | 🔴 |
-| [**KeepKey**](https://keepkey.com/) | 61 | [keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | ❌ | ✅ Full | ❌ None | OLED | ~$60 | USB | ✅ Active | 2014 | 🟢 ShapeShift | 🟡 |
 | [**Ledger Nano X**](https://www.ledger.com/) | 61 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33J2M0 EAL5+ | Mono OLED | ~$99 | USB/BT | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**Ledger Stax**](https://www.ledger.com/) | 59 | [ledger-live](https://github.com/LedgerHQ/ledger-live) | ❌ | ⚠️ Partial | ✅ ST33K1M5 EAL6+ | E-Ink Touch | ~$399 | USB/BT/NFC | 🔒 Private | 2014 | 🟢 Ledger | 🟡 |
 | [**Blockstream Jade Core**](https://blockstream.com/jade/) | 58 | [Jade](https://github.com/Blockstream/Jade) | ❌ | ✅ Full | ❌ None (virtual SE) | Color LCD | ~$99 | USB/BT | ✅ Active | 2014 | 🟡 VC | 🔴 |
+| [**KeepKey**](https://keepkey.com/) | 58 | [keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | ❌ | ✅ Full | ❌ None | OLED | ~$60 | USB | ⚠️ Slow | 2014 | 🟢 ShapeShift | 🟡 |
 | [**Bitkey**](https://bitkey.world/) | 55 | [bitkey](https://github.com/proto-at-block/bitkey) | ❌ | ✅ Full† | ❌ Not documented | OLED Touch | ~€230 | NFC/USB-C | ✅ Active | 2009 | 🟢 Block | 🔴 |
 | [**Firefly**](https://firefly.city/) *(partial data)* | 55 | [wallet](https://github.com/firefly/wallet) | ✅ Full | ✅ Full | ❌ None | OLED | ~$5* | TBD | ❌ Inactive | TBD | 🔴 Unknown | 🔴 |
 | [**imKey Pro**](https://imkey.im/) *(partial data)* | 53 | [imkey-core](https://github.com/consenlabs/imkey-core) | TBD | ⚠️ Partial | ✅ SE EAL6+ | TBD | ~$110 | USB/BT | ❌ Inactive | 2018 | 🟢 Self | 🔴 |
