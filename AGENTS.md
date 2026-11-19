@@ -25,7 +25,7 @@ Static Next.js site (`frontend/`) generated from the markdown comparison tables 
 ## Gotchas
 - Static export: Next runtime headers do not apply; security headers live in `customHttp.yml`. Amplify builds with `npm ci` (`frontend/package-lock.json`); local work uses Bun (`bun.lock`).
 - Theme: use CSS-variable classes (`text-foreground`, `bg-card`, `border-border`), never hardcoded Tailwind colors; they break the light/dark toggle.
-- Use `next/image`, not `<img>`. OG images are 1200x630; new pages need a generator in `frontend/scripts/generate-og-images.js` (`bun run generate-og`) and the PNG committed.
+- Use `next/image`, not `<img>`. OG images are 1200x630. Page metadata uses `og-image.svg` unless `getOgImagePath` in `seo.ts` maps the slug; `bun run generate-og` (`frontend/scripts/generate-og-images.js`) writes the table, explore, default and one article PNG; commit what it changes, and `frontend-ci.yml` fails if a listed PNG is missing.
 - Renaming a data file or route: update `markdown.ts`, `wallet-data.ts`, `seo.ts`, sitemap, nav/footer, OG script, then `rg` for the old name.
 
 ## Git and attribution (enforced by CI)
