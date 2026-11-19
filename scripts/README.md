@@ -30,7 +30,7 @@ bun scripts/sync_table_scores.js --write
 #### Notes
 
 - Current methodology version: `2026-04-visible-columns-v3`
-- Recommendation bands are auto-assigned from score percentiles per table run (bottom quartile = 🔴, middle quartile = 🟡, top half = 🟢), with hard overrides for inactive rows.
+- Recommendation bands are rank bands set per table on every run, not fixed score cutoffs. The rules are in [CONTRIBUTING.md](../CONTRIBUTING.md#how-the-rec-mark-is-set).
 - `frontend/scripts/smoke-test-wallet-data.js` expects the tables to be in sync
 - This script is now the source of truth for score/recommendation cells and the generated detail-doc snapshots
 
@@ -39,7 +39,8 @@ bun scripts/sync_table_scores.js --write
 Fetches every external URL in the root `*.md`, `articles/`, `docs/`, `docs/site/`, `data/tables/` and `data/*.json` and classes each as ok, moved (final base domain differs, often a rebrand), blocked (401/403/429/999/5xx, not proof of breakage) or broken (404/410/DNS/timeout). Report only unless `--strict`. The monthly workflow `.github/workflows/external-links.yml` uploads the TSV as an artifact.
 
 ```bash
-bun scripts/check_external_links.js --tsv /tmp/links.tsv
+mkdir -p artifacts
+bun scripts/check_external_links.js --tsv artifacts/links.tsv
 ```
 
 ### `generate_merchant_feed.py` (Merchant Center)
@@ -80,7 +81,7 @@ Pricing sources and exclusions: `docs/MERCHANT_FEED.md`.
 
 ### `verify-crypto-cards.js` (Cards)
 
-Manual tool, not run in CI. Checks card pages with Playwright (headless Chromium), which gets past some bot walls that plain fetches hit. Playwright is not in `package.json`; run it through `bunx playwright` (install the browser once with `bunx playwright install chromium`).
+Manual tool, not run in CI. Checks card pages with Playwright (headless Chromium), which gets past some bot walls that plain fetches hit. The script does `require('playwright')`, but Playwright is not a dependency in any `package.json` here. Install it yourself first (for example `bun add --no-save playwright`), then install the browser once with `bunx playwright install chromium`.
 
 ```bash
 node scripts/verify-crypto-cards.js gnosis-pay   # one card
@@ -179,7 +180,7 @@ Two GitHub Actions run every Monday. Both open a PR; a human reviews and merges.
 
 | Workflow | Time (UTC) | What it does |
 |---|---|---|
-| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts and opens a PR (branch `auto/refresh-wallet-data`) committing only `data/activity.json` and `data/hardware-activity.json`. The Markdown reports go to the run's job summary and are not committed. It does not edit the comparison tables. |
+| `.github/workflows/refresh-wallet-data.yml` | 09:00 | Runs both refresh scripts, applies the result with `apply_activity.js`, re-scores with `sync_table_scores.js --write`, then checks the tables are in sync and the smoke test passes. It opens a PR (branch `auto/refresh-wallet-data`) committing `data/activity.json`, `data/hardware-activity.json` and `data/tables/`. The Markdown reports go to the run's job summary and are not committed. The workflow itself runs these scripts with `node`. |
 | `.github/workflows/generate-merchant-feed.yml` | 10:00 | Regenerates and validates `frontend/public/merchant-center.xml`, then opens a PR if it changed. |
 
 Table values (prices, licences, audits, custody) are checked by hand against primary sources. See `docs/VERIFICATION.md`.
@@ -219,8 +220,8 @@ The tracked repos are discovered from `data/tables/HARDWARE_WALLETS.md`. The scr
 Copies `data/activity.json` and `data/hardware-activity.json` into the software and hardware tables and their `*_DETAILS.md` docs. It updates the status, last commit, stars, issues and ratio cells. Rows join by GitHub repo; the software GitHub Metrics table has no repo column, so it joins by bold wallet name. It leaves alone struck-through rows, rows with no public repo, prose, and any note after a status (e.g. `✅ Active (develop branch)`). Repos in `KEEP_STATUS` keep a hand-set status; each one records why. The weekly workflow runs it, then `sync_table_scores.js --write` once (it sorts rows before assigning bands, so one pass is stable; `tests/sync-table-scores.test.ts` checks this).
 
 ```bash
-node scripts/apply_activity.js            # report rows that would change
-node scripts/apply_activity.js --write && node scripts/sync_table_scores.js --write && node scripts/sync_table_scores.js --write
+bun scripts/apply_activity.js            # report rows that would change
+bun scripts/apply_activity.js --write && bun scripts/sync_table_scores.js --write
 ```
 
 ---
@@ -241,6 +242,8 @@ Add or update the row in `data/tables/HARDWARE_WALLETS.md`. Public firmware repo
 - `curl`
 - `jq`
 - `date` (GNU or BSD)
+- `bun` (or `node`) for the `.js` scripts
+- `python3` for `generate_merchant_feed.py`, `validate_merchant_feed.py` and `verify-ramps.py`
 
 ### `check_freshness.js` (Table freshness)
 

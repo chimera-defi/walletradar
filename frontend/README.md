@@ -5,7 +5,7 @@ A developer-focused crypto wallet comparison website generated from Markdown fil
 ## Features
 
 - 📊 **Markdown-to-Website**: Automatically converts Markdown files to beautiful web pages
-- 🎨 **Modern UI**: Built with Next.js 14, Tailwind CSS, and Lucide icons
+- 🎨 **Modern UI**: Built with Next.js 16, Tailwind CSS, and Lucide icons
 - 📱 **Responsive**: Mobile-first design with desktop optimization
 - 🔍 **SEO Optimized**: Proper metadata for all pages
 - 📚 **Table of Contents**: Auto-generated navigation for long documents
@@ -17,9 +17,8 @@ A developer-focused crypto wallet comparison website generated from Markdown fil
 # Install dependencies
 bun install
 
-# Set up environment variables (optional - defaults to configured GA ID)
+# Set up environment variables (optional; brand profile values only)
 cp .env.example .env.local
-# Edit .env.local with your GA and brand profile values if needed
 
 # Run development server
 bun run dev
@@ -41,22 +40,26 @@ bun run start
 frontend/
 ├── src/
 │   ├── app/
-│   │   ├── globals.css      # Global styles + prose styling
 │   │   ├── layout.tsx       # Root layout with nav/footer
 │   │   ├── page.tsx         # Home page
+│   │   ├── explore/         # Interactive explorer
+│   │   ├── docs/[slug]/     # Document pages
+│   │   ├── wallets/[type]/[id]/  # Per-product pages
+│   │   ├── companies/       # Company pages
+│   │   ├── articles/        # Articles
+│   │   ├── glossary/        # Glossary
+│   │   ├── sitemap.ts, robots.ts, manifest.ts
 │   │   ├── not-found.tsx    # 404 page
-│   │   └── docs/[slug]/
-│   │       └── page.tsx     # Dynamic document pages
-│   ├── components/
-│   │   ├── Navigation.tsx   # Header navigation
-│   │   ├── Footer.tsx       # Site footer
-│   │   ├── MarkdownRenderer.tsx  # Markdown to HTML
-│   │   ├── TableOfContents.tsx   # TOC sidebar
-│   │   ├── WalletCard.tsx   # Document card
-│   │   └── StatsCard.tsx    # Statistics display
+│   │   └── globals.css      # Global styles + prose styling
+│   ├── components/          # Navigation, Footer, EnhancedMarkdownRenderer,
+│   │                        # TableOfContents, WalletCard, ...
 │   └── lib/
-│       ├── markdown.ts      # Markdown processing utilities
+│       ├── markdown.ts      # Markdown document loading
+│       ├── wallet-data.ts   # Table parsing for /explore
+│       ├── seo.ts           # SEO helpers
 │       └── utils.ts         # Utility functions
+├── scripts/                 # Build, smoke-test and OG image scripts
+├── public/                  # Static assets, OG images
 ├── package.json
 ├── tailwind.config.js
 ├── tsconfig.json
@@ -82,31 +85,27 @@ The frontend reads Markdown files from the repository root, `data/tables/` and `
 | `data/tables/QR_PAYMENTS.md` | `/docs/qr-payments` |
 | `data/tables/QR_PAYMENTS_DETAILS.md` | `/docs/qr-payments/#details` |
 | `docs/site/DATA_SOURCES.md` | `/docs/data-sources` |
-| `docs/site/GLOSSARY.md` | `/glossary` |
+| `docs/site/GLOSSARY.md` | `/glossary` (not in `DOCUMENT_CONFIG`; see `src/lib/markdown.ts`) |
 | `CONTRIBUTING.md` | `/docs/contributing` |
 | `CHANGELOG.md` | `/docs/changelog` |
 
-The full list and metadata live in `DOCUMENT_CONFIG` in `src/lib/markdown.ts`.
+The full list and metadata live in `DOCUMENT_CONFIG` in `src/lib/markdown.ts`. The `*_DETAILS.md` files are mapped by `DETAILS_FILES` in the same file and render inside their category page.
 
 ### Wallet data tables (used by `/explore`)
 
 The interactive explorer reads **markdown tables** from `data/tables/` via `src/lib/wallet-data.ts`.
 
-Scores and recommendations are generated from the visible markdown-table columns via `scripts/sync_table_scores.js`. That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
+Scores and recommendations are generated from the visible markdown-table columns via `scripts/sync_table_scores.js` (repo root). That same script also refreshes the generated snapshot blocks near the top of the matching `*_DETAILS.md` files.
 
-If you change any of these table column orders, you must update the parser + resync the tables + run tests:
+If you change a table's column order, update the parser, resync the tables and run the tests. The columns are the header row of each file; the score formula is in [CONTRIBUTING.md](../CONTRIBUTING.md), and column meanings are in "Column Definitions" in `SOFTWARE_WALLETS_DETAILS.md` and `HARDWARE_WALLETS_DETAILS.md`, and in the Legend of the cards, ramps and QR tables.
 
-- `data/tables/SOFTWARE_WALLETS.md` (software wallets)
-  - Columns: Wallet, Score, Core, Rel/Mo, RPC, GitHub, Active, Chains, Devices, Testnets, License, API, Audits, Funding, Tx Sim, Scam, Account, ENS/Naming, HW, Best For, Rec
-- `data/tables/HARDWARE_WALLETS.md` (hardware wallets)
-  - Columns: Wallet, Score, GitHub, Air-Gap, Open Source, Secure Elem, Display, Price, Conn, Activity, Rec
-- `data/tables/CRYPTO_CARDS.md` (cards)
-  - Columns: Card, Score, Type, Custody, Biz, Region, Cash Back, Annual Fee, FX Fee, Rewards, Status, Best For
-  - Note: Card column contains clickable link to provider website (e.g., `[**Card Name**](url)`)
-- `data/tables/RAMPS.md` (ramps)
-  - Columns: Provider, Score, Type, On-Ramp, Off-Ramp, Coverage, Fee Model, Min Fee, Dev UX, Status, Best For
+- `data/tables/SOFTWARE_WALLETS.md`
+- `data/tables/HARDWARE_WALLETS.md`
+- `data/tables/CRYPTO_CARDS.md` (the Card column links to the provider site, `[**Card Name**](url)`)
+- `data/tables/RAMPS.md`
+- `data/tables/QR_PAYMENTS.md`
 
-`bun run test` runs a lightweight smoke test in `scripts/smoke-test-wallet-data.js` to catch table header/structure drift.
+`bun run test` runs a lightweight smoke test in `frontend/scripts/smoke-test-wallet-data.js` to catch table header/structure drift.
 
 ### Adding New Documents
 
@@ -123,6 +122,8 @@ If you change any of these table column orders, you must update the parser + res
 ```
 
 3. Rebuild the site
+
+For a new comparison category, follow [CONTRIBUTING.md](../CONTRIBUTING.md) and [docs/ADDING_A_CATEGORY.md](../docs/ADDING_A_CATEGORY.md).
 
 ## AWS Amplify Deployment
 
@@ -163,7 +164,7 @@ Each brand build is exported to `out-brands/<id>/`.
 
 ## Technology Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Styling**: Tailwind CSS
 - **Markdown**: react-markdown + remark-gfm + rehype plugins
 - **Icons**: Lucide React
@@ -181,6 +182,8 @@ Each brand build is exported to `out-brands/<id>/`.
 | `bun run type-check` | Run TypeScript checks |
 | `bun run test` | Run wallet data smoke tests |
 | `bun run generate-og` | Generate page-specific OG images |
+| `bun run generate-image-sizes` | Write `src/lib/article-image-sizes.json` from the PNGs in `public/articles/` |
+| `bun run check-links` | Check internal links, assets and anchors in the static export (`out/`) |
 
 ## Customization
 
@@ -210,7 +213,7 @@ Update `navItems` in `src/components/Navigation.tsx` to change the header menu.
 
 Google Analytics 4 (GA4) is integrated with lazy-loaded scripts and event tracking:
 
-- **Measurement ID**: `G-L6ZV569CMN` (in `layout.tsx` and `lib/analytics.ts`)
+- **Measurement ID**: `G-L6ZV569CMN`, hardcoded in `layout.tsx` and `lib/analytics.ts` (`NEXT_PUBLIC_GA_MEASUREMENT_ID` in `.env.example` is not read by the code)
 - **Config**: `layout.tsx` — gtag + config with `lazyOnload`; initial page_view + `referral_detected` event
 - **Route tracking**: `GoogleAnalytics.tsx` — page_view on client-side navigation (SPA)
 - **Events**: `lib/analytics.ts` — search, outbound link clicks, share, copy_link
@@ -240,7 +243,7 @@ Google Analytics 4 (GA4) is integrated with lazy-loaded scripts and event tracki
 | Canonical URLs | ✅ | Trailing slashes enabled |
 | Dynamic Keywords | ✅ | Content-based keyword generation |
 | Reading Time | ✅ | Calculated from content |
-| Preconnect Hints | ✅ | Google Analytics domains |
+| DNS prefetch hints | ✅ | Google Analytics domains |
 | Lazy Loading | ✅ | Images in markdown content |
 | Search/Filter | ✅ | Client-side doc filtering |
 
@@ -248,12 +251,11 @@ Google Analytics 4 (GA4) is integrated with lazy-loaded scripts and event tracki
 
 The `src/lib/seo.ts` file provides utilities:
 
+The exports are in `src/lib/seo.ts`. The main ones:
+
 ```typescript
 // Get page-specific OG image path
 getOgImagePath(slug: string): string
-
-// Generate UTM-tagged URLs for campaign tracking
-generateUtmUrl(baseUrl: string, path: string, params: {...}): string
 
 // Get social sharing URLs for all platforms
 getSocialShareUrls(pageUrl: string, title: string, description?: string): {...}
@@ -264,34 +266,35 @@ calculateReadingTime(content: string): number
 // Format reading time for display
 formatReadingTime(minutes: number): string
 
-// Optimize meta descriptions (150-160 chars)
-optimizeMetaDescription(text: string): string
+// Optimize meta descriptions (160 chars by default)
+optimizeMetaDescription(text: string, maxLength?: number): string
 
 // Generate dynamic keywords
 generateKeywords(title: string, category: string, content: string): string[]
-
-// Extract wallet names for structured data
-extractWalletNames(content: string): string[]
-
-// Generate OG image URL (extensible for dynamic generation)
-getOgImageUrl(title: string, category: string, baseUrl: string): string
 ```
+
+Structured-data helpers (`generateBreadcrumbSchema`, `generateFAQSchema`, `generateHowToSchema`, `generateWalletProductSchema`) and `generateWalletKeywords` are in the same file.
 
 ## Social Sharing & Ads
 
-### Page-Specific OG Images
+### OG Images
 
-Each comparison page has custom-generated OG images for social sharing:
+Pages share one OG image: `/og-image.svg`. Articles are the exception; each has its own image under `/og/articles/`. `getOgImagePath` in `src/lib/seo.ts` holds the map.
 
-| Page | OG Image |
+`bun run generate-og` writes these PNGs to `public/`. Only the article PNG is page metadata. The root README embeds three (`og-image.png`, `og-software-wallets-table.png`, `og-explore.png`), and CI (`.github/workflows/frontend-ci.yml`) fails if a PNG on its list is missing (the QR table PNG is not on it):
+
+| Image | File |
 |------|----------|
 | Software Wallets (table) | `/og-software-wallets-table.png` |
 | Hardware Wallets (table) | `/og-hardware-wallets-table.png` |
 | Crypto Cards (table) | `/og-crypto-cards-table.png` |
+| Ramps (table) | `/og-ramps-table.png` |
+| QR Payments (table) | `/og-qr-payments-table.png` |
 | Explore | `/og-explore.png` |
 | Default | `/og-image.png` |
+| Article: How Wallet Radar works | `/og/articles/how-wallet-radar-works.png` |
 
-OG images are generated by `bun run generate-og`. Run it when adding or changing page SEO metadata, then commit the generated PNGs with the metadata change.
+Run it after changing table data or adding a category, and commit the PNGs it changes. To give a page its own OG image, add it to `getOgImagePath`.
 
 ### Social Sharing Component
 
@@ -311,7 +314,7 @@ After building, test with the official validators:
 
 ### Creating Twitter/X Ads with Rich Previews
 
-The OG images are automatically generated to show compelling data tables when shared on Twitter/X.
+The generated table PNGs show the data tables and can be used as ad creatives. Shared page links show `og-image.svg`.
 
 #### Generate OG Images
 
@@ -332,7 +335,7 @@ Test with the official validators:
 
 #### UTM Parameters for Campaign Tracking
 
-Use the `generateUtmUrl()` utility or add parameters manually:
+Add the parameters manually (the build-time default `utm_source` comes from `NEXT_PUBLIC_UTM_SOURCE` in `src/lib/brand.ts`):
 
 ```
 https://walletradar.org/docs/software-wallets/?utm_source=twitter&utm_medium=social&utm_campaign=software_dec2025
