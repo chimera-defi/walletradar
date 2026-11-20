@@ -6,12 +6,12 @@
  * one-off issuance fees or token price moves.
  */
 
-export interface Range {
+interface Range {
   min: number;
   max: number;
 }
 
-export interface CashbackRate {
+interface CashbackRate {
   /** Lowest stated rate, or null when only an "up to" ceiling is given */
   min: number | null;
   max: number;
@@ -41,7 +41,7 @@ export function parseCashback(cell: string): CashbackRate | null {
   return nums.length ? { min: Math.min(...nums), max } : null;
 }
 
-export interface AnnualFee extends Range {
+interface AnnualFee extends Range {
   /** True when the cell also mentions a one-off fee (issuance, activation, setup) that is not included */
   oneOffExcluded: boolean;
 }
@@ -69,7 +69,7 @@ export function parseFxFee(cell: string): Range | null {
   return { min: Math.min(...nums), max: Math.max(...nums) };
 }
 
-export interface EarningsInput {
+interface EarningsInput {
   monthlySpend: number;
   /** Share of spend in a foreign currency, 0-100 */
   foreignSharePct: number;
@@ -88,7 +88,7 @@ export type EarningsEstimate =
       oneOffExcluded: boolean;
     };
 
-export interface EarningsCard {
+interface EarningsCard {
   status: string;
   cashBack: string;
   annualFee: string;
