@@ -67,9 +67,12 @@ are gitignored and intended for local inspection only.
 ### `validate_merchant_feed.py` (Merchant Center)
 
 Validates that:
-- pricing entries are USD-only with sources and valid `last_checked` dates
+- pricing entries are USD or EUR (Bitkey is sold only in EUR) with sources and valid `last_checked` dates
 - pricing entries map to hardware wallet anchors
-- feed items are hardware wallets with USD pricing
+- feed items are hardware wallets with USD or EUR pricing
+- every feed `image_link` is on walletradar.org and has a file in `frontend/public/`
+
+It runs in the weekly feed workflow and in Frontend CI on every PR. `scripts/test_validate_merchant_feed.py` tests the image check (Frontend CI runs it too).
 
 #### Usage
 
