@@ -63,7 +63,7 @@ const DOCUMENT_CONFIG: Record<string, Omit<MarkdownDocument, 'slug' | 'content'>
   },
   'docs/site/ABOUT.md': {
     title: `About ${brand.displayName}`,
-    description: `Educational research platform for comparing crypto access products. Independent, developer-focused, and open source.`,
+    description: `Educational research platform for comparing crypto access products. Independent, developer-focused, and source available.`,
     category: 'guide',
     order: 6,
   },
