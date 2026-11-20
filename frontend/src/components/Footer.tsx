@@ -136,7 +136,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div className="text-sm text-muted-foreground">
-              <p><strong className="text-muted-foreground">Open Source:</strong> <a href={appendUtm(brand.githubUrl)} target="_blank" rel="noopener noreferrer" onClick={() => trackOutboundLink(brand.githubUrl, 'View on GitHub')} className="text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors">View on GitHub</a></p>
+              <p><strong className="text-muted-foreground">Source available:</strong> <a href={appendUtm(brand.githubUrl)} target="_blank" rel="noopener noreferrer" onClick={() => trackOutboundLink(brand.githubUrl, 'View on GitHub')} className="text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors">View on GitHub</a></p>
               <p><strong className="text-muted-foreground">Found an issue?</strong> <a href={appendUtm(brand.issuesUrl)} target="_blank" rel="noopener noreferrer" onClick={() => trackOutboundLink(brand.issuesUrl, 'Report on GitHub Issues')} className="text-sky-700 dark:text-sky-400 hover:text-sky-300 transition-colors">Report on GitHub Issues</a></p>
             </div>
             <div className="flex items-center gap-6">

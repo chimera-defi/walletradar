@@ -353,4 +353,4 @@ For server deployments (non-static export), you can enable:
 
 ## License
 
-MIT
+Source available. All rights reserved; not open source. See the [root README](../README.md#license).

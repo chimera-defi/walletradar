@@ -8,7 +8,7 @@
 
 [![Commit Message Check](https://github.com/chimera-defi/walletradar/actions/workflows/commit-message-check.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/commit-message-check.yml)
 [![PR Attribution Check](https://github.com/chimera-defi/walletradar/actions/workflows/pr-attribution-check.yml/badge.svg)](https://github.com/chimera-defi/walletradar/actions/workflows/pr-attribution-check.yml)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/chimera-defi/walletradar)
+[![License](https://img.shields.io/badge/License-Source_available-lightgrey.svg)](#license)
 [![Website](https://img.shields.io/badge/Website-walletradar.org-blue)](https://walletradar.org)
 
 [Visit the website](https://walletradar.org) | [Compare products](https://walletradar.org/explore) | [Documentation](https://walletradar.org/docs)
@@ -156,7 +156,7 @@ Commit refreshed data through a PR after review. Full script docs: [scripts/READ
 - No logins, no wallet connections, no key requests.
 - No personal data collection or tracking beyond standard analytics.
 - Every data source is linked.
-- The code is open on GitHub.
+- The code is public on GitHub (source available, not open source).
 - The scoring method is published and reproducible.
 - Commercial links, if any, are disclosed and never affect rankings.
 
@@ -170,7 +170,7 @@ Wallet Radar is educational research. It is not financial advice and does not te
 
 ## License
 
-MIT.
+Source available. All rights reserved; not open source.
 
 ## Links
 
