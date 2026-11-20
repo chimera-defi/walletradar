@@ -115,7 +115,7 @@ Before you click any external link:
 
 Warning signs: "click here" links to unrelated sites, requests for passwords or seed phrases, shortened URLs, look-alike domains (`trezor-official.com` instead of `trezor.io`), sites that copy a wallet's setup screen.
 
-Our practice: official domains only, no shortened URLs or redirects, no credential collection, no copies of wallet login or setup pages, open-source code you can audit.
+Our practice: official domains only, no shortened URLs or redirects, no credential collection, no copies of wallet login or setup pages, source code you can read and audit (source available, not open source).
 
 ## Sidecar attributes (`data/attributes.json`)
 

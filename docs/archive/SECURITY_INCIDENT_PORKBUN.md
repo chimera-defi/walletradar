@@ -73,7 +73,7 @@ Subject: [KEEP ORIGINAL SUBJECT LINE]
 
 We operate walletradar.org and believe this report is a false positive.
 
-Wallet Radar is an open-source educational wallet comparison site:
+Wallet Radar is a source-available educational wallet comparison site:
 - GitHub: https://github.com/chimera-defi/walletradar
 - Security contact: https://walletradar.org/.well-known/security.txt
 
