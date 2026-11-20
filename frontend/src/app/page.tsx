@@ -167,6 +167,8 @@ export default function HomePage() {
   const allTracked = [...software, ...hardware, ...cards, ...ramps];
   const recommendedCount = allTracked.filter((wallet) => wallet.recommendation === 'recommended').length;
   const methodologyVersion = topSoftware.methodologyVersion;
+  // Short label for the stats badge, e.g. '2026-04-visible-columns-v3' -> 'v3'.
+  const scoreEngineVersion = /-(v\d+)$/.exec(methodologyVersion)?.[1] ?? methodologyVersion;
   const topPickCards = [
     {
       category: 'Software' as const,
@@ -422,7 +424,7 @@ export default function HomePage() {
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                    <span className="text-sm font-bold text-cyan-700 dark:text-cyan-300">v1</span>
+                    <span className="text-sm font-bold text-cyan-700 dark:text-cyan-300">{scoreEngineVersion}</span>
                   </div>
                   <div className="text-sm text-muted-foreground">Score Engine</div>
                 </div>
