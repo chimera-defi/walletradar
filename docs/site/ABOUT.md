@@ -31,7 +31,7 @@ Crypto product research is crowded with sponsored lists, opaque rankings, and co
 - **Independent scoring** - No provider can pay for rank, inclusion, or methodology changes
 - **Clear disclosures** - If a link ever has a commercial relationship, it should be labeled plainly
 - **No pay-to-rank** - Commercial considerations must stay separate from research conclusions
-- **Source-available code** - View and audit our methodology on GitHub. All rights reserved; not open source.
+- **Source-available code** - View and audit our methodology on GitHub. Licensed under the [Business Source License 1.1](https://github.com/chimera-defi/walletradar/blob/main/LICENSE); not open source.
 - **Community-driven** - Contribute corrections and improvements via public GitHub Issues
 - **Transparent scoring** - All comparison metrics are documented, reproducible, and auditable
 - **Educational focus** - We explain *why* features matter, not just *what* is available

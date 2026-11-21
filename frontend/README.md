@@ -353,4 +353,4 @@ For server deployments (non-static export), you can enable:
 
 ## License
 
-Source available. All rights reserved; not open source. See the [root README](../README.md#license).
+[Business Source License 1.1](../LICENSE) (BUSL-1.1). Source available, not open source. See the [root README](../README.md#license).

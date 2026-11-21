@@ -1,4 +1,4 @@
-# Contributing to Wallet Comparison
+# Contributing to Wallet Radar
 
 Keep the tables accurate and sourced. Tables are the source of truth.
 
@@ -15,7 +15,46 @@ Fixing a row, adding a product or correcting a source? You can open a PR from a 
 - Maintainers may push fix-up commits to your branch (a score re-sync, for example). Keep "Allow edits by maintainers" on.
 - Vendors submitting their own product: say so in the PR. Every claim is checked against primary sources (official docs and site, then GitHub), and there is no pay-to-rank (see [Trust and transparency](./README.md#trust-and-transparency) in the README). PR #168 (ERA Wallet) is an example: the vendor submitted the row, and maintainers re-checked each claim and pushed fix-ups before merging.
 
-Run the checks in [Score Sync Workflow](#score-sync-workflow) before you open the PR.
+Run the [checks](#before-you-open-a-pr) before you open the PR.
+
+## Ground rules
+
+These apply to everyone, people and agents.
+
+- **No pay-to-rank.** Nobody can pay for a rank, an inclusion or a change to the method. Commercial links, if any, are labelled.
+- **Sources.** Every claim links a source. Use official docs and sites first, then GitHub, then trusted structured sources such as WalletBeat. No shortened or redirect links.
+- **Conservative values.** Prefer `Multi-chain` or `Unknown` to a number you cannot source. Use `~` for values that move. Chains are networks, not token counts.
+- **Licences.** Tell open source, source-available and proprietary apart, and check the licence file in the repo, not just a badge.
+- **No data loss.** Keep existing rows and columns. Removing one needs a maintainer's approval in the PR.
+- **One source of truth.** The tables in `data/tables/` are the data. A value that appears in several docs must match everywhere. Scores come from the sync script; do not hand-edit them (see [Score Sync Workflow](#score-sync-workflow)).
+- **Changelog.** Every data change gets a [CHANGELOG.md](./CHANGELOG.md) entry.
+- **One change per PR.** A row fix and a code refactor go in separate PRs.
+
+## Before you open a PR
+
+Data changes:
+
+```bash
+bun scripts/sync_table_scores.js --write
+cd frontend && bun run test
+```
+
+Code or docs changes, from `frontend/`:
+
+```bash
+bun install
+bun run lint && bun run type-check && bun run test && bun run build
+```
+
+Then from the repo root: `bun install && bunx vitest run tests/`. CI runs the same jobs. For UI changes, also check the page in light and dark mode. Code gotchas (theme classes, `next/image`, OG images, renames) are in [AGENTS.md](./AGENTS.md).
+
+## Licence of contributions
+
+Wallet Radar is licensed under the [Business Source License 1.1](https://github.com/chimera-defi/walletradar/blob/main/LICENSE). By opening a PR you agree that:
+
+- Your contribution is licensed under the same terms.
+- The licensor (Chimera) may also license it under other terms, including commercial licences and the Change License.
+- You have the right to submit it. Do not paste text, data or code you cannot share; link the source instead.
 
 ## Quick Links
 
