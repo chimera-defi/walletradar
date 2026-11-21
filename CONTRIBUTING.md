@@ -26,7 +26,7 @@ These apply to everyone, people and agents.
 - **Conservative values.** Prefer `Multi-chain` or `Unknown` to a number you cannot source. Use `~` for values that move. Chains are networks, not token counts.
 - **Licences.** Tell open source, source-available and proprietary apart, and check the licence file in the repo, not just a badge.
 - **No data loss.** Keep existing rows and columns. Removing one needs a maintainer's approval in the PR.
-- **One source of truth.** The tables in `data/tables/` are the data. A value that appears in several docs must match everywhere. Scores come from the sync script; do not hand-edit them (see [Score Sync Workflow](#score-sync-workflow)).
+- **One source of truth.** The tables in `data/tables/` are the data. A value that appears in several docs must match everywhere. Scores come from the sync script; do not hand-edit them (see [Score Sync Workflow](#score-sync-workflow)). QR Payments is the exception: no script covers it, so its scores are set by hand.
 - **Changelog.** Every data change gets a [CHANGELOG.md](./CHANGELOG.md) entry.
 - **One change per PR.** A row fix and a code refactor go in separate PRs.
 

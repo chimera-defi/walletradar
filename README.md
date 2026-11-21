@@ -170,7 +170,7 @@ Wallet Radar is educational research. It is not financial advice and does not te
 
 ## License
 
-[Business Source License 1.1](./LICENSE) (BUSL-1.1). Source available, not open source: you may copy, modify and redistribute the code and make non-production use of it. Production use needs a commercial licence from the licensor. Each version changes to the Apache License 2.0 on 2030-11-21, or four years after that version is first published, whichever comes first. Third-party material keeps its own licence (see [Data Sources](./docs/site/DATA_SOURCES.md)).
+[Business Source License 1.1](./LICENSE) (BUSL-1.1). Source available, not open source: you may copy, modify and redistribute the code and make non-production use of it. Production use needs a commercial licence from the licensor. Each version changes to the Apache License 2.0 on 2030-11-21, or four years after that version is first publicly distributed under BUSL-1.1, whichever comes first. Third-party material keeps its own licence (see [Data Sources](./docs/site/DATA_SOURCES.md)).
 
 ## Links
 

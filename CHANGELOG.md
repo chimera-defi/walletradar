@@ -4,7 +4,7 @@ Status changes, recommendation changes, data corrections and docs changes. Newes
 
 ## 2026-11-21
 
-- **Licence.** Wallet Radar is now licensed under the Business Source License 1.1 (`LICENSE`): source available, not open source. No Additional Use Grant; each version changes to Apache License 2.0 on 2030-11-21 or four years after it is first published, whichever comes first. README, frontend README and About updated. CONTRIBUTING has ground rules, the pre-PR checks and the licence of contributions.
+- **Licence.** Wallet Radar is now licensed under the Business Source License 1.1 (`LICENSE`): source available, not open source. No Additional Use Grant; each version changes to Apache License 2.0 on 2030-11-21 or four years after it is first publicly distributed under BUSL-1.1, whichever comes first. README, frontend README and About updated. CONTRIBUTING has ground rules, the pre-PR checks and the licence of contributions.
 
 ## 2026-11-20
 
