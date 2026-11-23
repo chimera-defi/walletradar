@@ -70,19 +70,19 @@ Complete explanations for all table columns:
 
 | Wallet | Repository | Last Commit | Stars | Issues | Ratio | Status |
 |--------|------------|-------------|-------|--------|-------|--------|
-| **Trezor** | [trezor/trezor-firmware](https://github.com/trezor/trezor-firmware) | Nov 16, 2026 | 1,867 | 777 | 41.6% | ✅ Active |
-| **Blockstream Jade** | [Blockstream/Jade](https://github.com/Blockstream/Jade) | Oct 26, 2026 | 515 | 107 | 20.8% | ✅ Active |
-| **SeedSigner** | [SeedSigner/seedsigner](https://github.com/SeedSigner/seedsigner) | Nov 13, 2026 | 1,335 | 304 | 22.8% | ✅ Active |
-| **Specter DIY** | [cryptoadvance/specter-diy](https://github.com/cryptoadvance/specter-diy) | Oct 7, 2026 | 594 | 127 | 21.4% | ⚠️ Slow |
-| **Krux** | [selfcustody/krux](https://github.com/selfcustody/krux) | Nov 3, 2026 | 384 | 91 | 23.7% | ✅ Active |
-| **Keystone** | [KeystoneHQ/keystone3-firmware](https://github.com/KeystoneHQ/keystone3-firmware) | Nov 16, 2026 | 234 | 138 | 59.0% | ✅ Active |
-| **BitBox02** | [BitBoxSwiss/bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | Nov 16, 2026 | 395 | 66 | 16.7% | ✅ Active |
-| **ColdCard** | [Coldcard/firmware](https://github.com/Coldcard/firmware) | Nov 12, 2026 | 784 | 7 | 0.9% | ✅ Active |
-| **Foundation Passport (Core)** | [Foundation-Devices/passport2](https://github.com/Foundation-Devices/passport2) | Nov 12, 2026 | 87 | 10 | 11.5% | ✅ Active repo, device discontinued |
+| **Trezor** | [trezor/trezor-firmware](https://github.com/trezor/trezor-firmware) | Nov 23, 2026 | 1,872 | 797 | 42.6% | ✅ Active |
+| **Blockstream Jade** | [Blockstream/Jade](https://github.com/Blockstream/Jade) | Oct 26, 2026 | 516 | 109 | 21.1% | ✅ Active |
+| **SeedSigner** | [SeedSigner/seedsigner](https://github.com/SeedSigner/seedsigner) | Nov 13, 2026 | 1,338 | 309 | 23.1% | ✅ Active |
+| **Specter DIY** | [cryptoadvance/specter-diy](https://github.com/cryptoadvance/specter-diy) | Oct 7, 2026 | 598 | 126 | 21.1% | ⚠️ Slow |
+| **Krux** | [selfcustody/krux](https://github.com/selfcustody/krux) | Nov 3, 2026 | 385 | 79 | 20.5% | ✅ Active |
+| **Keystone** | [KeystoneHQ/keystone3-firmware](https://github.com/KeystoneHQ/keystone3-firmware) | Nov 16, 2026 | 233 | 136 | 58.4% | ✅ Active |
+| **BitBox02** | [BitBoxSwiss/bitbox02-firmware](https://github.com/BitBoxSwiss/bitbox02-firmware) | Nov 23, 2026 | 396 | 67 | 16.9% | ✅ Active |
+| **ColdCard** | [Coldcard/firmware](https://github.com/Coldcard/firmware) | Nov 17, 2026 | 783 | 7 | 0.9% | ✅ Active |
+| **Foundation Passport (Core)** | [Foundation-Devices/passport2](https://github.com/Foundation-Devices/passport2) | Nov 23, 2026 | 86 | 7 | 8.1% | ✅ Active repo, device discontinued |
 | **Foundation Passport Prime** | [Foundation-Devices/KeyOS](https://github.com/Foundation-Devices/KeyOS) | Nov 13, 2026 | 34 | 17 | 50.0% | ✅ Active |
 | **OneKey Pro** | [OneKeyHQ/firmware-pro](https://github.com/OneKeyHQ/firmware-pro) | Nov 12, 2026 | 33 | 22 | 66.7% | ✅ Active |
 | **OneKey Classic 1S** | [OneKeyHQ/firmware](https://github.com/OneKeyHQ/firmware) | May 12, 2026 | 89 | 37 | 41.6% | ❌ Inactive |
-| **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Oct 16, 2026 | 165 | 26 | 15.8% | ⚠️ Slow |
+| **KeepKey** | [keepkey/keepkey-firmware](https://github.com/keepkey/keepkey-firmware) | Oct 16, 2026 | 168 | 26 | 15.5% | ⚠️ Slow |
 
 **Code Quality Notes:**
 - ✅ **ColdCard (1.1%):** Very few open issues relative to community size. This does not offset the July 2026 seed-generation advisory (see Security Incidents below).
@@ -307,17 +307,17 @@ Derived from [HARDWARE_WALLETS.md](./HARDWARE_WALLETS.md) by `scripts/sync_table
 | **Keystone** | 92.0 | 1 | Keystone 3 Pro |
 | **Coldcard** | 86.0 | 3 | ColdCard Mk4, ColdCard Mk5, ColdCard Q |
 | **Trezor** | 77.7 | 3 | Trezor Safe 5, Trezor Safe 7, Trezor Safe 3 |
+| **Keycard** | 74.0 | 2 | Keycard Shell, Keycard |
 | **BitBox** | 73.0 | 2 | BitBox02, BitBox02 Nova |
 | **Foundation** | 73.0 | 2 | Foundation Passport (Core), Foundation Passport Prime |
-| **Keycard** | 72.5 | 2 | Keycard Shell, Keycard |
 | **ERA** | 70.0 | 1 | ERA Wallet |
 | **Krux** | 70.0 | 1 | Krux |
 | **SeedSigner** | 70.0 | 1 | SeedSigner |
 | **Blockstream** | 67.3 | 3 | Blockstream Jade, Blockstream Jade Plus, Blockstream Jade Core |
-| **Cypherock** | 67.0 | 1 | Cypherock X1 Standard |
 | **Specter** | 67.0 | 1 | Specter DIY |
 | **NGRAVE** | 65.0 | 1 | NGRAVE ZERO |
 | **Ledger** | 62.5 | 6 | Ledger Nano S+, Ledger Nano Gen5, Ledger Flex, Ledger Nano S, Ledger Nano X, Ledger Stax |
+| **Cypherock** | 62.0 | 1 | Cypherock X1 Standard |
 | **OneKey** | 61.0 | 4 | OneKey Pro, OneKey Classic 1S Pure, OneKey Classic 1S, OneKey Pro 2 |
 | **SafePal** | 60.5 | 2 | SafePal S1, SafePal X1 |
 | **KeepKey** | 58.0 | 1 | KeepKey |
